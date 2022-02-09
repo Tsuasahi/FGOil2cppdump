@@ -1,646 +1,941 @@
+
+	// RVA: 0x1251144 Offset: 0x1251144 VA: 0x1251144
+	public int GetWeareMember(long userSvtId) { }
+
+	// RVA: 0x1251204 Offset: 0x1251204 VA: 0x1251204
+	public PartyListViewItem.MenuKind GetMenuKind() { }
+
+	// RVA: 0x1248B74 Offset: 0x1248B74 VA: 0x1248B74
+	public int get_Cost() { }
+
+	// RVA: 0x125120C Offset: 0x125120C VA: 0x125120C
+	public long get_DeckId() { }
+
+	// RVA: 0x1249B24 Offset: 0x1249B24 VA: 0x1249B24
+	public int get_DeckNum() { }
+
+	// RVA: 0x1248B6C Offset: 0x1248B6C VA: 0x1248B6C
+	public int get_MaxCost() { }
+
+	// RVA: 0x1248B64 Offset: 0x1248B64 VA: 0x1248B64
+	public string get_DeckName() { }
+
+	// RVA: 0x124B448 Offset: 0x124B448 VA: 0x124B448
+	public string get_DefaultDeckName() { }
+
+	// RVA: 0x1251214 Offset: 0x1251214 VA: 0x1251214
+	public void ClearDeckName() { }
+
+	// RVA: 0x124A9B8 Offset: 0x124A9B8 VA: 0x124A9B8
+	public void SetDeckName(string name) { }
+
+	// RVA: 0x1248B7C Offset: 0x1248B7C VA: 0x1248B7C
+	public long get_UserEquipId() { }
+
+	// RVA: 0x1251240 Offset: 0x1251240 VA: 0x1251240
+	public void SetUserEquip(long userEquipId) { }
+
+	// RVA: 0x12492D4 Offset: 0x12492D4 VA: 0x12492D4
+	public ServantEntity[] GetSvtEntityList() { }
+
+	// RVA: 0x124948C Offset: 0x124948C VA: 0x124948C
+	public string[] GetSvtNameList() { }
+
+	// RVA: 0x1249644 Offset: 0x1249644 VA: 0x1249644
+	public bool[] GetIsFollowerList() { }
+
+	// RVA: 0x1251248 Offset: 0x1251248 VA: 0x1251248
+	public PartyOrganizationListViewItem GetMember(int num) { }
+
+	// RVA: 0x125129C Offset: 0x125129C VA: 0x125129C
+	public int GetFriendPointUpVal() { }
+
+	// RVA: 0x12497D0 Offset: 0x12497D0 VA: 0x12497D0
+	public bool GetEventUpVal(out int eventId, out EventUpValInfo[] eventUpValList) { }
+
+	// RVA: 0x12513C4 Offset: 0x12513C4 VA: 0x12513C4
+	public QuestRestrictionInfo GetQuestRestriction() { }
+
+	// RVA: 0x12513CC Offset: 0x12513CC VA: 0x12513CC
+	public bool IsSupportOnly() { }
+
+	// RVA: 0x12513E0 Offset: 0x12513E0 VA: 0x12513E0
+	public int[] GetCommandCardList(int typeMax) { }
+
+	// RVA: 0x12515C4 Offset: 0x12515C4 VA: 0x12515C4
+	public string[] GetAssetNameList() { }
+
+	// RVA: 0x1249B30 Offset: 0x1249B30 VA: 0x1249B30
+	public bool IsSpecificMenuKind() { }
+
+	// RVA: 0x1245328 Offset: 0x1245328 VA: 0x1245328
+	public static bool IsSpecificMenuKind(PartyListViewItem.MenuKind menuKind, bool isEventDeck) { }
+
+	// RVA: 0x1251740 Offset: 0x1251740 VA: 0x1251740
+	public void SetMember(int idx, PartyOrganizationListViewItem member) { }
 }
 
 // Namespace: 
-public enum PartyOrganizationConfirmItemDraw.DispMode // TypeDefIndex: 10405
+public enum PartyListViewItem.MenuKind // TypeDefIndex: 10394
 {
 	// Fields
 	public int value__; // 0x0
-	public const PartyOrganizationConfirmItemDraw.DispMode INVISIBLE = 0;
-	public const PartyOrganizationConfirmItemDraw.DispMode INVALID = 1;
-	public const PartyOrganizationConfirmItemDraw.DispMode VALID = 2;
-	public const PartyOrganizationConfirmItemDraw.DispMode INPUT = 3;
+	public const PartyListViewItem.MenuKind QUEST_START = 0;
+	public const PartyListViewItem.MenuKind SUPPORT_ONLY_QUEST_START = 1;
+	public const PartyListViewItem.MenuKind NO_SUPPORT_QUEST_START = 2;
+	public const PartyListViewItem.MenuKind SINGLE_MEMBER_QUEST_START = 3;
+	public const PartyListViewItem.MenuKind NUM_RESTRICTION_QUEST_START = 4;
+	public const PartyListViewItem.MenuKind NUM_AND_POSITION_RESTRICTION_QUEST_START = 5;
+	public const PartyListViewItem.MenuKind FIX_SUPPORT_ONLY_QUEST_START = 6;
+	public const PartyListViewItem.MenuKind FIX_SUPPORT_QUEST_START = 7;
+	public const PartyListViewItem.MenuKind SELECT_PARTY = 8;
 }
 
 // Namespace: 
-public class PartyOrganizationConfirmMenu : BaseDialog // TypeDefIndex: 10406
+public enum PartyListViewItem.DeckCondition // TypeDefIndex: 10395
 {
 	// Fields
-	[SerializeField] // RVA: 0xCE0964 Offset: 0xCE0964 VA: 0xCE0964
-	protected UILabel messageLabel; // 0x58
-	[SerializeField] // RVA: 0xCE0974 Offset: 0xCE0974 VA: 0xCE0974
-	protected UILabel decideLabel; // 0x60
-	[SerializeField] // RVA: 0xCE0984 Offset: 0xCE0984 VA: 0xCE0984
-	protected UILabel cancelLabel; // 0x68
-	[SerializeField] // RVA: 0xCE0994 Offset: 0xCE0994 VA: 0xCE0994
-	protected UICommonButton decideButton; // 0x70
-	[SerializeField] // RVA: 0xCE09A4 Offset: 0xCE09A4 VA: 0xCE09A4
-	protected UICommonButton cancelButton; // 0x78
-	protected static readonly int DETAIL_FONT_SIZE; // 0x0
-	protected static readonly int DETAIL_FONT_SIZE_FRIEND_CHOCOLATE; // 0x4
-	protected PartyOrganizationConfirmMenu.State state; // 0x80
-	protected PartyOrganizationConfirmMenu.Kind kind; // 0x84
-	[CompilerGeneratedAttribute] // RVA: 0xCE09B4 Offset: 0xCE09B4 VA: 0xCE09B4
-	[DebuggerBrowsableAttribute] // RVA: 0xCE09B4 Offset: 0xCE09B4 VA: 0xCE09B4
-	private PartyOrganizationConfirmMenu.CallbackFunc callbackFunc; // 0x88
-	protected Action closeCallbackFunc; // 0x90
+	public int value__; // 0x0
+	public const PartyListViewItem.DeckCondition OK = 0;
+	public const PartyListViewItem.DeckCondition EMPTY_DECK_MEMBER = 1;
+	public const PartyListViewItem.DeckCondition LEADER_ONLY_DECK_MEMBER = 2;
+	public const PartyListViewItem.DeckCondition SHORTAGE_DECK_MEMBER = 3;
+	public const PartyListViewItem.DeckCondition SAME_SAERVANT = 4;
+	public const PartyListViewItem.DeckCondition LEAVE_SERVANT = 5;
+	public const PartyListViewItem.DeckCondition FATIGURE_SERVANT = 6;
+	public const PartyListViewItem.DeckCondition COST_OVER = 7;
+	public const PartyListViewItem.DeckCondition RESTICTION_COST_OVER = 8;
+	public const PartyListViewItem.DeckCondition RESTICTION_FIXED_SUPPORT_POSITION = 9;
+	public const PartyListViewItem.DeckCondition RESTICTION_FIXED_MY_SERVANT_POSITION = 10;
+	public const PartyListViewItem.DeckCondition RESTICTION_FIXED_MY_SERVANT_SINGLE = 11;
+	public const PartyListViewItem.DeckCondition RESTICTION_UNIQUE_SERVANT = 12;
+	public const PartyListViewItem.DeckCondition RESTRICTION_SERVANT_NUM = 13;
+	public const PartyListViewItem.DeckCondition RESTRICTION_SERVANT_NUM_AND_FIXED_MY_SERVANT_POSITION = 14;
+	public const PartyListViewItem.DeckCondition RESTRICTION_MY_SERVANT_FIX_SUPPORT_QUEST = 15;
+	public const PartyListViewItem.DeckCondition RESTRICTION_REQUIRED = 16;
+	public const PartyListViewItem.DeckCondition RESTICTION = 17;
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC452F4 Offset: 0xC452F4 VA: 0xC452F4
+private sealed class PartyListViewItem.<PartyListViewItem>c__AnonStorey0 // TypeDefIndex: 10396
+{
+	// Fields
+	internal int i; // 0x10
 
 	// Methods
 
-	// RVA: 0x1F4A8F0 Offset: 0x1F4A8F0 VA: 0x1F4A8F0
+	// RVA: 0x19DC0DC Offset: 0x19DC0DC VA: 0x19DC0DC
 	public void .ctor() { }
 
-	// RVA: 0x1F4A958 Offset: 0x1F4A958 VA: 0x1F4A958
-	protected void add_callbackFunc(PartyOrganizationConfirmMenu.CallbackFunc value) { }
+	// RVA: 0x19DC0E4 Offset: 0x19DC0E4 VA: 0x19DC0E4
+	internal bool <>m__0(FollowerInfo x) { }
+}
 
-	// RVA: 0x1F4AA44 Offset: 0x1F4AA44 VA: 0x1F4AA44
-	protected void remove_callbackFunc(PartyOrganizationConfirmMenu.CallbackFunc value) { }
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC45304 Offset: 0xC45304 VA: 0xC45304
+private sealed class PartyListViewItem.<PartyListViewItem>c__AnonStorey1 // TypeDefIndex: 10397
+{
+	// Fields
+	internal int i; // 0x10
 
-	// RVA: 0x1F4AB30 Offset: 0x1F4AB30 VA: 0x1F4AB30
+	// Methods
+
+	// RVA: 0x19DC124 Offset: 0x19DC124 VA: 0x19DC124
+	public void .ctor() { }
+
+	// RVA: 0x19DC12C Offset: 0x19DC12C VA: 0x19DC12C
+	internal bool <>m__0(FollowerInfo x) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC45314 Offset: 0xC45314 VA: 0xC45314
+private sealed class PartyListViewItem.<GetSupportInitIndex>c__AnonStorey2 // TypeDefIndex: 10398
+{
+	// Fields
+	internal int i; // 0x10
+
+	// Methods
+
+	// RVA: 0x19DC094 Offset: 0x19DC094 VA: 0x19DC094
+	public void .ctor() { }
+
+	// RVA: 0x19DC09C Offset: 0x19DC09C VA: 0x19DC09C
+	internal bool <>m__0(FollowerInfo x) { }
+}
+
+// Namespace: 
+public class PartyListViewItemDraw : MonoBehaviour // TypeDefIndex: 10399
+{
+	// Fields
+	[SerializeField] // RVA: 0xC7380C Offset: 0xC7380C VA: 0xC7380C
+	protected UIButton baseButton; // 0x18
+	[SerializeField] // RVA: 0xC7381C Offset: 0xC7381C VA: 0xC7381C
+	protected UISprite baseSprite; // 0x20
+	[SerializeField] // RVA: 0xC7382C Offset: 0xC7382C VA: 0xC7382C
+	protected PartyOrganizationListViewItemDraw[] itemDrawList; // 0x28
+	[SerializeField] // RVA: 0xC7383C Offset: 0xC7383C VA: 0xC7383C
+	protected GameObject warningBase; // 0x30
+	[SerializeField] // RVA: 0xC7384C Offset: 0xC7384C VA: 0xC7384C
+	protected UILabel warningTitleLabel; // 0x38
+	[SerializeField] // RVA: 0xC7385C Offset: 0xC7385C VA: 0xC7385C
+	protected UILabel warningMessageLabel; // 0x40
+
+	// Methods
+
+	// RVA: 0x19DC16C Offset: 0x19DC16C VA: 0x19DC16C
+	public void .ctor() { }
+
+	// RVA: 0x19DC1CC Offset: 0x19DC1CC VA: 0x19DC1CC
+	public void SetItem(PartyListViewItem item, PartyListViewItemDraw.DispMode mode) { }
+
+	// RVA: 0x19DC42C Offset: 0x19DC42C VA: 0x19DC42C
+	public void SetInput(PartyListViewItem item, bool isInput) { }
+}
+
+// Namespace: 
+public enum PartyListViewItemDraw.DispMode // TypeDefIndex: 10400
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyListViewItemDraw.DispMode INVISIBLE = 0;
+	public const PartyListViewItemDraw.DispMode INVALID = 1;
+	public const PartyListViewItemDraw.DispMode VALID = 2;
+	public const PartyListViewItemDraw.DispMode INPUT = 3;
+	public const PartyListViewItemDraw.DispMode ORGANIZATION_GUIDE_DECK_EMPTY_SELECT = 4;
+}
+
+// Namespace: 
+public class PartyListViewManager : ListViewManager // TypeDefIndex: 10401
+{
+	// Fields
+	[SerializeField] // RVA: 0xC7386C Offset: 0xC7386C VA: 0xC7386C
+	protected GameObject explanationBase; // 0x138
+	[SerializeField] // RVA: 0xC7387C Offset: 0xC7387C VA: 0xC7387C
+	protected UILabel explanationLabel; // 0x140
+	protected PartyListViewManager.InitMode initMode; // 0x148
+	[CompilerGeneratedAttribute] // RVA: 0xC7388C Offset: 0xC7388C VA: 0xC7388C
+	[DebuggerBrowsableAttribute] // RVA: 0xC7388C Offset: 0xC7388C VA: 0xC7388C
+	private PartyListViewManager.CallbackFunc callbackFunc; // 0x150
+	[CompilerGeneratedAttribute] // RVA: 0xC738C8 Offset: 0xC738C8 VA: 0xC738C8
+	[DebuggerBrowsableAttribute] // RVA: 0xC738C8 Offset: 0xC738C8 VA: 0xC738C8
+	private Action callbackFunc2; // 0x158
+	protected int callbackCount; // 0x160
+	protected PartyListViewItem.MenuKind menuKind; // 0x164
+
+	// Properties
+	public List<PartyListViewObject> ObjectList { get; }
+	public List<PartyListViewObject> ClippingObjectList { get; }
+
+	// Methods
+
+	// RVA: 0x19DC5E0 Offset: 0x19DC5E0 VA: 0x19DC5E0
+	public void .ctor() { }
+
+	// RVA: 0x19DC5E8 Offset: 0x19DC5E8 VA: 0x19DC5E8
+	protected void add_callbackFunc(PartyListViewManager.CallbackFunc value) { }
+
+	// RVA: 0x19DC6D8 Offset: 0x19DC6D8 VA: 0x19DC6D8
+	protected void remove_callbackFunc(PartyListViewManager.CallbackFunc value) { }
+
+	// RVA: 0x19DC7C8 Offset: 0x19DC7C8 VA: 0x19DC7C8
+	protected void add_callbackFunc2(Action value) { }
+
+	// RVA: 0x19DC8B8 Offset: 0x19DC8B8 VA: 0x19DC8B8
+	protected void remove_callbackFunc2(Action value) { }
+
+	// RVA: 0x19DC9A8 Offset: 0x19DC9A8 VA: 0x19DC9A8
+	public List<PartyListViewObject> get_ObjectList() { }
+
+	// RVA: 0x19DCB74 Offset: 0x19DCB74 VA: 0x19DCB74
+	public List<PartyListViewObject> get_ClippingObjectList() { }
+
+	// RVA: 0x19DCE54 Offset: 0x19DCE54 VA: 0x19DCE54
+	public void CreateList(PartyListViewItem.MenuKind menuKind, PartyListViewItem[] baseDeckItemList, int partyNum, EventUpValSetupInfo setupInfo, QuestRestrictionInfo questRestrictionInfo, int friendBonusVal) { }
+
+	// RVA: 0x19DD148 Offset: 0x19DD148 VA: 0x19DD148
+	public void DestroyList() { }
+
+	// RVA: 0x19DD18C Offset: 0x19DD18C VA: 0x19DD18C
+	public PartyListViewItem GetItem(int index) { }
+
+	// RVA: 0x19DD26C Offset: 0x19DD26C VA: 0x19DD26C Slot: 4
+	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
+
+	// RVA: 0x19DD3A4 Offset: 0x19DD3A4 VA: 0x19DD3A4
+	public void SetMode(PartyListViewManager.InitMode mode, PartyListViewManager.CallbackFunc callback) { }
+
+	// RVA: 0x19DD42C Offset: 0x19DD42C VA: 0x19DD42C
+	public void SetMode(PartyListViewManager.InitMode mode, Action callback) { }
+
+	// RVA: 0x19DD3AC Offset: 0x19DD3AC VA: 0x19DD3AC
+	public void SetMode(PartyListViewManager.InitMode mode) { }
+
+	// RVA: 0x19DD628 Offset: 0x19DD628 VA: 0x19DD628
+	protected void RequestListObject(PartyListViewObject.InitMode mode, float delay) { }
+
+	// RVA: 0x19DD434 Offset: 0x19DD434 VA: 0x19DD434
+	protected void RequestListObject(PartyListViewObject.InitMode mode) { }
+
+	// RVA: 0x19DD938 Offset: 0x19DD938 VA: 0x19DD938
+	protected void OnMoveEnd() { }
+
+	// RVA: 0x19DDA04 Offset: 0x19DDA04 VA: 0x19DDA04
+	public void MoveCenterItem(int index, bool isAnimation = True) { }
+
+	// RVA: 0x19DDA28 Offset: 0x19DDA28 VA: 0x19DDA28
+	public void ForceJumpItem(int targetIndex) { }
+
+	// RVA: 0x19DDB3C Offset: 0x19DDB3C VA: 0x19DDB3C
+	protected void OnModifyListView(ListViewObject obj) { }
+
+	// RVA: 0x19DDE08 Offset: 0x19DDE08 VA: 0x19DDE08
+	protected void OnClickListViewChangeServant1(ListViewObject obj) { }
+
+	// RVA: 0x19DDE68 Offset: 0x19DDE68 VA: 0x19DDE68
+	protected void OnClickListViewChangeServant2(ListViewObject obj) { }
+
+	// RVA: 0x19DDEC8 Offset: 0x19DDEC8 VA: 0x19DDEC8
+	protected void OnClickListViewChangeServant3(ListViewObject obj) { }
+
+	// RVA: 0x19DDF28 Offset: 0x19DDF28 VA: 0x19DDF28
+	protected void OnClickListViewChangeServant4(ListViewObject obj) { }
+
+	// RVA: 0x19DDF88 Offset: 0x19DDF88 VA: 0x19DDF88
+	protected void OnClickListViewChangeServant5(ListViewObject obj) { }
+
+	// RVA: 0x19DDFE8 Offset: 0x19DDFE8 VA: 0x19DDFE8
+	protected void OnClickListViewChangeServant6(ListViewObject obj) { }
+
+	// RVA: 0x19DE048 Offset: 0x19DE048 VA: 0x19DE048
+	protected void OnClickListViewChangeEquip1(ListViewObject obj) { }
+
+	// RVA: 0x19DE0A8 Offset: 0x19DE0A8 VA: 0x19DE0A8
+	protected void OnClickListViewChangeEquip2(ListViewObject obj) { }
+
+	// RVA: 0x19DE108 Offset: 0x19DE108 VA: 0x19DE108
+	protected void OnClickListViewChangeEquip3(ListViewObject obj) { }
+
+	// RVA: 0x19DE168 Offset: 0x19DE168 VA: 0x19DE168
+	protected void OnClickListViewChangeEquip4(ListViewObject obj) { }
+
+	// RVA: 0x19DE1C8 Offset: 0x19DE1C8 VA: 0x19DE1C8
+	protected void OnClickListViewChangeEquip5(ListViewObject obj) { }
+
+	// RVA: 0x19DE228 Offset: 0x19DE228 VA: 0x19DE228
+	protected void OnClickListViewChangeEquip6(ListViewObject obj) { }
+
+	// RVA: 0x19DE288 Offset: 0x19DE288 VA: 0x19DE288
+	protected void OnClickListViewChangeParty(PartyListViewObject obj) { }
+
+	// RVA: 0x19DE2E8 Offset: 0x19DE2E8 VA: 0x19DE2E8
+	public void RefreshDrawPartyInfo() { }
+
+	// RVA: 0x19DE3A0 Offset: 0x19DE3A0 VA: 0x19DE3A0
+	public void UpdateEventLimitEquip(int index) { }
+
+	// RVA: 0x19DE468 Offset: 0x19DE468 VA: 0x19DE468
+	public void SetEventLimitEquipSetting() { }
+
+	// RVA: 0x19DE4F4 Offset: 0x19DE4F4 VA: 0x19DE4F4
+	public bool IsUseEventLimitEquipUserWill(int index) { }
+}
+
+// Namespace: 
+public enum PartyListViewManager.InitMode // TypeDefIndex: 10402
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyListViewManager.InitMode NONE = 0;
+	public const PartyListViewManager.InitMode VALID = 1;
+	public const PartyListViewManager.InitMode INPUT = 2;
+	public const PartyListViewManager.InitMode ORGANIZATION_GUIDE_DECK_EMPTY_SELECT = 3;
+}
+
+// Namespace: 
+public enum PartyListViewManager.ResultKind // TypeDefIndex: 10403
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyListViewManager.ResultKind NONE = 0;
+	public const PartyListViewManager.ResultKind SELECT_SERVANT = 1;
+	public const PartyListViewManager.ResultKind SELECT_EQUIP = 2;
+	public const PartyListViewManager.ResultKind CHANGE_PARTY = 3;
+	public const PartyListViewManager.ResultKind MODIFY_STATUS = 4;
+}
+
+// Namespace: 
+public sealed class PartyListViewManager.CallbackFunc : MulticastDelegate // TypeDefIndex: 10404
+{
+	// Methods
+
+	// RVA: 0x19DE5B8 Offset: 0x19DE5B8 VA: 0x19DE5B8
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x19DDB9C Offset: 0x19DDB9C VA: 0x19DDB9C Slot: 11
+	public virtual void Invoke(PartyListViewManager.ResultKind kind, int n, int m) { }
+
+	// RVA: 0x19DE5C8 Offset: 0x19DE5C8 VA: 0x19DE5C8 Slot: 12
+	public virtual IAsyncResult BeginInvoke(PartyListViewManager.ResultKind kind, int n, int m, AsyncCallback callback, object object) { }
+
+	// RVA: 0x19DE688 Offset: 0x19DE688 VA: 0x19DE688 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class PartyListViewObject : ListViewObject // TypeDefIndex: 10405
+{
+	// Fields
+	protected PartyListViewObject.State state; // 0x6C
+	[CompilerGeneratedAttribute] // RVA: 0xC73904 Offset: 0xC73904 VA: 0xC73904
+	[DebuggerBrowsableAttribute] // RVA: 0xC73904 Offset: 0xC73904 VA: 0xC73904
+	private Action callbackFunc; // 0x70
+	protected PartyListViewItemDraw itemDraw; // 0x78
+	protected PartyListViewItemDraw.DispMode dispMode; // 0x80
+	protected GameObject dragObject; // 0x88
+	protected int showIndex; // 0x90
+	[SerializeField] // RVA: 0xC73940 Offset: 0xC73940 VA: 0xC73940
+	private bool useAlphaMask; // 0x94
+	[SerializeField] // RVA: 0xC73950 Offset: 0xC73950 VA: 0xC73950
+	private UISprite maskSprite; // 0x98
+	[SerializeField] // RVA: 0xC73960 Offset: 0xC73960 VA: 0xC73960
+	private float maxAlphaRate; // 0xA0
+	private UIScrollView scrollView; // 0xA8
+	private ListViewItemSeed itemSeed; // 0xB0
+	private BoxCollider[] colliders; // 0xB8
+
+	// Methods
+
+	// RVA: 0x19DE694 Offset: 0x19DE694 VA: 0x19DE694
+	public void .ctor() { }
+
+	// RVA: 0x19DE708 Offset: 0x19DE708 VA: 0x19DE708
+	protected void add_callbackFunc(Action value) { }
+
+	// RVA: 0x19DE7F4 Offset: 0x19DE7F4 VA: 0x19DE7F4
+	protected void remove_callbackFunc(Action value) { }
+
+	// RVA: 0x19DE8E0 Offset: 0x19DE8E0 VA: 0x19DE8E0
+	protected void Awake() { }
+
+	// RVA: 0x19DE954 Offset: 0x19DE954 VA: 0x19DE954
+	private void OnDestroy() { }
+
+	// RVA: 0x19DEA00 Offset: 0x19DEA00 VA: 0x19DEA00
+	private void Update() { }
+
+	// RVA: 0x19DCDD0 Offset: 0x19DCDD0 VA: 0x19DCDD0
+	public PartyListViewItem GetItem() { }
+
+	// RVA: 0x19DECE4 Offset: 0x19DECE4 VA: 0x19DECE4 Slot: 6
+	public override void SetItem(ListViewItem item, ListViewItemSeed seed) { }
+
+	// RVA: 0x19DED14 Offset: 0x19DED14 VA: 0x19DED14 Slot: 5
+	public override void SetItem(ListViewItem item) { }
+
+	// RVA: 0x19DED0C Offset: 0x19DED0C VA: 0x19DED0C
+	protected void InitItem() { }
+
+	// RVA: 0x19DED3C Offset: 0x19DED3C VA: 0x19DED3C Slot: 9
+	public override void SetInput(bool isInput) { }
+
+	// RVA: 0x19DEE40 Offset: 0x19DEE40 VA: 0x19DEE40 Slot: 8
+	public override GameObject CreateDragObject() { }
+
+	// RVA: 0x19DEEC8 Offset: 0x19DEEC8 VA: 0x19DEEC8
+	public void Init(PartyListViewObject.InitMode initMode, Action callbackFunc, float delay, Vector3 position) { }
+
+	// RVA: 0x19DD830 Offset: 0x19DD830 VA: 0x19DD830
+	public void Init(PartyListViewObject.InitMode initMode, Action callbackFunc, float delay) { }
+
+	// RVA: 0x19DD8B4 Offset: 0x19DD8B4 VA: 0x19DD8B4
+	public void Init(PartyListViewObject.InitMode initMode, Action callbackFunc) { }
+
+	// RVA: 0x19DD324 Offset: 0x19DD324 VA: 0x19DD324
+	public void Init(PartyListViewObject.InitMode initMode) { }
+
+	// RVA: 0x19DF2C0 Offset: 0x19DF2C0 VA: 0x19DF2C0
+	protected void EventMoveEnd() { }
+
+	// RVA: 0x19DF2E8 Offset: 0x19DF2E8 VA: 0x19DF2E8
+	protected void SelectMemberServant(int m) { }
+
+	// RVA: 0x19DF400 Offset: 0x19DF400 VA: 0x19DF400
+	protected void SelectMemberEquip(int m) { }
+
+	// RVA: 0x19DF518 Offset: 0x19DF518 VA: 0x19DF518
+	protected void OpenServantDetail(int m) { }
+
+	// RVA: 0x19DF8C0 Offset: 0x19DF8C0 VA: 0x19DF8C0
+	protected void EndShowServant(bool isDecide) { }
+
+	// RVA: 0x19DFA64 Offset: 0x19DFA64 VA: 0x19DFA64
+	protected void EndCloseShowServant() { }
+
+	// RVA: 0x19DFA68 Offset: 0x19DFA68 VA: 0x19DFA68
+	protected void EndShowServantWithQuest(bool isDecide, int questId) { }
+
+	// RVA: 0x19DFB30 Offset: 0x19DFB30 VA: 0x19DFB30
+	protected void EndCloseShowServantQuestJump() { }
+
+	// RVA: 0x19DFB9C Offset: 0x19DFB9C VA: 0x19DFB9C
+	protected void OpenEquipDetail(int m) { }
+
+	// RVA: 0x19E00F4 Offset: 0x19E00F4 VA: 0x19E00F4
+	protected void EndShowEquip(bool isDecide) { }
+
+	// RVA: 0x19E0298 Offset: 0x19E0298 VA: 0x19E0298
+	protected void EndCloseShowEquip() { }
+
+	// RVA: 0x19DF154 Offset: 0x19DF154 VA: 0x19DF154
+	private void InitAlphaMask() { }
+
+	// RVA: 0x19DEA04 Offset: 0x19DEA04 VA: 0x19DEA04
+	private void UpdateAlphaMask() { }
+
+	// RVA: 0x19E029C Offset: 0x19E029C VA: 0x19E029C
+	private void UpdateCollider(bool enable) { }
+
+	// RVA: 0x19E0348 Offset: 0x19E0348 VA: 0x19E0348
+	public void OnClickItem1() { }
+
+	// RVA: 0x19E0350 Offset: 0x19E0350 VA: 0x19E0350
+	public void OnLongPressItem1() { }
+
+	// RVA: 0x19E0358 Offset: 0x19E0358 VA: 0x19E0358
+	public void OnClickItem2() { }
+
+	// RVA: 0x19E0360 Offset: 0x19E0360 VA: 0x19E0360
+	public void OnLongPressItem2() { }
+
+	// RVA: 0x19E0368 Offset: 0x19E0368 VA: 0x19E0368
+	public void OnClickItem3() { }
+
+	// RVA: 0x19E0370 Offset: 0x19E0370 VA: 0x19E0370
+	public void OnLongPressItem3() { }
+
+	// RVA: 0x19E0378 Offset: 0x19E0378 VA: 0x19E0378
+	public void OnClickItem4() { }
+
+	// RVA: 0x19E0380 Offset: 0x19E0380 VA: 0x19E0380
+	public void OnLongPressItem4() { }
+
+	// RVA: 0x19E0388 Offset: 0x19E0388 VA: 0x19E0388
+	public void OnClickItem5() { }
+
+	// RVA: 0x19E0390 Offset: 0x19E0390 VA: 0x19E0390
+	public void OnLongPressItem5() { }
+
+	// RVA: 0x19E0398 Offset: 0x19E0398 VA: 0x19E0398
+	public void OnClickItem6() { }
+
+	// RVA: 0x19E03A0 Offset: 0x19E03A0 VA: 0x19E03A0
+	public void OnLongPressItem6() { }
+
+	// RVA: 0x19E03A8 Offset: 0x19E03A8 VA: 0x19E03A8
+	public void OnClickItemEquip1() { }
+
+	// RVA: 0x19E03B0 Offset: 0x19E03B0 VA: 0x19E03B0
+	public void OnLongPressItemEquip1() { }
+
+	// RVA: 0x19E03B8 Offset: 0x19E03B8 VA: 0x19E03B8
+	public void OnClickItemEquip2() { }
+
+	// RVA: 0x19E03C0 Offset: 0x19E03C0 VA: 0x19E03C0
+	public void OnLongPressItemEquip2() { }
+
+	// RVA: 0x19E03C8 Offset: 0x19E03C8 VA: 0x19E03C8
+	public void OnClickItemEquip3() { }
+
+	// RVA: 0x19E03D0 Offset: 0x19E03D0 VA: 0x19E03D0
+	public void OnLongPressItemEquip3() { }
+
+	// RVA: 0x19E03D8 Offset: 0x19E03D8 VA: 0x19E03D8
+	public void OnClickItemEquip4() { }
+
+	// RVA: 0x19E03E0 Offset: 0x19E03E0 VA: 0x19E03E0
+	public void OnLongPressItemEquip4() { }
+
+	// RVA: 0x19E03E8 Offset: 0x19E03E8 VA: 0x19E03E8
+	public void OnClickItemEquip5() { }
+
+	// RVA: 0x19E03F0 Offset: 0x19E03F0 VA: 0x19E03F0
+	public void OnLongPressItemEquip5() { }
+
+	// RVA: 0x19E03F8 Offset: 0x19E03F8 VA: 0x19E03F8
+	public void OnClickItemEquip6() { }
+
+	// RVA: 0x19E0400 Offset: 0x19E0400 VA: 0x19E0400
+	public void OnLongPressItemEquip6() { }
+}
+
+// Namespace: 
+public enum PartyListViewObject.InitMode // TypeDefIndex: 10406
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyListViewObject.InitMode INVISIBLE = 0;
+	public const PartyListViewObject.InitMode INVALID = 1;
+	public const PartyListViewObject.InitMode VALID = 2;
+	public const PartyListViewObject.InitMode INPUT = 3;
+	public const PartyListViewObject.InitMode ORGANIZATION_GUIDE_DECK_EMPTY_SELECT = 4;
+}
+
+// Namespace: 
+protected enum PartyListViewObject.State // TypeDefIndex: 10407
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyListViewObject.State INIT = 0;
+	public const PartyListViewObject.State IDLE = 1;
+	public const PartyListViewObject.State MOVE = 2;
+	public const PartyListViewObject.State INPUT = 3;
+}
+
+// Namespace: 
+public class PartyOrganizationChangeMenu : BaseMenu // TypeDefIndex: 10408
+{
+	// Fields
+	protected static readonly int[] LAYOUT_POS_X_HINT; // 0x0
+	[SerializeField] // RVA: 0xC73970 Offset: 0xC73970 VA: 0xC73970
+	protected PartyOrganizationChangeObject[] partyOrganizationChangeObjectList; // 0x58
+	[SerializeField] // RVA: 0xC73980 Offset: 0xC73980 VA: 0xC73980
+	protected PartyListViewIndicator partyListViewIndicator; // 0x60
+	[SerializeField] // RVA: 0xC73990 Offset: 0xC73990 VA: 0xC73990
+	protected GameObject mainDeckBase; // 0x68
+	[SerializeField] // RVA: 0xC739A0 Offset: 0xC739A0 VA: 0xC739A0
+	protected UICommonButton partyRemoveButton; // 0x70
+	[SerializeField] // RVA: 0xC739B0 Offset: 0xC739B0 VA: 0xC739B0
+	protected UICommonButton partyDecideButton; // 0x78
+	[SerializeField] // RVA: 0xC739C0 Offset: 0xC739C0 VA: 0xC739C0
+	protected UICommonButton partyPointEventButton; // 0x80
+	[SerializeField] // RVA: 0xC739D0 Offset: 0xC739D0 VA: 0xC739D0
+	protected UICommonButton questInfoButton; // 0x88
+	[SerializeField] // RVA: 0xC739E0 Offset: 0xC739E0 VA: 0xC739E0
+	protected GameObject explanationBase; // 0x90
+	[SerializeField] // RVA: 0xC739F0 Offset: 0xC739F0 VA: 0xC739F0
+	protected UILabel explanationLabel; // 0x98
+	[SerializeField] // RVA: 0xC73A00 Offset: 0xC73A00 VA: 0xC73A00
+	protected GameObject titleExplanationBase; // 0xA0
+	[SerializeField] // RVA: 0xC73A10 Offset: 0xC73A10 VA: 0xC73A10
+	protected UIRangeLabel titleExplanationLabel; // 0xA8
+	[SerializeField] // RVA: 0xC73A20 Offset: 0xC73A20 VA: 0xC73A20
+	protected GameObject tutorialMaskBase; // 0xB0
+	[SerializeField] // RVA: 0xC73A30 Offset: 0xC73A30 VA: 0xC73A30
+	protected PartyOrganizationChangeObject tutorialPartyOrganizationChangeEmptyObject; // 0xB8
+	[SerializeField] // RVA: 0xC73A40 Offset: 0xC73A40 VA: 0xC73A40
+	protected UICommonButton tutorialPartyDecideButton; // 0xC0
+	[SerializeField] // RVA: 0xC73A50 Offset: 0xC73A50 VA: 0xC73A50
+	protected FSOffset tutorialAddOffsetFS; // 0xC8
+	[SerializeField] // RVA: 0xC73A60 Offset: 0xC73A60 VA: 0xC73A60
+	protected UICommonButton hintDialogButton; // 0xD0
+	protected PartyOrganizationChangeMenu.Mode mode; // 0xD8
+	protected PartyOrganizationChangeMenu.State state; // 0xDC
+	[CompilerGeneratedAttribute] // RVA: 0xC73A70 Offset: 0xC73A70 VA: 0xC73A70
+	[DebuggerBrowsableAttribute] // RVA: 0xC73A70 Offset: 0xC73A70 VA: 0xC73A70
+	private PartyOrganizationChangeMenu.CallbackFunc callbackFunc; // 0xE0
+	protected Action openCallbackFunc; // 0xE8
+	protected Action closeCallbackFunc; // 0xF0
+	protected PartyListViewItem basePartyItem; // 0xF8
+	protected PartyListViewItem partyItem; // 0x100
+	protected int openSelectMember; // 0x108
+	protected EventUpValSetupInfo setupInfo; // 0x110
+	protected QuestRestrictionInfo questRestrictionInfo; // 0x118
+	private PartyListViewItem.MenuKind menuKind; // 0x120
+
+	// Methods
+
+	// RVA: 0x19E0650 Offset: 0x19E0650 VA: 0x19E0650
+	public void .ctor() { }
+
+	// RVA: 0x19E06F8 Offset: 0x19E06F8 VA: 0x19E06F8
+	protected void add_callbackFunc(PartyOrganizationChangeMenu.CallbackFunc value) { }
+
+	// RVA: 0x19E07E4 Offset: 0x19E07E4 VA: 0x19E07E4
+	protected void remove_callbackFunc(PartyOrganizationChangeMenu.CallbackFunc value) { }
+
+	// RVA: 0x19E08D0 Offset: 0x19E08D0 VA: 0x19E08D0
+	public bool IsThroughSelect() { }
+
+	// RVA: 0x19E08E0 Offset: 0x19E08E0 VA: 0x19E08E0
+	public PartyListViewItem GetBaseItem() { }
+
+	// RVA: 0x19E08E8 Offset: 0x19E08E8 VA: 0x19E08E8
+	public PartyListViewItem GetItem() { }
+
+	// RVA: 0x19E08F0 Offset: 0x19E08F0 VA: 0x19E08F0
+	protected void ClearItem() { }
+
+	// RVA: 0x19E0A58 Offset: 0x19E0A58 VA: 0x19E0A58
+	protected void SetItem(int friendBonusVal) { }
+
+	// RVA: 0x19E0CC4 Offset: 0x19E0CC4 VA: 0x19E0CC4
+	protected void SetInput(bool isInput) { }
+
+	// RVA: 0x19E0E60 Offset: 0x19E0E60 VA: 0x19E0E60
+	public void ModifyItem() { }
+
+	// RVA: 0x19E1034 Offset: 0x19E1034 VA: 0x19E1034
 	public void Init() { }
 
-	// RVA: 0x1F4AC28 Offset: 0x1F4AC28 VA: 0x1F4AC28
-	public void Open(PartyOrganizationConfirmMenu.Kind kind, string message, PartyOrganizationConfirmMenu.CallbackFunc callback, bool isFriendChocolate) { }
+	// RVA: 0x19E1064 Offset: 0x19E1064 VA: 0x19E1064
+	public void Open(PartyListViewItem.MenuKind kind, PartyOrganizationChangeMenu.Mode tutorialMode, PartyListViewItem basePartyItem, PartyListViewItem partyItem, int selectMember, EventUpValSetupInfo setupInfo, QuestRestrictionInfo questRestrictionInfo, PartyOrganizationChangeMenu.CallbackFunc callback, Action openCallback, int friendBonusVal) { }
 
-	// RVA: 0x1F4AE24 Offset: 0x1F4AE24 VA: 0x1F4AE24
+	// RVA: 0x19E16C4 Offset: 0x19E16C4 VA: 0x19E16C4
 	protected void EndOpen() { }
 
-	// RVA: 0x1F4AE30 Offset: 0x1F4AE30 VA: 0x1F4AE30
+	// RVA: 0x19E1D70 Offset: 0x19E1D70 VA: 0x19E1D70
+	protected void EndOpenTutorialArrow() { }
+
+	// RVA: 0x19E1DA8 Offset: 0x19E1DA8 VA: 0x19E1DA8
 	public void Close() { }
 
-	// RVA: 0x1F4AE38 Offset: 0x1F4AE38 VA: 0x1F4AE38
+	// RVA: 0x19E1DB0 Offset: 0x19E1DB0 VA: 0x19E1DB0
 	public void Close(Action callback) { }
 
-	// RVA: 0x1F4AEC8 Offset: 0x1F4AEC8 VA: 0x1F4AEC8
+	// RVA: 0x19E1E40 Offset: 0x19E1E40 VA: 0x19E1E40
 	protected void EndClose() { }
 
-	// RVA: 0x1F4AF04 Offset: 0x1F4AF04 VA: 0x1F4AF04
-	protected void Callback(bool result) { }
+	// RVA: 0x19E139C Offset: 0x19E139C VA: 0x19E139C
+	protected void SetupButton(bool isMove) { }
 
-	// RVA: 0x1F4B150 Offset: 0x1F4B150 VA: 0x1F4B150
+	// RVA: 0x19E1D54 Offset: 0x19E1D54 VA: 0x19E1D54
+	protected void Callback(PartyOrganizationChangeMenu.ResultKind result, int n = -1) { }
+
+	// RVA: 0x19E2284 Offset: 0x19E2284 VA: 0x19E2284
 	public void OnClickDecide() { }
 
-	// RVA: 0x1F4B214 Offset: 0x1F4B214 VA: 0x1F4B214
+	// RVA: 0x19E23BC Offset: 0x19E23BC VA: 0x19E23BC
+	protected void EndCloseTutorialArrowDecide() { }
+
+	// RVA: 0x19E245C Offset: 0x19E245C VA: 0x19E245C
 	public void OnClickCancel() { }
 
-	// RVA: 0x1F4B2B4 Offset: 0x1F4B2B4 VA: 0x1F4B2B4
+	// RVA: 0x19E2494 Offset: 0x19E2494 VA: 0x19E2494
+	public void OnClickRemove() { }
+
+	// RVA: 0x19E24CC Offset: 0x19E24CC VA: 0x19E24CC
+	public void OnClickInfomation() { }
+
+	// RVA: 0x19E2570 Offset: 0x19E2570 VA: 0x19E2570
+	public void OnClickPointEvent() { }
+
+	// RVA: 0x19E2614 Offset: 0x19E2614 VA: 0x19E2614
+	public void OnClickQuestInfomation() { }
+
+	// RVA: 0x19E26B8 Offset: 0x19E26B8 VA: 0x19E26B8
+	protected void OnClickItem(PartyOrganizationChangeObject.ResultKind result, int n) { }
+
+	// RVA: 0x19E2700 Offset: 0x19E2700 VA: 0x19E2700
+	protected void OnClickEmptyItem(PartyOrganizationChangeObject.ResultKind result, int n) { }
+
+	// RVA: 0x19E2800 Offset: 0x19E2800 VA: 0x19E2800
+	protected void EndCloseTutorialArrowEmptyItem() { }
+
+	// RVA: 0x19E1E90 Offset: 0x19E1E90 VA: 0x19E1E90
+	private bool IsHintDialog() { }
+
+	// RVA: 0x19E28A0 Offset: 0x19E28A0 VA: 0x19E28A0
 	private static void .cctor() { }
 }
 
 // Namespace: 
-public enum PartyOrganizationConfirmMenu.Kind // TypeDefIndex: 10407
+public enum PartyOrganizationChangeMenu.Mode // TypeDefIndex: 10409
 {
 	// Fields
 	public int value__; // 0x0
-	public const PartyOrganizationConfirmMenu.Kind NONE = 0;
-	public const PartyOrganizationConfirmMenu.Kind BOOST_ITEM_USE = 1;
+	public const PartyOrganizationChangeMenu.Mode NONE = 0;
+	public const PartyOrganizationChangeMenu.Mode SELECT_SERVANT = 1;
+	public const PartyOrganizationChangeMenu.Mode SELECT_EQUIP = 2;
+	public const PartyOrganizationChangeMenu.Mode DETAIL_SERVANT = 3;
+	public const PartyOrganizationChangeMenu.Mode ORGANIZATION_GUIDE_DECK_EMPTY_SELECT = 4;
+	public const PartyOrganizationChangeMenu.Mode ORGANIZATION_GUIDE_DECIDE_SELECT = 5;
 }
 
 // Namespace: 
-protected enum PartyOrganizationConfirmMenu.State // TypeDefIndex: 10408
+public enum PartyOrganizationChangeMenu.ResultKind // TypeDefIndex: 10410
 {
 	// Fields
 	public int value__; // 0x0
-	public const PartyOrganizationConfirmMenu.State INIT = 0;
-	public const PartyOrganizationConfirmMenu.State OPEN = 1;
-	public const PartyOrganizationConfirmMenu.State INPUT = 2;
-	public const PartyOrganizationConfirmMenu.State SELECTED = 3;
-	public const PartyOrganizationConfirmMenu.State CLOSE = 4;
+	public const PartyOrganizationChangeMenu.ResultKind CANCEL = 0;
+	public const PartyOrganizationChangeMenu.ResultKind DECIDE = 1;
+	public const PartyOrganizationChangeMenu.ResultKind REMOVE = 2;
+	public const PartyOrganizationChangeMenu.ResultKind INFOMATION = 3;
+	public const PartyOrganizationChangeMenu.ResultKind EVENT_POINT = 4;
+	public const PartyOrganizationChangeMenu.ResultKind SELECT_SERVANT = 5;
+	public const PartyOrganizationChangeMenu.ResultKind SELECT_EQUIP = 6;
+	public const PartyOrganizationChangeMenu.ResultKind QUEST_INFORMATION = 7;
 }
 
 // Namespace: 
-public sealed class PartyOrganizationConfirmMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10409
+protected enum PartyOrganizationChangeMenu.State // TypeDefIndex: 10411
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationChangeMenu.State INIT = 0;
+	public const PartyOrganizationChangeMenu.State OPEN = 1;
+	public const PartyOrganizationChangeMenu.State INPUT = 2;
+	public const PartyOrganizationChangeMenu.State SELECTED = 3;
+	public const PartyOrganizationChangeMenu.State CLOSE = 4;
+	public const PartyOrganizationChangeMenu.State ENTER = 5;
+	public const PartyOrganizationChangeMenu.State TUTORIAL_OPEN = 6;
+	public const PartyOrganizationChangeMenu.State TUTORIAL = 7;
+	public const PartyOrganizationChangeMenu.State TUTORIAL_CLOSE = 8;
+}
+
+// Namespace: 
+public sealed class PartyOrganizationChangeMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10412
 {
 	// Methods
 
-	// RVA: 0x1F4B318 Offset: 0x1F4B318 VA: 0x1F4B318
+	// RVA: 0x19E2954 Offset: 0x19E2954 VA: 0x19E2954
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x1F4AF24 Offset: 0x1F4AF24 VA: 0x1F4AF24 Slot: 11
-	public virtual void Invoke(bool result) { }
+	// RVA: 0x19E2040 Offset: 0x19E2040 VA: 0x19E2040 Slot: 11
+	public virtual void Invoke(PartyOrganizationChangeMenu.ResultKind result, int n) { }
 
-	// RVA: 0x1F4B328 Offset: 0x1F4B328 VA: 0x1F4B328 Slot: 12
-	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
+	// RVA: 0x19E2964 Offset: 0x19E2964 VA: 0x19E2964 Slot: 12
+	public virtual IAsyncResult BeginInvoke(PartyOrganizationChangeMenu.ResultKind result, int n, AsyncCallback callback, object object) { }
 
-	// RVA: 0x1F4B3B8 Offset: 0x1F4B3B8 VA: 0x1F4B3B8 Slot: 13
+	// RVA: 0x19E2A0C Offset: 0x19E2A0C VA: 0x19E2A0C Slot: 13
 	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: 
-public class PartyOrganizationConfirmMyServantMenu : BaseDialog // TypeDefIndex: 10410
+public class PartyOrganizationChangeObject : BaseMonoBehaviour // TypeDefIndex: 10413
 {
 	// Fields
-	[SerializeField] // RVA: 0xCE09F0 Offset: 0xCE09F0 VA: 0xCE09F0
-	protected UILabel titleLabel; // 0x58
-	[SerializeField] // RVA: 0xCE0A00 Offset: 0xCE0A00 VA: 0xCE0A00
-	protected UILabel messageLabel; // 0x60
-	[SerializeField] // RVA: 0xCE0A10 Offset: 0xCE0A10 VA: 0xCE0A10
-	protected GameObject supportMemberBase; // 0x68
-	[SerializeField] // RVA: 0xCE0A20 Offset: 0xCE0A20 VA: 0xCE0A20
-	protected PartyOrganizationConfirmItemDraw[] memberObjectList; // 0x70
-	[SerializeField] // RVA: 0xCE0A30 Offset: 0xCE0A30 VA: 0xCE0A30
-	protected UILabel decideLabel; // 0x78
-	[SerializeField] // RVA: 0xCE0A40 Offset: 0xCE0A40 VA: 0xCE0A40
-	protected UILabel cancelLabel; // 0x80
-	[SerializeField] // RVA: 0xCE0A50 Offset: 0xCE0A50 VA: 0xCE0A50
-	protected UILabel closeLabel; // 0x88
-	[SerializeField] // RVA: 0xCE0A60 Offset: 0xCE0A60 VA: 0xCE0A60
-	protected UICommonButton decideButton; // 0x90
-	[SerializeField] // RVA: 0xCE0A70 Offset: 0xCE0A70 VA: 0xCE0A70
-	protected UICommonButton cancelButton; // 0x98
-	[SerializeField] // RVA: 0xCE0A80 Offset: 0xCE0A80 VA: 0xCE0A80
-	protected UICommonButton closeButton; // 0xA0
-	protected PartyOrganizationConfirmMyServantMenu.State state; // 0xA8
-	[CompilerGeneratedAttribute] // RVA: 0xCE0A90 Offset: 0xCE0A90 VA: 0xCE0A90
-	[DebuggerBrowsableAttribute] // RVA: 0xCE0A90 Offset: 0xCE0A90 VA: 0xCE0A90
-	private PartyOrganizationConfirmMyServantMenu.CallbackFunc callbackFunc; // 0xB0
-	protected Action closeCallbackFunc; // 0xB8
+	protected PartyOrganizationChangeObject.State state; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xC73AAC Offset: 0xC73AAC VA: 0xC73AAC
+	[DebuggerBrowsableAttribute] // RVA: 0xC73AAC Offset: 0xC73AAC VA: 0xC73AAC
+	private PartyOrganizationChangeObject.CallbackFunc callbackFunc; // 0x20
+	protected PartyOrganizationListViewItemDraw itemDraw; // 0x28
+	protected PartyListViewItem partyItem; // 0x30
+	protected int member; // 0x38
 
 	// Methods
 
-	// RVA: 0x1F4B3C4 Offset: 0x1F4B3C4 VA: 0x1F4B3C4
+	// RVA: 0x19E2A18 Offset: 0x19E2A18 VA: 0x19E2A18
 	public void .ctor() { }
 
-	// RVA: 0x1F4B42C Offset: 0x1F4B42C VA: 0x1F4B42C
-	protected void add_callbackFunc(PartyOrganizationConfirmMyServantMenu.CallbackFunc value) { }
+	// RVA: 0x19E2A20 Offset: 0x19E2A20 VA: 0x19E2A20
+	protected void add_callbackFunc(PartyOrganizationChangeObject.CallbackFunc value) { }
 
-	// RVA: 0x1F4B518 Offset: 0x1F4B518 VA: 0x1F4B518
-	protected void remove_callbackFunc(PartyOrganizationConfirmMyServantMenu.CallbackFunc value) { }
+	// RVA: 0x19E2B0C Offset: 0x19E2B0C VA: 0x19E2B0C
+	protected void remove_callbackFunc(PartyOrganizationChangeObject.CallbackFunc value) { }
 
-	// RVA: 0x1F4B604 Offset: 0x1F4B604 VA: 0x1F4B604
-	public void Init() { }
-
-	// RVA: 0x1F4B754 Offset: 0x1F4B754 VA: 0x1F4B754
-	public void Open(PartyOrganizationConfirmMyServantMenu.Kind kind, PartyListViewItem partyItem, EventUpValSetupInfo setupInfo, QuestRestrictionInfo questRestrictionInfo, PartyOrganizationConfirmMyServantMenu.CallbackFunc callback) { }
-
-	// RVA: 0x1F4C108 Offset: 0x1F4C108 VA: 0x1F4C108
-	protected void EndOpen() { }
-
-	// RVA: 0x1F4C114 Offset: 0x1F4C114 VA: 0x1F4C114
-	public void Close() { }
-
-	// RVA: 0x1F4C11C Offset: 0x1F4C11C VA: 0x1F4C11C
-	public void Close(Action callback) { }
-
-	// RVA: 0x1F4C1AC Offset: 0x1F4C1AC VA: 0x1F4C1AC
-	protected void EndClose() { }
-
-	// RVA: 0x1F4C1E8 Offset: 0x1F4C1E8 VA: 0x1F4C1E8
-	protected void Callback(bool result) { }
-
-	// RVA: 0x1F4C434 Offset: 0x1F4C434 VA: 0x1F4C434
-	public void OnClickDecide() { }
-
-	// RVA: 0x1F4C4D4 Offset: 0x1F4C4D4 VA: 0x1F4C4D4
-	public void OnClickCancel() { }
-
-	// RVA: 0x1F4C574 Offset: 0x1F4C574 VA: 0x1F4C574
-	public void OnClickClose() { }
-}
-
-// Namespace: 
-public enum PartyOrganizationConfirmMyServantMenu.Kind // TypeDefIndex: 10411
-{
-	// Fields
-	public int value__; // 0x0
-	public const PartyOrganizationConfirmMyServantMenu.Kind START_RESTICTION_FIXED_MY_SERVANT_POSITION = 0;
-	public const PartyOrganizationConfirmMyServantMenu.Kind START_RESTICTION_FIXED_MY_SERVANT_SINGLE = 1;
-}
-
-// Namespace: 
-protected enum PartyOrganizationConfirmMyServantMenu.State // TypeDefIndex: 10412
-{
-	// Fields
-	public int value__; // 0x0
-	public const PartyOrganizationConfirmMyServantMenu.State INIT = 0;
-	public const PartyOrganizationConfirmMyServantMenu.State OPEN = 1;
-	public const PartyOrganizationConfirmMyServantMenu.State INPUT = 2;
-	public const PartyOrganizationConfirmMyServantMenu.State SELECTED = 3;
-	public const PartyOrganizationConfirmMyServantMenu.State CLOSE = 4;
-}
-
-// Namespace: 
-public sealed class PartyOrganizationConfirmMyServantMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10413
-{
-	// Methods
-
-	// RVA: 0x1F4C614 Offset: 0x1F4C614 VA: 0x1F4C614
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x1F4C208 Offset: 0x1F4C208 VA: 0x1F4C208 Slot: 11
-	public virtual void Invoke(bool result) { }
-
-	// RVA: 0x1F4C624 Offset: 0x1F4C624 VA: 0x1F4C624 Slot: 12
-	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
-
-	// RVA: 0x1F4C6B4 Offset: 0x1F4C6B4 VA: 0x1F4C6B4 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-public class PartyOrganizationConfirmSupportMenu : BaseDialog // TypeDefIndex: 10414
-{
-	// Fields
-	[SerializeField] // RVA: 0xCE0ACC Offset: 0xCE0ACC VA: 0xCE0ACC
-	protected UILabel titleLabel; // 0x58
-	[SerializeField] // RVA: 0xCE0ADC Offset: 0xCE0ADC VA: 0xCE0ADC
-	protected UILabel messageLabel; // 0x60
-	[SerializeField] // RVA: 0xCE0AEC Offset: 0xCE0AEC VA: 0xCE0AEC
-	protected GameObject supportMemberBase; // 0x68
-	[SerializeField] // RVA: 0xCE0AFC Offset: 0xCE0AFC VA: 0xCE0AFC
-	protected PartyOrganizationConfirmItemDraw[] supportMemberObjectList; // 0x70
-	[SerializeField] // RVA: 0xCE0B0C Offset: 0xCE0B0C VA: 0xCE0B0C
-	protected UILabel decideLabel; // 0x78
-	[SerializeField] // RVA: 0xCE0B1C Offset: 0xCE0B1C VA: 0xCE0B1C
-	protected UILabel cancelLabel; // 0x80
-	[SerializeField] // RVA: 0xCE0B2C Offset: 0xCE0B2C VA: 0xCE0B2C
-	protected UILabel closeLabel; // 0x88
-	[SerializeField] // RVA: 0xCE0B3C Offset: 0xCE0B3C VA: 0xCE0B3C
-	protected UICommonButton decideButton; // 0x90
-	[SerializeField] // RVA: 0xCE0B4C Offset: 0xCE0B4C VA: 0xCE0B4C
-	protected UICommonButton cancelButton; // 0x98
-	[SerializeField] // RVA: 0xCE0B5C Offset: 0xCE0B5C VA: 0xCE0B5C
-	protected UICommonButton closeButton; // 0xA0
-	protected PartyOrganizationConfirmSupportMenu.State state; // 0xA8
-	[CompilerGeneratedAttribute] // RVA: 0xCE0B6C Offset: 0xCE0B6C VA: 0xCE0B6C
-	[DebuggerBrowsableAttribute] // RVA: 0xCE0B6C Offset: 0xCE0B6C VA: 0xCE0B6C
-	private PartyOrganizationConfirmSupportMenu.CallbackFunc callbackFunc; // 0xB0
-	protected Action closeCallbackFunc; // 0xB8
-
-	// Methods
-
-	// RVA: 0x1F4C6C0 Offset: 0x1F4C6C0 VA: 0x1F4C6C0
-	public void .ctor() { }
-
-	// RVA: 0x1F4C728 Offset: 0x1F4C728 VA: 0x1F4C728
-	protected void add_callbackFunc(PartyOrganizationConfirmSupportMenu.CallbackFunc value) { }
-
-	// RVA: 0x1F4C814 Offset: 0x1F4C814 VA: 0x1F4C814
-	protected void remove_callbackFunc(PartyOrganizationConfirmSupportMenu.CallbackFunc value) { }
-
-	// RVA: 0x1F4C900 Offset: 0x1F4C900 VA: 0x1F4C900
-	public void Init() { }
-
-	// RVA: 0x1F4CA50 Offset: 0x1F4CA50 VA: 0x1F4CA50
-	public void Open(PartyOrganizationConfirmSupportMenu.Kind kind, PartyListViewItem partyItem, EventUpValSetupInfo setupInfo, QuestRestrictionInfo questRestrictionInfo, PartyOrganizationConfirmSupportMenu.CallbackFunc callback) { }
-
-	// RVA: 0x1F4D5E4 Offset: 0x1F4D5E4 VA: 0x1F4D5E4
-	protected void EndOpen() { }
-
-	// RVA: 0x1F4D5F0 Offset: 0x1F4D5F0 VA: 0x1F4D5F0
-	public void Close() { }
-
-	// RVA: 0x1F4D5F8 Offset: 0x1F4D5F8 VA: 0x1F4D5F8
-	public void Close(Action callback) { }
-
-	// RVA: 0x1F4D688 Offset: 0x1F4D688 VA: 0x1F4D688
-	protected void EndClose() { }
-
-	// RVA: 0x1F4D6C4 Offset: 0x1F4D6C4 VA: 0x1F4D6C4
-	protected void Callback(bool result) { }
-
-	// RVA: 0x1F4D910 Offset: 0x1F4D910 VA: 0x1F4D910
-	public void OnClickDecide() { }
-
-	// RVA: 0x1F4D9B0 Offset: 0x1F4D9B0 VA: 0x1F4D9B0
-	public void OnClickCancel() { }
-
-	// RVA: 0x1F4DA50 Offset: 0x1F4DA50 VA: 0x1F4DA50
-	public void OnClickClose() { }
-}
-
-// Namespace: 
-public enum PartyOrganizationConfirmSupportMenu.Kind // TypeDefIndex: 10415
-{
-	// Fields
-	public int value__; // 0x0
-	public const PartyOrganizationConfirmSupportMenu.Kind START_RESTICTION_FIXED_SUPPORT_POSITION = 0;
-}
-
-// Namespace: 
-protected enum PartyOrganizationConfirmSupportMenu.State // TypeDefIndex: 10416
-{
-	// Fields
-	public int value__; // 0x0
-	public const PartyOrganizationConfirmSupportMenu.State INIT = 0;
-	public const PartyOrganizationConfirmSupportMenu.State OPEN = 1;
-	public const PartyOrganizationConfirmSupportMenu.State INPUT = 2;
-	public const PartyOrganizationConfirmSupportMenu.State SELECTED = 3;
-	public const PartyOrganizationConfirmSupportMenu.State CLOSE = 4;
-}
-
-// Namespace: 
-public sealed class PartyOrganizationConfirmSupportMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10417
-{
-	// Methods
-
-	// RVA: 0x1F4DAF0 Offset: 0x1F4DAF0 VA: 0x1F4DAF0
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x1F4D6E4 Offset: 0x1F4D6E4 VA: 0x1F4D6E4 Slot: 11
-	public virtual void Invoke(bool result) { }
-
-	// RVA: 0x1F4DB00 Offset: 0x1F4DB00 VA: 0x1F4DB00 Slot: 12
-	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
-
-	// RVA: 0x1F4DB90 Offset: 0x1F4DB90 VA: 0x1F4DB90 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-public class PartyOrganizationEventPointListViewItem : ListViewItem // TypeDefIndex: 10418
-{
-	// Fields
-	protected string titleName; // 0x70
-	protected bool isFollower; // 0x78
-	protected EventMargeItemUpValInfo margeItemInfo; // 0x80
-	protected PartyOrganizationEventPointListViewItem.DisplayValueType displayValueType; // 0x88
-
-	// Methods
-
-	// RVA: 0x1F4DB9C Offset: 0x1F4DB9C VA: 0x1F4DB9C
-	public void .ctor(int index, string titleName, bool isFollower, PartyOrganizationEventPointListViewItem.DisplayValueType displayValueType) { }
-
-	// RVA: 0x1F4DBEC Offset: 0x1F4DBEC VA: 0x1F4DBEC
-	public void .ctor(int index, EventMargeItemUpValInfo margeItemInfo, PartyOrganizationEventPointListViewItem.DisplayValueType displayValueType) { }
-
-	// RVA: 0x1F4DC30 Offset: 0x1F4DC30 VA: 0x1F4DC30 Slot: 1
-	protected override void Finalize() { }
-
-	// RVA: 0x1F4DC38 Offset: 0x1F4DC38 VA: 0x1F4DC38
-	public string GetTitleString() { }
-
-	// RVA: 0x1F4DEB8 Offset: 0x1F4DEB8 VA: 0x1F4DEB8
-	public string GetDataString() { }
-
-	// RVA: 0x1F4E00C Offset: 0x1F4E00C VA: 0x1F4E00C
-	public PartyOrganizationEventPointListViewItem.DisplayValueType GetDisplayValueType() { }
-
-	// RVA: 0x1F4E014 Offset: 0x1F4E014 VA: 0x1F4E014
-	public bool IsTitle() { }
-}
-
-// Namespace: 
-public enum PartyOrganizationEventPointListViewItem.DisplayValueType // TypeDefIndex: 10419
-{
-	// Fields
-	public int value__; // 0x0
-	public const PartyOrganizationEventPointListViewItem.DisplayValueType Party = 0;
-	public const PartyOrganizationEventPointListViewItem.DisplayValueType Member = 1;
-}
-
-// Namespace: 
-public class PartyOrganizationEventPointListViewItemDraw : MonoBehaviour // TypeDefIndex: 10420
-{
-	// Fields
-	[SerializeField] // RVA: 0xCE0BA8 Offset: 0xCE0BA8 VA: 0xCE0BA8
-	protected UILabel titleLabel; // 0x18
-	[SerializeField] // RVA: 0xCE0BB8 Offset: 0xCE0BB8 VA: 0xCE0BB8
-	protected UILabel dataLabel; // 0x20
-
-	// Methods
-
-	// RVA: 0x1F4E024 Offset: 0x1F4E024 VA: 0x1F4E024
-	public void .ctor() { }
-
-	// RVA: 0x1F4E02C Offset: 0x1F4E02C VA: 0x1F4E02C
-	public void SetItem(PartyOrganizationEventPointListViewItem item, PartyOrganizationEventPointListViewItemDraw.DispMode mode) { }
-
-	// RVA: 0x1F4E1B0 Offset: 0x1F4E1B0 VA: 0x1F4E1B0
-	private Color GetLabelColor(PartyOrganizationEventPointListViewItem item) { }
-
-	// RVA: 0x1F4E1FC Offset: 0x1F4E1FC VA: 0x1F4E1FC
-	public void SetInput(PartyOrganizationEventPointListViewItem item, bool isInput) { }
-}
-
-// Namespace: 
-public enum PartyOrganizationEventPointListViewItemDraw.DispMode // TypeDefIndex: 10421
-{
-	// Fields
-	public int value__; // 0x0
-	public const PartyOrganizationEventPointListViewItemDraw.DispMode INVISIBLE = 0;
-	public const PartyOrganizationEventPointListViewItemDraw.DispMode INVALID = 1;
-	public const PartyOrganizationEventPointListViewItemDraw.DispMode VALID = 2;
-	public const PartyOrganizationEventPointListViewItemDraw.DispMode INPUT = 3;
-}
-
-// Namespace: 
-public class PartyOrganizationEventPointListViewManager : ListViewManager // TypeDefIndex: 10422
-{
-	// Fields
-	protected PartyOrganizationEventPointListViewManager.InitMode initMode; // 0x138
-	[SerializeField] // RVA: 0xCE0BC8 Offset: 0xCE0BC8 VA: 0xCE0BC8
-	protected GameObject lineObj; // 0x140
-	[CompilerGeneratedAttribute] // RVA: 0xCE0BD8 Offset: 0xCE0BD8 VA: 0xCE0BD8
-	[DebuggerBrowsableAttribute] // RVA: 0xCE0BD8 Offset: 0xCE0BD8 VA: 0xCE0BD8
-	private PartyOrganizationEventPointListViewManager.CallbackFunc callbackFunc; // 0x148
-	[CompilerGeneratedAttribute] // RVA: 0xCE0C14 Offset: 0xCE0C14 VA: 0xCE0C14
-	[DebuggerBrowsableAttribute] // RVA: 0xCE0C14 Offset: 0xCE0C14 VA: 0xCE0C14
-	private Action callbackFunc2; // 0x150
-	protected int callbackCount; // 0x158
-	protected EventMemberMargeUpValInfo[] eventMargeUpValInfoList; // 0x160
-
-	// Properties
-	public List<PartyOrganizationEventPointListViewObject> ObjectList { get; }
-	public List<PartyOrganizationEventPointListViewObject> ClippingObjectList { get; }
-
-	// Methods
-
-	// RVA: 0x1F4E200 Offset: 0x1F4E200 VA: 0x1F4E200
-	public void .ctor() { }
-
-	// RVA: 0x1F4E208 Offset: 0x1F4E208 VA: 0x1F4E208
-	protected void add_callbackFunc(PartyOrganizationEventPointListViewManager.CallbackFunc value) { }
-
-	// RVA: 0x1F4E2F8 Offset: 0x1F4E2F8 VA: 0x1F4E2F8
-	protected void remove_callbackFunc(PartyOrganizationEventPointListViewManager.CallbackFunc value) { }
-
-	// RVA: 0x1F4E3E8 Offset: 0x1F4E3E8 VA: 0x1F4E3E8
-	protected void add_callbackFunc2(Action value) { }
-
-	// RVA: 0x1F4E4D8 Offset: 0x1F4E4D8 VA: 0x1F4E4D8
-	protected void remove_callbackFunc2(Action value) { }
-
-	// RVA: 0x1F4E5C8 Offset: 0x1F4E5C8 VA: 0x1F4E5C8
-	public List<PartyOrganizationEventPointListViewObject> get_ObjectList() { }
-
-	// RVA: 0x1F4E794 Offset: 0x1F4E794 VA: 0x1F4E794
-	public List<PartyOrganizationEventPointListViewObject> get_ClippingObjectList() { }
-
-	// RVA: 0x1F4EA74 Offset: 0x1F4EA74 VA: 0x1F4EA74
-	private void RemoveInvalidBonusSkill(int idx, EventUpValInfo eventUpVal, int eventId) { }
-
-	// RVA: 0x1F4EDE4 Offset: 0x1F4EDE4 VA: 0x1F4EDE4
-	private EventMargeItemUpValInfo[] GetTotalEventPointInfo(int eventId, PartyListViewItem partyItem) { }
-
-	// RVA: 0x1F4F0C4 Offset: 0x1F4F0C4 VA: 0x1F4F0C4
-	public void CreateList(PartyListViewItem partyItem) { }
-
-	// RVA: 0x1F4FBAC Offset: 0x1F4FBAC VA: 0x1F4FBAC
-	public void DestroyList() { }
-
-	// RVA: 0x1F4FBD4 Offset: 0x1F4FBD4 VA: 0x1F4FBD4
-	public PartyOrganizationEventPointListViewItem GetItem(int index) { }
-
-	// RVA: 0x1F4FC7C Offset: 0x1F4FC7C VA: 0x1F4FC7C Slot: 4
-	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
-
-	// RVA: 0x1F4FDB4 Offset: 0x1F4FDB4 VA: 0x1F4FDB4
-	public void SetMode(PartyOrganizationEventPointListViewManager.InitMode mode, PartyOrganizationEventPointListViewManager.CallbackFunc callback) { }
-
-	// RVA: 0x1F4FFF4 Offset: 0x1F4FFF4 VA: 0x1F4FFF4
-	public void SetMode(PartyOrganizationEventPointListViewManager.InitMode mode, Action callback) { }
-
-	// RVA: 0x1F4FDBC Offset: 0x1F4FDBC VA: 0x1F4FDBC
-	public void SetMode(PartyOrganizationEventPointListViewManager.InitMode mode) { }
-
-	// RVA: 0x1F50274 Offset: 0x1F50274 VA: 0x1F50274
-	protected void RequestListObject(PartyOrganizationEventPointListViewObject.InitMode mode, float delay) { }
-
-	// RVA: 0x1F4FFFC Offset: 0x1F4FFFC VA: 0x1F4FFFC
-	protected void RequestListObject(PartyOrganizationEventPointListViewObject.InitMode mode) { }
-
-	// RVA: 0x1F50500 Offset: 0x1F50500 VA: 0x1F50500
-	protected void OnMoveEnd() { }
-}
-
-// Namespace: 
-public enum PartyOrganizationEventPointListViewManager.InitMode // TypeDefIndex: 10423
-{
-	// Fields
-	public int value__; // 0x0
-	public const PartyOrganizationEventPointListViewManager.InitMode NONE = 0;
-	public const PartyOrganizationEventPointListViewManager.InitMode VALID = 1;
-	public const PartyOrganizationEventPointListViewManager.InitMode INPUT = 2;
-	public const PartyOrganizationEventPointListViewManager.InitMode ORGANIZATION_GUIDE_FIRST_SELECT = 3;
-}
-
-// Namespace: 
-public enum PartyOrganizationEventPointListViewManager.ResultKind // TypeDefIndex: 10424
-{
-	// Fields
-	public int value__; // 0x0
-	public const PartyOrganizationEventPointListViewManager.ResultKind NONE = 0;
-	public const PartyOrganizationEventPointListViewManager.ResultKind CANCEL = 1;
-	public const PartyOrganizationEventPointListViewManager.ResultKind DECIDE = 2;
-}
-
-// Namespace: 
-public sealed class PartyOrganizationEventPointListViewManager.CallbackFunc : MulticastDelegate // TypeDefIndex: 10425
-{
-	// Methods
-
-	// RVA: 0x1F505CC Offset: 0x1F505CC VA: 0x1F505CC
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x1F505DC Offset: 0x1F505DC VA: 0x1F505DC Slot: 11
-	public virtual void Invoke(PartyOrganizationEventPointListViewManager.ResultKind kind, int result) { }
-
-	// RVA: 0x1F50820 Offset: 0x1F50820 VA: 0x1F50820 Slot: 12
-	public virtual IAsyncResult BeginInvoke(PartyOrganizationEventPointListViewManager.ResultKind kind, int result, AsyncCallback callback, object object) { }
-
-	// RVA: 0x1F508C8 Offset: 0x1F508C8 VA: 0x1F508C8 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-public class PartyOrganizationEventPointListViewObject : ListViewObject // TypeDefIndex: 10426
-{
-	// Fields
-	protected PartyOrganizationEventPointListViewObject.State state; // 0x6C
-	[CompilerGeneratedAttribute] // RVA: 0xCE0C50 Offset: 0xCE0C50 VA: 0xCE0C50
-	[DebuggerBrowsableAttribute] // RVA: 0xCE0C50 Offset: 0xCE0C50 VA: 0xCE0C50
-	private Action callbackFunc; // 0x70
-	protected PartyOrganizationEventPointListViewItemDraw itemDraw; // 0x78
-	protected PartyOrganizationEventPointListViewItemDraw.DispMode dispMode; // 0x80
-	protected GameObject dragObject; // 0x88
-
-	// Methods
-
-	// RVA: 0x1F508D4 Offset: 0x1F508D4 VA: 0x1F508D4
-	public void .ctor() { }
-
-	// RVA: 0x1F5093C Offset: 0x1F5093C VA: 0x1F5093C
-	protected void add_callbackFunc(Action value) { }
-
-	// RVA: 0x1F50A28 Offset: 0x1F50A28 VA: 0x1F50A28
-	protected void remove_callbackFunc(Action value) { }
-
-	// RVA: 0x1F50B14 Offset: 0x1F50B14 VA: 0x1F50B14
+	// RVA: 0x19E2BF8 Offset: 0x19E2BF8 VA: 0x19E2BF8
 	protected void Awake() { }
 
-	// RVA: 0x1F50B88 Offset: 0x1F50B88 VA: 0x1F50B88
-	private void OnDestroy() { }
+	// RVA: 0x19E2C50 Offset: 0x19E2C50 VA: 0x19E2C50
+	public void SetVisible(bool isVisible) { }
 
-	// RVA: 0x1F4E9F0 Offset: 0x1F4E9F0 VA: 0x1F4E9F0
-	public PartyOrganizationEventPointListViewItem GetItem() { }
+	// RVA: 0x19E09A8 Offset: 0x19E09A8 VA: 0x19E09A8
+	public void ClearItem() { }
 
-	// RVA: 0x1F50C34 Offset: 0x1F50C34 VA: 0x1F50C34 Slot: 6
-	public override void SetItem(ListViewItem item, ListViewItemSeed seed) { }
+	// RVA: 0x19E0BB8 Offset: 0x19E0BB8 VA: 0x19E0BB8
+	public void SetItem(PartyListViewItem partyItem, int member, PartyOrganizationChangeObject.CallbackFunc callback) { }
 
-	// RVA: 0x1F50C64 Offset: 0x1F50C64 VA: 0x1F50C64 Slot: 5
-	public override void SetItem(ListViewItem item) { }
+	// RVA: 0x19E0F4C Offset: 0x19E0F4C VA: 0x19E0F4C
+	public void ModifyItem() { }
 
-	// RVA: 0x1F50C5C Offset: 0x1F50C5C VA: 0x1F50C5C
-	protected void InitItem() { }
+	// RVA: 0x19E0D6C Offset: 0x19E0D6C VA: 0x19E0D6C
+	public void SetInput(bool isInput) { }
 
-	// RVA: 0x1F50C8C Offset: 0x1F50C8C VA: 0x1F50C8C Slot: 9
-	public override void SetInput(bool isInput) { }
+	// RVA: 0x19E2E10 Offset: 0x19E2E10 VA: 0x19E2E10
+	public void OnClickItem() { }
 
-	// RVA: 0x1F50D3C Offset: 0x1F50D3C VA: 0x1F50D3C Slot: 8
-	public override GameObject CreateDragObject() { }
+	// RVA: 0x19E3154 Offset: 0x19E3154 VA: 0x19E3154
+	public void OnLongPressItem() { }
 
-	// RVA: 0x1F50DC4 Offset: 0x1F50DC4 VA: 0x1F50DC4
-	public void Init(PartyOrganizationEventPointListViewObject.InitMode initMode, Action callbackFunc, float delay, Vector3 position) { }
+	// RVA: 0x19E3170 Offset: 0x19E3170 VA: 0x19E3170
+	protected void OpenServantDetail() { }
 
-	// RVA: 0x1F5047C Offset: 0x1F5047C VA: 0x1F5047C
-	public void Init(PartyOrganizationEventPointListViewObject.InitMode initMode, Action callbackFunc, float delay) { }
+	// RVA: 0x19E347C Offset: 0x19E347C VA: 0x19E347C
+	protected void EndShowServant(bool isDecide) { }
 
-	// RVA: 0x1F501F0 Offset: 0x1F501F0 VA: 0x1F501F0
-	public void Init(PartyOrganizationEventPointListViewObject.InitMode initMode, Action callbackFunc) { }
+	// RVA: 0x19E3530 Offset: 0x19E3530 VA: 0x19E3530
+	protected void EndShowServantWithQuest(bool isDecide, int questId) { }
 
-	// RVA: 0x1F4FD34 Offset: 0x1F4FD34 VA: 0x1F4FD34
-	public void Init(PartyOrganizationEventPointListViewObject.InitMode initMode) { }
+	// RVA: 0x19E35FC Offset: 0x19E35FC VA: 0x19E35FC
+	protected void EndCloseShow() { }
 
-	// RVA: 0x1F50FCC Offset: 0x1F50FCC VA: 0x1F50FCC
-	protected void SetupDisp() { }
+	// RVA: 0x19E3600 Offset: 0x19E3600 VA: 0x19E3600
+	protected void EndCloseShowQuestJump() { }
 
-	// RVA: 0x1F510DC Offset: 0x1F510DC VA: 0x1F510DC
-	protected void EventMoveEnd() { }
+	// RVA: 0x19E366C Offset: 0x19E366C VA: 0x19E366C
+	public void OnClickItemEquip() { }
+
+	// RVA: 0x19E3754 Offset: 0x19E3754 VA: 0x19E3754
+	public void OnLongPressItemEquip() { }
+
+	// RVA: 0x19E3770 Offset: 0x19E3770 VA: 0x19E3770
+	protected void OpenEquipDetail() { }
+
+	// RVA: 0x19E3A3C Offset: 0x19E3A3C VA: 0x19E3A3C
+	protected void EndShowEquip(bool isDecide) { }
+
+	// RVA: 0x19E3AF0 Offset: 0x19E3AF0 VA: 0x19E3AF0
+	protected void EndCloseShowEquip() { }
 }
 
 // Namespace: 
-public enum PartyOrganizationEventPointListViewObject.InitMode // TypeDefIndex: 10427
+public enum PartyOrganizationChangeObject.ResultKind // TypeDefIndex: 10414
 {
 	// Fields
 	public int value__; // 0x0
-	public const PartyOrganizationEventPointListViewObject.InitMode INVISIBLE = 0;
-	public const PartyOrganizationEventPointListViewObject.InitMode INVALID = 1;
-	public const PartyOrganizationEventPointListViewObject.InitMode VALID = 2;
-	public const PartyOrganizationEventPointListViewObject.InitMode INPUT = 3;
-	public const PartyOrganizationEventPointListViewObject.InitMode MODIFY = 4;
-	public const PartyOrganizationEventPointListViewObject.InitMode TUTORIAL_INPUT = 5;
+	public const PartyOrganizationChangeObject.ResultKind NONE = 0;
+	public const PartyOrganizationChangeObject.ResultKind SELECT_SERVANT = 1;
+	public const PartyOrganizationChangeObject.ResultKind SELECT_EQUIP = 2;
+	public const PartyOrganizationChangeObject.ResultKind MODIFY_STATUS = 3;
 }
 
 // Namespace: 
-protected enum PartyOrganizationEventPointListViewObject.State // TypeDefIndex: 10428
+protected enum PartyOrganizationChangeObject.State // TypeDefIndex: 10415
 {
 	// Fields
 	public int value__; // 0x0
-	public const PartyOrganizationEventPointListViewObject.State INIT = 0;
-	public const PartyOrganizationEventPointListViewObject.State IDLE = 1;
-	public const PartyOrganizationEventPointListViewObject.State MOVE = 2;
-	public const PartyOrganizationEventPointListViewObject.State INPUT = 3;
-	public const PartyOrganizationEventPointListViewObject.State TUTORIAL_INPUT = 4;
+	public const PartyOrganizationChangeObject.State INIT = 0;
+	public const PartyOrganizationChangeObject.State IDLE = 1;
+	public const PartyOrganizationChangeObject.State INPUT = 2;
 }
 
 // Namespace: 
-public class PartyOrganizationEventPointMenu : BaseDialog // TypeDefIndex: 10429
+public sealed class PartyOrganizationChangeObject.CallbackFunc : MulticastDelegate // TypeDefIndex: 10416
+{
+	// Methods
+
+	// RVA: 0x19E0BA8 Offset: 0x19E0BA8 VA: 0x19E0BA8
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x19E2F10 Offset: 0x19E2F10 VA: 0x19E2F10 Slot: 11
+	public virtual void Invoke(PartyOrganizationChangeObject.ResultKind result, int n) { }
+
+	// RVA: 0x19E3AF4 Offset: 0x19E3AF4 VA: 0x19E3AF4 Slot: 12
+	public virtual IAsyncResult BeginInvoke(PartyOrganizationChangeObject.ResultKind result, int n, AsyncCallback callback, object object) { }
+
+	// RVA: 0x19E3B9C Offset: 0x19E3B9C VA: 0x19E3B9C Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class PartyOrganizationCommandCardMenu : BaseDialog // TypeDefIndex: 10417
 {
 	// Fields
-	[SerializeField] // RVA: 0xCE0C8C Offset: 0xCE0C8C VA: 0xCE0C8C
+	[SerializeField] // RVA: 0xC73AE8 Offset: 0xC73AE8 VA: 0xC73AE8
 	protected UILabel titleLabel; // 0x58
-	[SerializeField] // RVA: 0xCE0C9C Offset: 0xCE0C9C VA: 0xCE0C9C
-	protected UILabel messageLabel; // 0x60
-	[SerializeField] // RVA: 0xCE0CAC Offset: 0xCE0CAC VA: 0xCE0CAC
-	protected PartyOrganizationEventPointListViewManager eventPointListViewManager; // 0x68
-	[SerializeField] // RVA: 0xCE0CBC Offset: 0xCE0CBC VA: 0xCE0CBC
+	[SerializeField] // RVA: 0xC73AF8 Offset: 0xC73AF8 VA: 0xC73AF8
+	protected PartyOrganizationConfirmItemDraw[] memberObjectList; // 0x60
+	[SerializeField] // RVA: 0xC73B08 Offset: 0xC73B08 VA: 0xC73B08
+	protected UISprite compatibilitySprite; // 0x68
+	[SerializeField] // RVA: 0xC73B18 Offset: 0xC73B18 VA: 0xC73B18
 	protected UILabel closeLabel; // 0x70
-	[SerializeField] // RVA: 0xCE0CCC Offset: 0xCE0CCC VA: 0xCE0CCC
+	[SerializeField] // RVA: 0xC73B28 Offset: 0xC73B28 VA: 0xC73B28
 	protected UICommonButton closeButton; // 0x78
-	protected PartyOrganizationEventPointMenu.State state; // 0x80
-	[CompilerGeneratedAttribute] // RVA: 0xCE0CDC Offset: 0xCE0CDC VA: 0xCE0CDC
-	[DebuggerBrowsableAttribute] // RVA: 0xCE0CDC Offset: 0xCE0CDC VA: 0xCE0CDC
-	private PartyOrganizationEventPointMenu.CallbackFunc callbackFunc; // 0x88
+	protected PartyOrganizationCommandCardMenu.State state; // 0x80
+	[CompilerGeneratedAttribute] // RVA: 0xC73B38 Offset: 0xC73B38 VA: 0xC73B38
+	[DebuggerBrowsableAttribute] // RVA: 0xC73B38 Offset: 0xC73B38 VA: 0xC73B38
+	private PartyOrganizationCommandCardMenu.CallbackFunc callbackFunc; // 0x88
 	protected Action closeCallbackFunc; // 0x90
 
 	// Properties
@@ -648,353 +943,58 @@ public class PartyOrganizationEventPointMenu : BaseDialog // TypeDefIndex: 10429
 
 	// Methods
 
-	// RVA: 0x1F51104 Offset: 0x1F51104 VA: 0x1F51104
+	// RVA: 0x19E3BA8 Offset: 0x19E3BA8 VA: 0x19E3BA8
 	public void .ctor() { }
 
-	// RVA: 0x1F5116C Offset: 0x1F5116C VA: 0x1F5116C
-	protected void add_callbackFunc(PartyOrganizationEventPointMenu.CallbackFunc value) { }
+	// RVA: 0x19E3C28 Offset: 0x19E3C28 VA: 0x19E3C28
+	protected void add_callbackFunc(PartyOrganizationCommandCardMenu.CallbackFunc value) { }
 
-	// RVA: 0x1F51258 Offset: 0x1F51258 VA: 0x1F51258
-	protected void remove_callbackFunc(PartyOrganizationEventPointMenu.CallbackFunc value) { }
+	// RVA: 0x19E3D14 Offset: 0x19E3D14 VA: 0x19E3D14
+	protected void remove_callbackFunc(PartyOrganizationCommandCardMenu.CallbackFunc value) { }
 
-	// RVA: 0x1F51344 Offset: 0x1F51344 VA: 0x1F51344
+	// RVA: 0x19E3E00 Offset: 0x19E3E00 VA: 0x19E3E00
 	public void Init() { }
 
-	// RVA: 0x1F5145C Offset: 0x1F5145C VA: 0x1F5145C
-	public void Open(EventUpValSetupInfo setupInfo, PartyListViewItem partyItem, PartyOrganizationEventPointMenu.CallbackFunc callback) { }
+	// RVA: 0x19E3EEC Offset: 0x19E3EEC VA: 0x19E3EEC
+	public void Open(PartyOrganizationCommandCardMenu.Kind kind, PartyListViewItem partyItem, PartyOrganizationCommandCardMenu.CallbackFunc callback) { }
 
-	// RVA: 0x1F515E0 Offset: 0x1F515E0 VA: 0x1F515E0
+	// RVA: 0x19E511C Offset: 0x19E511C VA: 0x19E511C
 	protected void EndOpen() { }
 
-	// RVA: 0x1F515EC Offset: 0x1F515EC VA: 0x1F515EC
+	// RVA: 0x19E5128 Offset: 0x19E5128 VA: 0x19E5128
 	public void Close() { }
 
-	// RVA: 0x1F515F4 Offset: 0x1F515F4 VA: 0x1F515F4
+	// RVA: 0x19E5130 Offset: 0x19E5130 VA: 0x19E5130
 	public void Close(Action callback) { }
 
-	// RVA: 0x1F51684 Offset: 0x1F51684 VA: 0x1F51684
+	// RVA: 0x19E51C0 Offset: 0x19E51C0 VA: 0x19E51C0
 	protected void EndClose() { }
 
-	// RVA: 0x1F516C0 Offset: 0x1F516C0 VA: 0x1F516C0
+	// RVA: 0x19E51FC Offset: 0x19E51FC VA: 0x19E51FC
 	protected void Callback(bool result) { }
 
-	// RVA: 0x1F5190C Offset: 0x1F5190C VA: 0x1F5190C
+	// RVA: 0x19E5448 Offset: 0x19E5448 VA: 0x19E5448
 	public void OnClickCancel() { }
 
-	// RVA: 0x1F519AC Offset: 0x1F519AC VA: 0x1F519AC Slot: 6
+	// RVA: 0x19E54E8 Offset: 0x19E54E8 VA: 0x19E54E8 Slot: 6
 	protected override string get_closeBtnPath() { }
 }
 
 // Namespace: 
-protected enum PartyOrganizationEventPointMenu.State // TypeDefIndex: 10430
+public enum PartyOrganizationCommandCardMenu.Kind // TypeDefIndex: 10418
 {
 	// Fields
 	public int value__; // 0x0
-	public const PartyOrganizationEventPointMenu.State INIT = 0;
-	public const PartyOrganizationEventPointMenu.State OPEN = 1;
-	public const PartyOrganizationEventPointMenu.State INPUT = 2;
-	public const PartyOrganizationEventPointMenu.State SELECTED = 3;
-	public const PartyOrganizationEventPointMenu.State CLOSE = 4;
+	public const PartyOrganizationCommandCardMenu.Kind NORMAL = 0;
 }
 
 // Namespace: 
-public sealed class PartyOrganizationEventPointMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10431
-{
-	// Methods
-
-	// RVA: 0x1F519F4 Offset: 0x1F519F4 VA: 0x1F519F4
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x1F516E0 Offset: 0x1F516E0 VA: 0x1F516E0 Slot: 11
-	public virtual void Invoke(bool result) { }
-
-	// RVA: 0x1F51A04 Offset: 0x1F51A04 VA: 0x1F51A04 Slot: 12
-	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
-
-	// RVA: 0x1F51A94 Offset: 0x1F51A94 VA: 0x1F51A94 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-public class PartyOrganizationListViewDropObject : ListViewDropObject // TypeDefIndex: 10432
-{
-	// Fields
-	protected static float ACTION_TIME; // 0x0
-	[SerializeField] // RVA: 0xCE0D18 Offset: 0xCE0D18 VA: 0xCE0D18
-	protected UIDragDropListViewItem equipUIDragDrop; // 0x70
-	[SerializeField] // RVA: 0xCE0D28 Offset: 0xCE0D28 VA: 0xCE0D28
-	protected GameObject equipDispBase; // 0x78
-	protected PartyOrganizationListViewDropObject.State state; // 0x80
-	protected Action callbackFunc; // 0x88
-	protected PartyOrganizationListViewItemDraw itemDraw; // 0x90
-	protected PartyOrganizationListViewItemDraw.DispMode dispMode; // 0x98
-	protected GameObject dragObject; // 0xA0
-	private bool isEquipPress; // 0xA8
-
-	// Methods
-
-	// RVA: 0x1F51AA0 Offset: 0x1F51AA0 VA: 0x1F51AA0
-	public void .ctor() { }
-
-	// RVA: 0x1F51AA8 Offset: 0x1F51AA8 VA: 0x1F51AA8
-	protected void Awake() { }
-
-	// RVA: 0x1F51B18 Offset: 0x1F51B18 VA: 0x1F51B18
-	private void OnDestroy() { }
-
-	// RVA: 0x1F51BC4 Offset: 0x1F51BC4 VA: 0x1F51BC4
-	public PartyOrganizationListViewItem GetItem() { }
-
-	// RVA: 0x1F51C48 Offset: 0x1F51C48 VA: 0x1F51C48
-	public void ReleaseItem() { }
-
-	// RVA: 0x1F51CF8 Offset: 0x1F51CF8 VA: 0x1F51CF8 Slot: 4
-	public override bool ClearItem() { }
-
-	// RVA: 0x1F51DAC Offset: 0x1F51DAC VA: 0x1F51DAC Slot: 6
-	public override void SetItem(ListViewItem item, ListViewItemSeed seed) { }
-
-	// RVA: 0x1F51E68 Offset: 0x1F51E68 VA: 0x1F51E68
-	public void SetVisible(bool isVisible) { }
-
-	// RVA: 0x1F51F28 Offset: 0x1F51F28 VA: 0x1F51F28 Slot: 9
-	public override void SetInput(bool isInput) { }
-
-	// RVA: 0x1F51FE8 Offset: 0x1F51FE8 VA: 0x1F51FE8 Slot: 7
-	public override bool IsCanDrag() { }
-
-	// RVA: 0x1F52164 Offset: 0x1F52164 VA: 0x1F52164 Slot: 8
-	public override GameObject CreateDragObject() { }
-
-	// RVA: 0x1F52348 Offset: 0x1F52348 VA: 0x1F52348
-	public GameObject CreateDragObject(int addDepth) { }
-
-	// RVA: 0x1F52434 Offset: 0x1F52434 VA: 0x1F52434
-	public void Init(PartyOrganizationListViewDropObject.InitMode initMode, Action callbackFunc, float delay, Vector3 position, bool isEquipSwap = False) { }
-
-	// RVA: 0x1F52CC8 Offset: 0x1F52CC8 VA: 0x1F52CC8
-	public void Init(PartyOrganizationListViewDropObject.InitMode initMode, Action callbackFunc, float delay) { }
-
-	// RVA: 0x1F52D78 Offset: 0x1F52D78 VA: 0x1F52D78
-	public void Init(PartyOrganizationListViewDropObject.InitMode initMode, Action callbackFunc) { }
-
-	// RVA: 0x1F52214 Offset: 0x1F52214 VA: 0x1F52214
-	public void Init(PartyOrganizationListViewDropObject.InitMode initMode) { }
-
-	// RVA: 0x1F5276C Offset: 0x1F5276C VA: 0x1F5276C
-	protected void SetupDisp() { }
-
-	// RVA: 0x1F52888 Offset: 0x1F52888 VA: 0x1F52888
-	private void IntoStart(float delay) { }
-
-	// RVA: 0x1F52E1C Offset: 0x1F52E1C VA: 0x1F52E1C
-	private void IntoMove() { }
-
-	// RVA: 0x1F52F90 Offset: 0x1F52F90 VA: 0x1F52F90
-	private void IntoMove2() { }
-
-	// RVA: 0x1F529B0 Offset: 0x1F529B0 VA: 0x1F529B0
-	protected void DragMoveStart(Vector3 position, bool isEquipSwap = False) { }
-
-	// RVA: 0x1F52C1C Offset: 0x1F52C1C VA: 0x1F52C1C
-	protected void DragDelete() { }
-
-	// RVA: 0x1F53054 Offset: 0x1F53054 VA: 0x1F53054
-	protected void MoveEnd() { }
-
-	// RVA: 0x1F5307C Offset: 0x1F5307C VA: 0x1F5307C
-	public void OnClickListDrop() { }
-
-	// RVA: 0x1F53104 Offset: 0x1F53104 VA: 0x1F53104
-	public void OnLongPressItem() { }
-
-	// RVA: 0x1F5318C Offset: 0x1F5318C VA: 0x1F5318C
-	public void OnClickItemEquip() { }
-
-	// RVA: 0x1F53214 Offset: 0x1F53214 VA: 0x1F53214
-	public void OnLongPressItemEquip() { }
-
-	// RVA: 0x1F5329C Offset: 0x1F5329C VA: 0x1F5329C
-	public void OnPressItem() { }
-
-	// RVA: 0x1F532B8 Offset: 0x1F532B8 VA: 0x1F532B8
-	public void OnPressItemEquip() { }
-
-	// RVA: 0x1F53370 Offset: 0x1F53370 VA: 0x1F53370
-	public void SetEquipDisp(bool flg) { }
-
-	// RVA: 0x1F522B4 Offset: 0x1F522B4 VA: 0x1F522B4
-	public void SetDispEquipOnly(bool flg) { }
-
-	// RVA: 0x1F5349C Offset: 0x1F5349C VA: 0x1F5349C
-	public void SetDispSwapGuide(bool isDisp) { }
-
-	// RVA: 0x1F534D4 Offset: 0x1F534D4 VA: 0x1F534D4
-	public bool IsEquipPress() { }
-
-	// RVA: 0x1F534DC Offset: 0x1F534DC VA: 0x1F534DC
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public enum PartyOrganizationListViewDropObject.InitMode // TypeDefIndex: 10433
+protected enum PartyOrganizationCommandCardMenu.State // TypeDefIndex: 10419
 {
 	// Fields
 	public int value__; // 0x0
-	public const PartyOrganizationListViewDropObject.InitMode INVISIBLE = 0;
-	public const PartyOrganizationListViewDropObject.InitMode INVALID = 1;
-	public const PartyOrganizationListViewDropObject.InitMode VALID = 2;
-	public const PartyOrganizationListViewDropObject.InitMode INTO = 3;
-	public const PartyOrganizationListViewDropObject.InitMode INPUT = 4;
-	public const PartyOrganizationListViewDropObject.InitMode DRAG_INVISIBLE = 5;
-	public const PartyOrganizationListViewDropObject.InitMode DRAG_MOVE = 6;
-	public const PartyOrganizationListViewDropObject.InitMode DRAG_DELETE = 7;
-	public const PartyOrganizationListViewDropObject.InitMode DRAG_INPUT = 8;
-	public const PartyOrganizationListViewDropObject.InitMode DRAG_VALID = 9;
-	public const PartyOrganizationListViewDropObject.InitMode MODIFY = 10;
-}
-
-// Namespace: 
-protected enum PartyOrganizationListViewDropObject.State // TypeDefIndex: 10434
-{
-	// Fields
-	public int value__; // 0x0
-	public const PartyOrganizationListViewDropObject.State INIT = 0;
-	public const PartyOrganizationListViewDropObject.State IDLE = 1;
-	public const PartyOrganizationListViewDropObject.State MOVE = 2;
-	public const PartyOrganizationListViewDropObject.State INPUT = 3;
-}
-
-// Namespace: 
-public class PartyOrganizationListViewItem : ListViewItem // TypeDefIndex: 10435
-{
-	// Fields
-	protected UserServantEntity userServantEntity; // 0x70
-	protected FollowerInfo followerInfo; // 0x78
-	protected bool isFollower; // 0x80
-	protected bool isFixNpc; // 0x81
-	protected int followerClassId; // 0x84
-	protected int followerIndex; // 0x88
-	protected long[] equipIdList; // 0x90
-	protected EventUpValSetupInfo setupInfo; // 0x98
-	protected QuestRestrictionInfo questRestrictionInfo; // 0xA0
-	protected ServantEntity servantEntity; // 0xA8
-	protected int classId; // 0xB0
-	protected int rarityId; // 0xB4
-	protected int frameType; // 0xB8
-	protected int svtLimitCount; // 0xBC
-	protected int[] commandCodeIdList; // 0xC0
-	protected bool isQuestRestriction; // 0xC8
-	protected bool isUniqueSvtRestriction; // 0xC9
-	protected bool isFixedSupportPositionRestriction; // 0xCA
-	protected bool isFixedMyServantPositionRestriction; // 0xCB
-	protected bool isFixedMyServantPositionAgreement; // 0xCC
-	protected bool isConvertOverwriteImage; // 0xCD
-	protected bool isServantNumRestriction; // 0xCE
-	protected bool isFixMultipleNpcRestriction; // 0xCF
-	protected bool isFixMultipleNpc; // 0xD0
-	protected long npcFollowerSvtId; // 0xD8
-	protected bool isMyServantOrNpcRestriction; // 0xE0
-	protected bool haveIndividualityServant; // 0xE1
-	protected long fatigureTime; // 0xE8
-	protected bool isFatigureRecover; // 0xF0
-	protected UserServantEntity equipUserServantEntity; // 0xF8
-	protected ServantEntity equipServantEntity; // 0x100
-	protected bool isEventUpVal; // 0x108
-	protected EventUpValInfo eventUpValInfo; // 0x110
-	protected EventMargeItemUpValInfo[] eventUpValItemList; // 0x118
-	protected EventCampaignEntity[] friendPointCampaignEntityList; // 0x120
-	private int nameLimitCount; // 0x128
-	private int warBoardPieceIndex; // 0x12C
-
-	// Properties
-	public int WarBoardPieceIndex { get; set; }
-	private FollowerInfo.ReturnSupportServantType DisplayServantType { get; }
-	public bool IsFollower { get; }
-	public bool IsFixNpc { get; }
-	public bool IsEmpty { get; }
-	public bool IsEventJoin { get; }
-	public bool IsLeave { get; }
-	public UserServantEntity UserServant { get; }
-	public FollowerInfo FollowerData { get; }
-	public ServantLeaderInfo ServantLeader { get; }
-	public EquipTargetInfo EquipTarget1 { get; }
-	public ServantEntity Servant { get; }
-	public ObscuredInt SvtId { get; }
-	public string ServantName { get; }
-	public string SvtNameText { get; }
-	public int Level { get; }
-	public int MaxLevel { get; }
-	public int ClassId { get; }
-	public int RarityId { get; }
-	public int ExceedCount { get; }
-	public int FrameType { get; }
-	public int SvtLimitCount { get; }
-	public int AdjustAtk { get; }
-	public int AdjustHp { get; }
-	public int MargeAtk { get; }
-	public int MargeHp { get; }
-	public int MargeCost { get; }
-	public int MainCost { get; }
-	public int EquipCost { get; }
-	public long EquipUserSvtId { get; }
-	public ObscuredInt EquipSvtId { get; }
-	public int EquipLimitCount { get; }
-	public int EquipLimitCountMax { get; }
-	public string EquipName { get; }
-	public bool IsEventUpVal { get; }
-	public EventMargeItemUpValInfo[] EventUpValItemList { get; }
-	public QuestRestrictionInfo QuestRestriction { get; }
-	public bool IsSupportOnly { get; }
-	public bool IsQuestRestriction { get; }
-	public bool IsUniqueSvtRestriction { get; }
-	public bool IsFixedSupportPositionRestriction { get; }
-	public bool IsFixedMyServantPositionRestriction { get; }
-	public bool IsFixedMyServantPositionAgreement { get; }
-	public bool IsFixedMyServantSingle { get; }
-	public bool IsServantNumRestriction { get; }
-	public bool IsFixMultipleNpcRestriction { get; }
-	public bool IsFixMultipleNpc { get; }
-	public bool IsNpcEditablePos { get; }
-	public bool IsRestriction { get; }
-	public long FatigureTime { get; }
-	public bool IsFatigureRecover { get; }
-	public bool IsConvertOverwriteImage { get; }
-	public string CostumeName { get; }
-	public bool IsMyServantOrNpcRestriction { get; }
-	public bool HaveIndividualityServant { get; }
-
-	// Methods
-
-	// RVA: 0x1F53534 Offset: 0x1F53534 VA: 0x1F53534
-	protected void .ctor(int index) { }
-
-	// RVA: 0x1F53544 Offset: 0x1F53544 VA: 0x1F53544
-	public void .ctor(int index, UserServantEntity userServantEntity, long[] equipIdList, EventUpValSetupInfo setupInfo, QuestRestrictionInfo questRestrictionInfo, EventCampaignEntity[] friendPointCampaignEntityList) { }
-
-	// RVA: 0x1F4CFD8 Offset: 0x1F4CFD8 VA: 0x1F4CFD8
-	public void .ctor(int index, FollowerInfo follower, int followerClassId, EventUpValSetupInfo setupInfo, QuestRestrictionInfo questRestrictionInfo, EventCampaignEntity[] friendPointCampaignEntityList, bool isFixNpc = False, int followerDeckId = 0) { }
-
-	// RVA: 0x1F54830 Offset: 0x1F54830 VA: 0x1F54830
-	public void .ctor(int index, bool isFollower, EventUpValSetupInfo setupInfo, QuestRestrictionInfo questRestrictionInfo, bool isMyServant = True) { }
-
-	// RVA: 0x1F4BF20 Offset: 0x1F4BF20 VA: 0x1F4BF20
-	public void .ctor(int index, int svtId, int limitCount, EventUpValSetupInfo setupInfo, QuestRestrictionInfo questRestrictionInfo) { }
-
-	// RVA: 0x1F54B08 Offset: 0x1F54B08 VA: 0x1F54B08
-	public int get_WarBoardPieceIndex() { }
-
-	// RVA: 0x1F54B10 Offset: 0x1F54B10 VA: 0x1F54B10
-	public void set_WarBoardPieceIndex(int value) { }
-
-	// RVA: 0x1F54814 Offset: 0x1F54814 VA: 0x1F54814
-	private FollowerInfo.ReturnSupportServantType get_DisplayServantType() { }
-
-	// RVA: 0x1F54B18 Offset: 0x1F54B18 VA: 0x1F54B18
-	public PartyOrganizationListViewItem Clone() { }
-
-	// RVA: 0x1F54F18 Offset: 0x1F54F18 VA: 0x1F54F18
-	public EventCampaignEntity[] GetFriendPointCampaignEntityList() { }
-
-	// RVA: 0x1F53AF8 Offset: 0x1F53AF8 VA: 0x1F53AF8
-	protected void SetEquipStatus(long[] equipIdList) { }
+	public const PartyOrganizationCommandCardMenu.State INIT = 0;
+	public const PartyOrganizationCommandCardMenu.State OPEN = 1;
+	public const PartyOrganizationCommandCardMenu.State INPUT = 2;
+	public const PartyOrganizationCommandCardMenu.State SELECTED = 3;
+	public const PartyOrganizationCommandCardMenu.State CLOSE = 4;

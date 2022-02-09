@@ -1,61 +1,421 @@
-	protected Action closeServantEquipStatusDialogCallback; // 0x330
-	protected StonePurchaseMenu stonePurchaseMenu; // 0x338
-	protected UserGameActRecoverMenu userGameActRecoverMenu; // 0x340
-	protected UserPresentBoxWindow usrPresentListWindow; // 0x348
-	protected CommonMultiItemGetDlg commonMultiItemGetDlg; // 0x350
-	protected CampaignInfoDlg campaignInfoDlg; // 0x358
-	protected PresentBoxNotificationMenu presentBoxNotificationMenu; // 0x360
-	protected LogoMain logoMain; // 0x368
-	protected Action logoMainCallback; // 0x370
-	protected TripleButtonDlgComponent tripleButtonDialog; // 0x378
-	protected ServantFrameShortDlgComponent svtFrameShortDialog; // 0x380
-	protected UserNameEntryComponent userNameEntry; // 0x388
-	protected BoostSupportRequestMenu boostSupportRequestMenu; // 0x390
-	protected Action closeBoostSupportRequestMenuCallback; // 0x398
-	protected BoostSupportRequestReconfirmationMenu boostSupportRequestReconfirmationMenu; // 0x3A0
-	protected Action closeBoostSupportRequestReconfirmationMenuCallback; // 0x3A8
-	protected CenterEffectDetailDialog centerEffectDetailDialog; // 0x3B0
-	protected Action closeCenterEffectDetailDialogCallback; // 0x3B8
-	protected CombineResultEffectComponent combineResEffectComp; // 0x3C0
-	protected ClassCompatibilityMenu classCompatibilityMenu; // 0x3C8
-	protected Action closeClassCompatibilityMenuCallback; // 0x3D0
-	protected RecoverDlgComponent recvDlgComp; // 0x3D8
-	protected EventItemSelectDlgComponent eventItemSelectDlgComp; // 0x3E0
-	protected ItemDetailInfoComponent itemDetailDlgComp; // 0x3E8
-	protected CompleteMissionComponent completeMissionComp; // 0x3F0
-	protected MasterMissionComponent masterMissionComp; // 0x3F8
-	protected MstProfileComponent masterProfileComp; // 0x400
-	protected MissionRewardGetDialog missionRewardGetDlgComp; // 0x408
-	protected WarBoardTreasureListComponent warBoardTreasureListComp; // 0x410
-	protected TreasureBoxDialogComponent TreasureBoxDlgComp; // 0x418
-	protected AssetData costumeReleaseEffectAssetData; // 0x420
-	protected AssetData equipGetEffectAssetData; // 0x428
-	protected MissionListDlgComponent missionListDlgComp; // 0x430
-	protected AssistEffectConfirmDialog assistEffectConfirmDialog; // 0x438
-	protected NotificationIconDialog notificationIconDialog; // 0x440
-	protected Action closeNotificationIconDialogCallback; // 0x448
-	protected ScrollMessageDialog scrollMessageDialog; // 0x450
-	protected ScrollMessageDialog scrollMessageSubtitleDialog; // 0x458
-	protected Action closeScrollMessageDialogCallback; // 0x460
-	protected AchievementExchangeConditionsDialog achievementExchangeConditionsDialog; // 0x468
-	protected Action closeAchievementExchangeConditionsDialogCallback; // 0x470
-	protected NoTitleDialog noTitleDialog; // 0x478
-	protected Action closeNoTitleDialogCallback; // 0x480
-	private AssetData itemGetEffectAssetData; // 0x488
-	private int itemGetEffectId; // 0x490
+
+	// RVA: 0x1668030 Offset: 0x1668030 VA: 0x1668030
+	public void Open(string title, string message, string decideTxt, string cancelTxt, bool isDecideSe, CommonConfirmDialog.ClickDelegate func, int fontSize, bool canMaskTouchClose = False, int decideTxtSize = 0, int cancelTxtSize = 0) { }
+
+	// RVA: 0x16680A8 Offset: 0x16680A8 VA: 0x16680A8
+	protected void EndOpen() { }
+
+	// RVA: 0x16680B4 Offset: 0x16680B4 VA: 0x16680B4
+	public void Close() { }
+
+	// RVA: 0x16680BC Offset: 0x16680BC VA: 0x16680BC
+	public void Close(Action callback) { }
+
+	// RVA: 0x1668148 Offset: 0x1668148 VA: 0x1668148
+	protected void EndClose() { }
+
+	// RVA: 0x16681AC Offset: 0x16681AC VA: 0x16681AC
+	public void OnClickDecide() { }
+
+	// RVA: 0x1668260 Offset: 0x1668260 VA: 0x1668260
+	public void OnClickDecide2() { }
+
+	// RVA: 0x16682F4 Offset: 0x16682F4 VA: 0x16682F4
+	public void OnClickCancel() { }
+
+	// RVA: 0x1668388 Offset: 0x1668388 VA: 0x1668388
+	public void OnClickClose() { }
+
+	// RVA: 0x166841C Offset: 0x166841C VA: 0x166841C
+	private void OnEnable() { }
+}
+
+// Namespace: 
+public sealed class CommonConfirmDialog.ClickDelegate : MulticastDelegate // TypeDefIndex: 5338
+{
+	// Methods
+
+	// RVA: 0xF2D6A4 Offset: 0xF2D6A4 VA: 0xF2D6A4
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0xF2D6B4 Offset: 0xF2D6B4 VA: 0xF2D6B4 Slot: 11
+	public virtual void Invoke(bool isDecide) { }
+
+	// RVA: 0xF2D8E0 Offset: 0xF2D8E0 VA: 0xF2D8E0 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool isDecide, AsyncCallback callback, object object) { }
+
+	// RVA: 0xF2D970 Offset: 0xF2D970 VA: 0xF2D970 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class CommonMultiItemGetDlg : BaseDialog // TypeDefIndex: 5339
+{
+	// Fields
+	[SerializeField] // RVA: 0xC4B7A4 Offset: 0xC4B7A4 VA: 0xC4B7A4
+	private CommonMultiItemGetList itemWindow; // 0x58
+	[SerializeField] // RVA: 0xC4B7B4 Offset: 0xC4B7B4 VA: 0xC4B7B4
+	private UILabel titleConfLabel; // 0x60
+	[SerializeField] // RVA: 0xC4B7C4 Offset: 0xC4B7C4 VA: 0xC4B7C4
+	private UILabel detailLabel; // 0x68
+	[SerializeField] // RVA: 0xC4B7D4 Offset: 0xC4B7D4 VA: 0xC4B7D4
+	private ItemDetailInfoComponent itemDialog; // 0x70
+	[SerializeField] // RVA: 0xC4B7E4 Offset: 0xC4B7E4 VA: 0xC4B7E4
+	private UILabel decideLabel; // 0x78
+	[SerializeField] // RVA: 0xC4B7F4 Offset: 0xC4B7F4 VA: 0xC4B7F4
+	private UILabel cancelLabel; // 0x80
+	private CommonMultiItemGetDlg.OnClickDelegate onclick; // 0x88
+	private Action onEndClose; // 0x90
+
+	// Methods
+
+	// RVA: 0xF3B0FC Offset: 0xF3B0FC VA: 0xF3B0FC
+	public void .ctor() { }
+
+	// RVA: 0xF3B164 Offset: 0xF3B164 VA: 0xF3B164
+	public void Init() { }
+
+	// RVA: 0xF3B194 Offset: 0xF3B194 VA: 0xF3B194
+	public void endOpen() { }
+
+	// RVA: 0xF3B278 Offset: 0xF3B278 VA: 0xF3B278
+	public void Open(string title, string detail, string closeMsg, string decideMsg, GiftEntity[] giftList, int columnCount, CommonMultiItemGetDlg.OnClickDelegate callback) { }
+
+	// RVA: 0xF3B948 Offset: 0xF3B948 VA: 0xF3B948
+	public void setShowConf(GiftEntity item) { }
+
+	// RVA: 0xF3B9C8 Offset: 0xF3B9C8 VA: 0xF3B9C8
+	private void setShowServantConf(GiftEntity gift) { }
+
+	// RVA: 0xF3BDD0 Offset: 0xF3BDD0 VA: 0xF3BDD0
+	private void DialogCallBack(bool flg) { }
+
+	// RVA: 0xF3BA74 Offset: 0xF3BA74 VA: 0xF3BA74
+	private void setShowItemConf(int itemId) { }
+
+	// RVA: 0xF3BF30 Offset: 0xF3BF30 VA: 0xF3BF30
+	private void itemDialogCallBack(bool flg) { }
+
+	// RVA: 0xF3BFB8 Offset: 0xF3BFB8 VA: 0xF3BFB8
+	public void OnClickDecide() { }
+
+	// RVA: 0xF3C218 Offset: 0xF3C218 VA: 0xF3C218
+	public void OnClickCancel() { }
+
+	// RVA: 0xF3C24C Offset: 0xF3C24C VA: 0xF3C24C
+	public void Close(Action callback) { }
+
+	// RVA: 0xF3C2EC Offset: 0xF3C2EC VA: 0xF3C2EC
+	private void endClose() { }
+}
+
+// Namespace: 
+public sealed class CommonMultiItemGetDlg.OnClickDelegate : MulticastDelegate // TypeDefIndex: 5340
+{
+	// Methods
+
+	// RVA: 0xF3C344 Offset: 0xF3C344 VA: 0xF3C344
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0xF3BFEC Offset: 0xF3BFEC VA: 0xF3BFEC Slot: 11
+	public virtual void Invoke(bool isDecide) { }
+
+	// RVA: 0xF3C354 Offset: 0xF3C354 VA: 0xF3C354 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool isDecide, AsyncCallback callback, object object) { }
+
+	// RVA: 0xF3C3E4 Offset: 0xF3C3E4 VA: 0xF3C3E4 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class CommonMultiItemGetList : BaseMonoBehaviour // TypeDefIndex: 5341
+{
+	// Fields
+	public Transform listRoot; // 0x18
+	public GameObject prefabResultItem; // 0x20
+	private float width; // 0x28
+	private float height; // 0x2C
+	private static readonly int baseCol; // 0x0
+	private List<GameObject> itemObjectList; // 0x30
+
+	// Methods
+
+	// RVA: 0xF3C3F0 Offset: 0xF3C3F0 VA: 0xF3C3F0
+	public void .ctor() { }
+
+	// RVA: 0xF3B41C Offset: 0xF3B41C VA: 0xF3B41C
+	public void setListData(GiftEntity[] itemlist, int columnCount, GiftListViewItemIcon.ClickDelegate callBack) { }
+
+	// RVA: 0xF3B890 Offset: 0xF3B890 VA: 0xF3B890
+	public void setHide() { }
+
+	// RVA: 0xF3B1C0 Offset: 0xF3B1C0 VA: 0xF3B1C0
+	public void setShow() { }
+
+	// RVA: 0xF3C46C Offset: 0xF3C46C VA: 0xF3C46C
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class CommonUI : SingletonMonoBehaviour<CommonUI> // TypeDefIndex: 5342
+{
+	// Fields
+	private static readonly int WINDOW_OUTSIDE_PLATE_HEIGHT_NUM; // 0x0
+	private static readonly int DIALOG_ON_MASKFADE_DEPTH; // 0x4
+	private static readonly string ASSET_DATA_PATH_EFFECT_ANIME; // 0x8
+	private static readonly string COSTUME_RELEASE_EFFECT_NAME; // 0x10
+	private static readonly string EQUIP_GET_EFFECT_NAME; // 0x18
+	private static readonly string ITEM_GET_EFFECT_NAME; // 0x20
+	private static readonly int ITEM_GET_EFFECT_SKILL_EXCEED_ID; // 0x28
+	private static readonly int ITEM_GET_FRIEND_SHIP_EXCEED_ID; // 0x2C
+	private static readonly int ITEM_GET_LV_EXCEED_DEWDROP_ID; // 0x30
+	private static readonly int ITEM_GET_LV_EXCEED_ID; // 0x34
+	private static readonly int FRIENDPOINT_NOTIFY_DIALOG_Y; // 0x38
+	private const string SERIALIZED_LOGIN_RESULT_SAVE_KEY = "SerializedLoginResult";
+	[SerializeField] // RVA: 0xC4B804 Offset: 0xC4B804 VA: 0xC4B804
+	protected bool forceObi_16_9; // 0x18
+	[SerializeField] // RVA: 0xC4B814 Offset: 0xC4B814 VA: 0xC4B814
+	protected UISprite topImg; // 0x20
+	[SerializeField] // RVA: 0xC4B824 Offset: 0xC4B824 VA: 0xC4B824
+	protected UISprite bottomImg; // 0x28
+	[SerializeField] // RVA: 0xC4B834 Offset: 0xC4B834 VA: 0xC4B834
+	protected UISprite leftImg; // 0x30
+	[SerializeField] // RVA: 0xC4B844 Offset: 0xC4B844 VA: 0xC4B844
+	protected UISprite rightImg; // 0x38
+	[SerializeField] // RVA: 0xC4B854 Offset: 0xC4B854 VA: 0xC4B854
+	protected GameObject leftMaskPanel; // 0x40
+	[SerializeField] // RVA: 0xC4B864 Offset: 0xC4B864 VA: 0xC4B864
+	protected GameObject rightMaskPanel; // 0x48
+	[SerializeField] // RVA: 0xC4B874 Offset: 0xC4B874 VA: 0xC4B874
+	protected GameObject basePlateObj; // 0x50
+	private List<GameObject> leftPlateList; // 0x58
+	private List<GameObject> rightPlateList; // 0x60
+	[SerializeField] // RVA: 0xC4B884 Offset: 0xC4B884 VA: 0xC4B884
+	protected AllocMem allocMem; // 0x68
+	protected AssetsInfo assetsInfo; // 0x70
+	protected SoundInfo soundInfo; // 0x78
+	[SerializeField] // RVA: 0xC4B894 Offset: 0xC4B894 VA: 0xC4B894
+	protected Transform baseMount; // 0x80
+	[SerializeField] // RVA: 0xC4B8A4 Offset: 0xC4B8A4 VA: 0xC4B8A4
+	protected Transform baseMountSystemUI; // 0x88
+	[SerializeField] // RVA: 0xC4B8B4 Offset: 0xC4B8B4 VA: 0xC4B8B4
+	protected MaskFade maskFade; // 0x90
+	[SerializeField] // RVA: 0xC4B8C4 Offset: 0xC4B8C4 VA: 0xC4B8C4
+	protected ConnectMark connectMark; // 0x98
+	[SerializeField] // RVA: 0xC4B8D4 Offset: 0xC4B8D4 VA: 0xC4B8D4
+	protected ErrorDialog warningDialog; // 0xA0
+	[SerializeField] // RVA: 0xC4B8E4 Offset: 0xC4B8E4 VA: 0xC4B8E4
+	protected ErrorDialog errorDialog; // 0xA8
+	[SerializeField] // RVA: 0xC4B8F4 Offset: 0xC4B8F4 VA: 0xC4B8F4
+	protected ErrorDialog retryDialog; // 0xB0
+	[SerializeField] // RVA: 0xC4B904 Offset: 0xC4B904 VA: 0xC4B904
+	protected ErrorDialog retryBootDialog; // 0xB8
+	[SerializeField] // RVA: 0xC4B914 Offset: 0xC4B914 VA: 0xC4B914
+	protected DummyErrorSelectDialog dummyErrorSelectDialog; // 0xC0
+	[SerializeField] // RVA: 0xC4B924 Offset: 0xC4B924 VA: 0xC4B924
+	protected DebugSelectDialog debugSelectDialog; // 0xC8
+	[SerializeField] // RVA: 0xC4B934 Offset: 0xC4B934 VA: 0xC4B934
+	protected ErrorDialog dataUpdateDialog; // 0xD0
+	[SerializeField] // RVA: 0xC4B944 Offset: 0xC4B944 VA: 0xC4B944
+	protected CommonConfirmDialog commonConfirmDialog; // 0xD8
+	[SerializeField] // RVA: 0xC4B954 Offset: 0xC4B954 VA: 0xC4B954
+	protected NotificationDialog notifiDialog; // 0xE0
+	[SerializeField] // RVA: 0xC4B964 Offset: 0xC4B964 VA: 0xC4B964
+	protected PopupMessageDialog popupMessageDialog; // 0xE8
+	[SerializeField] // RVA: 0xC4B974 Offset: 0xC4B974 VA: 0xC4B974
+	protected DetailInfoDialog detailInfoDialog; // 0xF0
+	[SerializeField] // RVA: 0xC4B984 Offset: 0xC4B984 VA: 0xC4B984
+	protected MovieConfirmDialog movieConfirmDialog; // 0xF8
+	[SerializeField] // RVA: 0xC4B994 Offset: 0xC4B994 VA: 0xC4B994
+	protected LinkConfirmDialog linkConfirmDialog; // 0x100
+	[SerializeField] // RVA: 0xC4B9A4 Offset: 0xC4B9A4 VA: 0xC4B9A4
+	protected GameObject servantFramePurchaseMenuPrefab; // 0x108
+	[SerializeField] // RVA: 0xC4B9B4 Offset: 0xC4B9B4 VA: 0xC4B9B4
+	protected GameObject servantEquipFramePurchaseMenuPrefab; // 0x110
+	[SerializeField] // RVA: 0xC4B9C4 Offset: 0xC4B9C4 VA: 0xC4B9C4
+	protected string equipGraphListMenuPath; // 0x118
+	[SerializeField] // RVA: 0xC4B9D4 Offset: 0xC4B9D4 VA: 0xC4B9D4
+	protected string supportSelectEquipListMenuPath; // 0x120
+	[SerializeField] // RVA: 0xC4B9E4 Offset: 0xC4B9E4 VA: 0xC4B9E4
+	protected string servantSortSelectMenuPath; // 0x128
+	[SerializeField] // RVA: 0xC4B9F4 Offset: 0xC4B9F4 VA: 0xC4B9F4
+	protected GameObject servantFilterSelectMenuPrefab; // 0x130
+	[SerializeField] // RVA: 0xC4BA04 Offset: 0xC4BA04 VA: 0xC4BA04
+	protected GameObject servantBonusFilterSelectMenuPrefab; // 0x138
+	[SerializeField] // RVA: 0xC4BA14 Offset: 0xC4BA14 VA: 0xC4BA14
+	private string servantBonusFilterExtensionSelectMenuPrefabPath; // 0x140
+	[SerializeField] // RVA: 0xC4BA24 Offset: 0xC4BA24 VA: 0xC4BA24
+	protected string servantStatusDialogPath; // 0x148
+	[SerializeField] // RVA: 0xC4BA34 Offset: 0xC4BA34 VA: 0xC4BA34
+	protected string servantEquipStatusDialogPath; // 0x150
+	[SerializeField] // RVA: 0xC4BA44 Offset: 0xC4BA44 VA: 0xC4BA44
+	protected GameObject stonePurchaseMenuPrefab; // 0x158
+	[SerializeField] // RVA: 0xC4BA54 Offset: 0xC4BA54 VA: 0xC4BA54
+	protected StonePurchaseNotificationMenu stonePurchaseNotificationMenu; // 0x160
+	[SerializeField] // RVA: 0xC4BA64 Offset: 0xC4BA64 VA: 0xC4BA64
+	protected GameObject userGameActRecoverMenuPrefab; // 0x168
+	[SerializeField] // RVA: 0xC4BA74 Offset: 0xC4BA74 VA: 0xC4BA74
+	protected string userPresentBoxWindowPath; // 0x170
+	[SerializeField] // RVA: 0xC4BA84 Offset: 0xC4BA84 VA: 0xC4BA84
+	protected GameObject presentBoxNotificationMenuPrefab; // 0x178
+	[SerializeField] // RVA: 0xC4BA94 Offset: 0xC4BA94 VA: 0xC4BA94
+	protected TutorialNotificationDialog tutorialNotificationDialog; // 0x180
+	[SerializeField] // RVA: 0xC4BAA4 Offset: 0xC4BAA4 VA: 0xC4BAA4
+	protected TutorialBigDialog tutorialBigDialog; // 0x188
+	[SerializeField] // RVA: 0xC4BAB4 Offset: 0xC4BAB4 VA: 0xC4BAB4
+	protected TutorialNotificationMessage tutorialNotificationMessage; // 0x190
+	[SerializeField] // RVA: 0xC4BAC4 Offset: 0xC4BAC4 VA: 0xC4BAC4
+	protected TutorialArrowMenu tutorialArrowMenu; // 0x198
+	[SerializeField] // RVA: 0xC4BAD4 Offset: 0xC4BAD4 VA: 0xC4BAD4
+	protected string logoPath; // 0x1A0
+	[SerializeField] // RVA: 0xC4BAE4 Offset: 0xC4BAE4 VA: 0xC4BAE4
+	protected TermsOfUseDlg termsOfUseDlg; // 0x1A8
+	[SerializeField] // RVA: 0xC4BAF4 Offset: 0xC4BAF4 VA: 0xC4BAF4
+	protected GameObject tripleButtonDlgPrefab; // 0x1B0
+	[SerializeField] // RVA: 0xC4BB04 Offset: 0xC4BB04 VA: 0xC4BB04
+	protected GameObject servantFrameShortDlgPrefab; // 0x1B8
+	[SerializeField] // RVA: 0xC4BB14 Offset: 0xC4BB14 VA: 0xC4BB14
+	protected GameObject questPhaseRewardPrefab; // 0x1C0
+	[SerializeField] // RVA: 0xC4BB24 Offset: 0xC4BB24 VA: 0xC4BB24
+	protected GameObject questPhaseRewardNotify; // 0x1C8
+	[SerializeField] // RVA: 0xC4BB34 Offset: 0xC4BB34 VA: 0xC4BB34
+	protected string userNameEntryPath; // 0x1D0
+	[SerializeField] // RVA: 0xC4BB44 Offset: 0xC4BB44 VA: 0xC4BB44
+	protected string combineResEffectPath; // 0x1D8
+	[SerializeField] // RVA: 0xC4BB54 Offset: 0xC4BB54 VA: 0xC4BB54
+	protected string classCompatibilityMenuPath; // 0x1E0
+	[SerializeField] // RVA: 0xC4BB64 Offset: 0xC4BB64 VA: 0xC4BB64
+	protected string boostSupportRequestMenuPath; // 0x1E8
+	[SerializeField] // RVA: 0xC4BB74 Offset: 0xC4BB74 VA: 0xC4BB74
+	protected string boostSupportRequestReconfirmationMenuPath; // 0x1F0
+	[SerializeField] // RVA: 0xC4BB84 Offset: 0xC4BB84 VA: 0xC4BB84
+	protected string centerEffectDetailDialogPath; // 0x1F8
+	[SerializeField] // RVA: 0xC4BB94 Offset: 0xC4BB94 VA: 0xC4BB94
+	protected string RecoverItemListDlgPath; // 0x200
+	[SerializeField] // RVA: 0xC4BBA4 Offset: 0xC4BBA4 VA: 0xC4BBA4
+	protected string EventItemSelectDlgPath; // 0x208
+	[SerializeField] // RVA: 0xC4BBB4 Offset: 0xC4BBB4 VA: 0xC4BBB4
+	protected GameObject itemDetailDlgPrefab; // 0x210
+	[SerializeField] // RVA: 0xC4BBC4 Offset: 0xC4BBC4 VA: 0xC4BBC4
+	protected GameObject missionNotifyRoot; // 0x218
+	[SerializeField] // RVA: 0xC4BBD4 Offset: 0xC4BBD4 VA: 0xC4BBD4
+	protected GameObject missionNotifyPrefab; // 0x220
+	[SerializeField] // RVA: 0xC4BBE4 Offset: 0xC4BBE4 VA: 0xC4BBE4
+	protected string completeMissionWindowPath; // 0x228
+	[SerializeField] // RVA: 0xC4BBF4 Offset: 0xC4BBF4 VA: 0xC4BBF4
+	protected string masterMissionWindowPath; // 0x230
+	[SerializeField] // RVA: 0xC4BC04 Offset: 0xC4BC04 VA: 0xC4BC04
+	protected string masterProfileWindowPath; // 0x238
+	[SerializeField] // RVA: 0xC4BC14 Offset: 0xC4BC14 VA: 0xC4BC14
+	protected string commonMultiItemGetDlgPath; // 0x240
+	[SerializeField] // RVA: 0xC4BC24 Offset: 0xC4BC24 VA: 0xC4BC24
+	protected string CampaignInfoDlgPath; // 0x248
+	[SerializeField] // RVA: 0xC4BC34 Offset: 0xC4BC34 VA: 0xC4BC34
+	protected GameObject missionRewardGetDialogPrefab; // 0x250
+	[SerializeField] // RVA: 0xC4BC44 Offset: 0xC4BC44 VA: 0xC4BC44
+	private GameObject screenTouchInfoPrefab; // 0x258
+	[SerializeField] // RVA: 0xC4BC54 Offset: 0xC4BC54 VA: 0xC4BC54
+	private GameObject screenTouchInfoPrefabExpand; // 0x260
+	[SerializeField] // RVA: 0xC4BC64 Offset: 0xC4BC64 VA: 0xC4BC64
+	protected string missionListDlgPath; // 0x268
+	[SerializeField] // RVA: 0xC4BC74 Offset: 0xC4BC74 VA: 0xC4BC74
+	protected string assistEffectConfirmDialogPath; // 0x270
+	[SerializeField] // RVA: 0xC4BC84 Offset: 0xC4BC84 VA: 0xC4BC84
+	protected GameObject warBoardTreasureGetDialogPrefab; // 0x278
+	protected Action closeNotificationCallback; // 0x280
+	[SerializeField] // RVA: 0xC4BC94 Offset: 0xC4BC94 VA: 0xC4BC94
+	protected string notificationIconDialogPrefabPath; // 0x288
+	[SerializeField] // RVA: 0xC4BCA4 Offset: 0xC4BCA4 VA: 0xC4BCA4
+	protected string scrollMessageDialogPrefabPath; // 0x290
+	[SerializeField] // RVA: 0xC4BCB4 Offset: 0xC4BCB4 VA: 0xC4BCB4
+	protected string scrollMessageSubtitleDialogPrefabPath; // 0x298
+	[SerializeField] // RVA: 0xC4BCC4 Offset: 0xC4BCC4 VA: 0xC4BCC4
+	protected GameObject TreasureBoxDialogPrefab; // 0x2A0
+	[SerializeField] // RVA: 0xC4BCD4 Offset: 0xC4BCD4 VA: 0xC4BCD4
+	protected string achievementExchangeConditionsDialogPath; // 0x2A8
+	[SerializeField] // RVA: 0xC4BCE4 Offset: 0xC4BCE4 VA: 0xC4BCE4
+	protected string noTitleDialogPath; // 0x2B0
+	[SerializeField] // RVA: 0xC4BCF4 Offset: 0xC4BCF4 VA: 0xC4BCF4
+	protected string accountDeleteConfirmDialogPath; // 0x2B8
+	[SerializeField] // RVA: 0xC4BD04 Offset: 0xC4BD04 VA: 0xC4BD04
+	protected string accountDeletePasswordDialogPath; // 0x2C0
+	protected ServantFramePurchaseMenu servantFramePurchaseMenu; // 0x2C8
+	protected ServantEquipFramePurchaseMenu servantEquipFramePurchaseMenu; // 0x2D0
+	protected EquipGraphListMenu equipGraphListMenu; // 0x2D8
+	protected Action closeEquipGraphListMenuCallback; // 0x2E0
+	protected SupportServantEquipListMenu supportServantEquipListMenu; // 0x2E8
+	protected Action closeSupportServantEquipListMenuCallback; // 0x2F0
+	protected ServantSortSelectMenu servantSortSelectMenu; // 0x2F8
+	protected Action closeServantSortSelectMenuCallback; // 0x300
+	protected ServantFilterSelectMenu servantFilterSelectMenu; // 0x308
+	protected Action closeServantFilterSelectMenuCallback; // 0x310
+	protected ServantBonusFilterSelectMenu servantBonusFilterSelectMenu; // 0x318
+	protected Action closeServantBonusFilterSelectMenuCallback; // 0x320
+	protected ServantStatusDialog servantStatusDialog; // 0x328
+	protected Action closeServantStatusDialogCallback; // 0x330
+	protected ServantStatusDialog servantEquipStatusDialog; // 0x338
+	protected Action closeServantEquipStatusDialogCallback; // 0x340
+	protected StonePurchaseMenu stonePurchaseMenu; // 0x348
+	protected UserGameActRecoverMenu userGameActRecoverMenu; // 0x350
+	protected UserPresentBoxWindow usrPresentListWindow; // 0x358
+	protected CommonMultiItemGetDlg commonMultiItemGetDlg; // 0x360
+	protected CampaignInfoDlg campaignInfoDlg; // 0x368
+	protected PresentBoxNotificationMenu presentBoxNotificationMenu; // 0x370
+	protected LogoMain logoMain; // 0x378
+	protected Action logoMainCallback; // 0x380
+	protected TripleButtonDlgComponent tripleButtonDialog; // 0x388
+	protected ServantFrameShortDlgComponent svtFrameShortDialog; // 0x390
+	protected UserNameEntryComponent userNameEntry; // 0x398
+	protected BoostSupportRequestMenu boostSupportRequestMenu; // 0x3A0
+	protected Action closeBoostSupportRequestMenuCallback; // 0x3A8
+	protected BoostSupportRequestReconfirmationMenu boostSupportRequestReconfirmationMenu; // 0x3B0
+	protected Action closeBoostSupportRequestReconfirmationMenuCallback; // 0x3B8
+	protected CenterEffectDetailDialog centerEffectDetailDialog; // 0x3C0
+	protected Action closeCenterEffectDetailDialogCallback; // 0x3C8
+	protected CombineResultEffectComponent combineResEffectComp; // 0x3D0
+	protected ClassCompatibilityMenu classCompatibilityMenu; // 0x3D8
+	protected Action closeClassCompatibilityMenuCallback; // 0x3E0
+	protected RecoverDlgComponent recvDlgComp; // 0x3E8
+	protected EventItemSelectDlgComponent eventItemSelectDlgComp; // 0x3F0
+	protected ItemDetailInfoComponent itemDetailDlgComp; // 0x3F8
+	protected CompleteMissionComponent completeMissionComp; // 0x400
+	protected MasterMissionComponent masterMissionComp; // 0x408
+	protected MstProfileComponent masterProfileComp; // 0x410
+	protected MissionRewardGetDialog missionRewardGetDlgComp; // 0x418
+	protected WarBoardTreasureListComponent warBoardTreasureListComp; // 0x420
+	protected TreasureBoxDialogComponent TreasureBoxDlgComp; // 0x428
+	protected AssetData costumeReleaseEffectAssetData; // 0x430
+	protected AssetData equipGetEffectAssetData; // 0x438
+	protected MissionListDlgComponent missionListDlgComp; // 0x440
+	protected AssistEffectConfirmDialog assistEffectConfirmDialog; // 0x448
+	protected NotificationIconDialog notificationIconDialog; // 0x450
+	protected Action closeNotificationIconDialogCallback; // 0x458
+	protected ScrollMessageDialog scrollMessageDialog; // 0x460
+	protected ScrollMessageDialog scrollMessageSubtitleDialog; // 0x468
+	protected Action closeScrollMessageDialogCallback; // 0x470
+	protected AchievementExchangeConditionsDialog achievementExchangeConditionsDialog; // 0x478
+	protected Action closeAchievementExchangeConditionsDialogCallback; // 0x480
+	protected NoTitleDialog noTitleDialog; // 0x488
+	protected Action closeNoTitleDialogCallback; // 0x490
+	protected AccountDeleteConfirmDialog accountDeleteConfirmDialog; // 0x498
+	protected Action closeAccountDeleteConfirmDialogCallback; // 0x4A0
+	protected AccountDeletePasswordDialog accountDeletePasswordDialog; // 0x4A8
+	protected Action closeAccountDeletePasswordDialogCallback; // 0x4B0
+	private AssetData itemGetEffectAssetData; // 0x4B8
+	private int itemGetEffectId; // 0x4C0
 	private static readonly string ASSET_DATA_PATH_COIN_ROOM; // 0x40
 	private static readonly string ASSET_DATA_EFFECT_COIN_ROOM; // 0x48
-	private AssetData coinRoomEffectAssetData; // 0x498
-	protected Transform maskParent; // 0x4A0
-	protected int maskDepth; // 0x4A8
-	[CompilerGeneratedAttribute] // RVA: 0xCB7BE0 Offset: 0xCB7BE0 VA: 0xCB7BE0
-	[DebuggerBrowsableAttribute] // RVA: 0xCB7BE0 Offset: 0xCB7BE0 VA: 0xCB7BE0
-	private MovieFileMerge <MovieFileMerge>k__BackingField; // 0x4B0
-	[CompilerGeneratedAttribute] // RVA: 0xCB7C1C Offset: 0xCB7C1C VA: 0xCB7C1C
-	[DebuggerBrowsableAttribute] // RVA: 0xCB7C1C Offset: 0xCB7C1C VA: 0xCB7C1C
-	private GameObject <questPhaseRewardObject>k__BackingField; // 0x4B8
-	private CommonUI.LoginResultData mLoginResult; // 0x4C0
-	[CompilerGeneratedAttribute] // RVA: 0xCB7C58 Offset: 0xCB7C58 VA: 0xCB7C58
+	private AssetData coinRoomEffectAssetData; // 0x4C8
+	protected Transform maskParent; // 0x4D0
+	protected int maskDepth; // 0x4D8
+	[CompilerGeneratedAttribute] // RVA: 0xC4BD14 Offset: 0xC4BD14 VA: 0xC4BD14
+	[DebuggerBrowsableAttribute] // RVA: 0xC4BD14 Offset: 0xC4BD14 VA: 0xC4BD14
+	private MovieFileMerge <MovieFileMerge>k__BackingField; // 0x4E0
+	[CompilerGeneratedAttribute] // RVA: 0xC4BD50 Offset: 0xC4BD50 VA: 0xC4BD50
+	[DebuggerBrowsableAttribute] // RVA: 0xC4BD50 Offset: 0xC4BD50 VA: 0xC4BD50
+	private GameObject <questPhaseRewardObject>k__BackingField; // 0x4E8
+	private CommonUI.LoginResultData mLoginResult; // 0x4F0
+	[CompilerGeneratedAttribute] // RVA: 0xC4BD8C Offset: 0xC4BD8C VA: 0xC4BD8C
 	private static Action <>f__am$cache0; // 0x50
 
 	// Properties
@@ -66,935 +426,575 @@
 
 	// Methods
 
-	// RVA: 0x149E2E8 Offset: 0x149E2E8 VA: 0x149E2E8
+	// RVA: 0xF3DF80 Offset: 0xF3DF80 VA: 0xF3DF80
 	public void .ctor() { }
 
-	// RVA: 0x149E340 Offset: 0x149E340 VA: 0x149E340
+	// RVA: 0xF3DFD8 Offset: 0xF3DFD8 VA: 0xF3DFD8
 	public static bool GetForceObi_16_9() { }
 
-	// RVA: 0x149E3F0 Offset: 0x149E3F0 VA: 0x149E3F0
+	// RVA: 0xF3E088 Offset: 0xF3E088 VA: 0xF3E088
 	public static void SetForceObi_16_9(bool flag) { }
 
-	// RVA: 0x149E4D8 Offset: 0x149E4D8 VA: 0x149E4D8
+	// RVA: 0xF3E170 Offset: 0xF3E170 VA: 0xF3E170
 	public bool IsActive_UserPresentBoxWindow() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35120 Offset: 0xD35120 VA: 0xD35120
-	// RVA: 0x149E548 Offset: 0x149E548 VA: 0x149E548
+	[CompilerGeneratedAttribute] // RVA: 0xCC7A5C Offset: 0xCC7A5C VA: 0xCC7A5C
+	// RVA: 0xF3E1E0 Offset: 0xF3E1E0 VA: 0xF3E1E0
 	public MovieFileMerge get_MovieFileMerge() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35130 Offset: 0xD35130 VA: 0xD35130
-	// RVA: 0x149E550 Offset: 0x149E550 VA: 0x149E550
+	[CompilerGeneratedAttribute] // RVA: 0xCC7A6C Offset: 0xCC7A6C VA: 0xCC7A6C
+	// RVA: 0xF3E1E8 Offset: 0xF3E1E8 VA: 0xF3E1E8
 	private void set_MovieFileMerge(MovieFileMerge value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35140 Offset: 0xD35140 VA: 0xD35140
-	// RVA: 0x149E558 Offset: 0x149E558 VA: 0x149E558
+	[CompilerGeneratedAttribute] // RVA: 0xCC7A7C Offset: 0xCC7A7C VA: 0xCC7A7C
+	// RVA: 0xF3E1F0 Offset: 0xF3E1F0 VA: 0xF3E1F0
 	public GameObject get_questPhaseRewardObject() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35150 Offset: 0xD35150 VA: 0xD35150
-	// RVA: 0x149E560 Offset: 0x149E560 VA: 0x149E560
+	[CompilerGeneratedAttribute] // RVA: 0xCC7A8C Offset: 0xCC7A8C VA: 0xCC7A8C
+	// RVA: 0xF3E1F8 Offset: 0xF3E1F8 VA: 0xF3E1F8
 	private void set_questPhaseRewardObject(GameObject value) { }
 
-	// RVA: 0x149E568 Offset: 0x149E568 VA: 0x149E568
+	// RVA: 0xF3E200 Offset: 0xF3E200 VA: 0xF3E200
 	protected void Awake() { }
 
-	// RVA: 0x149E624 Offset: 0x149E624 VA: 0x149E624
+	// RVA: 0xF3E2BC Offset: 0xF3E2BC VA: 0xF3E2BC
 	public bool IsActive_ApRecvDlgComp() { }
 
-	// RVA: 0x149E694 Offset: 0x149E694 VA: 0x149E694
+	// RVA: 0xF3E32C Offset: 0xF3E32C VA: 0xF3E32C
 	public bool IsActive_EventItemSelectDlgComp() { }
 
-	// RVA: 0x149E704 Offset: 0x149E704 VA: 0x149E704
+	// RVA: 0xF3E39C Offset: 0xF3E39C VA: 0xF3E39C
 	public bool IsActive_NotifiDialog() { }
 
-	// RVA: 0x149E7A4 Offset: 0x149E7A4 VA: 0x149E7A4
+	// RVA: 0xF3E43C Offset: 0xF3E43C VA: 0xF3E43C
 	public bool IsActive_TutorialBigDialog() { }
 
-	// RVA: 0x149E7D4 Offset: 0x149E7D4 VA: 0x149E7D4
+	// RVA: 0xF3E46C Offset: 0xF3E46C VA: 0xF3E46C
 	public bool IsActive_MasterMission() { }
 
-	// RVA: 0x149E844 Offset: 0x149E844 VA: 0x149E844
+	// RVA: 0xF3E4DC Offset: 0xF3E4DC VA: 0xF3E4DC
 	public bool IsActive_MasterProfile() { }
 
-	// RVA: 0x149E8B4 Offset: 0x149E8B4 VA: 0x149E8B4
+	// RVA: 0xF3E54C Offset: 0xF3E54C VA: 0xF3E54C
 	public bool IsActive_MissionListDialog() { }
 
-	// RVA: 0x149E924 Offset: 0x149E924 VA: 0x149E924
+	// RVA: 0xF3E5BC Offset: 0xF3E5BC VA: 0xF3E5BC
 	public bool IsActive_AssistEffectConfirmDialog() { }
 
-	// RVA: 0x149E994 Offset: 0x149E994 VA: 0x149E994
+	// RVA: 0xF3E62C Offset: 0xF3E62C VA: 0xF3E62C
 	public bool IsActive_AchievementExchangeConditionsDialog() { }
 
-	// RVA: 0x149EA04 Offset: 0x149EA04 VA: 0x149EA04
+	// RVA: 0xF3E69C Offset: 0xF3E69C VA: 0xF3E69C
 	public void Reboot() { }
 
-	// RVA: 0x149FD84 Offset: 0x149FD84 VA: 0x149FD84
+	// RVA: 0xF3FB14 Offset: 0xF3FB14 VA: 0xF3FB14
 	protected GameObject CreateMenu(GameObject prefab) { }
 
-	// RVA: 0x149FFC0 Offset: 0x149FFC0 VA: 0x149FFC0
+	// RVA: 0xF3FD50 Offset: 0xF3FD50 VA: 0xF3FD50
 	protected GameObject CreateMenu(string path) { }
 
-	// RVA: 0x14A024C Offset: 0x14A024C VA: 0x14A024C
+	// RVA: 0xF3FFDC Offset: 0xF3FFDC VA: 0xF3FFDC
 	public void initMaskPanel() { }
 
-	// RVA: 0x1496A9C Offset: 0x1496A9C VA: 0x1496A9C
+	// RVA: 0xF36734 Offset: 0xF36734 VA: 0xF36734
 	public void setObiImgSize(int heightSize, int widthSize) { }
 
-	// RVA: 0x14A02EC Offset: 0x14A02EC VA: 0x14A02EC
+	// RVA: 0xF4007C Offset: 0xF4007C VA: 0xF4007C
 	private void addLeftPlate(float x, float y) { }
 
-	// RVA: 0x14A0434 Offset: 0x14A0434 VA: 0x14A0434
+	// RVA: 0xF401C4 Offset: 0xF401C4 VA: 0xF401C4
 	public void ShowLeftPlate() { }
 
-	// RVA: 0x14A0468 Offset: 0x14A0468 VA: 0x14A0468
+	// RVA: 0xF401F8 Offset: 0xF401F8 VA: 0xF401F8
 	public void HideLeftPlate() { }
 
-	// RVA: 0x14A049C Offset: 0x14A049C VA: 0x14A049C
+	// RVA: 0xF4022C Offset: 0xF4022C VA: 0xF4022C
 	public GameObject GetLeftPlateObject() { }
 
-	// RVA: 0x14A04A4 Offset: 0x14A04A4 VA: 0x14A04A4
+	// RVA: 0xF40234 Offset: 0xF40234 VA: 0xF40234
 	private void addRightPlate(float x, float y) { }
 
-	// RVA: 0x14A05E8 Offset: 0x14A05E8 VA: 0x14A05E8
+	// RVA: 0xF40378 Offset: 0xF40378 VA: 0xF40378
 	public void ShowRightPlate() { }
 
-	// RVA: 0x14A061C Offset: 0x14A061C VA: 0x14A061C
+	// RVA: 0xF403AC Offset: 0xF403AC VA: 0xF403AC
 	public void HideRightPlate() { }
 
-	// RVA: 0x14A0650 Offset: 0x14A0650 VA: 0x14A0650
+	// RVA: 0xF403E0 Offset: 0xF403E0 VA: 0xF403E0
 	public GameObject GetRightPlateObject() { }
 
-	// RVA: 0x14A0658 Offset: 0x14A0658 VA: 0x14A0658
+	// RVA: 0xF403E8 Offset: 0xF403E8 VA: 0xF403E8
 	public GameObject GetMaskImgLeftObject() { }
 
-	// RVA: 0x14A0688 Offset: 0x14A0688 VA: 0x14A0688
+	// RVA: 0xF40418 Offset: 0xF40418 VA: 0xF40418
 	public GameObject GetMaskImgRightObject() { }
 
-	// RVA: 0x14A06B8 Offset: 0x14A06B8 VA: 0x14A06B8
+	// RVA: 0xF40448 Offset: 0xF40448 VA: 0xF40448
 	public void setAllocMem(bool flag) { }
 
-	// RVA: 0x14A06F0 Offset: 0x14A06F0 VA: 0x14A06F0
+	// RVA: 0xF40480 Offset: 0xF40480 VA: 0xF40480
 	public void switchingAllocMem() { }
 
-	// RVA: 0x14A06F4 Offset: 0x14A06F4 VA: 0x14A06F4
+	// RVA: 0xF40484 Offset: 0xF40484 VA: 0xF40484
 	public void switchingDebugStatisticsShow() { }
 
-	// RVA: 0x14A06F8 Offset: 0x14A06F8 VA: 0x14A06F8
+	// RVA: 0xF40488 Offset: 0xF40488 VA: 0xF40488
 	public void switchingAssetsInfo() { }
 
-	[ConditionalAttribute] // RVA: 0xD35160 Offset: 0xD35160 VA: 0xD35160
-	// RVA: 0x14A07FC Offset: 0x14A07FC VA: 0x14A07FC
+	[ConditionalAttribute] // RVA: 0xCC7A9C Offset: 0xCC7A9C VA: 0xCC7A9C
+	// RVA: 0xF4058C Offset: 0xF4058C VA: 0xF4058C
 	public void switchingSoundInfo() { }
 
-	// RVA: 0x14A0908 Offset: 0x14A0908 VA: 0x14A0908
+	// RVA: 0xF40698 Offset: 0xF40698 VA: 0xF40698
 	public bool maskFadeIsBusy() { }
 
-	// RVA: 0x14A0938 Offset: 0x14A0938 VA: 0x14A0938
+	// RVA: 0xF406C8 Offset: 0xF406C8 VA: 0xF406C8
 	public bool maskFadeIsOnTop() { }
 
-	// RVA: 0x14A0968 Offset: 0x14A0968 VA: 0x14A0968
+	// RVA: 0xF406F8 Offset: 0xF406F8 VA: 0xF406F8
 	public bool maskFadeIsDisp() { }
 
-	// RVA: 0x14A0998 Offset: 0x14A0998 VA: 0x14A0998
+	// RVA: 0xF40728 Offset: 0xF40728 VA: 0xF40728
 	public MaskFade.Kind maskFadGetFadeoutKind() { }
 
-	// RVA: 0x14A09C8 Offset: 0x14A09C8 VA: 0x14A09C8
+	// RVA: 0xF40758 Offset: 0xF40758 VA: 0xF40758
 	public void maskFadeInit() { }
 
-	// RVA: 0x14A09F8 Offset: 0x14A09F8 VA: 0x14A09F8
+	// RVA: 0xF40788 Offset: 0xF40788 VA: 0xF40788
 	public bool maskFadeChangeColor(MaskFade.Kind kind, float duration, Action callback) { }
 
-	// RVA: 0x14A0A50 Offset: 0x14A0A50 VA: 0x14A0A50
+	// RVA: 0xF407E0 Offset: 0xF407E0 VA: 0xF407E0
 	public bool maskFadeout(MaskFade.Kind kind, float duration, Action callback) { }
 
-	// RVA: 0x14A0AA8 Offset: 0x14A0AA8 VA: 0x14A0AA8
+	// RVA: 0xF40838 Offset: 0xF40838 VA: 0xF40838
 	public bool maskFadein(float duration, Action callback) { }
 
-	// RVA: 0x14A0AF0 Offset: 0x14A0AF0 VA: 0x14A0AF0
+	// RVA: 0xF40880 Offset: 0xF40880 VA: 0xF40880
 	public void SetFadeMaskCollider(bool enabled) { }
 
-	// RVA: 0x14A0B28 Offset: 0x14A0B28 VA: 0x14A0B28
+	// RVA: 0xF408B8 Offset: 0xF408B8 VA: 0xF408B8
 	public void SetMaskFadeInitColor(MaskFade.Kind kind) { }
 
-	// RVA: 0x14A0B60 Offset: 0x14A0B60 VA: 0x14A0B60
+	// RVA: 0xF408F0 Offset: 0xF408F0 VA: 0xF408F0
 	public void InitConnect() { }
 
-	// RVA: 0x14A0B90 Offset: 0x14A0B90 VA: 0x14A0B90
+	// RVA: 0xF40920 Offset: 0xF40920 VA: 0xF40920
 	public void SetConnect(bool isConnect) { }
 
-	// RVA: 0x14A0BC8 Offset: 0x14A0BC8 VA: 0x14A0BC8
+	// RVA: 0xF40958 Offset: 0xF40958 VA: 0xF40958
 	public void SetLoadMode(ConnectMark.Mode mode) { }
 
-	// RVA: 0x14A0C00 Offset: 0x14A0C00 VA: 0x14A0C00
+	// RVA: 0xF40990 Offset: 0xF40990 VA: 0xF40990
 	public void SetConnectMarkFadeInLag(ConnectMarkFadeInLagType type) { }
 
-	// RVA: 0x14A0C38 Offset: 0x14A0C38 VA: 0x14A0C38
+	// RVA: 0xF409C8 Offset: 0xF409C8 VA: 0xF409C8
 	public void CheckChangeOtherConnectMark() { }
 
-	// RVA: 0x14A0E78 Offset: 0x14A0E78 VA: 0x14A0E78
+	// RVA: 0xF40C08 Offset: 0xF40C08 VA: 0xF40C08
 	public void CheckChangeOtherConnectMarkFromQuestClear(int questId, int eventId) { }
 
-	// RVA: 0x14A110C Offset: 0x14A110C VA: 0x14A110C
+	// RVA: 0xF40E9C Offset: 0xF40E9C VA: 0xF40E9C
 	public void CheckChangeOtherConnectMarkFromEventId(int eventId, bool isUpdate = True) { }
 
-	// RVA: 0x14A1310 Offset: 0x14A1310 VA: 0x14A1310
+	// RVA: 0xF410A0 Offset: 0xF410A0 VA: 0xF410A0
 	public void SetChangeOtherConnectMarkFromPlayerPrefs() { }
 
-	// RVA: 0x14A13A8 Offset: 0x14A13A8 VA: 0x14A13A8
+	// RVA: 0xF41138 Offset: 0xF41138 VA: 0xF41138
 	public bool IsBusyLoad() { }
 
-	// RVA: 0x14A13D8 Offset: 0x14A13D8 VA: 0x14A13D8
+	// RVA: 0xF41168 Offset: 0xF41168 VA: 0xF41168
 	public bool IsLoadMode(ConnectMark.Mode mode) { }
 
-	// RVA: 0x14A1410 Offset: 0x14A1410 VA: 0x14A1410
+	// RVA: 0xF411A0 Offset: 0xF411A0 VA: 0xF411A0
 	public void InitMaskClick() { }
 
-	// RVA: 0x14A1440 Offset: 0x14A1440 VA: 0x14A1440
+	// RVA: 0xF411D0 Offset: 0xF411D0 VA: 0xF411D0
 	public bool IsMaskClick() { }
 
-	// RVA: 0x14A1470 Offset: 0x14A1470 VA: 0x14A1470
+	// RVA: 0xF41200 Offset: 0xF41200 VA: 0xF41200
 	public void SetLoadMiniProgress(float progress) { }
 
-	// RVA: 0x14A14B0 Offset: 0x14A14B0 VA: 0x14A14B0
+	// RVA: 0xF41240 Offset: 0xF41240 VA: 0xF41240
 	public void SetActiveMiniProgressCancelButton(bool enabled) { }
 
-	// RVA: 0x14A14E8 Offset: 0x14A14E8 VA: 0x14A14E8
-	public void OpenWarningDialog(string title, string message, ErrorDialog.ClickDelegate func, bool ableToCloseTapOutDialog = True, bool isNetwrokRebootBlock = False) { }
+	// RVA: 0xF41278 Offset: 0xF41278 VA: 0xF41278
+	public void OpenWarningDialog(string title, string message, ErrorDialog.ClickDelegate func, bool ableToCloseTapOutDialog = True, bool isNetwrokRebootBlock = False, float closeButtonY = -1, UILabel.Effect messageEffect = 1, Nullable<Vector2> effectDistance) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD35198 Offset: 0xD35198 VA: 0xD35198
-	// RVA: 0x14A151C Offset: 0x14A151C VA: 0x14A151C
-	protected IEnumerator OpenWarningDialogCR(string title, string message, ErrorDialog.ClickDelegate func, bool ableToCloseTapOutDialog, bool isNetwrokRebootBlock) { }
+	[DebuggerHiddenAttribute] // RVA: 0xCC7AD4 Offset: 0xCC7AD4 VA: 0xCC7AD4
+	// RVA: 0xF412C0 Offset: 0xF412C0 VA: 0xF412C0
+	protected IEnumerator OpenWarningDialogCR(string title, string message, ErrorDialog.ClickDelegate func, bool ableToCloseTapOutDialog, bool isNetwrokRebootBlock, float closeButtonY, UILabel.Effect messageEffect, Nullable<Vector2> effectDistance) { }
 
-	// RVA: 0x14A162C Offset: 0x14A162C VA: 0x14A162C
+	// RVA: 0xF4142C Offset: 0xF4142C VA: 0xF4142C
 	protected void OnEndWarningDialog(bool isDecide) { }
 
-	// RVA: 0x14A165C Offset: 0x14A165C VA: 0x14A165C
+	// RVA: 0xF4145C Offset: 0xF4145C VA: 0xF4145C
 	public void OpenErrorDialog(string title, string message, ErrorDialog.ClickDelegate func, bool isNetwrokRebootBlock = False) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD351A8 Offset: 0xD351A8 VA: 0xD351A8
-	// RVA: 0x14A168C Offset: 0x14A168C VA: 0x14A168C
+	[DebuggerHiddenAttribute] // RVA: 0xCC7AE4 Offset: 0xCC7AE4 VA: 0xCC7AE4
+	// RVA: 0xF4148C Offset: 0xF4148C VA: 0xF4148C
 	protected IEnumerator OpenErrorDialogCR(string title, string message, ErrorDialog.ClickDelegate func, bool isNetwrokRebootBlock) { }
 
-	// RVA: 0x14A1774 Offset: 0x14A1774 VA: 0x14A1774
+	// RVA: 0xF41574 Offset: 0xF41574 VA: 0xF41574
 	protected void OnEndErrorDialog(bool isDecide) { }
 
-	// RVA: 0x14A17A4 Offset: 0x14A17A4 VA: 0x14A17A4
+	// RVA: 0xF415A4 Offset: 0xF415A4 VA: 0xF415A4
 	public void OpenDataUpdateDialog(string title, string message, ErrorDialog.ClickDelegate func, bool isNetwrokRebootBlock = False) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD351B8 Offset: 0xD351B8 VA: 0xD351B8
-	// RVA: 0x14A17D4 Offset: 0x14A17D4 VA: 0x14A17D4
+	[DebuggerHiddenAttribute] // RVA: 0xCC7AF4 Offset: 0xCC7AF4 VA: 0xCC7AF4
+	// RVA: 0xF415D4 Offset: 0xF415D4 VA: 0xF415D4
 	protected IEnumerator OpenDataUpdateDialogCR(string title, string message, ErrorDialog.ClickDelegate func, bool isNetwrokRebootBlock) { }
 
-	// RVA: 0x14A18BC Offset: 0x14A18BC VA: 0x14A18BC
+	// RVA: 0xF416BC Offset: 0xF416BC VA: 0xF416BC
 	protected void OnEndDataUpdateDialog(bool isDecide) { }
 
-	// RVA: 0x14A18EC Offset: 0x14A18EC VA: 0x14A18EC
+	// RVA: 0xF416EC Offset: 0xF416EC VA: 0xF416EC
 	public bool isBusyDataUpdateDialog() { }
 
-	// RVA: 0x14A191C Offset: 0x14A191C VA: 0x14A191C
+	// RVA: 0xF4171C Offset: 0xF4171C VA: 0xF4171C
 	public void OpenRetryDialog(string title, string message, ErrorDialog.ClickDelegate func, bool isNetwrokRebootBlock = False) { }
 
-	// RVA: 0x14A1A78 Offset: 0x14A1A78 VA: 0x14A1A78
+	// RVA: 0xF41878 Offset: 0xF41878 VA: 0xF41878
 	public void OpenRetryDialog(string title, string message, string decideTxt, string cancleTxt, ErrorDialog.ClickDelegate func, bool isNetwrokRebootBlock = False) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD351C8 Offset: 0xD351C8 VA: 0xD351C8
-	// RVA: 0x14A195C Offset: 0x14A195C VA: 0x14A195C
+	[DebuggerHiddenAttribute] // RVA: 0xCC7B04 Offset: 0xCC7B04 VA: 0xCC7B04
+	// RVA: 0xF4175C Offset: 0xF4175C VA: 0xF4175C
 	protected IEnumerator OpenRetryDialogCR(string title, string message, string decideTxt, string cancleTxt, ErrorDialog.ClickDelegate func, bool isNetwrokRebootBlock) { }
 
-	// RVA: 0x14A1AA8 Offset: 0x14A1AA8 VA: 0x14A1AA8
+	// RVA: 0xF418A8 Offset: 0xF418A8 VA: 0xF418A8
 	public void CloseRetryDialog() { }
 
-	// RVA: 0x14A1AD8 Offset: 0x14A1AD8 VA: 0x14A1AD8
+	// RVA: 0xF418D8 Offset: 0xF418D8 VA: 0xF418D8
 	protected void OnEndRetryDialog(bool isDecide) { }
 
-	// RVA: 0x14A1B08 Offset: 0x14A1B08 VA: 0x14A1B08
+	// RVA: 0xF41908 Offset: 0xF41908 VA: 0xF41908
 	public void OpenRetryBootDialog(string title, string message, ErrorDialog.ClickDelegate func, bool isNetwrokRebootBlock = False) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD351D8 Offset: 0xD351D8 VA: 0xD351D8
-	// RVA: 0x14A1B38 Offset: 0x14A1B38 VA: 0x14A1B38
+	[DebuggerHiddenAttribute] // RVA: 0xCC7B14 Offset: 0xCC7B14 VA: 0xCC7B14
+	// RVA: 0xF41938 Offset: 0xF41938 VA: 0xF41938
 	protected IEnumerator OpenRetryBootDialogCR(string title, string message, ErrorDialog.ClickDelegate func, bool isNetwrokRebootBlock) { }
 
-	// RVA: 0x14A1C20 Offset: 0x14A1C20 VA: 0x14A1C20
+	// RVA: 0xF41A20 Offset: 0xF41A20 VA: 0xF41A20
 	protected void OnEndRetryBootDialog(bool isDecide) { }
 
-	// RVA: 0x14A1C50 Offset: 0x14A1C50 VA: 0x14A1C50
+	// RVA: 0xF41A50 Offset: 0xF41A50 VA: 0xF41A50
 	private bool isBusyDialog() { }
 
-	// RVA: 0x14A1D14 Offset: 0x14A1D14 VA: 0x14A1D14
+	// RVA: 0xF41B14 Offset: 0xF41B14 VA: 0xF41B14
 	public void OpenConfirmDialog(string title, string message, CommonConfirmDialog.ClickDelegate func, int fontsize = 0, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x14A1D8C Offset: 0x14A1D8C VA: 0x14A1D8C
+	// RVA: 0xF41B8C Offset: 0xF41B8C VA: 0xF41B8C
 	public void OpenConfirmDialog(string title, string message, string decideTxt, string cancleTxt, CommonConfirmDialog.ClickDelegate func, int fontsize = 0, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x14A1E1C Offset: 0x14A1E1C VA: 0x14A1E1C
+	// RVA: 0xF41C1C Offset: 0xF41C1C VA: 0xF41C1C
 	public void OpenConfirmDialog(string title, string message, string decideTxt, string cancleTxt, bool isDecideSe, CommonConfirmDialog.ClickDelegate func, int titleFontSize, int messageFontSize, float titlePosY, float messagePosY, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x14A1EE0 Offset: 0x14A1EE0 VA: 0x14A1EE0
+	// RVA: 0xF41CE0 Offset: 0xF41CE0 VA: 0xF41CE0
 	public void OpenConfirmDecideDlg(string title, string message, string decideTxt, string cancleTxt, CommonConfirmDialog.ClickDelegate func, int fontsize = 0, float windowPosY = 0, float messagePosY = 15, int spacingY = 0, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0, int messageLabelHeight = 240, NGUIText.Alignment alignment = 0) { }
 
-	// RVA: 0x14A1FA4 Offset: 0x14A1FA4 VA: 0x14A1FA4
+	// RVA: 0xF41DA4 Offset: 0xF41DA4 VA: 0xF41DA4
 	public void OpenConfirmDecideDlg(string title, string message, string decideTxt, string cancleTxt, bool isDecideSe, CommonConfirmDialog.ClickDelegate func, Vector2Int messageWidgetSize, int fontsize = 0, float messagePosY = 15, int spacingY = 0, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x14A205C Offset: 0x14A205C VA: 0x14A205C
+	// RVA: 0xF41E5C Offset: 0xF41E5C VA: 0xF41E5C
 	public void OpenConfirmDialog(string title, string message, bool isDecideSe, CommonConfirmDialog.ClickDelegate func, int fontsize = 0, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0, bool setCondensedScale = False) { }
 
-	// RVA: 0x14A20F0 Offset: 0x14A20F0 VA: 0x14A20F0
+	// RVA: 0xF41EF0 Offset: 0xF41EF0 VA: 0xF41EF0
 	public void OpenConfirmDialog(string title, string message, string decideTxt, string cancelTxt, bool isDecideSe, CommonConfirmDialog.ClickDelegate func, int fontsize = 0, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x14A218C Offset: 0x14A218C VA: 0x14A218C
+	// RVA: 0xF41F8C Offset: 0xF41F8C VA: 0xF41F8C
 	public void OpenConfirmDialog(string title, string message, string decideTxt, string cancleTxt, CommonConfirmDialog.ClickDelegate func, int fontsize, int minFontSize, float messagePosY = 15, int messageWidth = 700, NGUIText.Alignment alignment = 0, int windowHeight = 480, float buttonPosY = -162.5, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x14A2258 Offset: 0x14A2258 VA: 0x14A2258
+	// RVA: 0xF42058 Offset: 0xF42058 VA: 0xF42058
+	public void OpenConfirmDialog(string title, string message, string decideTxt, string cancelTxt, bool isDecideSe, CommonConfirmDialog.ClickDelegate func, int fontSize, bool canMaskTouchClose, int decideTxtSize, int cancelTxtSize) { }
+
+	// RVA: 0xF42104 Offset: 0xF42104 VA: 0xF42104
 	public void CloseConfirmDialog() { }
 
-	// RVA: 0x14A2288 Offset: 0x14A2288 VA: 0x14A2288
+	// RVA: 0xF42134 Offset: 0xF42134 VA: 0xF42134
 	public void CloseConfirmDialog(Action callback) { }
 
-	// RVA: 0x14A22C0 Offset: 0x14A22C0 VA: 0x14A22C0
+	// RVA: 0xF4216C Offset: 0xF4216C VA: 0xF4216C
 	public void OpenConfirmDialogOnFade(string title, string message, string decideText, string cancelText, CommonConfirmDialog.ClickDelegate func, int fontsize = 0, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x14A23B8 Offset: 0x14A23B8 VA: 0x14A23B8
+	// RVA: 0xF42264 Offset: 0xF42264 VA: 0xF42264
 	public void OpenNotificationDialog(string title, string message, Action func, int panel_depth = -1, int maxLine = 0, int titleSize = 0, bool isLineDraw = False, bool canMaskTouchClose = False, int messageFontSize = 0, SeManager.SystemSeKind onClickOkSeKind = 1, int spacingY = 0) { }
 
-	// RVA: 0x14A24D4 Offset: 0x14A24D4 VA: 0x14A24D4
+	// RVA: 0xF42380 Offset: 0xF42380 VA: 0xF42380
 	public void OpenNotificationDialog(string title, string message, Action func, float messagePosY, float buttonPosY, int panel_depth = -1, int maxLine = 0, int titleSize = 0, bool isLineDraw = False, bool canMaskTouchClose = False, int messageFontSize = 0, SeManager.SystemSeKind onClickOkSeKind = 1) { }
 
-	// RVA: 0x14A25EC Offset: 0x14A25EC VA: 0x14A25EC
+	// RVA: 0xF42498 Offset: 0xF42498 VA: 0xF42498
 	public void OpenNotificationDialog(string title, string message, NotificationDialog.ClickDelegate func, float messagePosY, float buttonPosY, int panel_depth = -1, int maxLine = 0, int titleSize = 0, bool isLineDraw = False, bool canMaskTouchClose = False, int messageFontSize = 0, SeManager.SystemSeKind onClickOkSeKind = 1) { }
 
-	// RVA: 0x14A26B4 Offset: 0x14A26B4 VA: 0x14A26B4
+	// RVA: 0xF42560 Offset: 0xF42560 VA: 0xF42560
 	public void OpenNotificationDialogOnFade(string title, string message, Action func, int panel_depth = -1, int maxLine = 0, int titleSize = 0, bool isLineDraw = False, bool canMaskTouchClose = False, int messageFontSize = 0, SeManager.SystemSeKind onClickOkSeKind = 1) { }
 
-	// RVA: 0x14A2814 Offset: 0x14A2814 VA: 0x14A2814
+	// RVA: 0xF426C0 Offset: 0xF426C0 VA: 0xF426C0
 	public void OpenNotificationDialogWithScript(string title, string message, Action func, Dictionary<string, object> script, int panel_depth = -1, int maxLine = 0, int titleSize = 0, bool isLineDraw = False, bool canMaskTouchClose = False, SeManager.SystemSeKind onClickOkSeKind = 1) { }
 
-	// RVA: 0x14A29DC Offset: 0x14A29DC VA: 0x14A29DC
+	// RVA: 0xF42888 Offset: 0xF42888 VA: 0xF42888
 	protected void SelectNotificationDialog(bool result) { }
 
-	// RVA: 0x14A2A18 Offset: 0x14A2A18 VA: 0x14A2A18
+	// RVA: 0xF428C4 Offset: 0xF428C4 VA: 0xF428C4
 	public void OpenNotificationDialog(string title, string message, NotificationDialog.ClickDelegate func, int panel_depth = -1, int maxLine = 0, int titleSize = 0, bool isLineDraw = False, bool canMaskTouchClose = False, SeManager.SystemSeKind onClickOkSeKind = 1, Nullable<float> titlePosY, Nullable<float> messagePosY, int messageFontSize = 0, int spacingY = 0, Nullable<int> messageWidgetSizeY, bool adjustText = True, Nullable<float> buttonPosY, Nullable<int> buttonWidgetSizeX, Nullable<int> buttonWidgetSizeY) { }
 
-	// RVA: 0x14A2AF0 Offset: 0x14A2AF0 VA: 0x14A2AF0
+	// RVA: 0xF4299C Offset: 0xF4299C VA: 0xF4299C
 	public void OpenNotificationDialogAboveMask(string title, string message, NotificationDialog.ClickDelegate func, int panel_depth = -1, int maxLine = 0, int titleSize = 0, bool isLineDraw = False, bool canMaskTouchClose = False, SeManager.SystemSeKind onClickOkSeKind = 1, Nullable<float> titlePosY, Nullable<float> messagePosY) { }
 
-	// RVA: 0x14A2C78 Offset: 0x14A2C78 VA: 0x14A2C78
+	// RVA: 0xF42B24 Offset: 0xF42B24 VA: 0xF42B24
 	public void CloseNotificationDialog() { }
 
-	// RVA: 0x14A2CA8 Offset: 0x14A2CA8 VA: 0x14A2CA8
+	// RVA: 0xF42B54 Offset: 0xF42B54 VA: 0xF42B54
 	public void CloseNotificationDialog(Action callback) { }
 
-	// RVA: 0x14A2CE0 Offset: 0x14A2CE0 VA: 0x14A2CE0
+	// RVA: 0xF42B8C Offset: 0xF42B8C VA: 0xF42B8C
 	public void OpenPopupMessageDialog(string message) { }
 
-	// RVA: 0x14A2D18 Offset: 0x14A2D18 VA: 0x14A2D18
+	// RVA: 0xF42BC4 Offset: 0xF42BC4 VA: 0xF42BC4
 	public void OpenDetailInfoDialog(string name, string info, string detail) { }
 
-	// RVA: 0x14A2D68 Offset: 0x14A2D68 VA: 0x14A2D68
+	// RVA: 0xF42C14 Offset: 0xF42C14 VA: 0xF42C14
 	public void OpenDetailLongInfoDialog(string name, string info, string detail, bool isSetMinSize = True, bool isCondensedName = False) { }
 
-	// RVA: 0x14A2DD0 Offset: 0x14A2DD0 VA: 0x14A2DD0
+	// RVA: 0xF42C7C Offset: 0xF42C7C VA: 0xF42C7C
 	public void OpenDetailLongInfoDialogOnFade(string name, string info, string detail) { }
 
-	// RVA: 0x14A2EA4 Offset: 0x14A2EA4 VA: 0x14A2EA4
+	// RVA: 0xF42D50 Offset: 0xF42D50 VA: 0xF42D50
 	public void OpenMovieConfirmDialog(string title, string mainMessage, MovieConfirmDialog.Mode mode, CommonConfirmDialog.ClickDelegate func, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x14A2F1C Offset: 0x14A2F1C VA: 0x14A2F1C
+	// RVA: 0xF42DC8 Offset: 0xF42DC8 VA: 0xF42DC8
 	public void CloseMovieConfirmDialog() { }
 
-	// RVA: 0x14A2F4C Offset: 0x14A2F4C VA: 0x14A2F4C
+	// RVA: 0xF42DF8 Offset: 0xF42DF8 VA: 0xF42DF8
 	public void CloseMovieConfirmDialog(Action callback) { }
 
-	// RVA: 0x14A2F84 Offset: 0x14A2F84 VA: 0x14A2F84
+	// RVA: 0xF42E30 Offset: 0xF42E30 VA: 0xF42E30
 	public void OpenLinkConfirmDialog(string message, LinkConfirmDialog.ClickDelegate func, string linkPath, string linkTexture = "", int panel_depth = -1, int maxLine = 0, int messageFontSize = 0) { }
 
-	// RVA: 0x14A3004 Offset: 0x14A3004 VA: 0x14A3004
+	// RVA: 0xF42EB0 Offset: 0xF42EB0 VA: 0xF42EB0
 	public void CloseLinkConfirmDialog() { }
 
-	// RVA: 0x14A3034 Offset: 0x14A3034 VA: 0x14A3034
+	// RVA: 0xF42EE0 Offset: 0xF42EE0 VA: 0xF42EE0
 	public void CloseLinkConfirmDialog(Action callback) { }
 
-	// RVA: 0x14A306C Offset: 0x14A306C VA: 0x14A306C
+	// RVA: 0xF42F18 Offset: 0xF42F18 VA: 0xF42F18
 	public void OpenServantFramePurchaseMenu(ServantFramePurchaseMenu.CallbackFunc callback, Action refreshCallback) { }
 
-	// RVA: 0x14A3150 Offset: 0x14A3150 VA: 0x14A3150
+	// RVA: 0xF42FFC Offset: 0xF42FFC VA: 0xF42FFC
 	public void CloseServantFramePurchaseMenu() { }
 
-	// RVA: 0x14A3238 Offset: 0x14A3238 VA: 0x14A3238
+	// RVA: 0xF430E4 Offset: 0xF430E4 VA: 0xF430E4
 	public void OpenServantEquipFramePurchaseMenu(ServantEquipFramePurchaseMenu.CallbackFunc callback, Action refreshCallback) { }
 
-	// RVA: 0x14A331C Offset: 0x14A331C VA: 0x14A331C
+	// RVA: 0xF431C8 Offset: 0xF431C8 VA: 0xF431C8
 	public void CloseServantEquipFramePurchaseMenu() { }
 
-	// RVA: 0x14A3404 Offset: 0x14A3404 VA: 0x14A3404
+	// RVA: 0xF432B0 Offset: 0xF432B0 VA: 0xF432B0
 	public void OpenEquipGraphListMenu(PartyListViewItem partyItem, int member, EventUpValSetupInfo setupInfo, EquipGraphListMenu.CallbackFunc callback) { }
 
-	// RVA: 0x14A3500 Offset: 0x14A3500 VA: 0x14A3500
+	// RVA: 0xF433AC Offset: 0xF433AC VA: 0xF433AC
 	public void OpenEquipGraphListMenu(WarBoardPartyListViewItem partyItem, int member, EventUpValSetupInfo setupInfo, EquipGraphListMenu.CallbackFunc callback) { }
 
-	// RVA: 0x14A35FC Offset: 0x14A35FC VA: 0x14A35FC
+	// RVA: 0xF434A8 Offset: 0xF434A8 VA: 0xF434A8
 	public void OpenSupportServantEquipListMenu(SupportServantData[] supportServantData, int nowDeckNum, int classPos, EventUpValSetupInfo setupInfo, int nowDeckId, int[] fixMainDeckIds, int[] fixEventDeckIds, SupportServantEquipListMenu.CallbackFunc callback) { }
 
-	// RVA: 0x14A3724 Offset: 0x14A3724 VA: 0x14A3724
+	// RVA: 0xF435D0 Offset: 0xF435D0 VA: 0xF435D0
 	public void CloseEquipGraphListMenu(Action callback) { }
 
-	// RVA: 0x14A3820 Offset: 0x14A3820 VA: 0x14A3820
+	// RVA: 0xF436CC Offset: 0xF436CC VA: 0xF436CC
 	protected void EndCloseEquipGraphListMenu() { }
 
-	// RVA: 0x14A390C Offset: 0x14A390C VA: 0x14A390C
+	// RVA: 0xF437B8 Offset: 0xF437B8 VA: 0xF437B8
 	public void CloseSupportServantEquipListMenu(Action callback) { }
 
-	// RVA: 0x14A3A08 Offset: 0x14A3A08 VA: 0x14A3A08
+	// RVA: 0xF438B4 Offset: 0xF438B4 VA: 0xF438B4
 	protected void EndCloseSupportServantEquipListMenu() { }
 
-	// RVA: 0x14A3AF4 Offset: 0x14A3AF4 VA: 0x14A3AF4
+	// RVA: 0xF439A0 Offset: 0xF439A0 VA: 0xF439A0
 	public static ListViewSort GetServantSortInfo() { }
 
-	// RVA: 0x14A3B54 Offset: 0x14A3B54 VA: 0x14A3B54
+	// RVA: 0xF43A00 Offset: 0xF43A00 VA: 0xF43A00
 	public void OpenServantSortSelectMenu(ServantSortSelectMenu.Kind kind, ListViewSort sort, bool isChoiceReverse, ServantSortSelectMenu.CallbackFunc callback) { }
 
-	// RVA: 0x14A3C50 Offset: 0x14A3C50 VA: 0x14A3C50
+	// RVA: 0xF43AFC Offset: 0xF43AFC VA: 0xF43AFC
 	public void CloseServantSortSelectMenu(Action callback) { }
 
-	// RVA: 0x14A3D4C Offset: 0x14A3D4C VA: 0x14A3D4C
+	// RVA: 0xF43BF8 Offset: 0xF43BF8 VA: 0xF43BF8
 	protected void EndCloseServantSortSelectMenu() { }
 
-	// RVA: 0x14A3E38 Offset: 0x14A3E38 VA: 0x14A3E38
+	// RVA: 0xF43CE4 Offset: 0xF43CE4 VA: 0xF43CE4
 	public static ListViewSort GetServantFilterInfo() { }
 
-	// RVA: 0x14A3E98 Offset: 0x14A3E98 VA: 0x14A3E98
+	// RVA: 0xF43D44 Offset: 0xF43D44 VA: 0xF43D44
 	public void OpenServantFilterSelectMenu(ServantFilterSelectMenu.Kind kind, ListViewSort sort, ServantFilterSelectMenu.CallbackFunc callback) { }
 
-	// RVA: 0x14A3EA8 Offset: 0x14A3EA8 VA: 0x14A3EA8
+	// RVA: 0xF43D54 Offset: 0xF43D54 VA: 0xF43D54
 	public void OpenServantFilterSelectMenu(ServantFilterSelectMenu.Kind kind, ListViewSort sort, ListViewManager listViewManager, ServantFilterSelectMenu.CallbackFunc callback) { }
 
-	// RVA: 0x14A3FA4 Offset: 0x14A3FA4 VA: 0x14A3FA4
+	// RVA: 0xF43E50 Offset: 0xF43E50 VA: 0xF43E50
 	public void CloseServantFilterSelectMenu(Action callback) { }
 
-	// RVA: 0x14A40A0 Offset: 0x14A40A0 VA: 0x14A40A0
+	// RVA: 0xF43F4C Offset: 0xF43F4C VA: 0xF43F4C
 	protected void EndCloseServantFilterSelectMenu() { }
 
-	// RVA: 0x14A418C Offset: 0x14A418C VA: 0x14A418C
+	// RVA: 0xF44038 Offset: 0xF44038 VA: 0xF44038
 	public static ListViewSort GetServantBonusFilterInfo() { }
 
-	// RVA: 0x14A41EC Offset: 0x14A41EC VA: 0x14A41EC
+	// RVA: 0xF44098 Offset: 0xF44098 VA: 0xF44098
 	public void OpenServantBonusFilterSelectMenu(ServantBonusFilterSelectMenu.Kind kind, bool isServantBonusFilterEnable, bool isServantEquipBonusFilterEnable, ListViewSort sort, ServantBonusFilterSelectMenu.CallbackFunc callback) { }
 
-	// RVA: 0x14A4310 Offset: 0x14A4310 VA: 0x14A4310
+	// RVA: 0xF441BC Offset: 0xF441BC VA: 0xF441BC
 	public void CloseServantBonusFilterSelectMenu(Action callback) { }
 
-	// RVA: 0x14A440C Offset: 0x14A440C VA: 0x14A440C
+	// RVA: 0xF442B8 Offset: 0xF442B8 VA: 0xF442B8
 	protected void EndCloseServantBonusFilterSelectMenu() { }
 
-	// RVA: 0x14A44F8 Offset: 0x14A44F8 VA: 0x14A44F8
+	// RVA: 0xF443A4 Offset: 0xF443A4 VA: 0xF443A4
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, PartyListViewItem partyItem, int member, ServantStatusDialog.EndDelegate callback) { }
 
-	// RVA: 0x14A45F8 Offset: 0x14A45F8 VA: 0x14A45F8
+	// RVA: 0xF444A4 Offset: 0xF444A4 VA: 0xF444A4
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, WarBoardPartyListViewItem partyItem, int member, ServantStatusDialog.EndDelegate callback) { }
 
-	// RVA: 0x14A46F8 Offset: 0x14A46F8 VA: 0x14A46F8
+	// RVA: 0xF445A4 Offset: 0xF445A4 VA: 0xF445A4
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, PartyListViewItem partyItem, int member, ServantStatusDialog.FormationEndDelegate callback) { }
 
-	// RVA: 0x14A47F8 Offset: 0x14A47F8 VA: 0x14A47F8
+	// RVA: 0xF446A4 Offset: 0xF446A4 VA: 0xF446A4
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, long userSvtId, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A48F4 Offset: 0x14A48F4 VA: 0x14A48F4
+	// RVA: 0xF447A0 Offset: 0xF447A0 VA: 0xF447A0
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A49F0 Offset: 0x14A49F0 VA: 0x14A49F0
+	// RVA: 0xF4489C Offset: 0xF4489C VA: 0xF4489C
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, long userSvtId, ServantStatusDialog.FormationEndDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A4AEC Offset: 0x14A4AEC VA: 0x14A4AEC
+	// RVA: 0xF44998 Offset: 0xF44998 VA: 0xF44998
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, long userSvtId, ServantStatusDialog.EndIndividualityDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A4BE8 Offset: 0x14A4BE8 VA: 0x14A4BE8
+	// RVA: 0xF44A94 Offset: 0xF44A94 VA: 0xF44A94
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, long userSvtId, ServantStatusDialog.ResultDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A4CE4 Offset: 0x14A4CE4 VA: 0x14A4CE4
+	// RVA: 0xF44B90 Offset: 0xF44B90 VA: 0xF44B90
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, ServantStatusDialog.EndDelegate callback) { }
 
-	// RVA: 0x14A4DDC Offset: 0x14A4DDC VA: 0x14A4DDC
+	// RVA: 0xF44C88 Offset: 0xF44C88 VA: 0xF44C88
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, ServantStatusDialog.EndIndividualityDelegate callback) { }
 
-	// RVA: 0x14A4ED4 Offset: 0x14A4ED4 VA: 0x14A4ED4
+	// RVA: 0xF44D80 Offset: 0xF44D80 VA: 0xF44D80
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, ServantStatusDialog.ResultDelegate callback) { }
 
-	// RVA: 0x14A4FCC Offset: 0x14A4FCC VA: 0x14A4FCC
+	// RVA: 0xF44E78 Offset: 0xF44E78 VA: 0xF44E78
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, long[] equipIdList, QuestRestrictionInfo questRestrictionInfo, ServantStatusDialog.EndIndividualityDelegate callback) { }
 
-	// RVA: 0x14A50DC Offset: 0x14A50DC VA: 0x14A50DC
+	// RVA: 0xF44F88 Offset: 0xF44F88 VA: 0xF44F88
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, long[] equipIdList, QuestRestrictionInfo questRestrictionInfo, ServantStatusDialog.ResultDelegate callback) { }
 
-	// RVA: 0x14A51EC Offset: 0x14A51EC VA: 0x14A51EC
+	// RVA: 0xF45098 Offset: 0xF45098 VA: 0xF45098
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, UserServantCollectionEntity userSvtCollectionEntity, ServantStatusDialog.EndDelegate callback) { }
 
-	// RVA: 0x14A52E4 Offset: 0x14A52E4 VA: 0x14A52E4
+	// RVA: 0xF45190 Offset: 0xF45190 VA: 0xF45190
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, UserServantCollectionEntity userSvtCollectionEntity, int imageLimitCount, ServantStatusDialog.EndDelegate callback) { }
 
-	// RVA: 0x14A53E4 Offset: 0x14A53E4 VA: 0x14A53E4
+	// RVA: 0xF45290 Offset: 0xF45290 VA: 0xF45290
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, UserServantCollectionEntity userSvtCollectionEntity, ServantStatusDialog.ResultDelegate callback) { }
 
-	// RVA: 0x14A54DC Offset: 0x14A54DC VA: 0x14A54DC
+	// RVA: 0xF45388 Offset: 0xF45388 VA: 0xF45388
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, ServantLeaderInfo servantLeaderInfo, ServantStatusDialog.EndDelegate callback) { }
 
-	// RVA: 0x14A55D4 Offset: 0x14A55D4 VA: 0x14A55D4
+	// RVA: 0xF45480 Offset: 0xF45480 VA: 0xF45480
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, UserCommandCodeEntity userCommandCodeEntity, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A56D0 Offset: 0x14A56D0 VA: 0x14A56D0
+	// RVA: 0xF4557C Offset: 0xF4557C VA: 0xF4557C
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, UserCommandCodeEntity userCommandCodeEntity, ServantStatusDialog.EndIndividualityDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A57CC Offset: 0x14A57CC VA: 0x14A57CC
+	// RVA: 0xF45678 Offset: 0xF45678 VA: 0xF45678
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, UserCommandCodeCollectionEntity userCommandCodeCollectionEntity, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A58C8 Offset: 0x14A58C8 VA: 0x14A58C8
+	// RVA: 0xF45774 Offset: 0xF45774 VA: 0xF45774
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, int svtId, ServantStatusDialog.EndDelegate callback) { }
 
-	// RVA: 0x149BED8 Offset: 0x149BED8 VA: 0x149BED8
+	// RVA: 0xF3BB70 Offset: 0xF3BB70 VA: 0xF3BB70
 	public void OpenServantStatusDialog(ServantStatusDialog.Kind kind, GiftEntity gift, ServantStatusDialog.EndDelegate callback) { }
 
-	// RVA: 0x149C198 Offset: 0x149C198 VA: 0x149C198
+	// RVA: 0xF3BE30 Offset: 0xF3BE30 VA: 0xF3BE30
 	public void CloseServantStatusDialog(Action callback) { }
 
-	// RVA: 0x14A5AE0 Offset: 0x14A5AE0 VA: 0x14A5AE0
+	// RVA: 0xF4598C Offset: 0xF4598C VA: 0xF4598C
 	protected void EndCloseServantStatusDialog() { }
 
-	// RVA: 0x14A5BCC Offset: 0x14A5BCC VA: 0x14A5BCC
+	// RVA: 0xF45A78 Offset: 0xF45A78 VA: 0xF45A78
 	public void OpenServantEquipStatusDialog(ServantStatusDialog.Kind kind, long userSvtId, bool isUse, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A5CD8 Offset: 0x14A5CD8 VA: 0x14A5CD8
+	// RVA: 0xF45B84 Offset: 0xF45B84 VA: 0xF45B84
 	public void OpenServantEquipStatusDialog(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, bool isUse, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A5DE4 Offset: 0x14A5DE4 VA: 0x14A5DE4
+	// RVA: 0xF45C90 Offset: 0xF45C90 VA: 0xF45C90
 	public void OpenServantEquipStatusDialog(ServantStatusDialog.Kind kind, EquipTargetInfo equipTargetInfo, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A5EE0 Offset: 0x14A5EE0 VA: 0x14A5EE0
+	// RVA: 0xF45D8C Offset: 0xF45D8C VA: 0xF45D8C
 	public void OpenServantEquipStatusDialog(ServantStatusDialog.Kind kind, UserCommandCodeEntity userCommandCodeEntity, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A5FDC Offset: 0x14A5FDC VA: 0x14A5FDC
+	// RVA: 0xF45E88 Offset: 0xF45E88 VA: 0xF45E88
 	public void OpenServantEquipStatusDialog(ServantStatusDialog.Kind kind, UserCommandCodeCollectionEntity userCommandCodeCollectionEntity, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A60D8 Offset: 0x14A60D8 VA: 0x14A60D8
+	// RVA: 0xF45F84 Offset: 0xF45F84 VA: 0xF45F84
 	public void OpenServantEquipStatusDialog(ServantStatusDialog.Kind kind, int svtId, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A61F0 Offset: 0x14A61F0 VA: 0x14A61F0
+	// RVA: 0xF4609C Offset: 0xF4609C VA: 0xF4609C
 	public void OpenServantEquipStatusDialog(ServantStatusDialog.Kind kind, CommandCodeEntity entity, bool isUse, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
 
-	// RVA: 0x14A62FC Offset: 0x14A62FC VA: 0x14A62FC
+	// RVA: 0xF461A8 Offset: 0xF461A8 VA: 0xF461A8
 	public void CloseServantEquipStatusDialog(Action callback) { }
 
-	// RVA: 0x14A63F8 Offset: 0x14A63F8 VA: 0x14A63F8
+	// RVA: 0xF462A4 Offset: 0xF462A4 VA: 0xF462A4
 	protected void EndCloseServantEquipStatusDialog() { }
 
-	// RVA: 0x14A64E4 Offset: 0x14A64E4 VA: 0x14A64E4
+	// RVA: 0xF46390 Offset: 0xF46390 VA: 0xF46390
 	public void OpenStonePurchaseMenu(StonePurchaseMenu.CallbackFunc callback, Action refreshCallback) { }
 
-	// RVA: 0x14A65C8 Offset: 0x14A65C8 VA: 0x14A65C8
+	// RVA: 0xF46474 Offset: 0xF46474 VA: 0xF46474
 	public void CloseStonePurchaseMenu() { }
 
-	// RVA: 0x14A66A0 Offset: 0x14A66A0 VA: 0x14A66A0
+	// RVA: 0xF4654C Offset: 0xF4654C VA: 0xF4654C
 	protected void EndCloseStonePurchaseMenu() { }
 
-	// RVA: 0x14A676C Offset: 0x14A676C VA: 0x14A676C
+	// RVA: 0xF46618 Offset: 0xF46618 VA: 0xF46618
 	public void OpenStonePurchaseReciveMenu(PurchaseBehaviour.Result purchaseResult, int perMonthAmount, int freeStoneNum, int chargeStoneNum) { }
 
-	// RVA: 0x14A6A10 Offset: 0x14A6A10 VA: 0x14A6A10
+	// RVA: 0xF468BC Offset: 0xF468BC VA: 0xF468BC
 	public void OpenStonePurchaseReciveMenu(AccountingManager.Result result, string resultString) { }
 
-	// RVA: 0x14A6C48 Offset: 0x14A6C48 VA: 0x14A6C48
+	// RVA: 0xF46AF4 Offset: 0xF46AF4 VA: 0xF46AF4
 	protected void EndBuyBankItemNotificationRecive() { }
 
-	// RVA: 0x14A6C78 Offset: 0x14A6C78 VA: 0x14A6C78
+	// RVA: 0xF46B24 Offset: 0xF46B24 VA: 0xF46B24
 	public void OpenUserGameActRecoverMenu(UserGameActRecoverMenu.CallbackFunc callback, Action refreshCallback) { }
 
-	// RVA: 0x14A6D5C Offset: 0x14A6D5C VA: 0x14A6D5C
+	// RVA: 0xF46C08 Offset: 0xF46C08 VA: 0xF46C08
 	public void CloseUserGameActRecoverMenu() { }
 
-	// RVA: 0x14A6E44 Offset: 0x14A6E44 VA: 0x14A6E44
+	// RVA: 0xF46CF0 Offset: 0xF46CF0 VA: 0xF46CF0
 	public void OpenUsrPresentList(bool isShowBg, UserPresentBoxWindow.ClickDelegate callback, Action redisp_act) { }
 
-	// RVA: 0x14A6F38 Offset: 0x14A6F38 VA: 0x14A6F38
+	// RVA: 0xF46DE4 Offset: 0xF46DE4 VA: 0xF46DE4
 	public void CloseUsrPresentList() { }
 
-	// RVA: 0x14A7020 Offset: 0x14A7020 VA: 0x14A7020
+	// RVA: 0xF46ECC Offset: 0xF46ECC VA: 0xF46ECC
 	public void OpenMultiGiftGetDialog(string title, string detail, string closeMgs, string decideMsg, GiftEntity[] gifts, int columnCount, CommonMultiItemGetDlg.OnClickDelegate callback) { }
 
-	// RVA: 0x14A7140 Offset: 0x14A7140 VA: 0x14A7140
+	// RVA: 0xF46FEC Offset: 0xF46FEC VA: 0xF46FEC
 	public void CloseMultiGiftGetDialg() { }
 
-	// RVA: 0x14A7214 Offset: 0x14A7214 VA: 0x14A7214
+	// RVA: 0xF470C0 Offset: 0xF470C0 VA: 0xF470C0
 	public void OpenCampaignInfoDialog(CampaignInfoEntity cInfo, string closeMgs, string decideMsg, bool activeDecide, CampaignInfoDlg.onButtonDelgate callback) { }
 
-	// RVA: 0x14A7320 Offset: 0x14A7320 VA: 0x14A7320
+	// RVA: 0xF471CC Offset: 0xF471CC VA: 0xF471CC
 	public void CloseCampaignInfoDialg() { }
 
-	// RVA: 0x14A73F8 Offset: 0x14A73F8 VA: 0x14A73F8
+	// RVA: 0xF472A4 Offset: 0xF472A4 VA: 0xF472A4
 	public void OpenPresentBoxNotificationMenu(UserPresentBoxEntity[] presentList, PresentBoxNotificationMenu.CallbackFunc callback) { }
 
-	// RVA: 0x14A74DC Offset: 0x14A74DC VA: 0x14A74DC
+	// RVA: 0xF47388 Offset: 0xF47388 VA: 0xF47388
 	public void ClosePresentBoxNotificationMenu() { }
 
-	// RVA: 0x14A75B4 Offset: 0x14A75B4 VA: 0x14A75B4
+	// RVA: 0xF47460 Offset: 0xF47460 VA: 0xF47460
 	protected void EndClosePresentBoxNotificationMenu() { }
 
-	// RVA: 0x14A7680 Offset: 0x14A7680 VA: 0x14A7680
-	public void OpenTutorialNotificationDialog(string message, TutorialFlag.Id flagId = -1, Action callback) { }
-
-	// RVA: 0x14A7784 Offset: 0x14A7784 VA: 0x14A7784
-	public void OpenFullScreenMaskDialog(string message, TutorialFlag.Id flagId = -1, Action callback, Vector2 messagePos, int fontSize = -1, bool dispTouchSprite = True) { }
-
-	// RVA: 0x14A78A8 Offset: 0x14A78A8 VA: 0x14A78A8
-	public void OpenTutorialNotificationDialogBox(string message, Rect[] rects, Vector2 messagePos, int fontSize = -1, TutorialFlag.Id flagId = -1, Action callback, Action opencallback) { }
-
-	// RVA: 0x14A79FC Offset: 0x14A79FC VA: 0x14A79FC
-	public void OpenEventTutorialNotificationDialog(string message, Rect[] rects, Vector2 messagePos, Vector3 touchObjPos, int dlgBgId, NGUIText.Alignment alignment, Action callback, Action opencallback) { }
-
-	// RVA: 0x14A7B74 Offset: 0x14A7B74 VA: 0x14A7B74
-	public void OpenTutorialNotificationDialogArrow(string message, Vector2 pos, Rect rect, float way, Vector2 messagePos, int fontSize = -1, Action callbackFunc) { }
-
-	// RVA: 0x14A7DE8 Offset: 0x14A7DE8 VA: 0x14A7DE8
-	public void OpenTutorialNotificationDialogArrow(string message, Vector2[] posList, Rect rect, float way, Vector2 messagePos, int fontSize = -1, Action callbackFunc) { }
-
-	// RVA: 0x14A7F2C Offset: 0x14A7F2C VA: 0x14A7F2C
-	public void OpenTutorialNotificationDialogArrow(string message, Vector2[] posList, Rect[] rects, float way, Vector2 messagePos, int fontSize = -1, Action callbackFunc) { }
-
-	// RVA: 0x14A8014 Offset: 0x14A8014 VA: 0x14A8014
-	public void OpenTutorialNotificationDialogArrow(string message, Vector2 pos, Rect[] rects, float way, Vector2 messagePos, int fontSize = -1, Action callbackFunc) { }
-
-	// RVA: 0x14A7CF8 Offset: 0x14A7CF8 VA: 0x14A7CF8
-	public void OpenTutorialNotificationDialogArrow(string message, Vector2[] posList, Rect[] rects, float[] ways, Vector2 messagePos, int fontSize = -1, Action callbackFunc) { }
-
-	// RVA: 0x14A81A4 Offset: 0x14A81A4 VA: 0x14A81A4
-	public void CloseTutorialNotificationDialogArrow() { }
-
-	// RVA: 0x14A821C Offset: 0x14A821C VA: 0x14A821C
-	public void CloseTutorialNotificationDialogArrow(Action callbackFunc) { }
-
-	// RVA: 0x14A832C Offset: 0x14A832C VA: 0x14A832C
-	public void OpenTutorialImageDialog(TutorialFlag.ImageId[] images, TutorialFlag.Id flagId = -1, Action closeCallback, Action endOpenCallback, Action endTurorialRequestFunc) { }
-
-	// RVA: 0x14A8394 Offset: 0x14A8394 VA: 0x14A8394
-	public void OpenTutorialImageDialog(TutorialFlag.ImageId image, TutorialFlag.Id flagId = -1, Action closeCallback, Action endOpenCallback, Action endTurorialRequestFunc) { }
-
-	// RVA: 0x14A8454 Offset: 0x14A8454 VA: 0x14A8454
-	public void OpenTutorialImageDialog(TutorialFlag.ImageId[] images, TutorialFlag.LocalId flagId, Action closeCallback, Action endOpenCallback, Action endTurorialRequestFunc) { }
-
-	// RVA: 0x14A84BC Offset: 0x14A84BC VA: 0x14A84BC
-	public void OpenTutorialImageDialog(TutorialFlag.ImageId image, TutorialFlag.LocalId flagId, Action closeCallback, Action endOpenCallback, Action endTurorialRequestFunc) { }
-
-	// RVA: 0x14A857C Offset: 0x14A857C VA: 0x14A857C
-	public void OpenTutorialImageDialog(TutorialFlag.ImageId[] images, TutorialFlag.EventId flagId, int eventId, Action closeCallback, Action endOpenCallback, Action endTurorialRequestFunc) { }
-
-	// RVA: 0x14A85F4 Offset: 0x14A85F4 VA: 0x14A85F4
-	public void OpenTutorialImageDialog(TutorialFlag.ImageId image, TutorialFlag.EventId flagId, int eventId, Action closeCallback, Action endOpenCallback, Action endTurorialRequestFunc) { }
-
-	// RVA: 0x14A86BC Offset: 0x14A86BC VA: 0x14A86BC
-	public void OpenTutorialImageDialog(int[] images, TutorialFlag.EventId flagId, int eventId, Action closeCallback, Action endOpenCallback, Action endTurorialRequestFunc) { }
-
-	// RVA: 0x14A8734 Offset: 0x14A8734 VA: 0x14A8734
-	public void OpenImageDialogWithAssets(string[] images, Action closeCallback, Action endOpenCallback, Action endTurorialRequestFunc) { }
-
-	// RVA: 0x14A8794 Offset: 0x14A8794 VA: 0x14A8794
-	public void OpenImageDialogAssets(int[] images, TutorialBigDialog.TutrialWindowSize kind, Action closeCallback) { }
-
-	// RVA: 0x14A87E4 Offset: 0x14A87E4 VA: 0x14A87E4
-	public void OpenImageDialogByConfigId(string[] images, int configFlg, Action closeCallback, Action endOpenCallback, Action endTurorialRequestFunc) { }
-
-	// RVA: 0x14A884C Offset: 0x14A884C VA: 0x14A884C
-	public void InitTurotialArrowMark() { }
-
-	// RVA: 0x14A887C Offset: 0x14A887C VA: 0x14A887C
-	public void OpenTutorialArrowMark(Vector2 pos, float way, Rect rect, Action callback) { }
-
-	// RVA: 0x14A890C Offset: 0x14A890C VA: 0x14A890C
-	public void OpenTutorialArrowMark(Vector2[] posList, float way, Rect rect, Action callback) { }
-
-	// RVA: 0x14A8994 Offset: 0x14A8994 VA: 0x14A8994
-	public void OpenTutorialArrowMark(Vector2 pos, float way, Rect[] rects, Action callback) { }
-
-	// RVA: 0x14A8A04 Offset: 0x14A8A04 VA: 0x14A8A04
-	public void OpenTutorialArrowMark(Vector2[] posList, float way, Rect[] rects, Action callback) { }
-
-	// RVA: 0x14A8144 Offset: 0x14A8144 VA: 0x14A8144
-	public void OpenTutorialArrowMark(Vector2[] posList, float[] ways, Rect[] rects, Action callback) { }
-
-	// RVA: 0x14A81E4 Offset: 0x14A81E4 VA: 0x14A81E4
-	public void CloseTutorialArrowMark(Action callback) { }
-
-	// RVA: 0x14A8A64 Offset: 0x14A8A64 VA: 0x14A8A64
-	public bool PlayLogo(Action callback) { }
-
-	// RVA: 0x14A8BC4 Offset: 0x14A8BC4 VA: 0x14A8BC4
-	protected void EndPlayLogo() { }
-
-	// RVA: 0x14A8D48 Offset: 0x14A8D48 VA: 0x14A8D48
-	public void OpenLocationTermsOfUseDlg(TermsOfUseDlg.CallbackFunc callback, bool canMaskTouchClose = False) { }
-
-	// RVA: 0x14A8EC0 Offset: 0x14A8EC0 VA: 0x14A8EC0
-	public void CloseLocationTermsOfUseDlg() { }
-
-	// RVA: 0x14A8EF0 Offset: 0x14A8EF0 VA: 0x14A8EF0
-	public void OpenTripleButtonDlg(string title, string message, string cancelBtnMsg, string middleBtnMsg, string rightBtnMsg, TripleButtonDlgComponent.CallbackFunc callback, int fontSize = 30, int positionY = 10, int spacingY = 10, bool canMaskTouchClose = False, SeManager.SystemSeKind middleSe = 8, SeManager.SystemSeKind rightSe = 8) { }
-
-	// RVA: 0x14A9040 Offset: 0x14A9040 VA: 0x14A9040
-	public void CloseTripleButtonDlg(Action closed_act) { }
-
-	// RVA: 0x14A9160 Offset: 0x14A9160 VA: 0x14A9160
-	public void setCallbackTripleButtonDlg(TripleButtonDlgComponent.CallbackFunc callback) { }
-
-	// RVA: 0x14A9210 Offset: 0x14A9210 VA: 0x14A9210
-	public void setStateTripleButtonDlgRightButton(bool disabled) { }
-
-	// RVA: 0x14A92C0 Offset: 0x14A92C0 VA: 0x14A92C0
-	public void OpenSvtFrameShortDlg(int haveSvtNum, int maxSvtNum, ServantFrameShortDlgComponent.Type type, bool isQuest, ServantFrameShortDlgComponent.CallbackFunc callback) { }
-
-	// RVA: 0x14A93CC Offset: 0x14A93CC VA: 0x14A93CC
-	public void CloseSvtFrameShortDlg(Action closed_act) { }
-
-	// RVA: 0x14A94EC Offset: 0x14A94EC VA: 0x14A94EC
-	public void OpenUserNameEntry(Action closed_act) { }
-
-	// RVA: 0x14A9634 Offset: 0x14A9634 VA: 0x14A9634
-	protected void CloseUserNameEntry() { }
-
-	// RVA: 0x14A9700 Offset: 0x14A9700 VA: 0x14A9700
-	public void SaveLoginResultHavingBonusDuringTutorial() { }
-
-	// RVA: 0x14A980C Offset: 0x14A980C VA: 0x14A980C
-	public void SetupLoginResultData(int[] eventSvtGets) { }
-
-	// RVA: 0x14A9C2C Offset: 0x14A9C2C VA: 0x14A9C2C
-	public void ClearLoginResultData() { }
-
-	// RVA: 0x14A9C34 Offset: 0x14A9C34 VA: 0x14A9C34
-	public static void DeleteTutorialSaveKey() { }
-
-	// RVA: 0x14A9994 Offset: 0x14A9994 VA: 0x14A9994
-	public void SetMaterialAddSvts() { }
-
-	// RVA: 0x14A9C80 Offset: 0x14A9C80 VA: 0x14A9C80
-	public void StartServantEventJoinLeaveNotification(Action end_act) { }
-
-	// RVA: 0x14A9CB8 Offset: 0x14A9CB8 VA: 0x14A9CB8
-	private void StartServantEventJoinLeaveNotification_sub(int idx, Action end_act) { }
-
-	// RVA: 0x14A9F40 Offset: 0x14A9F40 VA: 0x14A9F40
-	public void StartLoginMessages(Action end_act) { }
-
-	// RVA: 0x14A9F78 Offset: 0x14A9F78 VA: 0x14A9F78
-	private void StartLoginMessageChain(CommonUI.LoginMessageData[] loginMessages, int index, Action end_act) { }
-
-	// RVA: 0x14AA1B8 Offset: 0x14AA1B8 VA: 0x14AA1B8
-	public void StartLoginAndCampaignBonus(Action end_act, Action onCloseLogin, int panel_depth = -1) { }
-
-	// RVA: 0x14AA1BC Offset: 0x14AA1BC VA: 0x14AA1BC
-	private void StartTotalLoginBonus(Action end_act, Action onCloseLogin, int panel_depth = -1) { }
-
-	// RVA: 0x14AA208 Offset: 0x14AA208 VA: 0x14AA208
-	private void TotalLoginBonusChain(CommonUI.LoginBonusData[] bDatas, int index, Action end_act, Action onCloseLogin, int panel_depth) { }
-
-	// RVA: 0x14AA7B8 Offset: 0x14AA7B8 VA: 0x14AA7B8
-	private void StartSeqLoginBonus(Action end_act, Action onCloseLogin, int panel_depth = -1) { }
-
-	// RVA: 0x14AA93C Offset: 0x14AA93C VA: 0x14AA93C
-	private void SeqLoginBonusChain(CommonUI.LoginBonusData[] bDatas, int index, Action end_act, Action onCloseLogin, int panel_depth) { }
-
-	// RVA: 0x14AAEEC Offset: 0x14AAEEC VA: 0x14AAEEC
-	private void StartCampaignBonus(Action end_act, int panel_depth = -1) { }
-
-	// RVA: 0x14AAF2C Offset: 0x14AAF2C VA: 0x14AAF2C
-	private void StartCampaignBonus_sub(int idx, Action end_act, int panel_depth = -1) { }
-
-	// RVA: 0x14AB418 Offset: 0x14AB418 VA: 0x14AB418
-	public void StartFriendPointNotification(Action end_act) { }
-
-	// RVA: 0x14ABC80 Offset: 0x14ABC80 VA: 0x14ABC80
-	public void OpenServantCombineResult(CombineResultEffectComponent.Kind kind, int infoIdx, UserServantEntity usrSvtData, int baseCollectionLv, CombineResultEffectComponent.ClickDelegate callback) { }
-
-	// RVA: 0x14ABD8C Offset: 0x14ABD8C VA: 0x14ABD8C
-	public void OpenServantCombineResult(CombineResultEffectComponent.Kind kind, int infoIdx, UserServantEntity baseSvtData, UserServantEntity resSvtData, int svtId, string voiceId, bool statusDisp, int friendship, CombineResultEffectComponent.ClickDelegate callback) { }
-
-	// RVA: 0x14ABEC4 Offset: 0x14ABEC4 VA: 0x14ABEC4
-	public void OpenServantEqCombineResult(CombineResultEffectComponent.Kind kind, int infoIdx, int normalExp, int addExp, UserServantEntity usrSvtData, int baseCollectionLv, CombineResultEffectComponent.ClickDelegate callback) { }
-
-	// RVA: 0x14ABFE8 Offset: 0x14ABFE8 VA: 0x14ABFE8
-	public void OpenLimitUpCombineResult(CombineResultEffectComponent.Kind kind, UserServantEntity usrSvtData, CombineResultEffectComponent.ClickDelegate callback, ServantChangeEntity svtChange, bool autoFadeout = True, ServantLimitUpVoiceCache.Type displayType = 0, int genderType = -1, string playVoiceLabel) { }
-
-	// RVA: 0x14AC030 Offset: 0x14AC030 VA: 0x14AC030
-	public void OpenLimitUpCombineResult(CombineResultEffectComponent.Kind kind, UserServantEntity usrSvtData, int baseCollectionLimitCnt, CombineResultEffectComponent.ClickDelegate callback, ServantChangeEntity svtChange, bool autoFadeout = True, ServantLimitUpVoiceCache.Type displayType = 0, int genderType = -1, string playVoiceLabel) { }
-
-	// RVA: 0x14AC168 Offset: 0x14AC168 VA: 0x14AC168
-	public void OpenNameRevealResult(ServantChangeEntity beforeSvtData, ServantChangeEntity afterSvtData, CombineResultEffectComponent.ClickDelegate callback) { }
-
-	// RVA: 0x14AC25C Offset: 0x14AC25C VA: 0x14AC25C
-	public void OpenSkillCombineResult(CombineResultEffectComponent.Kind kind, UserServantEntity usrSvtData, int targetId, int targetLv, CombineResultEffectComponent.ClickDelegate callback, int targetIdOld = 0, int targetLvOld = 0) { }
-
-	// RVA: 0x14AC380 Offset: 0x14AC380 VA: 0x14AC380
-	public void OpenNobleCombineResult(CombineResultEffectComponent.Kind kind, UserServantEntity usrSvtData, int targetId, int targetLv, CombineResultEffectComponent.ClickDelegate callback, int targetIdOld = 0, int targetLvOld = 0) { }
-
-	// RVA: 0x14AC4A4 Offset: 0x14AC4A4 VA: 0x14AC4A4
-	public void OpenFriendshipUp(UserServantEntity usrSvtData, int oldFriendShipRank, CombineResultEffectComponent.ClickDelegate callback) { }
-
-	// RVA: 0x14AC604 Offset: 0x14AC604 VA: 0x14AC604
-	public void OpenFriendshipExceed(UserServantEntity usrSvtData, int oldFriendshipRank, CombineResultEffectComponent.ClickDelegate callback) { }
-
-	// RVA: 0x14AC764 Offset: 0x14AC764 VA: 0x14AC764
-	public void OpenSecretTreasureDeviceForQuestClear(int questId, int phase, CombineResultEffectComponent.MessageDelegate msgCallBack, CombineResultEffectComponent.ClickDelegate callback) { }
-
-	// RVA: 0x14AC8CC Offset: 0x14AC8CC VA: 0x14AC8CC
-	public void OpenSecretTreasureDeviceForSvtGet(int svtId, CombineResultEffectComponent.ClickDelegate callback) { }
-
-	// RVA: 0x14ACA1C Offset: 0x14ACA1C VA: 0x14ACA1C
-	public void CloseCombineResult() { }
-
-	// RVA: 0x14ACB04 Offset: 0x14ACB04 VA: 0x14ACB04
-	public void OpenPowerUp(CombineResultEffectComponent.ClickDelegate callback) { }
-
-	// RVA: 0x14ACD28 Offset: 0x14ACD28 VA: 0x14ACD28
-	public void OpenPowerUp(UserServantEntity usrSvtData, CombineResultEffectComponent.ClickDelegate callback) { }
-
-	// RVA: 0x14ACE78 Offset: 0x14ACE78 VA: 0x14ACE78
-	public void OpenCombineLimit(UserServantEntity usrSvtData, CombineResultEffectComponent.ClickDelegate callback) { }
-
-	// RVA: 0x14ACFCC Offset: 0x14ACFCC VA: 0x14ACFCC
-	public void OpenBoostSupportRequestMenu(int questId, int questPhase, BoostFunctionUtility.CallbackFunc callback, bool isRetryBattle = False) { }
-
-	// RVA: 0x14AD0C8 Offset: 0x14AD0C8 VA: 0x14AD0C8
-	public void CloseBoostSupportRequestMenu(Action callback) { }
-
-	// RVA: 0x14AD1A8 Offset: 0x14AD1A8 VA: 0x14AD1A8
-	protected void EndCloseBoostSupportRequestMenu() { }
-
-	// RVA: 0x14AD294 Offset: 0x14AD294 VA: 0x14AD294
-	public void OpenBoostSupportRequestReconfirmationMenu(BoostEntity boostEntity, BoostFunctionUtility.CallbackFunc callback) { }
-
-	// RVA: 0x14AD378 Offset: 0x14AD378 VA: 0x14AD378
-	public void CloseBoostSupportRequestReconfirmationMenu(Action callback) { }
-
-	// RVA: 0x14AD458 Offset: 0x14AD458 VA: 0x14AD458
-	protected void EndCloseBoostSupportRequestReconfirmationMenu() { }
-
-	// RVA: 0x14AD544 Offset: 0x14AD544 VA: 0x14AD544
-	public void OpenCenterEffectDetailDialog(int questId, int questPhase, Action callback) { }
-
-	// RVA: 0x14AD638 Offset: 0x14AD638 VA: 0x14AD638
-	public void CloseCenterEffectDetailDialog(Action callback) { }
-
-	// RVA: 0x14AD718 Offset: 0x14AD718 VA: 0x14AD718
-	protected void EndCloseCenterEffectDetailDialog() { }
-
-	// RVA: 0x14AD804 Offset: 0x14AD804 VA: 0x14AD804
-	public void OpenClassCompatibilityMenu(Action callback) { }
-
-	// RVA: 0x14AD818 Offset: 0x14AD818 VA: 0x14AD818
-	public void OpenClassCompatibilityMenu(int questId, int questPhase, Action callback) { }
-
-	// RVA: 0x14AD90C Offset: 0x14AD90C VA: 0x14AD90C
-	public void OpenCostumeCombineResult(UserServantEntity baseSvt, int costumeId, string costumeName, CombineResultEffectComponent.ClickDelegate callback) { }
-
-	// RVA: 0x14ADA08 Offset: 0x14ADA08 VA: 0x14ADA08
-	public void CloseClassCompatibilityMenu(Action callback) { }
-
-	// RVA: 0x14ADAE8 Offset: 0x14ADAE8 VA: 0x14ADAE8
-	protected void EndCloseClassCompatibilityMenu() { }
-
-	// RVA: 0x14ADBD4 Offset: 0x14ADBD4 VA: 0x14ADBD4
-	public void LoadCostumeReleaseEffect(Action callBack) { }
-
-	// RVA: 0x14ADD28 Offset: 0x14ADD28 VA: 0x14ADD28
-	public void OpenCostumeReleaseEffect(bool releaseAfter, string itemString, Action callBack, ImageItem.Id imageId = 23) { }
-
-	// RVA: 0x14ADF48 Offset: 0x14ADF48 VA: 0x14ADF48
-	public void OpenCompensationItemDialog(List<int> messageIds, Action endCallBack) { }
-
-	// RVA: 0x14AE188 Offset: 0x14AE188 VA: 0x14AE188
-	public void ReleaseCostumeReleaseEffect() { }
-
-	// RVA: 0x14AE268 Offset: 0x14AE268 VA: 0x14AE268
-	public void LoadEquipGetEffect(Action callBack) { }
-
-	// RVA: 0x14AE3BC Offset: 0x14AE3BC VA: 0x14AE3BC
-	public void OpenEquipGetEffect(bool releaseAfter, QuestRewardInfo questRewardInfo, Action callBack) { }
-
-	// RVA: 0x14AE5B0 Offset: 0x14AE5B0 VA: 0x14AE5B0
-	public void ReleaseEquipGetEffect() { }
-
-	// RVA: 0x14AE690 Offset: 0x14AE690 VA: 0x14AE690
-	public void LoadItemGetEffect(QuestRewardInfo questRewardInfo, Action callBack) { }
-
-	// RVA: 0x14AE88C Offset: 0x14AE88C VA: 0x14AE88C
-	public void LoadItemGetEffect(int effectId, Action callBack) { }
-
-	// RVA: 0x14AE6C0 Offset: 0x14AE6C0 VA: 0x14AE6C0
-	public int GetItemEffectId(QuestRewardInfo questRewardInfo) { }
-
-	// RVA: 0x14AEA1C Offset: 0x14AEA1C VA: 0x14AEA1C
-	public void LoadCoinRoomGetEffect(Action callBack) { }
-
-	// RVA: 0x14AEB34 Offset: 0x14AEB34 VA: 0x14AEB34
-	public void OpenCoinRoomGetEffect(Transform parent, bool releaseAfter, QuestRewardInfo questRewardInfo, Action callBack) { }
-
-	// RVA: 0x14AEFF4 Offset: 0x14AEFF4 VA: 0x14AEFF4
-	public void ReleaseCoinRoomGetEffect() { }
-
-	// RVA: 0x14AF094 Offset: 0x14AF094 VA: 0x14AF094
-	public void OpenItemGetEffect(Transform parent, bool releaseAfter, QuestRewardInfo questRewardInfo, Action callBack) { }
-
-	// RVA: 0x14AF5A8 Offset: 0x14AF5A8 VA: 0x14AF5A8
-	public void ReleaseItemGetEffect() { }
-
-	// RVA: 0x14AF6C0 Offset: 0x14AF6C0 VA: 0x14AF6C0
-	public void OpenQuestPhaseReward(Action callback) { }
-
-	// RVA: 0x14AF8E4 Offset: 0x14AF8E4 VA: 0x14AF8E4
-	public void DestoryQuestPhaseReward() { }
-
-	// RVA: 0x14AF990 Offset: 0x14AF990 VA: 0x14AF990
-	public void OpenApRecoverItemListDialog(int needAp, RecoverDlgComponent.CallbackFunc callback, bool canMaskTouchClose = True) { }
-
-	// RVA: 0x14AFA84 Offset: 0x14AFA84 VA: 0x14AFA84
-	public void OpenRpRecoverItemListDialog(int needRp, RecoverDlgComponent.CallbackFunc callback, bool canMaskTouchClose = True) { }
-
-	// RVA: 0x14AFB78 Offset: 0x14AFB78 VA: 0x14AFB78
-	public void CloseRecoverItemListDialog() { }
-
-	// RVA: 0x14AFC50 Offset: 0x14AFC50 VA: 0x14AFC50
-	public void OpenEventItemSelectDialog(List<ItemEntity> viewItemList, string title, string detail, Action endOpenFunc, EventItemSelectDlgComponent.CallbackFunc onSelectItemFunc, Action onCloseDialogFunc, bool canMaskTouchClose = True) { }
-
-	// RVA: 0x14AFD74 Offset: 0x14AFD74 VA: 0x14AFD74
-	public void CloseEventItemListDialog() { }
-
-	// RVA: 0x14AFE4C Offset: 0x14AFE4C VA: 0x14AFE4C
-	public void OpenItemDetailDialog(ItemEntity itemData, ItemDetailInfoComponent.CallbackFunc callback, int depth = 50) { }
-
-	// RVA: 0x14AFF40 Offset: 0x14AFF40 VA: 0x14AFF40
-	public void CloseItemDetailDialog() { }
-
-	// RVA: 0x14B0018 Offset: 0x14B0018 VA: 0x14B0018
-	public void OpenItemDetailDialog(string name, string msg, ItemDetailInfoComponent.CallbackFunc callback) { }
-
-	// RVA: 0x14B010C Offset: 0x14B010C VA: 0x14B010C
-	public GameObject CreateMissionNotify() { }
-
-	// RVA: 0x14B0198 Offset: 0x14B0198 VA: 0x14B0198
-	public void OpenCompleteMission(CompleteMissionComponent.ClickDelegate callback, Action redisp_act, CompleteMissionComponent.Type typeIndex = 0) { }
-
-	// RVA: 0x14B028C Offset: 0x14B028C VA: 0x14B028C
-	public void CloseCompleteMission() { }
-
-	// RVA: 0x14B0374 Offset: 0x14B0374 VA: 0x14B0374
-	public CompleteMissionComponent get_completeMissionCompo() { }
-
-	// RVA: 0x14B037C Offset: 0x14B037C VA: 0x14B037C
-	public void OpenMasterMission(MasterMissionComponent.ClickDelegate callback, Action redisp_act, MasterMissionComponent.Type typeIndex = -1) { }
-
-	// RVA: 0x14B0470 Offset: 0x14B0470 VA: 0x14B0470
-	public void CloseMasterMission() { }
-
-	// RVA: 0x14B0558 Offset: 0x14B0558 VA: 0x14B0558
-	public MasterMissionComponent get_masterMissionCompo() { }
-
-	// RVA: 0x14B0560 Offset: 0x14B0560 VA: 0x14B0560
-	public void OpenMissionRewardGetDialog(GiftEntity[] rewards, string rewardDetail, MissionRewardGetDialog.ClickDelegate callback) { }
-
-	// RVA: 0x14B0654 Offset: 0x14B0654 VA: 0x14B0654
-	public void OpenWarBoardTreasureGetDialog(int[] treasureIds, WarBoardTreasureListComponent.DialogType type, Action callback) { }
-
-	// RVA: 0x14B0748 Offset: 0x14B0748 VA: 0x14B0748
+	// RVA: 0xF4752C Offset: 0xF4752C VA: 0xF4752C

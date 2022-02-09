@@ -1,19 +1,141 @@
-	// RVA: 0x2262BE4 Offset: 0x2262BE4 VA: 0x2262BE4 Slot: 12
+	public virtual IList get_CertificateAuthorities() { }
+
+	// RVA: 0x1DE3758 Offset: 0x1DE3758 VA: 0x1DE3758 Slot: 7
+	public virtual void Encode(Stream output) { }
+
+	// RVA: 0x1DE40D8 Offset: 0x1DE40D8 VA: 0x1DE40D8
+	public static CertificateRequest Parse(TlsContext context, Stream input) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public class CertificateStatus // TypeDefIndex: 4901
+{
+	// Fields
+	protected readonly byte mStatusType; // 0x10
+	protected readonly object mResponse; // 0x18
+
+	// Properties
+	public virtual byte StatusType { get; }
+	public virtual object Response { get; }
+
+	// Methods
+
+	// RVA: 0x1DE4424 Offset: 0x1DE4424 VA: 0x1DE4424
+	public void .ctor(byte statusType, object response) { }
+
+	// RVA: 0x1DE45D0 Offset: 0x1DE45D0 VA: 0x1DE45D0 Slot: 4
+	public virtual byte get_StatusType() { }
+
+	// RVA: 0x1DE45D8 Offset: 0x1DE45D8 VA: 0x1DE45D8 Slot: 5
+	public virtual object get_Response() { }
+
+	// RVA: 0x1DE45E0 Offset: 0x1DE45E0 VA: 0x1DE45E0 Slot: 6
+	public virtual OcspResponse GetOcspResponse() { }
+
+	// RVA: 0x1DE4700 Offset: 0x1DE4700 VA: 0x1DE4700 Slot: 7
+	public virtual void Encode(Stream output) { }
+
+	// RVA: 0x1DE491C Offset: 0x1DE491C VA: 0x1DE491C
+	public static CertificateStatus Parse(Stream input) { }
+
+	// RVA: 0x1DE44E8 Offset: 0x1DE44E8 VA: 0x1DE44E8
+	protected static bool IsCorrectType(byte statusType, object response) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public class CertificateStatusRequest // TypeDefIndex: 4902
+{
+	// Fields
+	protected readonly byte mStatusType; // 0x10
+	protected readonly object mRequest; // 0x18
+
+	// Properties
+	public virtual byte StatusType { get; }
+	public virtual object Request { get; }
+
+	// Methods
+
+	// RVA: 0x1CE8494 Offset: 0x1CE8494 VA: 0x1CE8494
+	public void .ctor(byte statusType, object request) { }
+
+	// RVA: 0x1CE8640 Offset: 0x1CE8640 VA: 0x1CE8640 Slot: 4
+	public virtual byte get_StatusType() { }
+
+	// RVA: 0x1CE8648 Offset: 0x1CE8648 VA: 0x1CE8648 Slot: 5
+	public virtual object get_Request() { }
+
+	// RVA: 0x1CE8650 Offset: 0x1CE8650 VA: 0x1CE8650 Slot: 6
+	public virtual OcspStatusRequest GetOcspStatusRequest() { }
+
+	// RVA: 0x1CE8770 Offset: 0x1CE8770 VA: 0x1CE8770 Slot: 7
+	public virtual void Encode(Stream output) { }
+
+	// RVA: 0x1CE8990 Offset: 0x1CE8990 VA: 0x1CE8990
+	public static CertificateStatusRequest Parse(Stream input) { }
+
+	// RVA: 0x1CE8558 Offset: 0x1CE8558 VA: 0x1CE8558
+	protected static bool IsCorrectType(byte statusType, object request) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public abstract class CertificateStatusType // TypeDefIndex: 4903
+{
+	// Fields
+	public const byte ocsp = 1;
+
+	// Methods
+
+	// RVA: 0x1CE8D3C Offset: 0x1CE8D3C VA: 0x1CE8D3C
+	protected void .ctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public class Chacha20Poly1305 : TlsCipher // TypeDefIndex: 4904
+{
+	// Fields
+	private static readonly byte[] Zeroes; // 0x0
+	protected readonly TlsContext context; // 0x10
+	protected readonly ChaCha7539Engine encryptCipher; // 0x18
+	protected readonly ChaCha7539Engine decryptCipher; // 0x20
+	protected readonly byte[] encryptIV; // 0x28
+	protected readonly byte[] decryptIV; // 0x30
+
+	// Methods
+
+	// RVA: 0x1CE8D44 Offset: 0x1CE8D44 VA: 0x1CE8D44
+	public void .ctor(TlsContext context) { }
+
+	// RVA: 0x1CE901C Offset: 0x1CE901C VA: 0x1CE901C Slot: 7
+	public virtual int GetPlaintextLimit(int ciphertextLimit) { }
+
+	// RVA: 0x1CE9024 Offset: 0x1CE9024 VA: 0x1CE9024 Slot: 8
+	public virtual byte[] EncodePlaintext(long seqNo, byte type, byte[] plaintext, int offset, int len) { }
+
+	// RVA: 0x1CE917C Offset: 0x1CE917C VA: 0x1CE917C Slot: 9
+	public virtual byte[] DecodeCiphertext(long seqNo, byte type, byte[] ciphertext, int offset, int len) { }
+
+	// RVA: 0x1CE9344 Offset: 0x1CE9344 VA: 0x1CE9344 Slot: 10
+	protected virtual KeyParameter InitRecord(IStreamCipher cipher, bool forEncryption, long seqNo, byte[] iv) { }
+
+	// RVA: 0x1CE9478 Offset: 0x1CE9478 VA: 0x1CE9478 Slot: 11
+	protected virtual byte[] CalculateNonce(long seqNo, byte[] iv) { }
+
+	// RVA: 0x1CE9598 Offset: 0x1CE9598 VA: 0x1CE9598 Slot: 12
 	protected virtual KeyParameter GenerateRecordMacKey(IStreamCipher cipher) { }
 
-	// RVA: 0x2262D1C Offset: 0x2262D1C VA: 0x2262D1C Slot: 13
+	// RVA: 0x1CE96D4 Offset: 0x1CE96D4 VA: 0x1CE96D4 Slot: 13
 	protected virtual byte[] CalculateRecordMac(KeyParameter macKey, byte[] additionalData, byte[] buf, int off, int len) { }
 
-	// RVA: 0x2262EDC Offset: 0x2262EDC VA: 0x2262EDC Slot: 14
+	// RVA: 0x1CE9894 Offset: 0x1CE9894 VA: 0x1CE9894 Slot: 14
 	protected virtual void UpdateRecordMacLength(IMac mac, int len) { }
 
-	// RVA: 0x2262FCC Offset: 0x2262FCC VA: 0x2262FCC Slot: 15
+	// RVA: 0x1CE9984 Offset: 0x1CE9984 VA: 0x1CE9984 Slot: 15
 	protected virtual void UpdateRecordMacText(IMac mac, byte[] buf, int off, int len) { }
 
-	// RVA: 0x2263184 Offset: 0x2263184 VA: 0x2263184 Slot: 16
+	// RVA: 0x1CE9B3C Offset: 0x1CE9B3C VA: 0x1CE9B3C Slot: 16
 	protected virtual byte[] GetAdditionalData(long seqNo, byte type, int len) { }
 
-	// RVA: 0x22632E8 Offset: 0x22632E8 VA: 0x22632E8
+	// RVA: 0x1CE9CA0 Offset: 0x1CE9CA0 VA: 0x1CE9CA0
 	private static void .cctor() { }
 }
 
@@ -25,7 +147,7 @@ public abstract class ChangeCipherSpec // TypeDefIndex: 4905
 
 	// Methods
 
-	// RVA: 0x226334C Offset: 0x226334C VA: 0x226334C
+	// RVA: 0x1CE9D04 Offset: 0x1CE9D04 VA: 0x1CE9D04
 	protected void .ctor() { }
 }
 
@@ -306,10 +428,10 @@ public abstract class CipherSuite // TypeDefIndex: 4906
 
 	// Methods
 
-	// RVA: 0x2263354 Offset: 0x2263354 VA: 0x2263354
+	// RVA: 0x1CE9D0C Offset: 0x1CE9D0C VA: 0x1CE9D0C
 	protected void .ctor() { }
 
-	// RVA: 0x226335C Offset: 0x226335C VA: 0x226335C
+	// RVA: 0x1CE9D14 Offset: 0x1CE9D14 VA: 0x1CE9D14
 	public static bool IsScsv(int cipherSuite) { }
 }
 
@@ -323,7 +445,7 @@ public abstract class CipherType // TypeDefIndex: 4907
 
 	// Methods
 
-	// RVA: 0x226337C Offset: 0x226337C VA: 0x226337C
+	// RVA: 0x1CE9D34 Offset: 0x1CE9D34 VA: 0x1CE9D34
 	protected void .ctor() { }
 }
 
@@ -344,7 +466,7 @@ public abstract class ClientCertificateType // TypeDefIndex: 4908
 
 	// Methods
 
-	// RVA: 0x2263384 Offset: 0x2263384 VA: 0x2263384
+	// RVA: 0x1CE9D3C Offset: 0x1CE9D3C VA: 0x1CE9D3C
 	protected void .ctor() { }
 }
 
@@ -361,55 +483,55 @@ internal class CombinedHash : TlsHandshakeHash, IDigest // TypeDefIndex: 4909
 
 	// Methods
 
-	// RVA: 0x226338C Offset: 0x226338C VA: 0x226338C
+	// RVA: 0x1CE9D44 Offset: 0x1CE9D44 VA: 0x1CE9D44
 	internal void .ctor() { }
 
-	// RVA: 0x2263418 Offset: 0x2263418 VA: 0x2263418
+	// RVA: 0x1CE9DD0 Offset: 0x1CE9DD0 VA: 0x1CE9DD0
 	internal void .ctor(CombinedHash t) { }
 
-	// RVA: 0x22634E8 Offset: 0x22634E8 VA: 0x22634E8 Slot: 18
+	// RVA: 0x1CE9EA0 Offset: 0x1CE9EA0 VA: 0x1CE9EA0 Slot: 18
 	public virtual void Init(TlsContext context) { }
 
-	// RVA: 0x22634F0 Offset: 0x22634F0 VA: 0x22634F0 Slot: 19
+	// RVA: 0x1CE9EA8 Offset: 0x1CE9EA8 VA: 0x1CE9EA8 Slot: 19
 	public virtual TlsHandshakeHash NotifyPrfDetermined() { }
 
-	// RVA: 0x22634F4 Offset: 0x22634F4 VA: 0x22634F4 Slot: 20
+	// RVA: 0x1CE9EAC Offset: 0x1CE9EAC VA: 0x1CE9EAC Slot: 20
 	public virtual void TrackHashAlgorithm(byte hashAlgorithm) { }
 
-	// RVA: 0x2263568 Offset: 0x2263568 VA: 0x2263568 Slot: 21
+	// RVA: 0x1CE9F20 Offset: 0x1CE9F20 VA: 0x1CE9F20 Slot: 21
 	public virtual void SealHashAlgorithms() { }
 
-	// RVA: 0x226356C Offset: 0x226356C VA: 0x226356C Slot: 22
+	// RVA: 0x1CE9F24 Offset: 0x1CE9F24 VA: 0x1CE9F24 Slot: 22
 	public virtual TlsHandshakeHash StopTracking() { }
 
-	// RVA: 0x22635CC Offset: 0x22635CC VA: 0x22635CC Slot: 23
+	// RVA: 0x1CE9F84 Offset: 0x1CE9F84 VA: 0x1CE9F84 Slot: 23
 	public virtual IDigest ForkPrfHash() { }
 
-	// RVA: 0x226362C Offset: 0x226362C VA: 0x226362C Slot: 24
+	// RVA: 0x1CE9FE4 Offset: 0x1CE9FE4 VA: 0x1CE9FE4 Slot: 24
 	public virtual byte[] GetFinalHash(byte hashAlgorithm) { }
 
-	// RVA: 0x22636A0 Offset: 0x22636A0 VA: 0x22636A0 Slot: 25
+	// RVA: 0x1CEA058 Offset: 0x1CEA058 VA: 0x1CEA058 Slot: 25
 	public virtual string get_AlgorithmName() { }
 
-	// RVA: 0x2263814 Offset: 0x2263814 VA: 0x2263814 Slot: 26
+	// RVA: 0x1CEA1CC Offset: 0x1CEA1CC VA: 0x1CEA1CC Slot: 26
 	public virtual int GetByteLength() { }
 
-	// RVA: 0x226395C Offset: 0x226395C VA: 0x226395C Slot: 27
+	// RVA: 0x1CEA314 Offset: 0x1CEA314 VA: 0x1CEA314 Slot: 27
 	public virtual int GetDigestSize() { }
 
-	// RVA: 0x2263A9C Offset: 0x2263A9C VA: 0x2263A9C Slot: 28
+	// RVA: 0x1CEA454 Offset: 0x1CEA454 VA: 0x1CEA454 Slot: 28
 	public virtual void Update(byte input) { }
 
-	// RVA: 0x2263BDC Offset: 0x2263BDC VA: 0x2263BDC Slot: 29
+	// RVA: 0x1CEA594 Offset: 0x1CEA594 VA: 0x1CEA594 Slot: 29
 	public virtual void BlockUpdate(byte[] input, int inOff, int len) { }
 
-	// RVA: 0x2263D3C Offset: 0x2263D3C VA: 0x2263D3C Slot: 30
+	// RVA: 0x1CEA6F4 Offset: 0x1CEA6F4 VA: 0x1CEA6F4 Slot: 30
 	public virtual int DoFinal(byte[] output, int outOff) { }
 
-	// RVA: 0x2263F4C Offset: 0x2263F4C VA: 0x2263F4C Slot: 31
+	// RVA: 0x1CEA904 Offset: 0x1CEA904 VA: 0x1CEA904 Slot: 31
 	public virtual void Reset() { }
 
-	// RVA: 0x2264080 Offset: 0x2264080 VA: 0x2264080 Slot: 32
+	// RVA: 0x1CEAA38 Offset: 0x1CEAA38 VA: 0x1CEAA38 Slot: 32
 	protected virtual void Ssl3Complete(IDigest d, byte[] ipad, byte[] opad, int padLength) { }
 }
 
@@ -422,7 +544,7 @@ public abstract class CompressionMethod // TypeDefIndex: 4910
 
 	// Methods
 
-	// RVA: 0x226445C Offset: 0x226445C VA: 0x226445C
+	// RVA: 0x1CEAE14 Offset: 0x1CEAE14 VA: 0x1CEAE14
 	protected void .ctor() { }
 }
 
@@ -435,7 +557,7 @@ public abstract class ConnectionEnd // TypeDefIndex: 4911
 
 	// Methods
 
-	// RVA: 0x2264464 Offset: 0x2264464 VA: 0x2264464
+	// RVA: 0x1CEAE1C Offset: 0x1CEAE1C VA: 0x1CEAE1C
 	protected void .ctor() { }
 }
 
@@ -451,7 +573,7 @@ public abstract class ContentType // TypeDefIndex: 4912
 
 	// Methods
 
-	// RVA: 0x226446C Offset: 0x226446C VA: 0x226446C
+	// RVA: 0x1CEAE24 Offset: 0x1CEAE24 VA: 0x1CEAE24
 	protected void .ctor() { }
 }
 
@@ -481,79 +603,79 @@ public class DefaultTlsCipherFactory : AbstractTlsCipherFactory // TypeDefIndex:
 {
 	// Methods
 
-	// RVA: 0x225BD10 Offset: 0x225BD10 VA: 0x225BD10
+	// RVA: 0x1CEAE2C Offset: 0x1CEAE2C VA: 0x1CEAE2C
 	public void .ctor() { }
 
-	// RVA: 0x2264474 Offset: 0x2264474 VA: 0x2264474 Slot: 5
+	// RVA: 0x1CEAE34 Offset: 0x1CEAE34 VA: 0x1CEAE34 Slot: 5
 	public override TlsCipher CreateCipher(TlsContext context, int encryptionAlgorithm, int macAlgorithm) { }
 
-	// RVA: 0x226469C Offset: 0x226469C VA: 0x226469C Slot: 6
+	// RVA: 0x1CEB058 Offset: 0x1CEB058 VA: 0x1CEB058 Slot: 6
 	protected virtual TlsBlockCipher CreateAESCipher(TlsContext context, int cipherKeySize, int macAlgorithm) { }
 
-	// RVA: 0x22647A4 Offset: 0x22647A4 VA: 0x22647A4 Slot: 7
+	// RVA: 0x1CEBDF8 Offset: 0x1CEBDF8 VA: 0x1CEBDF8 Slot: 7
 	protected virtual TlsBlockCipher CreateCamelliaCipher(TlsContext context, int cipherKeySize, int macAlgorithm) { }
 
-	// RVA: 0x22648AC Offset: 0x22648AC VA: 0x22648AC Slot: 8
+	// RVA: 0x1CEBEFC Offset: 0x1CEBEFC VA: 0x1CEBEFC Slot: 8
 	protected virtual TlsCipher CreateChaCha20Poly1305(TlsContext context) { }
 
-	// RVA: 0x226490C Offset: 0x226490C VA: 0x226490C Slot: 9
+	// RVA: 0x1CEBF5C Offset: 0x1CEBF5C VA: 0x1CEBF5C Slot: 9
 	protected virtual TlsAeadCipher CreateCipher_Aes_Ccm(TlsContext context, int cipherKeySize, int macSize) { }
 
-	// RVA: 0x22649D0 Offset: 0x22649D0 VA: 0x22649D0 Slot: 10
+	// RVA: 0x1CEC028 Offset: 0x1CEC028 VA: 0x1CEC028 Slot: 10
 	protected virtual TlsAeadCipher CreateCipher_Aes_Gcm(TlsContext context, int cipherKeySize, int macSize) { }
 
-	// RVA: 0x2264A94 Offset: 0x2264A94 VA: 0x2264A94 Slot: 11
+	// RVA: 0x1CEC0EC Offset: 0x1CEC0EC VA: 0x1CEC0EC Slot: 11
 	protected virtual TlsAeadCipher CreateCipher_Aes_Ocb(TlsContext context, int cipherKeySize, int macSize) { }
 
-	// RVA: 0x2264B5C Offset: 0x2264B5C VA: 0x2264B5C Slot: 12
+	// RVA: 0x1CEC5B0 Offset: 0x1CEC5B0 VA: 0x1CEC5B0 Slot: 12
 	protected virtual TlsAeadCipher CreateCipher_Camellia_Gcm(TlsContext context, int cipherKeySize, int macSize) { }
 
-	// RVA: 0x2264C20 Offset: 0x2264C20 VA: 0x2264C20 Slot: 13
+	// RVA: 0x1CEC674 Offset: 0x1CEC674 VA: 0x1CEC674 Slot: 13
 	protected virtual TlsBlockCipher CreateDesEdeCipher(TlsContext context, int macAlgorithm) { }
 
-	// RVA: 0x2264D1C Offset: 0x2264D1C VA: 0x2264D1C Slot: 14
+	// RVA: 0x1CEC76C Offset: 0x1CEC76C VA: 0x1CEC76C Slot: 14
 	protected virtual TlsNullCipher CreateNullCipher(TlsContext context, int macAlgorithm) { }
 
-	// RVA: 0x2264DD4 Offset: 0x2264DD4 VA: 0x2264DD4 Slot: 15
+	// RVA: 0x1CECCB8 Offset: 0x1CECCB8 VA: 0x1CECCB8 Slot: 15
 	protected virtual TlsStreamCipher CreateRC4Cipher(TlsContext context, int cipherKeySize, int macAlgorithm) { }
 
-	// RVA: 0x2264EE8 Offset: 0x2264EE8 VA: 0x2264EE8 Slot: 16
+	// RVA: 0x1CECDCC Offset: 0x1CECDCC VA: 0x1CECDCC Slot: 16
 	protected virtual TlsBlockCipher CreateSeedCipher(TlsContext context, int macAlgorithm) { }
 
-	// RVA: 0x2264FE4 Offset: 0x2264FE4 VA: 0x2264FE4 Slot: 17
+	// RVA: 0x1CECEC4 Offset: 0x1CECEC4 VA: 0x1CECEC4 Slot: 17
 	protected virtual IBlockCipher CreateAesEngine() { }
 
-	// RVA: 0x2265040 Offset: 0x2265040 VA: 0x2265040 Slot: 18
+	// RVA: 0x1CECF20 Offset: 0x1CECF20 VA: 0x1CECF20 Slot: 18
 	protected virtual IBlockCipher CreateCamelliaEngine() { }
 
-	// RVA: 0x226509C Offset: 0x226509C VA: 0x226509C Slot: 19
+	// RVA: 0x1CECF7C Offset: 0x1CECF7C VA: 0x1CECF7C Slot: 19
 	protected virtual IBlockCipher CreateAesBlockCipher() { }
 
-	// RVA: 0x226511C Offset: 0x226511C VA: 0x226511C Slot: 20
+	// RVA: 0x1CECFFC Offset: 0x1CECFFC VA: 0x1CECFFC Slot: 20
 	protected virtual IAeadBlockCipher CreateAeadBlockCipher_Aes_Ccm() { }
 
-	// RVA: 0x226519C Offset: 0x226519C VA: 0x226519C Slot: 21
+	// RVA: 0x1CED07C Offset: 0x1CED07C VA: 0x1CED07C Slot: 21
 	protected virtual IAeadBlockCipher CreateAeadBlockCipher_Aes_Gcm() { }
 
-	// RVA: 0x226521C Offset: 0x226521C VA: 0x226521C Slot: 22
+	// RVA: 0x1CED0FC Offset: 0x1CED0FC VA: 0x1CED0FC Slot: 22
 	protected virtual IAeadBlockCipher CreateAeadBlockCipher_Aes_Ocb() { }
 
-	// RVA: 0x22652C0 Offset: 0x22652C0 VA: 0x22652C0 Slot: 23
+	// RVA: 0x1CED1A0 Offset: 0x1CED1A0 VA: 0x1CED1A0 Slot: 23
 	protected virtual IAeadBlockCipher CreateAeadBlockCipher_Camellia_Gcm() { }
 
-	// RVA: 0x2265340 Offset: 0x2265340 VA: 0x2265340 Slot: 24
+	// RVA: 0x1CED220 Offset: 0x1CED220 VA: 0x1CED220 Slot: 24
 	protected virtual IBlockCipher CreateCamelliaBlockCipher() { }
 
-	// RVA: 0x22653C0 Offset: 0x22653C0 VA: 0x22653C0 Slot: 25
+	// RVA: 0x1CED2A0 Offset: 0x1CED2A0 VA: 0x1CED2A0 Slot: 25
 	protected virtual IBlockCipher CreateDesEdeBlockCipher() { }
 
-	// RVA: 0x226543C Offset: 0x226543C VA: 0x226543C Slot: 26
+	// RVA: 0x1CED31C Offset: 0x1CED31C VA: 0x1CED31C Slot: 26
 	protected virtual IStreamCipher CreateRC4StreamCipher() { }
 
-	// RVA: 0x2265498 Offset: 0x2265498 VA: 0x2265498 Slot: 27
+	// RVA: 0x1CED378 Offset: 0x1CED378 VA: 0x1CED378 Slot: 27
 	protected virtual IBlockCipher CreateSeedBlockCipher() { }
 
-	// RVA: 0x2265514 Offset: 0x2265514 VA: 0x2265514 Slot: 28
+	// RVA: 0x1CED3F4 Offset: 0x1CED3F4 VA: 0x1CED3F4 Slot: 28
 	protected virtual IDigest CreateHMacDigest(int macAlgorithm) { }
 }
 
@@ -562,31 +684,31 @@ public abstract class DefaultTlsClient : AbstractTlsClient // TypeDefIndex: 4915
 {
 	// Methods
 
-	// RVA: 0x2265688 Offset: 0x2265688 VA: 0x2265688
+	// RVA: 0x1CED564 Offset: 0x1CED564 VA: 0x1CED564
 	public void .ctor() { }
 
-	// RVA: 0x226568C Offset: 0x226568C VA: 0x226568C
+	// RVA: 0x1CED56C Offset: 0x1CED56C VA: 0x1CED56C
 	public void .ctor(TlsCipherFactory cipherFactory) { }
 
-	// RVA: 0x22656B8 Offset: 0x22656B8 VA: 0x22656B8 Slot: 48
+	// RVA: 0x1CED574 Offset: 0x1CED574 VA: 0x1CED574 Slot: 48
 	public override int[] GetCipherSuites() { }
 
-	// RVA: 0x2265724 Offset: 0x2265724 VA: 0x2265724 Slot: 55
+	// RVA: 0x1CED5E0 Offset: 0x1CED5E0 VA: 0x1CED5E0 Slot: 55
 	public override TlsKeyExchange GetKeyExchange() { }
 
-	// RVA: 0x2265854 Offset: 0x2265854 VA: 0x2265854 Slot: 59
+	// RVA: 0x1CED70C Offset: 0x1CED70C VA: 0x1CED70C Slot: 59
 	protected virtual TlsKeyExchange CreateDHKeyExchange(int keyExchange) { }
 
-	// RVA: 0x22658D0 Offset: 0x22658D0 VA: 0x22658D0 Slot: 60
+	// RVA: 0x1CED89C Offset: 0x1CED89C VA: 0x1CED89C Slot: 60
 	protected virtual TlsKeyExchange CreateDheKeyExchange(int keyExchange) { }
 
-	// RVA: 0x226594C Offset: 0x226594C VA: 0x226594C Slot: 61
+	// RVA: 0x1CED918 Offset: 0x1CED918 VA: 0x1CED918 Slot: 61
 	protected virtual TlsKeyExchange CreateECDHKeyExchange(int keyExchange) { }
 
-	// RVA: 0x22659E0 Offset: 0x22659E0 VA: 0x22659E0 Slot: 62
+	// RVA: 0x1CEDAD4 Offset: 0x1CEDAD4 VA: 0x1CEDAD4 Slot: 62
 	protected virtual TlsKeyExchange CreateECDheKeyExchange(int keyExchange) { }
 
-	// RVA: 0x2265A74 Offset: 0x2265A74 VA: 0x2265A74 Slot: 63
+	// RVA: 0x1CEDB68 Offset: 0x1CEDB68 VA: 0x1CEDB68 Slot: 63
 	protected virtual TlsKeyExchange CreateRsaKeyExchange() { }
 }
 
@@ -605,58 +727,58 @@ internal class DeferredHash : TlsHandshakeHash, IDigest // TypeDefIndex: 4916
 
 	// Methods
 
-	// RVA: 0x2265ADC Offset: 0x2265ADC VA: 0x2265ADC
+	// RVA: 0x1CEDBD0 Offset: 0x1CEDBD0 VA: 0x1CEDBD0
 	internal void .ctor() { }
 
-	// RVA: 0x2265B84 Offset: 0x2265B84 VA: 0x2265B84
+	// RVA: 0x1CEDC78 Offset: 0x1CEDC78 VA: 0x1CEDC78
 	private void .ctor(byte prfHashAlgorithm, IDigest prfHash) { }
 
-	// RVA: 0x2265CC0 Offset: 0x2265CC0 VA: 0x2265CC0 Slot: 18
+	// RVA: 0x1CEDDB4 Offset: 0x1CEDDB4 VA: 0x1CEDDB4 Slot: 18
 	public virtual void Init(TlsContext context) { }
 
-	// RVA: 0x2265CC8 Offset: 0x2265CC8 VA: 0x2265CC8 Slot: 19
+	// RVA: 0x1CEDDBC Offset: 0x1CEDDBC VA: 0x1CEDDBC Slot: 19
 	public virtual TlsHandshakeHash NotifyPrfDetermined() { }
 
-	// RVA: 0x2265F00 Offset: 0x2265F00 VA: 0x2265F00 Slot: 20
+	// RVA: 0x1CEDFF4 Offset: 0x1CEDFF4 VA: 0x1CEDFF4 Slot: 20
 	public virtual void TrackHashAlgorithm(byte hashAlgorithm) { }
 
-	// RVA: 0x2265FAC Offset: 0x2265FAC VA: 0x2265FAC Slot: 21
+	// RVA: 0x1CEE0A0 Offset: 0x1CEE0A0 VA: 0x1CEE0A0 Slot: 21
 	public virtual void SealHashAlgorithms() { }
 
-	// RVA: 0x2265FBC Offset: 0x2265FBC VA: 0x2265FBC Slot: 22
+	// RVA: 0x1CEE0B0 Offset: 0x1CEE0B0 VA: 0x1CEE0B0 Slot: 22
 	public virtual TlsHandshakeHash StopTracking() { }
 
-	// RVA: 0x22661C0 Offset: 0x22661C0 VA: 0x22661C0 Slot: 23
+	// RVA: 0x1CEE2B4 Offset: 0x1CEE2B4 VA: 0x1CEE2B4 Slot: 23
 	public virtual IDigest ForkPrfHash() { }
 
-	// RVA: 0x22663D4 Offset: 0x22663D4 VA: 0x22663D4 Slot: 24
+	// RVA: 0x1CEE4C8 Offset: 0x1CEE4C8 VA: 0x1CEE4C8 Slot: 24
 	public virtual byte[] GetFinalHash(byte hashAlgorithm) { }
 
-	// RVA: 0x2266650 Offset: 0x2266650 VA: 0x2266650 Slot: 25
+	// RVA: 0x1CEE93C Offset: 0x1CEE93C VA: 0x1CEE93C Slot: 25
 	public virtual string get_AlgorithmName() { }
 
-	// RVA: 0x22666C4 Offset: 0x22666C4 VA: 0x22666C4 Slot: 26
+	// RVA: 0x1CEE9B0 Offset: 0x1CEE9B0 VA: 0x1CEE9B0 Slot: 26
 	public virtual int GetByteLength() { }
 
-	// RVA: 0x2266738 Offset: 0x2266738 VA: 0x2266738 Slot: 27
+	// RVA: 0x1CEEA24 Offset: 0x1CEEA24 VA: 0x1CEEA24 Slot: 27
 	public virtual int GetDigestSize() { }
 
-	// RVA: 0x22667AC Offset: 0x22667AC VA: 0x22667AC Slot: 28
+	// RVA: 0x1CEEA98 Offset: 0x1CEEA98 VA: 0x1CEEA98 Slot: 28
 	public virtual void Update(byte input) { }
 
-	// RVA: 0x2266BDC Offset: 0x2266BDC VA: 0x2266BDC Slot: 29
+	// RVA: 0x1CEEEC8 Offset: 0x1CEEEC8 VA: 0x1CEEEC8 Slot: 29
 	public virtual void BlockUpdate(byte[] input, int inOff, int len) { }
 
-	// RVA: 0x2267030 Offset: 0x2267030 VA: 0x2267030 Slot: 30
+	// RVA: 0x1CEF31C Offset: 0x1CEF31C VA: 0x1CEF31C Slot: 30
 	public virtual int DoFinal(byte[] output, int outOff) { }
 
-	// RVA: 0x22670A4 Offset: 0x22670A4 VA: 0x22670A4 Slot: 31
+	// RVA: 0x1CEF390 Offset: 0x1CEF390 VA: 0x1CEF390 Slot: 31
 	public virtual void Reset() { }
 
-	// RVA: 0x22674C0 Offset: 0x22674C0 VA: 0x22674C0 Slot: 32
+	// RVA: 0x1CEF7AC Offset: 0x1CEF7AC VA: 0x1CEF7AC Slot: 32
 	protected virtual void CheckStopBuffering() { }
 
-	// RVA: 0x22678F0 Offset: 0x22678F0 VA: 0x22678F0 Slot: 33
+	// RVA: 0x1CEFBDC Offset: 0x1CEFBDC VA: 0x1CEFBDC Slot: 33
 	protected virtual void CheckTrackingHash(byte hashAlgorithm) { }
 }
 
@@ -665,10 +787,10 @@ internal class DigestInputBuffer : MemoryStream // TypeDefIndex: 4917
 {
 	// Methods
 
-	// RVA: 0x2265B7C Offset: 0x2265B7C VA: 0x2265B7C
+	// RVA: 0x1CEDC70 Offset: 0x1CEDC70 VA: 0x1CEDC70
 	public void .ctor() { }
 
-	// RVA: 0x2265E80 Offset: 0x2265E80 VA: 0x2265E80
+	// RVA: 0x1CEDF74 Offset: 0x1CEDF74 VA: 0x1CEDF74
 	internal void UpdateDigest(IDigest d) { }
 }
 
@@ -680,13 +802,13 @@ private class DigestInputBuffer.DigStream : BaseOutputStream // TypeDefIndex: 49
 
 	// Methods
 
-	// RVA: 0x2267AAC Offset: 0x2267AAC VA: 0x2267AAC
+	// RVA: 0x1CEFD98 Offset: 0x1CEFD98 VA: 0x1CEFD98
 	internal void .ctor(IDigest d) { }
 
-	// RVA: 0x2267AD8 Offset: 0x2267AD8 VA: 0x2267AD8 Slot: 24
+	// RVA: 0x1CEFDC4 Offset: 0x1CEFDC4 VA: 0x1CEFDC4 Slot: 24
 	public override void WriteByte(byte b) { }
 
-	// RVA: 0x2267BA0 Offset: 0x2267BA0 VA: 0x2267BA0 Slot: 23
+	// RVA: 0x1CEFE8C Offset: 0x1CEFE8C VA: 0x1CEFE8C Slot: 23
 	public override void Write(byte[] buf, int off, int len) { }
 }
 
@@ -703,19 +825,19 @@ public class DigitallySigned // TypeDefIndex: 4919
 
 	// Methods
 
-	// RVA: 0x2267C80 Offset: 0x2267C80 VA: 0x2267C80
+	// RVA: 0x1CEFF6C Offset: 0x1CEFF6C VA: 0x1CEFF6C
 	public void .ctor(SignatureAndHashAlgorithm algorithm, byte[] signature) { }
 
-	// RVA: 0x2267D28 Offset: 0x2267D28 VA: 0x2267D28 Slot: 4
+	// RVA: 0x1CF0014 Offset: 0x1CF0014 VA: 0x1CF0014 Slot: 4
 	public virtual SignatureAndHashAlgorithm get_Algorithm() { }
 
-	// RVA: 0x2267D30 Offset: 0x2267D30 VA: 0x2267D30 Slot: 5
+	// RVA: 0x1CF001C Offset: 0x1CF001C VA: 0x1CF001C Slot: 5
 	public virtual byte[] get_Signature() { }
 
-	// RVA: 0x2267D38 Offset: 0x2267D38 VA: 0x2267D38 Slot: 6
+	// RVA: 0x1CF0024 Offset: 0x1CF0024 VA: 0x1CF0024 Slot: 6
 	public virtual void Encode(Stream output) { }
 
-	// RVA: 0x225D0A4 Offset: 0x225D0A4 VA: 0x225D0A4
+	// RVA: 0x1CF00B8 Offset: 0x1CF00B8 VA: 0x1CF00B8
 	public static DigitallySigned Parse(TlsContext context, Stream input) { }
 }
 
@@ -728,10 +850,10 @@ public abstract class ECBasisType // TypeDefIndex: 4920
 
 	// Methods
 
-	// RVA: 0x266B9C8 Offset: 0x266B9C8 VA: 0x266B9C8
+	// RVA: 0x1CF0244 Offset: 0x1CF0244 VA: 0x1CF0244
 	protected void .ctor() { }
 
-	// RVA: 0x266B9D0 Offset: 0x266B9D0 VA: 0x266B9D0
+	// RVA: 0x1CF024C Offset: 0x1CF024C VA: 0x1CF024C
 	public static bool IsValid(byte ecBasisType) { }
 }
 
@@ -745,7 +867,7 @@ public abstract class ECCurveType // TypeDefIndex: 4921
 
 	// Methods
 
-	// RVA: 0x266B9E4 Offset: 0x266B9E4 VA: 0x266B9E4
+	// RVA: 0x1CF0260 Offset: 0x1CF0260 VA: 0x1CF0260
 	protected void .ctor() { }
 }
 
@@ -759,7 +881,7 @@ public abstract class ECPointFormat // TypeDefIndex: 4922
 
 	// Methods
 
-	// RVA: 0x266B9EC Offset: 0x266B9EC VA: 0x266B9EC
+	// RVA: 0x1CF0268 Offset: 0x1CF0268 VA: 0x1CF0268
 	protected void .ctor() { }
 }
 
@@ -789,14 +911,14 @@ public abstract class EncryptionAlgorithm // TypeDefIndex: 4923
 	public const int CAMELLIA_128_GCM = 19;
 	public const int CAMELLIA_256_GCM = 20;
 	public const int CHACHA20_POLY1305 = 102;
-	[ObsoleteAttribute] // RVA: 0xCB647C Offset: 0xCB647C VA: 0xCB647C
+	[ObsoleteAttribute] // RVA: 0xC4A3F0 Offset: 0xC4A3F0 VA: 0xC4A3F0
 	public const int AEAD_CHACHA20_POLY1305 = 102;
 	public const int AES_128_OCB_TAGLEN96 = 103;
 	public const int AES_256_OCB_TAGLEN96 = 104;
 
 	// Methods
 
-	// RVA: 0x266B9F4 Offset: 0x266B9F4 VA: 0x266B9F4
+	// RVA: 0x1CF0270 Offset: 0x1CF0270 VA: 0x1CF0270
 	protected void .ctor() { }
 }
 
@@ -816,10 +938,10 @@ public abstract class ExporterLabel // TypeDefIndex: 4924
 
 	// Methods
 
-	// RVA: 0x266B9FC Offset: 0x266B9FC VA: 0x266B9FC
+	// RVA: 0x1CF0278 Offset: 0x1CF0278 VA: 0x1CF0278
 	protected void .ctor() { }
 
-	// RVA: 0x266BA04 Offset: 0x266BA04 VA: 0x266BA04
+	// RVA: 0x1CF0280 Offset: 0x1CF0280 VA: 0x1CF0280
 	private static void .cctor() { }
 }
 
@@ -858,10 +980,10 @@ public abstract class ExtensionType // TypeDefIndex: 4925
 
 	// Methods
 
-	// RVA: 0x266BA60 Offset: 0x266BA60 VA: 0x266BA60
+	// RVA: 0x1CF02DC Offset: 0x1CF02DC VA: 0x1CF02DC
 	protected void .ctor() { }
 
-	// RVA: 0x266BA68 Offset: 0x266BA68 VA: 0x266BA68
+	// RVA: 0x1CF02E4 Offset: 0x1CF02E4 VA: 0x1CF02E4
 	private static void .cctor() { }
 }
 
@@ -876,125 +998,3 @@ public abstract class FiniteFieldDheGroup // TypeDefIndex: 4926
 	public const byte ffdhe8192 = 4;
 
 	// Methods
-
-	// RVA: 0x266BABC Offset: 0x266BABC VA: 0x266BABC
-	protected void .ctor() { }
-
-	// RVA: 0x266BAC4 Offset: 0x266BAC4 VA: 0x266BAC4
-	public static bool IsValid(byte group) { }
-}
-
-// Namespace: Org.BouncyCastle.Crypto.Tls
-public abstract class HandshakeType // TypeDefIndex: 4927
-{
-	// Fields
-	public const byte hello_request = 0;
-	public const byte client_hello = 1;
-	public const byte server_hello = 2;
-	public const byte certificate = 11;
-	public const byte server_key_exchange = 12;
-	public const byte certificate_request = 13;
-	public const byte server_hello_done = 14;
-	public const byte certificate_verify = 15;
-	public const byte client_key_exchange = 16;
-	public const byte finished = 20;
-	public const byte certificate_url = 21;
-	public const byte certificate_status = 22;
-	public const byte hello_verify_request = 3;
-	public const byte supplemental_data = 23;
-	public const byte session_ticket = 4;
-
-	// Methods
-
-	// RVA: 0x266BAD4 Offset: 0x266BAD4 VA: 0x266BAD4
-	protected void .ctor() { }
-}
-
-// Namespace: Org.BouncyCastle.Crypto.Tls
-public abstract class HashAlgorithm // TypeDefIndex: 4928
-{
-	// Fields
-	public const byte none = 0;
-	public const byte md5 = 1;
-	public const byte sha1 = 2;
-	public const byte sha224 = 3;
-	public const byte sha256 = 4;
-	public const byte sha384 = 5;
-	public const byte sha512 = 6;
-
-	// Methods
-
-	// RVA: 0x266BADC Offset: 0x266BADC VA: 0x266BADC
-	protected void .ctor() { }
-
-	// RVA: 0x266BAE4 Offset: 0x266BAE4 VA: 0x266BAE4
-	public static string GetName(byte hashAlgorithm) { }
-
-	// RVA: 0x266BB50 Offset: 0x266BB50 VA: 0x266BB50
-	public static string GetText(byte hashAlgorithm) { }
-
-	// RVA: 0x266BD4C Offset: 0x266BD4C VA: 0x266BD4C
-	public static bool IsPrivate(byte hashAlgorithm) { }
-}
-
-// Namespace: Org.BouncyCastle.Crypto.Tls
-public class HeartbeatExtension // TypeDefIndex: 4929
-{
-	// Fields
-	protected readonly byte mMode; // 0x10
-
-	// Properties
-	public virtual byte Mode { get; }
-
-	// Methods
-
-	// RVA: 0x266BD5C Offset: 0x266BD5C VA: 0x266BD5C
-	public void .ctor(byte mode) { }
-
-	// RVA: 0x266BE2C Offset: 0x266BE2C VA: 0x266BE2C Slot: 4
-	public virtual byte get_Mode() { }
-
-	// RVA: 0x266BE34 Offset: 0x266BE34 VA: 0x266BE34 Slot: 5
-	public virtual void Encode(Stream output) { }
-
-	// RVA: 0x266BEB0 Offset: 0x266BEB0 VA: 0x266BEB0
-	public static HeartbeatExtension Parse(Stream input) { }
-}
-
-// Namespace: Org.BouncyCastle.Crypto.Tls
-public abstract class HeartbeatMessageType // TypeDefIndex: 4930
-{
-	// Fields
-	public const byte heartbeat_request = 1;
-	public const byte heartbeat_response = 2;
-
-	// Methods
-
-	// RVA: 0x266BFCC Offset: 0x266BFCC VA: 0x266BFCC
-	protected void .ctor() { }
-
-	// RVA: 0x266BFD4 Offset: 0x266BFD4 VA: 0x266BFD4
-	public static bool IsValid(byte heartbeatMessageType) { }
-}
-
-// Namespace: Org.BouncyCastle.Crypto.Tls
-public abstract class HeartbeatMode // TypeDefIndex: 4931
-{
-	// Fields
-	public const byte peer_allowed_to_send = 1;
-	public const byte peer_not_allowed_to_send = 2;
-
-	// Methods
-
-	// RVA: 0x266BFE8 Offset: 0x266BFE8 VA: 0x266BFE8
-	protected void .ctor() { }
-
-	// RVA: 0x266BE18 Offset: 0x266BE18 VA: 0x266BE18
-	public static bool IsValid(byte heartbeatMode) { }
-}
-
-// Namespace: Org.BouncyCastle.Crypto.Tls
-public interface ICertificateVerifyer // TypeDefIndex: 4932
-{
-	// Methods
-

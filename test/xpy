@@ -1,58 +1,968 @@
-	// RVA: 0x15EA75C Offset: 0x15EA75C VA: 0x15EA75C
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class WarBoardTreasureRequest : RequestBase // TypeDefIndex: 8387
+{
+	// Methods
+
+	// RVA: 0x1537588 Offset: 0x1537588 VA: 0x1537588
+	public void .ctor() { }
+
+	// RVA: 0x1537590 Offset: 0x1537590 VA: 0x1537590 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1537634 Offset: 0x1537634 VA: 0x1537634
+	public void beginRequest(int treasureId, WarBoardData warBoardData) { }
+
+	// RVA: 0x15376F8 Offset: 0x15376F8 VA: 0x15376F8 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class WarBoardTurnEndRequest : RequestBase // TypeDefIndex: 8388
+{
+	// Fields
+	private int retryCount; // 0x28
+	private const int MaxRetryCount = 3;
+
+	// Methods
+
+	// RVA: 0x15377E4 Offset: 0x15377E4 VA: 0x15377E4
+	public void .ctor() { }
+
+	// RVA: 0x15377EC Offset: 0x15377EC VA: 0x15377EC Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1537890 Offset: 0x1537890 VA: 0x1537890 Slot: 8
+	public override bool isBackgroundRequest() { }
+
+	// RVA: 0x1537898 Offset: 0x1537898 VA: 0x1537898 Slot: 11
+	public override bool backgroundErrorRequest(string errorCode) { }
+
+	// RVA: 0x15378B8 Offset: 0x15378B8 VA: 0x15378B8 Slot: 12
+	public override void backgroundErrorRetry() { }
+
+	// RVA: 0x1537920 Offset: 0x1537920 VA: 0x1537920
+	public void beginRequest(int stageId, WarBoardData warBoardData) { }
+
+	// RVA: 0x15379B0 Offset: 0x15379B0 VA: 0x15379B0 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class BackTaskAmountAdjuster // TypeDefIndex: 8389
+{
+	// Fields
+	private const float TaskIncreaseMinVelocity = 0.1;
+	private const float HardWorkJudgeTimeRate = 1.1;
+	private const float MilliDivisor = 1000;
+	private float minWorkDeltaTime; // 0x10
+	private float actualWorkDeltaTime; // 0x14
+	private float plannedWorkDeltaTime; // 0x18
+	private float expectedDeltaTime; // 0x1C
+	private Stopwatch stopwatch; // 0x20
+
+	// Methods
+
+	// RVA: 0xF5DD64 Offset: 0xF5DD64 VA: 0xF5DD64
+	public void .ctor() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCCB520 Offset: 0xCCB520 VA: 0xCCB520
+	// RVA: 0xF5DDF0 Offset: 0xF5DDF0 VA: 0xF5DDF0
+	public IEnumerator Execute(IEnumerator bgTask) { }
+
+	// RVA: 0xF5DE8C Offset: 0xF5DE8C VA: 0xF5DE8C
+	private void PlanNextWork() { }
+
+	// RVA: 0xF5E008 Offset: 0xF5E008 VA: 0xF5E008
+	private bool IsOverWork() { }
+
+	// RVA: 0xF5E08C Offset: 0xF5E08C VA: 0xF5E08C
+	private void SaveActualWorkDeltaTime() { }
+
+	// RVA: 0xF5DF8C Offset: 0xF5DF8C VA: 0xF5DF8C
+	private float CalcExtendedDeltaTime(float deltaTime) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC431D4 Offset: 0xC431D4 VA: 0xC431D4
+private sealed class BackTaskAmountAdjuster.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8390
+{
+	// Fields
+	internal IEnumerator bgTask; // 0x10
+	internal object <current>__1; // 0x18
+	internal BackTaskAmountAdjuster $this; // 0x20
+	internal object $current; // 0x28
+	internal bool $disposing; // 0x30
+	internal int $PC; // 0x34
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD96D0 Offset: 0xCD96D0 VA: 0xCD96D0
+	// RVA: 0xF5DE84 Offset: 0xF5DE84 VA: 0xF5DE84
+	public void .ctor() { }
+
+	// RVA: 0xF5E0D8 Offset: 0xF5E0D8 VA: 0xF5E0D8 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD96E0 Offset: 0xCD96E0 VA: 0xCD96E0
+	// RVA: 0xF5E2D0 Offset: 0xF5E2D0 VA: 0xF5E2D0 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD96F0 Offset: 0xCD96F0 VA: 0xCD96F0
+	// RVA: 0xF5E2D8 Offset: 0xF5E2D8 VA: 0xF5E2D8 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9700 Offset: 0xCD9700 VA: 0xCD9700
+	// RVA: 0xF5E2E0 Offset: 0xF5E2E0 VA: 0xF5E2E0 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9710 Offset: 0xCD9710 VA: 0xCD9710
+	// RVA: 0xF5E2F4 Offset: 0xF5E2F4 VA: 0xF5E2F4 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+public class MapCameraPerformance : SchedulerTaskBase // TypeDefIndex: 8391
+{
+	// Fields
+	protected Nullable<Vector2> position; // 0x2C
+	protected Nullable<float> size; // 0x38
+	protected Easing.TYPE easeType; // 0x40
+	protected float second; // 0x44
+	protected MapCamera mapCamera; // 0x48
+
+	// Methods
+
+	// RVA: 0x2BADDB0 Offset: 0x2BADDB0 VA: 0x2BADDB0
+	public void .ctor(MapCamera mapCamera, float second, Nullable<Vector2> position, Nullable<float> size, Easing.TYPE easeType = 15) { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCCB530 Offset: 0xCCB530 VA: 0xCCB530
+	// RVA: 0x2BADE1C Offset: 0x2BADE1C VA: 0x2BADE1C Slot: 4
+	public override IEnumerator Execute() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC431E4 Offset: 0xC431E4 VA: 0xC431E4
+private sealed class MapCameraPerformance.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8392
+{
+	// Fields
+	internal MapCameraPerformance $this; // 0x10
+	internal object $current; // 0x18
+	internal bool $disposing; // 0x20
+	internal int $PC; // 0x24
+	private MapCameraPerformance.<Execute>c__Iterator0.<Execute>c__AnonStorey1 $locvar0; // 0x28
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9720 Offset: 0xCD9720 VA: 0xCD9720
+	// RVA: 0x2BADE8C Offset: 0x2BADE8C VA: 0x2BADE8C
+	public void .ctor() { }
+
+	// RVA: 0x2BADE94 Offset: 0x2BADE94 VA: 0x2BADE94 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9730 Offset: 0xCD9730 VA: 0xCD9730
+	// RVA: 0x2BAE1C0 Offset: 0x2BAE1C0 VA: 0x2BAE1C0 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9740 Offset: 0xCD9740 VA: 0xCD9740
+	// RVA: 0x2BAE1C8 Offset: 0x2BAE1C8 VA: 0x2BAE1C8 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9750 Offset: 0xCD9750 VA: 0xCD9750
+	// RVA: 0x2BAE1D0 Offset: 0x2BAE1D0 VA: 0x2BAE1D0 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9760 Offset: 0xCD9760 VA: 0xCD9760
+	// RVA: 0x2BAE1E4 Offset: 0x2BAE1E4 VA: 0x2BAE1E4 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+private sealed class MapCameraPerformance.<Execute>c__Iterator0.<Execute>c__AnonStorey1 // TypeDefIndex: 8393
+{
+	// Fields
+	internal bool workFinished; // 0x10
+	internal MapCameraPerformance.<Execute>c__Iterator0 <>f__ref$0; // 0x18
+
+	// Methods
+
+	// RVA: 0x2BAE1B8 Offset: 0x2BAE1B8 VA: 0x2BAE1B8
+	public void .ctor() { }
+
+	// RVA: 0x2BAE24C Offset: 0x2BAE24C VA: 0x2BAE24C
+	internal void <>m__0() { }
+
+	// RVA: 0x2BAE258 Offset: 0x2BAE258 VA: 0x2BAE258
+	internal bool <>m__1() { }
+}
+
+// Namespace: 
+public class SchedulerTaskApiRequest : SchedulerTaskBase // TypeDefIndex: 8394
+{
+	// Fields
+	private RequestBase request; // 0x30
+	private bool onStartBeginRequest; // 0x38
+	private bool requestDone; // 0x39
+	private bool isShowConnect; // 0x3A
+	private NetworkManager.ResultCallbackFunc resultCallback; // 0x40
+	private string responseStr; // 0x48
+
+	// Methods
+
+	// RVA: 0xED6F08 Offset: 0xED6F08 VA: 0xED6F08
+	public void .ctor(RequestBase request, NetworkManager.ResultCallbackFunc resultCallback, bool onStartBeginRequest) { }
+
+	// RVA: 0xED70C0 Offset: 0xED70C0 VA: 0xED70C0 Slot: 5
+	public override void OnStart() { }
+
+	// RVA: 0xED71F4 Offset: 0xED71F4 VA: 0xED71F4
+	private void requestComplete(string result) { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCCB540 Offset: 0xCCB540 VA: 0xCCB540
+	// RVA: 0xED7204 Offset: 0xED7204 VA: 0xED7204 Slot: 4
+	public override IEnumerator Execute() { }
+
+	// RVA: 0xED727C Offset: 0xED727C VA: 0xED727C Slot: 6
+	public override void OnEnd() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC431F4 Offset: 0xC431F4 VA: 0xC431F4
+private sealed class SchedulerTaskApiRequest.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8395
+{
+	// Fields
+	internal SchedulerTaskApiRequest $this; // 0x10
+	internal object $current; // 0x18
+	internal bool $disposing; // 0x20
+	internal int $PC; // 0x24
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9770 Offset: 0xCD9770 VA: 0xCD9770
+	// RVA: 0xED7274 Offset: 0xED7274 VA: 0xED7274
+	public void .ctor() { }
+
+	// RVA: 0xED733C Offset: 0xED733C VA: 0xED733C Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9780 Offset: 0xCD9780 VA: 0xCD9780
+	// RVA: 0xED7434 Offset: 0xED7434 VA: 0xED7434 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9790 Offset: 0xCD9790 VA: 0xCD9790
+	// RVA: 0xED743C Offset: 0xED743C VA: 0xED743C Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD97A0 Offset: 0xCD97A0 VA: 0xCD97A0
+	// RVA: 0xED7444 Offset: 0xED7444 VA: 0xED7444 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD97B0 Offset: 0xCD97B0 VA: 0xCD97B0
+	// RVA: 0xED7458 Offset: 0xED7458 VA: 0xED7458 Slot: 6
+	public void Reset() { }
+
+	// RVA: 0xED74C0 Offset: 0xED74C0 VA: 0xED74C0
+	internal bool <>m__0() { }
+}
+
+// Namespace: 
+public abstract class SchedulerTaskBase // TypeDefIndex: 8396
+{
+	// Fields
+	public bool NonBlocking; // 0x10
+	public SchedulerTaskBase.TaskCallback StartCallback; // 0x18
+	public SchedulerTaskBase.TaskCallback EndCallback; // 0x20
+	[CompilerGeneratedAttribute] // RVA: 0xC5E0A8 Offset: 0xC5E0A8 VA: 0xC5E0A8
+	[DebuggerBrowsableAttribute] // RVA: 0xC5E0A8 Offset: 0xC5E0A8 VA: 0xC5E0A8
+	private bool <IsPlaying>k__BackingField; // 0x28
+	[CompilerGeneratedAttribute] // RVA: 0xC5E0E4 Offset: 0xC5E0E4 VA: 0xC5E0E4
+	[DebuggerBrowsableAttribute] // RVA: 0xC5E0E4 Offset: 0xC5E0E4 VA: 0xC5E0E4
+	private bool <IsPause>k__BackingField; // 0x29
+
+	// Properties
+	public bool IsPlaying { get; set; }
+	public bool IsPause { get; set; }
+
+	// Methods
+
+	// RVA: 0xED70B8 Offset: 0xED70B8 VA: 0xED70B8
+	protected void .ctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCB550 Offset: 0xCCB550 VA: 0xCCB550
+	// RVA: 0xED74EC Offset: 0xED74EC VA: 0xED74EC
+	public bool get_IsPlaying() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCB560 Offset: 0xCCB560 VA: 0xCCB560
+	// RVA: 0xED74F4 Offset: 0xED74F4 VA: 0xED74F4
+	protected void set_IsPlaying(bool value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCB570 Offset: 0xCCB570 VA: 0xCCB570
+	// RVA: 0xED7500 Offset: 0xED7500 VA: 0xED7500
+	public bool get_IsPause() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCB580 Offset: 0xCCB580 VA: 0xCCB580
+	// RVA: 0xED7508 Offset: 0xED7508 VA: 0xED7508
+	protected void set_IsPause(bool value) { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCCB590 Offset: 0xCCB590 VA: 0xCCB590
+	// RVA: 0xED7514 Offset: 0xED7514 VA: 0xED7514 Slot: 4
+	public virtual IEnumerator Execute() { }
+
+	// RVA: 0xED71D4 Offset: 0xED71D4 VA: 0xED71D4 Slot: 5
+	public virtual void OnStart() { }
+
+	// RVA: 0xED7320 Offset: 0xED7320 VA: 0xED7320 Slot: 6
+	public virtual void OnEnd() { }
+
+	// RVA: 0xED7778 Offset: 0xED7778 VA: 0xED7778 Slot: 7
+	public virtual void OnPause() { }
+
+	// RVA: 0xED7784 Offset: 0xED7784 VA: 0xED7784 Slot: 8
+	public virtual void OnResume() { }
+}
+
+// Namespace: 
+public sealed class SchedulerTaskBase.TaskCallback : MulticastDelegate // TypeDefIndex: 8397
+{
+	// Methods
+
+	// RVA: 0xED7818 Offset: 0xED7818 VA: 0xED7818
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0xED7578 Offset: 0xED7578 VA: 0xED7578 Slot: 11
+	public virtual void Invoke() { }
+
+	// RVA: 0xED7828 Offset: 0xED7828 VA: 0xED7828 Slot: 12
+	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
+
+	// RVA: 0xED785C Offset: 0xED785C VA: 0xED785C Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43204 Offset: 0xC43204 VA: 0xC43204
+private sealed class SchedulerTaskBase.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8398
+{
+	// Fields
+	internal object $current; // 0x10
+	internal bool $disposing; // 0x18
+	internal int $PC; // 0x1C
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD97C0 Offset: 0xCD97C0 VA: 0xCD97C0
+	// RVA: 0xED7570 Offset: 0xED7570 VA: 0xED7570
+	public void .ctor() { }
+
+	// RVA: 0xED778C Offset: 0xED778C VA: 0xED778C Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD97D0 Offset: 0xCD97D0 VA: 0xCD97D0
+	// RVA: 0xED779C Offset: 0xED779C VA: 0xED779C Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD97E0 Offset: 0xCD97E0 VA: 0xCD97E0
+	// RVA: 0xED77A4 Offset: 0xED77A4 VA: 0xED77A4 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD97F0 Offset: 0xCD97F0 VA: 0xCD97F0
+	// RVA: 0xED77AC Offset: 0xED77AC VA: 0xED77AC Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9800 Offset: 0xCD9800 VA: 0xCD9800
+	// RVA: 0xED77B0 Offset: 0xED77B0 VA: 0xED77B0 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+public class SchedulerTaskCommonEffect : SchedulerTaskBase // TypeDefIndex: 8399
+{
+	// Fields
+	private GameObject effectObject; // 0x30
+	private CommonEffectComponent commonEffect; // 0x38
+	private bool animationPlay; // 0x40
+	private Action animantionStartEndCallback; // 0x48
+	private Action animantionEndCallback; // 0x50
+	private ComponentPool<CommonEffectComponent> pool; // 0x58
+
+	// Methods
+
+	// RVA: 0xED7868 Offset: 0xED7868 VA: 0xED7868
+	public void .ctor(Transform parent, GameObject effetctPrefab, Nullable<Vector3> position, Nullable<Vector3> angle, Nullable<Vector3> scale, bool isLocal = False, bool doInstantiate = True) { }
+
+	// RVA: 0xED7C4C Offset: 0xED7C4C VA: 0xED7C4C
+	public void .ctor(Transform parent, ComponentPool<CommonEffectComponent> pool, Nullable<Vector3> position, Nullable<Vector3> angle, Nullable<Vector3> scale, bool isLocal = False) { }
+
+	// RVA: 0xED7A20 Offset: 0xED7A20 VA: 0xED7A20
+	protected void AdjustTransform(Nullable<Vector3> position, Nullable<Vector3> angle, Nullable<Vector3> scale, bool isLocal = False) { }
+
+	// RVA: 0xED7D88 Offset: 0xED7D88 VA: 0xED7D88
+	public void SetAnimantionStartEndCallback(Action callback) { }
+
+	// RVA: 0xED7D90 Offset: 0xED7D90 VA: 0xED7D90
+	public void SetAnimantionEndCallback(Action callback) { }
+
+	// RVA: 0xED7D98 Offset: 0xED7D98 VA: 0xED7D98 Slot: 5
+	public override void OnStart() { }
+
+	// RVA: 0xED7EE0 Offset: 0xED7EE0 VA: 0xED7EE0
+	private void AnimantionEndStartCallback() { }
+
+	// RVA: 0xED7F84 Offset: 0xED7F84 VA: 0xED7F84
+	private void AnimantionEndCallback() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCCB5A0 Offset: 0xCCB5A0 VA: 0xCCB5A0
+	// RVA: 0xED7F98 Offset: 0xED7F98 VA: 0xED7F98 Slot: 4
+	public override IEnumerator Execute() { }
+
+	// RVA: 0xED8010 Offset: 0xED8010 VA: 0xED8010 Slot: 6
+	public override void OnEnd() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43214 Offset: 0xC43214 VA: 0xC43214
+private sealed class SchedulerTaskCommonEffect.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8400
+{
+	// Fields
+	internal SchedulerTaskCommonEffect $this; // 0x10
+	internal object $current; // 0x18
+	internal bool $disposing; // 0x20
+	internal int $PC; // 0x24
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9810 Offset: 0xCD9810 VA: 0xCD9810
+	// RVA: 0xED8008 Offset: 0xED8008 VA: 0xED8008
+	public void .ctor() { }
+
+	// RVA: 0xED80FC Offset: 0xED80FC VA: 0xED80FC Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9820 Offset: 0xCD9820 VA: 0xCD9820
+	// RVA: 0xED823C Offset: 0xED823C VA: 0xED823C Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9830 Offset: 0xCD9830 VA: 0xCD9830
+	// RVA: 0xED8244 Offset: 0xED8244 VA: 0xED8244 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9840 Offset: 0xCD9840 VA: 0xCD9840
+	// RVA: 0xED824C Offset: 0xED824C VA: 0xED824C Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9850 Offset: 0xCD9850 VA: 0xCD9850
+	// RVA: 0xED8260 Offset: 0xED8260 VA: 0xED8260 Slot: 6
+	public void Reset() { }
+
+	// RVA: 0xED82C8 Offset: 0xED82C8 VA: 0xED82C8
+	internal bool <>m__0() { }
+}
+
+// Namespace: 
+public class SchedulerTaskMovePerformance : SchedulerTaskBase // TypeDefIndex: 8401
+{
+	// Fields
+	private GameObject target; // 0x30
+	private float duration; // 0x38
+	private Vector3 from; // 0x3C
+	private Vector3 to; // 0x48
+	private Easing.TYPE easeType; // 0x54
+
+	// Methods
+
+	// RVA: 0xED82F4 Offset: 0xED82F4 VA: 0xED82F4
+	public void .ctor(GameObject target, Vector3 from, Vector3 to, float pixelPerSec, Easing.TYPE easeType = 0) { }
+
+	// RVA: 0xED840C Offset: 0xED840C VA: 0xED840C Slot: 5
+	public override void OnStart() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCCB5B0 Offset: 0xCCB5B0 VA: 0xCCB5B0
+	// RVA: 0xED8494 Offset: 0xED8494 VA: 0xED8494 Slot: 4
+	public override IEnumerator Execute() { }
+
+	// RVA: 0xED850C Offset: 0xED850C VA: 0xED850C Slot: 6
+	public override void OnEnd() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43224 Offset: 0xC43224 VA: 0xC43224
+private sealed class SchedulerTaskMovePerformance.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8402
+{
+	// Fields
+	internal float <now>__0; // 0x10
+	internal Vector3 <dir>__0; // 0x14
+	internal float <percent>__1; // 0x20
+	internal SchedulerTaskMovePerformance $this; // 0x28
+	internal object $current; // 0x30
+	internal bool $disposing; // 0x38
+	internal int $PC; // 0x3C
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9860 Offset: 0xCD9860 VA: 0xCD9860
+	// RVA: 0xED8504 Offset: 0xED8504 VA: 0xED8504
+	public void .ctor() { }
+
+	// RVA: 0xED85A4 Offset: 0xED85A4 VA: 0xED85A4 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9870 Offset: 0xCD9870 VA: 0xCD9870
+	// RVA: 0xED885C Offset: 0xED885C VA: 0xED885C Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9880 Offset: 0xCD9880 VA: 0xCD9880
+	// RVA: 0xED8864 Offset: 0xED8864 VA: 0xED8864 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9890 Offset: 0xCD9890 VA: 0xCD9890
+	// RVA: 0xED886C Offset: 0xED886C VA: 0xED886C Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD98A0 Offset: 0xCD98A0 VA: 0xCD98A0
+	// RVA: 0xED8880 Offset: 0xED8880 VA: 0xED8880 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+public class SchedulerTaskNone : SchedulerTaskBase // TypeDefIndex: 8403
+{
+	// Methods
+
+	// RVA: 0xED88E8 Offset: 0xED88E8 VA: 0xED88E8
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class SchedulerTaskOrthostichy : SchedulerTaskBase // TypeDefIndex: 8404
+{
+	// Fields
+	private SchedulerTaskBase[] tasks; // 0x30
+
+	// Methods
+
+	// RVA: 0xED88F0 Offset: 0xED88F0 VA: 0xED88F0
+	public void .ctor(SchedulerTaskBase[] taskBases) { }
+
+	// RVA: 0xED891C Offset: 0xED891C VA: 0xED891C
+	public void .ctor(List<SchedulerTaskBase> taskBases) { }
+
+	// RVA: 0xED8998 Offset: 0xED8998 VA: 0xED8998 Slot: 5
+	public override void OnStart() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCCB5C0 Offset: 0xCCB5C0 VA: 0xCCB5C0
+	// RVA: 0xED89B8 Offset: 0xED89B8 VA: 0xED89B8 Slot: 4
+	public override IEnumerator Execute() { }
+
+	// RVA: 0xED8A30 Offset: 0xED8A30 VA: 0xED8A30 Slot: 6
+	public override void OnEnd() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43234 Offset: 0xC43234 VA: 0xC43234
+private sealed class SchedulerTaskOrthostichy.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8405
+{
+	// Fields
+	internal int <count>__0; // 0x10
+	internal int <i>__1; // 0x14
+	internal IEnumerator <executes>__2; // 0x18
+	internal SchedulerTaskOrthostichy $this; // 0x20
+	internal object $current; // 0x28
+	internal bool $disposing; // 0x30
+	internal int $PC; // 0x34
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD98B0 Offset: 0xCD98B0 VA: 0xCD98B0
+	// RVA: 0xED8A28 Offset: 0xED8A28 VA: 0xED8A28
+	public void .ctor() { }
+
+	// RVA: 0xED8A4C Offset: 0xED8A4C VA: 0xED8A4C Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD98C0 Offset: 0xCD98C0 VA: 0xCD98C0
+	// RVA: 0xED8DE0 Offset: 0xED8DE0 VA: 0xED8DE0 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD98D0 Offset: 0xCD98D0 VA: 0xCD98D0
+	// RVA: 0xED8DE8 Offset: 0xED8DE8 VA: 0xED8DE8 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD98E0 Offset: 0xCD98E0 VA: 0xCD98E0
+	// RVA: 0xED8DF0 Offset: 0xED8DF0 VA: 0xED8DF0 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD98F0 Offset: 0xCD98F0 VA: 0xCD98F0
+	// RVA: 0xED8E04 Offset: 0xED8E04 VA: 0xED8E04 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+public class SchedulerTaskParallel : SchedulerTaskBase // TypeDefIndex: 8406
+{
+	// Fields
+	private SchedulerTaskBase[] tasks; // 0x30
+
+	// Methods
+
+	// RVA: 0xED8E6C Offset: 0xED8E6C VA: 0xED8E6C
+	public void .ctor(SchedulerTaskBase[] taskBases) { }
+
+	// RVA: 0xED8E98 Offset: 0xED8E98 VA: 0xED8E98
+	public void .ctor(List<SchedulerTaskBase> taskBases) { }
+
+	// RVA: 0xED8F14 Offset: 0xED8F14 VA: 0xED8F14 Slot: 5
+	public override void OnStart() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCCB5D0 Offset: 0xCCB5D0 VA: 0xCCB5D0
+	// RVA: 0xED9008 Offset: 0xED9008 VA: 0xED9008 Slot: 4
+	public override IEnumerator Execute() { }
+
+	// RVA: 0xED9080 Offset: 0xED9080 VA: 0xED9080 Slot: 6
+	public override void OnEnd() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43244 Offset: 0xC43244 VA: 0xC43244
+private sealed class SchedulerTaskParallel.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8407
+{
+	// Fields
+	internal int <count>__0; // 0x10
+	internal bool[] <endFlags>__0; // 0x18
+	internal object[] <currentObjects>__0; // 0x20
+	internal IEnumerator[] <executes>__0; // 0x28
+	internal SchedulerTaskParallel $this; // 0x30
+	internal object $current; // 0x38
+	internal bool $disposing; // 0x40
+	internal int $PC; // 0x44
+	private static Func<bool, bool> <>f__am$cache0; // 0x0
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9900 Offset: 0xCD9900 VA: 0xCD9900
+	// RVA: 0xED9078 Offset: 0xED9078 VA: 0xED9078
+	public void .ctor() { }
+
+	// RVA: 0xED909C Offset: 0xED909C VA: 0xED909C Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9910 Offset: 0xCD9910 VA: 0xCD9910
+	// RVA: 0xED96BC Offset: 0xED96BC VA: 0xED96BC Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9920 Offset: 0xCD9920 VA: 0xCD9920
+	// RVA: 0xED96C4 Offset: 0xED96C4 VA: 0xED96C4 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9930 Offset: 0xCD9930 VA: 0xCD9930
+	// RVA: 0xED96CC Offset: 0xED96CC VA: 0xED96CC Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9940 Offset: 0xCD9940 VA: 0xCD9940
+	// RVA: 0xED96E0 Offset: 0xED96E0 VA: 0xED96E0 Slot: 6
+	public void Reset() { }
+
+	// RVA: 0xED9748 Offset: 0xED9748 VA: 0xED9748
+	private static bool <>m__0(bool x) { }
+}
+
+// Namespace: 
+public class SchedulerTaskSimpleAnimation : SchedulerTaskBase // TypeDefIndex: 8408
+{
+	// Fields
+	private SimpleAnimation animation; // 0x30
+	private string animationName; // 0x38
+	private bool isStart; // 0x40
+
+	// Methods
+
+	// RVA: 0xED9750 Offset: 0xED9750 VA: 0xED9750
+	public void .ctor(SimpleAnimation animation, string animationName) { }
+
+	// RVA: 0xED9788 Offset: 0xED9788 VA: 0xED9788 Slot: 5
+	public override void OnStart() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCCB5E0 Offset: 0xCCB5E0 VA: 0xCCB5E0
+	// RVA: 0xED986C Offset: 0xED986C VA: 0xED986C Slot: 4
+	public override IEnumerator Execute() { }
+
+	// RVA: 0xED98E4 Offset: 0xED98E4 VA: 0xED98E4 Slot: 6
+	public override void OnEnd() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43254 Offset: 0xC43254 VA: 0xC43254
+private sealed class SchedulerTaskSimpleAnimation.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8409
+{
+	// Fields
+	internal SchedulerTaskSimpleAnimation $this; // 0x10
+	internal object $current; // 0x18
+	internal bool $disposing; // 0x20
+	internal int $PC; // 0x24
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9950 Offset: 0xCD9950 VA: 0xCD9950
+	// RVA: 0xED98DC Offset: 0xED98DC VA: 0xED98DC
+	public void .ctor() { }
+
+	// RVA: 0xED9900 Offset: 0xED9900 VA: 0xED9900 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9960 Offset: 0xCD9960 VA: 0xCD9960
+	// RVA: 0xED9A10 Offset: 0xED9A10 VA: 0xED9A10 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9970 Offset: 0xCD9970 VA: 0xCD9970
+	// RVA: 0xED9A18 Offset: 0xED9A18 VA: 0xED9A18 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9980 Offset: 0xCD9980 VA: 0xCD9980
+	// RVA: 0xED9A20 Offset: 0xED9A20 VA: 0xED9A20 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9990 Offset: 0xCD9990 VA: 0xCD9990
+	// RVA: 0xED9A34 Offset: 0xED9A34 VA: 0xED9A34 Slot: 6
+	public void Reset() { }
+
+	// RVA: 0xED9A9C Offset: 0xED9A9C VA: 0xED9A9C
+	internal bool <>m__0() { }
+}
+
+// Namespace: 
+public class SchedulerTaskWaitLoadAsset : SchedulerTaskBase // TypeDefIndex: 8410
+{
+	// Fields
+	private string assetName; // 0x30
+	private bool isCompleate; // 0x38
+
+	// Methods
+
+	// RVA: 0xED9AE8 Offset: 0xED9AE8 VA: 0xED9AE8
+	public void .ctor(string assetName) { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCCB5F0 Offset: 0xCCB5F0 VA: 0xCCB5F0
+	// RVA: 0xED9BCC Offset: 0xED9BCC VA: 0xED9BCC Slot: 4
+	public override IEnumerator Execute() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCB600 Offset: 0xCCB600 VA: 0xCCB600
+	// RVA: 0xED9C44 Offset: 0xED9C44 VA: 0xED9C44
+	private void <SchedulerTaskWaitLoadAsset>m__0() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43264 Offset: 0xC43264 VA: 0xC43264
+private sealed class SchedulerTaskWaitLoadAsset.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8411
+{
+	// Fields
+	internal SchedulerTaskWaitLoadAsset $this; // 0x10
+	internal object $current; // 0x18
+	internal bool $disposing; // 0x20
+	internal int $PC; // 0x24
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD99A0 Offset: 0xCD99A0 VA: 0xCD99A0
+	// RVA: 0xED9C3C Offset: 0xED9C3C VA: 0xED9C3C
+	public void .ctor() { }
+
+	// RVA: 0xED9C50 Offset: 0xED9C50 VA: 0xED9C50 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD99B0 Offset: 0xCD99B0 VA: 0xCD99B0
+	// RVA: 0xED9CC4 Offset: 0xED9CC4 VA: 0xED9CC4 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD99C0 Offset: 0xCD99C0 VA: 0xCD99C0
+	// RVA: 0xED9CCC Offset: 0xED9CCC VA: 0xED9CCC Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD99D0 Offset: 0xCD99D0 VA: 0xCD99D0
+	// RVA: 0xED9CD4 Offset: 0xED9CD4 VA: 0xED9CD4 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD99E0 Offset: 0xCD99E0 VA: 0xCD99E0
+	// RVA: 0xED9CE8 Offset: 0xED9CE8 VA: 0xED9CE8 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+public class SchedulerTaskWaitTime : SchedulerTaskBase // TypeDefIndex: 8412
+{
+	// Fields
+	private float waitTime; // 0x2C
+
+	// Methods
+
+	// RVA: 0xED9D50 Offset: 0xED9D50 VA: 0xED9D50
+	public void .ctor(float waitTime) { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCCB610 Offset: 0xCCB610 VA: 0xCCB610
+	// RVA: 0xED9D84 Offset: 0xED9D84 VA: 0xED9D84 Slot: 4
+	public override IEnumerator Execute() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43274 Offset: 0xC43274 VA: 0xC43274
+private sealed class SchedulerTaskWaitTime.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8413
+{
+	// Fields
+	internal float <espTime>__1; // 0x10
+	internal SchedulerTaskWaitTime $this; // 0x18
+	internal object $current; // 0x20
+	internal bool $disposing; // 0x28
+	internal int $PC; // 0x2C
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD99F0 Offset: 0xCD99F0 VA: 0xCD99F0
+	// RVA: 0xED9DF4 Offset: 0xED9DF4 VA: 0xED9DF4
+	public void .ctor() { }
+
+	// RVA: 0xED9DFC Offset: 0xED9DFC VA: 0xED9DFC Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9A00 Offset: 0xCD9A00 VA: 0xCD9A00
+	// RVA: 0xED9EE8 Offset: 0xED9EE8 VA: 0xED9EE8 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9A10 Offset: 0xCD9A10 VA: 0xCD9A10
+	// RVA: 0xED9EF0 Offset: 0xED9EF0 VA: 0xED9EF0 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9A20 Offset: 0xCD9A20 VA: 0xCD9A20
+	// RVA: 0xED9EF8 Offset: 0xED9EF8 VA: 0xED9EF8 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9A30 Offset: 0xCD9A30 VA: 0xCD9A30
+	// RVA: 0xED9F0C Offset: 0xED9F0C VA: 0xED9F0C Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+public class TaskScheduler // TypeDefIndex: 8414
+{
+	// Fields
+	private Queue<TaskScheduler.PerformanceQueue> taskQueue; // 0x10
+	private IEnumerator taskExecute; // 0x18
+	private List<SchedulerTaskBase> nonBlockTasks; // 0x20
+	private IEnumerator nonBlockTaskExecute; // 0x28
+	private bool isPause; // 0x30
+	private bool isPauseImmediate; // 0x31
+	[CompilerGeneratedAttribute] // RVA: 0xC5E120 Offset: 0xC5E120 VA: 0xC5E120
+	[DebuggerBrowsableAttribute] // RVA: 0xC5E120 Offset: 0xC5E120 VA: 0xC5E120
+	private Action<bool> <AllTouchBlockMethod>k__BackingField; // 0x38
+
+	// Properties
+	private Action<bool> AllTouchBlockMethod { get; set; }
+
+	// Methods
+
+	// RVA: 0x108BDC4 Offset: 0x108BDC4 VA: 0x108BDC4
+	public void .ctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCB620 Offset: 0xCCB620 VA: 0xCCB620
+	// RVA: 0x108BE5C Offset: 0x108BE5C VA: 0x108BE5C
 	private Action<bool> get_AllTouchBlockMethod() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD38C94 Offset: 0xD38C94 VA: 0xD38C94
-	// RVA: 0x15EA764 Offset: 0x15EA764 VA: 0x15EA764
+	[CompilerGeneratedAttribute] // RVA: 0xCCB630 Offset: 0xCCB630 VA: 0xCCB630
+	// RVA: 0x108BE64 Offset: 0x108BE64 VA: 0x108BE64
 	public void set_AllTouchBlockMethod(Action<bool> value) { }
 
-	// RVA: 0x15EA76C Offset: 0x15EA76C VA: 0x15EA76C
+	// RVA: 0x108BE6C Offset: 0x108BE6C VA: 0x108BE6C
 	public void Activate() { }
 
-	// RVA: 0x15EA87C Offset: 0x15EA87C VA: 0x15EA87C Slot: 4
+	// RVA: 0x108BF7C Offset: 0x108BF7C VA: 0x108BF7C Slot: 4
 	public virtual void SetAllTouchBlock(bool isBlock) { }
 
-	// RVA: 0x15EA8F0 Offset: 0x15EA8F0 VA: 0x15EA8F0
+	// RVA: 0x108BFF0 Offset: 0x108BFF0 VA: 0x108BFF0
 	public void PauseScheduler(bool immediate = False) { }
 
-	// RVA: 0x15EA904 Offset: 0x15EA904 VA: 0x15EA904
+	// RVA: 0x108C004 Offset: 0x108C004 VA: 0x108C004
 	public void ResumeScheduler() { }
 
-	// RVA: 0x15EA90C Offset: 0x15EA90C VA: 0x15EA90C
+	// RVA: 0x108C00C Offset: 0x108C00C VA: 0x108C00C
 	public void AddTask(bool enableInput, SchedulerTaskBase[] performances) { }
 
-	// RVA: 0x15EA988 Offset: 0x15EA988 VA: 0x15EA988
+	// RVA: 0x108C088 Offset: 0x108C088 VA: 0x108C088
 	public void AddTask(bool enableInput, List<SchedulerTaskBase> performances) { }
 
-	// RVA: 0x15EAA04 Offset: 0x15EAA04 VA: 0x15EAA04
+	// RVA: 0x108C104 Offset: 0x108C104 VA: 0x108C104
 	public void InsertTask(bool enableInput, SchedulerTaskBase[] performances) { }
 
-	// RVA: 0x15EAB90 Offset: 0x15EAB90 VA: 0x15EAB90
+	// RVA: 0x108C290 Offset: 0x108C290 VA: 0x108C290
 	public void InsertTask(bool enableInput, List<SchedulerTaskBase> performances) { }
 
-	// RVA: 0x15EAC0C Offset: 0x15EAC0C VA: 0x15EAC0C
+	// RVA: 0x108C30C Offset: 0x108C30C VA: 0x108C30C
 	public bool IsNonBlockTaskEmpty() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD38CA4 Offset: 0xD38CA4 VA: 0xD38CA4
-	// RVA: 0x15EA79C Offset: 0x15EA79C VA: 0x15EA79C
+	[DebuggerHiddenAttribute] // RVA: 0xCCB640 Offset: 0xCCB640 VA: 0xCCB640
+	// RVA: 0x108BE9C Offset: 0x108BE9C VA: 0x108BE9C
 	private IEnumerator TaskExecute() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD38CB4 Offset: 0xD38CB4 VA: 0xD38CB4
-	// RVA: 0x15EA80C Offset: 0x15EA80C VA: 0x15EA80C
+	[DebuggerHiddenAttribute] // RVA: 0xCCB650 Offset: 0xCCB650 VA: 0xCCB650
+	// RVA: 0x108BF0C Offset: 0x108BF0C VA: 0x108BF0C
 	private IEnumerator NonBlockTaskExecute() { }
 
-	// RVA: 0x15EAC88 Offset: 0x15EAC88 VA: 0x15EAC88
+	// RVA: 0x108C388 Offset: 0x108C388 VA: 0x108C388
 	public static bool IEnumeratorExecute(IEnumerator enumerator) { }
 
-	// RVA: 0x15EAF4C Offset: 0x15EAF4C VA: 0x15EAF4C
+	// RVA: 0x108C64C Offset: 0x108C64C VA: 0x108C64C
 	public void TaskUpdate() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD38CC4 Offset: 0xD38CC4 VA: 0xD38CC4
-	// RVA: 0x15EB080 Offset: 0x15EB080 VA: 0x15EB080
+	[CompilerGeneratedAttribute] // RVA: 0xCCB660 Offset: 0xCCB660 VA: 0xCCB660
+	// RVA: 0x108C780 Offset: 0x108C780 VA: 0x108C780
 	private void <InsertTask>m__0(TaskScheduler.PerformanceQueue x) { }
 }
 
 // Namespace: 
-private struct TaskScheduler.PerformanceQueue // TypeDefIndex: 8393
+private struct TaskScheduler.PerformanceQueue // TypeDefIndex: 8415
 {
 	// Fields
 	public SchedulerTaskBase[] Tasks; // 0x0
@@ -60,8 +970,8 @@ private struct TaskScheduler.PerformanceQueue // TypeDefIndex: 8393
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF330 Offset: 0xCAF330 VA: 0xCAF330
-private sealed class TaskScheduler.<TaskExecute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8394
+[CompilerGeneratedAttribute] // RVA: 0xC43284 Offset: 0xC43284 VA: 0xC43284
+private sealed class TaskScheduler.<TaskExecute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8416
 {
 	// Fields
 	internal WaitUntil <emptyWait>__0; // 0x10
@@ -84,917 +994,7 @@ private sealed class TaskScheduler.<TaskExecute>c__Iterator0 : IEnumerator, IDis
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xD46D04 Offset: 0xD46D04 VA: 0xD46D04
-	// RVA: 0x15EAC78 Offset: 0x15EAC78 VA: 0x15EAC78
+	[DebuggerHiddenAttribute] // RVA: 0xCD9A40 Offset: 0xCD9A40 VA: 0xCD9A40
+	// RVA: 0x108C378 Offset: 0x108C378 VA: 0x108C378
 	public void .ctor() { }
-
-	// RVA: 0x15EB920 Offset: 0x15EB920 VA: 0x15EB920 Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46D14 Offset: 0xD46D14 VA: 0xD46D14
-	// RVA: 0x15EBF30 Offset: 0x15EBF30 VA: 0x15EBF30 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46D24 Offset: 0xD46D24 VA: 0xD46D24
-	// RVA: 0x15EBF38 Offset: 0x15EBF38 VA: 0x15EBF38 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46D34 Offset: 0xD46D34 VA: 0xD46D34
-	// RVA: 0x15EBF40 Offset: 0x15EBF40 VA: 0x15EBF40 Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46D44 Offset: 0xD46D44 VA: 0xD46D44
-	// RVA: 0x15EBF54 Offset: 0x15EBF54 VA: 0x15EBF54 Slot: 6
-	public void Reset() { }
-
-	// RVA: 0x15EBFBC Offset: 0x15EBFBC VA: 0x15EBFBC
-	internal bool <>m__0() { }
-
-	// RVA: 0x15EC038 Offset: 0x15EC038 VA: 0x15EC038
-	internal bool <>m__1() { }
-
-	// RVA: 0x15EC090 Offset: 0x15EC090 VA: 0x15EC090
-	private static bool <>m__2() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF340 Offset: 0xCAF340 VA: 0xCAF340
-private sealed class TaskScheduler.<NonBlockTaskExecute>c__Iterator1 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8395
-{
-	// Fields
-	internal WaitUntil <emptyWait>__0; // 0x10
-	internal WaitWhile <pauseWait>__0; // 0x18
-	internal WaitWhile <fadeWait>__0; // 0x20
-	internal Dictionary<SchedulerTaskBase, IEnumerator> <executions>__0; // 0x28
-	internal List<SchedulerTaskBase> <removeTasks>__0; // 0x30
-	internal TaskScheduler $this; // 0x38
-	internal object $current; // 0x40
-	internal bool $disposing; // 0x48
-	internal int $PC; // 0x4C
-	private static Func<bool> <>f__am$cache0; // 0x0
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46D54 Offset: 0xD46D54 VA: 0xD46D54
-	// RVA: 0x15EAC80 Offset: 0x15EAC80 VA: 0x15EAC80
-	public void .ctor() { }
-
-	// RVA: 0x15EB0F8 Offset: 0x15EB0F8 VA: 0x15EB0F8 Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46D64 Offset: 0xD46D64 VA: 0xD46D64
-	// RVA: 0x15EB760 Offset: 0x15EB760 VA: 0x15EB760 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46D74 Offset: 0xD46D74 VA: 0xD46D74
-	// RVA: 0x15EB768 Offset: 0x15EB768 VA: 0x15EB768 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46D84 Offset: 0xD46D84 VA: 0xD46D84
-	// RVA: 0x15EB770 Offset: 0x15EB770 VA: 0x15EB770 Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46D94 Offset: 0xD46D94 VA: 0xD46D94
-	// RVA: 0x15EB784 Offset: 0x15EB784 VA: 0x15EB784 Slot: 6
-	public void Reset() { }
-
-	// RVA: 0x15EB7EC Offset: 0x15EB7EC VA: 0x15EB7EC
-	internal bool <>m__0() { }
-
-	// RVA: 0x15EB868 Offset: 0x15EB868 VA: 0x15EB868
-	internal bool <>m__1() { }
-
-	// RVA: 0x15EB8C0 Offset: 0x15EB8C0 VA: 0x15EB8C0
-	private static bool <>m__2() { }
-}
-
-// Namespace: 
-public class CommonMessageManager : ScriptMessageManager // TypeDefIndex: 8396
-{
-	// Fields
-	protected CommonMessageManager.State state; // 0x204
-	protected CommonMessageManager.PlaySpeed playSpeed; // 0x208
-	protected string waitType; // 0x210
-	protected string waitMessage; // 0x218
-	protected string waitTalkName; // 0x220
-	protected bool isCancelInput; // 0x228
-	private bool isDispLastTouchMark; // 0x229
-	protected Action callbackFunc; // 0x230
-	protected Action touchCallbackFunc; // 0x238
-	protected string codeCommentString; // 0x240
-	protected string codeTalkString; // 0x248
-	protected string codeVoiceString; // 0x250
-	protected string codeReturnString; // 0x258
-	protected int executeIndex; // 0x260
-	protected int executeIndexMax; // 0x264
-	protected string[] executeTagList; // 0x268
-	protected string[] executeDataList; // 0x270
-	protected int[] executeLineList; // 0x278
-	[CompilerGeneratedAttribute] // RVA: 0xCCAFF4 Offset: 0xCCAFF4 VA: 0xCCAFF4
-	private static Dictionary<string, int> <>f__switch$map8; // 0x0
-	[CompilerGeneratedAttribute] // RVA: 0xCCB004 Offset: 0xCCB004 VA: 0xCCB004
-	private static Dictionary<string, int> <>f__switch$map9; // 0x8
-	[CompilerGeneratedAttribute] // RVA: 0xCCB014 Offset: 0xCCB014 VA: 0xCCB014
-	private static Dictionary<string, int> <>f__switch$mapA; // 0x10
-
-	// Methods
-
-	// RVA: 0x14976CC Offset: 0x14976CC VA: 0x14976CC
-	public void .ctor() { }
-
-	// RVA: 0x149773C Offset: 0x149773C VA: 0x149773C
-	public void Init() { }
-
-	// RVA: 0x149787C Offset: 0x149787C VA: 0x149787C
-	public void Quit() { }
-
-	// RVA: 0x1497924 Offset: 0x1497924 VA: 0x1497924
-	public void SetTouchCallback(Action callback) { }
-
-	// RVA: 0x149792C Offset: 0x149792C VA: 0x149792C
-	public void SetMessageBlock(string messageBlock, bool isDispLastTouchMark = True, Action callbackFunc) { }
-
-	// RVA: 0x1497904 Offset: 0x1497904 VA: 0x1497904
-	protected void EndExecuteScript() { }
-
-	// RVA: 0x1498300 Offset: 0x1498300 VA: 0x1498300 Slot: 4
-	public override void OnPressWindow() { }
-
-	// RVA: 0x1498340 Offset: 0x1498340 VA: 0x1498340 Slot: 5
-	public override void OnClickWindow() { }
-
-	// RVA: 0x1498380 Offset: 0x1498380 VA: 0x1498380
-	public void SetMessageSpeed(CommonMessageManager.PlaySpeed playSpeed) { }
-
-	// RVA: 0x1498388 Offset: 0x1498388 VA: 0x1498388
-	protected void SetTalkName(string name) { }
-
-	// RVA: 0x149798C Offset: 0x149798C VA: 0x149798C
-	protected void AnalysScript(string scriptData) { }
-
-	// RVA: 0x149843C Offset: 0x149843C VA: 0x149843C
-	protected void AnalysText(ref List<string> tagDataList, ref List<string> scriptDataList, ref List<int> lineDataList, ref int lastMessageIndex, ref string talkName, string analysData, int line) { }
-
-	// RVA: 0x14995F4 Offset: 0x14995F4 VA: 0x14995F4
-	protected string[] AnalysParam(string data) { }
-
-	// RVA: 0x1499D94 Offset: 0x1499D94 VA: 0x1499D94
-	protected void Update() { }
-
-	// RVA: 0x1499DCC Offset: 0x1499DCC VA: 0x1499DCC
-	protected bool ProcessScript(float delta) { }
-}
-
-// Namespace: 
-protected enum CommonMessageManager.State // TypeDefIndex: 8397
-{
-	// Fields
-	public int value__; // 0x0
-	public const CommonMessageManager.State NONE = 0;
-	public const CommonMessageManager.State IDLE = 1;
-	public const CommonMessageManager.State LOAD = 2;
-	public const CommonMessageManager.State EXECUTE = 3;
-	public const CommonMessageManager.State WAIT = 4;
-	public const CommonMessageManager.State WAIT_EXIT = 5;
-	public const CommonMessageManager.State EXIT = 6;
-	public const CommonMessageManager.State BACK_VIEW_INIT = 7;
-	public const CommonMessageManager.State BACK_VIEW = 8;
-	public const CommonMessageManager.State FIGURE_VIEW_INIT = 9;
-	public const CommonMessageManager.State FIGURE_VIEW = 10;
-	public const CommonMessageManager.State ERROR = 11;
-}
-
-// Namespace: 
-public enum CommonMessageManager.PlaySpeed // TypeDefIndex: 8398
-{
-	// Fields
-	public int value__; // 0x0
-	public const CommonMessageManager.PlaySpeed NONE = 0;
-	public const CommonMessageManager.PlaySpeed PAUSE = 1;
-	public const CommonMessageManager.PlaySpeed NORMAL = 2;
-	public const CommonMessageManager.PlaySpeed FAST = 3;
-}
-
-// Namespace: 
-public class ScriptActionAdvPrefabActorController : MonoBehaviour // TypeDefIndex: 8399
-{
-	// Fields
-	[SerializeField] // RVA: 0xCCB024 Offset: 0xCCB024 VA: 0xCCB024
-	public string ActorName; // 0x18
-	[SerializeField] // RVA: 0xCCB034 Offset: 0xCCB034 VA: 0xCCB034
-	public ScriptActionAdvPrefabController.DisplayCond displayCond; // 0x20
-	[SerializeField] // RVA: 0xCCB044 Offset: 0xCCB044 VA: 0xCCB044
-	private Transform FollowTarget; // 0x28
-	[SerializeField] // RVA: 0xCCB054 Offset: 0xCCB054 VA: 0xCCB054
-	private Vector3 followOffsetPosition; // 0x30
-	[SerializeField] // RVA: 0xCCB064 Offset: 0xCCB064 VA: 0xCCB064
-	private Vector3 followOffsetAngle; // 0x3C
-	[CompilerGeneratedAttribute] // RVA: 0xCCB074 Offset: 0xCCB074 VA: 0xCCB074
-	[DebuggerBrowsableAttribute] // RVA: 0xCCB074 Offset: 0xCCB074 VA: 0xCCB074
-	private bool <IsGoNext>k__BackingField; // 0x48
-	private Animator animator; // 0x50
-
-	// Properties
-	public bool IsGoNext { get; set; }
-
-	// Methods
-
-	// RVA: 0x1ABA9F4 Offset: 0x1ABA9F4 VA: 0x1ABA9F4
-	public void .ctor() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38CD4 Offset: 0xD38CD4 VA: 0xD38CD4
-	// RVA: 0x1ABA9FC Offset: 0x1ABA9FC VA: 0x1ABA9FC
-	public bool get_IsGoNext() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38CE4 Offset: 0xD38CE4 VA: 0xD38CE4
-	// RVA: 0x1ABAA04 Offset: 0x1ABAA04 VA: 0x1ABAA04
-	private void set_IsGoNext(bool value) { }
-
-	// RVA: 0x1ABAA10 Offset: 0x1ABAA10 VA: 0x1ABAA10
-	private void Awake() { }
-
-	// RVA: 0x1ABAB28 Offset: 0x1ABAB28 VA: 0x1ABAB28
-	public bool SetDisplay(int genderType) { }
-
-	// RVA: 0x1ABABD4 Offset: 0x1ABABD4 VA: 0x1ABABD4
-	public void SetGender(int genderType) { }
-
-	// RVA: 0x1ABAC90 Offset: 0x1ABAC90 VA: 0x1ABAC90
-	public bool PlayAnimator(string trigger) { }
-
-	// RVA: 0x1ABAD44 Offset: 0x1ABAD44 VA: 0x1ABAD44
-	public void Show() { }
-
-	// RVA: 0x1ABAD7C Offset: 0x1ABAD7C VA: 0x1ABAD7C
-	public void Hide() { }
-
-	// RVA: 0x1ABADB4 Offset: 0x1ABADB4 VA: 0x1ABADB4
-	public void GoNext() { }
-
-	// RVA: 0x1ABADC0 Offset: 0x1ABADC0 VA: 0x1ABADC0
-	public void Pause(bool pause) { }
-
-	// RVA: 0x1ABAE08 Offset: 0x1ABAE08 VA: 0x1ABAE08
-	private void Update() { }
-
-	// RVA: 0x1ABAFD4 Offset: 0x1ABAFD4 VA: 0x1ABAFD4
-	public void PlaySE(string se) { }
-
-	// RVA: 0x1ABB03C Offset: 0x1ABB03C VA: 0x1ABB03C
-	public void PlayVoice(string voice) { }
-
-	// RVA: 0x1ABB0A4 Offset: 0x1ABB0A4 VA: 0x1ABB0A4
-	public void ShowActor(string actorName) { }
-
-	// RVA: 0x1ABB1F0 Offset: 0x1ABB1F0 VA: 0x1ABB1F0
-	public void HideActor(string actorName) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38CF4 Offset: 0xD38CF4 VA: 0xD38CF4
-	// RVA: 0x1ABB33C Offset: 0x1ABB33C VA: 0x1ABB33C
-	private void <Awake>m__0(ScriptActionAdvPrefabActorGoNextState x) { }
-}
-
-// Namespace: 
-public class ScriptActionAdvPrefabActorGoNextState : StateMachineBehaviour // TypeDefIndex: 8400
-{
-	// Fields
-	private ScriptActionAdvPrefabActorController owner; // 0x18
-
-	// Methods
-
-	// RVA: 0x1ABB374 Offset: 0x1ABB374 VA: 0x1ABB374
-	public void .ctor() { }
-
-	// RVA: 0x1ABB36C Offset: 0x1ABB36C VA: 0x1ABB36C
-	public void SetOwner(ScriptActionAdvPrefabActorController owner) { }
-
-	// RVA: 0x1ABB37C Offset: 0x1ABB37C VA: 0x1ABB37C Slot: 4
-	public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) { }
-}
-
-// Namespace: 
-public class ScriptActionAdvPrefabCameraLocator : MonoBehaviour // TypeDefIndex: 8401
-{
-	// Fields
-	[SerializeField] // RVA: 0xCCB0B0 Offset: 0xCCB0B0 VA: 0xCCB0B0
-	private Transform Locator; // 0x18
-	[SerializeField] // RVA: 0xCCB0C0 Offset: 0xCCB0C0 VA: 0xCCB0C0
-	private GameObject targetRig; // 0x20
-	[SerializeField] // RVA: 0xCCB0D0 Offset: 0xCCB0D0 VA: 0xCCB0D0
-	private bool scaleToCameraParameter; // 0x28
-	private Camera[] targetCameras; // 0x30
-
-	// Methods
-
-	// RVA: 0x1ABB404 Offset: 0x1ABB404 VA: 0x1ABB404
-	public void .ctor() { }
-
-	// RVA: 0x1ABB40C Offset: 0x1ABB40C VA: 0x1ABB40C
-	private void Awake() { }
-
-	// RVA: 0x1ABB474 Offset: 0x1ABB474 VA: 0x1ABB474
-	private void LateUpdate() { }
-}
-
-// Namespace: 
-public class ScriptActionAdvPrefabController : MonoBehaviour // TypeDefIndex: 8402
-{
-	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCCB0E0 Offset: 0xCCB0E0 VA: 0xCCB0E0
-	[DebuggerBrowsableAttribute] // RVA: 0xCCB0E0 Offset: 0xCCB0E0 VA: 0xCCB0E0
-	private RenderTexture <renderTexture>k__BackingField; // 0x18
-	private GameObject demoRootObject; // 0x20
-	private Dictionary<string, ScriptActionAdvPrefabActorController> actorDict; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xCCB11C Offset: 0xCCB11C VA: 0xCCB11C
-	[DebuggerBrowsableAttribute] // RVA: 0xCCB11C Offset: 0xCCB11C VA: 0xCCB11C
-	private bool <isSetup>k__BackingField; // 0x30
-	private AssetData assetData; // 0x38
-	private bool isPaused; // 0x40
-	[CompilerGeneratedAttribute] // RVA: 0xCCB158 Offset: 0xCCB158 VA: 0xCCB158
-	private static Func<ScriptActionAdvPrefabActorController, bool> <>f__am$cache0; // 0x0
-
-	// Properties
-	public RenderTexture renderTexture { get; set; }
-	public bool isSetup { get; set; }
-	public bool IsGoNext { get; }
-
-	// Methods
-
-	// RVA: 0x1ABB6B0 Offset: 0x1ABB6B0 VA: 0x1ABB6B0
-	public void .ctor() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38D04 Offset: 0xD38D04 VA: 0xD38D04
-	// RVA: 0x1ABB6B8 Offset: 0x1ABB6B8 VA: 0x1ABB6B8
-	public RenderTexture get_renderTexture() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38D14 Offset: 0xD38D14 VA: 0xD38D14
-	// RVA: 0x1ABB6C0 Offset: 0x1ABB6C0 VA: 0x1ABB6C0
-	private void set_renderTexture(RenderTexture value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38D24 Offset: 0xD38D24 VA: 0xD38D24
-	// RVA: 0x1ABB6C8 Offset: 0x1ABB6C8 VA: 0x1ABB6C8
-	public bool get_isSetup() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38D34 Offset: 0xD38D34 VA: 0xD38D34
-	// RVA: 0x1ABB6D0 Offset: 0x1ABB6D0 VA: 0x1ABB6D0
-	private void set_isSetup(bool value) { }
-
-	// RVA: 0x1ABB6DC Offset: 0x1ABB6DC VA: 0x1ABB6DC
-	public bool get_IsGoNext() { }
-
-	// RVA: 0x1ABB7C0 Offset: 0x1ABB7C0 VA: 0x1ABB7C0
-	public static string GetAssetName(string baseName) { }
-
-	// RVA: 0x1ABB834 Offset: 0x1ABB834 VA: 0x1ABB834
-	public void Setup(string assetName) { }
-
-	// RVA: 0x1ABB8E0 Offset: 0x1ABB8E0 VA: 0x1ABB8E0
-	public void Prepare(string objectName) { }
-
-	// RVA: 0x1ABBD38 Offset: 0x1ABBD38 VA: 0x1ABBD38
-	public void PlayAnimator(string actorName, string trigger) { }
-
-	// RVA: 0x1ABBDD4 Offset: 0x1ABBDD4 VA: 0x1ABBDD4
-	public bool CheckGoNext(string actorName) { }
-
-	// RVA: 0x1ABB164 Offset: 0x1ABB164 VA: 0x1ABB164
-	public void SetShow(string actorName) { }
-
-	// RVA: 0x1ABB2B0 Offset: 0x1ABB2B0 VA: 0x1ABB2B0
-	public void SetHide(string actorName) { }
-
-	// RVA: 0x1ABBE6C Offset: 0x1ABBE6C VA: 0x1ABBE6C
-	public void Release() { }
-
-	// RVA: 0x1ABBF4C Offset: 0x1ABBF4C VA: 0x1ABBF4C
-	public void Pause(bool pause) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38D44 Offset: 0xD38D44 VA: 0xD38D44
-	// RVA: 0x1ABC018 Offset: 0x1ABC018 VA: 0x1ABC018
-	private static bool <get_IsGoNext>m__0(ScriptActionAdvPrefabActorController x) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38D54 Offset: 0xD38D54 VA: 0xD38D54
-	// RVA: 0x1ABC040 Offset: 0x1ABC040 VA: 0x1ABC040
-	private void <Setup>m__1(AssetData asset) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38D64 Offset: 0xD38D64 VA: 0xD38D64
-	// RVA: 0x1ABC050 Offset: 0x1ABC050 VA: 0x1ABC050
-	private void <Pause>m__2(ScriptActionAdvPrefabActorController x) { }
-}
-
-// Namespace: 
-public enum ScriptActionAdvPrefabController.DisplayCond // TypeDefIndex: 8403
-{
-	// Fields
-	public int value__; // 0x0
-	public const ScriptActionAdvPrefabController.DisplayCond Always = 0;
-	public const ScriptActionAdvPrefabController.DisplayCond Male = 2;
-	public const ScriptActionAdvPrefabController.DisplayCond Female = 4;
-}
-
-// Namespace: 
-public class ScriptActionAdvPrefabLightSetting : MonoBehaviour // TypeDefIndex: 8404
-{
-	// Fields
-	[SerializeField] // RVA: 0xCCB168 Offset: 0xCCB168 VA: 0xCCB168
-	private Color ambientColor; // 0x18
-	[SerializeField] // RVA: 0xCCB178 Offset: 0xCCB178 VA: 0xCCB178
-	private bool fog; // 0x28
-	[SerializeField] // RVA: 0xCCB188 Offset: 0xCCB188 VA: 0xCCB188
-	private Color fogColor; // 0x2C
-	[SerializeField] // RVA: 0xCCB198 Offset: 0xCCB198 VA: 0xCCB198
-	private FogMode fogMode; // 0x3C
-	[SerializeField] // RVA: 0xCCB1A8 Offset: 0xCCB1A8 VA: 0xCCB1A8
-	private float fogDensity; // 0x40
-	[SerializeField] // RVA: 0xCCB1B8 Offset: 0xCCB1B8 VA: 0xCCB1B8
-	private float fogStartDistance; // 0x44
-	[SerializeField] // RVA: 0xCCB1C8 Offset: 0xCCB1C8 VA: 0xCCB1C8
-	private float fogEndDistance; // 0x48
-	private AmbientMode originalAmblentMode; // 0x4C
-	private Color originalAmblentLight; // 0x50
-	private bool originalFog; // 0x60
-	private Color originalFogColor; // 0x64
-	private FogMode originalFogMode; // 0x74
-	private float originalFogDensity; // 0x78
-	private float originalFogStartDistance; // 0x7C
-	private float originalFogEndDistance; // 0x80
-
-	// Methods
-
-	// RVA: 0x1ABC088 Offset: 0x1ABC088 VA: 0x1ABC088
-	public void .ctor() { }
-
-	// RVA: 0x1ABC0E8 Offset: 0x1ABC0E8 VA: 0x1ABC0E8
-	private void Awake() { }
-
-	// RVA: 0x1ABC170 Offset: 0x1ABC170 VA: 0x1ABC170
-	private void Start() { }
-
-	// RVA: 0x1ABC1F0 Offset: 0x1ABC1F0 VA: 0x1ABC1F0
-	private void OnDestroy() { }
-}
-
-// Namespace: 
-public class ScriptActionRenderEffectController // TypeDefIndex: 8405
-{
-	// Fields
-	private float timerCount; // 0x10
-	private float timerMax; // 0x14
-	private float loopCount; // 0x18
-	private ScriptActionRenderEffectController.ReflectionFunction reflectionFunction; // 0x20
-	private ScriptActionRenderEffectController.StopFunction stopFunction; // 0x28
-	private bool isEnable; // 0x30
-	private bool requestStop; // 0x31
-	private Material material_; // 0x38
-
-	// Methods
-
-	// RVA: 0x1ABC270 Offset: 0x1ABC270 VA: 0x1ABC270
-	public void .ctor(Material material) { }
-
-	// RVA: 0x1ABC2A4 Offset: 0x1ABC2A4 VA: 0x1ABC2A4
-	private static float FloatLinear(float src, float dest, float rate) { }
-
-	// RVA: 0x1ABC2B4 Offset: 0x1ABC2B4 VA: 0x1ABC2B4
-	public void Update(float delta) { }
-
-	// RVA: 0x1ABC410 Offset: 0x1ABC410 VA: 0x1ABC410
-	private void OnStop(bool isRequest) { }
-
-	// RVA: 0x1ABC6F4 Offset: 0x1ABC6F4 VA: 0x1ABC6F4
-	private void Start(float sec, int count, bool isStop, ScriptActionRenderEffectController.ReflectionFunction func, ScriptActionRenderEffectController.StopFunction stopfunc) { }
-
-	// RVA: 0x1ABC728 Offset: 0x1ABC728 VA: 0x1ABC728
-	private void Skip() { }
-
-	// RVA: 0x1ABC45C Offset: 0x1ABC45C VA: 0x1ABC45C
-	private void Reflection(float rate) { }
-
-	// RVA: 0x1ABC990 Offset: 0x1ABC990 VA: 0x1ABC990
-	public bool IsBusy() { }
-
-	// RVA: 0x1ABC998 Offset: 0x1ABC998 VA: 0x1ABC998
-	public void SetDisable() { }
-
-	// RVA: 0x1ABC9A0 Offset: 0x1ABC9A0 VA: 0x1ABC9A0
-	public void StartDistortion(float sec, int count, float centerX, float centerY, float strength, float range, float coefficient) { }
-
-	// RVA: 0x1ABCDBC Offset: 0x1ABCDBC VA: 0x1ABCDBC
-	public void StopDistortion(float sec, ScriptActionRenderEffectController.StopFunction stopFunc) { }
-
-	// RVA: 0x1ABD004 Offset: 0x1ABD004 VA: 0x1ABD004
-	public void StartGaussianBlur(float sec, int sampleRange, float sigma) { }
-
-	// RVA: 0x1ABD2C4 Offset: 0x1ABD2C4 VA: 0x1ABD2C4
-	public void StopGaussianBlur(float sec, ScriptActionRenderEffectController.StopFunction stopFunc) { }
-
-	// RVA: 0x1ABD484 Offset: 0x1ABD484 VA: 0x1ABD484
-	public void StartMotionBlur(float sec, int sampleRange, float sigma, float centerX, float centerY, float range, float coefficient) { }
-
-	// RVA: 0x1ABD8DC Offset: 0x1ABD8DC VA: 0x1ABD8DC
-	public void StopMotionBlur(float sec, ScriptActionRenderEffectController.StopFunction stopFunc) { }
-
-	// RVA: 0x1ABDB28 Offset: 0x1ABDB28 VA: 0x1ABDB28
-	public void SetGaussianBlur(int sampleRange, float sigma) { }
-
-	// RVA: 0x1ABE0C4 Offset: 0x1ABE0C4 VA: 0x1ABE0C4
-	public void SetMotionBlur(int sampleRange, float sigma) { }
-
-	// RVA: 0x1ABE3F8 Offset: 0x1ABE3F8 VA: 0x1ABE3F8
-	public void SkipDistortion() { }
-
-	// RVA: 0x1ABE3FC Offset: 0x1ABE3FC VA: 0x1ABE3FC
-	public void SkipBlur() { }
-}
-
-// Namespace: 
-public sealed class ScriptActionRenderEffectController.ReflectionFunction : MulticastDelegate // TypeDefIndex: 8406
-{
-	// Methods
-
-	// RVA: 0x1ABCDAC Offset: 0x1ABCDAC VA: 0x1ABCDAC
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x1ABC754 Offset: 0x1ABC754 VA: 0x1ABC754 Slot: 11
-	public virtual void Invoke(float animeRate) { }
-
-	// RVA: 0x1ABECD8 Offset: 0x1ABECD8 VA: 0x1ABECD8 Slot: 12
-	public virtual IAsyncResult BeginInvoke(float animeRate, AsyncCallback callback, object object) { }
-
-	// RVA: 0x1ABED64 Offset: 0x1ABED64 VA: 0x1ABED64 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-public sealed class ScriptActionRenderEffectController.StopFunction : MulticastDelegate // TypeDefIndex: 8407
-{
-	// Methods
-
-	// RVA: 0x1ABED70 Offset: 0x1ABED70 VA: 0x1ABED70
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x1ABC4F4 Offset: 0x1ABC4F4 VA: 0x1ABC4F4 Slot: 11
-	public virtual void Invoke() { }
-
-	// RVA: 0x1ABED80 Offset: 0x1ABED80 VA: 0x1ABED80 Slot: 12
-	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
-
-	// RVA: 0x1ABEDB4 Offset: 0x1ABEDB4 VA: 0x1ABEDB4 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-private class ScriptActionRenderEffectController.DistortionParam : ScriptActionRenderEffectController.EffectParamBase // TypeDefIndex: 8408
-{
-	// Fields
-	private float centerX; // 0x10
-	private float centerY; // 0x14
-	private float strength; // 0x18
-	private float range; // 0x1C
-	private float coefficient; // 0x20
-
-	// Methods
-
-	// RVA: 0x1ABE9E8 Offset: 0x1ABE9E8 VA: 0x1ABE9E8
-	public void .ctor() { }
-
-	// RVA: 0x1ABCCC4 Offset: 0x1ABCCC4 VA: 0x1ABCCC4
-	public static ScriptActionRenderEffectController.DistortionParam CreateDistortionParam(float x, float y, float str, float rng, float coeff) { }
-
-	// RVA: 0x1ABCB54 Offset: 0x1ABCB54 VA: 0x1ABCB54
-	public static ScriptActionRenderEffectController.DistortionParam CreateMaterialValue(Material material) { }
-
-	// RVA: 0x1ABCEE4 Offset: 0x1ABCEE4 VA: 0x1ABCEE4
-	public static ScriptActionRenderEffectController.DistortionParam CreateStopMaterial(Material material) { }
-
-	// RVA: 0x1ABE4CC Offset: 0x1ABE4CC VA: 0x1ABE4CC
-	public static void ReflectionMaterial(Material material, ScriptActionRenderEffectController.DistortionParam srcParam, ScriptActionRenderEffectController.DistortionParam destParam, float rate) { }
-}
-
-// Namespace: 
-private class ScriptActionRenderEffectController.GaussianBlurParam : ScriptActionRenderEffectController.EffectParamBase // TypeDefIndex: 8409
-{
-	// Fields
-	private int sampleRange; // 0x10
-	private float sigma; // 0x14
-
-	// Methods
-
-	// RVA: 0x1ABECA0 Offset: 0x1ABECA0 VA: 0x1ABECA0
-	public void .ctor() { }
-
-	// RVA: 0x1ABD22C Offset: 0x1ABD22C VA: 0x1ABD22C
-	public static ScriptActionRenderEffectController.GaussianBlurParam CreateByParams(int sampleRange, float sigma) { }
-
-	// RVA: 0x1ABD154 Offset: 0x1ABD154 VA: 0x1ABD154
-	public static ScriptActionRenderEffectController.GaussianBlurParam CreateByMaterialValue(Material material) { }
-
-	// RVA: 0x1ABD3EC Offset: 0x1ABD3EC VA: 0x1ABD3EC
-	public static ScriptActionRenderEffectController.GaussianBlurParam CreateStopByMaterial(Material material) { }
-
-	// RVA: 0x1ABE678 Offset: 0x1ABE678 VA: 0x1ABE678
-	public static void ReflectionMaterial(Material material, ScriptActionRenderEffectController.GaussianBlurParam srcParam, ScriptActionRenderEffectController.GaussianBlurParam destParam, float rate) { }
-
-	// RVA: 0x1ABDCA8 Offset: 0x1ABDCA8 VA: 0x1ABDCA8
-	public static float[] GetBlurFactors(int sampleRange, float sigma) { }
-}
-
-// Namespace: 
-private class ScriptActionRenderEffectController.MotionBlurParam : ScriptActionRenderEffectController.EffectParamBase // TypeDefIndex: 8410
-{
-	// Fields
-	private int sampleRange; // 0x10
-	private float sigma; // 0x14
-	private float centerX; // 0x18
-	private float centerY; // 0x1C
-	private float range; // 0x20
-	private float coefficient; // 0x24
-
-	// Methods
-
-	// RVA: 0x1ABECB0 Offset: 0x1ABECB0 VA: 0x1ABECB0
-	public void .ctor() { }
-
-	// RVA: 0x1ABD7D8 Offset: 0x1ABD7D8 VA: 0x1ABD7D8
-	public static ScriptActionRenderEffectController.MotionBlurParam CreateByParams(int sampleRange, float sigma, float centerX, float centerY, float range, float coefficient) { }
-
-	// RVA: 0x1ABD614 Offset: 0x1ABD614 VA: 0x1ABD614
-	public static ScriptActionRenderEffectController.MotionBlurParam CreateByMaterialValue(Material material) { }
-
-	// RVA: 0x1ABDA04 Offset: 0x1ABDA04 VA: 0x1ABDA04
-	public static ScriptActionRenderEffectController.MotionBlurParam CreateStopByMaterial(Material material) { }
-
-	// RVA: 0x1ABE798 Offset: 0x1ABE798 VA: 0x1ABE798
-	public static void ReflectionMaterial(Material material, ScriptActionRenderEffectController.MotionBlurParam srcParam, ScriptActionRenderEffectController.MotionBlurParam destParam, float rate) { }
-
-	// RVA: 0x1ABE164 Offset: 0x1ABE164 VA: 0x1ABE164
-	public static float[] GetBlurFactors(int sampleRange, float sigma) { }
-}
-
-// Namespace: 
-private class ScriptActionRenderEffectController.EffectParamBase // TypeDefIndex: 8411
-{
-	// Methods
-
-	// RVA: 0x1ABEA00 Offset: 0x1ABEA00 VA: 0x1ABEA00
-	public void .ctor() { }
-
-	// RVA: 0x1ABEB94 Offset: 0x1ABEB94 VA: 0x1ABEB94
-	protected static int GetSampleRange(Material material) { }
-
-	// RVA: 0x1ABEA08 Offset: 0x1ABEA08 VA: 0x1ABEA08
-	protected static float GetFloatProperty(Material material, string key) { }
-
-	// RVA: 0x1ABEB20 Offset: 0x1ABEB20 VA: 0x1ABEB20
-	protected static void SetFloatProperty(Material material, string key, float value) { }
-
-	// RVA: 0x1ABE080 Offset: 0x1ABE080 VA: 0x1ABE080
-	public static void SetFloatArrayProperty(Material material, string key, float[] values) { }
-
-	// RVA: 0x1ABDBC8 Offset: 0x1ABDBC8 VA: 0x1ABDBC8
-	public static void SetSampleRange(Material material, int sampleRange) { }
-
-	// RVA: 0x1ABEC00 Offset: 0x1ABEC00 VA: 0x1ABEC00
-	public static string GetSampleRangeKeyword(int sampleRange) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF350 Offset: 0xCAF350 VA: 0xCAF350
-private sealed class ScriptActionRenderEffectController.<StartDistortion>c__AnonStorey0 // TypeDefIndex: 8412
-{
-	// Fields
-	internal int count; // 0x10
-	internal ScriptActionRenderEffectController.DistortionParam srcParam; // 0x18
-	internal ScriptActionRenderEffectController.DistortionParam destParam; // 0x20
-	internal ScriptActionRenderEffectController $this; // 0x28
-
-	// Methods
-
-	// RVA: 0x1ABCB4C Offset: 0x1ABCB4C VA: 0x1ABCB4C
-	public void .ctor() { }
-
-	// RVA: 0x1ABE400 Offset: 0x1ABE400 VA: 0x1ABE400
-	internal void <>m__0(float rate) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF360 Offset: 0xCAF360 VA: 0xCAF360
-private sealed class ScriptActionRenderEffectController.<StopDistortion>c__AnonStorey1 // TypeDefIndex: 8413
-{
-	// Fields
-	internal ScriptActionRenderEffectController.DistortionParam srcParam; // 0x10
-	internal ScriptActionRenderEffectController.DistortionParam destParam; // 0x18
-	internal ScriptActionRenderEffectController $this; // 0x20
-
-	// Methods
-
-	// RVA: 0x1ABCEDC Offset: 0x1ABCEDC VA: 0x1ABCEDC
-	public void .ctor() { }
-
-	// RVA: 0x1ABE91C Offset: 0x1ABE91C VA: 0x1ABE91C
-	internal void <>m__0(float rate) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF370 Offset: 0xCAF370 VA: 0xCAF370
-private sealed class ScriptActionRenderEffectController.<StartGaussianBlur>c__AnonStorey2 // TypeDefIndex: 8414
-{
-	// Fields
-	internal ScriptActionRenderEffectController.GaussianBlurParam srcParam; // 0x10
-	internal ScriptActionRenderEffectController.GaussianBlurParam destParam; // 0x18
-	internal ScriptActionRenderEffectController $this; // 0x20
-
-	// Methods
-
-	// RVA: 0x1ABD14C Offset: 0x1ABD14C VA: 0x1ABD14C
-	public void .ctor() { }
-
-	// RVA: 0x1ABE634 Offset: 0x1ABE634 VA: 0x1ABE634
-	internal void <>m__0(float rate) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF380 Offset: 0xCAF380 VA: 0xCAF380
-private sealed class ScriptActionRenderEffectController.<StopGaussianBlur>c__AnonStorey3 // TypeDefIndex: 8415
-{
-	// Fields
-	internal ScriptActionRenderEffectController.GaussianBlurParam srcParam; // 0x10
-	internal ScriptActionRenderEffectController.GaussianBlurParam destParam; // 0x18
-	internal ScriptActionRenderEffectController $this; // 0x20
-
-	// Methods
-
-	// RVA: 0x1ABD3E4 Offset: 0x1ABD3E4 VA: 0x1ABD3E4
-	public void .ctor() { }
-
-	// RVA: 0x1ABE960 Offset: 0x1ABE960 VA: 0x1ABE960
-	internal void <>m__0(float rate) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF390 Offset: 0xCAF390 VA: 0xCAF390
-private sealed class ScriptActionRenderEffectController.<StartMotionBlur>c__AnonStorey4 // TypeDefIndex: 8416
-{
-	// Fields
-	internal ScriptActionRenderEffectController.MotionBlurParam srcParam; // 0x10
-	internal ScriptActionRenderEffectController.MotionBlurParam destParam; // 0x18
-	internal ScriptActionRenderEffectController $this; // 0x20
-
-	// Methods
-
-	// RVA: 0x1ABD60C Offset: 0x1ABD60C VA: 0x1ABD60C
-	public void .ctor() { }
-
-	// RVA: 0x1ABE754 Offset: 0x1ABE754 VA: 0x1ABE754
-	internal void <>m__0(float rate) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF3A0 Offset: 0xCAF3A0 VA: 0xCAF3A0
-private sealed class ScriptActionRenderEffectController.<StopMotionBlur>c__AnonStorey5 // TypeDefIndex: 8417
-{
-	// Fields
-	internal ScriptActionRenderEffectController.MotionBlurParam srcParam; // 0x10
-	internal ScriptActionRenderEffectController.MotionBlurParam destPram; // 0x18
-	internal ScriptActionRenderEffectController $this; // 0x20
-
-	// Methods
-
-	// RVA: 0x1ABD9FC Offset: 0x1ABD9FC VA: 0x1ABD9FC
-	public void .ctor() { }
-
-	// RVA: 0x1ABE9A4 Offset: 0x1ABE9A4 VA: 0x1ABE9A4
-	internal void <>m__0(float rate) { }
-}
-
-// Namespace: 
-public class ScriptActionSetRenderTextureComponent : MonoBehaviour // TypeDefIndex: 8418
-{
-	// Fields
-	[SerializeField] // RVA: 0xCCB1D8 Offset: 0xCCB1D8 VA: 0xCCB1D8
-	[TooltipAttribute] // RVA: 0xCCB1D8 Offset: 0xCCB1D8 VA: 0xCCB1D8
-	private ScriptActionSetRenderTextureComponent.RenderTextureType textureType; // 0x18
-	[SerializeField] // RVA: 0xCCB224 Offset: 0xCCB224 VA: 0xCCB224
-	[TooltipAttribute] // RVA: 0xCCB224 Offset: 0xCCB224 VA: 0xCCB224
-	private GameObject[] TargetObjects; // 0x20
-	private const float ScriptActionRenderWidth = 1344;
-	private const float ScriptActionRenderHeight = 576;
-	private static readonly Vector2 mainTextureScale; // 0x0
-	private static readonly Vector2 mainTextureOffset; // 0x8
-
-	// Methods
-
-	// RVA: 0x1ABEDC0 Offset: 0x1ABEDC0 VA: 0x1ABEDC0
-	public void .ctor() { }
-
-	// RVA: 0x1ABEDC8 Offset: 0x1ABEDC8 VA: 0x1ABEDC8
-	private void Start() { }
-
-	// RVA: 0x1ABF0A4 Offset: 0x1ABF0A4 VA: 0x1ABF0A4
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public enum ScriptActionSetRenderTextureComponent.RenderTextureType // TypeDefIndex: 8419
-{
-	// Fields
-	public int value__; // 0x0
-	public const ScriptActionSetRenderTextureComponent.RenderTextureType RenderTarget = 0;
-	public const ScriptActionSetRenderTextureComponent.RenderTextureType Capture = 1;
-}
-
-// Namespace: 
-public class ScriptBackLog : BaseMonoBehaviour // TypeDefIndex: 8420
-{
-	// Fields
-	[SerializeField] // RVA: 0xCCB270 Offset: 0xCCB270 VA: 0xCCB270
-	protected GameObject rootObject; // 0x18
-	[SerializeField] // RVA: 0xCCB280 Offset: 0xCCB280 VA: 0xCCB280
-	protected ScriptBackLogListViewManager listViewManager; // 0x20
-	protected ScriptBackLog.ClickDelegate clickFunc; // 0x28
-	protected List<ScriptMessageLabel> logData; // 0x30
-	protected float maxRangeY; // 0x38
-	[CompilerGeneratedAttribute] // RVA: 0xCCB290 Offset: 0xCCB290 VA: 0xCCB290
-	[DebuggerBrowsableAttribute] // RVA: 0xCCB290 Offset: 0xCCB290 VA: 0xCCB290
-	private string <ReplayingAssetName>k__BackingField; // 0x40
-	[CompilerGeneratedAttribute] // RVA: 0xCCB2CC Offset: 0xCCB2CC VA: 0xCCB2CC
-	[DebuggerBrowsableAttribute] // RVA: 0xCCB2CC Offset: 0xCCB2CC VA: 0xCCB2CC
-	private string <ReplayingObjectName>k__BackingField; // 0x48
-	[CompilerGeneratedAttribute] // RVA: 0xCCB308 Offset: 0xCCB308 VA: 0xCCB308
-	[DebuggerBrowsableAttribute] // RVA: 0xCCB308 Offset: 0xCCB308 VA: 0xCCB308
-	private bool <IsReplayingVoice>k__BackingField; // 0x50
-
-	// Properties
-	public string ReplayingAssetName { get; set; }
-	public string ReplayingObjectName { get; set; }
-	public bool IsReplayingVoice { get; set; }
-
-	// Methods
-
-	// RVA: 0x1AC1C5C Offset: 0x1AC1C5C VA: 0x1AC1C5C
-	public void .ctor() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38D74 Offset: 0xD38D74 VA: 0xD38D74
-	// RVA: 0x1AC1CCC Offset: 0x1AC1CCC VA: 0x1AC1CCC
-	public string get_ReplayingAssetName() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38D84 Offset: 0xD38D84 VA: 0xD38D84
-	// RVA: 0x1AC1CD4 Offset: 0x1AC1CD4 VA: 0x1AC1CD4
-	public void set_ReplayingAssetName(string value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38D94 Offset: 0xD38D94 VA: 0xD38D94
-	// RVA: 0x1AC1CDC Offset: 0x1AC1CDC VA: 0x1AC1CDC
-	public string get_ReplayingObjectName() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38DA4 Offset: 0xD38DA4 VA: 0xD38DA4
-	// RVA: 0x1AC1CE4 Offset: 0x1AC1CE4 VA: 0x1AC1CE4
-	public void set_ReplayingObjectName(string value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38DB4 Offset: 0xD38DB4 VA: 0xD38DB4
-	// RVA: 0x1AC1CEC Offset: 0x1AC1CEC VA: 0x1AC1CEC
-	public bool get_IsReplayingVoice() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38DC4 Offset: 0xD38DC4 VA: 0xD38DC4
-	// RVA: 0x1AC1CF4 Offset: 0x1AC1CF4 VA: 0x1AC1CF4
-	public void set_IsReplayingVoice(bool value) { }
-
-	// RVA: 0x1AC1D00 Offset: 0x1AC1D00 VA: 0x1AC1D00
-	public bool IsOpen() { }
-
-	// RVA: 0x1AC1D30 Offset: 0x1AC1D30 VA: 0x1AC1D30
-	public void Open(ScriptBackLog.ClickDelegate func) { }
-
-	// RVA: 0x1AC2090 Offset: 0x1AC2090 VA: 0x1AC2090
-	public void Open() { }
-
-	// RVA: 0x1AC2098 Offset: 0x1AC2098 VA: 0x1AC2098
-	public void Close() { }
-
-	// RVA: 0x1AC2154 Offset: 0x1AC2154 VA: 0x1AC2154
-	public bool IsEmptyLog() { }
-
-	// RVA: 0x1AC21C0 Offset: 0x1AC21C0 VA: 0x1AC21C0
-	public void ClearLog() { }
-
-	// RVA: 0x1AC2228 Offset: 0x1AC2228 VA: 0x1AC2228
-	public void AddLog(ScriptMessageLabel label) { }
-
-	// RVA: 0x1AC22C4 Offset: 0x1AC22C4 VA: 0x1AC22C4
-	public void OnClickEnd(int index) { }
-
-	// RVA: 0x1AC24D8 Offset: 0x1AC24D8 VA: 0x1AC24D8
-	public void StopAllPlayVoiceAnimation() { }
-}
-
-// Namespace: 
-public sealed class ScriptBackLog.ClickDelegate : MulticastDelegate // TypeDefIndex: 8421
-{
-	// Methods
-
-	// RVA: 0x1AC268C Offset: 0x1AC268C VA: 0x1AC268C
-	public void .ctor(object object, IntPtr method) { }
 

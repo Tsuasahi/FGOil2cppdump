@@ -1,4 +1,203 @@
-public class ChainableActionParallel : ChainableActionBase // TypeDefIndex: 6251
+	internal string <errorCode>__2; // 0x58
+	internal string <errorLocalizeCode>__2; // 0x60
+	internal uint <downloadCrc>__3; // 0x68
+	internal MovieFileMerge $this; // 0x70
+	internal object $current; // 0x78
+	internal bool $disposing; // 0x80
+	internal int $PC; // 0x84
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD8690 Offset: 0xCD8690 VA: 0xCD8690
+	// RVA: 0x119A488 Offset: 0x119A488 VA: 0x119A488
+	public void .ctor() { }
+
+	// RVA: 0x119B11C Offset: 0x119B11C VA: 0x119B11C Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD86A0 Offset: 0xCD86A0 VA: 0xCD86A0
+	// RVA: 0x119CA00 Offset: 0x119CA00 VA: 0x119CA00 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD86B0 Offset: 0xCD86B0 VA: 0xCD86B0
+	// RVA: 0x119CA08 Offset: 0x119CA08 VA: 0x119CA08 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD86C0 Offset: 0xCD86C0 VA: 0xCD86C0
+	// RVA: 0x119CA10 Offset: 0x119CA10 VA: 0x119CA10 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD86D0 Offset: 0xCD86D0 VA: 0xCD86D0
+	// RVA: 0x119CA24 Offset: 0x119CA24 VA: 0x119CA24 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+public class ActionChain : ActionChainBase<ChainableActionBase> // TypeDefIndex: 6246
+{
+	// Methods
+
+	// RVA: 0x1068F0C Offset: 0x1068F0C VA: 0x1068F0C
+	public void .ctor(ChainableActionBase[] chainableActions) { }
+
+	// RVA: 0x1068F6C Offset: 0x1068F6C VA: 0x1068F6C
+	public void .ctor(Action<Action>[] actions) { }
+
+	// RVA: 0x1068F9C Offset: 0x1068F9C VA: 0x1068F9C
+	public ActionChain AddRange(Action<Action>[] actions) { }
+
+	// RVA: 0x1069010 Offset: 0x1069010 VA: 0x1069010 Slot: 7
+	protected override void ExecuteCurrentAction(ChainableActionBase action) { }
+}
+
+// Namespace: 
+public abstract class ActionChainBase<T> : ChainableActionBase // TypeDefIndex: 6247
+{
+	// Fields
+	private int currentIndex; // 0x0
+	private List<T> children; // 0x0
+	private bool isPausing; // 0x0
+	private bool isPending; // 0x0
+
+	// Methods
+
+	// RVA: -1 Offset: -1
+	public void .ctor(T[] chains) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2255EFC Offset: 0x2255EFC VA: 0x2255EFC
+	|-ActionChainBase<ChainableActionBase>..ctor
+	|-ActionChainBase<object>..ctor
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 6
+	protected virtual void Init() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2255F88 Offset: 0x2255F88 VA: 0x2255F88
+	|-ActionChainBase<ChainableActionBase>.Init
+	|-ActionChainBase<object>.Init
+	*/
+
+	// RVA: -1 Offset: -1
+	public ActionChainBase<T> AddRange(T[] chainElems) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2255FFC Offset: 0x2255FFC VA: 0x2255FFC
+	|-ActionChainBase<ChainableActionBase>.AddRange
+	|-ActionChainBase<object>.AddRange
+	*/
+
+	// RVA: -1 Offset: -1
+	public void PauseNext() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2256138 Offset: 0x2256138 VA: 0x2256138
+	|-ActionChainBase<ChainableActionBase>.PauseNext
+	|-ActionChainBase<object>.PauseNext
+	*/
+
+	// RVA: -1 Offset: -1
+	public void ResumeNext() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2256178 Offset: 0x2256178 VA: 0x2256178
+	|-ActionChainBase<ChainableActionBase>.ResumeNext
+	|-ActionChainBase<object>.ResumeNext
+	*/
+
+	// RVA: -1 Offset: -1
+	protected void SetIsPausing(bool value) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x22561DC Offset: 0x22561DC VA: 0x22561DC
+	|-ActionChainBase<ChainableActionBase>.SetIsPausing
+	|-ActionChainBase<object>.SetIsPausing
+	*/
+
+	// RVA: -1 Offset: -1
+	protected void StartPendingNextAction() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2256404 Offset: 0x2256404 VA: 0x2256404
+	|-ActionChainBase<ChainableActionBase>.StartPendingNextAction
+	|-ActionChainBase<object>.StartPendingNextAction
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 7
+	protected abstract void ExecuteCurrentAction(T action);
+	/* GenericInstMethod :
+	|
+	|-RVA: -1 Offset: -1
+	|-ActionChainBase<object>.ExecuteCurrentAction
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 4
+	protected override void ExecuteOnDetail() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2256638 Offset: 0x2256638 VA: 0x2256638
+	|-ActionChainBase<ChainableActionBase>.ExecuteOnDetail
+	|-ActionChainBase<object>.ExecuteOnDetail
+	*/
+
+	// RVA: -1 Offset: -1
+	protected void DoNext() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2256674 Offset: 0x2256674 VA: 0x2256674
+	|-ActionChainBase<object>.DoNext
+	*/
+}
+
+// Namespace: 
+public abstract class ChainableActionBase // TypeDefIndex: 6248
+{
+	// Fields
+	private Action endCallback; // 0x10
+	private Action nextAction; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xC533C0 Offset: 0xC533C0 VA: 0xC533C0
+	[DebuggerBrowsableAttribute] // RVA: 0xC533C0 Offset: 0xC533C0 VA: 0xC533C0
+	private bool <IsExecuted>k__BackingField; // 0x20
+
+	// Properties
+	protected bool IsExecuted { get; set; }
+
+	// Methods
+
+	// RVA: 0x1A3F528 Offset: 0x1A3F528 VA: 0x1A3F528
+	public void .ctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCC8BA4 Offset: 0xCC8BA4 VA: 0xCC8BA4
+	// RVA: 0x1A3F560 Offset: 0x1A3F560 VA: 0x1A3F560
+	protected bool get_IsExecuted() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCC8BB4 Offset: 0xCC8BB4 VA: 0xCC8BB4
+	// RVA: 0x1A3F554 Offset: 0x1A3F554 VA: 0x1A3F554
+	private void set_IsExecuted(bool value) { }
+
+	// RVA: 0x1A3F568 Offset: 0x1A3F568 VA: 0x1A3F568
+	public ChainableActionBase Final(Action[] endCallbacks) { }
+
+	// RVA: 0x1A3F684 Offset: 0x1A3F684 VA: 0x1A3F684
+	public void Execute() { }
+
+	// RVA: 0x1A3F6A4 Offset: 0x1A3F6A4 VA: 0x1A3F6A4
+	public void SetNextAction(Action nextAction) { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	protected abstract void ExecuteOnDetail();
+
+	// RVA: 0x1A3F6AC Offset: 0x1A3F6AC VA: 0x1A3F6AC Slot: 5
+	protected virtual void End() { }
+}
+
+// Namespace: 
+public class ChainableActionParallel : ChainableActionBase // TypeDefIndex: 6249
 {
 	// Fields
 	private List<ChainableActionBase> sysChainAction; // 0x28
@@ -6,39 +205,39 @@ public class ChainableActionParallel : ChainableActionBase // TypeDefIndex: 6251
 
 	// Methods
 
-	// RVA: 0x1F0AB7C Offset: 0x1F0AB7C VA: 0x1F0AB7C
+	// RVA: 0x1A3F6DC Offset: 0x1A3F6DC VA: 0x1A3F6DC
 	public void .ctor(ChainableActionBase[] actionArray) { }
 
-	// RVA: 0x1F0AC08 Offset: 0x1F0AC08 VA: 0x1F0AC08
+	// RVA: 0x1A3F768 Offset: 0x1A3F768 VA: 0x1A3F768
 	public void .ctor(Action<Action>[] actions) { }
 
-	// RVA: 0x1F0AC38 Offset: 0x1F0AC38 VA: 0x1F0AC38 Slot: 4
+	// RVA: 0x1A3F798 Offset: 0x1A3F798 VA: 0x1A3F798 Slot: 4
 	protected override void ExecuteOnDetail() { }
 
-	// RVA: 0x1F0AE5C Offset: 0x1F0AE5C VA: 0x1F0AE5C
+	// RVA: 0x1A3F9BC Offset: 0x1A3F9BC VA: 0x1A3F9BC
 	private void OnOneActionEnded() { }
 }
 
 // Namespace: 
-public class SimpleChainableAction : ChainableActionBase // TypeDefIndex: 6252
+public class SimpleChainableAction : ChainableActionBase // TypeDefIndex: 6250
 {
 	// Fields
 	private Action<Action> sysChainAction; // 0x28
 
 	// Methods
 
-	// RVA: 0x1A5AA1C Offset: 0x1A5AA1C VA: 0x1A5AA1C
+	// RVA: 0x1521558 Offset: 0x1521558 VA: 0x1521558
 	public void .ctor(Action<Action> action) { }
 
-	// RVA: 0x1A5AA48 Offset: 0x1A5AA48 VA: 0x1A5AA48 Slot: 4
+	// RVA: 0x1521584 Offset: 0x1521584 VA: 0x1521584 Slot: 4
 	protected override void ExecuteOnDetail() { }
 
-	// RVA: 0x1A5AAE0 Offset: 0x1A5AAE0 VA: 0x1A5AAE0
+	// RVA: 0x152161C Offset: 0x152161C VA: 0x152161C
 	public static SimpleChainableAction[] ConvertToChainableActionArray(Action<Action>[] sysActions) { }
 }
 
 // Namespace: 
-public class AssetData // TypeDefIndex: 6253
+public class AssetData // TypeDefIndex: 6251
 {
 	// Fields
 	public static readonly char ASSETBUNDLE_SPLIT_BASE_CHAR; // 0x0
@@ -57,9 +256,9 @@ public class AssetData // TypeDefIndex: 6253
 	protected Object[] objectList; // 0x48
 	protected bool isLoadResources; // 0x50
 	protected int entryCount; // 0x54
-	[CompilerGeneratedAttribute] // RVA: 0xCBF2E4 Offset: 0xCBF2E4 VA: 0xCBF2E4
+	[CompilerGeneratedAttribute] // RVA: 0xC533FC Offset: 0xC533FC VA: 0xC533FC
 	private static Dictionary<string, int> <>f__switch$map1; // 0x8
-	[CompilerGeneratedAttribute] // RVA: 0xCBF2F4 Offset: 0xCBF2F4 VA: 0xCBF2F4
+	[CompilerGeneratedAttribute] // RVA: 0xC5340C Offset: 0xC5340C VA: 0xC5340C
 	private static Dictionary<string, int> <>f__switch$map2; // 0x10
 
 	// Properties
@@ -82,132 +281,132 @@ public class AssetData // TypeDefIndex: 6253
 
 	// Methods
 
-	// RVA: 0x15B01AC Offset: 0x15B01AC VA: 0x15B01AC
+	// RVA: 0x107DF98 Offset: 0x107DF98 VA: 0x107DF98
 	public void .ctor(AssetData.Type type, string name) { }
 
-	// RVA: 0x15B0244 Offset: 0x15B0244 VA: 0x15B0244
+	// RVA: 0x107E030 Offset: 0x107E030 VA: 0x107E030
 	public void .ctor(AssetData.Type type, string name, int version, string attrib, int size, uint crc, string keyType) { }
 
-	// RVA: 0x15B02B0 Offset: 0x15B02B0 VA: 0x15B02B0
+	// RVA: 0x107E09C Offset: 0x107E09C VA: 0x107E09C
 	public void .ctor(AssetData.Type type, string name, int nowVersion, int newVersion, string attrib, int size, uint crc, string keyType) { }
 
-	// RVA: 0x15B0328 Offset: 0x15B0328 VA: 0x15B0328
+	// RVA: 0x107E114 Offset: 0x107E114 VA: 0x107E114
 	public AssetData.Type get_DataType() { }
 
-	// RVA: 0x15B0330 Offset: 0x15B0330 VA: 0x15B0330
+	// RVA: 0x107E11C Offset: 0x107E11C VA: 0x107E11C
 	public string get_Name() { }
 
-	// RVA: 0x15B0338 Offset: 0x15B0338 VA: 0x15B0338
+	// RVA: 0x107E124 Offset: 0x107E124 VA: 0x107E124
 	public string get_LastName() { }
 
-	// RVA: 0x15B03A8 Offset: 0x15B03A8 VA: 0x15B03A8
+	// RVA: 0x107E194 Offset: 0x107E194 VA: 0x107E194
 	public string get_Attrib() { }
 
-	// RVA: 0x15B03B0 Offset: 0x15B03B0 VA: 0x15B03B0
+	// RVA: 0x107E19C Offset: 0x107E19C VA: 0x107E19C
 	public string get_Url() { }
 
-	// RVA: 0x15B0474 Offset: 0x15B0474 VA: 0x15B0474
+	// RVA: 0x107E260 Offset: 0x107E260 VA: 0x107E260
 	public string get_DownloadName() { }
 
-	// RVA: 0x15B0674 Offset: 0x15B0674 VA: 0x15B0674
+	// RVA: 0x107E460 Offset: 0x107E460 VA: 0x107E460
 	public string get_CacheName() { }
 
-	// RVA: 0x15B0810 Offset: 0x15B0810 VA: 0x15B0810
+	// RVA: 0x107E5FC Offset: 0x107E5FC VA: 0x107E5FC
 	public string get_Path() { }
 
-	// RVA: 0x15B0908 Offset: 0x15B0908 VA: 0x15B0908
+	// RVA: 0x107E6F4 Offset: 0x107E6F4 VA: 0x107E6F4
 	public int get_NowVersion() { }
 
-	// RVA: 0x15B0910 Offset: 0x15B0910 VA: 0x15B0910
+	// RVA: 0x107E6FC Offset: 0x107E6FC VA: 0x107E6FC
 	public int get_Size() { }
 
-	// RVA: 0x15B0918 Offset: 0x15B0918 VA: 0x15B0918
+	// RVA: 0x107E704 Offset: 0x107E704 VA: 0x107E704
 	public uint get_Crc() { }
 
-	// RVA: 0x15B0920 Offset: 0x15B0920 VA: 0x15B0920
+	// RVA: 0x107E70C Offset: 0x107E70C VA: 0x107E70C
 	public bool get_IsEmpty() { }
 
-	// RVA: 0x15B0930 Offset: 0x15B0930 VA: 0x15B0930
+	// RVA: 0x107E71C Offset: 0x107E71C VA: 0x107E71C
 	public int get_EntryCount() { }
 
-	// RVA: 0x15B0938 Offset: 0x15B0938 VA: 0x15B0938
+	// RVA: 0x107E724 Offset: 0x107E724 VA: 0x107E724
 	public bool get_IsLoadResources() { }
 
-	// RVA: 0x15B0940 Offset: 0x15B0940 VA: 0x15B0940
+	// RVA: 0x107E72C Offset: 0x107E72C VA: 0x107E72C
 	public string get_Key() { }
 
-	// RVA: 0x15B09F0 Offset: 0x15B09F0 VA: 0x15B09F0
+	// RVA: 0x107E7DC Offset: 0x107E7DC VA: 0x107E7DC
 	protected string GetBaseName() { }
 
-	// RVA: 0x15B0AB0 Offset: 0x15B0AB0 VA: 0x15B0AB0
+	// RVA: 0x107E89C Offset: 0x107E89C VA: 0x107E89C
 	public bool get_IsAssetBundle() { }
 
-	// RVA: 0x15B05E0 Offset: 0x15B05E0 VA: 0x15B05E0
+	// RVA: 0x107E3CC Offset: 0x107E3CC VA: 0x107E3CC
 	public string GetExt() { }
 
-	// RVA: 0x15B0ADC Offset: 0x15B0ADC VA: 0x15B0ADC
+	// RVA: 0x107E8C8 Offset: 0x107E8C8 VA: 0x107E8C8
 	public bool IsSame(string name) { }
 
-	// RVA: 0x15B0B14 Offset: 0x15B0B14 VA: 0x15B0B14
+	// RVA: 0x107E900 Offset: 0x107E900 VA: 0x107E900
 	public bool IsSame(AssetData.Type type, string name) { }
 
-	// RVA: 0x15B0B68 Offset: 0x15B0B68 VA: 0x15B0B68
+	// RVA: 0x107E954 Offset: 0x107E954 VA: 0x107E954
 	public bool SetUpdateInfo(int version, string attrib, int size, uint crc, string keyType) { }
 
-	// RVA: 0x15B0BA0 Offset: 0x15B0BA0 VA: 0x15B0BA0
+	// RVA: 0x107E98C Offset: 0x107E98C VA: 0x107E98C
 	public void ResetVersion() { }
 
-	// RVA: 0x15B0BA8 Offset: 0x15B0BA8 VA: 0x15B0BA8
+	// RVA: 0x107E994 Offset: 0x107E994 VA: 0x107E994
 	public bool UpdateVersion() { }
 
-	// RVA: 0x15B0464 Offset: 0x15B0464 VA: 0x15B0464
+	// RVA: 0x107E250 Offset: 0x107E250 VA: 0x107E250
 	public bool IsNeedUpdateVersion() { }
 
-	// RVA: 0x15B0BC0 Offset: 0x15B0BC0 VA: 0x15B0BC0
+	// RVA: 0x107E9AC Offset: 0x107E9AC VA: 0x107E9AC
 	public bool IsDownloadOldVersion() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD36288 Offset: 0xD36288 VA: 0xD36288
-	// RVA: 0x15B0BE4 Offset: 0x15B0BE4 VA: 0x15B0BE4
+	[DebuggerHiddenAttribute] // RVA: 0xCC8BC4 Offset: 0xCC8BC4 VA: 0xCC8BC4
+	// RVA: 0x107E9D0 Offset: 0x107E9D0 VA: 0x107E9D0
 	public IEnumerator SetAssetBundleData(AssetBundle bundle, string[] resourceNames) { }
 
-	// RVA: 0x15B0C94 Offset: 0x15B0C94 VA: 0x15B0C94
+	// RVA: 0x107EA80 Offset: 0x107EA80 VA: 0x107EA80
 	public UnityWebRequest GetLoadRequest() { }
 
-	// RVA: 0x15B10EC Offset: 0x15B10EC VA: 0x15B10EC
+	// RVA: 0x107EED8 Offset: 0x107EED8 VA: 0x107EED8
 	public bool SetData(DownloadHandler handler) { }
 
-	// RVA: 0x15B1630 Offset: 0x15B1630 VA: 0x15B1630
+	// RVA: 0x107F41C Offset: 0x107F41C VA: 0x107F41C
 	public bool SetResource() { }
 
-	// RVA: 0x15B16A4 Offset: 0x15B16A4 VA: 0x15B16A4
+	// RVA: 0x107F490 Offset: 0x107F490 VA: 0x107F490
 	public void AddEntry() { }
 
-	// RVA: 0x15B16B8 Offset: 0x15B16B8 VA: 0x15B16B8
+	// RVA: 0x107F4A4 Offset: 0x107F4A4 VA: 0x107F4A4
 	public bool RemoveEntry() { }
 
-	// RVA: 0x15B1744 Offset: 0x15B1744 VA: 0x15B1744
+	// RVA: 0x107F530 Offset: 0x107F530 VA: 0x107F530
 	public bool RemoveEntryAll() { }
 
-	// RVA: 0x15B17CC Offset: 0x15B17CC VA: 0x15B17CC
+	// RVA: 0x107F5B8 Offset: 0x107F5B8 VA: 0x107F5B8
 	public bool ReleaseData() { }
 
-	// RVA: 0x15B1B38 Offset: 0x15B1B38 VA: 0x15B1B38
+	// RVA: 0x107F924 Offset: 0x107F924 VA: 0x107F924
 	public string[] GetObjectNameList() { }
 
-	// RVA: 0x15B1C54 Offset: 0x15B1C54 VA: 0x15B1C54
+	// RVA: 0x107FA40 Offset: 0x107FA40 VA: 0x107FA40
 	public Object[] GetObjectList() { }
 
-	// RVA: 0x15B1C5C Offset: 0x15B1C5C VA: 0x15B1C5C
+	// RVA: 0x107FA48 Offset: 0x107FA48 VA: 0x107FA48
 	public Object GetObject() { }
 
-	// RVA: 0x15B1C80 Offset: 0x15B1C80 VA: 0x15B1C80
+	// RVA: 0x107FA6C Offset: 0x107FA6C VA: 0x107FA6C
 	public Object GetObject(string name) { }
 
 	// RVA: -1 Offset: -1
 	public T GetObject<T>() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x218BF20 Offset: 0x218BF20 VA: 0x218BF20
+	|-RVA: 0x1C1D2C0 Offset: 0x1C1D2C0 VA: 0x1C1D2C0
 	|-AssetData.GetObject<FSUtilityList>
 	|-AssetData.GetObject<ScriptEncryptSettings>
 	|-AssetData.GetObject<object>
@@ -221,7 +420,7 @@ public class AssetData // TypeDefIndex: 6253
 	public T GetObject<T>(string name) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x218C078 Offset: 0x218C078 VA: 0x218C078
+	|-RVA: 0x1C1D418 Offset: 0x1C1D418 VA: 0x1C1D418
 	|-AssetData.GetObject<SubmarineSettings>
 	|-AssetData.GetObject<object>
 	|-AssetData.GetObject<GameObject>
@@ -234,24 +433,24 @@ public class AssetData // TypeDefIndex: 6253
 	public T[] GetObjectList<T>() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2B80058 Offset: 0x2B80058 VA: 0x2B80058
+	|-RVA: 0x2B1EAE0 Offset: 0x2B1EAE0 VA: 0x2B1EAE0
 	|-AssetData.GetObjectList<object>
 	|-AssetData.GetObjectList<GameObject>
 	|-AssetData.GetObjectList<Texture2D>
 	*/
 
-	// RVA: 0x15B1D50 Offset: 0x15B1D50 VA: 0x15B1D50
+	// RVA: 0x107FB3C Offset: 0x107FB3C VA: 0x107FB3C
 	public string GetDecryptObjectText(string name, string key) { }
 
-	// RVA: 0x15B1FBC Offset: 0x15B1FBC VA: 0x15B1FBC
+	// RVA: 0x107FDA8 Offset: 0x107FDA8 VA: 0x107FDA8
 	public string GetObjectText(string name) { }
 
-	// RVA: 0x15B21FC Offset: 0x15B21FC VA: 0x15B21FC
+	// RVA: 0x107FFE8 Offset: 0x107FFE8 VA: 0x107FFE8
 	private static void .cctor() { }
 }
 
 // Namespace: 
-public enum AssetData.Type // TypeDefIndex: 6254
+public enum AssetData.Type // TypeDefIndex: 6252
 {
 	// Fields
 	public int value__; // 0x0
@@ -261,8 +460,8 @@ public enum AssetData.Type // TypeDefIndex: 6254
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAE790 Offset: 0xCAE790 VA: 0xCAE790
-private sealed class AssetData.<SetAssetBundleData>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 6255
+[CompilerGeneratedAttribute] // RVA: 0xC426A4 Offset: 0xC426A4 VA: 0xC426A4
+private sealed class AssetData.<SetAssetBundleData>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 6253
 {
 	// Fields
 	internal string[] resourceNames; // 0x10
@@ -285,32 +484,32 @@ private sealed class AssetData.<SetAssetBundleData>c__Iterator0 : IEnumerator, I
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xD459F4 Offset: 0xD459F4 VA: 0xD459F4
-	// RVA: 0x15B0C8C Offset: 0x15B0C8C VA: 0x15B0C8C
+	[DebuggerHiddenAttribute] // RVA: 0xCD86E0 Offset: 0xCD86E0 VA: 0xCD86E0
+	// RVA: 0x107EA78 Offset: 0x107EA78 VA: 0x107EA78
 	public void .ctor() { }
 
-	// RVA: 0x15B227C Offset: 0x15B227C VA: 0x15B227C Slot: 5
+	// RVA: 0x1080068 Offset: 0x1080068 VA: 0x1080068 Slot: 5
 	public bool MoveNext() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD45A04 Offset: 0xD45A04 VA: 0xD45A04
-	// RVA: 0x15B260C Offset: 0x15B260C VA: 0x15B260C Slot: 8
+	[DebuggerHiddenAttribute] // RVA: 0xCD86F0 Offset: 0xCD86F0 VA: 0xCD86F0
+	// RVA: 0x10803F8 Offset: 0x10803F8 VA: 0x10803F8 Slot: 8
 	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD45A14 Offset: 0xD45A14 VA: 0xD45A14
-	// RVA: 0x15B2614 Offset: 0x15B2614 VA: 0x15B2614 Slot: 4
+	[DebuggerHiddenAttribute] // RVA: 0xCD8700 Offset: 0xCD8700 VA: 0xCD8700
+	// RVA: 0x1080400 Offset: 0x1080400 VA: 0x1080400 Slot: 4
 	private object System.Collections.IEnumerator.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD45A24 Offset: 0xD45A24 VA: 0xD45A24
-	// RVA: 0x15B261C Offset: 0x15B261C VA: 0x15B261C Slot: 7
+	[DebuggerHiddenAttribute] // RVA: 0xCD8710 Offset: 0xCD8710 VA: 0xCD8710
+	// RVA: 0x1080408 Offset: 0x1080408 VA: 0x1080408 Slot: 7
 	public void Dispose() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD45A34 Offset: 0xD45A34 VA: 0xD45A34
-	// RVA: 0x15B2630 Offset: 0x15B2630 VA: 0x15B2630 Slot: 6
+	[DebuggerHiddenAttribute] // RVA: 0xCD8720 Offset: 0xCD8720 VA: 0xCD8720
+	// RVA: 0x108041C Offset: 0x108041C VA: 0x108041C Slot: 6
 	public void Reset() { }
 }
 
 // Namespace: 
-public class AssetDataListInfo // TypeDefIndex: 6256
+public class AssetDataListInfo // TypeDefIndex: 6254
 {
 	// Fields
 	public string masterVersion; // 0x10
@@ -320,20 +519,20 @@ public class AssetDataListInfo // TypeDefIndex: 6256
 
 	// Methods
 
-	// RVA: 0x15B2698 Offset: 0x15B2698 VA: 0x15B2698
+	// RVA: 0x14093B0 Offset: 0x14093B0 VA: 0x14093B0
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class AssetLoader : MonoBehaviour // TypeDefIndex: 6257
+public class AssetLoader : MonoBehaviour // TypeDefIndex: 6255
 {
 	// Fields
 	protected AssetData data; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xCBF304 Offset: 0xCBF304 VA: 0xCBF304
-	[DebuggerBrowsableAttribute] // RVA: 0xCBF304 Offset: 0xCBF304 VA: 0xCBF304
+	[CompilerGeneratedAttribute] // RVA: 0xC5341C Offset: 0xC5341C VA: 0xC5341C
+	[DebuggerBrowsableAttribute] // RVA: 0xC5341C Offset: 0xC5341C VA: 0xC5341C
 	private AssetLoader.LoadEndHandler endCallback; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xCBF340 Offset: 0xCBF340 VA: 0xCBF340
-	[DebuggerBrowsableAttribute] // RVA: 0xCBF340 Offset: 0xCBF340 VA: 0xCBF340
+	[CompilerGeneratedAttribute] // RVA: 0xC53458 Offset: 0xC53458 VA: 0xC53458
+	[DebuggerBrowsableAttribute] // RVA: 0xC53458 Offset: 0xC53458 VA: 0xC53458
 	private AssetLoader.LoadEndDataHandler endCallback2; // 0x28
 	protected UnityWebRequest loader; // 0x30
 	protected byte[] readData; // 0x38
@@ -353,122 +552,122 @@ public class AssetLoader : MonoBehaviour // TypeDefIndex: 6257
 
 	// Methods
 
-	// RVA: 0x15B2750 Offset: 0x15B2750 VA: 0x15B2750
+	// RVA: 0x1409E1C Offset: 0x1409E1C VA: 0x1409E1C
 	public void .ctor() { }
 
-	// RVA: 0x15B2758 Offset: 0x15B2758 VA: 0x15B2758
+	// RVA: 0x1409E24 Offset: 0x1409E24 VA: 0x1409E24
 	protected void add_endCallback(AssetLoader.LoadEndHandler value) { }
 
-	// RVA: 0x15B2844 Offset: 0x15B2844 VA: 0x15B2844
+	// RVA: 0x1409F10 Offset: 0x1409F10 VA: 0x1409F10
 	protected void remove_endCallback(AssetLoader.LoadEndHandler value) { }
 
-	// RVA: 0x15B2930 Offset: 0x15B2930 VA: 0x15B2930
+	// RVA: 0x1409FFC Offset: 0x1409FFC VA: 0x1409FFC
 	protected void add_endCallback2(AssetLoader.LoadEndDataHandler value) { }
 
-	// RVA: 0x15B2A1C Offset: 0x15B2A1C VA: 0x15B2A1C
+	// RVA: 0x140A0E8 Offset: 0x140A0E8 VA: 0x140A0E8
 	protected void remove_endCallback2(AssetLoader.LoadEndDataHandler value) { }
 
-	// RVA: 0x15B2B08 Offset: 0x15B2B08 VA: 0x15B2B08
+	// RVA: 0x140A1D4 Offset: 0x140A1D4 VA: 0x140A1D4
 	public bool get_IsRequestDownload() { }
 
-	// RVA: 0x15B2B10 Offset: 0x15B2B10 VA: 0x15B2B10
+	// RVA: 0x140A1DC Offset: 0x140A1DC VA: 0x140A1DC
 	public string get_Name() { }
 
-	// RVA: 0x15B2B3C Offset: 0x15B2B3C VA: 0x15B2B3C
+	// RVA: 0x140A20C Offset: 0x140A20C VA: 0x140A20C
 	public int get_Size() { }
 
-	// RVA: 0x15B2B68 Offset: 0x15B2B68 VA: 0x15B2B68
+	// RVA: 0x140A23C Offset: 0x140A23C VA: 0x140A23C
 	public int get_LoadSize() { }
 
-	// RVA: 0x15B2BE0 Offset: 0x15B2BE0 VA: 0x15B2BE0
+	// RVA: 0x140A2CC Offset: 0x140A2CC VA: 0x140A2CC
 	public void Init(AssetData data) { }
 
-	// RVA: 0x15B2BE8 Offset: 0x15B2BE8 VA: 0x15B2BE8
+	// RVA: 0x140A2D4 Offset: 0x140A2D4 VA: 0x140A2D4
 	public bool IsSame(string name) { }
 
-	// RVA: 0x15B2BF8 Offset: 0x15B2BF8 VA: 0x15B2BF8
+	// RVA: 0x140A2E8 Offset: 0x140A2E8 VA: 0x140A2E8
 	public bool IsSame(AssetData.Type type, string name) { }
 
-	// RVA: 0x15B2C08 Offset: 0x15B2C08 VA: 0x15B2C08
+	// RVA: 0x140A2FC Offset: 0x140A2FC VA: 0x140A2FC
 	public void AddEntry() { }
 
-	// RVA: 0x15B2C40 Offset: 0x15B2C40 VA: 0x15B2C40
+	// RVA: 0x140A32C Offset: 0x140A32C VA: 0x140A32C
 	public void AddCallback(AssetLoader.LoadEndDataHandler callbackFunc) { }
 
-	// RVA: 0x15B2C4C Offset: 0x15B2C4C VA: 0x15B2C4C
+	// RVA: 0x140A338 Offset: 0x140A338 VA: 0x140A338
 	public void StartLoad(AssetLoader.LoadEndHandler callbackFunc, string[] resourceNames) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD36298 Offset: 0xD36298 VA: 0xD36298
-	// RVA: 0x15B2CB4 Offset: 0x15B2CB4 VA: 0x15B2CB4
+	[DebuggerHiddenAttribute] // RVA: 0xCC8BD4 Offset: 0xCC8BD4 VA: 0xCC8BD4
+	// RVA: 0x140A3A4 Offset: 0x140A3A4 VA: 0x140A3A4
 	protected IEnumerator LoadDataCR(string[] resourceNames) { }
 
-	// RVA: 0x15B2D50 Offset: 0x15B2D50 VA: 0x15B2D50
+	// RVA: 0x140A440 Offset: 0x140A440 VA: 0x140A440
 	protected void EndLoad() { }
 
-	// RVA: 0x15B2EC4 Offset: 0x15B2EC4 VA: 0x15B2EC4
+	// RVA: 0x140ACF4 Offset: 0x140ACF4 VA: 0x140ACF4
 	private void LoadUseThread() { }
 
-	// RVA: 0x15B2F40 Offset: 0x15B2F40 VA: 0x15B2F40
+	// RVA: 0x140AD70 Offset: 0x140AD70 VA: 0x140AD70
 	private void abort_thread() { }
 
-	// RVA: 0x15B2F90 Offset: 0x15B2F90 VA: 0x15B2F90
+	// RVA: 0x140ADC0 Offset: 0x140ADC0 VA: 0x140ADC0
 	private void OnApplicationQuit() { }
 
-	// RVA: 0x15B2F94 Offset: 0x15B2F94 VA: 0x15B2F94
+	// RVA: 0x140ADC4 Offset: 0x140ADC4 VA: 0x140ADC4
 	protected void EndRetryDialog(bool isDecide) { }
 
-	// RVA: 0x15B3060 Offset: 0x15B3060 VA: 0x15B3060
+	// RVA: 0x140AE90 Offset: 0x140AE90 VA: 0x140AE90
 	protected void EndWarningDialog(bool isDecide) { }
 
-	// RVA: 0x15B3068 Offset: 0x15B3068 VA: 0x15B3068
+	// RVA: 0x140AE98 Offset: 0x140AE98 VA: 0x140AE98
 	protected void EndRebootDialog(bool isDecide) { }
 
-	// RVA: 0x15B2FA4 Offset: 0x15B2FA4 VA: 0x15B2FA4
+	// RVA: 0x140ADD4 Offset: 0x140ADD4 VA: 0x140ADD4
 	private void Reboot() { }
 
-	// RVA: 0x15B306C Offset: 0x15B306C VA: 0x15B306C
+	// RVA: 0x140AE9C Offset: 0x140AE9C VA: 0x140AE9C
 	private void AssetLoadLogError(string errorCode) { }
 }
 
 // Namespace: 
-public sealed class AssetLoader.LoadEndHandler : MulticastDelegate // TypeDefIndex: 6258
+public sealed class AssetLoader.LoadEndHandler : MulticastDelegate // TypeDefIndex: 6256
 {
 	// Methods
 
-	// RVA: 0x1C67958 Offset: 0x1C67958 VA: 0x1C67958
+	// RVA: 0x140EE14 Offset: 0x140EE14 VA: 0x140EE14
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x1C67968 Offset: 0x1C67968 VA: 0x1C67968 Slot: 11
+	// RVA: 0x140A5B4 Offset: 0x140A5B4 VA: 0x140A5B4 Slot: 11
 	public virtual void Invoke(AssetLoader loader) { }
 
-	// RVA: 0x1C67D08 Offset: 0x1C67D08 VA: 0x1C67D08 Slot: 12
+	// RVA: 0x140EE24 Offset: 0x140EE24 VA: 0x140EE24 Slot: 12
 	public virtual IAsyncResult BeginInvoke(AssetLoader loader, AsyncCallback callback, object object) { }
 
-	// RVA: 0x1C67D2C Offset: 0x1C67D2C VA: 0x1C67D2C Slot: 13
+	// RVA: 0x140EE48 Offset: 0x140EE48 VA: 0x140EE48 Slot: 13
 	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: 
-public sealed class AssetLoader.LoadEndDataHandler : MulticastDelegate // TypeDefIndex: 6259
+public sealed class AssetLoader.LoadEndDataHandler : MulticastDelegate // TypeDefIndex: 6257
 {
 	// Methods
 
-	// RVA: 0x1C67578 Offset: 0x1C67578 VA: 0x1C67578
+	// RVA: 0x140EDD4 Offset: 0x140EDD4 VA: 0x140EDD4
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x1C67588 Offset: 0x1C67588 VA: 0x1C67588 Slot: 11
+	// RVA: 0x140A954 Offset: 0x140A954 VA: 0x140A954 Slot: 11
 	public virtual void Invoke(AssetData data) { }
 
-	// RVA: 0x1C67928 Offset: 0x1C67928 VA: 0x1C67928 Slot: 12
+	// RVA: 0x140EDE4 Offset: 0x140EDE4 VA: 0x140EDE4 Slot: 12
 	public virtual IAsyncResult BeginInvoke(AssetData data, AsyncCallback callback, object object) { }
 
-	// RVA: 0x1C6794C Offset: 0x1C6794C VA: 0x1C6794C Slot: 13
+	// RVA: 0x140EE08 Offset: 0x140EE08 VA: 0x140EE08 Slot: 13
 	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAE7A0 Offset: 0xCAE7A0 VA: 0xCAE7A0
-private sealed class AssetLoader.<LoadDataCR>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 6260
+[CompilerGeneratedAttribute] // RVA: 0xC426B4 Offset: 0xC426B4 VA: 0xC426B4
+private sealed class AssetLoader.<LoadDataCR>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 6258
 {
 	// Fields
 	internal bool <isEncrypted>__0; // 0x10
@@ -503,45 +702,45 @@ private sealed class AssetLoader.<LoadDataCR>c__Iterator0 : IEnumerator, IDispos
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xD45A44 Offset: 0xD45A44 VA: 0xD45A44
-	// RVA: 0x15B2D48 Offset: 0x15B2D48 VA: 0x15B2D48
+	[DebuggerHiddenAttribute] // RVA: 0xCD8730 Offset: 0xCD8730 VA: 0xCD8730
+	// RVA: 0x140A438 Offset: 0x140A438 VA: 0x140A438
 	public void .ctor() { }
 
-	// RVA: 0x15B3E60 Offset: 0x15B3E60 VA: 0x15B3E60 Slot: 5
+	// RVA: 0x140BC94 Offset: 0x140BC94 VA: 0x140BC94 Slot: 5
 	public bool MoveNext() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD45A54 Offset: 0xD45A54 VA: 0xD45A54
-	// RVA: 0x15B6928 Offset: 0x15B6928 VA: 0x15B6928 Slot: 8
+	[DebuggerHiddenAttribute] // RVA: 0xCD8740 Offset: 0xCD8740 VA: 0xCD8740
+	// RVA: 0x140ECDC Offset: 0x140ECDC VA: 0x140ECDC Slot: 8
 	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD45A64 Offset: 0xD45A64 VA: 0xD45A64
-	// RVA: 0x15B6930 Offset: 0x15B6930 VA: 0x15B6930 Slot: 4
+	[DebuggerHiddenAttribute] // RVA: 0xCD8750 Offset: 0xCD8750 VA: 0xCD8750
+	// RVA: 0x140ECE4 Offset: 0x140ECE4 VA: 0x140ECE4 Slot: 4
 	private object System.Collections.IEnumerator.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD45A74 Offset: 0xD45A74 VA: 0xD45A74
-	// RVA: 0x15B6938 Offset: 0x15B6938 VA: 0x15B6938 Slot: 7
+	[DebuggerHiddenAttribute] // RVA: 0xCD8760 Offset: 0xCD8760 VA: 0xCD8760
+	// RVA: 0x140ECEC Offset: 0x140ECEC VA: 0x140ECEC Slot: 7
 	public void Dispose() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD45A84 Offset: 0xD45A84 VA: 0xD45A84
-	// RVA: 0x15B694C Offset: 0x15B694C VA: 0x15B694C Slot: 6
+	[DebuggerHiddenAttribute] // RVA: 0xCD8770 Offset: 0xCD8770 VA: 0xCD8770
+	// RVA: 0x140ED00 Offset: 0x140ED00 VA: 0x140ED00 Slot: 6
 	public void Reset() { }
 
-	// RVA: 0x15B69B4 Offset: 0x15B69B4 VA: 0x15B69B4
+	// RVA: 0x140ED68 Offset: 0x140ED68 VA: 0x140ED68
 	private static bool <>m__0() { }
 }
 
 // Namespace: 
-public class AssetManager : SingletonMonoBehaviour<AssetManager> // TypeDefIndex: 6261
+public class AssetManager : SingletonMonoBehaviour<AssetManager> // TypeDefIndex: 6259
 {
 	// Fields
 	protected static readonly string SAVE_KEY; // 0x0
 	protected static readonly string SAVE_DATA_OFFLINE; // 0x8
 	protected static readonly string SAVE_DATA_ONLINE; // 0x10
-	[SerializeField] // RVA: 0xCBF37C Offset: 0xCBF37C VA: 0xCBF37C
+	[SerializeField] // RVA: 0xC53494 Offset: 0xC53494 VA: 0xC53494
 	protected bool isUseDebugStatus; // 0x18
-	[SerializeField] // RVA: 0xCBF38C Offset: 0xCBF38C VA: 0xCBF38C
+	[SerializeField] // RVA: 0xC534A4 Offset: 0xC534A4 VA: 0xC534A4
 	protected UILabel debugStatusLabel; // 0x20
-	[SerializeField] // RVA: 0xCBF39C Offset: 0xCBF39C VA: 0xCBF39C
+	[SerializeField] // RVA: 0xC534B4 Offset: 0xC534B4 VA: 0xC534B4
 	protected bool _DispLog; // 0x28
 	protected const int FILE_READ_RETRY_COUNT = 3;
 	protected static readonly string configFileName; // 0x18
@@ -572,8 +771,8 @@ public class AssetManager : SingletonMonoBehaviour<AssetManager> // TypeDefIndex
 	private Thread writeRequestThread; // 0x78
 	private bool reserveWriteRequest; // 0x80
 	private int loadParallelMax; // 0x84
-	[CompilerGeneratedAttribute] // RVA: 0xCBF3AC Offset: 0xCBF3AC VA: 0xCBF3AC
-	[DebuggerBrowsableAttribute] // RVA: 0xCBF3AC Offset: 0xCBF3AC VA: 0xCBF3AC
+	[CompilerGeneratedAttribute] // RVA: 0xC534C4 Offset: 0xC534C4 VA: 0xC534C4
+	[DebuggerBrowsableAttribute] // RVA: 0xC534C4 Offset: 0xC534C4 VA: 0xC534C4
 	private AssetManager.ResourceUnloadEventHandler unloadCallbacks; // 0x88
 	protected Queue<AssetManager.LoadWaitStatus> downLoadWaitList; // 0x90
 
@@ -588,413 +787,214 @@ public class AssetManager : SingletonMonoBehaviour<AssetManager> // TypeDefIndex
 
 	// Methods
 
-	// RVA: 0x1C67D38 Offset: 0x1C67D38 VA: 0x1C67D38
+	// RVA: 0x140EE54 Offset: 0x140EE54 VA: 0x140EE54
 	public void .ctor() { }
 
-	// RVA: 0x1C67E8C Offset: 0x1C67E8C VA: 0x1C67E8C
+	// RVA: 0x140EFA8 Offset: 0x140EFA8 VA: 0x140EFA8
 	public bool get_DispLog() { }
 
-	// RVA: 0x1C67E94 Offset: 0x1C67E94 VA: 0x1C67E94
+	// RVA: 0x140EFB0 Offset: 0x140EFB0 VA: 0x140EFB0
 	private void add_unloadCallbacks(AssetManager.ResourceUnloadEventHandler value) { }
 
-	// RVA: 0x1C67F80 Offset: 0x1C67F80 VA: 0x1C67F80
+	// RVA: 0x140F09C Offset: 0x140F09C VA: 0x140F09C
 	private void remove_unloadCallbacks(AssetManager.ResourceUnloadEventHandler value) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD362A8 Offset: 0xD362A8 VA: 0xD362A8
-	// RVA: 0x1C6806C Offset: 0x1C6806C VA: 0x1C6806C
+	[DebuggerHiddenAttribute] // RVA: 0xCC8BE4 Offset: 0xCC8BE4 VA: 0xCC8BE4
+	// RVA: 0x140F188 Offset: 0x140F188 VA: 0x140F188
 	public IEnumerator WaitForExecutionUnloadUnuseAssets() { }
 
-	// RVA: 0x1C680E4 Offset: 0x1C680E4 VA: 0x1C680E4
+	// RVA: 0x140EDCC Offset: 0x140EDCC VA: 0x140EDCC
 	public bool get_InProgressUnloadUnusedAssets() { }
 
-	// RVA: 0x1C680EC Offset: 0x1C680EC VA: 0x1C680EC
+	// RVA: 0x140F200 Offset: 0x140F200 VA: 0x140F200
 	public static bool get_IsOnline() { }
 
-	// RVA: 0x1C681DC Offset: 0x1C681DC VA: 0x1C681DC
+	// RVA: 0x140F2F0 Offset: 0x140F2F0 VA: 0x140F2F0
 	public static void SetOfflineStatus() { }
 
-	// RVA: 0x1C6828C Offset: 0x1C6828C VA: 0x1C6828C
+	// RVA: 0x140F3A0 Offset: 0x140F3A0 VA: 0x140F3A0
 	public static bool SetOnlineStatus() { }
 
-	// RVA: 0x1C683C0 Offset: 0x1C683C0 VA: 0x1C683C0
+	// RVA: 0x140F4D4 Offset: 0x140F4D4 VA: 0x140F4D4
 	public static void DeleteContinueData() { }
 
-	// RVA: 0x1C6842C Offset: 0x1C6842C VA: 0x1C6842C
+	// RVA: 0x140F540 Offset: 0x140F540 VA: 0x140F540
 	public void setDebugStatusOut(bool isUse) { }
 
-	// RVA: 0x1C684CC Offset: 0x1C684CC VA: 0x1C684CC
+	// RVA: 0x140F5E0 Offset: 0x140F5E0 VA: 0x140F5E0
 	public static void debugLog() { }
 
-	// RVA: 0x1C688A4 Offset: 0x1C688A4 VA: 0x1C688A4
+	// RVA: 0x140F9B8 Offset: 0x140F9B8 VA: 0x140F9B8
 	public static string get_DataServerAddress() { }
 
-	// RVA: 0x1C68904 Offset: 0x1C68904 VA: 0x1C68904
+	// RVA: 0x140FA18 Offset: 0x140FA18 VA: 0x140FA18
 	public static string get_CachePathName() { }
 
-	// RVA: 0x1C6896C Offset: 0x1C6896C VA: 0x1C6896C
+	// RVA: 0x140E8B8 Offset: 0x140E8B8 VA: 0x140E8B8
 	public static string get_ConfigFileAddress() { }
 
-	// RVA: 0x1C68A0C Offset: 0x1C68A0C VA: 0x1C68A0C
+	// RVA: 0x140FA80 Offset: 0x140FA80 VA: 0x140FA80
 	public static string get_CacheListFile() { }
 
-	// RVA: 0x1C68B88 Offset: 0x1C68B88 VA: 0x1C68B88
+	// RVA: 0x140EB10 Offset: 0x140EB10 VA: 0x140EB10
 	public static bool CheckVersion(string masterVersion, string dateVersion) { }
 
-	// RVA: 0x1C68CA4 Offset: 0x1C68CA4 VA: 0x1C68CA4
+	// RVA: 0x140FB20 Offset: 0x140FB20 VA: 0x140FB20
 	public static bool CheckDateVersion(string dateVersion) { }
 
-	// RVA: 0x1C68D28 Offset: 0x1C68D28 VA: 0x1C68D28
+	// RVA: 0x140FBA4 Offset: 0x140FBA4 VA: 0x140FBA4
 	public static string GetMasterVersion() { }
 
-	// RVA: 0x1C68D90 Offset: 0x1C68D90 VA: 0x1C68D90
+	// RVA: 0x140FC0C Offset: 0x140FC0C VA: 0x140FC0C
 	public static string GetDateVersion() { }
 
-	// RVA: 0x1C68DF8 Offset: 0x1C68DF8 VA: 0x1C68DF8
+	// RVA: 0x140E958 Offset: 0x140E958 VA: 0x140E958
 	public static string getUrlString(string url) { }
 
-	// RVA: 0x1C68FB0 Offset: 0x1C68FB0 VA: 0x1C68FB0
+	// RVA: 0x140FC74 Offset: 0x140FC74 VA: 0x140FC74
 	public static string getShaName(string name) { }
 
-	// RVA: 0x1C691AC Offset: 0x1C691AC VA: 0x1C691AC
+	// RVA: 0x140FE70 Offset: 0x140FE70 VA: 0x140FE70
 	public static string getUrlString(AssetData data) { }
 
-	// RVA: 0x1C696DC Offset: 0x1C696DC VA: 0x1C696DC
+	// RVA: 0x14103A0 Offset: 0x14103A0 VA: 0x14103A0
 	public static bool compAssetStorage(string name1, string name2) { }
 
-	// RVA: 0x1C69720 Offset: 0x1C69720 VA: 0x1C69720
+	// RVA: 0x14103E4 Offset: 0x14103E4 VA: 0x14103E4
 	public static bool compAssetStorage(AssetData data, string name) { }
 
-	// RVA: 0x1C697B4 Offset: 0x1C697B4 VA: 0x1C697B4
+	// RVA: 0x1410478 Offset: 0x1410478 VA: 0x1410478
 	public static bool compAssetStorageList(string[] list1, string[] list2) { }
 
-	// RVA: 0x1C69908 Offset: 0x1C69908 VA: 0x1C69908
+	// RVA: 0x14105CC Offset: 0x14105CC VA: 0x14105CC
 	public static bool compAssetStorageList(AssetData[] assetList, string[] list) { }
 
-	// RVA: 0x1C69A78 Offset: 0x1C69A78 VA: 0x1C69A78
+	// RVA: 0x141073C Offset: 0x141073C VA: 0x141073C
 	public static bool loadAsset(AssetData.Type type, string name, AssetLoader.LoadEndDataHandler callbackFunc) { }
 
-	// RVA: 0x1C69BB4 Offset: 0x1C69BB4 VA: 0x1C69BB4
+	// RVA: 0x1410878 Offset: 0x1410878 VA: 0x1410878
 	public static AssetData getAsset(AssetData.Type type, string name) { }
 
-	// RVA: 0x1C69CB8 Offset: 0x1C69CB8 VA: 0x1C69CB8
+	// RVA: 0x141097C Offset: 0x141097C VA: 0x141097C
 	public static bool getAsset(AssetData.Type type, string name, AssetLoader.LoadEndDataHandler callbackFunc) { }
 
-	// RVA: 0x1C69E08 Offset: 0x1C69E08 VA: 0x1C69E08
+	// RVA: 0x1410ACC Offset: 0x1410ACC VA: 0x1410ACC
 	public static bool getAsset(string name, AssetLoader.LoadEndDataHandler callbackFunc) { }
 
-	// RVA: 0x1C69F74 Offset: 0x1C69F74 VA: 0x1C69F74
+	// RVA: 0x1410C38 Offset: 0x1410C38 VA: 0x1410C38
 	public static void releaseAsset(AssetData.Type type, string name) { }
 
-	// RVA: 0x1C6A10C Offset: 0x1C6A10C VA: 0x1C6A10C
+	// RVA: 0x1410DD0 Offset: 0x1410DD0 VA: 0x1410DD0
 	public static void releaseAsset(AssetData.Type type, string[] nameList) { }
 
-	// RVA: 0x1C6A254 Offset: 0x1C6A254 VA: 0x1C6A254
+	// RVA: 0x1410F18 Offset: 0x1410F18 VA: 0x1410F18
 	public static void releaseAsset(AssetData assetInfo) { }
 
-	// RVA: 0x1C6A364 Offset: 0x1C6A364 VA: 0x1C6A364
+	// RVA: 0x1411028 Offset: 0x1411028 VA: 0x1411028
 	public static void releaseAsset(AssetData[] assetInfoList) { }
 
-	// RVA: 0x1C6A488 Offset: 0x1C6A488 VA: 0x1C6A488
+	// RVA: 0x141114C Offset: 0x141114C VA: 0x141114C
 	public static long getDownloadSize() { }
 
-	// RVA: 0x1C6A604 Offset: 0x1C6A604 VA: 0x1C6A604
+	// RVA: 0x140EC2C Offset: 0x140EC2C VA: 0x140EC2C
 	public static bool isExistAssetStorage(string name) { }
 
-	// RVA: 0x1C6A724 Offset: 0x1C6A724 VA: 0x1C6A724
+	// RVA: 0x1411334 Offset: 0x1411334 VA: 0x1411334
 	public static bool isExistAssetStorage(string[] nameList) { }
 
-	// RVA: 0x1C6A860 Offset: 0x1C6A860 VA: 0x1C6A860
+	// RVA: 0x1411470 Offset: 0x1411470 VA: 0x1411470
 	public static bool isNeedDownload(string name) { }
 
-	// RVA: 0x1C6A944 Offset: 0x1C6A944 VA: 0x1C6A944
+	// RVA: 0x1411554 Offset: 0x1411554 VA: 0x1411554
 	public static bool isNeedDownload(string[] nameList) { }
 
-	// RVA: 0x1C6AA80 Offset: 0x1C6AA80 VA: 0x1C6AA80
+	// RVA: 0x1411690 Offset: 0x1411690 VA: 0x1411690
 	public static string[] getAssetStorageList(string path) { }
 
-	// RVA: 0x1C6AD84 Offset: 0x1C6AD84 VA: 0x1C6AD84
+	// RVA: 0x1411994 Offset: 0x1411994 VA: 0x1411994
 	public static void resetAssetStorageVersion(string path) { }
 
-	// RVA: 0x1C6B004 Offset: 0x1C6B004 VA: 0x1C6B004
+	// RVA: 0x1411C14 Offset: 0x1411C14 VA: 0x1411C14
 	public static void cancelDownloadAssetStorage() { }
 
-	// RVA: 0x1C6B1EC Offset: 0x1C6B1EC VA: 0x1C6B1EC
+	// RVA: 0x1411DFC Offset: 0x1411DFC VA: 0x1411DFC
 	public static void pauseDownloadAssetStorage() { }
 
-	// RVA: 0x1C6B2A8 Offset: 0x1C6B2A8 VA: 0x1C6B2A8
+	// RVA: 0x1411EB8 Offset: 0x1411EB8 VA: 0x1411EB8
 	public static void resumeDownloadAssetStorage() { }
 
-	// RVA: 0x1C6B36C Offset: 0x1C6B36C VA: 0x1C6B36C
+	// RVA: 0x1411F7C Offset: 0x1411F7C VA: 0x1411F7C
 	public static bool downloadAssetStorage(string name, AssetLoader.LoadEndDataHandler callbackFunc, int maxParallelLoad = 1) { }
 
-	// RVA: 0x1C6B4EC Offset: 0x1C6B4EC VA: 0x1C6B4EC
+	// RVA: 0x14120FC Offset: 0x14120FC VA: 0x14120FC
 	public static bool downloadAssetStorage(string[] nameList, Action callbackFunc) { }
 
-	// RVA: 0x1C6B688 Offset: 0x1C6B688 VA: 0x1C6B688
+	// RVA: 0x1409578 Offset: 0x1409578 VA: 0x1409578
 	public static bool loadAssetStorage(string name, AssetLoader.LoadEndDataHandler callbackFunc, int maxParallelLoad = 1) { }
 
-	// RVA: 0x1C6B8D0 Offset: 0x1C6B8D0 VA: 0x1C6B8D0
+	// RVA: 0x1412414 Offset: 0x1412414 VA: 0x1412414
 	public static bool loadResourcesFromAssetStorage(string assetBandleName, string[] resourceNames, AssetLoader.LoadEndDataHandler callbackFunc, int maxParallelLoad = 1) { }
 
-	// RVA: 0x1C6BCC0 Offset: 0x1C6BCC0 VA: 0x1C6BCC0
+	// RVA: 0x1412804 Offset: 0x1412804 VA: 0x1412804
 	public static bool loadAssetStorage(string name, int maxParallelLoad, AssetLoader.LoadEndDataHandler callbackFunc) { }
 
-	// RVA: 0x1C6BD8C Offset: 0x1C6BD8C VA: 0x1C6BD8C
+	// RVA: 0x14128D0 Offset: 0x14128D0 VA: 0x14128D0
 	public static bool loadAssetStorage(string[] nameList, Action callbackFunc, int loadParalleMax = 1) { }
 
-	// RVA: 0x1C6C234 Offset: 0x1C6C234 VA: 0x1C6C234
+	// RVA: 0x1412D78 Offset: 0x1412D78 VA: 0x1412D78
 	public static AssetData getAssetStorage(string name) { }
 
-	// RVA: 0x1C6C32C Offset: 0x1C6C32C VA: 0x1C6C32C
+	// RVA: 0x1412E70 Offset: 0x1412E70 VA: 0x1412E70
 	public static AssetData[] getAssetStorage(string[] nameList) { }
 
-	// RVA: 0x1C6C514 Offset: 0x1C6C514 VA: 0x1C6C514
+	// RVA: 0x1413058 Offset: 0x1413058 VA: 0x1413058
 	public static bool getAssetStorage(string name, AssetLoader.LoadEndDataHandler callbackFunc) { }
 
-	// RVA: 0x1C6C668 Offset: 0x1C6C668 VA: 0x1C6C668
+	// RVA: 0x1409744 Offset: 0x1409744 VA: 0x1409744
 	public static void releaseAssetStorage(string name) { }
 
-	// RVA: 0x1C6C748 Offset: 0x1C6C748 VA: 0x1C6C748
+	// RVA: 0x14131E0 Offset: 0x14131E0 VA: 0x14131E0
 	public static void releaseAssetStorage(string[] nameList) { }
 
-	// RVA: 0x1C6C86C Offset: 0x1C6C86C VA: 0x1C6C86C
+	// RVA: 0x1413304 Offset: 0x1413304 VA: 0x1413304
 	public static AssetData loadAssetResource(string name) { }
 
-	// RVA: 0x1C6CA1C Offset: 0x1C6CA1C VA: 0x1C6CA1C
+	// RVA: 0x14134B4 Offset: 0x14134B4 VA: 0x14134B4
 	public static AssetData getAssetResource(string name) { }
 
-	// RVA: 0x1C6CB14 Offset: 0x1C6CB14 VA: 0x1C6CB14
+	// RVA: 0x14135AC Offset: 0x14135AC VA: 0x14135AC
 	public static void releaseAssetResource(string name) { }
 
-	// RVA: 0x1C6CC5C Offset: 0x1C6CC5C VA: 0x1C6CC5C
+	// RVA: 0x14136F4 Offset: 0x14136F4 VA: 0x14136F4
 	public static bool GetDebugSlowLoad() { }
 
-	// RVA: 0x1C6CC64 Offset: 0x1C6CC64 VA: 0x1C6CC64
+	// RVA: 0x14136FC Offset: 0x14136FC VA: 0x14136FC
 	public static void SetDebugSlowLoad(bool isUse) { }
 
-	// RVA: 0x1C6CC68 Offset: 0x1C6CC68 VA: 0x1C6CC68
+	// RVA: 0x1413700 Offset: 0x1413700 VA: 0x1413700
 	public static bool SwitchingDebugSlowLoad() { }
 
-	// RVA: 0x1C6CC70 Offset: 0x1C6CC70 VA: 0x1C6CC70
+	// RVA: 0x1413708 Offset: 0x1413708 VA: 0x1413708
 	public bool GetDebugStatusOut() { }
 
-	// RVA: 0x1C684C8 Offset: 0x1C684C8 VA: 0x1C684C8
+	// RVA: 0x140F5DC Offset: 0x140F5DC VA: 0x140F5DC
 	public void SetDebugStatusOut(bool isUse) { }
 
-	// RVA: 0x1C6CC78 Offset: 0x1C6CC78 VA: 0x1C6CC78
+	// RVA: 0x1413710 Offset: 0x1413710 VA: 0x1413710
 	public bool SwitchingDebugStatusOut() { }
 
-	// RVA: 0x1C68570 Offset: 0x1C68570 VA: 0x1C68570
+	// RVA: 0x140F684 Offset: 0x140F684 VA: 0x140F684
 	public void DebugLog() { }
 
-	// RVA: 0x1C6CC88 Offset: 0x1C6CC88 VA: 0x1C6CC88
+	// RVA: 0x1413720 Offset: 0x1413720 VA: 0x1413720
 	public static bool LoadIsBusy() { }
 
-	// RVA: 0x1C6CD30 Offset: 0x1C6CD30 VA: 0x1C6CD30
+	// RVA: 0x14137C8 Offset: 0x14137C8 VA: 0x14137C8
 	public void Initialize() { }
 
-	// RVA: 0x1C6D2F0 Offset: 0x1C6D2F0 VA: 0x1C6D2F0
+	// RVA: 0x1413D88 Offset: 0x1413D88 VA: 0x1413D88
 	public void InitializeAssetStorage() { }
 
-	// RVA: 0x1C6D3B0 Offset: 0x1C6D3B0 VA: 0x1C6D3B0
+	// RVA: 0x1413E48 Offset: 0x1413E48 VA: 0x1413E48
 	public void SetupAssetStorageAll() { }
 
-	// RVA: 0x1C6D5C0 Offset: 0x1C6D5C0 VA: 0x1C6D5C0
-	public void DownloadAssetStorageAll(int loadParallelMax = 1) { }
-
-	// RVA: 0x1C6DA28 Offset: 0x1C6DA28 VA: 0x1C6DA28
-	public bool isDownloadAssetStorageCheck(string attrib) { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD362B8 Offset: 0xD362B8 VA: 0xD362B8
-	// RVA: 0x1C6DC08 Offset: 0x1C6DC08 VA: 0x1C6DC08
-	public IEnumerator DownloadAssetStorageAttributeWithCheckDialog(string attrib, int loadParallelMax = 1) { }
-
-	// RVA: 0x1C6DCB8 Offset: 0x1C6DCB8 VA: 0x1C6DCB8
-	private string GetDownloadSizeString() { }
-
-	// RVA: 0x1C6DCD0 Offset: 0x1C6DCD0 VA: 0x1C6DCD0
-	public string ConvertDownloadSizeToString(double size) { }
-
-	// RVA: 0x1C6DF94 Offset: 0x1C6DF94 VA: 0x1C6DF94
-	public void DownloadAssetStorageAttribute(string attrib, int loadParallelMax = 1) { }
-
-	// RVA: 0x1C6E1A8 Offset: 0x1C6E1A8 VA: 0x1C6E1A8
-	public void DownloadAssetStorageAttribute(string[] attribList, int loadParallelMax = 1) { }
-
-	// RVA: 0x1C6E4F8 Offset: 0x1C6E4F8 VA: 0x1C6E4F8
-	public bool IsInitializeAssetStorage() { }
-
-	// RVA: 0x1C6A530 Offset: 0x1C6A530 VA: 0x1C6A530
-	public long GetDownloadSize() { }
-
-	// RVA: 0x1C6AB30 Offset: 0x1C6AB30 VA: 0x1C6AB30
-	public string[] GetAssetStorageList(string path) { }
-
-	// RVA: 0x1C6AE30 Offset: 0x1C6AE30 VA: 0x1C6AE30
-	public void ResetAssetStorageVersion(string path) { }
-
-	// RVA: 0x1C6B0A8 Offset: 0x1C6B0A8 VA: 0x1C6B0A8
-	public void CancelDownloadAssetStorage() { }
-
-	// RVA: 0x1C6E500 Offset: 0x1C6E500 VA: 0x1C6E500
-	public void CancelDownloadAssetStorageAll() { }
-
-	// RVA: 0x1C6B290 Offset: 0x1C6B290 VA: 0x1C6B290
-	public void PauseDownloadAssetStorage() { }
-
-	// RVA: 0x1C6B358 Offset: 0x1C6B358 VA: 0x1C6B358
-	public void ResumeDownloadAssetStorage() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD362C8 Offset: 0xD362C8 VA: 0xD362C8
-	// RVA: 0x1C6D340 Offset: 0x1C6D340 VA: 0x1C6D340
-	private IEnumerator InitCR() { }
-
-	// RVA: 0x1C6E56C Offset: 0x1C6E56C VA: 0x1C6E56C
-	protected void OnClickWaitDebugDialog(bool isDecide) { }
-
-	// RVA: 0x1C6E574 Offset: 0x1C6E574 VA: 0x1C6E574
-	protected void OnClickRetryDialog(bool isDecide) { }
-
-	// RVA: 0x1C6E640 Offset: 0x1C6E640 VA: 0x1C6E640
-	protected void ConfigWriteRequest(bool isFast) { }
-
-	// RVA: 0x1C6ED3C Offset: 0x1C6ED3C VA: 0x1C6ED3C
-	protected void StartConfigWriteRequestThread() { }
-
-	// RVA: 0x1C6ED54 Offset: 0x1C6ED54 VA: 0x1C6ED54
-	private void StartThreadConfigWriteRequest() { }
-
-	// RVA: 0x1C6EE04 Offset: 0x1C6EE04 VA: 0x1C6EE04
-	private void ConfigWriteRequestThread() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD362D8 Offset: 0xD362D8 VA: 0xD362D8
-	// RVA: 0x1C6EE44 Offset: 0x1C6EE44 VA: 0x1C6EE44
-	private IEnumerator coUnloadUnusedAssets() { }
-
-	// RVA: 0x1C6D298 Offset: 0x1C6D298 VA: 0x1C6D298
-	public void RequestUnloadUnusedAssets(AssetManager.ResourceUnloadEventHandler callback) { }
-
-	// RVA: 0x1C6EEBC Offset: 0x1C6EEBC VA: 0x1C6EEBC
-	protected void LateUpdate() { }
-
-	// RVA: 0x1C6F914 Offset: 0x1C6F914 VA: 0x1C6F914
-	protected bool AddEntryLoadStatus(AssetData.Type type, string name, AssetLoader.LoadEndDataHandler callbackFunc) { }
-
-	// RVA: 0x1C6FC60 Offset: 0x1C6FC60 VA: 0x1C6FC60
-	protected bool AddCallbackLoadStatus(AssetData.Type type, string name, AssetLoader.LoadEndDataHandler callbackFunc) { }
-
-	// RVA: 0x1C6FE74 Offset: 0x1C6FE74 VA: 0x1C6FE74
-	protected bool CheckEntryLoadStatus(AssetData.Type type, string name) { }
-
-	// RVA: 0x1C70058 Offset: 0x1C70058 VA: 0x1C70058
-	protected void AddLoadWaitStatus(Action callbackFunc) { }
-
-	// RVA: 0x1C6D50C Offset: 0x1C6D50C VA: 0x1C6D50C
-	protected void AddLoadWaitStatus(AssetData info) { }
-
-	// RVA: 0x1C70140 Offset: 0x1C70140 VA: 0x1C70140
-	protected void AddLoadWaitStatus(AssetData info, AssetLoader.LoadEndDataHandler callbackFunc, string[] resourceNames) { }
-
-	// RVA: 0x1C70248 Offset: 0x1C70248 VA: 0x1C70248
-	public void ReleaseReservation(AssetData info) { }
-
-	// RVA: 0x1C6D5C8 Offset: 0x1C6D5C8 VA: 0x1C6D5C8
-	protected bool LoadStart() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD362E8 Offset: 0xD362E8 VA: 0xD362E8
-	// RVA: 0x1C70410 Offset: 0x1C70410 VA: 0x1C70410
-	private IEnumerator DelayLoadStart() { }
-
-	// RVA: 0x1C70488 Offset: 0x1C70488 VA: 0x1C70488
-	protected void OnEndLoadAssetStorage(AssetLoader loader) { }
-
-	// RVA: 0x1C69B44 Offset: 0x1C69B44 VA: 0x1C69B44
-	public bool LoadAsset(AssetData.Type type, string name, AssetLoader.LoadEndDataHandler callbackFunc) { }
-
-	// RVA: 0x1C70614 Offset: 0x1C70614 VA: 0x1C70614
-	public bool LoadAsset(string name, AssetLoader.LoadEndDataHandler callbackFunc) { }
-
-	// RVA: 0x1C69C90 Offset: 0x1C69C90 VA: 0x1C69C90
-	public AssetData GetAsset(AssetData.Type type, string name) { }
-
-	// RVA: 0x1C70718 Offset: 0x1C70718 VA: 0x1C70718
-	public AssetData GetAsset(string name) { }
-
-	// RVA: 0x1C69D84 Offset: 0x1C69D84 VA: 0x1C69D84
-	public bool GetAsset(AssetData.Type type, string name, AssetLoader.LoadEndDataHandler callbackFunc) { }
-
-	// RVA: 0x1C69ECC Offset: 0x1C69ECC VA: 0x1C69ECC
-	public bool GetAsset(string name, AssetLoader.LoadEndDataHandler callbackFunc) { }
-
-	// RVA: 0x1C6A034 Offset: 0x1C6A034 VA: 0x1C6A034
-	public void ReleaseAsset(AssetData.Type type, string name) { }
-
-	// RVA: 0x1C6A1CC Offset: 0x1C6A1CC VA: 0x1C6A1CC
-	public void ReleaseAsset(AssetData.Type type, string[] nameList) { }
-
-	// RVA: 0x1C6A300 Offset: 0x1C6A300 VA: 0x1C6A300
-	public void ReleaseAsset(AssetData assetInfo) { }
-
-	// RVA: 0x1C6A410 Offset: 0x1C6A410 VA: 0x1C6A410
-	public void ReleaseAsset(AssetData[] assetInfoList) { }
-
-	// RVA: 0x1C6A6B4 Offset: 0x1C6A6B4 VA: 0x1C6A6B4
-	public bool IsExistAssetStorage(string name) { }
-
-	// RVA: 0x1C6A7D4 Offset: 0x1C6A7D4 VA: 0x1C6A7D4
-	public bool IsExistAssetStorage(string[] nameList) { }
-
-	// RVA: 0x1C6A910 Offset: 0x1C6A910 VA: 0x1C6A910
-	public bool IsNeedDownload(string name) { }
-
-	// RVA: 0x1C6A9F4 Offset: 0x1C6A9F4 VA: 0x1C6A9F4
-	public bool IsNeedDownload(string[] nameList) { }
-
-	// RVA: 0x1C6B438 Offset: 0x1C6B438 VA: 0x1C6B438
-	public bool DownloadAssetStorage(string name, AssetLoader.LoadEndDataHandler callbackFunc, int loadParallelMax = 1) { }
-
-	// RVA: 0x1C6B5B4 Offset: 0x1C6B5B4 VA: 0x1C6B5B4
-	public bool DownloadAssetStorage(string[] nameList, Action callbackFunc, int loadParallelMax = 1) { }
-
-	// RVA: 0x1C6B754 Offset: 0x1C6B754 VA: 0x1C6B754
-	public bool LoadAssetStorage(string name, AssetLoader.LoadEndDataHandler callbackFunc, int loadParallelMax = 1) { }
-
-	// RVA: 0x1C6B9B0 Offset: 0x1C6B9B0 VA: 0x1C6B9B0
-	public bool LoadResourcesAssetStorage(string name, string[] resourceNames, AssetLoader.LoadEndDataHandler callbackFunc, int loadParallelMax = 1) { }
-
-	// RVA: 0x1C6BE58 Offset: 0x1C6BE58 VA: 0x1C6BE58
-	public bool LoadAssetStorage(string[] nameList, Action callbackFunc, int loadParallelMax = 1) { }
-
-	// RVA: 0x1C70688 Offset: 0x1C70688 VA: 0x1C70688
-	private AssetData GetAssetData(Dictionary<string, AssetData> dic, string name) { }
-
-	// RVA: 0x1C6C2E4 Offset: 0x1C6C2E4 VA: 0x1C6C2E4
-	public AssetData GetAssetStorage(string name) { }
-
-	// RVA: 0x1C6C3DC Offset: 0x1C6C3DC VA: 0x1C6C3DC
-	public AssetData[] GetAssetStorage(string[] nameList) { }
-
-	// RVA: 0x1C6C5D8 Offset: 0x1C6C5D8 VA: 0x1C6C5D8
-	public bool GetAssetStorage(string name, AssetLoader.LoadEndDataHandler callbackFunc) { }
-
-	// RVA: 0x1C6C714 Offset: 0x1C6C714 VA: 0x1C6C714
-	public void ReleaseAssetStorage(string name) { }
-
-	// RVA: 0x1C6C7F4 Offset: 0x1C6C7F4 VA: 0x1C6C7F4
-	public void ReleaseAssetStorage(string[] nameList) { }
-
-	// RVA: 0x1C6C91C Offset: 0x1C6C91C VA: 0x1C6C91C
-	public AssetData LoadAssetResource(string name) { }
-
-	// RVA: 0x1C6CACC Offset: 0x1C6CACC VA: 0x1C6CACC
-	public AssetData GetAssetResource(string name) { }
-
-	// RVA: 0x1C6CBC0 Offset: 0x1C6CBC0 VA: 0x1C6CBC0
-	public void ReleaseAssetResource(string name) { }
-
-	// RVA: 0x1C70768 Offset: 0x1C70768 VA: 0x1C70768
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public sealed class AssetManager.ResourceUnloadEventHandler : MulticastDelegate // TypeDefIndex: 6262

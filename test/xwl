@@ -1,1000 +1,1000 @@
-	// RVA: 0x21F8448 Offset: 0x21F8448 VA: 0x21F8448 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x21F8454 Offset: 0x21F8454 VA: 0x21F8454 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x21F864C Offset: 0x21F864C VA: 0x21F864C Slot: 34
-	public override void OnUpdate() { }
-
-	// RVA: 0x21F8580 Offset: 0x21F8580 VA: 0x21F8580
-	private void DoPlaybackTime() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B200 Offset: 0xC9B200 VA: 0xC9B200
-[TooltipAttribute] // RVA: 0xC9B200 Offset: 0xC9B200 VA: 0xC9B200
-public class SetAnimatorSpeed : FsmStateAction // TypeDefIndex: 12300
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFBE2C Offset: 0xCFBE2C VA: 0xCFBE2C
-	[CheckForComponentAttribute] // RVA: 0xCFBE2C Offset: 0xCFBE2C VA: 0xCFBE2C
-	[TooltipAttribute] // RVA: 0xCFBE2C Offset: 0xCFBE2C VA: 0xCFBE2C
-	public FsmOwnerDefault gameObject; // 0x50
-	[TooltipAttribute] // RVA: 0xCFBEC4 Offset: 0xCFBEC4 VA: 0xCFBEC4
-	public FsmFloat speed; // 0x58
-	[TooltipAttribute] // RVA: 0xCFBEFC Offset: 0xCFBEFC VA: 0xCFBEFC
-	public bool everyFrame; // 0x60
-	private Animator _animator; // 0x68
+	public FsmFloat recorderStopTime; // 0x60
 
 	// Methods
 
-	// RVA: 0x21F8650 Offset: 0x21F8650 VA: 0x21F8650
+	// RVA: 0x1D2EF8C Offset: 0x1D2EF8C VA: 0x1D2EF8C
 	public void .ctor() { }
 
-	// RVA: 0x21F8658 Offset: 0x21F8658 VA: 0x21F8658 Slot: 28
+	// RVA: 0x1D2EF94 Offset: 0x1D2EF94 VA: 0x1D2EF94 Slot: 28
 	public override void Reset() { }
 
-	// RVA: 0x21F8664 Offset: 0x21F8664 VA: 0x21F8664 Slot: 32
+	// RVA: 0x1D2EFA0 Offset: 0x1D2EFA0 VA: 0x1D2EFA0 Slot: 32
 	public override void OnEnter() { }
-
-	// RVA: 0x21F885C Offset: 0x21F885C VA: 0x21F885C Slot: 34
-	public override void OnUpdate() { }
-
-	// RVA: 0x21F8790 Offset: 0x21F8790 VA: 0x21F8790
-	private void DoPlaybackSpeed() { }
 }
 
 // Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B250 Offset: 0xC9B250 VA: 0xC9B250
-[TooltipAttribute] // RVA: 0xC9B250 Offset: 0xC9B250 VA: 0xC9B250
-public class SetAnimatorStabilizeFeet : FsmStateAction // TypeDefIndex: 12301
+public abstract class FsmStateActionAnimatorBase : FsmStateAction // TypeDefIndex: 12288
 {
 	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFBF34 Offset: 0xCFBF34 VA: 0xCFBF34
-	[CheckForComponentAttribute] // RVA: 0xCFBF34 Offset: 0xCFBF34 VA: 0xCFBF34
-	[TooltipAttribute] // RVA: 0xCFBF34 Offset: 0xCFBF34 VA: 0xCFBF34
-	public FsmOwnerDefault gameObject; // 0x50
-	[TooltipAttribute] // RVA: 0xCFBFCC Offset: 0xCFBFCC VA: 0xCFBFCC
-	public FsmBool stabilizeFeet; // 0x58
-	private Animator _animator; // 0x60
+	[TooltipAttribute] // RVA: 0xC899F8 Offset: 0xC899F8 VA: 0xC899F8
+	public bool everyFrame; // 0x49
+	[TooltipAttribute] // RVA: 0xC89A30 Offset: 0xC89A30 VA: 0xC89A30
+	public FsmStateActionAnimatorBase.AnimatorFrameUpdateSelector everyFrameOption; // 0x4C
+	protected int IklayerIndex; // 0x50
 
 	// Methods
 
-	// RVA: 0x21F8860 Offset: 0x21F8860 VA: 0x21F8860
-	public void .ctor() { }
+	// RVA: 0x1AB2F38 Offset: 0x1AB2F38 VA: 0x1AB2F38
+	protected void .ctor() { }
 
-	// RVA: 0x21F8868 Offset: 0x21F8868 VA: 0x21F8868 Slot: 28
+	// RVA: -1 Offset: -1 Slot: 62
+	public abstract void OnActionUpdate();
+
+	// RVA: 0x1AB2F40 Offset: 0x1AB2F40 VA: 0x1AB2F40 Slot: 28
 	public override void Reset() { }
 
-	// RVA: 0x21F8870 Offset: 0x21F8870 VA: 0x21F8870 Slot: 32
-	public override void OnEnter() { }
+	// RVA: 0x1AB2F4C Offset: 0x1AB2F4C VA: 0x1AB2F4C Slot: 29
+	public override void OnPreprocess() { }
 
-	// RVA: 0x21F8984 Offset: 0x21F8984 VA: 0x21F8984
-	private void DoStabilizeFeet() { }
+	// RVA: 0x1AB2FD8 Offset: 0x1AB2FD8 VA: 0x1AB2FD8 Slot: 34
+	public override void OnUpdate() { }
+
+	// RVA: 0x1AB302C Offset: 0x1AB302C VA: 0x1AB302C Slot: 59
+	public override void DoAnimatorMove() { }
+
+	// RVA: 0x1AB3084 Offset: 0x1AB3084 VA: 0x1AB3084 Slot: 60
+	public override void DoAnimatorIK(int layerIndex) { }
+}
+
+// Namespace: 
+public enum FsmStateActionAnimatorBase.AnimatorFrameUpdateSelector // TypeDefIndex: 12289
+{
+	// Fields
+	public int value__; // 0x0
+	public const FsmStateActionAnimatorBase.AnimatorFrameUpdateSelector OnUpdate = 0;
+	public const FsmStateActionAnimatorBase.AnimatorFrameUpdateSelector OnAnimatorMove = 1;
+	public const FsmStateActionAnimatorBase.AnimatorFrameUpdateSelector OnAnimatorIK = 2;
 }
 
 // Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B2A0 Offset: 0xC9B2A0 VA: 0xC9B2A0
-[TooltipAttribute] // RVA: 0xC9B2A0 Offset: 0xC9B2A0 VA: 0xC9B2A0
-public class SetAnimatorTarget : FsmStateAction // TypeDefIndex: 12302
+[ActionCategoryAttribute] // RVA: 0xC2E214 Offset: 0xC2E214 VA: 0xC2E214
+[TooltipAttribute] // RVA: 0xC2E214 Offset: 0xC2E214 VA: 0xC2E214
+public class GetAnimatorApplyRootMotion : FsmStateAction // TypeDefIndex: 12290
 {
 	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFC004 Offset: 0xCFC004 VA: 0xCFC004
-	[CheckForComponentAttribute] // RVA: 0xCFC004 Offset: 0xCFC004 VA: 0xCFC004
-	[TooltipAttribute] // RVA: 0xCFC004 Offset: 0xCFC004 VA: 0xCFC004
+	[RequiredFieldAttribute] // RVA: 0xC89A68 Offset: 0xC89A68 VA: 0xC89A68
+	[CheckForComponentAttribute] // RVA: 0xC89A68 Offset: 0xC89A68 VA: 0xC89A68
+	[TooltipAttribute] // RVA: 0xC89A68 Offset: 0xC89A68 VA: 0xC89A68
 	public FsmOwnerDefault gameObject; // 0x50
-	[TooltipAttribute] // RVA: 0xCFC09C Offset: 0xCFC09C VA: 0xCFC09C
-	public AvatarTarget avatarTarget; // 0x58
-	[TooltipAttribute] // RVA: 0xCFC0D4 Offset: 0xCFC0D4 VA: 0xCFC0D4
-	public FsmFloat targetNormalizedTime; // 0x60
-	[TooltipAttribute] // RVA: 0xCFC10C Offset: 0xCFC10C VA: 0xCFC10C
-	public bool everyFrame; // 0x68
+	[ActionSection] // RVA: 0xC89B00 Offset: 0xC89B00 VA: 0xC89B00
+	[RequiredFieldAttribute] // RVA: 0xC89B00 Offset: 0xC89B00 VA: 0xC89B00
+	[UIHintAttribute] // RVA: 0xC89B00 Offset: 0xC89B00 VA: 0xC89B00
+	[TooltipAttribute] // RVA: 0xC89B00 Offset: 0xC89B00 VA: 0xC89B00
+	public FsmBool rootMotionApplied; // 0x58
+	[TooltipAttribute] // RVA: 0xC89B84 Offset: 0xC89B84 VA: 0xC89B84
+	public FsmEvent rootMotionIsAppliedEvent; // 0x60
+	[TooltipAttribute] // RVA: 0xC89BBC Offset: 0xC89BBC VA: 0xC89BBC
+	public FsmEvent rootMotionIsNotAppliedEvent; // 0x68
 	private Animator _animator; // 0x70
 
 	// Methods
 
-	// RVA: 0x21F8A40 Offset: 0x21F8A40 VA: 0x21F8A40
+	// RVA: 0x1ABA8D8 Offset: 0x1ABA8D8 VA: 0x1ABA8D8
 	public void .ctor() { }
 
-	// RVA: 0x21F8A48 Offset: 0x21F8A48 VA: 0x21F8A48 Slot: 28
+	// RVA: 0x1ABA8E0 Offset: 0x1ABA8E0 VA: 0x1ABA8E0 Slot: 28
 	public override void Reset() { }
 
-	// RVA: 0x21F8A60 Offset: 0x21F8A60 VA: 0x21F8A60 Slot: 29
-	public override void OnPreprocess() { }
-
-	// RVA: 0x21F8A98 Offset: 0x21F8A98 VA: 0x21F8A98 Slot: 32
+	// RVA: 0x1ABA8EC Offset: 0x1ABA8EC VA: 0x1ABA8EC Slot: 32
 	public override void OnEnter() { }
 
-	// RVA: 0x21F8CA4 Offset: 0x21F8CA4 VA: 0x21F8CA4 Slot: 59
-	public override void DoAnimatorMove() { }
-
-	// RVA: 0x21F8BC4 Offset: 0x21F8BC4 VA: 0x21F8BC4
-	private void SetTarget() { }
+	// RVA: 0x1ABAA00 Offset: 0x1ABAA00 VA: 0x1ABAA00
+	private void GetApplyMotionRoot() { }
 }
 
 // Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B2F0 Offset: 0xC9B2F0 VA: 0xC9B2F0
-[TooltipAttribute] // RVA: 0xC9B2F0 Offset: 0xC9B2F0 VA: 0xC9B2F0
-public class SetAnimatorTrigger : FsmStateAction // TypeDefIndex: 12303
+[ActionCategoryAttribute] // RVA: 0xC2E264 Offset: 0xC2E264 VA: 0xC2E264
+[TooltipAttribute] // RVA: 0xC2E264 Offset: 0xC2E264 VA: 0xC2E264
+public class GetAnimatorBody : FsmStateActionAnimatorBase // TypeDefIndex: 12291
 {
 	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFC144 Offset: 0xCFC144 VA: 0xCFC144
-	[CheckForComponentAttribute] // RVA: 0xCFC144 Offset: 0xCFC144 VA: 0xCFC144
-	[TooltipAttribute] // RVA: 0xCFC144 Offset: 0xCFC144 VA: 0xCFC144
+	[RequiredFieldAttribute] // RVA: 0xC89BF4 Offset: 0xC89BF4 VA: 0xC89BF4
+	[CheckForComponentAttribute] // RVA: 0xC89BF4 Offset: 0xC89BF4 VA: 0xC89BF4
+	[TooltipAttribute] // RVA: 0xC89BF4 Offset: 0xC89BF4 VA: 0xC89BF4
+	public FsmOwnerDefault gameObject; // 0x58
+	[ActionSection] // RVA: 0xC89C8C Offset: 0xC89C8C VA: 0xC89C8C
+	[UIHintAttribute] // RVA: 0xC89C8C Offset: 0xC89C8C VA: 0xC89C8C
+	[TooltipAttribute] // RVA: 0xC89C8C Offset: 0xC89C8C VA: 0xC89C8C
+	public FsmVector3 bodyPosition; // 0x60
+	[UIHintAttribute] // RVA: 0xC89D00 Offset: 0xC89D00 VA: 0xC89D00
+	[TooltipAttribute] // RVA: 0xC89D00 Offset: 0xC89D00 VA: 0xC89D00
+	public FsmQuaternion bodyRotation; // 0x68
+	[TooltipAttribute] // RVA: 0xC89D50 Offset: 0xC89D50 VA: 0xC89D50
+	public FsmGameObject bodyGameObject; // 0x70
+	private Animator _animator; // 0x78
+	private Transform _transform; // 0x80
+
+	// Methods
+
+	// RVA: 0x1ABAB0C Offset: 0x1ABAB0C VA: 0x1ABAB0C
+	public void .ctor() { }
+
+	// RVA: 0x1ABAB14 Offset: 0x1ABAB14 VA: 0x1ABAB14 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABAB30 Offset: 0x1ABAB30 VA: 0x1ABAB30 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABACCC Offset: 0x1ABACCC VA: 0x1ABACCC Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABAD08 Offset: 0x1ABAD08 VA: 0x1ABAD08
+	private void DoGetBodyPosition() { }
+
+	// RVA: 0x1ABAF24 Offset: 0x1ABAF24 VA: 0x1ABAF24 Slot: 61
+	public override string ErrorCheck() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E2B4 Offset: 0xC2E2B4 VA: 0xC2E2B4
+[TooltipAttribute] // RVA: 0xC2E2B4 Offset: 0xC2E2B4 VA: 0xC2E2B4
+public class GetAnimatorBoneGameObject : FsmStateAction // TypeDefIndex: 12292
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC89D88 Offset: 0xC89D88 VA: 0xC89D88
+	[CheckForComponentAttribute] // RVA: 0xC89D88 Offset: 0xC89D88 VA: 0xC89D88
+	[TooltipAttribute] // RVA: 0xC89D88 Offset: 0xC89D88 VA: 0xC89D88
 	public FsmOwnerDefault gameObject; // 0x50
-	[RequiredFieldAttribute] // RVA: 0xCFC1DC Offset: 0xCFC1DC VA: 0xCFC1DC
-	[UIHintAttribute] // RVA: 0xCFC1DC Offset: 0xCFC1DC VA: 0xCFC1DC
-	[TooltipAttribute] // RVA: 0xCFC1DC Offset: 0xCFC1DC VA: 0xCFC1DC
-	public FsmString trigger; // 0x58
+	[TooltipAttribute] // RVA: 0xC89E20 Offset: 0xC89E20 VA: 0xC89E20
+	[ObjectTypeAttribute] // RVA: 0xC89E20 Offset: 0xC89E20 VA: 0xC89E20
+	public FsmEnum bone; // 0x58
+	[ActionSection] // RVA: 0xC89EA8 Offset: 0xC89EA8 VA: 0xC89EA8
+	[UIHintAttribute] // RVA: 0xC89EA8 Offset: 0xC89EA8 VA: 0xC89EA8
+	[TooltipAttribute] // RVA: 0xC89EA8 Offset: 0xC89EA8 VA: 0xC89EA8
+	public FsmGameObject boneGameObject; // 0x60
+	private Animator _animator; // 0x68
+
+	// Methods
+
+	// RVA: 0x1ABAFA8 Offset: 0x1ABAFA8 VA: 0x1ABAFA8
+	public void .ctor() { }
+
+	// RVA: 0x1ABAFB0 Offset: 0x1ABAFB0 VA: 0x1ABAFB0 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABB020 Offset: 0x1ABB020 VA: 0x1ABB020 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABB134 Offset: 0x1ABB134 VA: 0x1ABB134
+	private void GetBoneTransform() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E304 Offset: 0xC2E304 VA: 0xC2E304
+[TooltipAttribute] // RVA: 0xC2E304 Offset: 0xC2E304 VA: 0xC2E304
+public class GetAnimatorBool : FsmStateActionAnimatorBase // TypeDefIndex: 12293
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC89F1C Offset: 0xC89F1C VA: 0xC89F1C
+	[CheckForComponentAttribute] // RVA: 0xC89F1C Offset: 0xC89F1C VA: 0xC89F1C
+	[TooltipAttribute] // RVA: 0xC89F1C Offset: 0xC89F1C VA: 0xC89F1C
+	public FsmOwnerDefault gameObject; // 0x58
+	[RequiredFieldAttribute] // RVA: 0xC89FB4 Offset: 0xC89FB4 VA: 0xC89FB4
+	[UIHintAttribute] // RVA: 0xC89FB4 Offset: 0xC89FB4 VA: 0xC89FB4
+	[TooltipAttribute] // RVA: 0xC89FB4 Offset: 0xC89FB4 VA: 0xC89FB4
+	public FsmString parameter; // 0x60
+	[ActionSection] // RVA: 0xC8A014 Offset: 0xC8A014 VA: 0xC8A014
+	[RequiredFieldAttribute] // RVA: 0xC8A014 Offset: 0xC8A014 VA: 0xC8A014
+	[UIHintAttribute] // RVA: 0xC8A014 Offset: 0xC8A014 VA: 0xC8A014
+	[TooltipAttribute] // RVA: 0xC8A014 Offset: 0xC8A014 VA: 0xC8A014
+	public FsmBool result; // 0x68
+	private Animator _animator; // 0x70
+	private int _paramID; // 0x78
+
+	// Methods
+
+	// RVA: 0x1ABB270 Offset: 0x1ABB270 VA: 0x1ABB270
+	public void .ctor() { }
+
+	// RVA: 0x1ABB278 Offset: 0x1ABB278 VA: 0x1ABB278 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABB28C Offset: 0x1ABB28C VA: 0x1ABB28C Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABB4B0 Offset: 0x1ABB4B0 VA: 0x1ABB4B0 Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABB3E0 Offset: 0x1ABB3E0 VA: 0x1ABB3E0
+	private void GetParameter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E354 Offset: 0xC2E354 VA: 0xC2E354
+[TooltipAttribute] // RVA: 0xC2E354 Offset: 0xC2E354 VA: 0xC2E354
+public class GetAnimatorCullingMode : FsmStateAction // TypeDefIndex: 12294
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC8A098 Offset: 0xC8A098 VA: 0xC8A098
+	[CheckForComponentAttribute] // RVA: 0xC8A098 Offset: 0xC8A098 VA: 0xC8A098
+	[TooltipAttribute] // RVA: 0xC8A098 Offset: 0xC8A098 VA: 0xC8A098
+	public FsmOwnerDefault gameObject; // 0x50
+	[ActionSection] // RVA: 0xC8A130 Offset: 0xC8A130 VA: 0xC8A130
+	[RequiredFieldAttribute] // RVA: 0xC8A130 Offset: 0xC8A130 VA: 0xC8A130
+	[UIHintAttribute] // RVA: 0xC8A130 Offset: 0xC8A130 VA: 0xC8A130
+	[TooltipAttribute] // RVA: 0xC8A130 Offset: 0xC8A130 VA: 0xC8A130
+	public FsmBool alwaysAnimate; // 0x58
+	[TooltipAttribute] // RVA: 0xC8A1B4 Offset: 0xC8A1B4 VA: 0xC8A1B4
+	public FsmEvent alwaysAnimateEvent; // 0x60
+	[TooltipAttribute] // RVA: 0xC8A1EC Offset: 0xC8A1EC VA: 0xC8A1EC
+	public FsmEvent basedOnRenderersEvent; // 0x68
+	private Animator _animator; // 0x70
+
+	// Methods
+
+	// RVA: 0x1ABB4B4 Offset: 0x1ABB4B4 VA: 0x1ABB4B4
+	public void .ctor() { }
+
+	// RVA: 0x1ABB4BC Offset: 0x1ABB4BC VA: 0x1ABB4BC Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABB4C8 Offset: 0x1ABB4C8 VA: 0x1ABB4C8 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABB5DC Offset: 0x1ABB5DC VA: 0x1ABB5DC
+	private void DoCheckCulling() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E3A4 Offset: 0xC2E3A4 VA: 0xC2E3A4
+[TooltipAttribute] // RVA: 0xC2E3A4 Offset: 0xC2E3A4 VA: 0xC2E3A4
+public class GetAnimatorCurrentStateInfo : FsmStateActionAnimatorBase // TypeDefIndex: 12295
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC8A224 Offset: 0xC8A224 VA: 0xC8A224
+	[CheckForComponentAttribute] // RVA: 0xC8A224 Offset: 0xC8A224 VA: 0xC8A224
+	[TooltipAttribute] // RVA: 0xC8A224 Offset: 0xC8A224 VA: 0xC8A224
+	public FsmOwnerDefault gameObject; // 0x58
+	[RequiredFieldAttribute] // RVA: 0xC8A2BC Offset: 0xC8A2BC VA: 0xC8A2BC
+	[TooltipAttribute] // RVA: 0xC8A2BC Offset: 0xC8A2BC VA: 0xC8A2BC
+	public FsmInt layerIndex; // 0x60
+	[ActionSection] // RVA: 0xC8A308 Offset: 0xC8A308 VA: 0xC8A308
+	[UIHintAttribute] // RVA: 0xC8A308 Offset: 0xC8A308 VA: 0xC8A308
+	[TooltipAttribute] // RVA: 0xC8A308 Offset: 0xC8A308 VA: 0xC8A308
+	public FsmString name; // 0x68
+	[UIHintAttribute] // RVA: 0xC8A37C Offset: 0xC8A37C VA: 0xC8A37C
+	[TooltipAttribute] // RVA: 0xC8A37C Offset: 0xC8A37C VA: 0xC8A37C
+	public FsmInt nameHash; // 0x70
+	[UIHintAttribute] // RVA: 0xC8A3CC Offset: 0xC8A3CC VA: 0xC8A3CC
+	[TooltipAttribute] // RVA: 0xC8A3CC Offset: 0xC8A3CC VA: 0xC8A3CC
+	public FsmInt fullPathHash; // 0x78
+	[UIHintAttribute] // RVA: 0xC8A41C Offset: 0xC8A41C VA: 0xC8A41C
+	[TooltipAttribute] // RVA: 0xC8A41C Offset: 0xC8A41C VA: 0xC8A41C
+	public FsmInt shortPathHash; // 0x80
+	[UIHintAttribute] // RVA: 0xC8A46C Offset: 0xC8A46C VA: 0xC8A46C
+	[TooltipAttribute] // RVA: 0xC8A46C Offset: 0xC8A46C VA: 0xC8A46C
+	public FsmInt tagHash; // 0x88
+	[UIHintAttribute] // RVA: 0xC8A4BC Offset: 0xC8A4BC VA: 0xC8A4BC
+	[TooltipAttribute] // RVA: 0xC8A4BC Offset: 0xC8A4BC VA: 0xC8A4BC
+	public FsmBool isStateLooping; // 0x90
+	[UIHintAttribute] // RVA: 0xC8A50C Offset: 0xC8A50C VA: 0xC8A50C
+	[TooltipAttribute] // RVA: 0xC8A50C Offset: 0xC8A50C VA: 0xC8A50C
+	public FsmFloat length; // 0x98
+	[UIHintAttribute] // RVA: 0xC8A55C Offset: 0xC8A55C VA: 0xC8A55C
+	[TooltipAttribute] // RVA: 0xC8A55C Offset: 0xC8A55C VA: 0xC8A55C
+	public FsmFloat normalizedTime; // 0xA0
+	[UIHintAttribute] // RVA: 0xC8A5AC Offset: 0xC8A5AC VA: 0xC8A5AC
+	[TooltipAttribute] // RVA: 0xC8A5AC Offset: 0xC8A5AC VA: 0xC8A5AC
+	public FsmInt loopCount; // 0xA8
+	[UIHintAttribute] // RVA: 0xC8A5FC Offset: 0xC8A5FC VA: 0xC8A5FC
+	[TooltipAttribute] // RVA: 0xC8A5FC Offset: 0xC8A5FC VA: 0xC8A5FC
+	public FsmFloat currentLoopProgress; // 0xB0
+	private Animator _animator; // 0xB8
+
+	// Methods
+
+	// RVA: 0x1ABB6EC Offset: 0x1ABB6EC VA: 0x1ABB6EC
+	public void .ctor() { }
+
+	// RVA: 0x1ABB6F4 Offset: 0x1ABB6F4 VA: 0x1ABB6F4 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABB720 Offset: 0x1ABB720 VA: 0x1ABB720 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABBCC0 Offset: 0x1ABBCC0 VA: 0x1ABBCC0 Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABB84C Offset: 0x1ABB84C VA: 0x1ABB84C
+	private void GetLayerInfo() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E3F4 Offset: 0xC2E3F4 VA: 0xC2E3F4
+[TooltipAttribute] // RVA: 0xC2E3F4 Offset: 0xC2E3F4 VA: 0xC2E3F4
+public class GetAnimatorCurrentStateInfoIsName : FsmStateActionAnimatorBase // TypeDefIndex: 12296
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC8A64C Offset: 0xC8A64C VA: 0xC8A64C
+	[CheckForComponentAttribute] // RVA: 0xC8A64C Offset: 0xC8A64C VA: 0xC8A64C
+	[TooltipAttribute] // RVA: 0xC8A64C Offset: 0xC8A64C VA: 0xC8A64C
+	public FsmOwnerDefault gameObject; // 0x58
+	[RequiredFieldAttribute] // RVA: 0xC8A6E4 Offset: 0xC8A6E4 VA: 0xC8A6E4
+	[TooltipAttribute] // RVA: 0xC8A6E4 Offset: 0xC8A6E4 VA: 0xC8A6E4
+	public FsmInt layerIndex; // 0x60
+	[TooltipAttribute] // RVA: 0xC8A730 Offset: 0xC8A730 VA: 0xC8A730
+	public FsmString name; // 0x68
+	[ActionSection] // RVA: 0xC8A768 Offset: 0xC8A768 VA: 0xC8A768
+	[UIHintAttribute] // RVA: 0xC8A768 Offset: 0xC8A768 VA: 0xC8A768
+	[TooltipAttribute] // RVA: 0xC8A768 Offset: 0xC8A768 VA: 0xC8A768
+	public FsmBool isMatching; // 0x70
+	[TooltipAttribute] // RVA: 0xC8A7DC Offset: 0xC8A7DC VA: 0xC8A7DC
+	public FsmEvent nameMatchEvent; // 0x78
+	[TooltipAttribute] // RVA: 0xC8A814 Offset: 0xC8A814 VA: 0xC8A814
+	public FsmEvent nameDoNotMatchEvent; // 0x80
+	private Animator _animator; // 0x88
+
+	// Methods
+
+	// RVA: 0x1ABBCC4 Offset: 0x1ABBCC4 VA: 0x1ABBCC4
+	public void .ctor() { }
+
+	// RVA: 0x1ABBCCC Offset: 0x1ABBCCC VA: 0x1ABBCCC Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABBCE4 Offset: 0x1ABBCE4 VA: 0x1ABBCE4 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABBFE8 Offset: 0x1ABBFE8 VA: 0x1ABBFE8 Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABBE10 Offset: 0x1ABBE10 VA: 0x1ABBE10
+	private void IsName() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E444 Offset: 0xC2E444 VA: 0xC2E444
+[TooltipAttribute] // RVA: 0xC2E444 Offset: 0xC2E444 VA: 0xC2E444
+public class GetAnimatorCurrentStateInfoIsTag : FsmStateActionAnimatorBase // TypeDefIndex: 12297
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC8A84C Offset: 0xC8A84C VA: 0xC8A84C
+	[CheckForComponentAttribute] // RVA: 0xC8A84C Offset: 0xC8A84C VA: 0xC8A84C
+	[TooltipAttribute] // RVA: 0xC8A84C Offset: 0xC8A84C VA: 0xC8A84C
+	public FsmOwnerDefault gameObject; // 0x58
+	[RequiredFieldAttribute] // RVA: 0xC8A8E4 Offset: 0xC8A8E4 VA: 0xC8A8E4
+	[TooltipAttribute] // RVA: 0xC8A8E4 Offset: 0xC8A8E4 VA: 0xC8A8E4
+	public FsmInt layerIndex; // 0x60
+	[TooltipAttribute] // RVA: 0xC8A930 Offset: 0xC8A930 VA: 0xC8A930
+	public FsmString tag; // 0x68
+	[ActionSection] // RVA: 0xC8A968 Offset: 0xC8A968 VA: 0xC8A968
+	[UIHintAttribute] // RVA: 0xC8A968 Offset: 0xC8A968 VA: 0xC8A968
+	[TooltipAttribute] // RVA: 0xC8A968 Offset: 0xC8A968 VA: 0xC8A968
+	public FsmBool tagMatch; // 0x70
+	[TooltipAttribute] // RVA: 0xC8A9DC Offset: 0xC8A9DC VA: 0xC8A9DC
+	public FsmEvent tagMatchEvent; // 0x78
+	[TooltipAttribute] // RVA: 0xC8AA14 Offset: 0xC8AA14 VA: 0xC8AA14
+	public FsmEvent tagDoNotMatchEvent; // 0x80
+	private Animator _animator; // 0x88
+
+	// Methods
+
+	// RVA: 0x1ABBFEC Offset: 0x1ABBFEC VA: 0x1ABBFEC
+	public void .ctor() { }
+
+	// RVA: 0x1ABBFF4 Offset: 0x1ABBFF4 VA: 0x1ABBFF4 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABC010 Offset: 0x1ABC010 VA: 0x1ABC010 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABC2D0 Offset: 0x1ABC2D0 VA: 0x1ABC2D0 Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABC13C Offset: 0x1ABC13C VA: 0x1ABC13C
+	private void IsTag() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E494 Offset: 0xC2E494 VA: 0xC2E494
+[TooltipAttribute] // RVA: 0xC2E494 Offset: 0xC2E494 VA: 0xC2E494
+public class GetAnimatorCurrentTransitionInfo : FsmStateActionAnimatorBase // TypeDefIndex: 12298
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC8AA4C Offset: 0xC8AA4C VA: 0xC8AA4C
+	[CheckForComponentAttribute] // RVA: 0xC8AA4C Offset: 0xC8AA4C VA: 0xC8AA4C
+	[TooltipAttribute] // RVA: 0xC8AA4C Offset: 0xC8AA4C VA: 0xC8AA4C
+	public FsmOwnerDefault gameObject; // 0x58
+	[RequiredFieldAttribute] // RVA: 0xC8AAE4 Offset: 0xC8AAE4 VA: 0xC8AAE4
+	[TooltipAttribute] // RVA: 0xC8AAE4 Offset: 0xC8AAE4 VA: 0xC8AAE4
+	public FsmInt layerIndex; // 0x60
+	[ActionSection] // RVA: 0xC8AB30 Offset: 0xC8AB30 VA: 0xC8AB30
+	[UIHintAttribute] // RVA: 0xC8AB30 Offset: 0xC8AB30 VA: 0xC8AB30
+	[TooltipAttribute] // RVA: 0xC8AB30 Offset: 0xC8AB30 VA: 0xC8AB30
+	public FsmString name; // 0x68
+	[UIHintAttribute] // RVA: 0xC8ABA4 Offset: 0xC8ABA4 VA: 0xC8ABA4
+	[TooltipAttribute] // RVA: 0xC8ABA4 Offset: 0xC8ABA4 VA: 0xC8ABA4
+	public FsmInt nameHash; // 0x70
+	[UIHintAttribute] // RVA: 0xC8ABF4 Offset: 0xC8ABF4 VA: 0xC8ABF4
+	[TooltipAttribute] // RVA: 0xC8ABF4 Offset: 0xC8ABF4 VA: 0xC8ABF4
+	public FsmInt userNameHash; // 0x78
+	[UIHintAttribute] // RVA: 0xC8AC44 Offset: 0xC8AC44 VA: 0xC8AC44
+	[TooltipAttribute] // RVA: 0xC8AC44 Offset: 0xC8AC44 VA: 0xC8AC44
+	public FsmFloat normalizedTime; // 0x80
+	private Animator _animator; // 0x88
+
+	// Methods
+
+	// RVA: 0x1ABC2D4 Offset: 0x1ABC2D4 VA: 0x1ABC2D4
+	public void .ctor() { }
+
+	// RVA: 0x1ABC2DC Offset: 0x1ABC2DC VA: 0x1ABC2DC Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABC2F8 Offset: 0x1ABC2F8 VA: 0x1ABC2F8 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABC678 Offset: 0x1ABC678 VA: 0x1ABC678 Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABC424 Offset: 0x1ABC424 VA: 0x1ABC424
+	private void GetTransitionInfo() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E4E4 Offset: 0xC2E4E4 VA: 0xC2E4E4
+[TooltipAttribute] // RVA: 0xC2E4E4 Offset: 0xC2E4E4 VA: 0xC2E4E4
+public class GetAnimatorCurrentTransitionInfoIsName : FsmStateActionAnimatorBase // TypeDefIndex: 12299
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC8AC94 Offset: 0xC8AC94 VA: 0xC8AC94
+	[CheckForComponentAttribute] // RVA: 0xC8AC94 Offset: 0xC8AC94 VA: 0xC8AC94
+	[TooltipAttribute] // RVA: 0xC8AC94 Offset: 0xC8AC94 VA: 0xC8AC94
+	public FsmOwnerDefault gameObject; // 0x58
+	[RequiredFieldAttribute] // RVA: 0xC8AD2C Offset: 0xC8AD2C VA: 0xC8AD2C
+	[TooltipAttribute] // RVA: 0xC8AD2C Offset: 0xC8AD2C VA: 0xC8AD2C
+	public FsmInt layerIndex; // 0x60
+	[TooltipAttribute] // RVA: 0xC8AD78 Offset: 0xC8AD78 VA: 0xC8AD78
+	public FsmString name; // 0x68
+	[ActionSection] // RVA: 0xC8ADB0 Offset: 0xC8ADB0 VA: 0xC8ADB0
+	[UIHintAttribute] // RVA: 0xC8ADB0 Offset: 0xC8ADB0 VA: 0xC8ADB0
+	[TooltipAttribute] // RVA: 0xC8ADB0 Offset: 0xC8ADB0 VA: 0xC8ADB0
+	public FsmBool nameMatch; // 0x70
+	[TooltipAttribute] // RVA: 0xC8AE24 Offset: 0xC8AE24 VA: 0xC8AE24
+	public FsmEvent nameMatchEvent; // 0x78
+	[TooltipAttribute] // RVA: 0xC8AE5C Offset: 0xC8AE5C VA: 0xC8AE5C
+	public FsmEvent nameDoNotMatchEvent; // 0x80
+	private Animator _animator; // 0x88
+
+	// Methods
+
+	// RVA: 0x1ABC67C Offset: 0x1ABC67C VA: 0x1ABC67C
+	public void .ctor() { }
+
+	// RVA: 0x1ABC684 Offset: 0x1ABC684 VA: 0x1ABC684 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABC6A0 Offset: 0x1ABC6A0 VA: 0x1ABC6A0 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABC950 Offset: 0x1ABC950 VA: 0x1ABC950 Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABC7CC Offset: 0x1ABC7CC VA: 0x1ABC7CC
+	private void IsName() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E534 Offset: 0xC2E534 VA: 0xC2E534
+[TooltipAttribute] // RVA: 0xC2E534 Offset: 0xC2E534 VA: 0xC2E534
+public class GetAnimatorCurrentTransitionInfoIsUserName : FsmStateActionAnimatorBase // TypeDefIndex: 12300
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC8AE94 Offset: 0xC8AE94 VA: 0xC8AE94
+	[CheckForComponentAttribute] // RVA: 0xC8AE94 Offset: 0xC8AE94 VA: 0xC8AE94
+	[TooltipAttribute] // RVA: 0xC8AE94 Offset: 0xC8AE94 VA: 0xC8AE94
+	public FsmOwnerDefault gameObject; // 0x58
+	[RequiredFieldAttribute] // RVA: 0xC8AF2C Offset: 0xC8AF2C VA: 0xC8AF2C
+	[TooltipAttribute] // RVA: 0xC8AF2C Offset: 0xC8AF2C VA: 0xC8AF2C
+	public FsmInt layerIndex; // 0x60
+	[TooltipAttribute] // RVA: 0xC8AF78 Offset: 0xC8AF78 VA: 0xC8AF78
+	public FsmString userName; // 0x68
+	[ActionSection] // RVA: 0xC8AFB0 Offset: 0xC8AFB0 VA: 0xC8AFB0
+	[UIHintAttribute] // RVA: 0xC8AFB0 Offset: 0xC8AFB0 VA: 0xC8AFB0
+	[TooltipAttribute] // RVA: 0xC8AFB0 Offset: 0xC8AFB0 VA: 0xC8AFB0
+	public FsmBool nameMatch; // 0x70
+	[TooltipAttribute] // RVA: 0xC8B024 Offset: 0xC8B024 VA: 0xC8B024
+	public FsmEvent nameMatchEvent; // 0x78
+	[TooltipAttribute] // RVA: 0xC8B05C Offset: 0xC8B05C VA: 0xC8B05C
+	public FsmEvent nameDoNotMatchEvent; // 0x80
+	private Animator _animator; // 0x88
+
+	// Methods
+
+	// RVA: 0x1ABC954 Offset: 0x1ABC954 VA: 0x1ABC954
+	public void .ctor() { }
+
+	// RVA: 0x1ABC95C Offset: 0x1ABC95C VA: 0x1ABC95C Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABC978 Offset: 0x1ABC978 VA: 0x1ABC978 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABCC30 Offset: 0x1ABCC30 VA: 0x1ABCC30 Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABCAA4 Offset: 0x1ABCAA4 VA: 0x1ABCAA4
+	private void IsName() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E584 Offset: 0xC2E584 VA: 0xC2E584
+[TooltipAttribute] // RVA: 0xC2E584 Offset: 0xC2E584 VA: 0xC2E584
+public class GetAnimatorDelta : FsmStateActionAnimatorBase // TypeDefIndex: 12301
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC8B094 Offset: 0xC8B094 VA: 0xC8B094
+	[CheckForComponentAttribute] // RVA: 0xC8B094 Offset: 0xC8B094 VA: 0xC8B094
+	[TooltipAttribute] // RVA: 0xC8B094 Offset: 0xC8B094 VA: 0xC8B094
+	public FsmOwnerDefault gameObject; // 0x58
+	[UIHintAttribute] // RVA: 0xC8B12C Offset: 0xC8B12C VA: 0xC8B12C
+	[TooltipAttribute] // RVA: 0xC8B12C Offset: 0xC8B12C VA: 0xC8B12C
+	public FsmVector3 deltaPosition; // 0x60
+	[UIHintAttribute] // RVA: 0xC8B17C Offset: 0xC8B17C VA: 0xC8B17C
+	[TooltipAttribute] // RVA: 0xC8B17C Offset: 0xC8B17C VA: 0xC8B17C
+	public FsmQuaternion deltaRotation; // 0x68
+	private Animator _animator; // 0x70
+
+	// Methods
+
+	// RVA: 0x1ABCC34 Offset: 0x1ABCC34 VA: 0x1ABCC34
+	public void .ctor() { }
+
+	// RVA: 0x1ABCC3C Offset: 0x1ABCC3C VA: 0x1ABCC3C Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABCC50 Offset: 0x1ABCC50 VA: 0x1ABCC50 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABCEAC Offset: 0x1ABCEAC VA: 0x1ABCEAC Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABCD64 Offset: 0x1ABCD64 VA: 0x1ABCD64
+	private void DoGetDeltaPosition() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E5D4 Offset: 0xC2E5D4 VA: 0xC2E5D4
+[TooltipAttribute] // RVA: 0xC2E5D4 Offset: 0xC2E5D4 VA: 0xC2E5D4
+public class GetAnimatorFeetPivotActive : FsmStateAction // TypeDefIndex: 12302
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC8B1CC Offset: 0xC8B1CC VA: 0xC8B1CC
+	[CheckForComponentAttribute] // RVA: 0xC8B1CC Offset: 0xC8B1CC VA: 0xC8B1CC
+	[TooltipAttribute] // RVA: 0xC8B1CC Offset: 0xC8B1CC VA: 0xC8B1CC
+	public FsmOwnerDefault gameObject; // 0x50
+	[RequiredFieldAttribute] // RVA: 0xC8B264 Offset: 0xC8B264 VA: 0xC8B264
+	[UIHintAttribute] // RVA: 0xC8B264 Offset: 0xC8B264 VA: 0xC8B264
+	[TooltipAttribute] // RVA: 0xC8B264 Offset: 0xC8B264 VA: 0xC8B264
+	public FsmFloat feetPivotActive; // 0x58
 	private Animator _animator; // 0x60
 
 	// Methods
 
-	// RVA: 0x21F8CA8 Offset: 0x21F8CA8 VA: 0x21F8CA8
+	// RVA: 0x1ABCEB0 Offset: 0x1ABCEB0 VA: 0x1ABCEB0
 	public void .ctor() { }
 
-	// RVA: 0x21F8CB0 Offset: 0x21F8CB0 VA: 0x21F8CB0 Slot: 28
+	// RVA: 0x1ABCEB8 Offset: 0x1ABCEB8 VA: 0x1ABCEB8 Slot: 28
 	public override void Reset() { }
 
-	// RVA: 0x21F8CB8 Offset: 0x21F8CB8 VA: 0x21F8CB8 Slot: 32
+	// RVA: 0x1ABCEC0 Offset: 0x1ABCEC0 VA: 0x1ABCEC0 Slot: 32
 	public override void OnEnter() { }
 
-	// RVA: 0x21F8DCC Offset: 0x21F8DCC VA: 0x21F8DCC
-	private void SetTrigger() { }
+	// RVA: 0x1ABCFD4 Offset: 0x1ABCFD4 VA: 0x1ABCFD4
+	private void DoGetFeetPivotActive() { }
 }
 
 // Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B340 Offset: 0xC9B340 VA: 0xC9B340
-[TooltipAttribute] // RVA: 0xC9B340 Offset: 0xC9B340 VA: 0xC9B340
-public class AnyKey : FsmStateAction // TypeDefIndex: 12304
+[ActionCategoryAttribute] // RVA: 0xC2E624 Offset: 0xC2E624 VA: 0xC2E624
+[TooltipAttribute] // RVA: 0xC2E624 Offset: 0xC2E624 VA: 0xC2E624
+public class GetAnimatorFloat : FsmStateActionAnimatorBase // TypeDefIndex: 12303
 {
 	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFC23C Offset: 0xCFC23C VA: 0xCFC23C
-	[TooltipAttribute] // RVA: 0xCFC23C Offset: 0xCFC23C VA: 0xCFC23C
-	public FsmEvent sendEvent; // 0x50
+	[RequiredFieldAttribute] // RVA: 0xC8B2C4 Offset: 0xC8B2C4 VA: 0xC8B2C4
+	[CheckForComponentAttribute] // RVA: 0xC8B2C4 Offset: 0xC8B2C4 VA: 0xC8B2C4
+	[TooltipAttribute] // RVA: 0xC8B2C4 Offset: 0xC8B2C4 VA: 0xC8B2C4
+	public FsmOwnerDefault gameObject; // 0x58
+	[RequiredFieldAttribute] // RVA: 0xC8B35C Offset: 0xC8B35C VA: 0xC8B35C
+	[UIHintAttribute] // RVA: 0xC8B35C Offset: 0xC8B35C VA: 0xC8B35C
+	[TooltipAttribute] // RVA: 0xC8B35C Offset: 0xC8B35C VA: 0xC8B35C
+	public FsmString parameter; // 0x60
+	[ActionSection] // RVA: 0xC8B3BC Offset: 0xC8B3BC VA: 0xC8B3BC
+	[RequiredFieldAttribute] // RVA: 0xC8B3BC Offset: 0xC8B3BC VA: 0xC8B3BC
+	[UIHintAttribute] // RVA: 0xC8B3BC Offset: 0xC8B3BC VA: 0xC8B3BC
+	[TooltipAttribute] // RVA: 0xC8B3BC Offset: 0xC8B3BC VA: 0xC8B3BC
+	public FsmFloat result; // 0x68
+	private Animator _animator; // 0x70
+	private int _paramID; // 0x78
 
 	// Methods
 
-	// RVA: 0x2319420 Offset: 0x2319420 VA: 0x2319420
+	// RVA: 0x1ABD09C Offset: 0x1ABD09C VA: 0x1ABD09C
 	public void .ctor() { }
 
-	// RVA: 0x2319428 Offset: 0x2319428 VA: 0x2319428 Slot: 28
+	// RVA: 0x1ABD0A4 Offset: 0x1ABD0A4 VA: 0x1ABD0A4 Slot: 28
 	public override void Reset() { }
 
-	// RVA: 0x2319430 Offset: 0x2319430 VA: 0x2319430 Slot: 34
-	public override void OnUpdate() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B390 Offset: 0xC9B390 VA: 0xC9B390
-[TooltipAttribute] // RVA: 0xC9B390 Offset: 0xC9B390 VA: 0xC9B390
-public class ApplicationQuit : FsmStateAction // TypeDefIndex: 12305
-{
-	// Methods
-
-	// RVA: 0x231948C Offset: 0x231948C VA: 0x231948C
-	public void .ctor() { }
-
-	// RVA: 0x2319494 Offset: 0x2319494 VA: 0x2319494 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x2319498 Offset: 0x2319498 VA: 0x2319498 Slot: 32
+	// RVA: 0x1ABD0B8 Offset: 0x1ABD0B8 VA: 0x1ABD0B8 Slot: 32
 	public override void OnEnter() { }
+
+	// RVA: 0x1ABD2E8 Offset: 0x1ABD2E8 VA: 0x1ABD2E8 Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABD20C Offset: 0x1ABD20C VA: 0x1ABD20C
+	private void GetParameter() { }
 }
 
 // Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B3E0 Offset: 0xC9B3E0 VA: 0xC9B3E0
-[TooltipAttribute] // RVA: 0xC9B3E0 Offset: 0xC9B3E0 VA: 0xC9B3E0
-public class ApplicationRunInBackground : FsmStateAction // TypeDefIndex: 12306
+[ActionCategoryAttribute] // RVA: 0xC2E674 Offset: 0xC2E674 VA: 0xC2E674
+[TooltipAttribute] // RVA: 0xC2E674 Offset: 0xC2E674 VA: 0xC2E674
+public class GetAnimatorGravityWeight : FsmStateActionAnimatorBase // TypeDefIndex: 12304
 {
 	// Fields
-	public FsmBool runInBackground; // 0x50
+	[RequiredFieldAttribute] // RVA: 0xC8B440 Offset: 0xC8B440 VA: 0xC8B440
+	[CheckForComponentAttribute] // RVA: 0xC8B440 Offset: 0xC8B440 VA: 0xC8B440
+	[TooltipAttribute] // RVA: 0xC8B440 Offset: 0xC8B440 VA: 0xC8B440
+	public FsmOwnerDefault gameObject; // 0x58
+	[ActionSection] // RVA: 0xC8B4D8 Offset: 0xC8B4D8 VA: 0xC8B4D8
+	[UIHintAttribute] // RVA: 0xC8B4D8 Offset: 0xC8B4D8 VA: 0xC8B4D8
+	[TooltipAttribute] // RVA: 0xC8B4D8 Offset: 0xC8B4D8 VA: 0xC8B4D8
+	public FsmFloat gravityWeight; // 0x60
+	private Animator _animator; // 0x68
 
 	// Methods
 
-	// RVA: 0x23194C4 Offset: 0x23194C4 VA: 0x23194C4
+	// RVA: 0x1ABD2EC Offset: 0x1ABD2EC VA: 0x1ABD2EC
 	public void .ctor() { }
 
-	// RVA: 0x23194CC Offset: 0x23194CC VA: 0x23194CC Slot: 28
+	// RVA: 0x1ABD2F4 Offset: 0x1ABD2F4 VA: 0x1ABD2F4 Slot: 28
 	public override void Reset() { }
 
-	// RVA: 0x23194F8 Offset: 0x23194F8 VA: 0x23194F8 Slot: 32
+	// RVA: 0x1ABD304 Offset: 0x1ABD304 VA: 0x1ABD304 Slot: 32
 	public override void OnEnter() { }
+
+	// RVA: 0x1ABD4F8 Offset: 0x1ABD4F8 VA: 0x1ABD4F8 Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABD430 Offset: 0x1ABD430 VA: 0x1ABD430
+	private void DoGetGravityWeight() { }
 }
 
 // Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B430 Offset: 0xC9B430 VA: 0xC9B430
-[TooltipAttribute] // RVA: 0xC9B430 Offset: 0xC9B430 VA: 0xC9B430
-public class ArrayAdd : FsmStateAction // TypeDefIndex: 12307
+[ActionCategoryAttribute] // RVA: 0xC2E6C4 Offset: 0xC2E6C4 VA: 0xC2E6C4
+[TooltipAttribute] // RVA: 0xC2E6C4 Offset: 0xC2E6C4 VA: 0xC2E6C4
+public class GetAnimatorHumanScale : FsmStateAction // TypeDefIndex: 12305
 {
 	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFC288 Offset: 0xCFC288 VA: 0xCFC288
-	[UIHintAttribute] // RVA: 0xCFC288 Offset: 0xCFC288 VA: 0xCFC288
-	[TooltipAttribute] // RVA: 0xCFC288 Offset: 0xCFC288 VA: 0xCFC288
-	public FsmArray array; // 0x50
-	[RequiredFieldAttribute] // RVA: 0xCFC2E8 Offset: 0xCFC2E8 VA: 0xCFC2E8
-	[MatchElementTypeAttribute] // RVA: 0xCFC2E8 Offset: 0xCFC2E8 VA: 0xCFC2E8
-	[TooltipAttribute] // RVA: 0xCFC2E8 Offset: 0xCFC2E8 VA: 0xCFC2E8
-	public FsmVar value; // 0x58
-
-	// Methods
-
-	// RVA: 0x2319544 Offset: 0x2319544 VA: 0x2319544
-	public void .ctor() { }
-
-	// RVA: 0x231954C Offset: 0x231954C VA: 0x231954C Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x2319554 Offset: 0x2319554 VA: 0x2319554 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x231957C Offset: 0x231957C VA: 0x231957C
-	private void DoAddValue() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B480 Offset: 0xC9B480 VA: 0xC9B480
-[TooltipAttribute] // RVA: 0xC9B480 Offset: 0xC9B480 VA: 0xC9B480
-public class ArrayAddRange : FsmStateAction // TypeDefIndex: 12308
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFC358 Offset: 0xCFC358 VA: 0xCFC358
-	[UIHintAttribute] // RVA: 0xCFC358 Offset: 0xCFC358 VA: 0xCFC358
-	[TooltipAttribute] // RVA: 0xCFC358 Offset: 0xCFC358 VA: 0xCFC358
-	public FsmArray array; // 0x50
-	[RequiredFieldAttribute] // RVA: 0xCFC3B8 Offset: 0xCFC3B8 VA: 0xCFC3B8
-	[MatchElementTypeAttribute] // RVA: 0xCFC3B8 Offset: 0xCFC3B8 VA: 0xCFC3B8
-	[TooltipAttribute] // RVA: 0xCFC3B8 Offset: 0xCFC3B8 VA: 0xCFC3B8
-	public FsmVar[] variables; // 0x58
-
-	// Methods
-
-	// RVA: 0x2319664 Offset: 0x2319664 VA: 0x2319664
-	public void .ctor() { }
-
-	// RVA: 0x231966C Offset: 0x231966C VA: 0x231966C Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x23196C8 Offset: 0x23196C8 VA: 0x23196C8 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x23196F0 Offset: 0x23196F0 VA: 0x23196F0
-	private void DoAddRange() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B4D0 Offset: 0xC9B4D0 VA: 0xC9B4D0
-[TooltipAttribute] // RVA: 0xC9B4D0 Offset: 0xC9B4D0 VA: 0xC9B4D0
-public class ArrayClear : FsmStateAction // TypeDefIndex: 12309
-{
-	// Fields
-	[UIHintAttribute] // RVA: 0xCFC428 Offset: 0xCFC428 VA: 0xCFC428
-	[TooltipAttribute] // RVA: 0xCFC428 Offset: 0xCFC428 VA: 0xCFC428
-	public FsmArray array; // 0x50
-	[MatchElementTypeAttribute] // RVA: 0xCFC478 Offset: 0xCFC478 VA: 0xCFC478
-	[TooltipAttribute] // RVA: 0xCFC478 Offset: 0xCFC478 VA: 0xCFC478
-	public FsmVar resetValue; // 0x58
-
-	// Methods
-
-	// RVA: 0x2319854 Offset: 0x2319854 VA: 0x2319854
-	public void .ctor() { }
-
-	// RVA: 0x231985C Offset: 0x231985C VA: 0x231985C Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x23198D4 Offset: 0x23198D4 VA: 0x23198D4 Slot: 32
-	public override void OnEnter() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B520 Offset: 0xC9B520 VA: 0xC9B520
-[TooltipAttribute] // RVA: 0xC9B520 Offset: 0xC9B520 VA: 0xC9B520
-public class ArrayCompare : FsmStateAction // TypeDefIndex: 12310
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFC4D8 Offset: 0xCFC4D8 VA: 0xCFC4D8
-	[UIHintAttribute] // RVA: 0xCFC4D8 Offset: 0xCFC4D8 VA: 0xCFC4D8
-	[TooltipAttribute] // RVA: 0xCFC4D8 Offset: 0xCFC4D8 VA: 0xCFC4D8
-	public FsmArray array1; // 0x50
-	[RequiredFieldAttribute] // RVA: 0xCFC538 Offset: 0xCFC538 VA: 0xCFC538
-	[UIHintAttribute] // RVA: 0xCFC538 Offset: 0xCFC538 VA: 0xCFC538
-	[TooltipAttribute] // RVA: 0xCFC538 Offset: 0xCFC538 VA: 0xCFC538
-	public FsmArray array2; // 0x58
-	[TooltipAttribute] // RVA: 0xCFC598 Offset: 0xCFC598 VA: 0xCFC598
-	public FsmEvent SequenceEqual; // 0x60
-	[TooltipAttribute] // RVA: 0xCFC5D0 Offset: 0xCFC5D0 VA: 0xCFC5D0
-	public FsmEvent SequenceNotEqual; // 0x68
-	[UIHintAttribute] // RVA: 0xCFC608 Offset: 0xCFC608 VA: 0xCFC608
-	[TooltipAttribute] // RVA: 0xCFC608 Offset: 0xCFC608 VA: 0xCFC608
-	public FsmBool storeResult; // 0x70
-	[TooltipAttribute] // RVA: 0xCFC658 Offset: 0xCFC658 VA: 0xCFC658
-	public bool everyFrame; // 0x78
-
-	// Methods
-
-	// RVA: 0x23199FC Offset: 0x23199FC VA: 0x23199FC
-	public void .ctor() { }
-
-	// RVA: 0x2319A04 Offset: 0x2319A04 VA: 0x2319A04 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x2319A10 Offset: 0x2319A10 VA: 0x2319A10 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x2319A4C Offset: 0x2319A4C VA: 0x2319A4C
-	private void DoSequenceEqual() { }
-
-	// RVA: 0x2319B88 Offset: 0x2319B88 VA: 0x2319B88
-	private bool TestSequenceEqual(object[] _array1, object[] _array2) { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B570 Offset: 0xC9B570 VA: 0xC9B570
-[TooltipAttribute] // RVA: 0xC9B570 Offset: 0xC9B570 VA: 0xC9B570
-public class ArrayContains : FsmStateAction // TypeDefIndex: 12311
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFC690 Offset: 0xCFC690 VA: 0xCFC690
-	[UIHintAttribute] // RVA: 0xCFC690 Offset: 0xCFC690 VA: 0xCFC690
-	[TooltipAttribute] // RVA: 0xCFC690 Offset: 0xCFC690 VA: 0xCFC690
-	public FsmArray array; // 0x50
-	[RequiredFieldAttribute] // RVA: 0xCFC6F0 Offset: 0xCFC6F0 VA: 0xCFC6F0
-	[MatchElementTypeAttribute] // RVA: 0xCFC6F0 Offset: 0xCFC6F0 VA: 0xCFC6F0
-	[TooltipAttribute] // RVA: 0xCFC6F0 Offset: 0xCFC6F0 VA: 0xCFC6F0
-	public FsmVar value; // 0x58
-	[ActionSection] // RVA: 0xCFC760 Offset: 0xCFC760 VA: 0xCFC760
-	[TooltipAttribute] // RVA: 0xCFC760 Offset: 0xCFC760 VA: 0xCFC760
-	[UIHintAttribute] // RVA: 0xCFC760 Offset: 0xCFC760 VA: 0xCFC760
-	public FsmInt index; // 0x60
-	[TooltipAttribute] // RVA: 0xCFC7D4 Offset: 0xCFC7D4 VA: 0xCFC7D4
-	[UIHintAttribute] // RVA: 0xCFC7D4 Offset: 0xCFC7D4 VA: 0xCFC7D4
-	public FsmBool isContained; // 0x68
-	[TooltipAttribute] // RVA: 0xCFC824 Offset: 0xCFC824 VA: 0xCFC824
-	public FsmEvent isContainedEvent; // 0x70
-	[TooltipAttribute] // RVA: 0xCFC85C Offset: 0xCFC85C VA: 0xCFC85C
-	public FsmEvent isNotContainedEvent; // 0x78
-	[CompilerGeneratedAttribute] // RVA: 0xCFC894 Offset: 0xCFC894 VA: 0xCFC894
-	private static Predicate<object> <>f__am$cache0; // 0x0
-
-	// Methods
-
-	// RVA: 0x2319C94 Offset: 0x2319C94 VA: 0x2319C94
-	public void .ctor() { }
-
-	// RVA: 0x2319C9C Offset: 0x2319C9C VA: 0x2319C9C Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x2319CAC Offset: 0x2319CAC VA: 0x2319CAC Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x2319CD4 Offset: 0x2319CD4 VA: 0x2319CD4
-	private void DoCheckContainsValue() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD44DF4 Offset: 0xD44DF4 VA: 0xD44DF4
-	// RVA: 0x2319F14 Offset: 0x2319F14 VA: 0x2319F14
-	private static bool <DoCheckContainsValue>m__0(object x) { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B5C0 Offset: 0xC9B5C0 VA: 0xC9B5C0
-[TooltipAttribute] // RVA: 0xC9B5C0 Offset: 0xC9B5C0 VA: 0xC9B5C0
-public class ArrayDeleteAt : FsmStateAction // TypeDefIndex: 12312
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFC8A4 Offset: 0xCFC8A4 VA: 0xCFC8A4
-	[UIHintAttribute] // RVA: 0xCFC8A4 Offset: 0xCFC8A4 VA: 0xCFC8A4
-	[TooltipAttribute] // RVA: 0xCFC8A4 Offset: 0xCFC8A4 VA: 0xCFC8A4
-	public FsmArray array; // 0x50
-	[TooltipAttribute] // RVA: 0xCFC904 Offset: 0xCFC904 VA: 0xCFC904
-	public FsmInt index; // 0x58
-	[ActionSection] // RVA: 0xCFC93C Offset: 0xCFC93C VA: 0xCFC93C
-	[TooltipAttribute] // RVA: 0xCFC93C Offset: 0xCFC93C VA: 0xCFC93C
-	public FsmEvent indexOutOfRangeEvent; // 0x60
-
-	// Methods
-
-	// RVA: 0x2319F30 Offset: 0x2319F30 VA: 0x2319F30
-	public void .ctor() { }
-
-	// RVA: 0x2319F38 Offset: 0x2319F38 VA: 0x2319F38 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x2319F44 Offset: 0x2319F44 VA: 0x2319F44 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x2319F6C Offset: 0x2319F6C VA: 0x2319F6C
-	private void DoDeleteAt() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B610 Offset: 0xC9B610 VA: 0xC9B610
-[TooltipAttribute] // RVA: 0xC9B610 Offset: 0xC9B610 VA: 0xC9B610
-public class ArrayForEach : RunFSMAction // TypeDefIndex: 12313
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFC99C Offset: 0xCFC99C VA: 0xCFC99C
-	[UIHintAttribute] // RVA: 0xCFC99C Offset: 0xCFC99C VA: 0xCFC99C
-	[TooltipAttribute] // RVA: 0xCFC99C Offset: 0xCFC99C VA: 0xCFC99C
-	public FsmArray array; // 0x58
-	[HideTypeFilter] // RVA: 0xCFC9FC Offset: 0xCFC9FC VA: 0xCFC9FC
-	[MatchElementTypeAttribute] // RVA: 0xCFC9FC Offset: 0xCFC9FC VA: 0xCFC9FC
-	[UIHintAttribute] // RVA: 0xCFC9FC Offset: 0xCFC9FC VA: 0xCFC9FC
-	[TooltipAttribute] // RVA: 0xCFC9FC Offset: 0xCFC9FC VA: 0xCFC9FC
-	public FsmVar storeItem; // 0x60
-	[ActionSection] // RVA: 0xCFCA80 Offset: 0xCFCA80 VA: 0xCFCA80
-	public FsmTemplateControl fsmTemplateControl; // 0x68
-	[TooltipAttribute] // RVA: 0xCFCAB8 Offset: 0xCFCAB8 VA: 0xCFCAB8
-	public FsmEvent finishEvent; // 0x70
-	private int currentIndex; // 0x78
-
-	// Methods
-
-	// RVA: 0x231A13C Offset: 0x231A13C VA: 0x231A13C
-	public void .ctor() { }
-
-	// RVA: 0x231A1A4 Offset: 0x231A1A4 VA: 0x231A1A4 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x231A20C Offset: 0x231A20C VA: 0x231A20C Slot: 30
-	public override void Awake() { }
-
-	// RVA: 0x231A2E0 Offset: 0x231A2E0 VA: 0x231A2E0 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x231A3C8 Offset: 0x231A3C8 VA: 0x231A3C8 Slot: 34
-	public override void OnUpdate() { }
-
-	// RVA: 0x231A44C Offset: 0x231A44C VA: 0x231A44C Slot: 33
-	public override void OnFixedUpdate() { }
-
-	// RVA: 0x231A4C0 Offset: 0x231A4C0 VA: 0x231A4C0 Slot: 36
-	public override void OnLateUpdate() { }
-
-	// RVA: 0x231A43C Offset: 0x231A43C VA: 0x231A43C
-	private void StartNextFsm() { }
-
-	// RVA: 0x231A300 Offset: 0x231A300 VA: 0x231A300
-	private void StartFsm() { }
-
-	// RVA: 0x231A534 Offset: 0x231A534 VA: 0x231A534
-	private void DoStartFsm() { }
-
-	// RVA: 0x231A668 Offset: 0x231A668 VA: 0x231A668 Slot: 62
-	protected override void CheckIfFinished() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B660 Offset: 0xC9B660 VA: 0xC9B660
-[TooltipAttribute] // RVA: 0xC9B660 Offset: 0xC9B660 VA: 0xC9B660
-public class ArrayGet : FsmStateAction // TypeDefIndex: 12314
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFCAF0 Offset: 0xCFCAF0 VA: 0xCFCAF0
-	[UIHintAttribute] // RVA: 0xCFCAF0 Offset: 0xCFCAF0 VA: 0xCFCAF0
-	[TooltipAttribute] // RVA: 0xCFCAF0 Offset: 0xCFCAF0 VA: 0xCFCAF0
-	public FsmArray array; // 0x50
-	[TooltipAttribute] // RVA: 0xCFCB50 Offset: 0xCFCB50 VA: 0xCFCB50
-	public FsmInt index; // 0x58
-	[RequiredFieldAttribute] // RVA: 0xCFCB88 Offset: 0xCFCB88 VA: 0xCFCB88
-	[MatchElementTypeAttribute] // RVA: 0xCFCB88 Offset: 0xCFCB88 VA: 0xCFCB88
-	[UIHintAttribute] // RVA: 0xCFCB88 Offset: 0xCFCB88 VA: 0xCFCB88
-	[TooltipAttribute] // RVA: 0xCFCB88 Offset: 0xCFCB88 VA: 0xCFCB88
-	public FsmVar storeValue; // 0x60
-	[TooltipAttribute] // RVA: 0xCFCC0C Offset: 0xCFCC0C VA: 0xCFCC0C
-	public bool everyFrame; // 0x68
-	[ActionSection] // RVA: 0xCFCC44 Offset: 0xCFCC44 VA: 0xCFCC44
-	[TooltipAttribute] // RVA: 0xCFCC44 Offset: 0xCFCC44 VA: 0xCFCC44
-	public FsmEvent indexOutOfRange; // 0x70
-
-	// Methods
-
-	// RVA: 0x231A66C Offset: 0x231A66C VA: 0x231A66C
-	public void .ctor() { }
-
-	// RVA: 0x231A674 Offset: 0x231A674 VA: 0x231A674 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x231A688 Offset: 0x231A688 VA: 0x231A688 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x231A830 Offset: 0x231A830 VA: 0x231A830 Slot: 34
-	public override void OnUpdate() { }
-
-	// RVA: 0x231A6C4 Offset: 0x231A6C4 VA: 0x231A6C4
-	private void DoGetValue() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B6B0 Offset: 0xC9B6B0 VA: 0xC9B6B0
-[TooltipAttribute] // RVA: 0xC9B6B0 Offset: 0xC9B6B0 VA: 0xC9B6B0
-public class ArrayGetNext : FsmStateAction // TypeDefIndex: 12315
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFCCA4 Offset: 0xCFCCA4 VA: 0xCFCCA4
-	[UIHintAttribute] // RVA: 0xCFCCA4 Offset: 0xCFCCA4 VA: 0xCFCCA4
-	[TooltipAttribute] // RVA: 0xCFCCA4 Offset: 0xCFCCA4 VA: 0xCFCCA4
-	public FsmArray array; // 0x50
-	[TooltipAttribute] // RVA: 0xCFCD04 Offset: 0xCFCD04 VA: 0xCFCD04
-	public FsmInt startIndex; // 0x58
-	[TooltipAttribute] // RVA: 0xCFCD3C Offset: 0xCFCD3C VA: 0xCFCD3C
-	public FsmInt endIndex; // 0x60
-	[TooltipAttribute] // RVA: 0xCFCD74 Offset: 0xCFCD74 VA: 0xCFCD74
-	public FsmEvent loopEvent; // 0x68
-	[TooltipAttribute] // RVA: 0xCFCDAC Offset: 0xCFCDAC VA: 0xCFCDAC
-	[UIHintAttribute] // RVA: 0xCFCDAC Offset: 0xCFCDAC VA: 0xCFCDAC
-	public FsmBool resetFlag; // 0x70
-	[TooltipAttribute] // RVA: 0xCFCDFC Offset: 0xCFCDFC VA: 0xCFCDFC
-	public FsmEvent finishedEvent; // 0x78
-	[ActionSection] // RVA: 0xCFCE34 Offset: 0xCFCE34 VA: 0xCFCE34
-	[MatchElementTypeAttribute] // RVA: 0xCFCE34 Offset: 0xCFCE34 VA: 0xCFCE34
-	[UIHintAttribute] // RVA: 0xCFCE34 Offset: 0xCFCE34 VA: 0xCFCE34
-	public FsmVar result; // 0x80
-	[UIHintAttribute] // RVA: 0xCFCEA8 Offset: 0xCFCEA8 VA: 0xCFCEA8
-	public FsmInt currentIndex; // 0x88
-	private int nextItemIndex; // 0x90
-
-	// Methods
-
-	// RVA: 0x231A834 Offset: 0x231A834 VA: 0x231A834
-	public void .ctor() { }
-
-	// RVA: 0x231A83C Offset: 0x231A83C VA: 0x231A83C Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x231A84C Offset: 0x231A84C VA: 0x231A84C Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x231A924 Offset: 0x231A924 VA: 0x231A924
-	private void DoGetNextItem() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B700 Offset: 0xC9B700 VA: 0xC9B700
-[TooltipAttribute] // RVA: 0xC9B700 Offset: 0xC9B700 VA: 0xC9B700
-public class ArrayGetRandom : FsmStateAction // TypeDefIndex: 12316
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFCEBC Offset: 0xCFCEBC VA: 0xCFCEBC
-	[UIHintAttribute] // RVA: 0xCFCEBC Offset: 0xCFCEBC VA: 0xCFCEBC
-	[TooltipAttribute] // RVA: 0xCFCEBC Offset: 0xCFCEBC VA: 0xCFCEBC
-	public FsmArray array; // 0x50
-	[RequiredFieldAttribute] // RVA: 0xCFCF1C Offset: 0xCFCF1C VA: 0xCFCF1C
-	[UIHintAttribute] // RVA: 0xCFCF1C Offset: 0xCFCF1C VA: 0xCFCF1C
-	[TooltipAttribute] // RVA: 0xCFCF1C Offset: 0xCFCF1C VA: 0xCFCF1C
-	[MatchElementTypeAttribute] // RVA: 0xCFCF1C Offset: 0xCFCF1C VA: 0xCFCF1C
-	public FsmVar storeValue; // 0x58
-	[TooltipAttribute] // RVA: 0xCFCFA0 Offset: 0xCFCFA0 VA: 0xCFCFA0
-	[UIHintAttribute] // RVA: 0xCFCFA0 Offset: 0xCFCFA0 VA: 0xCFCFA0
-	public FsmInt index; // 0x60
-	[TooltipAttribute] // RVA: 0xCFCFF0 Offset: 0xCFCFF0 VA: 0xCFCFF0
-	public FsmBool noRepeat; // 0x68
-	[TooltipAttribute] // RVA: 0xCFD028 Offset: 0xCFD028 VA: 0xCFD028
-	public bool everyFrame; // 0x70
-	private int randomIndex; // 0x74
-	private int lastIndex; // 0x78
-
-	// Methods
-
-	// RVA: 0x231AB30 Offset: 0x231AB30 VA: 0x231AB30
-	public void .ctor() { }
-
-	// RVA: 0x231AB40 Offset: 0x231AB40 VA: 0x231AB40 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x231AB78 Offset: 0x231AB78 VA: 0x231AB78 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x231AD48 Offset: 0x231AD48 VA: 0x231AD48 Slot: 34
-	public override void OnUpdate() { }
-
-	// RVA: 0x231ABB4 Offset: 0x231ABB4 VA: 0x231ABB4
-	private void DoGetRandomValue() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B750 Offset: 0xC9B750 VA: 0xC9B750
-[TooltipAttribute] // RVA: 0xC9B750 Offset: 0xC9B750 VA: 0xC9B750
-public class ArrayLength : FsmStateAction // TypeDefIndex: 12317
-{
-	// Fields
-	[UIHintAttribute] // RVA: 0xCFD060 Offset: 0xCFD060 VA: 0xCFD060
-	[TooltipAttribute] // RVA: 0xCFD060 Offset: 0xCFD060 VA: 0xCFD060
-	public FsmArray array; // 0x50
-	[UIHintAttribute] // RVA: 0xCFD0B0 Offset: 0xCFD0B0 VA: 0xCFD0B0
-	[TooltipAttribute] // RVA: 0xCFD0B0 Offset: 0xCFD0B0 VA: 0xCFD0B0
-	public FsmInt length; // 0x58
-	[TooltipAttribute] // RVA: 0xCFD100 Offset: 0xCFD100 VA: 0xCFD100
-	public bool everyFrame; // 0x60
-
-	// Methods
-
-	// RVA: 0x231AD4C Offset: 0x231AD4C VA: 0x231AD4C
-	public void .ctor() { }
-
-	// RVA: 0x231AD54 Offset: 0x231AD54 VA: 0x231AD54 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x231AD60 Offset: 0x231AD60 VA: 0x231AD60 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x231ADE0 Offset: 0x231ADE0 VA: 0x231ADE0 Slot: 34
-	public override void OnUpdate() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B7A0 Offset: 0xC9B7A0 VA: 0xC9B7A0
-[TooltipAttribute] // RVA: 0xC9B7A0 Offset: 0xC9B7A0 VA: 0xC9B7A0
-public class ArrayResize : FsmStateAction // TypeDefIndex: 12318
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFD138 Offset: 0xCFD138 VA: 0xCFD138
-	[UIHintAttribute] // RVA: 0xCFD138 Offset: 0xCFD138 VA: 0xCFD138
-	[TooltipAttribute] // RVA: 0xCFD138 Offset: 0xCFD138 VA: 0xCFD138
-	public FsmArray array; // 0x50
-	[TooltipAttribute] // RVA: 0xCFD198 Offset: 0xCFD198 VA: 0xCFD198
-	public FsmInt newSize; // 0x58
-	[TooltipAttribute] // RVA: 0xCFD1D0 Offset: 0xCFD1D0 VA: 0xCFD1D0
-	public FsmEvent sizeOutOfRangeEvent; // 0x60
-
-	// Methods
-
-	// RVA: 0x231AE30 Offset: 0x231AE30 VA: 0x231AE30
-	public void .ctor() { }
-
-	// RVA: 0x231AE38 Offset: 0x231AE38 VA: 0x231AE38 Slot: 32
-	public override void OnEnter() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B7F0 Offset: 0xC9B7F0 VA: 0xC9B7F0
-[TooltipAttribute] // RVA: 0xC9B7F0 Offset: 0xC9B7F0 VA: 0xC9B7F0
-public class ArrayReverse : FsmStateAction // TypeDefIndex: 12319
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFD208 Offset: 0xCFD208 VA: 0xCFD208
-	[UIHintAttribute] // RVA: 0xCFD208 Offset: 0xCFD208 VA: 0xCFD208
-	[TooltipAttribute] // RVA: 0xCFD208 Offset: 0xCFD208 VA: 0xCFD208
-	public FsmArray array; // 0x50
-
-	// Methods
-
-	// RVA: 0x231AFA0 Offset: 0x231AFA0 VA: 0x231AFA0
-	public void .ctor() { }
-
-	// RVA: 0x231AFA8 Offset: 0x231AFA8 VA: 0x231AFA8 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x231AFB0 Offset: 0x231AFB0 VA: 0x231AFB0 Slot: 32
-	public override void OnEnter() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B840 Offset: 0xC9B840 VA: 0xC9B840
-[TooltipAttribute] // RVA: 0xC9B840 Offset: 0xC9B840 VA: 0xC9B840
-public class ArraySet : FsmStateAction // TypeDefIndex: 12320
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFD268 Offset: 0xCFD268 VA: 0xCFD268
-	[UIHintAttribute] // RVA: 0xCFD268 Offset: 0xCFD268 VA: 0xCFD268
-	[TooltipAttribute] // RVA: 0xCFD268 Offset: 0xCFD268 VA: 0xCFD268
-	public FsmArray array; // 0x50
-	[TooltipAttribute] // RVA: 0xCFD2C8 Offset: 0xCFD2C8 VA: 0xCFD2C8
-	public FsmInt index; // 0x58
-	[RequiredFieldAttribute] // RVA: 0xCFD300 Offset: 0xCFD300 VA: 0xCFD300
-	[MatchElementTypeAttribute] // RVA: 0xCFD300 Offset: 0xCFD300 VA: 0xCFD300
-	[TooltipAttribute] // RVA: 0xCFD300 Offset: 0xCFD300 VA: 0xCFD300
-	public FsmVar value; // 0x60
-	[TooltipAttribute] // RVA: 0xCFD370 Offset: 0xCFD370 VA: 0xCFD370
-	public bool everyFrame; // 0x68
-	[ActionSection] // RVA: 0xCFD3A8 Offset: 0xCFD3A8 VA: 0xCFD3A8
-	[TooltipAttribute] // RVA: 0xCFD3A8 Offset: 0xCFD3A8 VA: 0xCFD3A8
-	public FsmEvent indexOutOfRange; // 0x70
-
-	// Methods
-
-	// RVA: 0x231B0C8 Offset: 0x231B0C8 VA: 0x231B0C8
-	public void .ctor() { }
-
-	// RVA: 0x231B0D0 Offset: 0x231B0D0 VA: 0x231B0D0 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x231B0E4 Offset: 0x231B0E4 VA: 0x231B0E4 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x231B288 Offset: 0x231B288 VA: 0x231B288 Slot: 34
-	public override void OnUpdate() { }
-
-	// RVA: 0x231B120 Offset: 0x231B120 VA: 0x231B120
-	private void DoGetValue() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B890 Offset: 0xC9B890 VA: 0xC9B890
-[TooltipAttribute] // RVA: 0xC9B890 Offset: 0xC9B890 VA: 0xC9B890
-public class ArrayShuffle : FsmStateAction // TypeDefIndex: 12321
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFD408 Offset: 0xCFD408 VA: 0xCFD408
-	[UIHintAttribute] // RVA: 0xCFD408 Offset: 0xCFD408 VA: 0xCFD408
-	[TooltipAttribute] // RVA: 0xCFD408 Offset: 0xCFD408 VA: 0xCFD408
-	public FsmArray array; // 0x50
-	[TooltipAttribute] // RVA: 0xCFD468 Offset: 0xCFD468 VA: 0xCFD468
-	public FsmInt startIndex; // 0x58
-	[TooltipAttribute] // RVA: 0xCFD4A0 Offset: 0xCFD4A0 VA: 0xCFD4A0
-	public FsmInt shufflingRange; // 0x60
-
-	// Methods
-
-	// RVA: 0x231B28C Offset: 0x231B28C VA: 0x231B28C
-	public void .ctor() { }
-
-	// RVA: 0x231B294 Offset: 0x231B294 VA: 0x231B294 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x231B350 Offset: 0x231B350 VA: 0x231B350 Slot: 32
-	public override void OnEnter() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B8E0 Offset: 0xC9B8E0 VA: 0xC9B8E0
-[TooltipAttribute] // RVA: 0xC9B8E0 Offset: 0xC9B8E0 VA: 0xC9B8E0
-public class ArraySort : FsmStateAction // TypeDefIndex: 12322
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFD4D8 Offset: 0xCFD4D8 VA: 0xCFD4D8
-	[UIHintAttribute] // RVA: 0xCFD4D8 Offset: 0xCFD4D8 VA: 0xCFD4D8
-	[TooltipAttribute] // RVA: 0xCFD4D8 Offset: 0xCFD4D8 VA: 0xCFD4D8
-	public FsmArray array; // 0x50
-
-	// Methods
-
-	// RVA: 0x231B670 Offset: 0x231B670 VA: 0x231B670
-	public void .ctor() { }
-
-	// RVA: 0x231B678 Offset: 0x231B678 VA: 0x231B678 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x231B680 Offset: 0x231B680 VA: 0x231B680 Slot: 32
-	public override void OnEnter() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[NoActionTargetsAttribute] // RVA: 0xC9B930 Offset: 0xC9B930 VA: 0xC9B930
-[ActionCategoryAttribute] // RVA: 0xC9B930 Offset: 0xC9B930 VA: 0xC9B930
-[TooltipAttribute] // RVA: 0xC9B930 Offset: 0xC9B930 VA: 0xC9B930
-public class ArrayTransferValue : FsmStateAction // TypeDefIndex: 12323
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFD538 Offset: 0xCFD538 VA: 0xCFD538
-	[UIHintAttribute] // RVA: 0xCFD538 Offset: 0xCFD538 VA: 0xCFD538
-	[TooltipAttribute] // RVA: 0xCFD538 Offset: 0xCFD538 VA: 0xCFD538
-	public FsmArray arraySource; // 0x50
-	[RequiredFieldAttribute] // RVA: 0xCFD598 Offset: 0xCFD598 VA: 0xCFD598
-	[UIHintAttribute] // RVA: 0xCFD598 Offset: 0xCFD598 VA: 0xCFD598
-	[TooltipAttribute] // RVA: 0xCFD598 Offset: 0xCFD598 VA: 0xCFD598
-	public FsmArray arrayTarget; // 0x58
-	[MatchFieldTypeAttribute] // RVA: 0xCFD5F8 Offset: 0xCFD5F8 VA: 0xCFD5F8
-	[TooltipAttribute] // RVA: 0xCFD5F8 Offset: 0xCFD5F8 VA: 0xCFD5F8
-	public FsmInt indexToTransfer; // 0x60
-	[ActionSection] // RVA: 0xCFD658 Offset: 0xCFD658 VA: 0xCFD658
-	[ObjectTypeAttribute] // RVA: 0xCFD658 Offset: 0xCFD658 VA: 0xCFD658
-	public FsmEnum copyType; // 0x68
-	[ObjectTypeAttribute] // RVA: 0xCFD6E0 Offset: 0xCFD6E0 VA: 0xCFD6E0
-	public FsmEnum pasteType; // 0x70
-	[ActionSection] // RVA: 0xCFD744 Offset: 0xCFD744 VA: 0xCFD744
-	[TooltipAttribute] // RVA: 0xCFD744 Offset: 0xCFD744 VA: 0xCFD744
-	public FsmEvent indexOutOfRange; // 0x78
-
-	// Methods
-
-	// RVA: 0x231B798 Offset: 0x231B798 VA: 0x231B798
-	public void .ctor() { }
-
-	// RVA: 0x231B7A0 Offset: 0x231B7A0 VA: 0x231B7A0 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x231B83C Offset: 0x231B83C VA: 0x231B83C Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x231B864 Offset: 0x231B864 VA: 0x231B864
-	private void DoTransferValue() { }
-}
-
-// Namespace: 
-public enum ArrayTransferValue.ArrayTransferType // TypeDefIndex: 12324
-{
-	// Fields
-	public int value__; // 0x0
-	public const ArrayTransferValue.ArrayTransferType Copy = 0;
-	public const ArrayTransferValue.ArrayTransferType Cut = 1;
-	public const ArrayTransferValue.ArrayTransferType nullify = 2;
-}
-
-// Namespace: 
-public enum ArrayTransferValue.ArrayPasteType // TypeDefIndex: 12325
-{
-	// Fields
-	public int value__; // 0x0
-	public const ArrayTransferValue.ArrayPasteType AsFirstItem = 0;
-	public const ArrayTransferValue.ArrayPasteType AsLastItem = 1;
-	public const ArrayTransferValue.ArrayPasteType InsertAtSameIndex = 2;
-	public const ArrayTransferValue.ArrayPasteType ReplaceAtSameIndex = 3;
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9B990 Offset: 0xC9B990 VA: 0xC9B990
-[ActionTarget] // RVA: 0xC9B990 Offset: 0xC9B990 VA: 0xC9B990
-[ObsoleteAttribute] // RVA: 0xC9B990 Offset: 0xC9B990 VA: 0xC9B990
-[TooltipAttribute] // RVA: 0xC9B990 Offset: 0xC9B990 VA: 0xC9B990
-public class FsmArraySet : FsmStateAction // TypeDefIndex: 12326
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFD7A4 Offset: 0xCFD7A4 VA: 0xCFD7A4
-	[TooltipAttribute] // RVA: 0xCFD7A4 Offset: 0xCFD7A4 VA: 0xCFD7A4
+	[RequiredFieldAttribute] // RVA: 0xC8B54C Offset: 0xC8B54C VA: 0xC8B54C
+	[CheckForComponentAttribute] // RVA: 0xC8B54C Offset: 0xC8B54C VA: 0xC8B54C
+	[TooltipAttribute] // RVA: 0xC8B54C Offset: 0xC8B54C VA: 0xC8B54C
 	public FsmOwnerDefault gameObject; // 0x50
-	[UIHintAttribute] // RVA: 0xCFD7F0 Offset: 0xCFD7F0 VA: 0xCFD7F0
-	[TooltipAttribute] // RVA: 0xCFD7F0 Offset: 0xCFD7F0 VA: 0xCFD7F0
-	public FsmString fsmName; // 0x58
-	[RequiredFieldAttribute] // RVA: 0xCFD840 Offset: 0xCFD840 VA: 0xCFD840
-	[TooltipAttribute] // RVA: 0xCFD840 Offset: 0xCFD840 VA: 0xCFD840
-	public FsmString variableName; // 0x60
-	[TooltipAttribute] // RVA: 0xCFD88C Offset: 0xCFD88C VA: 0xCFD88C
-	public FsmString setValue; // 0x68
-	[TooltipAttribute] // RVA: 0xCFD8C4 Offset: 0xCFD8C4 VA: 0xCFD8C4
-	public bool everyFrame; // 0x70
-	private GameObject goLastFrame; // 0x78
-	private PlayMakerFSM fsm; // 0x80
+	[ActionSection] // RVA: 0xC8B5E4 Offset: 0xC8B5E4 VA: 0xC8B5E4
+	[UIHintAttribute] // RVA: 0xC8B5E4 Offset: 0xC8B5E4 VA: 0xC8B5E4
+	[TooltipAttribute] // RVA: 0xC8B5E4 Offset: 0xC8B5E4 VA: 0xC8B5E4
+	public FsmFloat humanScale; // 0x58
+	private Animator _animator; // 0x60
 
 	// Methods
 
-	// RVA: 0x1F7C0A8 Offset: 0x1F7C0A8 VA: 0x1F7C0A8
+	// RVA: 0x1ABD4FC Offset: 0x1ABD4FC VA: 0x1ABD4FC
 	public void .ctor() { }
 
-	// RVA: 0x1F7C0B0 Offset: 0x1F7C0B0 VA: 0x1F7C0B0 Slot: 28
+	// RVA: 0x1ABD504 Offset: 0x1ABD504 VA: 0x1ABD504 Slot: 28
 	public override void Reset() { }
 
-	// RVA: 0x1F7C130 Offset: 0x1F7C130 VA: 0x1F7C130 Slot: 32
+	// RVA: 0x1ABD50C Offset: 0x1ABD50C VA: 0x1ABD50C Slot: 32
 	public override void OnEnter() { }
 
-	// RVA: 0x1F7C16C Offset: 0x1F7C16C VA: 0x1F7C16C
-	private void DoSetFsmString() { }
-
-	// RVA: 0x1F7C42C Offset: 0x1F7C42C VA: 0x1F7C42C Slot: 34
-	public override void OnUpdate() { }
+	// RVA: 0x1ABD620 Offset: 0x1ABD620 VA: 0x1ABD620
+	private void DoGetHumanScale() { }
 }
 
 // Namespace: HutongGames.PlayMaker.Actions
-[ActionTarget] // RVA: 0xC9BA70 Offset: 0xC9BA70 VA: 0xC9BA70
-[TooltipAttribute] // RVA: 0xC9BA70 Offset: 0xC9BA70 VA: 0xC9BA70
-public class GetFsmArray : BaseFsmVariableAction // TypeDefIndex: 12327
+[ActionCategoryAttribute] // RVA: 0xC2E714 Offset: 0xC2E714 VA: 0xC2E714
+[TooltipAttribute] // RVA: 0xC2E714 Offset: 0xC2E714 VA: 0xC2E714
+public class GetAnimatorIKGoal : FsmStateActionAnimatorBase // TypeDefIndex: 12306
 {
 	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFD8FC Offset: 0xCFD8FC VA: 0xCFD8FC
-	[TooltipAttribute] // RVA: 0xCFD8FC Offset: 0xCFD8FC VA: 0xCFD8FC
-	public FsmOwnerDefault gameObject; // 0x78
-	[UIHintAttribute] // RVA: 0xCFD948 Offset: 0xCFD948 VA: 0xCFD948
-	[TooltipAttribute] // RVA: 0xCFD948 Offset: 0xCFD948 VA: 0xCFD948
-	public FsmString fsmName; // 0x80
-	[RequiredFieldAttribute] // RVA: 0xCFD998 Offset: 0xCFD998 VA: 0xCFD998
-	[UIHintAttribute] // RVA: 0xCFD998 Offset: 0xCFD998 VA: 0xCFD998
-	[TooltipAttribute] // RVA: 0xCFD998 Offset: 0xCFD998 VA: 0xCFD998
-	public FsmString variableName; // 0x88
-	[RequiredFieldAttribute] // RVA: 0xCFD9F8 Offset: 0xCFD9F8 VA: 0xCFD9F8
-	[TooltipAttribute] // RVA: 0xCFD9F8 Offset: 0xCFD9F8 VA: 0xCFD9F8
-	[UIHintAttribute] // RVA: 0xCFD9F8 Offset: 0xCFD9F8 VA: 0xCFD9F8
-	public FsmArray storeValue; // 0x90
-	[TooltipAttribute] // RVA: 0xCFDA58 Offset: 0xCFDA58 VA: 0xCFDA58
-	public bool copyValues; // 0x98
+	[RequiredFieldAttribute] // RVA: 0xC8B658 Offset: 0xC8B658 VA: 0xC8B658
+	[CheckForComponentAttribute] // RVA: 0xC8B658 Offset: 0xC8B658 VA: 0xC8B658
+	[TooltipAttribute] // RVA: 0xC8B658 Offset: 0xC8B658 VA: 0xC8B658
+	public FsmOwnerDefault gameObject; // 0x58
+	[TooltipAttribute] // RVA: 0xC8B6F0 Offset: 0xC8B6F0 VA: 0xC8B6F0
+	[ObjectTypeAttribute] // RVA: 0xC8B6F0 Offset: 0xC8B6F0 VA: 0xC8B6F0
+	public FsmEnum iKGoal; // 0x60
+	[ActionSection] // RVA: 0xC8B778 Offset: 0xC8B778 VA: 0xC8B778
+	[UIHintAttribute] // RVA: 0xC8B778 Offset: 0xC8B778 VA: 0xC8B778
+	[TooltipAttribute] // RVA: 0xC8B778 Offset: 0xC8B778 VA: 0xC8B778
+	public FsmGameObject goal; // 0x68
+	[UIHintAttribute] // RVA: 0xC8B7EC Offset: 0xC8B7EC VA: 0xC8B7EC
+	[TooltipAttribute] // RVA: 0xC8B7EC Offset: 0xC8B7EC VA: 0xC8B7EC
+	public FsmVector3 position; // 0x70
+	[UIHintAttribute] // RVA: 0xC8B83C Offset: 0xC8B83C VA: 0xC8B83C
+	[TooltipAttribute] // RVA: 0xC8B83C Offset: 0xC8B83C VA: 0xC8B83C
+	public FsmQuaternion rotation; // 0x78
+	[UIHintAttribute] // RVA: 0xC8B88C Offset: 0xC8B88C VA: 0xC8B88C
+	[TooltipAttribute] // RVA: 0xC8B88C Offset: 0xC8B88C VA: 0xC8B88C
+	public FsmFloat positionWeight; // 0x80
+	[UIHintAttribute] // RVA: 0xC8B8DC Offset: 0xC8B8DC VA: 0xC8B8DC
+	[TooltipAttribute] // RVA: 0xC8B8DC Offset: 0xC8B8DC VA: 0xC8B8DC
+	public FsmFloat rotationWeight; // 0x88
+	private Animator _animator; // 0x90
+	private Transform _transform; // 0x98
+	private AvatarIKGoal _iKGoal; // 0xA0
 
 	// Methods
 
-	// RVA: 0x1F8EBBC Offset: 0x1F8EBBC VA: 0x1F8EBBC
+	// RVA: 0x1ABD6E8 Offset: 0x1ABD6E8 VA: 0x1ABD6E8
 	public void .ctor() { }
 
-	// RVA: 0x1F8EBC4 Offset: 0x1F8EBC4 VA: 0x1F8EBC4 Slot: 28
+	// RVA: 0x1ABD6F0 Offset: 0x1ABD6F0 VA: 0x1ABD6F0 Slot: 28
 	public override void Reset() { }
 
-	// RVA: 0x1F8EC4C Offset: 0x1F8EC4C VA: 0x1F8EC4C Slot: 32
+	// RVA: 0x1ABD710 Offset: 0x1ABD710 VA: 0x1ABD710 Slot: 32
 	public override void OnEnter() { }
 
-	// RVA: 0x1F8EC74 Offset: 0x1F8EC74 VA: 0x1F8EC74
-	private void DoSetFsmArrayCopy() { }
+	// RVA: 0x1ABD898 Offset: 0x1ABD898 VA: 0x1ABD898 Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABD8D4 Offset: 0x1ABD8D4 VA: 0x1ABD8D4
+	private void DoGetIKGoal() { }
 }
 
 // Namespace: HutongGames.PlayMaker.Actions
-[ActionTarget] // RVA: 0xC9BB18 Offset: 0xC9BB18 VA: 0xC9BB18
-[TooltipAttribute] // RVA: 0xC9BB18 Offset: 0xC9BB18 VA: 0xC9BB18
-public class GetFsmArrayItem : BaseFsmVariableIndexAction // TypeDefIndex: 12328
+[ActionCategoryAttribute] // RVA: 0xC2E764 Offset: 0xC2E764 VA: 0xC2E764
+[TooltipAttribute] // RVA: 0xC2E764 Offset: 0xC2E764 VA: 0xC2E764
+public class GetAnimatorInt : FsmStateActionAnimatorBase // TypeDefIndex: 12307
 {
 	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFDA90 Offset: 0xCFDA90 VA: 0xCFDA90
-	[TooltipAttribute] // RVA: 0xCFDA90 Offset: 0xCFDA90 VA: 0xCFDA90
-	public FsmOwnerDefault gameObject; // 0x80
-	[UIHintAttribute] // RVA: 0xCFDADC Offset: 0xCFDADC VA: 0xCFDADC
-	[TooltipAttribute] // RVA: 0xCFDADC Offset: 0xCFDADC VA: 0xCFDADC
-	public FsmString fsmName; // 0x88
-	[RequiredFieldAttribute] // RVA: 0xCFDB2C Offset: 0xCFDB2C VA: 0xCFDB2C
-	[UIHintAttribute] // RVA: 0xCFDB2C Offset: 0xCFDB2C VA: 0xCFDB2C
-	[TooltipAttribute] // RVA: 0xCFDB2C Offset: 0xCFDB2C VA: 0xCFDB2C
-	public FsmString variableName; // 0x90
-	[TooltipAttribute] // RVA: 0xCFDB8C Offset: 0xCFDB8C VA: 0xCFDB8C
-	public FsmInt index; // 0x98
-	[RequiredFieldAttribute] // RVA: 0xCFDBC4 Offset: 0xCFDBC4 VA: 0xCFDBC4
-	[UIHintAttribute] // RVA: 0xCFDBC4 Offset: 0xCFDBC4 VA: 0xCFDBC4
-	[TooltipAttribute] // RVA: 0xCFDBC4 Offset: 0xCFDBC4 VA: 0xCFDBC4
-	public FsmVar storeValue; // 0xA0
-	[TooltipAttribute] // RVA: 0xCFDC24 Offset: 0xCFDC24 VA: 0xCFDC24
-	public bool everyFrame; // 0xA8
+	[RequiredFieldAttribute] // RVA: 0xC8B92C Offset: 0xC8B92C VA: 0xC8B92C
+	[CheckForComponentAttribute] // RVA: 0xC8B92C Offset: 0xC8B92C VA: 0xC8B92C
+	[TooltipAttribute] // RVA: 0xC8B92C Offset: 0xC8B92C VA: 0xC8B92C
+	public FsmOwnerDefault gameObject; // 0x58
+	[RequiredFieldAttribute] // RVA: 0xC8B9C4 Offset: 0xC8B9C4 VA: 0xC8B9C4
+	[UIHintAttribute] // RVA: 0xC8B9C4 Offset: 0xC8B9C4 VA: 0xC8B9C4
+	[TooltipAttribute] // RVA: 0xC8B9C4 Offset: 0xC8B9C4 VA: 0xC8B9C4
+	public FsmString parameter; // 0x60
+	[ActionSection] // RVA: 0xC8BA24 Offset: 0xC8BA24 VA: 0xC8BA24
+	[RequiredFieldAttribute] // RVA: 0xC8BA24 Offset: 0xC8BA24 VA: 0xC8BA24
+	[UIHintAttribute] // RVA: 0xC8BA24 Offset: 0xC8BA24 VA: 0xC8BA24
+	[TooltipAttribute] // RVA: 0xC8BA24 Offset: 0xC8BA24 VA: 0xC8BA24
+	public FsmInt result; // 0x68
+	private Animator _animator; // 0x70
+	private int _paramID; // 0x78
 
 	// Methods
 
-	// RVA: 0x1F8F10C Offset: 0x1F8F10C VA: 0x1F8F10C
+	// RVA: 0x1ABDCC4 Offset: 0x1ABDCC4 VA: 0x1ABDCC4
 	public void .ctor() { }
 
-	// RVA: 0x1F8F114 Offset: 0x1F8F114 VA: 0x1F8F114 Slot: 28
+	// RVA: 0x1ABDCCC Offset: 0x1ABDCCC VA: 0x1ABDCCC Slot: 28
 	public override void Reset() { }
 
-	// RVA: 0x1F8F194 Offset: 0x1F8F194 VA: 0x1F8F194 Slot: 32
+	// RVA: 0x1ABDCE0 Offset: 0x1ABDCE0 VA: 0x1ABDCE0 Slot: 32
 	public override void OnEnter() { }
 
-	// RVA: 0x1F8F1D0 Offset: 0x1F8F1D0 VA: 0x1F8F1D0
-	private void DoGetFsmArray() { }
+	// RVA: 0x1ABDF04 Offset: 0x1ABDF04 VA: 0x1ABDF04 Slot: 62
+	public override void OnActionUpdate() { }
 
-	// RVA: 0x1F8F4D4 Offset: 0x1F8F4D4 VA: 0x1F8F4D4 Slot: 34
-	public override void OnUpdate() { }
+	// RVA: 0x1ABDE34 Offset: 0x1ABDE34 VA: 0x1ABDE34
+	private void GetParameter() { }
 }
 
 // Namespace: HutongGames.PlayMaker.Actions
-[ActionTarget] // RVA: 0xC9BBC0 Offset: 0xC9BBC0 VA: 0xC9BBC0
-[TooltipAttribute] // RVA: 0xC9BBC0 Offset: 0xC9BBC0 VA: 0xC9BBC0
-public class SetFsmArray : BaseFsmVariableAction // TypeDefIndex: 12329
+[ActionCategoryAttribute] // RVA: 0xC2E7B4 Offset: 0xC2E7B4 VA: 0xC2E7B4
+[TooltipAttribute] // RVA: 0xC2E7B4 Offset: 0xC2E7B4 VA: 0xC2E7B4
+public class GetAnimatorIsHuman : FsmStateAction // TypeDefIndex: 12308
 {
 	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFDC5C Offset: 0xCFDC5C VA: 0xCFDC5C
-	[TooltipAttribute] // RVA: 0xCFDC5C Offset: 0xCFDC5C VA: 0xCFDC5C
-	public FsmOwnerDefault gameObject; // 0x78
-	[UIHintAttribute] // RVA: 0xCFDCA8 Offset: 0xCFDCA8 VA: 0xCFDCA8
-	[TooltipAttribute] // RVA: 0xCFDCA8 Offset: 0xCFDCA8 VA: 0xCFDCA8
-	public FsmString fsmName; // 0x80
-	[RequiredFieldAttribute] // RVA: 0xCFDCF8 Offset: 0xCFDCF8 VA: 0xCFDCF8
-	[UIHintAttribute] // RVA: 0xCFDCF8 Offset: 0xCFDCF8 VA: 0xCFDCF8
-	[TooltipAttribute] // RVA: 0xCFDCF8 Offset: 0xCFDCF8 VA: 0xCFDCF8
-	public FsmString variableName; // 0x88
-	[RequiredFieldAttribute] // RVA: 0xCFDD58 Offset: 0xCFDD58 VA: 0xCFDD58
-	[TooltipAttribute] // RVA: 0xCFDD58 Offset: 0xCFDD58 VA: 0xCFDD58
-	[UIHintAttribute] // RVA: 0xCFDD58 Offset: 0xCFDD58 VA: 0xCFDD58
-	public FsmArray setValue; // 0x90
-	[TooltipAttribute] // RVA: 0xCFDDB8 Offset: 0xCFDDB8 VA: 0xCFDDB8
-	public bool copyValues; // 0x98
+	[RequiredFieldAttribute] // RVA: 0xC8BAA8 Offset: 0xC8BAA8 VA: 0xC8BAA8
+	[CheckForComponentAttribute] // RVA: 0xC8BAA8 Offset: 0xC8BAA8 VA: 0xC8BAA8
+	[TooltipAttribute] // RVA: 0xC8BAA8 Offset: 0xC8BAA8 VA: 0xC8BAA8
+	public FsmOwnerDefault gameObject; // 0x50
+	[ActionSection] // RVA: 0xC8BB40 Offset: 0xC8BB40 VA: 0xC8BB40
+	[UIHintAttribute] // RVA: 0xC8BB40 Offset: 0xC8BB40 VA: 0xC8BB40
+	[TooltipAttribute] // RVA: 0xC8BB40 Offset: 0xC8BB40 VA: 0xC8BB40
+	public FsmBool isHuman; // 0x58
+	[TooltipAttribute] // RVA: 0xC8BBB4 Offset: 0xC8BBB4 VA: 0xC8BBB4
+	public FsmEvent isHumanEvent; // 0x60
+	[TooltipAttribute] // RVA: 0xC8BBEC Offset: 0xC8BBEC VA: 0xC8BBEC
+	public FsmEvent isGenericEvent; // 0x68
+	private Animator _animator; // 0x70
 
 	// Methods
 
-	// RVA: 0x2115DB4 Offset: 0x2115DB4 VA: 0x2115DB4
+	// RVA: 0x1ABDF08 Offset: 0x1ABDF08 VA: 0x1ABDF08
 	public void .ctor() { }
 
-	// RVA: 0x2115DBC Offset: 0x2115DBC VA: 0x2115DBC Slot: 28
+	// RVA: 0x1ABDF10 Offset: 0x1ABDF10 VA: 0x1ABDF10 Slot: 28
 	public override void Reset() { }
 
-	// RVA: 0x2115E44 Offset: 0x2115E44 VA: 0x2115E44 Slot: 32
+	// RVA: 0x1ABDF1C Offset: 0x1ABDF1C VA: 0x1ABDF1C Slot: 32
 	public override void OnEnter() { }
 
-	// RVA: 0x2115E6C Offset: 0x2115E6C VA: 0x2115E6C
-	private void DoSetFsmArrayCopy() { }
+	// RVA: 0x1ABE030 Offset: 0x1ABE030 VA: 0x1ABE030
+	private void DoCheckIsHuman() { }
 }
 
 // Namespace: HutongGames.PlayMaker.Actions
-[ActionTarget] // RVA: 0xC9BC68 Offset: 0xC9BC68 VA: 0xC9BC68
-[TooltipAttribute] // RVA: 0xC9BC68 Offset: 0xC9BC68 VA: 0xC9BC68
-public class SetFsmArrayItem : BaseFsmVariableIndexAction // TypeDefIndex: 12330
+[ActionCategoryAttribute] // RVA: 0xC2E804 Offset: 0xC2E804 VA: 0xC2E804
+[TooltipAttribute] // RVA: 0xC2E804 Offset: 0xC2E804 VA: 0xC2E804
+public class GetAnimatorIsLayerInTransition : FsmStateActionAnimatorBase // TypeDefIndex: 12309
 {
 	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCFDDF0 Offset: 0xCFDDF0 VA: 0xCFDDF0
-	[TooltipAttribute] // RVA: 0xCFDDF0 Offset: 0xCFDDF0 VA: 0xCFDDF0
-	public FsmOwnerDefault gameObject; // 0x80
-	[UIHintAttribute] // RVA: 0xCFDE3C Offset: 0xCFDE3C VA: 0xCFDE3C
-	[TooltipAttribute] // RVA: 0xCFDE3C Offset: 0xCFDE3C VA: 0xCFDE3C
-	public FsmString fsmName; // 0x88
-	[RequiredFieldAttribute] // RVA: 0xCFDE8C Offset: 0xCFDE8C VA: 0xCFDE8C
-	[UIHintAttribute] // RVA: 0xCFDE8C Offset: 0xCFDE8C VA: 0xCFDE8C
+	[RequiredFieldAttribute] // RVA: 0xC8BC24 Offset: 0xC8BC24 VA: 0xC8BC24
+	[CheckForComponentAttribute] // RVA: 0xC8BC24 Offset: 0xC8BC24 VA: 0xC8BC24
+	[TooltipAttribute] // RVA: 0xC8BC24 Offset: 0xC8BC24 VA: 0xC8BC24
+	public FsmOwnerDefault gameObject; // 0x58
+	[RequiredFieldAttribute] // RVA: 0xC8BCBC Offset: 0xC8BCBC VA: 0xC8BCBC
+	[TooltipAttribute] // RVA: 0xC8BCBC Offset: 0xC8BCBC VA: 0xC8BCBC
+	public FsmInt layerIndex; // 0x60
+	[ActionSection] // RVA: 0xC8BD08 Offset: 0xC8BD08 VA: 0xC8BD08
+	[UIHintAttribute] // RVA: 0xC8BD08 Offset: 0xC8BD08 VA: 0xC8BD08
+	[TooltipAttribute] // RVA: 0xC8BD08 Offset: 0xC8BD08 VA: 0xC8BD08
+	public FsmBool isInTransition; // 0x68
+	[TooltipAttribute] // RVA: 0xC8BD7C Offset: 0xC8BD7C VA: 0xC8BD7C
+	public FsmEvent isInTransitionEvent; // 0x70
+	[TooltipAttribute] // RVA: 0xC8BDB4 Offset: 0xC8BDB4 VA: 0xC8BDB4
+	public FsmEvent isNotInTransitionEvent; // 0x78
+	private Animator _animator; // 0x80
+
+	// Methods
+
+	// RVA: 0x1ABE15C Offset: 0x1ABE15C VA: 0x1ABE15C
+	public void .ctor() { }
+
+	// RVA: 0x1ABE164 Offset: 0x1ABE164 VA: 0x1ABE164 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABE17C Offset: 0x1ABE17C VA: 0x1ABE17C Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABE3F8 Offset: 0x1ABE3F8 VA: 0x1ABE3F8 Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABE2A8 Offset: 0x1ABE2A8 VA: 0x1ABE2A8
+	private void DoCheckIsInTransition() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E854 Offset: 0xC2E854 VA: 0xC2E854
+[TooltipAttribute] // RVA: 0xC2E854 Offset: 0xC2E854 VA: 0xC2E854
+public class GetAnimatorIsMatchingTarget : FsmStateActionAnimatorBase // TypeDefIndex: 12310
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC8BDEC Offset: 0xC8BDEC VA: 0xC8BDEC
+	[CheckForComponentAttribute] // RVA: 0xC8BDEC Offset: 0xC8BDEC VA: 0xC8BDEC
+	[TooltipAttribute] // RVA: 0xC8BDEC Offset: 0xC8BDEC VA: 0xC8BDEC
+	public FsmOwnerDefault gameObject; // 0x58
+	[ActionSection] // RVA: 0xC8BE84 Offset: 0xC8BE84 VA: 0xC8BE84
+	[UIHintAttribute] // RVA: 0xC8BE84 Offset: 0xC8BE84 VA: 0xC8BE84
+	[TooltipAttribute] // RVA: 0xC8BE84 Offset: 0xC8BE84 VA: 0xC8BE84
+	public FsmBool isMatchingActive; // 0x60
+	[TooltipAttribute] // RVA: 0xC8BEF8 Offset: 0xC8BEF8 VA: 0xC8BEF8
+	public FsmEvent matchingActivatedEvent; // 0x68
+	[TooltipAttribute] // RVA: 0xC8BF30 Offset: 0xC8BF30 VA: 0xC8BF30
+	public FsmEvent matchingDeactivedEvent; // 0x70
+	private Animator _animator; // 0x78
+
+	// Methods
+
+	// RVA: 0x1ABE3FC Offset: 0x1ABE3FC VA: 0x1ABE3FC
+	public void .ctor() { }
+
+	// RVA: 0x1ABE404 Offset: 0x1ABE404 VA: 0x1ABE404 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABE41C Offset: 0x1ABE41C VA: 0x1ABE41C Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABE654 Offset: 0x1ABE654 VA: 0x1ABE654 Slot: 62
+	public override void OnActionUpdate() { }
+
+	// RVA: 0x1ABE548 Offset: 0x1ABE548 VA: 0x1ABE548
+	private void DoCheckIsMatchingActive() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E8A4 Offset: 0xC2E8A4 VA: 0xC2E8A4
+[TooltipAttribute] // RVA: 0xC2E8A4 Offset: 0xC2E8A4 VA: 0xC2E8A4
+public class GetAnimatorIsParameterControlledByCurve : FsmStateAction // TypeDefIndex: 12311
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC8BF68 Offset: 0xC8BF68 VA: 0xC8BF68
+	[CheckForComponentAttribute] // RVA: 0xC8BF68 Offset: 0xC8BF68 VA: 0xC8BF68
+	[TooltipAttribute] // RVA: 0xC8BF68 Offset: 0xC8BF68 VA: 0xC8BF68
+	public FsmOwnerDefault gameObject; // 0x50
+	[TooltipAttribute] // RVA: 0xC8C000 Offset: 0xC8C000 VA: 0xC8C000
+	public FsmString parameterName; // 0x58
+	[ActionSection] // RVA: 0xC8C038 Offset: 0xC8C038 VA: 0xC8C038
+	[UIHintAttribute] // RVA: 0xC8C038 Offset: 0xC8C038 VA: 0xC8C038
+	[TooltipAttribute] // RVA: 0xC8C038 Offset: 0xC8C038 VA: 0xC8C038
+	public FsmBool isControlledByCurve; // 0x60
+	[TooltipAttribute] // RVA: 0xC8C0AC Offset: 0xC8C0AC VA: 0xC8C0AC
+	public FsmEvent isControlledByCurveEvent; // 0x68
+	[TooltipAttribute] // RVA: 0xC8C0E4 Offset: 0xC8C0E4 VA: 0xC8C0E4
+	public FsmEvent isNotControlledByCurveEvent; // 0x70
+	private Animator _animator; // 0x78
+
+	// Methods
+
+	// RVA: 0x1ABE658 Offset: 0x1ABE658 VA: 0x1ABE658
+	public void .ctor() { }
+
+	// RVA: 0x1ABE660 Offset: 0x1ABE660 VA: 0x1ABE660 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABE670 Offset: 0x1ABE670 VA: 0x1ABE670 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABE784 Offset: 0x1ABE784 VA: 0x1ABE784
+	private void DoCheckIsParameterControlledByCurve() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E8F4 Offset: 0xC2E8F4 VA: 0xC2E8F4
+[TooltipAttribute] // RVA: 0xC2E8F4 Offset: 0xC2E8F4 VA: 0xC2E8F4
+public class GetAnimatorLayerCount : FsmStateAction // TypeDefIndex: 12312
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC8C11C Offset: 0xC8C11C VA: 0xC8C11C
+	[CheckForComponentAttribute] // RVA: 0xC8C11C Offset: 0xC8C11C VA: 0xC8C11C
+	[TooltipAttribute] // RVA: 0xC8C11C Offset: 0xC8C11C VA: 0xC8C11C
+	public FsmOwnerDefault gameObject; // 0x50
+	[ActionSection] // RVA: 0xC8C1B4 Offset: 0xC8C1B4 VA: 0xC8C1B4
+	[RequiredFieldAttribute] // RVA: 0xC8C1B4 Offset: 0xC8C1B4 VA: 0xC8C1B4
+	[UIHintAttribute] // RVA: 0xC8C1B4 Offset: 0xC8C1B4 VA: 0xC8C1B4
+	[TooltipAttribute] // RVA: 0xC8C1B4 Offset: 0xC8C1B4 VA: 0xC8C1B4
+	public FsmInt layerCount; // 0x58
+	private Animator _animator; // 0x60
+
+	// Methods
+
+	// RVA: 0x1ABE8B4 Offset: 0x1ABE8B4 VA: 0x1ABE8B4
+	public void .ctor() { }
+
+	// RVA: 0x1ABE8BC Offset: 0x1ABE8BC VA: 0x1ABE8BC Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1ABE8C4 Offset: 0x1ABE8C4 VA: 0x1ABE8C4 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1ABE9D8 Offset: 0x1ABE9D8 VA: 0x1ABE9D8
+	private void DoGetLayerCount() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC2E944 Offset: 0xC2E944 VA: 0xC2E944
+[TooltipAttribute] // RVA: 0xC2E944 Offset: 0xC2E944 VA: 0xC2E944
+public class GetAnimatorLayerName : FsmStateAction // TypeDefIndex: 12313
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC8C238 Offset: 0xC8C238 VA: 0xC8C238
+	[CheckForComponentAttribute] // RVA: 0xC8C238 Offset: 0xC8C238 VA: 0xC8C238
+	[TooltipAttribute] // RVA: 0xC8C238 Offset: 0xC8C238 VA: 0xC8C238
+	public FsmOwnerDefault gameObject; // 0x50
+	[RequiredFieldAttribute] // RVA: 0xC8C2D0 Offset: 0xC8C2D0 VA: 0xC8C2D0
+	[TooltipAttribute] // RVA: 0xC8C2D0 Offset: 0xC8C2D0 VA: 0xC8C2D0
+	public FsmInt layerIndex; // 0x58
+	[ActionSection] // RVA: 0xC8C31C Offset: 0xC8C31C VA: 0xC8C31C
+	[RequiredFieldAttribute] // RVA: 0xC8C31C Offset: 0xC8C31C VA: 0xC8C31C
+	[UIHintAttribute] // RVA: 0xC8C31C Offset: 0xC8C31C VA: 0xC8C31C
+	[TooltipAttribute] // RVA: 0xC8C31C Offset: 0xC8C31C VA: 0xC8C31C
+	public FsmString layerName; // 0x60
+	private Animator _animator; // 0x68
+
+	// Methods
+
+	// RVA: 0x1ABEA94 Offset: 0x1ABEA94 VA: 0x1ABEA94
+	public void .ctor() { }
+

@@ -1,70 +1,903 @@
+	public virtual ResponseCommandBase.Result ExecuteResponse(ResponseData data) { }
+}
+
+// Namespace: 
+public enum ResponseCommandBase.Result // TypeDefIndex: 8339
+{
+	// Fields
+	public int value__; // 0x0
+	public const ResponseCommandBase.Result SUCCESS = 0;
+	public const ResponseCommandBase.Result ERROR = 1;
+	public const ResponseCommandBase.Result RETRY = 2;
+}
+
+// Namespace: 
+public class ResponseData // TypeDefIndex: 8340
+{
+	// Fields
+	public string resCode; // 0x10
+	public string nid; // 0x18
+	public Dictionary<string, object> success; // 0x20
+	public Dictionary<string, object> fail; // 0x28
+	public static bool _never; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC5E038 Offset: 0xC5E038 VA: 0xC5E038
+	private static Dictionary<string, int> <>f__switch$map7; // 0x8
+
+	// Methods
+
+	// RVA: 0x15897F0 Offset: 0x15897F0 VA: 0x15897F0
+	public void .ctor() { }
+
+	// RVA: 0x158B114 Offset: 0x158B114 VA: 0x158B114
+	public void debugPrint() { }
+
+	// RVA: 0x158B118 Offset: 0x158B118 VA: 0x158B118
+	public bool checkError(string resCode) { }
+
+	// RVA: 0x1580A5C Offset: 0x1580A5C VA: 0x1580A5C
+	public bool checkError() { }
+
+	// RVA: 0x158B4A8 Offset: 0x158B4A8 VA: 0x158B4A8
+	public string getErrorMessage() { }
+
+	// RVA: 0x158B568 Offset: 0x158B568 VA: 0x158B568
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class ResponseFailData // TypeDefIndex: 8341
+{
+	// Fields
+	public string nid; // 0x10
+	public string resCode; // 0x18
+	public string csId; // 0x20
+	public string action; // 0x28
+	public string title; // 0x30
+	public string detail; // 0x38
+	public string url; // 0x40
+	public bool sandboxSeurity; // 0x48
+	public string sandboxDomain; // 0x50
+	public string sandboxAssetsDomain; // 0x58
+	public string sandboxWebviewDomain; // 0x60
+	public int errorType; // 0x68
+
+	// Methods
+
+	// RVA: 0x158B56C Offset: 0x158B56C VA: 0x158B56C
+	public void .ctor(ResponseData data) { }
+
+	// RVA: 0x158BB1C Offset: 0x158BB1C VA: 0x158BB1C
+	public void .ctor(string nid, string resCode, Dictionary<string, object> failList) { }
+
+	// RVA: 0x158BB64 Offset: 0x158BB64 VA: 0x158BB64
+	public void .ctor(string nid, string resCode, string failList) { }
+
+	// RVA: 0x158B5E0 Offset: 0x158B5E0 VA: 0x158B5E0
+	protected void Init(string nid, string resCode, Dictionary<string, object> failList) { }
+}
+
+// Namespace: 
+public enum ResponseFailData.ErrorType // TypeDefIndex: 8342
+{
+	// Fields
+	public int value__; // 0x0
+	public const ResponseFailData.ErrorType Common = 0;
+	public const ResponseFailData.ErrorType NotAbleToCloseTapOutDialog = 1;
+}
+
+// Namespace: 
+public class SellServantRequest : RequestBase // TypeDefIndex: 8343
+{
+	// Methods
+
+	// RVA: 0x1736AC8 Offset: 0x1736AC8 VA: 0x1736AC8
+	public void .ctor() { }
+
+	// RVA: 0x1736AD0 Offset: 0x1736AD0 VA: 0x1736AD0 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1736B74 Offset: 0x1736B74 VA: 0x1736B74
+	public void beginRequest(long[] servantUserIds, long[] commandCodeUserIds) { }
+
+	// RVA: 0x1737110 Offset: 0x1737110 VA: 0x1737110 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class ServantCombineRequest : RequestBase // TypeDefIndex: 8344
+{
+	// Methods
+
+	// RVA: 0x13C6360 Offset: 0x13C6360 VA: 0x13C6360
+	public void .ctor() { }
+
+	// RVA: 0x13C6368 Offset: 0x13C6368 VA: 0x13C6368 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x13C640C Offset: 0x13C640C VA: 0x13C640C Slot: 5
+	public override string getMockData() { }
+
+	// RVA: 0x13C6478 Offset: 0x13C6478 VA: 0x13C6478
+	public void beginRequest(long baseUsrSvtId, string materialSvtIds, int useQp, int getExp) { }
+
+	// RVA: 0x13C6550 Offset: 0x13C6550 VA: 0x13C6550 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class ServantCostumeCombineRequest : RequestBase // TypeDefIndex: 8345
+{
+	// Methods
+
+	// RVA: 0x19FCDA4 Offset: 0x19FCDA4 VA: 0x19FCDA4
+	public void .ctor() { }
+
+	// RVA: 0x19FCDAC Offset: 0x19FCDAC VA: 0x19FCDAC Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x19FCE50 Offset: 0x19FCE50 VA: 0x19FCE50
+	public void beginRequest(long baseUserSvtId, int costumeId, int eventId) { }
+
+	// RVA: 0x19FCF08 Offset: 0x19FCF08 VA: 0x19FCF08 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class ServantEquipCombineRequest : RequestBase // TypeDefIndex: 8346
+{
+	// Methods
+
+	// RVA: 0x1A0C31C Offset: 0x1A0C31C VA: 0x1A0C31C
+	public void .ctor() { }
+
+	// RVA: 0x1A0C324 Offset: 0x1A0C324 VA: 0x1A0C324 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1A0C3C8 Offset: 0x1A0C3C8 VA: 0x1A0C3C8
+	public void beginRequest(long baseUsrSvtId, string materialSvtIds) { }
+
+	// RVA: 0x1A0C458 Offset: 0x1A0C458 VA: 0x1A0C458 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class ServantEquipSetRequest : RequestBase // TypeDefIndex: 8347
+{
+	// Methods
+
+	// RVA: 0x1A11738 Offset: 0x1A11738 VA: 0x1A11738
+	public void .ctor() { }
+
+	// RVA: 0x1A11740 Offset: 0x1A11740 VA: 0x1A11740 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1A117E4 Offset: 0x1A117E4 VA: 0x1A117E4
+	public void beginRequest(SvtEquipInfo svtEquip) { }
+
+	// RVA: 0x1A118D4 Offset: 0x1A118D4 VA: 0x1A118D4
+	public void beginRequest(SvtEquipInfo[] svtEquipList) { }
+
+	// RVA: 0x1A11978 Offset: 0x1A11978 VA: 0x1A11978 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class ServantFriendshipExceedRequest : RequestBase // TypeDefIndex: 8348
+{
+	// Methods
+
+	// RVA: 0x16C1808 Offset: 0x16C1808 VA: 0x16C1808
+	public void .ctor() { }
+
+	// RVA: 0x16C1810 Offset: 0x16C1810 VA: 0x16C1810 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x16C18B4 Offset: 0x16C18B4 VA: 0x16C18B4
+	public void beginRequest(long baseUserSvtId) { }
+
+	// RVA: 0x16C1924 Offset: 0x16C1924 VA: 0x16C1924 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class ServantLevelExceedRequest : RequestBase // TypeDefIndex: 8349
+{
+	// Methods
+
+	// RVA: 0x16C846C Offset: 0x16C846C VA: 0x16C846C
+	public void .ctor() { }
+
+	// RVA: 0x16C8474 Offset: 0x16C8474 VA: 0x16C8474 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x16C8518 Offset: 0x16C8518 VA: 0x16C8518
+	public void beginRequest(long baseUsrSvtId) { }
+
+	// RVA: 0x16C8588 Offset: 0x16C8588 VA: 0x16C8588 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class ServantLimitCombineRequest : RequestBase // TypeDefIndex: 8350
+{
+	// Methods
+
+	// RVA: 0x16CA9B8 Offset: 0x16CA9B8 VA: 0x16CA9B8
+	public void .ctor() { }
+
+	// RVA: 0x16CA9C0 Offset: 0x16CA9C0 VA: 0x16CA9C0 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x16CAA64 Offset: 0x16CAA64 VA: 0x16CAA64
+	public void beginRequest(long baseUsrSvtId) { }
+
+	// RVA: 0x16CAAD4 Offset: 0x16CAAD4 VA: 0x16CAAD4 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class ServantRecoverySyncRequest : RequestBase // TypeDefIndex: 8351
+{
+	// Methods
+
+	// RVA: 0x1A720AC Offset: 0x1A720AC VA: 0x1A720AC
+	public void .ctor() { }
+
+	// RVA: 0x1A720B4 Offset: 0x1A720B4 VA: 0x1A720B4 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1A72158 Offset: 0x1A72158 VA: 0x1A72158
+	public void beginRequest(int eventId, int index, long inUserSvtId, long outUserSvtId) { }
+
+	// RVA: 0x1A72230 Offset: 0x1A72230 VA: 0x1A72230 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class ServantSkillCombineRequest : RequestBase // TypeDefIndex: 8352
+{
+	// Methods
+
+	// RVA: 0x1A82938 Offset: 0x1A82938 VA: 0x1A82938
+	public void .ctor() { }
+
+	// RVA: 0x1A82940 Offset: 0x1A82940 VA: 0x1A82940 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1A829E4 Offset: 0x1A829E4 VA: 0x1A829E4
+	public void beginRequest(long baseUsrSvtId, int selectSkillIndex, int selectSkillId) { }
+
+	// RVA: 0x1A82A9C Offset: 0x1A82A9C VA: 0x1A82A9C Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class ServantTreasureDvcCombineRequest : RequestBase // TypeDefIndex: 8353
+{
+	// Methods
+
+	// RVA: 0x12C2324 Offset: 0x12C2324 VA: 0x12C2324
+	public void .ctor() { }
+
+	// RVA: 0x12C232C Offset: 0x12C232C VA: 0x12C232C Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x12C23D0 Offset: 0x12C23D0 VA: 0x12C23D0
+	public void beginRequest(long baseUsrSvtId, int selectTdIndex, int selectTdId, string materialSvtIds) { }
+
+	// RVA: 0x12C24A8 Offset: 0x12C24A8 VA: 0x12C24A8 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class SetUserBirthDayRequest : RequestBase // TypeDefIndex: 8354
+{
+	// Methods
+
+	// RVA: 0x1334640 Offset: 0x1334640 VA: 0x1334640
+	public void .ctor() { }
+
+	// RVA: 0x1334648 Offset: 0x1334648 VA: 0x1334648 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x13346EC Offset: 0x13346EC VA: 0x13346EC
+	public void beginRequest(string normalName, int genderType, int month, int day) { }
+
+	// RVA: 0x1334814 Offset: 0x1334814 VA: 0x1334814 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class StorageTakeinRequest : RequestBase // TypeDefIndex: 8355
+{
+	// Methods
+
+	// RVA: 0x17A72B8 Offset: 0x17A72B8 VA: 0x17A72B8
+	public void .ctor() { }
+
+	// RVA: 0x17A72C0 Offset: 0x17A72C0 VA: 0x17A72C0 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x17A7364 Offset: 0x17A7364 VA: 0x17A7364
+	public void beginRequest(long[] userSvtIds) { }
+
+	// RVA: 0x17A73D4 Offset: 0x17A73D4 VA: 0x17A73D4 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class StorageTakeoutRequest : RequestBase // TypeDefIndex: 8356
+{
+	// Methods
+
+	// RVA: 0x17A74C0 Offset: 0x17A74C0 VA: 0x17A74C0
+	public void .ctor() { }
+
+	// RVA: 0x17A74C8 Offset: 0x17A74C8 VA: 0x17A74C8 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x17A756C Offset: 0x17A756C VA: 0x17A756C
+	public void beginRequest(long[] userSvtIds) { }
+
+	// RVA: 0x17A75DC Offset: 0x17A75DC VA: 0x17A75DC Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class TopGameDataRequest : RequestBase // TypeDefIndex: 8357
+{
+	// Methods
+
+	// RVA: 0x126E638 Offset: 0x126E638 VA: 0x126E638
+	public void .ctor() { }
+
+	// RVA: 0x126E640 Offset: 0x126E640 VA: 0x126E640 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x126E6E4 Offset: 0x126E6E4 VA: 0x126E6E4 Slot: 5
+	public override string getMockData() { }
+
+	// RVA: 0x126E750 Offset: 0x126E750 VA: 0x126E750 Slot: 6
+	public override string getMockURL() { }
+
+	// RVA: 0x126E7F0 Offset: 0x126E7F0 VA: 0x126E7F0 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class TopHomeRequest : RequestBase // TypeDefIndex: 8358
+{
+	// Fields
+	protected static long accessTime; // 0x0
+	protected static long nextRefreshTime; // 0x8
+	protected static long lastRefreshTime; // 0x10
+	protected static long accessTimeUpdateEventMap; // 0x18
+	private static bool isBackgroundRequestEnabled; // 0x20
+
+	// Methods
+
+	// RVA: 0x1881CF0 Offset: 0x1881CF0 VA: 0x1881CF0
+	public void .ctor() { }
+
+	// RVA: 0x1881CF8 Offset: 0x1881CF8 VA: 0x1881CF8
+	public static void clearExpirationDate() { }
+
+	// RVA: 0x1881D60 Offset: 0x1881D60 VA: 0x1881D60 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1881E04 Offset: 0x1881E04 VA: 0x1881E04 Slot: 5
+	public override string getMockData() { }
+
+	// RVA: 0x1881E70 Offset: 0x1881E70 VA: 0x1881E70 Slot: 7
+	public override bool checkExpirationDate() { }
+
+	// RVA: 0x1881F78 Offset: 0x1881F78 VA: 0x1881F78 Slot: 8
+	public override bool isBackgroundRequest() { }
+
+	// RVA: 0x1881FE0 Offset: 0x1881FE0 VA: 0x1881FE0
+	public void setBackgroundRequest(bool isEnabled) { }
+
+	// RVA: 0x1882050 Offset: 0x1882050 VA: 0x1882050
+	public static bool IsExpirationDateUpdateEventMap() { }
+
+	// RVA: 0x18820F0 Offset: 0x18820F0 VA: 0x18820F0
+	public static void setRecentRefreshTime(long time) { }
+
+	// RVA: 0x188219C Offset: 0x188219C VA: 0x188219C
+	public static void UpdateAccessTime() { }
+
+	// RVA: 0x1882288 Offset: 0x1882288 VA: 0x1882288 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+
+	// RVA: 0x18823EC Offset: 0x18823EC VA: 0x18823EC
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class TopLoginRequest : RequestBase // TypeDefIndex: 8359
+{
+	// Fields
+	protected static long resetTime; // 0x0
+	protected static long accessTime; // 0x8
+
+	// Methods
+
+	// RVA: 0x18823F0 Offset: 0x18823F0 VA: 0x18823F0
+	public void .ctor() { }
+
+	// RVA: 0x18823F8 Offset: 0x18823F8 VA: 0x18823F8 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x188249C Offset: 0x188249C VA: 0x188249C Slot: 5
+	public override string getMockData() { }
+
+	// RVA: 0x1882508 Offset: 0x1882508 VA: 0x1882508 Slot: 7
+	public override bool checkExpirationDate() { }
+
+	// RVA: 0x18825DC Offset: 0x18825DC VA: 0x18825DC
+	public void beginRequest() { }
+
+	// RVA: 0x18827A4 Offset: 0x18827A4 VA: 0x18827A4 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+
+	// RVA: 0x1882FA4 Offset: 0x1882FA4 VA: 0x1882FA4
+	public static void ResetAccesTime() { }
+
+	// RVA: 0x188300C Offset: 0x188300C VA: 0x188300C
+	private static void .cctor() { }
+}
+
+// Namespace: 
+[FlagsAttribute] // RVA: 0xC2A604 Offset: 0xC2A604 VA: 0xC2A604
+private enum TopLoginRequest.UserState // TypeDefIndex: 8360
+{
+	// Fields
+	public int value__; // 0x0
+	public const TopLoginRequest.UserState Flag1 = 0;
+	public const TopLoginRequest.UserState Flag2 = 1;
+	public const TopLoginRequest.UserState Flag3 = 2;
+	public const TopLoginRequest.UserState Flag4 = 4;
+	public const TopLoginRequest.UserState Flag5 = 8;
+	public const TopLoginRequest.UserState Flag6 = 16;
+	public const TopLoginRequest.UserState Flag7 = 32;
+	public const TopLoginRequest.UserState Flag8 = 64;
+	public const TopLoginRequest.UserState Flag9 = 128;
+	public const TopLoginRequest.UserState Flag10 = 256;
+	public const TopLoginRequest.UserState Flag11 = 512;
+	public const TopLoginRequest.UserState Flag12 = 1024;
+}
+
+// Namespace: 
+public class TopMyRoomRequest : RequestBase // TypeDefIndex: 8361
+{
+	// Methods
+
+	// RVA: 0x1883010 Offset: 0x1883010 VA: 0x1883010
+	public void .ctor() { }
+
+	// RVA: 0x1883018 Offset: 0x1883018 VA: 0x1883018 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x18830BC Offset: 0x18830BC VA: 0x18830BC
+	public void beginRequest(int[][] voicePlayedList) { }
+
+	// RVA: 0x18836BC Offset: 0x18836BC VA: 0x18836BC Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class TopRefreshRequest : RequestBase // TypeDefIndex: 8362
+{
+	// Methods
+
+	// RVA: 0x1883768 Offset: 0x1883768 VA: 0x1883768
+	public void .ctor() { }
+
+	// RVA: 0x1883770 Offset: 0x1883770 VA: 0x1883770 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1883814 Offset: 0x1883814 VA: 0x1883814 Slot: 5
+	public override string getMockData() { }
+}
+
+// Namespace: 
+public class TopSignupRequest : RequestBase // TypeDefIndex: 8363
+{
+	// Methods
+
+	// RVA: 0x188387C Offset: 0x188387C VA: 0x188387C
+	public void .ctor() { }
+
+	// RVA: 0x1883884 Offset: 0x1883884 VA: 0x1883884 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1883928 Offset: 0x1883928 VA: 0x1883928 Slot: 5
+	public override string getMockData() { }
+
+	// RVA: 0x1883990 Offset: 0x1883990 VA: 0x1883990 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class TreasureBoxDrawRequest : RequestBase // TypeDefIndex: 8364
+{
+	// Methods
+
+	// RVA: 0x188CEE8 Offset: 0x188CEE8 VA: 0x188CEE8
+	public void .ctor() { }
+
+	// RVA: 0x188CEF0 Offset: 0x188CEF0 VA: 0x188CEF0 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x188CF94 Offset: 0x188CF94 VA: 0x188CF94
+	public void beginRequest(int treasureBoxId, int drawNum) { }
+
+	// RVA: 0x188D024 Offset: 0x188D024 VA: 0x188D024 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class TutorialClearRequest : RequestBase // TypeDefIndex: 8365
+{
+	// Methods
+
+	// RVA: 0x1897A34 Offset: 0x1897A34 VA: 0x1897A34
+	public void .ctor() { }
+
+	// RVA: 0x1897A3C Offset: 0x1897A3C VA: 0x1897A3C Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1897AE0 Offset: 0x1897AE0 VA: 0x1897AE0 Slot: 5
+	public override string getMockData() { }
+
+	// RVA: 0x1897B48 Offset: 0x1897B48 VA: 0x1897B48 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class TutorialEventSetRequest : RequestBase // TypeDefIndex: 8366
+{
+	// Methods
+
+	// RVA: 0x1897C18 Offset: 0x1897C18 VA: 0x1897C18
+	public void .ctor() { }
+
+	// RVA: 0x1897C20 Offset: 0x1897C20 VA: 0x1897C20 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1897CC4 Offset: 0x1897CC4 VA: 0x1897CC4 Slot: 5
+	public override string getMockData() { }
+
+	// RVA: 0x1897148 Offset: 0x1897148 VA: 0x1897148
+	public void beginRequest(TutorialFlag.EventId flagId, int eventId) { }
+
+	// RVA: 0x1897D2C Offset: 0x1897D2C VA: 0x1897D2C Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class TutorialSetRequest : RequestBase // TypeDefIndex: 8367
+{
+	// Fields
+	protected int FlagId; // 0x28
+
+	// Methods
+
+	// RVA: 0x189AD98 Offset: 0x189AD98 VA: 0x189AD98
+	public void .ctor() { }
+
+	// RVA: 0x189ADA0 Offset: 0x189ADA0 VA: 0x189ADA0 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x189AE44 Offset: 0x189AE44 VA: 0x189AE44 Slot: 5
+	public override string getMockData() { }
+
+	// RVA: 0x18970D4 Offset: 0x18970D4 VA: 0x18970D4
+	public void beginRequest(TutorialFlag.Id flagId) { }
+
+	// RVA: 0x189AEAC Offset: 0x189AEAC VA: 0x189AEAC Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class UserDeleteRequest : RequestBase // TypeDefIndex: 8368
+{
+	// Methods
+
+	// RVA: 0x15DCF54 Offset: 0x15DCF54 VA: 0x15DCF54
+	public void .ctor() { }
+
+	// RVA: 0x15DCF5C Offset: 0x15DCF5C VA: 0x15DCF5C Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x15DD000 Offset: 0x15DD000 VA: 0x15DD000 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class UserFormationRequest : RequestBase // TypeDefIndex: 8369
+{
+	// Methods
+
+	// RVA: 0x15E87A0 Offset: 0x15E87A0 VA: 0x15E87A0
+	public void .ctor() { }
+
+	// RVA: 0x15E87A8 Offset: 0x15E87A8 VA: 0x15E87A8 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x15E884C Offset: 0x15E884C VA: 0x15E884C Slot: 5
+	public override string getMockData() { }
+
+	// RVA: 0x15E88E0 Offset: 0x15E88E0 VA: 0x15E88E0
+	public void beginRequest(int deckNo, long userEquipId) { }
+
+	// RVA: 0x15E8970 Offset: 0x15E8970 VA: 0x15E8970 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class UserFormationResponseCommand : ResponseCommandBase // TypeDefIndex: 8370
+{
+	// Methods
+
+	// RVA: 0x15E8A58 Offset: 0x15E8A58 VA: 0x15E8A58
+	public void .ctor() { }
+
+	// RVA: 0x15E8A60 Offset: 0x15E8A60 VA: 0x15E8A60 Slot: 4
+	public override ResponseCommandKind.Kind GetKind() { }
+
+	// RVA: 0x15E8A68 Offset: 0x15E8A68 VA: 0x15E8A68 Slot: 5
+	public override ResponseCommandBase.Result ExecuteResponse(ResponseData data) { }
+}
+
+// Namespace: 
+public class UserNameChangeRequest : RequestBase // TypeDefIndex: 8371
+{
+	// Fields
+	private string resMsg; // 0x28
+
+	// Methods
+
+	// RVA: 0x15F4984 Offset: 0x15F4984 VA: 0x15F4984
+	public void .ctor() { }
+
+	// RVA: 0x15F49DC Offset: 0x15F49DC VA: 0x15F49DC Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x15F4A80 Offset: 0x15F4A80 VA: 0x15F4A80 Slot: 5
+	public override string getMockData() { }
+
+	// RVA: 0x15F4AEC Offset: 0x15F4AEC VA: 0x15F4AEC
+	public void beginRequest(string name, int genderType, string message) { }
+
+	// RVA: 0x15F4BA4 Offset: 0x15F4BA4 VA: 0x15F4BA4 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class UserNameChangeResponseCommand : ResponseCommandBase // TypeDefIndex: 8372
+{
+	// Methods
+
+	// RVA: 0x15F4C50 Offset: 0x15F4C50 VA: 0x15F4C50
+	public void .ctor() { }
+
+	// RVA: 0x15F4C58 Offset: 0x15F4C58 VA: 0x15F4C58 Slot: 4
+	public override ResponseCommandKind.Kind GetKind() { }
+
+	// RVA: 0x15F4C60 Offset: 0x15F4C60 VA: 0x15F4C60 Slot: 5
+	public override ResponseCommandBase.Result ExecuteResponse(ResponseData data) { }
+}
+
+// Namespace: 
+public class UserPresentHistoryRequest : RequestBase // TypeDefIndex: 8373
+{
+	// Methods
+
+	// RVA: 0x1551238 Offset: 0x1551238 VA: 0x1551238
+	public void .ctor() { }
+
+	// RVA: 0x1551240 Offset: 0x1551240 VA: 0x1551240 Slot: 4
+	public override string getURL() { }
+}
+
+// Namespace: 
+public class UserPresentListRequest : RequestBase // TypeDefIndex: 8374
+{
+	// Methods
+
+	// RVA: 0x15512E4 Offset: 0x15512E4 VA: 0x15512E4
+	public void .ctor() { }
+
+	// RVA: 0x15512EC Offset: 0x15512EC VA: 0x15512EC Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1551390 Offset: 0x1551390 VA: 0x1551390 Slot: 5
+	public override string getMockData() { }
+}
+
+// Namespace: 
+public class UserPresentReceiveRequest : RequestBase // TypeDefIndex: 8375
+{
+	// Methods
+
+	// RVA: 0x1558688 Offset: 0x1558688 VA: 0x1558688
+	public void .ctor() { }
+
+	// RVA: 0x1558690 Offset: 0x1558690 VA: 0x1558690 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1558734 Offset: 0x1558734 VA: 0x1558734 Slot: 5
+	public override string getMockData() { }
+
+	// RVA: 0x1549DFC Offset: 0x1549DFC VA: 0x1549DFC
+	public void beginRequest(long[] presentIds, int itemSelectIdx, int itemSelectNum) { }
+
+	// RVA: 0x15587A0 Offset: 0x15587A0 VA: 0x15587A0 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class UserStatusFlagSetRequest : RequestBase // TypeDefIndex: 8376
+{
+	// Methods
+
+	// RVA: 0x14779FC Offset: 0x14779FC VA: 0x14779FC
+	public void .ctor() { }
+
+	// RVA: 0x1477A04 Offset: 0x1477A04 VA: 0x1477A04 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x1477AA8 Offset: 0x1477AA8 VA: 0x1477AA8 Slot: 5
+	public override string getMockData() { }
+
+	// RVA: 0x1477B10 Offset: 0x1477B10 VA: 0x1477B10
+	public void beginRequest(int[] onFlagNumbers, int[] offFlagNumbers) { }
+
+	// RVA: 0x1477BC0 Offset: 0x1477BC0 VA: 0x1477BC0 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class WarBoardBattleResultRequest : RequestBase // TypeDefIndex: 8377
+{
+	// Fields
+	private Action<string> subCallBack; // 0x28
+
+	// Methods
+
+	// RVA: 0x13A2138 Offset: 0x13A2138 VA: 0x13A2138
+	public void .ctor() { }
+
+	// RVA: 0x13A2140 Offset: 0x13A2140 VA: 0x13A2140 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x13A0444 Offset: 0x13A0444 VA: 0x13A0444
+	public void beginRequest(int stageId, BattleResultRequest.Argument arg, object warBoardBattleInfo, Action<string> callback) { }
+
+	// RVA: 0x13A21E4 Offset: 0x13A21E4 VA: 0x13A21E4 Slot: 10
+	public override void requestCompleted(ResponseData[] responseList) { }
+}
+
+// Namespace: 
+public class WarBoardBattleResumeRequest : RequestBase // TypeDefIndex: 8378
+{
+	// Methods
+
+	// RVA: 0x13A2300 Offset: 0x13A2300 VA: 0x13A2300
+	public void .ctor() { }
+
+	// RVA: 0x13A2308 Offset: 0x13A2308 VA: 0x13A2308 Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x13A23AC Offset: 0x13A23AC VA: 0x13A23AC
+	public void beginRequest(int stageId, long battleId) { }
+}
+
+// Namespace: 
+public class WarBoardBattleSetupRequest : RequestBase // TypeDefIndex: 8379
+{
+	// Fields
+	private int retryCount; // 0x28
+	private const int MaxRetryCount = 3;
+	[CompilerGeneratedAttribute] // RVA: 0xC5E048 Offset: 0xC5E048 VA: 0xC5E048
+	private static Func<long, string> <>f__am$cache0; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC5E058 Offset: 0xC5E058 VA: 0xC5E058
+	private static Func<long, string> <>f__am$cache1; // 0x8
+
+	// Methods
+
+	// RVA: 0x13A25C4 Offset: 0x13A25C4 VA: 0x13A25C4
+	public void .ctor() { }
+
+	// RVA: 0x13A25CC Offset: 0x13A25CC VA: 0x13A25CC Slot: 4
+	public override string getURL() { }
+
+	// RVA: 0x13A2670 Offset: 0x13A2670 VA: 0x13A2670 Slot: 8
+	public override bool isBackgroundRequest() { }
+
+	// RVA: 0x13A2678 Offset: 0x13A2678 VA: 0x13A2678 Slot: 11
+	public override bool backgroundErrorRequest(string errorCode) { }
+
+	// RVA: 0x13A2698 Offset: 0x13A2698 VA: 0x13A2698 Slot: 12
+	public override void backgroundErrorRetry() { }
+
+	// RVA: 0x13A2700 Offset: 0x13A2700 VA: 0x13A2700
+	public void beginRequest(int stageId, long[] attackUserSvtIds, long[] defenseUserSvtIds, int befSquareIndex, int aftSquareIndex, WarBoardData warBoardData) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCB4C0 Offset: 0xCCB4C0 VA: 0xCCB4C0
+	// RVA: 0x13A2EAC Offset: 0x13A2EAC VA: 0x13A2EAC
+	private static string <beginRequest>m__0(long x) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCB4D0 Offset: 0xCCB4D0 VA: 0xCCB4D0
+	// RVA: 0x13A2ED4 Offset: 0x13A2ED4 VA: 0x13A2ED4
 	private static string <beginRequest>m__1(long x) { }
 }
 
 // Namespace: 
-public class WarBoardBuffSaveRequest : RequestBase // TypeDefIndex: 8360
+public class WarBoardBuffSaveRequest : RequestBase // TypeDefIndex: 8380
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCCAF00 Offset: 0xCCAF00 VA: 0xCCAF00
+	[CompilerGeneratedAttribute] // RVA: 0xC5E068 Offset: 0xC5E068 VA: 0xC5E068
 	private static Func<WarBoardPieceData, string> <>f__am$cache0; // 0x0
 
 	// Methods
 
-	// RVA: 0x18E49D0 Offset: 0x18E49D0 VA: 0x18E49D0
+	// RVA: 0x13A4128 Offset: 0x13A4128 VA: 0x13A4128
 	public void .ctor() { }
 
-	// RVA: 0x18E49D8 Offset: 0x18E49D8 VA: 0x18E49D8 Slot: 4
+	// RVA: 0x13A4130 Offset: 0x13A4130 VA: 0x13A4130 Slot: 4
 	public override string getURL() { }
 
-	// RVA: 0x18E4A7C Offset: 0x18E4A7C VA: 0x18E4A7C
+	// RVA: 0x13A41D4 Offset: 0x13A41D4 VA: 0x13A41D4
 	public void beginRequest(int stageId, WarBoardPieceData[] pieces) { }
 
-	// RVA: 0x18E4C4C Offset: 0x18E4C4C VA: 0x18E4C4C Slot: 10
+	// RVA: 0x13A43A4 Offset: 0x13A43A4 VA: 0x13A43A4 Slot: 10
 	public override void requestCompleted(ResponseData[] responseList) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD38B54 Offset: 0xD38B54 VA: 0xD38B54
-	// RVA: 0x18E4D38 Offset: 0x18E4D38 VA: 0x18E4D38
+	[CompilerGeneratedAttribute] // RVA: 0xCCB4E0 Offset: 0xCCB4E0 VA: 0xCCB4E0
+	// RVA: 0x13A4490 Offset: 0x13A4490 VA: 0x13A4490
 	private static string <beginRequest>m__0(WarBoardPieceData x) { }
 }
 
 // Namespace: 
-public class WarBoardCommandSpellRequest : RequestBase // TypeDefIndex: 8361
+public class WarBoardCommandSpellRequest : RequestBase // TypeDefIndex: 8381
 {
 	// Methods
 
-	// RVA: 0x18E4F08 Offset: 0x18E4F08 VA: 0x18E4F08
+	// RVA: 0x13A4660 Offset: 0x13A4660 VA: 0x13A4660
 	public void .ctor() { }
 
-	// RVA: 0x18E4F10 Offset: 0x18E4F10 VA: 0x18E4F10 Slot: 4
+	// RVA: 0x13A4668 Offset: 0x13A4668 VA: 0x13A4668 Slot: 4
 	public override string getURL() { }
 
-	// RVA: 0x18E4FB4 Offset: 0x18E4FB4 VA: 0x18E4FB4
+	// RVA: 0x13A470C Offset: 0x13A470C VA: 0x13A470C
 	public void beginRequest(int stageId, int commandSpellId, int continueNum) { }
 
-	// RVA: 0x18E506C Offset: 0x18E506C VA: 0x18E506C Slot: 10
+	// RVA: 0x13A47C4 Offset: 0x13A47C4 VA: 0x13A47C4 Slot: 10
 	public override void requestCompleted(ResponseData[] responseList) { }
 }
 
 // Namespace: 
-public class WarBoardFinishRequest : RequestBase // TypeDefIndex: 8362
+public class WarBoardFinishRequest : RequestBase // TypeDefIndex: 8382
 {
 	// Methods
 
-	// RVA: 0x18EF72C Offset: 0x18EF72C VA: 0x18EF72C
+	// RVA: 0x13AEE84 Offset: 0x13AEE84 VA: 0x13AEE84
 	public void .ctor() { }
 
-	// RVA: 0x18EF734 Offset: 0x18EF734 VA: 0x18EF734 Slot: 4
+	// RVA: 0x13AEE8C Offset: 0x13AEE8C VA: 0x13AEE8C Slot: 4
 	public override string getURL() { }
 
-	// RVA: 0x18EF7D8 Offset: 0x18EF7D8 VA: 0x18EF7D8
+	// RVA: 0x13AEF30 Offset: 0x13AEF30 VA: 0x13AEF30
 	public void beginRequest(int stageId, int isResult) { }
 
-	// RVA: 0x18EF868 Offset: 0x18EF868 VA: 0x18EF868 Slot: 10
+	// RVA: 0x13AEFC0 Offset: 0x13AEFC0 VA: 0x13AEFC0 Slot: 10
 	public override void requestCompleted(ResponseData[] responseList) { }
 }
 
 // Namespace: 
-public class WarBoardMasterAttackRequest : RequestBase // TypeDefIndex: 8363
+public class WarBoardMasterAttackRequest : RequestBase // TypeDefIndex: 8383
 {
 	// Fields
 	private int retryCount; // 0x28
@@ -72,929 +905,96 @@ public class WarBoardMasterAttackRequest : RequestBase // TypeDefIndex: 8363
 
 	// Methods
 
-	// RVA: 0x1BFA0D0 Offset: 0x1BFA0D0 VA: 0x1BFA0D0
+	// RVA: 0x1688B70 Offset: 0x1688B70 VA: 0x1688B70
 	public void .ctor() { }
 
-	// RVA: 0x1BFA0D8 Offset: 0x1BFA0D8 VA: 0x1BFA0D8 Slot: 4
+	// RVA: 0x1688B78 Offset: 0x1688B78 VA: 0x1688B78 Slot: 4
 	public override string getURL() { }
 
-	// RVA: 0x1BFA17C Offset: 0x1BFA17C VA: 0x1BFA17C
+	// RVA: 0x1688C1C Offset: 0x1688C1C VA: 0x1688C1C
 	public void beginRequest(int stageId, int forceId, int groupId, int pieceIndex, int targetForceId, int targetGroupId, int targetPieceIndex, int befSquareIndex, int aftSquareIndex, WarBoardData warBoardData) { }
 
-	// RVA: 0x1BFA330 Offset: 0x1BFA330 VA: 0x1BFA330 Slot: 8
+	// RVA: 0x1688DD0 Offset: 0x1688DD0 VA: 0x1688DD0 Slot: 8
 	public override bool isBackgroundRequest() { }
 
-	// RVA: 0x1BFA338 Offset: 0x1BFA338 VA: 0x1BFA338 Slot: 11
+	// RVA: 0x1688DD8 Offset: 0x1688DD8 VA: 0x1688DD8 Slot: 11
 	public override bool backgroundErrorRequest(string errorCode) { }
 
-	// RVA: 0x1BFA358 Offset: 0x1BFA358 VA: 0x1BFA358 Slot: 12
+	// RVA: 0x1688DF8 Offset: 0x1688DF8 VA: 0x1688DF8 Slot: 12
 	public override void backgroundErrorRetry() { }
 
-	// RVA: 0x1BFA3C0 Offset: 0x1BFA3C0 VA: 0x1BFA3C0 Slot: 10
+	// RVA: 0x1688E60 Offset: 0x1688E60 VA: 0x1688E60 Slot: 10
 	public override void requestCompleted(ResponseData[] responseList) { }
 }
 
 // Namespace: 
-public class WarBoardResumeRequest : RequestBase // TypeDefIndex: 8364
+public class WarBoardResumeRequest : RequestBase // TypeDefIndex: 8384
 {
 	// Methods
 
-	// RVA: 0x1A7FB70 Offset: 0x1A7FB70 VA: 0x1A7FB70
+	// RVA: 0x1527A2C Offset: 0x1527A2C VA: 0x1527A2C
 	public void .ctor() { }
 
-	// RVA: 0x1A7FB78 Offset: 0x1A7FB78 VA: 0x1A7FB78 Slot: 4
+	// RVA: 0x1527A34 Offset: 0x1527A34 VA: 0x1527A34 Slot: 4
 	public override string getURL() { }
 
-	// RVA: 0x1A7FC1C Offset: 0x1A7FC1C VA: 0x1A7FC1C
+	// RVA: 0x1527AD8 Offset: 0x1527AD8 VA: 0x1527AD8
 	public void beginRequest(WarBoardData warBoardData) { }
 
-	// RVA: 0x1A7FCC0 Offset: 0x1A7FCC0 VA: 0x1A7FCC0 Slot: 10
+	// RVA: 0x1527B7C Offset: 0x1527B7C VA: 0x1527B7C Slot: 10
 	public override void requestCompleted(ResponseData[] responseList) { }
 }
 
 // Namespace: 
-public class WarBoardSetupRequest : RequestBase // TypeDefIndex: 8365
+public class WarBoardSetupRequest : RequestBase // TypeDefIndex: 8385
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCCAF10 Offset: 0xCCAF10 VA: 0xCCAF10
+	[CompilerGeneratedAttribute] // RVA: 0xC5E078 Offset: 0xC5E078 VA: 0xC5E078
 	private static Func<int, string> <>f__am$cache0; // 0x0
-	[CompilerGeneratedAttribute] // RVA: 0xCCAF20 Offset: 0xCCAF20 VA: 0xCCAF20
+	[CompilerGeneratedAttribute] // RVA: 0xC5E088 Offset: 0xC5E088 VA: 0xC5E088
 	private static Func<long, string> <>f__am$cache1; // 0x8
-	[CompilerGeneratedAttribute] // RVA: 0xCCAF30 Offset: 0xCCAF30 VA: 0xCCAF30
+	[CompilerGeneratedAttribute] // RVA: 0xC5E098 Offset: 0xC5E098 VA: 0xC5E098
 	private static Func<long, string> <>f__am$cache2; // 0x10
 
 	// Methods
 
-	// RVA: 0x1A83CDC Offset: 0x1A83CDC VA: 0x1A83CDC
+	// RVA: 0x152BB98 Offset: 0x152BB98 VA: 0x152BB98
 	public void .ctor() { }
 
-	// RVA: 0x1A83CE4 Offset: 0x1A83CE4 VA: 0x1A83CE4 Slot: 4
+	// RVA: 0x152BBA0 Offset: 0x152BBA0 VA: 0x152BBA0 Slot: 4
 	public override string getURL() { }
 
-	// RVA: 0x1A83D88 Offset: 0x1A83D88 VA: 0x1A83D88
+	// RVA: 0x152BC44 Offset: 0x152BC44 VA: 0x152BC44
 	public void beginRequest(int stageId, int questId, int questPhase, int[] squareIndexes, long[] userSvtIds, long[] userSvtEquips, long userEquipId) { }
 
-	// RVA: 0x1A84178 Offset: 0x1A84178 VA: 0x1A84178 Slot: 10
+	// RVA: 0x152C034 Offset: 0x152C034 VA: 0x152C034 Slot: 10
 	public override void requestCompleted(ResponseData[] responseList) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD38B64 Offset: 0xD38B64 VA: 0xD38B64
-	// RVA: 0x1A84264 Offset: 0x1A84264 VA: 0x1A84264
+	[CompilerGeneratedAttribute] // RVA: 0xCCB4F0 Offset: 0xCCB4F0 VA: 0xCCB4F0
+	// RVA: 0x152C120 Offset: 0x152C120 VA: 0x152C120
 	private static string <beginRequest>m__0(int x) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD38B74 Offset: 0xD38B74 VA: 0xD38B74
-	// RVA: 0x1A8428C Offset: 0x1A8428C VA: 0x1A8428C
+	[CompilerGeneratedAttribute] // RVA: 0xCCB500 Offset: 0xCCB500 VA: 0xCCB500
+	// RVA: 0x152C148 Offset: 0x152C148 VA: 0x152C148
 	private static string <beginRequest>m__1(long x) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD38B84 Offset: 0xD38B84 VA: 0xD38B84
-	// RVA: 0x1A842B4 Offset: 0x1A842B4 VA: 0x1A842B4
+	[CompilerGeneratedAttribute] // RVA: 0xCCB510 Offset: 0xCCB510 VA: 0xCCB510
+	// RVA: 0x152C170 Offset: 0x152C170 VA: 0x152C170
 	private static string <beginRequest>m__2(long x) { }
 }
 
 // Namespace: 
-public class WarBoardStartRequest : RequestBase // TypeDefIndex: 8366
+public class WarBoardStartRequest : RequestBase // TypeDefIndex: 8386
 {
 	// Methods
 
-	// RVA: 0x1A8C410 Offset: 0x1A8C410 VA: 0x1A8C410
+	// RVA: 0x15342CC Offset: 0x15342CC VA: 0x15342CC
 	public void .ctor() { }
 
-	// RVA: 0x1A8C418 Offset: 0x1A8C418 VA: 0x1A8C418 Slot: 4
+	// RVA: 0x15342D4 Offset: 0x15342D4 VA: 0x15342D4 Slot: 4
 	public override string getURL() { }
 
-	// RVA: 0x1A8C4BC Offset: 0x1A8C4BC VA: 0x1A8C4BC
+	// RVA: 0x1534378 Offset: 0x1534378 VA: 0x1534378
 	public void beginRequest(int questId, int questPhase) { }
 
-	// RVA: 0x1A8C54C Offset: 0x1A8C54C VA: 0x1A8C54C Slot: 10
-	public override void requestCompleted(ResponseData[] responseList) { }
-}
-
-// Namespace: 
-public class WarBoardTreasureRequest : RequestBase // TypeDefIndex: 8367
-{
-	// Methods
-
-	// RVA: 0x1A8F6CC Offset: 0x1A8F6CC VA: 0x1A8F6CC
-	public void .ctor() { }
-
-	// RVA: 0x1A8F6D4 Offset: 0x1A8F6D4 VA: 0x1A8F6D4 Slot: 4
-	public override string getURL() { }
-
-	// RVA: 0x1A8F778 Offset: 0x1A8F778 VA: 0x1A8F778
-	public void beginRequest(int treasureId, WarBoardData warBoardData) { }
-
-	// RVA: 0x1A8F83C Offset: 0x1A8F83C VA: 0x1A8F83C Slot: 10
-	public override void requestCompleted(ResponseData[] responseList) { }
-}
-
-// Namespace: 
-public class WarBoardTurnEndRequest : RequestBase // TypeDefIndex: 8368
-{
-	// Fields
-	private int retryCount; // 0x28
-	private const int MaxRetryCount = 3;
-
-	// Methods
-
-	// RVA: 0x1A8F928 Offset: 0x1A8F928 VA: 0x1A8F928
-	public void .ctor() { }
-
-	// RVA: 0x1A8F930 Offset: 0x1A8F930 VA: 0x1A8F930 Slot: 4
-	public override string getURL() { }
-
-	// RVA: 0x1A8F9D4 Offset: 0x1A8F9D4 VA: 0x1A8F9D4 Slot: 8
-	public override bool isBackgroundRequest() { }
-
-	// RVA: 0x1A8F9DC Offset: 0x1A8F9DC VA: 0x1A8F9DC Slot: 11
-	public override bool backgroundErrorRequest(string errorCode) { }
-
-	// RVA: 0x1A8F9FC Offset: 0x1A8F9FC VA: 0x1A8F9FC Slot: 12
-	public override void backgroundErrorRetry() { }
-
-	// RVA: 0x1A8FA64 Offset: 0x1A8FA64 VA: 0x1A8FA64
-	public void beginRequest(int stageId, WarBoardData warBoardData) { }
-
-	// RVA: 0x1A8FAF4 Offset: 0x1A8FAF4 VA: 0x1A8FAF4 Slot: 10
-	public override void requestCompleted(ResponseData[] responseList) { }
-}
-
-// Namespace: 
-public class MapCameraPerformance : SchedulerTaskBase // TypeDefIndex: 8369
-{
-	// Fields
-	protected Nullable<Vector2> position; // 0x2C
-	protected Nullable<float> size; // 0x38
-	protected Easing.TYPE easeType; // 0x40
-	protected float second; // 0x44
-	protected MapCamera mapCamera; // 0x48
-
-	// Methods
-
-	// RVA: 0x17F9C18 Offset: 0x17F9C18 VA: 0x17F9C18
-	public void .ctor(MapCamera mapCamera, float second, Nullable<Vector2> position, Nullable<float> size, Easing.TYPE easeType = 15) { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD38B94 Offset: 0xD38B94 VA: 0xD38B94
-	// RVA: 0x17F9C84 Offset: 0x17F9C84 VA: 0x17F9C84 Slot: 4
-	public override IEnumerator Execute() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF290 Offset: 0xCAF290 VA: 0xCAF290
-private sealed class MapCameraPerformance.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8370
-{
-	// Fields
-	internal MapCameraPerformance $this; // 0x10
-	internal object $current; // 0x18
-	internal bool $disposing; // 0x20
-	internal int $PC; // 0x24
-	private MapCameraPerformance.<Execute>c__Iterator0.<Execute>c__AnonStorey1 $locvar0; // 0x28
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD469E4 Offset: 0xD469E4 VA: 0xD469E4
-	// RVA: 0x17F9CF4 Offset: 0x17F9CF4 VA: 0x17F9CF4
-	public void .ctor() { }
-
-	// RVA: 0x17F9CFC Offset: 0x17F9CFC VA: 0x17F9CFC Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD469F4 Offset: 0xD469F4 VA: 0xD469F4
-	// RVA: 0x17FA028 Offset: 0x17FA028 VA: 0x17FA028 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46A04 Offset: 0xD46A04 VA: 0xD46A04
-	// RVA: 0x17FA030 Offset: 0x17FA030 VA: 0x17FA030 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46A14 Offset: 0xD46A14 VA: 0xD46A14
-	// RVA: 0x17FA038 Offset: 0x17FA038 VA: 0x17FA038 Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46A24 Offset: 0xD46A24 VA: 0xD46A24
-	// RVA: 0x17FA04C Offset: 0x17FA04C VA: 0x17FA04C Slot: 6
-	public void Reset() { }
-}
-
-// Namespace: 
-private sealed class MapCameraPerformance.<Execute>c__Iterator0.<Execute>c__AnonStorey1 // TypeDefIndex: 8371
-{
-	// Fields
-	internal bool workFinished; // 0x10
-	internal MapCameraPerformance.<Execute>c__Iterator0 <>f__ref$0; // 0x18
-
-	// Methods
-
-	// RVA: 0x17FA020 Offset: 0x17FA020 VA: 0x17FA020
-	public void .ctor() { }
-
-	// RVA: 0x17FA0B4 Offset: 0x17FA0B4 VA: 0x17FA0B4
-	internal void <>m__0() { }
-
-	// RVA: 0x17FA0C0 Offset: 0x17FA0C0 VA: 0x17FA0C0
-	internal bool <>m__1() { }
-}
-
-// Namespace: 
-public class SchedulerTaskApiRequest : SchedulerTaskBase // TypeDefIndex: 8372
-{
-	// Fields
-	private RequestBase request; // 0x30
-	private bool onStartBeginRequest; // 0x38
-	private bool requestDone; // 0x39
-	private bool isShowConnect; // 0x3A
-	private NetworkManager.ResultCallbackFunc resultCallback; // 0x40
-	private string responseStr; // 0x48
-
-	// Methods
-
-	// RVA: 0x143BB88 Offset: 0x143BB88 VA: 0x143BB88
-	public void .ctor(RequestBase request, NetworkManager.ResultCallbackFunc resultCallback, bool onStartBeginRequest) { }
-
-	// RVA: 0x143BD40 Offset: 0x143BD40 VA: 0x143BD40 Slot: 5
-	public override void OnStart() { }
-
-	// RVA: 0x143BE74 Offset: 0x143BE74 VA: 0x143BE74
-	private void requestComplete(string result) { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD38BA4 Offset: 0xD38BA4 VA: 0xD38BA4
-	// RVA: 0x143BE84 Offset: 0x143BE84 VA: 0x143BE84 Slot: 4
-	public override IEnumerator Execute() { }
-
-	// RVA: 0x143BEFC Offset: 0x143BEFC VA: 0x143BEFC Slot: 6
-	public override void OnEnd() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF2A0 Offset: 0xCAF2A0 VA: 0xCAF2A0
-private sealed class SchedulerTaskApiRequest.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8373
-{
-	// Fields
-	internal SchedulerTaskApiRequest $this; // 0x10
-	internal object $current; // 0x18
-	internal bool $disposing; // 0x20
-	internal int $PC; // 0x24
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46A34 Offset: 0xD46A34 VA: 0xD46A34
-	// RVA: 0x143BEF4 Offset: 0x143BEF4 VA: 0x143BEF4
-	public void .ctor() { }
-
-	// RVA: 0x143BFBC Offset: 0x143BFBC VA: 0x143BFBC Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46A44 Offset: 0xD46A44 VA: 0xD46A44
-	// RVA: 0x143C0B4 Offset: 0x143C0B4 VA: 0x143C0B4 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46A54 Offset: 0xD46A54 VA: 0xD46A54
-	// RVA: 0x143C0BC Offset: 0x143C0BC VA: 0x143C0BC Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46A64 Offset: 0xD46A64 VA: 0xD46A64
-	// RVA: 0x143C0C4 Offset: 0x143C0C4 VA: 0x143C0C4 Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46A74 Offset: 0xD46A74 VA: 0xD46A74
-	// RVA: 0x143C0D8 Offset: 0x143C0D8 VA: 0x143C0D8 Slot: 6
-	public void Reset() { }
-
-	// RVA: 0x143C140 Offset: 0x143C140 VA: 0x143C140
-	internal bool <>m__0() { }
-}
-
-// Namespace: 
-public abstract class SchedulerTaskBase // TypeDefIndex: 8374
-{
-	// Fields
-	public bool NonBlocking; // 0x10
-	public SchedulerTaskBase.TaskCallback StartCallback; // 0x18
-	public SchedulerTaskBase.TaskCallback EndCallback; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xCCAF40 Offset: 0xCCAF40 VA: 0xCCAF40
-	[DebuggerBrowsableAttribute] // RVA: 0xCCAF40 Offset: 0xCCAF40 VA: 0xCCAF40
-	private bool <IsPlaying>k__BackingField; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xCCAF7C Offset: 0xCCAF7C VA: 0xCCAF7C
-	[DebuggerBrowsableAttribute] // RVA: 0xCCAF7C Offset: 0xCCAF7C VA: 0xCCAF7C
-	private bool <IsPause>k__BackingField; // 0x29
-
-	// Properties
-	public bool IsPlaying { get; set; }
-	public bool IsPause { get; set; }
-
-	// Methods
-
-	// RVA: 0x143BD38 Offset: 0x143BD38 VA: 0x143BD38
-	protected void .ctor() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38BB4 Offset: 0xD38BB4 VA: 0xD38BB4
-	// RVA: 0x143C16C Offset: 0x143C16C VA: 0x143C16C
-	public bool get_IsPlaying() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38BC4 Offset: 0xD38BC4 VA: 0xD38BC4
-	// RVA: 0x143C174 Offset: 0x143C174 VA: 0x143C174
-	protected void set_IsPlaying(bool value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38BD4 Offset: 0xD38BD4 VA: 0xD38BD4
-	// RVA: 0x143C180 Offset: 0x143C180 VA: 0x143C180
-	public bool get_IsPause() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38BE4 Offset: 0xD38BE4 VA: 0xD38BE4
-	// RVA: 0x143C188 Offset: 0x143C188 VA: 0x143C188
-	protected void set_IsPause(bool value) { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD38BF4 Offset: 0xD38BF4 VA: 0xD38BF4
-	// RVA: 0x143C194 Offset: 0x143C194 VA: 0x143C194 Slot: 4
-	public virtual IEnumerator Execute() { }
-
-	// RVA: 0x143BE54 Offset: 0x143BE54 VA: 0x143BE54 Slot: 5
-	public virtual void OnStart() { }
-
-	// RVA: 0x143BFA0 Offset: 0x143BFA0 VA: 0x143BFA0 Slot: 6
-	public virtual void OnEnd() { }
-
-	// RVA: 0x143C3F8 Offset: 0x143C3F8 VA: 0x143C3F8 Slot: 7
-	public virtual void OnPause() { }
-
-	// RVA: 0x143C404 Offset: 0x143C404 VA: 0x143C404 Slot: 8
-	public virtual void OnResume() { }
-}
-
-// Namespace: 
-public sealed class SchedulerTaskBase.TaskCallback : MulticastDelegate // TypeDefIndex: 8375
-{
-	// Methods
-
-	// RVA: 0x143C498 Offset: 0x143C498 VA: 0x143C498
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x143C1F8 Offset: 0x143C1F8 VA: 0x143C1F8 Slot: 11
-	public virtual void Invoke() { }
-
-	// RVA: 0x143C4A8 Offset: 0x143C4A8 VA: 0x143C4A8 Slot: 12
-	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
-
-	// RVA: 0x143C4DC Offset: 0x143C4DC VA: 0x143C4DC Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF2B0 Offset: 0xCAF2B0 VA: 0xCAF2B0
-private sealed class SchedulerTaskBase.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8376
-{
-	// Fields
-	internal object $current; // 0x10
-	internal bool $disposing; // 0x18
-	internal int $PC; // 0x1C
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46A84 Offset: 0xD46A84 VA: 0xD46A84
-	// RVA: 0x143C1F0 Offset: 0x143C1F0 VA: 0x143C1F0
-	public void .ctor() { }
-
-	// RVA: 0x143C40C Offset: 0x143C40C VA: 0x143C40C Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46A94 Offset: 0xD46A94 VA: 0xD46A94
-	// RVA: 0x143C41C Offset: 0x143C41C VA: 0x143C41C Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46AA4 Offset: 0xD46AA4 VA: 0xD46AA4
-	// RVA: 0x143C424 Offset: 0x143C424 VA: 0x143C424 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46AB4 Offset: 0xD46AB4 VA: 0xD46AB4
-	// RVA: 0x143C42C Offset: 0x143C42C VA: 0x143C42C Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46AC4 Offset: 0xD46AC4 VA: 0xD46AC4
-	// RVA: 0x143C430 Offset: 0x143C430 VA: 0x143C430 Slot: 6
-	public void Reset() { }
-}
-
-// Namespace: 
-public class SchedulerTaskCommonEffect : SchedulerTaskBase // TypeDefIndex: 8377
-{
-	// Fields
-	private GameObject effectObject; // 0x30
-	private CommonEffectComponent commonEffect; // 0x38
-	private bool animationPlay; // 0x40
-	private Action animantionStartEndCallback; // 0x48
-	private Action animantionEndCallback; // 0x50
-	private ComponentPool<CommonEffectComponent> pool; // 0x58
-
-	// Methods
-
-	// RVA: 0x143C4E8 Offset: 0x143C4E8 VA: 0x143C4E8
-	public void .ctor(Transform parent, GameObject effetctPrefab, Nullable<Vector3> position, Nullable<Vector3> angle, Nullable<Vector3> scale, bool isLocal = False, bool doInstantiate = True) { }
-
-	// RVA: 0x143C8CC Offset: 0x143C8CC VA: 0x143C8CC
-	public void .ctor(Transform parent, ComponentPool<CommonEffectComponent> pool, Nullable<Vector3> position, Nullable<Vector3> angle, Nullable<Vector3> scale, bool isLocal = False) { }
-
-	// RVA: 0x143C6A0 Offset: 0x143C6A0 VA: 0x143C6A0
-	protected void AdjustTransform(Nullable<Vector3> position, Nullable<Vector3> angle, Nullable<Vector3> scale, bool isLocal = False) { }
-
-	// RVA: 0x143CA08 Offset: 0x143CA08 VA: 0x143CA08
-	public void SetAnimantionStartEndCallback(Action callback) { }
-
-	// RVA: 0x143CA10 Offset: 0x143CA10 VA: 0x143CA10
-	public void SetAnimantionEndCallback(Action callback) { }
-
-	// RVA: 0x143CA18 Offset: 0x143CA18 VA: 0x143CA18 Slot: 5
-	public override void OnStart() { }
-
-	// RVA: 0x143CB60 Offset: 0x143CB60 VA: 0x143CB60
-	private void AnimantionEndStartCallback() { }
-
-	// RVA: 0x143CC04 Offset: 0x143CC04 VA: 0x143CC04
-	private void AnimantionEndCallback() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD38C04 Offset: 0xD38C04 VA: 0xD38C04
-	// RVA: 0x143CC18 Offset: 0x143CC18 VA: 0x143CC18 Slot: 4
-	public override IEnumerator Execute() { }
-
-	// RVA: 0x143CC90 Offset: 0x143CC90 VA: 0x143CC90 Slot: 6
-	public override void OnEnd() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF2C0 Offset: 0xCAF2C0 VA: 0xCAF2C0
-private sealed class SchedulerTaskCommonEffect.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8378
-{
-	// Fields
-	internal SchedulerTaskCommonEffect $this; // 0x10
-	internal object $current; // 0x18
-	internal bool $disposing; // 0x20
-	internal int $PC; // 0x24
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46AD4 Offset: 0xD46AD4 VA: 0xD46AD4
-	// RVA: 0x143CC88 Offset: 0x143CC88 VA: 0x143CC88
-	public void .ctor() { }
-
-	// RVA: 0x143CD7C Offset: 0x143CD7C VA: 0x143CD7C Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46AE4 Offset: 0xD46AE4 VA: 0xD46AE4
-	// RVA: 0x143CEBC Offset: 0x143CEBC VA: 0x143CEBC Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46AF4 Offset: 0xD46AF4 VA: 0xD46AF4
-	// RVA: 0x143CEC4 Offset: 0x143CEC4 VA: 0x143CEC4 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46B04 Offset: 0xD46B04 VA: 0xD46B04
-	// RVA: 0x143CECC Offset: 0x143CECC VA: 0x143CECC Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46B14 Offset: 0xD46B14 VA: 0xD46B14
-	// RVA: 0x143CEE0 Offset: 0x143CEE0 VA: 0x143CEE0 Slot: 6
-	public void Reset() { }
-
-	// RVA: 0x143CF48 Offset: 0x143CF48 VA: 0x143CF48
-	internal bool <>m__0() { }
-}
-
-// Namespace: 
-public class SchedulerTaskMovePerformance : SchedulerTaskBase // TypeDefIndex: 8379
-{
-	// Fields
-	private GameObject target; // 0x30
-	private float duration; // 0x38
-	private Vector3 from; // 0x3C
-	private Vector3 to; // 0x48
-	private Easing.TYPE easeType; // 0x54
-
-	// Methods
-
-	// RVA: 0x143CF74 Offset: 0x143CF74 VA: 0x143CF74
-	public void .ctor(GameObject target, Vector3 from, Vector3 to, float pixelPerSec, Easing.TYPE easeType = 0) { }
-
-	// RVA: 0x143D08C Offset: 0x143D08C VA: 0x143D08C Slot: 5
-	public override void OnStart() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD38C14 Offset: 0xD38C14 VA: 0xD38C14
-	// RVA: 0x143D114 Offset: 0x143D114 VA: 0x143D114 Slot: 4
-	public override IEnumerator Execute() { }
-
-	// RVA: 0x143D18C Offset: 0x143D18C VA: 0x143D18C Slot: 6
-	public override void OnEnd() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF2D0 Offset: 0xCAF2D0 VA: 0xCAF2D0
-private sealed class SchedulerTaskMovePerformance.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8380
-{
-	// Fields
-	internal float <now>__0; // 0x10
-	internal Vector3 <dir>__0; // 0x14
-	internal float <percent>__1; // 0x20
-	internal SchedulerTaskMovePerformance $this; // 0x28
-	internal object $current; // 0x30
-	internal bool $disposing; // 0x38
-	internal int $PC; // 0x3C
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46B24 Offset: 0xD46B24 VA: 0xD46B24
-	// RVA: 0x143D184 Offset: 0x143D184 VA: 0x143D184
-	public void .ctor() { }
-
-	// RVA: 0x143D224 Offset: 0x143D224 VA: 0x143D224 Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46B34 Offset: 0xD46B34 VA: 0xD46B34
-	// RVA: 0x143D4DC Offset: 0x143D4DC VA: 0x143D4DC Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46B44 Offset: 0xD46B44 VA: 0xD46B44
-	// RVA: 0x143D4E4 Offset: 0x143D4E4 VA: 0x143D4E4 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46B54 Offset: 0xD46B54 VA: 0xD46B54
-	// RVA: 0x143D4EC Offset: 0x143D4EC VA: 0x143D4EC Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46B64 Offset: 0xD46B64 VA: 0xD46B64
-	// RVA: 0x143D500 Offset: 0x143D500 VA: 0x143D500 Slot: 6
-	public void Reset() { }
-}
-
-// Namespace: 
-public class SchedulerTaskNone : SchedulerTaskBase // TypeDefIndex: 8381
-{
-	// Methods
-
-	// RVA: 0x143D568 Offset: 0x143D568 VA: 0x143D568
-	public void .ctor() { }
-}
-
-// Namespace: 
-public class SchedulerTaskOrthostichy : SchedulerTaskBase // TypeDefIndex: 8382
-{
-	// Fields
-	private SchedulerTaskBase[] tasks; // 0x30
-
-	// Methods
-
-	// RVA: 0x143D570 Offset: 0x143D570 VA: 0x143D570
-	public void .ctor(SchedulerTaskBase[] taskBases) { }
-
-	// RVA: 0x143D59C Offset: 0x143D59C VA: 0x143D59C
-	public void .ctor(List<SchedulerTaskBase> taskBases) { }
-
-	// RVA: 0x143D618 Offset: 0x143D618 VA: 0x143D618 Slot: 5
-	public override void OnStart() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD38C24 Offset: 0xD38C24 VA: 0xD38C24
-	// RVA: 0x143D638 Offset: 0x143D638 VA: 0x143D638 Slot: 4
-	public override IEnumerator Execute() { }
-
-	// RVA: 0x143D6B0 Offset: 0x143D6B0 VA: 0x143D6B0 Slot: 6
-	public override void OnEnd() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF2E0 Offset: 0xCAF2E0 VA: 0xCAF2E0
-private sealed class SchedulerTaskOrthostichy.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8383
-{
-	// Fields
-	internal int <count>__0; // 0x10
-	internal int <i>__1; // 0x14
-	internal IEnumerator <executes>__2; // 0x18
-	internal SchedulerTaskOrthostichy $this; // 0x20
-	internal object $current; // 0x28
-	internal bool $disposing; // 0x30
-	internal int $PC; // 0x34
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46B74 Offset: 0xD46B74 VA: 0xD46B74
-	// RVA: 0x143D6A8 Offset: 0x143D6A8 VA: 0x143D6A8
-	public void .ctor() { }
-
-	// RVA: 0x143D6CC Offset: 0x143D6CC VA: 0x143D6CC Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46B84 Offset: 0xD46B84 VA: 0xD46B84
-	// RVA: 0x143DA60 Offset: 0x143DA60 VA: 0x143DA60 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46B94 Offset: 0xD46B94 VA: 0xD46B94
-	// RVA: 0x143DA68 Offset: 0x143DA68 VA: 0x143DA68 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46BA4 Offset: 0xD46BA4 VA: 0xD46BA4
-	// RVA: 0x143DA70 Offset: 0x143DA70 VA: 0x143DA70 Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46BB4 Offset: 0xD46BB4 VA: 0xD46BB4
-	// RVA: 0x143DA84 Offset: 0x143DA84 VA: 0x143DA84 Slot: 6
-	public void Reset() { }
-}
-
-// Namespace: 
-public class SchedulerTaskParallel : SchedulerTaskBase // TypeDefIndex: 8384
-{
-	// Fields
-	private SchedulerTaskBase[] tasks; // 0x30
-
-	// Methods
-
-	// RVA: 0x143DAEC Offset: 0x143DAEC VA: 0x143DAEC
-	public void .ctor(SchedulerTaskBase[] taskBases) { }
-
-	// RVA: 0x143DB18 Offset: 0x143DB18 VA: 0x143DB18
-	public void .ctor(List<SchedulerTaskBase> taskBases) { }
-
-	// RVA: 0x143DB94 Offset: 0x143DB94 VA: 0x143DB94 Slot: 5
-	public override void OnStart() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD38C34 Offset: 0xD38C34 VA: 0xD38C34
-	// RVA: 0x143DC88 Offset: 0x143DC88 VA: 0x143DC88 Slot: 4
-	public override IEnumerator Execute() { }
-
-	// RVA: 0x143DD00 Offset: 0x143DD00 VA: 0x143DD00 Slot: 6
-	public override void OnEnd() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF2F0 Offset: 0xCAF2F0 VA: 0xCAF2F0
-private sealed class SchedulerTaskParallel.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8385
-{
-	// Fields
-	internal int <count>__0; // 0x10
-	internal bool[] <endFlags>__0; // 0x18
-	internal object[] <currentObjects>__0; // 0x20
-	internal IEnumerator[] <executes>__0; // 0x28
-	internal SchedulerTaskParallel $this; // 0x30
-	internal object $current; // 0x38
-	internal bool $disposing; // 0x40
-	internal int $PC; // 0x44
-	private static Func<bool, bool> <>f__am$cache0; // 0x0
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46BC4 Offset: 0xD46BC4 VA: 0xD46BC4
-	// RVA: 0x143DCF8 Offset: 0x143DCF8 VA: 0x143DCF8
-	public void .ctor() { }
-
-	// RVA: 0x143DD1C Offset: 0x143DD1C VA: 0x143DD1C Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46BD4 Offset: 0xD46BD4 VA: 0xD46BD4
-	// RVA: 0x143E33C Offset: 0x143E33C VA: 0x143E33C Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46BE4 Offset: 0xD46BE4 VA: 0xD46BE4
-	// RVA: 0x143E344 Offset: 0x143E344 VA: 0x143E344 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46BF4 Offset: 0xD46BF4 VA: 0xD46BF4
-	// RVA: 0x143E34C Offset: 0x143E34C VA: 0x143E34C Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46C04 Offset: 0xD46C04 VA: 0xD46C04
-	// RVA: 0x143E360 Offset: 0x143E360 VA: 0x143E360 Slot: 6
-	public void Reset() { }
-
-	// RVA: 0x143E3C8 Offset: 0x143E3C8 VA: 0x143E3C8
-	private static bool <>m__0(bool x) { }
-}
-
-// Namespace: 
-public class SchedulerTaskSimpleAnimation : SchedulerTaskBase // TypeDefIndex: 8386
-{
-	// Fields
-	private SimpleAnimation animation; // 0x30
-	private string animationName; // 0x38
-	private bool isStart; // 0x40
-
-	// Methods
-
-	// RVA: 0x143E3D0 Offset: 0x143E3D0 VA: 0x143E3D0
-	public void .ctor(SimpleAnimation animation, string animationName) { }
-
-	// RVA: 0x143E408 Offset: 0x143E408 VA: 0x143E408 Slot: 5
-	public override void OnStart() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD38C44 Offset: 0xD38C44 VA: 0xD38C44
-	// RVA: 0x143E4EC Offset: 0x143E4EC VA: 0x143E4EC Slot: 4
-	public override IEnumerator Execute() { }
-
-	// RVA: 0x143E564 Offset: 0x143E564 VA: 0x143E564 Slot: 6
-	public override void OnEnd() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF300 Offset: 0xCAF300 VA: 0xCAF300
-private sealed class SchedulerTaskSimpleAnimation.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8387
-{
-	// Fields
-	internal SchedulerTaskSimpleAnimation $this; // 0x10
-	internal object $current; // 0x18
-	internal bool $disposing; // 0x20
-	internal int $PC; // 0x24
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46C14 Offset: 0xD46C14 VA: 0xD46C14
-	// RVA: 0x143E55C Offset: 0x143E55C VA: 0x143E55C
-	public void .ctor() { }
-
-	// RVA: 0x143E580 Offset: 0x143E580 VA: 0x143E580 Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46C24 Offset: 0xD46C24 VA: 0xD46C24
-	// RVA: 0x143E690 Offset: 0x143E690 VA: 0x143E690 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46C34 Offset: 0xD46C34 VA: 0xD46C34
-	// RVA: 0x143E698 Offset: 0x143E698 VA: 0x143E698 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46C44 Offset: 0xD46C44 VA: 0xD46C44
-	// RVA: 0x143E6A0 Offset: 0x143E6A0 VA: 0x143E6A0 Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46C54 Offset: 0xD46C54 VA: 0xD46C54
-	// RVA: 0x143E6B4 Offset: 0x143E6B4 VA: 0x143E6B4 Slot: 6
-	public void Reset() { }
-
-	// RVA: 0x143E71C Offset: 0x143E71C VA: 0x143E71C
-	internal bool <>m__0() { }
-}
-
-// Namespace: 
-public class SchedulerTaskWaitLoadAsset : SchedulerTaskBase // TypeDefIndex: 8388
-{
-	// Fields
-	private string assetName; // 0x30
-	private bool isCompleate; // 0x38
-
-	// Methods
-
-	// RVA: 0x143E768 Offset: 0x143E768 VA: 0x143E768
-	public void .ctor(string assetName) { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD38C54 Offset: 0xD38C54 VA: 0xD38C54
-	// RVA: 0x143E84C Offset: 0x143E84C VA: 0x143E84C Slot: 4
-	public override IEnumerator Execute() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38C64 Offset: 0xD38C64 VA: 0xD38C64
-	// RVA: 0x143E8C4 Offset: 0x143E8C4 VA: 0x143E8C4
-	private void <SchedulerTaskWaitLoadAsset>m__0() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF310 Offset: 0xCAF310 VA: 0xCAF310
-private sealed class SchedulerTaskWaitLoadAsset.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8389
-{
-	// Fields
-	internal SchedulerTaskWaitLoadAsset $this; // 0x10
-	internal object $current; // 0x18
-	internal bool $disposing; // 0x20
-	internal int $PC; // 0x24
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46C64 Offset: 0xD46C64 VA: 0xD46C64
-	// RVA: 0x143E8BC Offset: 0x143E8BC VA: 0x143E8BC
-	public void .ctor() { }
-
-	// RVA: 0x143E8D0 Offset: 0x143E8D0 VA: 0x143E8D0 Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46C74 Offset: 0xD46C74 VA: 0xD46C74
-	// RVA: 0x143E944 Offset: 0x143E944 VA: 0x143E944 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46C84 Offset: 0xD46C84 VA: 0xD46C84
-	// RVA: 0x143E94C Offset: 0x143E94C VA: 0x143E94C Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46C94 Offset: 0xD46C94 VA: 0xD46C94
-	// RVA: 0x143E954 Offset: 0x143E954 VA: 0x143E954 Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46CA4 Offset: 0xD46CA4 VA: 0xD46CA4
-	// RVA: 0x143E968 Offset: 0x143E968 VA: 0x143E968 Slot: 6
-	public void Reset() { }
-}
-
-// Namespace: 
-public class SchedulerTaskWaitTime : SchedulerTaskBase // TypeDefIndex: 8390
-{
-	// Fields
-	private float waitTime; // 0x2C
-
-	// Methods
-
-	// RVA: 0x143E9D0 Offset: 0x143E9D0 VA: 0x143E9D0
-	public void .ctor(float waitTime) { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD38C74 Offset: 0xD38C74 VA: 0xD38C74
-	// RVA: 0x143EA04 Offset: 0x143EA04 VA: 0x143EA04 Slot: 4
-	public override IEnumerator Execute() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF320 Offset: 0xCAF320 VA: 0xCAF320
-private sealed class SchedulerTaskWaitTime.<Execute>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8391
-{
-	// Fields
-	internal float <espTime>__1; // 0x10
-	internal SchedulerTaskWaitTime $this; // 0x18
-	internal object $current; // 0x20
-	internal bool $disposing; // 0x28
-	internal int $PC; // 0x2C
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46CB4 Offset: 0xD46CB4 VA: 0xD46CB4
-	// RVA: 0x143EA74 Offset: 0x143EA74 VA: 0x143EA74
-	public void .ctor() { }
-
-	// RVA: 0x143EA7C Offset: 0x143EA7C VA: 0x143EA7C Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46CC4 Offset: 0xD46CC4 VA: 0xD46CC4
-	// RVA: 0x143EB68 Offset: 0x143EB68 VA: 0x143EB68 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46CD4 Offset: 0xD46CD4 VA: 0xD46CD4
-	// RVA: 0x143EB70 Offset: 0x143EB70 VA: 0x143EB70 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46CE4 Offset: 0xD46CE4 VA: 0xD46CE4
-	// RVA: 0x143EB78 Offset: 0x143EB78 VA: 0x143EB78 Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46CF4 Offset: 0xD46CF4 VA: 0xD46CF4
-	// RVA: 0x143EB8C Offset: 0x143EB8C VA: 0x143EB8C Slot: 6
-	public void Reset() { }
-}
-
-// Namespace: 
-public class TaskScheduler // TypeDefIndex: 8392
-{
-	// Fields
-	private Queue<TaskScheduler.PerformanceQueue> taskQueue; // 0x10
-	private IEnumerator taskExecute; // 0x18
-	private List<SchedulerTaskBase> nonBlockTasks; // 0x20
-	private IEnumerator nonBlockTaskExecute; // 0x28
-	private bool isPause; // 0x30
-	private bool isPauseImmediate; // 0x31
-	[CompilerGeneratedAttribute] // RVA: 0xCCAFB8 Offset: 0xCCAFB8 VA: 0xCCAFB8
-	[DebuggerBrowsableAttribute] // RVA: 0xCCAFB8 Offset: 0xCCAFB8 VA: 0xCCAFB8
-	private Action<bool> <AllTouchBlockMethod>k__BackingField; // 0x38
-
-	// Properties
-	private Action<bool> AllTouchBlockMethod { get; set; }
-
-	// Methods
-
-	// RVA: 0x15EA6C4 Offset: 0x15EA6C4 VA: 0x15EA6C4
-	public void .ctor() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38C84 Offset: 0xD38C84 VA: 0xD38C84
+	// RVA: 0x1534408 Offset: 0x1534408 VA: 0x1534408 Slot: 10

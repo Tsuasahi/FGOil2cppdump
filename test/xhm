@@ -1,43 +1,165 @@
 
-	// RVA: 0x1379B64 Offset: 0x1379B64 VA: 0x1379B64
+// Namespace: UnityEngine
+public struct TextGenerationSettings // TypeDefIndex: 2641
+{
+	// Fields
+	public Font font; // 0x0
+	public Color color; // 0x8
+	public int fontSize; // 0x18
+	public float lineSpacing; // 0x1C
+	public bool richText; // 0x20
+	public float scaleFactor; // 0x24
+	public FontStyle fontStyle; // 0x28
+	public TextAnchor textAnchor; // 0x2C
+	public bool alignByGeometry; // 0x30
+	public bool resizeTextForBestFit; // 0x31
+	public int resizeTextMinSize; // 0x34
+	public int resizeTextMaxSize; // 0x38
+	public bool updateBounds; // 0x3C
+	public VerticalWrapMode verticalOverflow; // 0x40
+	public HorizontalWrapMode horizontalOverflow; // 0x44
+	public Vector2 generationExtents; // 0x48
+	public Vector2 pivot; // 0x50
+	public bool generateOutOfBounds; // 0x58
+
+	// Methods
+
+	// RVA: 0xD79F18 Offset: 0xD79F18 VA: 0xD79F18
+	private bool CompareColors(Color left, Color right) { }
+
+	// RVA: 0xD79F1C Offset: 0xD79F1C VA: 0xD79F1C
+	private bool CompareVector2(Vector2 left, Vector2 right) { }
+
+	// RVA: 0xD79F20 Offset: 0xD79F20 VA: 0xD79F20
+	public bool Equals(TextGenerationSettings other) { }
+}
+
+// Namespace: UnityEngine
+[NativeHeaderAttribute] // RVA: 0xBF1AC0 Offset: 0xBF1AC0 VA: 0xBF1AC0
+[UsedByNativeCodeAttribute] // RVA: 0xBF1AC0 Offset: 0xBF1AC0 VA: 0xBF1AC0
+public sealed class TextGenerator : IDisposable // TypeDefIndex: 2642
+{
+	// Fields
+	internal IntPtr m_Ptr; // 0x10
+	private string m_LastString; // 0x18
+	private TextGenerationSettings m_LastSettings; // 0x20
+	private bool m_HasGenerated; // 0x80
+	private TextGenerationError m_LastValid; // 0x84
+	private readonly List<UIVertex> m_Verts; // 0x88
+	private readonly List<UICharInfo> m_Characters; // 0x90
+	private readonly List<UILineInfo> m_Lines; // 0x98
+	private bool m_CachedVerts; // 0xA0
+	private bool m_CachedCharacters; // 0xA1
+	private bool m_CachedLines; // 0xA2
+
+	// Properties
+	public int characterCountVisible { get; }
+	public IList<UIVertex> verts { get; }
+	public IList<UICharInfo> characters { get; }
+	public IList<UILineInfo> lines { get; }
+	public Rect rectExtents { get; }
+	public int characterCount { get; }
+	public int lineCount { get; }
+
+	// Methods
+
+	// RVA: 0x2B87308 Offset: 0x2B87308 VA: 0x2B87308
+	public void .ctor() { }
+
+	// RVA: 0x2B87310 Offset: 0x2B87310 VA: 0x2B87310
+	public void .ctor(int initialCapacity) { }
+
+	// RVA: 0x2B87450 Offset: 0x2B87450 VA: 0x2B87450 Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x2B8754C Offset: 0x2B8754C VA: 0x2B8754C Slot: 4
+	private void System.IDisposable.Dispose() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xBF1E24 Offset: 0xBF1E24 VA: 0xBF1E24
+	// RVA: 0x2B87618 Offset: 0x2B87618 VA: 0x2B87618
+	public int get_characterCountVisible() { }
+
+	// RVA: 0x2B8769C Offset: 0x2B8769C VA: 0x2B8769C
+	private TextGenerationSettings ValidatedSettings(TextGenerationSettings settings) { }
+
+	// RVA: 0x2B87990 Offset: 0x2B87990 VA: 0x2B87990
+	public void Invalidate() { }
+
+	// RVA: 0x2B87998 Offset: 0x2B87998 VA: 0x2B87998
+	public void GetCharacters(List<UICharInfo> characters) { }
+
+	// RVA: 0x2B87A10 Offset: 0x2B87A10 VA: 0x2B87A10
+	public void GetLines(List<UILineInfo> lines) { }
+
+	// RVA: 0x2B87A88 Offset: 0x2B87A88 VA: 0x2B87A88
+	public void GetVertices(List<UIVertex> vertices) { }
+
+	// RVA: 0x2B87B00 Offset: 0x2B87B00 VA: 0x2B87B00
+	public float GetPreferredWidth(string str, TextGenerationSettings settings) { }
+
+	// RVA: 0x2B87C00 Offset: 0x2B87C00 VA: 0x2B87C00
+	public float GetPreferredHeight(string str, TextGenerationSettings settings) { }
+
+	// RVA: 0x2B87C7C Offset: 0x2B87C7C VA: 0x2B87C7C
+	public bool PopulateWithErrors(string str, TextGenerationSettings settings, GameObject context) { }
+
+	// RVA: 0x2B87B80 Offset: 0x2B87B80 VA: 0x2B87B80
+	public bool Populate(string str, TextGenerationSettings settings) { }
+
+	// RVA: 0x2B87E70 Offset: 0x2B87E70 VA: 0x2B87E70
+	private TextGenerationError PopulateWithError(string str, TextGenerationSettings settings) { }
+
+	// RVA: 0x2B87F54 Offset: 0x2B87F54 VA: 0x2B87F54
+	private TextGenerationError PopulateAlways(string str, TextGenerationSettings settings) { }
+
+	// RVA: 0x2B8821C Offset: 0x2B8821C VA: 0x2B8821C
+	public IList<UIVertex> get_verts() { }
+
+	// RVA: 0x2B88258 Offset: 0x2B88258 VA: 0x2B88258
+	public IList<UICharInfo> get_characters() { }
+
+	// RVA: 0x2B88294 Offset: 0x2B88294 VA: 0x2B88294
+	public IList<UILineInfo> get_lines() { }
+
+	// RVA: 0x2B87BD4 Offset: 0x2B87BD4 VA: 0x2B87BD4
 	public Rect get_rectExtents() { }
 
-	// RVA: 0x13795C0 Offset: 0x13795C0 VA: 0x13795C0
+	// RVA: 0x2B87630 Offset: 0x2B87630 VA: 0x2B87630
 	public int get_characterCount() { }
 
-	// RVA: 0x137A2D4 Offset: 0x137A2D4 VA: 0x137A2D4
+	// RVA: 0x2B88344 Offset: 0x2B88344 VA: 0x2B88344
 	public int get_lineCount() { }
 
-	[NativeMethodAttribute] // RVA: 0xC5DF5C Offset: 0xC5DF5C VA: 0xC5DF5C
-	// RVA: 0x1379388 Offset: 0x1379388 VA: 0x1379388
+	[NativeMethodAttribute] // RVA: 0xBF1E34 Offset: 0xBF1E34 VA: 0xBF1E34
+	// RVA: 0x2B873F8 Offset: 0x2B873F8 VA: 0x2B873F8
 	private static IntPtr Internal_Create() { }
 
-	[NativeMethodAttribute] // RVA: 0xC5DF94 Offset: 0xC5DF94 VA: 0xC5DF94
-	// RVA: 0x137953C Offset: 0x137953C VA: 0x137953C
+	[NativeMethodAttribute] // RVA: 0xBF1E6C Offset: 0xBF1E6C VA: 0xBF1E6C
+	// RVA: 0x2B875AC Offset: 0x2B875AC VA: 0x2B875AC
 	private static void Internal_Destroy(IntPtr ptr) { }
 
-	// RVA: 0x137A340 Offset: 0x137A340 VA: 0x137A340
+	// RVA: 0x2B883B0 Offset: 0x2B883B0 VA: 0x2B883B0
 	internal bool Populate_Internal(string str, Font font, Color color, int fontSize, float scaleFactor, float lineSpacing, FontStyle style, bool richText, bool resizeTextForBestFit, int resizeTextMinSize, int resizeTextMaxSize, int verticalOverFlow, int horizontalOverflow, bool updateBounds, TextAnchor anchor, float extentsX, float extentsY, float pivotX, float pivotY, bool generateOutOfBounds, bool alignByGeometry, out uint error) { }
 
-	// RVA: 0x137A000 Offset: 0x137A000 VA: 0x137A000
+	// RVA: 0x2B88070 Offset: 0x2B88070 VA: 0x2B88070
 	internal bool Populate_Internal(string str, Font font, Color color, int fontSize, float scaleFactor, float lineSpacing, FontStyle style, bool richText, bool resizeTextForBestFit, int resizeTextMinSize, int resizeTextMaxSize, VerticalWrapMode verticalOverFlow, HorizontalWrapMode horizontalOverflow, bool updateBounds, TextAnchor anchor, Vector2 extents, Vector2 pivot, bool generateOutOfBounds, bool alignByGeometry, out TextGenerationError error) { }
 
-	[NativeThrowsAttribute] // RVA: 0xC5DFCC Offset: 0xC5DFCC VA: 0xC5DFCC
-	// RVA: 0x1379A1C Offset: 0x1379A1C VA: 0x1379A1C
+	[NativeThrowsAttribute] // RVA: 0xBF1EA4 Offset: 0xBF1EA4 VA: 0xBF1EA4
+	// RVA: 0x2B87A8C Offset: 0x2B87A8C VA: 0x2B87A8C
 	private void GetVerticesInternal(object vertices) { }
 
-	[NativeThrowsAttribute] // RVA: 0xC5DFDC Offset: 0xC5DFDC VA: 0xC5DFDC
-	// RVA: 0x137992C Offset: 0x137992C VA: 0x137992C
+	[NativeThrowsAttribute] // RVA: 0xBF1EB4 Offset: 0xBF1EB4 VA: 0xBF1EB4
+	// RVA: 0x2B8799C Offset: 0x2B8799C VA: 0x2B8799C
 	private void GetCharactersInternal(object characters) { }
 
-	[NativeThrowsAttribute] // RVA: 0xC5DFEC Offset: 0xC5DFEC VA: 0xC5DFEC
-	// RVA: 0x13799A4 Offset: 0x13799A4 VA: 0x13799A4
+	[NativeThrowsAttribute] // RVA: 0xBF1EC4 Offset: 0xBF1EC4 VA: 0xBF1EC4
+	// RVA: 0x2B87A14 Offset: 0x2B87A14 VA: 0x2B87A14
 	private void GetLinesInternal(object lines) { }
 
-	// RVA: 0x137A260 Offset: 0x137A260 VA: 0x137A260
+	// RVA: 0x2B882D0 Offset: 0x2B882D0 VA: 0x2B882D0
 	private void get_rectExtents_Injected(out Rect ret) { }
 
-	// RVA: 0x137A3FC Offset: 0x137A3FC VA: 0x137A3FC
+	// RVA: 0x2B8846C Offset: 0x2B8846C VA: 0x2B8846C
 	private bool Populate_Internal_Injected(string str, Font font, ref Color color, int fontSize, float scaleFactor, float lineSpacing, FontStyle style, bool richText, bool resizeTextForBestFit, int resizeTextMinSize, int resizeTextMaxSize, int verticalOverFlow, int horizontalOverflow, bool updateBounds, TextAnchor anchor, float extentsX, float extentsY, float pivotX, float pivotY, bool generateOutOfBounds, bool alignByGeometry, out uint error) { }
 }
 
@@ -76,10 +198,10 @@ public enum VerticalWrapMode // TypeDefIndex: 2645
 }
 
 // Namespace: UnityEngine
-[NativeClassAttribute] // RVA: 0xC5DC34 Offset: 0xC5DC34 VA: 0xC5DC34
-[ObsoleteAttribute] // RVA: 0xC5DC34 Offset: 0xC5DC34 VA: 0xC5DC34
-[NativeHeaderAttribute] // RVA: 0xC5DC34 Offset: 0xC5DC34 VA: 0xC5DC34
-[NativeHeaderAttribute] // RVA: 0xC5DC34 Offset: 0xC5DC34 VA: 0xC5DC34
+[NativeClassAttribute] // RVA: 0xBF1B0C Offset: 0xBF1B0C VA: 0xBF1B0C
+[ObsoleteAttribute] // RVA: 0xBF1B0C Offset: 0xBF1B0C VA: 0xBF1B0C
+[NativeHeaderAttribute] // RVA: 0xBF1B0C Offset: 0xBF1B0C VA: 0xBF1B0C
+[NativeHeaderAttribute] // RVA: 0xBF1B0C Offset: 0xBF1B0C VA: 0xBF1B0C
 public sealed class GUIText : GUIElement // TypeDefIndex: 2646
 {
 	// Properties
@@ -88,30 +210,30 @@ public sealed class GUIText : GUIElement // TypeDefIndex: 2646
 
 	// Methods
 
-	// RVA: 0x1378D48 Offset: 0x1378D48 VA: 0x1378D48
+	// RVA: 0x2B86DB8 Offset: 0x2B86DB8 VA: 0x2B86DB8
 	public void set_text(string value) { }
 
-	[FreeFunctionAttribute] // RVA: 0xC5DFFC Offset: 0xC5DFFC VA: 0xC5DFFC
-	// RVA: 0x1378DBC Offset: 0x1378DBC VA: 0x1378DBC
+	[FreeFunctionAttribute] // RVA: 0xBF1ED4 Offset: 0xBF1ED4 VA: 0xBF1ED4
+	// RVA: 0x2B86E2C Offset: 0x2B86E2C VA: 0x2B86E2C
 	public Material get_material() { }
 }
 
 // Namespace: UnityEngine
-[UsedByNativeCodeAttribute] // RVA: 0xC5DCE0 Offset: 0xC5DCE0 VA: 0xC5DCE0
+[UsedByNativeCodeAttribute] // RVA: 0xBF1BB8 Offset: 0xBF1BB8 VA: 0xBF1BB8
 public struct CharacterInfo // TypeDefIndex: 2647
 {
 	// Fields
 	public int index; // 0x0
-	[ObsoleteAttribute] // RVA: 0xC5DDCC Offset: 0xC5DDCC VA: 0xC5DDCC
+	[ObsoleteAttribute] // RVA: 0xBF1CA4 Offset: 0xBF1CA4 VA: 0xBF1CA4
 	public Rect uv; // 0x4
-	[ObsoleteAttribute] // RVA: 0xC5DE04 Offset: 0xC5DE04 VA: 0xC5DE04
+	[ObsoleteAttribute] // RVA: 0xBF1CDC Offset: 0xBF1CDC VA: 0xBF1CDC
 	public Rect vert; // 0x14
-	[ObsoleteAttribute] // RVA: 0xC5DE3C Offset: 0xC5DE3C VA: 0xC5DE3C
-	[NativeNameAttribute] // RVA: 0xC5DE3C Offset: 0xC5DE3C VA: 0xC5DE3C
+	[ObsoleteAttribute] // RVA: 0xBF1D14 Offset: 0xBF1D14 VA: 0xBF1D14
+	[NativeNameAttribute] // RVA: 0xBF1D14 Offset: 0xBF1D14 VA: 0xBF1D14
 	public float width; // 0x24
 	public int size; // 0x28
 	public FontStyle style; // 0x2C
-	[ObsoleteAttribute] // RVA: 0xC5DE9C Offset: 0xC5DE9C VA: 0xC5DE9C
+	[ObsoleteAttribute] // RVA: 0xBF1D74 Offset: 0xBF1D74 VA: 0xBF1D74
 	public bool flipped; // 0x30
 
 	// Properties
@@ -131,48 +253,48 @@ public struct CharacterInfo // TypeDefIndex: 2647
 
 	// Methods
 
-	// RVA: 0xBC29B0 Offset: 0xBC29B0 VA: 0xBC29B0
+	// RVA: 0xD79D88 Offset: 0xD79D88 VA: 0xD79D88
 	public int get_advance() { }
 
-	// RVA: 0xBC29D8 Offset: 0xBC29D8 VA: 0xBC29D8
+	// RVA: 0xD79DB0 Offset: 0xD79DB0 VA: 0xD79DB0
 	public int get_minY() { }
 
-	// RVA: 0xBC2A20 Offset: 0xBC2A20 VA: 0xBC2A20
+	// RVA: 0xD79DF8 Offset: 0xD79DF8 VA: 0xD79DF8
 	public int get_maxY() { }
 
-	// RVA: 0xBC2A40 Offset: 0xBC2A40 VA: 0xBC2A40
+	// RVA: 0xD79E18 Offset: 0xD79E18 VA: 0xD79E18
 	public int get_minX() { }
 
-	// RVA: 0xBC2A60 Offset: 0xBC2A60 VA: 0xBC2A60
+	// RVA: 0xD79E38 Offset: 0xD79E38 VA: 0xD79E38
 	public int get_maxX() { }
 
-	// RVA: 0xBC2AA8 Offset: 0xBC2AA8 VA: 0xBC2AA8
+	// RVA: 0xD79E80 Offset: 0xD79E80 VA: 0xD79E80
 	internal Vector2 get_uvBottomLeftUnFlipped() { }
 
-	// RVA: 0xBC2AB0 Offset: 0xBC2AB0 VA: 0xBC2AB0
+	// RVA: 0xD79E88 Offset: 0xD79E88 VA: 0xD79E88
 	internal Vector2 get_uvBottomRightUnFlipped() { }
 
-	// RVA: 0xBC2AB8 Offset: 0xBC2AB8 VA: 0xBC2AB8
+	// RVA: 0xD79E90 Offset: 0xD79E90 VA: 0xD79E90
 	internal Vector2 get_uvTopRightUnFlipped() { }
 
-	// RVA: 0xBC2AC0 Offset: 0xBC2AC0 VA: 0xBC2AC0
+	// RVA: 0xD79E98 Offset: 0xD79E98 VA: 0xD79E98
 	internal Vector2 get_uvTopLeftUnFlipped() { }
 
-	// RVA: 0xBC2AC8 Offset: 0xBC2AC8 VA: 0xBC2AC8
+	// RVA: 0xD79EA0 Offset: 0xD79EA0 VA: 0xD79EA0
 	public Vector2 get_uvBottomLeft() { }
 
-	// RVA: 0xBC2AD0 Offset: 0xBC2AD0 VA: 0xBC2AD0
+	// RVA: 0xD79EA8 Offset: 0xD79EA8 VA: 0xD79EA8
 	public Vector2 get_uvBottomRight() { }
 
-	// RVA: 0xBC2AD8 Offset: 0xBC2AD8 VA: 0xBC2AD8
+	// RVA: 0xD79EB0 Offset: 0xD79EB0 VA: 0xD79EB0
 	public Vector2 get_uvTopRight() { }
 
-	// RVA: 0xBC2AE0 Offset: 0xBC2AE0 VA: 0xBC2AE0
+	// RVA: 0xD79EB8 Offset: 0xD79EB8 VA: 0xD79EB8
 	public Vector2 get_uvTopLeft() { }
 }
 
 // Namespace: UnityEngine
-[UsedByNativeCodeAttribute] // RVA: 0xC5DCF0 Offset: 0xC5DCF0 VA: 0xC5DCF0
+[UsedByNativeCodeAttribute] // RVA: 0xBF1BC8 Offset: 0xBF1BC8 VA: 0xBF1BC8
 public struct UICharInfo // TypeDefIndex: 2648
 {
 	// Fields
@@ -181,7 +303,7 @@ public struct UICharInfo // TypeDefIndex: 2648
 }
 
 // Namespace: UnityEngine
-[UsedByNativeCodeAttribute] // RVA: 0xC5DD00 Offset: 0xC5DD00 VA: 0xC5DD00
+[UsedByNativeCodeAttribute] // RVA: 0xBF1BD8 Offset: 0xBF1BD8 VA: 0xBF1BD8
 public struct UILineInfo // TypeDefIndex: 2649
 {
 	// Fields
@@ -192,7 +314,7 @@ public struct UILineInfo // TypeDefIndex: 2649
 }
 
 // Namespace: UnityEngine
-[UsedByNativeCodeAttribute] // RVA: 0xC5DD10 Offset: 0xC5DD10 VA: 0xC5DD10
+[UsedByNativeCodeAttribute] // RVA: 0xBF1BE8 Offset: 0xBF1BE8 VA: 0xBF1BE8
 public struct UIVertex // TypeDefIndex: 2650
 {
 	// Fields
@@ -210,23 +332,23 @@ public struct UIVertex // TypeDefIndex: 2650
 
 	// Methods
 
-	// RVA: 0x137A558 Offset: 0x137A558 VA: 0x137A558
+	// RVA: 0x2B885C8 Offset: 0x2B885C8 VA: 0x2B885C8
 	private static void .cctor() { }
 }
 
 // Namespace: UnityEngine
-[NativeHeaderAttribute] // RVA: 0xC5DD20 Offset: 0xC5DD20 VA: 0xC5DD20
-[StaticAccessorAttribute] // RVA: 0xC5DD20 Offset: 0xC5DD20 VA: 0xC5DD20
-[NativeClassAttribute] // RVA: 0xC5DD20 Offset: 0xC5DD20 VA: 0xC5DD20
-[NativeHeaderAttribute] // RVA: 0xC5DD20 Offset: 0xC5DD20 VA: 0xC5DD20
+[NativeHeaderAttribute] // RVA: 0xBF1BF8 Offset: 0xBF1BF8 VA: 0xBF1BF8
+[StaticAccessorAttribute] // RVA: 0xBF1BF8 Offset: 0xBF1BF8 VA: 0xBF1BF8
+[NativeClassAttribute] // RVA: 0xBF1BF8 Offset: 0xBF1BF8 VA: 0xBF1BF8
+[NativeHeaderAttribute] // RVA: 0xBF1BF8 Offset: 0xBF1BF8 VA: 0xBF1BF8
 public sealed class Font : Object // TypeDefIndex: 2651
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xC5DED4 Offset: 0xC5DED4 VA: 0xC5DED4
-	[DebuggerBrowsableAttribute] // RVA: 0xC5DED4 Offset: 0xC5DED4 VA: 0xC5DED4
+	[CompilerGeneratedAttribute] // RVA: 0xBF1DAC Offset: 0xBF1DAC VA: 0xBF1DAC
+	[DebuggerBrowsableAttribute] // RVA: 0xBF1DAC Offset: 0xBF1DAC VA: 0xBF1DAC
 	private static Action<Font> textureRebuilt; // 0x0
-	[CompilerGeneratedAttribute] // RVA: 0xC5DF10 Offset: 0xC5DF10 VA: 0xC5DF10
-	[DebuggerBrowsableAttribute] // RVA: 0xC5DF10 Offset: 0xC5DF10 VA: 0xC5DF10
+	[CompilerGeneratedAttribute] // RVA: 0xBF1DE8 Offset: 0xBF1DE8 VA: 0xBF1DE8
+	[DebuggerBrowsableAttribute] // RVA: 0xBF1DE8 Offset: 0xBF1DE8 VA: 0xBF1DE8
 	private Font.FontTextureRebuildCallback m_FontTextureRebuildCallback; // 0x18
 
 	// Properties
@@ -237,45 +359,45 @@ public sealed class Font : Object // TypeDefIndex: 2651
 
 	// Methods
 
-	// RVA: 0x137842C Offset: 0x137842C VA: 0x137842C
+	// RVA: 0x2B8649C Offset: 0x2B8649C VA: 0x2B8649C
 	public void .ctor() { }
 
-	// RVA: 0x1378514 Offset: 0x1378514 VA: 0x1378514
+	// RVA: 0x2B86584 Offset: 0x2B86584 VA: 0x2B86584
 	public static void add_textureRebuilt(Action<Font> value) { }
 
-	// RVA: 0x1378614 Offset: 0x1378614 VA: 0x1378614
+	// RVA: 0x2B86684 Offset: 0x2B86684 VA: 0x2B86684
 	public static void remove_textureRebuilt(Action<Font> value) { }
 
-	// RVA: 0x1378714 Offset: 0x1378714 VA: 0x1378714
+	// RVA: 0x2B86784 Offset: 0x2B86784 VA: 0x2B86784
 	public Material get_material() { }
 
-	// RVA: 0x1378780 Offset: 0x1378780 VA: 0x1378780
+	// RVA: 0x2B867F0 Offset: 0x2B867F0 VA: 0x2B867F0
 	public string[] get_fontNames() { }
 
-	// RVA: 0x13787EC Offset: 0x13787EC VA: 0x13787EC
+	// RVA: 0x2B8685C Offset: 0x2B8685C VA: 0x2B8685C
 	public bool get_dynamic() { }
 
-	// RVA: 0x1378858 Offset: 0x1378858 VA: 0x1378858
+	// RVA: 0x2B868C8 Offset: 0x2B868C8 VA: 0x2B868C8
 	public int get_fontSize() { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC5E044 Offset: 0xC5E044 VA: 0xC5E044
-	// RVA: 0x13788C4 Offset: 0x13788C4 VA: 0x13788C4
+	[RequiredByNativeCodeAttribute] // RVA: 0xBF1F1C Offset: 0xBF1F1C VA: 0xBF1F1C
+	// RVA: 0x2B86934 Offset: 0x2B86934 VA: 0x2B86934
 	internal static void InvokeTextureRebuilt_Internal(Font font) { }
 
-	// RVA: 0x1378B54 Offset: 0x1378B54 VA: 0x1378B54
+	// RVA: 0x2B86BC4 Offset: 0x2B86BC4 VA: 0x2B86BC4
 	public bool HasCharacter(char c) { }
 
-	// RVA: 0x1378B5C Offset: 0x1378B5C VA: 0x1378B5C
+	// RVA: 0x2B86BCC Offset: 0x2B86BCC VA: 0x2B86BCC
 	private bool HasCharacter(int c) { }
 
-	// RVA: 0x13784A0 Offset: 0x13784A0 VA: 0x13784A0
+	// RVA: 0x2B86510 Offset: 0x2B86510 VA: 0x2B86510
 	private static void Internal_CreateFont(Font self, string name) { }
 
-	[FreeFunctionAttribute] // RVA: 0xC5E054 Offset: 0xC5E054 VA: 0xC5E054
-	// RVA: 0x1378BD0 Offset: 0x1378BD0 VA: 0x1378BD0
+	[FreeFunctionAttribute] // RVA: 0xBF1F2C Offset: 0xBF1F2C VA: 0xBF1F2C
+	// RVA: 0x2B86C40 Offset: 0x2B86C40 VA: 0x2B86C40
 	public bool GetCharacterInfo(char ch, out CharacterInfo info, int size, FontStyle style) { }
 
-	// RVA: 0x1378C6C Offset: 0x1378C6C VA: 0x1378C6C
+	// RVA: 0x2B86CDC Offset: 0x2B86CDC VA: 0x2B86CDC
 	public void RequestCharactersInTexture(string characters, int size, FontStyle style) { }
 }
 
@@ -284,16 +406,16 @@ public sealed class Font.FontTextureRebuildCallback : MulticastDelegate // TypeD
 {
 	// Methods
 
-	// RVA: 0x1378CF8 Offset: 0x1378CF8 VA: 0x1378CF8
+	// RVA: 0x2B86D68 Offset: 0x2B86D68 VA: 0x2B86D68
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x1378954 Offset: 0x1378954 VA: 0x1378954 Slot: 11
+	// RVA: 0x2B869C4 Offset: 0x2B869C4 VA: 0x2B869C4 Slot: 11
 	public virtual void Invoke() { }
 
-	// RVA: 0x1378D08 Offset: 0x1378D08 VA: 0x1378D08 Slot: 12
+	// RVA: 0x2B86D78 Offset: 0x2B86D78 VA: 0x2B86D78 Slot: 12
 	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
 
-	// RVA: 0x1378D3C Offset: 0x1378D3C VA: 0x1378D3C Slot: 13
+	// RVA: 0x2B86DAC Offset: 0x2B86DAC VA: 0x2B86DAC Slot: 13
 	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
@@ -306,15 +428,15 @@ public static class UnityWebRequestAssetBundle // TypeDefIndex: 2654
 {
 	// Methods
 
-	// RVA: 0x1388724 Offset: 0x1388724 VA: 0x1388724
+	// RVA: 0x2B99614 Offset: 0x2B99614 VA: 0x2B99614
 	public static UnityWebRequest GetAssetBundle(string uri) { }
 
-	// RVA: 0x138872C Offset: 0x138872C VA: 0x138872C
+	// RVA: 0x2B9961C Offset: 0x2B9961C VA: 0x2B9961C
 	public static UnityWebRequest GetAssetBundle(string uri, uint crc) { }
 }
 
 // Namespace: UnityEngine.Networking
-[NativeHeaderAttribute] // RVA: 0xC5F28C Offset: 0xC5F28C VA: 0xC5F28C
+[NativeHeaderAttribute] // RVA: 0xBF3164 Offset: 0xBF3164 VA: 0xBF3164
 public sealed class DownloadHandlerAssetBundle : DownloadHandler // TypeDefIndex: 2655
 {
 	// Properties
@@ -322,25 +444,25 @@ public sealed class DownloadHandlerAssetBundle : DownloadHandler // TypeDefIndex
 
 	// Methods
 
-	// RVA: 0x138847C Offset: 0x138847C VA: 0x138847C
+	// RVA: 0x2B9936C Offset: 0x2B9936C VA: 0x2B9936C
 	public void .ctor(string url, uint crc) { }
 
-	// RVA: 0x13884E8 Offset: 0x13884E8 VA: 0x13884E8
+	// RVA: 0x2B993D8 Offset: 0x2B993D8 VA: 0x2B993D8
 	private static IntPtr Create(DownloadHandlerAssetBundle obj, string url, uint crc) { }
 
-	// RVA: 0x13884C4 Offset: 0x13884C4 VA: 0x13884C4
+	// RVA: 0x2B993B4 Offset: 0x2B993B4 VA: 0x2B993B4
 	private void InternalCreateAssetBundle(string url, uint crc) { }
 
-	// RVA: 0x138856C Offset: 0x138856C VA: 0x138856C Slot: 5
+	// RVA: 0x2B9945C Offset: 0x2B9945C VA: 0x2B9945C Slot: 5
 	protected override byte[] GetData() { }
 
-	// RVA: 0x13885E0 Offset: 0x13885E0 VA: 0x13885E0 Slot: 6
+	// RVA: 0x2B994D0 Offset: 0x2B994D0 VA: 0x2B994D0 Slot: 6
 	protected override string GetText() { }
 
-	// RVA: 0x1388654 Offset: 0x1388654 VA: 0x1388654
+	// RVA: 0x2B99544 Offset: 0x2B99544 VA: 0x2B99544
 	public AssetBundle get_assetBundle() { }
 
-	// RVA: 0x13886C0 Offset: 0x13886C0 VA: 0x13886C0
+	// RVA: 0x2B995B0 Offset: 0x2B995B0 VA: 0x2B995B0
 	public static AssetBundle GetContent(UnityWebRequest www) { }
 }
 
@@ -353,10 +475,10 @@ public class MiniJson // TypeDefIndex: 2657
 {
 	// Methods
 
-	// RVA: 0x137DED0 Offset: 0x137DED0 VA: 0x137DED0
+	// RVA: 0x2B8EDC0 Offset: 0x2B8EDC0 VA: 0x2B8EDC0
 	public static string JsonEncode(object json) { }
 
-	// RVA: 0x137DF64 Offset: 0x137DF64 VA: 0x137DF64
+	// RVA: 0x2B8EE54 Offset: 0x2B8EE54 VA: 0x2B8EE54
 	public static object JsonDecode(string json) { }
 }
 
@@ -380,16 +502,16 @@ internal sealed class UnityPurchasingCallback : MulticastDelegate // TypeDefInde
 {
 	// Methods
 
-	// RVA: 0x137DF70 Offset: 0x137DF70 VA: 0x137DF70
+	// RVA: 0x2B8EE60 Offset: 0x2B8EE60 VA: 0x2B8EE60
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x137DF80 Offset: 0x137DF80 VA: 0x137DF80 Slot: 11
+	// RVA: 0x2B8EE70 Offset: 0x2B8EE70 VA: 0x2B8EE70 Slot: 11
 	public virtual void Invoke(string subject, string payload, string receipt, string transactionId) { }
 
-	// RVA: 0x137E390 Offset: 0x137E390 VA: 0x137E390 Slot: 12
+	// RVA: 0x2B8F280 Offset: 0x2B8F280 VA: 0x2B8F280 Slot: 12
 	public virtual IAsyncResult BeginInvoke(string subject, string payload, string receipt, string transactionId, AsyncCallback callback, object object) { }
 
-	// RVA: 0x137E3C4 Offset: 0x137E3C4 VA: 0x137E3C4 Slot: 13
+	// RVA: 0x2B8F2B4 Offset: 0x2B8F2B4 VA: 0x2B8F2B4 Slot: 13
 	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
@@ -398,10 +520,10 @@ public static class Json // TypeDefIndex: 2660
 {
 	// Methods
 
-	// RVA: 0x137BF54 Offset: 0x137BF54 VA: 0x137BF54
+	// RVA: 0x2B8CE44 Offset: 0x2B8CE44 VA: 0x2B8CE44
 	public static object Deserialize(string json) { }
 
-	// RVA: 0x137C0A4 Offset: 0x137C0A4 VA: 0x137C0A4
+	// RVA: 0x2B8CF94 Offset: 0x2B8CF94 VA: 0x2B8CF94
 	public static string Serialize(object obj) { }
 }
 
@@ -419,49 +541,49 @@ private sealed class Json.Parser : IDisposable // TypeDefIndex: 2661
 
 	// Methods
 
-	// RVA: 0x137C14C Offset: 0x137C14C VA: 0x137C14C
+	// RVA: 0x2B8D03C Offset: 0x2B8D03C VA: 0x2B8D03C
 	public static bool IsWordBreak(char c) { }
 
-	// RVA: 0x137C1F0 Offset: 0x137C1F0 VA: 0x137C1F0
+	// RVA: 0x2B8D0E0 Offset: 0x2B8D0E0 VA: 0x2B8D0E0
 	private void .ctor(string jsonString) { }
 
-	// RVA: 0x137BF60 Offset: 0x137BF60 VA: 0x137BF60
+	// RVA: 0x2B8CE50 Offset: 0x2B8CE50 VA: 0x2B8CE50
 	public static object Parse(string jsonString) { }
 
-	// RVA: 0x137C294 Offset: 0x137C294 VA: 0x137C294 Slot: 4
+	// RVA: 0x2B8D184 Offset: 0x2B8D184 VA: 0x2B8D184 Slot: 4
 	public void Dispose() { }
 
-	// RVA: 0x137C2D0 Offset: 0x137C2D0 VA: 0x137C2D0
+	// RVA: 0x2B8D1C0 Offset: 0x2B8D1C0 VA: 0x2B8D1C0
 	private Dictionary<string, object> ParseObject() { }
 
-	// RVA: 0x137C940 Offset: 0x137C940 VA: 0x137C940
+	// RVA: 0x2B8D830 Offset: 0x2B8D830 VA: 0x2B8D830
 	private List<object> ParseArray() { }
 
-	// RVA: 0x137C26C Offset: 0x137C26C VA: 0x137C26C
+	// RVA: 0x2B8D15C Offset: 0x2B8D15C VA: 0x2B8D15C
 	private object ParseValue() { }
 
-	// RVA: 0x137CA2C Offset: 0x137CA2C VA: 0x137CA2C
+	// RVA: 0x2B8D91C Offset: 0x2B8D91C VA: 0x2B8D91C
 	private object ParseByToken(Json.Parser.TOKEN token) { }
 
-	// RVA: 0x137C63C Offset: 0x137C63C VA: 0x137C63C
+	// RVA: 0x2B8D52C Offset: 0x2B8D52C VA: 0x2B8D52C
 	private string ParseString() { }
 
-	// RVA: 0x137CB08 Offset: 0x137CB08 VA: 0x137CB08
+	// RVA: 0x2B8D9F8 Offset: 0x2B8D9F8 VA: 0x2B8D9F8
 	private object ParseNumber() { }
 
-	// RVA: 0x137CDF0 Offset: 0x137CDF0 VA: 0x137CDF0
+	// RVA: 0x2B8DCE0 Offset: 0x2B8DCE0 VA: 0x2B8DCE0
 	private void EatWhitespace() { }
 
-	// RVA: 0x137CEB8 Offset: 0x137CEB8 VA: 0x137CEB8
+	// RVA: 0x2B8DDA8 Offset: 0x2B8DDA8 VA: 0x2B8DDA8
 	private char get_PeekChar() { }
 
-	// RVA: 0x137CC84 Offset: 0x137CC84 VA: 0x137CC84
+	// RVA: 0x2B8DB74 Offset: 0x2B8DB74 VA: 0x2B8DB74
 	private char get_NextChar() { }
 
-	// RVA: 0x137CD14 Offset: 0x137CD14 VA: 0x137CD14
+	// RVA: 0x2B8DC04 Offset: 0x2B8DC04 VA: 0x2B8DC04
 	private string get_NextWord() { }
 
-	// RVA: 0x137C40C Offset: 0x137C40C VA: 0x137C40C
+	// RVA: 0x2B8D2FC Offset: 0x2B8D2FC VA: 0x2B8D2FC
 	private Json.Parser.TOKEN get_NextToken() { }
 }
 
@@ -492,48 +614,48 @@ private sealed class Json.Serializer // TypeDefIndex: 2663
 
 	// Methods
 
-	// RVA: 0x137CF48 Offset: 0x137CF48 VA: 0x137CF48
+	// RVA: 0x2B8DE38 Offset: 0x2B8DE38 VA: 0x2B8DE38
 	private void .ctor() { }
 
-	// RVA: 0x137C0A8 Offset: 0x137C0A8 VA: 0x137C0A8
+	// RVA: 0x2B8CF98 Offset: 0x2B8CF98 VA: 0x2B8CF98
 	public static string Serialize(object obj) { }
 
-	// RVA: 0x137CFB4 Offset: 0x137CFB4 VA: 0x137CFB4
+	// RVA: 0x2B8DEA4 Offset: 0x2B8DEA4 VA: 0x2B8DEA4
 	private void SerializeValue(object value) { }
 
-	// RVA: 0x137D73C Offset: 0x137D73C VA: 0x137D73C
+	// RVA: 0x2B8E62C Offset: 0x2B8E62C VA: 0x2B8E62C
 	private void SerializeObject(IDictionary obj) { }
 
-	// RVA: 0x137D440 Offset: 0x137D440 VA: 0x137D440
+	// RVA: 0x2B8E330 Offset: 0x2B8E330 VA: 0x2B8E330
 	private void SerializeArray(IList anArray) { }
 
-	// RVA: 0x137D170 Offset: 0x137D170 VA: 0x137D170
+	// RVA: 0x2B8E060 Offset: 0x2B8E060 VA: 0x2B8E060
 	private void SerializeString(string str) { }
 
-	// RVA: 0x137DB84 Offset: 0x137DB84 VA: 0x137DB84
+	// RVA: 0x2B8EA74 Offset: 0x2B8EA74 VA: 0x2B8EA74
 	private void SerializeOther(object value) { }
 }
 
 // Namespace: UnityEngine.Purchasing.MiniJSON
-[ExtensionAttribute] // RVA: 0xC603C4 Offset: 0xC603C4 VA: 0xC603C4
+[ExtensionAttribute] // RVA: 0xBF429C Offset: 0xBF429C VA: 0xBF429C
 public static class MiniJsonExtensions // TypeDefIndex: 2664
 {
 	// Methods
 
-	[ExtensionAttribute] // RVA: 0xC603D4 Offset: 0xC603D4 VA: 0xC603D4
-	// RVA: 0x137DE04 Offset: 0x137DE04 VA: 0x137DE04
+	[ExtensionAttribute] // RVA: 0xBF42AC Offset: 0xBF42AC VA: 0xBF42AC
+	// RVA: 0x2B8ECF4 Offset: 0x2B8ECF4 VA: 0x2B8ECF4
 	public static string GetString(Dictionary<string, object> dic, string key, string defaultValue = "") { }
 
-	[ExtensionAttribute] // RVA: 0xC603E4 Offset: 0xC603E4 VA: 0xC603E4
-	// RVA: 0x137DECC Offset: 0x137DECC VA: 0x137DECC
+	[ExtensionAttribute] // RVA: 0xBF42BC Offset: 0xBF42BC VA: 0xBF42BC
+	// RVA: 0x2B8EDBC Offset: 0x2B8EDBC VA: 0x2B8EDBC
 	public static string toJson(Dictionary<string, object> obj) { }
 
-	[ExtensionAttribute] // RVA: 0xC603F4 Offset: 0xC603F4 VA: 0xC603F4
-	// RVA: 0x137DED4 Offset: 0x137DED4 VA: 0x137DED4
+	[ExtensionAttribute] // RVA: 0xBF42CC Offset: 0xBF42CC VA: 0xBF42CC
+	// RVA: 0x2B8EDC4 Offset: 0x2B8EDC4 VA: 0x2B8EDC4
 	public static string toJson(Dictionary<string, string> obj) { }
 
-	[ExtensionAttribute] // RVA: 0xC60404 Offset: 0xC60404 VA: 0xC60404
-	// RVA: 0x137DED8 Offset: 0x137DED8 VA: 0x137DED8
+	[ExtensionAttribute] // RVA: 0xBF42DC Offset: 0xBF42DC VA: 0xBF42DC
+	// RVA: 0x2B8EDC8 Offset: 0x2B8EDC8 VA: 0x2B8EDC8
 	public static Dictionary<string, object> HashtableFromJson(string json) { }
 }
 
@@ -545,11 +667,11 @@ internal class <Module> // TypeDefIndex: 2665
 public class Tuple<T1, T2> // TypeDefIndex: 2666
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xC6070C Offset: 0xC6070C VA: 0xC6070C
-	[DebuggerBrowsableAttribute] // RVA: 0xC6070C Offset: 0xC6070C VA: 0xC6070C
+	[CompilerGeneratedAttribute] // RVA: 0xBF45E4 Offset: 0xBF45E4 VA: 0xBF45E4
+	[DebuggerBrowsableAttribute] // RVA: 0xBF45E4 Offset: 0xBF45E4 VA: 0xBF45E4
 	private T1 <Item1>k__BackingField; // 0x0
-	[DebuggerBrowsableAttribute] // RVA: 0xC60748 Offset: 0xC60748 VA: 0xC60748
-	[CompilerGeneratedAttribute] // RVA: 0xC60748 Offset: 0xC60748 VA: 0xC60748
+	[DebuggerBrowsableAttribute] // RVA: 0xBF4620 Offset: 0xBF4620 VA: 0xBF4620
+	[CompilerGeneratedAttribute] // RVA: 0xBF4620 Offset: 0xBF4620 VA: 0xBF4620
 	private T2 <Item2>k__BackingField; // 0x0
 
 	// Properties
@@ -562,46 +684,46 @@ public class Tuple<T1, T2> // TypeDefIndex: 2666
 	public void .ctor(T1 item1, T2 item2) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2757B10 Offset: 0x2757B10 VA: 0x2757B10
+	|-RVA: 0x2618994 Offset: 0x2618994 VA: 0x2618994
 	|-Tuple<object, object>..ctor
 	|-Tuple<SendOrPostCallback, object>..ctor
 	*/
 
-	[CompilerGeneratedAttribute] // RVA: 0xC60794 Offset: 0xC60794 VA: 0xC60794
+	[CompilerGeneratedAttribute] // RVA: 0xBF466C Offset: 0xBF466C VA: 0xBF466C
 	// RVA: -1 Offset: -1
 	public T1 get_Item1() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2757BAC Offset: 0x2757BAC VA: 0x2757BAC
+	|-RVA: 0x2618A30 Offset: 0x2618A30 VA: 0x2618A30
 	|-Tuple<SendOrPostCallback, object>.get_Item1
 	|-Tuple<object, object>.get_Item1
 	*/
 
-	[CompilerGeneratedAttribute] // RVA: 0xC607A4 Offset: 0xC607A4 VA: 0xC607A4
+	[CompilerGeneratedAttribute] // RVA: 0xBF467C Offset: 0xBF467C VA: 0xBF467C
 	// RVA: -1 Offset: -1
 	private void set_Item1(T1 value) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2757BB4 Offset: 0x2757BB4 VA: 0x2757BB4
+	|-RVA: 0x2618A38 Offset: 0x2618A38 VA: 0x2618A38
 	|-Tuple<object, object>.set_Item1
 	*/
 
-	[CompilerGeneratedAttribute] // RVA: 0xC607B4 Offset: 0xC607B4 VA: 0xC607B4
+	[CompilerGeneratedAttribute] // RVA: 0xBF468C Offset: 0xBF468C VA: 0xBF468C
 	// RVA: -1 Offset: -1
 	public T2 get_Item2() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2757BBC Offset: 0x2757BBC VA: 0x2757BBC
+	|-RVA: 0x2618A40 Offset: 0x2618A40 VA: 0x2618A40
 	|-Tuple<SendOrPostCallback, object>.get_Item2
 	|-Tuple<object, object>.get_Item2
 	*/
 
-	[CompilerGeneratedAttribute] // RVA: 0xC607C4 Offset: 0xC607C4 VA: 0xC607C4
+	[CompilerGeneratedAttribute] // RVA: 0xBF469C Offset: 0xBF469C VA: 0xBF469C
 	// RVA: -1 Offset: -1
 	private void set_Item2(T2 value) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2757BC4 Offset: 0x2757BC4 VA: 0x2757BC4
+	|-RVA: 0x2618A48 Offset: 0x2618A48 VA: 0x2618A48
 	|-Tuple<object, object>.set_Item2
 	*/
 
@@ -609,7 +731,7 @@ public class Tuple<T1, T2> // TypeDefIndex: 2666
 	public override bool Equals(object obj) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2757BCC Offset: 0x2757BCC VA: 0x2757BCC
+	|-RVA: 0x2618A50 Offset: 0x2618A50 VA: 0x2618A50
 	|-Tuple<object, object>.Equals
 	*/
 
@@ -617,7 +739,7 @@ public class Tuple<T1, T2> // TypeDefIndex: 2666
 	public override int GetHashCode() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2757CDC Offset: 0x2757CDC VA: 0x2757CDC
+	|-RVA: 0x2618B60 Offset: 0x2618B60 VA: 0x2618B60
 	|-Tuple<object, object>.GetHashCode
 	*/
 }
@@ -627,7 +749,7 @@ public class ThreadLocal<T> : IDisposable // TypeDefIndex: 2667
 {
 	// Fields
 	private static long lastId; // 0x0
-	[ThreadStaticAttribute] // RVA: 0xC60784 Offset: 0xC60784 VA: 0xC60784
+	[ThreadStaticAttribute] // RVA: 0xBF465C Offset: 0xBF465C VA: 0xBF465C
 	private static IDictionary<long, T> threadLocalData; // 0xFFFFFFFF
 	private static IList<WeakReference> allDataDictionaries; // 0x0
 	private bool disposed; // 0x0
@@ -644,10 +766,10 @@ public class ThreadLocal<T> : IDisposable // TypeDefIndex: 2667
 	public void .ctor(Func<T> valueFactory) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x27556D8 Offset: 0x27556D8 VA: 0x27556D8
+	|-RVA: 0x261655C Offset: 0x261655C VA: 0x261655C
 	|-ThreadLocal<int>..ctor
 	|
-	|-RVA: 0x27568F4 Offset: 0x27568F4 VA: 0x27568F4
+	|-RVA: 0x2617778 Offset: 0x2617778 VA: 0x2617778
 	|-ThreadLocal<object>..ctor
 	*/
 
@@ -655,10 +777,10 @@ public class ThreadLocal<T> : IDisposable // TypeDefIndex: 2667
 	private static IDictionary<long, T> get_ThreadLocalData() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x27557B4 Offset: 0x27557B4 VA: 0x27557B4
+	|-RVA: 0x2616638 Offset: 0x2616638 VA: 0x2616638
 	|-ThreadLocal<int>.get_ThreadLocalData
 	|
-	|-RVA: 0x27569D0 Offset: 0x27569D0 VA: 0x27569D0
+	|-RVA: 0x2617854 Offset: 0x2617854 VA: 0x2617854
 	|-ThreadLocal<object>.get_ThreadLocalData
 	*/
 
@@ -666,10 +788,10 @@ public class ThreadLocal<T> : IDisposable // TypeDefIndex: 2667
 	public T get_Value() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2755D40 Offset: 0x2755D40 VA: 0x2755D40
+	|-RVA: 0x2616BC4 Offset: 0x2616BC4 VA: 0x2616BC4
 	|-ThreadLocal<int>.get_Value
 	|
-	|-RVA: 0x2756F5C Offset: 0x2756F5C VA: 0x2756F5C
+	|-RVA: 0x2617DE0 Offset: 0x2617DE0 VA: 0x2617DE0
 	|-ThreadLocal<object>.get_Value
 	*/
 
@@ -677,10 +799,10 @@ public class ThreadLocal<T> : IDisposable // TypeDefIndex: 2667
 	public void set_Value(T value) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2756000 Offset: 0x2756000 VA: 0x2756000
+	|-RVA: 0x2616E84 Offset: 0x2616E84 VA: 0x2616E84
 	|-ThreadLocal<int>.set_Value
 	|
-	|-RVA: 0x275721C Offset: 0x275721C VA: 0x275721C
+	|-RVA: 0x26180A0 Offset: 0x26180A0 VA: 0x26180A0
 	|-ThreadLocal<object>.set_Value
 	*/
 
@@ -688,10 +810,10 @@ public class ThreadLocal<T> : IDisposable // TypeDefIndex: 2667
 	protected override void Finalize() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2756160 Offset: 0x2756160 VA: 0x2756160
+	|-RVA: 0x2616FE4 Offset: 0x2616FE4 VA: 0x2616FE4
 	|-ThreadLocal<int>.Finalize
 	|
-	|-RVA: 0x275737C Offset: 0x275737C VA: 0x275737C
+	|-RVA: 0x2618200 Offset: 0x2618200 VA: 0x2618200
 	|-ThreadLocal<object>.Finalize
 	*/
 
@@ -699,10 +821,10 @@ public class ThreadLocal<T> : IDisposable // TypeDefIndex: 2667
 	private void CheckDisposed() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x27561F0 Offset: 0x27561F0 VA: 0x27561F0
+	|-RVA: 0x2617074 Offset: 0x2617074 VA: 0x2617074
 	|-ThreadLocal<int>.CheckDisposed
 	|
-	|-RVA: 0x275740C Offset: 0x275740C VA: 0x275740C
+	|-RVA: 0x2618290 Offset: 0x2618290 VA: 0x2618290
 	|-ThreadLocal<object>.CheckDisposed
 	*/
 
@@ -710,10 +832,10 @@ public class ThreadLocal<T> : IDisposable // TypeDefIndex: 2667
 	public void Dispose() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x275627C Offset: 0x275627C VA: 0x275627C
+	|-RVA: 0x2617100 Offset: 0x2617100 VA: 0x2617100
 	|-ThreadLocal<int>.Dispose
 	|
-	|-RVA: 0x2757498 Offset: 0x2757498 VA: 0x2757498
+	|-RVA: 0x261831C Offset: 0x261831C VA: 0x261831C
 	|-ThreadLocal<object>.Dispose
 	*/
 
@@ -721,10 +843,10 @@ public class ThreadLocal<T> : IDisposable // TypeDefIndex: 2667
 	private static void .cctor() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2756824 Offset: 0x2756824 VA: 0x2756824
+	|-RVA: 0x26176A8 Offset: 0x26176A8 VA: 0x26176A8
 	|-ThreadLocal<int>..cctor
 	|
-	|-RVA: 0x2757A40 Offset: 0x2757A40 VA: 0x2757A40
+	|-RVA: 0x26188C4 Offset: 0x26188C4 VA: 0x26188C4
 	|-ThreadLocal<object>..cctor
 	*/
 }
@@ -734,8 +856,8 @@ internal class <Module> // TypeDefIndex: 2668
 {}
 
 // Namespace: UnityEngine.AI
-[NativeHeaderAttribute] // RVA: 0xC60948 Offset: 0xC60948 VA: 0xC60948
-[MovedFromAttribute] // RVA: 0xC60948 Offset: 0xC60948 VA: 0xC60948
+[NativeHeaderAttribute] // RVA: 0xBF4820 Offset: 0xBF4820 VA: 0xBF4820
+[MovedFromAttribute] // RVA: 0xBF4820 Offset: 0xBF4820 VA: 0xBF4820
 public static class NavMesh // TypeDefIndex: 2669
 {
 	// Fields
@@ -743,8 +865,8 @@ public static class NavMesh // TypeDefIndex: 2669
 
 	// Methods
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC609E0 Offset: 0xC609E0 VA: 0xC609E0
-	// RVA: 0x138A0B0 Offset: 0x138A0B0 VA: 0x138A0B0
+	[RequiredByNativeCodeAttribute] // RVA: 0xBF48B8 Offset: 0xBF48B8 VA: 0xBF48B8
+	// RVA: 0x2B9BFA0 Offset: 0x2B9BFA0 VA: 0x2B9BFA0
 	private static void Internal_CallOnNavMeshPreUpdate() { }
 }
 
@@ -753,21 +875,21 @@ public sealed class NavMesh.OnNavMeshPreUpdate : MulticastDelegate // TypeDefInd
 {
 	// Methods
 
-	// RVA: 0x138A314 Offset: 0x138A314 VA: 0x138A314
+	// RVA: 0x2B9C204 Offset: 0x2B9C204 VA: 0x2B9C204
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x138A114 Offset: 0x138A114 VA: 0x138A114 Slot: 11
+	// RVA: 0x2B9C004 Offset: 0x2B9C004 VA: 0x2B9C004 Slot: 11
 	public virtual void Invoke() { }
 
-	// RVA: 0x138A324 Offset: 0x138A324 VA: 0x138A324 Slot: 12
+	// RVA: 0x2B9C214 Offset: 0x2B9C214 VA: 0x2B9C214 Slot: 12
 	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
 
-	// RVA: 0x138A358 Offset: 0x138A358 VA: 0x138A358 Slot: 13
+	// RVA: 0x2B9C248 Offset: 0x2B9C248 VA: 0x2B9C248 Slot: 13
 	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: UnityEngine.AI
-[MovedFromAttribute] // RVA: 0xC609A8 Offset: 0xC609A8 VA: 0xC609A8
+[MovedFromAttribute] // RVA: 0xBF4880 Offset: 0xBF4880 VA: 0xBF4880
 public sealed class NavMeshAgent : Behaviour // TypeDefIndex: 2671
 {
 	// Properties
@@ -775,11 +897,11 @@ public sealed class NavMeshAgent : Behaviour // TypeDefIndex: 2671
 
 	// Methods
 
-	// RVA: 0x138A364 Offset: 0x138A364 VA: 0x138A364
+	// RVA: 0x2B9C254 Offset: 0x2B9C254 VA: 0x2B9C254
 	public void set_velocity(Vector3 value) { }
 
-	[GeneratedByOldBindingsGeneratorAttribute] // RVA: 0xC609F0 Offset: 0xC609F0 VA: 0xC609F0
-	// RVA: 0x138A38C Offset: 0x138A38C VA: 0x138A38C
+	[GeneratedByOldBindingsGeneratorAttribute] // RVA: 0xBF48C8 Offset: 0xBF48C8 VA: 0xBF48C8
+	// RVA: 0x2B9C27C Offset: 0x2B9C27C VA: 0x2B9C27C
 	private void INTERNAL_set_velocity(ref Vector3 value) { }
 }
 
@@ -792,7 +914,7 @@ public static class AnimationPlayableUtilities // TypeDefIndex: 2673
 {
 	// Methods
 
-	// RVA: 0x1328ED0 Offset: 0x1328ED0 VA: 0x1328ED0
+	// RVA: 0x2B38F40 Offset: 0x2B38F40 VA: 0x2B38F40
 	public static void Play(Animator animator, Playable playable, PlayableGraph graph) { }
 }
 
@@ -805,196 +927,74 @@ public interface IAnimationJobPlayable : IPlayable // TypeDefIndex: 2675
 {}
 
 // Namespace: UnityEngine
-[AttributeUsageAttribute] // RVA: 0xC61B00 Offset: 0xC61B00 VA: 0xC61B00
-[RequiredByNativeCodeAttribute] // RVA: 0xC61B00 Offset: 0xC61B00 VA: 0xC61B00
+[AttributeUsageAttribute] // RVA: 0xBF59D8 Offset: 0xBF59D8 VA: 0xBF59D8
+[RequiredByNativeCodeAttribute] // RVA: 0xBF59D8 Offset: 0xBF59D8 VA: 0xBF59D8
 public sealed class SharedBetweenAnimatorsAttribute : Attribute // TypeDefIndex: 2676
 {}
 
 // Namespace: UnityEngine
-[RequiredByNativeCodeAttribute] // RVA: 0xC61B50 Offset: 0xC61B50 VA: 0xC61B50
+[RequiredByNativeCodeAttribute] // RVA: 0xBF5A28 Offset: 0xBF5A28 VA: 0xBF5A28
 public abstract class StateMachineBehaviour : ScriptableObject // TypeDefIndex: 2677
 {
 	// Methods
 
-	// RVA: 0x1328FB8 Offset: 0x1328FB8 VA: 0x1328FB8
+	// RVA: 0x2B39028 Offset: 0x2B39028 VA: 0x2B39028
 	protected void .ctor() { }
 
-	// RVA: 0x1328FC0 Offset: 0x1328FC0 VA: 0x1328FC0 Slot: 4
+	// RVA: 0x2B39030 Offset: 0x2B39030 VA: 0x2B39030 Slot: 4
 	public virtual void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) { }
 
-	// RVA: 0x1328FC4 Offset: 0x1328FC4 VA: 0x1328FC4 Slot: 5
+	// RVA: 0x2B39034 Offset: 0x2B39034 VA: 0x2B39034 Slot: 5
 	public virtual void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) { }
 
-	// RVA: 0x1328FC8 Offset: 0x1328FC8 VA: 0x1328FC8 Slot: 6
+	// RVA: 0x2B39038 Offset: 0x2B39038 VA: 0x2B39038 Slot: 6
 	public virtual void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) { }
 
-	// RVA: 0x1328FCC Offset: 0x1328FCC VA: 0x1328FCC Slot: 7
+	// RVA: 0x2B3903C Offset: 0x2B3903C VA: 0x2B3903C Slot: 7
 	public virtual void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) { }
 
-	// RVA: 0x1328FD0 Offset: 0x1328FD0 VA: 0x1328FD0 Slot: 8
+	// RVA: 0x2B39040 Offset: 0x2B39040 VA: 0x2B39040 Slot: 8
 	public virtual void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) { }
 
-	// RVA: 0x1328FD4 Offset: 0x1328FD4 VA: 0x1328FD4 Slot: 9
+	// RVA: 0x2B39044 Offset: 0x2B39044 VA: 0x2B39044 Slot: 9
 	public virtual void OnStateMachineEnter(Animator animator, int stateMachinePathHash) { }
 
-	// RVA: 0x1328FD8 Offset: 0x1328FD8 VA: 0x1328FD8 Slot: 10
+	// RVA: 0x2B39048 Offset: 0x2B39048 VA: 0x2B39048 Slot: 10
 	public virtual void OnStateMachineExit(Animator animator, int stateMachinePathHash) { }
 
-	// RVA: 0x1328FDC Offset: 0x1328FDC VA: 0x1328FDC Slot: 11
+	// RVA: 0x2B3904C Offset: 0x2B3904C VA: 0x2B3904C Slot: 11
 	public virtual void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex, AnimatorControllerPlayable controller) { }
 
-	// RVA: 0x1328FE0 Offset: 0x1328FE0 VA: 0x1328FE0 Slot: 12
+	// RVA: 0x2B39050 Offset: 0x2B39050 VA: 0x2B39050 Slot: 12
 	public virtual void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex, AnimatorControllerPlayable controller) { }
 
-	// RVA: 0x1328FE4 Offset: 0x1328FE4 VA: 0x1328FE4 Slot: 13
+	// RVA: 0x2B39054 Offset: 0x2B39054 VA: 0x2B39054 Slot: 13
 	public virtual void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex, AnimatorControllerPlayable controller) { }
 
-	// RVA: 0x1328FE8 Offset: 0x1328FE8 VA: 0x1328FE8 Slot: 14
+	// RVA: 0x2B39058 Offset: 0x2B39058 VA: 0x2B39058 Slot: 14
 	public virtual void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex, AnimatorControllerPlayable controller) { }
 
-	// RVA: 0x1328FEC Offset: 0x1328FEC VA: 0x1328FEC Slot: 15
+	// RVA: 0x2B3905C Offset: 0x2B3905C VA: 0x2B3905C Slot: 15
 	public virtual void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex, AnimatorControllerPlayable controller) { }
 
-	// RVA: 0x1328FF0 Offset: 0x1328FF0 VA: 0x1328FF0 Slot: 16
+	// RVA: 0x2B39060 Offset: 0x2B39060 VA: 0x2B39060 Slot: 16
 	public virtual void OnStateMachineEnter(Animator animator, int stateMachinePathHash, AnimatorControllerPlayable controller) { }
 
-	// RVA: 0x1328FF4 Offset: 0x1328FF4 VA: 0x1328FF4 Slot: 17
+	// RVA: 0x2B39064 Offset: 0x2B39064 VA: 0x2B39064 Slot: 17
 	public virtual void OnStateMachineExit(Animator animator, int stateMachinePathHash, AnimatorControllerPlayable controller) { }
 }
 
 // Namespace: UnityEngine
-[NativeTypeAttribute] // RVA: 0xC61B60 Offset: 0xC61B60 VA: 0xC61B60
-[NativeHeaderAttribute] // RVA: 0xC61B60 Offset: 0xC61B60 VA: 0xC61B60
+[NativeTypeAttribute] // RVA: 0xBF5A38 Offset: 0xBF5A38 VA: 0xBF5A38
+[NativeHeaderAttribute] // RVA: 0xBF5A38 Offset: 0xBF5A38 VA: 0xBF5A38
 public sealed class AnimationClip : Motion // TypeDefIndex: 2678
 {
 	// Properties
-	[NativePropertyAttribute] // RVA: 0xC64334 Offset: 0xC64334 VA: 0xC64334
+	[NativePropertyAttribute] // RVA: 0xBF820C Offset: 0xBF820C VA: 0xBF820C
 	public float length { get; }
-	[NativePropertyAttribute] // RVA: 0xC64374 Offset: 0xC64374 VA: 0xC64374
+	[NativePropertyAttribute] // RVA: 0xBF824C Offset: 0xBF824C VA: 0xBF824C
 	public WrapMode wrapMode { get; }
 	public bool legacy { get; }
 	public AnimationEvent[] events { get; }
 
 	// Methods
-
-	// RVA: 0x1322278 Offset: 0x1322278 VA: 0x1322278
-	public void .ctor() { }
-
-	[FreeFunctionAttribute] // RVA: 0xC62F64 Offset: 0xC62F64 VA: 0xC62F64
-	// RVA: 0x1322304 Offset: 0x1322304 VA: 0x1322304
-	private static void Internal_CreateAnimationClip(AnimationClip self) { }
-
-	// RVA: 0x1322370 Offset: 0x1322370 VA: 0x1322370
-	public float get_length() { }
-
-	[FreeFunctionAttribute] // RVA: 0xC62F9C Offset: 0xC62F9C VA: 0xC62F9C
-	// RVA: 0x13223DC Offset: 0x13223DC VA: 0x13223DC
-	public void SetCurve(string relativePath, Type type, string propertyName, AnimationCurve curve) { }
-
-	// RVA: 0x1322478 Offset: 0x1322478 VA: 0x1322478
-	public WrapMode get_wrapMode() { }
-
-	[NativeMethodAttribute] // RVA: 0xC62FE4 Offset: 0xC62FE4 VA: 0xC62FE4
-	// RVA: 0x13224E4 Offset: 0x13224E4 VA: 0x13224E4
-	public bool get_legacy() { }
-
-	// RVA: 0x1322550 Offset: 0x1322550 VA: 0x1322550
-	public AnimationEvent[] get_events() { }
-
-	[GeneratedByOldBindingsGeneratorAttribute] // RVA: 0xC6301C Offset: 0xC6301C VA: 0xC6301C
-	// RVA: 0x1322614 Offset: 0x1322614 VA: 0x1322614
-	internal Array GetEventsInternal() { }
-}
-
-// Namespace: UnityEngine.Animations
-[NativeHeaderAttribute] // RVA: 0xC61BC0 Offset: 0xC61BC0 VA: 0xC61BC0
-[RequiredByNativeCodeAttribute] // RVA: 0xC61BC0 Offset: 0xC61BC0 VA: 0xC61BC0
-[StaticAccessorAttribute] // RVA: 0xC61BC0 Offset: 0xC61BC0 VA: 0xC61BC0
-[NativeHeaderAttribute] // RVA: 0xC61BC0 Offset: 0xC61BC0 VA: 0xC61BC0
-public struct AnimationClipPlayable : IPlayable, IEquatable<AnimationClipPlayable> // TypeDefIndex: 2679
-{
-	// Fields
-	private PlayableHandle m_Handle; // 0x0
-
-	// Methods
-
-	// RVA: 0xBC0C68 Offset: 0xBC0C68 VA: 0xBC0C68
-	internal void .ctor(PlayableHandle handle) { }
-
-	// RVA: 0x1322F04 Offset: 0x1322F04 VA: 0x1322F04
-	public static AnimationClipPlayable Create(PlayableGraph graph, AnimationClip clip) { }
-
-	// RVA: 0x1322F40 Offset: 0x1322F40 VA: 0x1322F40
-	private static PlayableHandle CreateHandle(PlayableGraph graph, AnimationClip clip) { }
-
-	// RVA: 0xBC0C70 Offset: 0xBC0C70 VA: 0xBC0C70 Slot: 4
-	public PlayableHandle GetHandle() { }
-
-	// RVA: 0x1323044 Offset: 0x1323044 VA: 0x1323044
-	public static Playable op_Implicit(AnimationClipPlayable playable) { }
-
-	// RVA: 0xBC0C7C Offset: 0xBC0C7C VA: 0xBC0C7C Slot: 5
-	public bool Equals(AnimationClipPlayable other) { }
-
-	// RVA: 0xBC0C84 Offset: 0xBC0C84 VA: 0xBC0C84
-	public AnimationClip GetAnimationClip() { }
-
-	// RVA: 0xBC0C8C Offset: 0xBC0C8C VA: 0xBC0C8C
-	public bool GetApplyFootIK() { }
-
-	// RVA: 0xBC0C94 Offset: 0xBC0C94 VA: 0xBC0C94
-	public bool GetApplyPlayableIK() { }
-
-	// RVA: 0xBC0C9C Offset: 0xBC0C9C VA: 0xBC0C9C
-	internal bool GetRemoveStartOffset() { }
-
-	[NativeThrowsAttribute] // RVA: 0xC6302C Offset: 0xC6302C VA: 0xC6302C
-	// RVA: 0x1323008 Offset: 0x1323008 VA: 0x1323008
-	private static bool CreateHandleInternal(PlayableGraph graph, AnimationClip clip, ref PlayableHandle handle) { }
-
-	[NativeThrowsAttribute] // RVA: 0xC6303C Offset: 0xC6303C VA: 0xC6303C
-	// RVA: 0x132310C Offset: 0x132310C VA: 0x132310C
-	private static AnimationClip GetAnimationClipInternal(ref PlayableHandle handle) { }
-
-	[NativeThrowsAttribute] // RVA: 0xC6304C Offset: 0xC6304C VA: 0xC6304C
-	// RVA: 0x132317C Offset: 0x132317C VA: 0x132317C
-	private static bool GetApplyFootIKInternal(ref PlayableHandle handle) { }
-
-	[NativeThrowsAttribute] // RVA: 0xC6305C Offset: 0xC6305C VA: 0xC6305C
-	// RVA: 0x13231EC Offset: 0x13231EC VA: 0x13231EC
-	private static bool GetApplyPlayableIKInternal(ref PlayableHandle handle) { }
-
-	[NativeThrowsAttribute] // RVA: 0xC6306C Offset: 0xC6306C VA: 0xC6306C
-	// RVA: 0x132325C Offset: 0x132325C VA: 0x132325C
-	private static bool GetRemoveStartOffsetInternal(ref PlayableHandle handle) { }
-
-	// RVA: 0x13232C8 Offset: 0x13232C8 VA: 0x13232C8
-	private static bool CreateHandleInternal_Injected(ref PlayableGraph graph, AnimationClip clip, ref PlayableHandle handle) { }
-}
-
-// Namespace: UnityEngine.Experimental.Animations
-[RequiredByNativeCodeAttribute] // RVA: 0xC61C58 Offset: 0xC61C58 VA: 0xC61C58
-[NativeHeaderAttribute] // RVA: 0xC61C58 Offset: 0xC61C58 VA: 0xC61C58
-[NativeHeaderAttribute] // RVA: 0xC61C58 Offset: 0xC61C58 VA: 0xC61C58
-public struct AnimationHumanStream // TypeDefIndex: 2680
-{
-	// Fields
-	private IntPtr stream; // 0x0
-}
-
-// Namespace: UnityEngine.Animations
-[NativeHeaderAttribute] // RVA: 0xC61CC8 Offset: 0xC61CC8 VA: 0xC61CC8
-[StaticAccessorAttribute] // RVA: 0xC61CC8 Offset: 0xC61CC8 VA: 0xC61CC8
-[NativeHeaderAttribute] // RVA: 0xC61CC8 Offset: 0xC61CC8 VA: 0xC61CC8
-[RequiredByNativeCodeAttribute] // RVA: 0xC61CC8 Offset: 0xC61CC8 VA: 0xC61CC8
-[NativeHeaderAttribute] // RVA: 0xC61CC8 Offset: 0xC61CC8 VA: 0xC61CC8
-public struct AnimationLayerMixerPlayable : IPlayable, IEquatable<AnimationLayerMixerPlayable> // TypeDefIndex: 2681
-{
-	// Fields
-	private PlayableHandle m_Handle; // 0x0
-	private static readonly AnimationLayerMixerPlayable m_NullPlayable; // 0x0
-
-	// Methods
-
-	// RVA: 0xBC0CA4 Offset: 0xBC0CA4 VA: 0xBC0CA4
-	internal void .ctor(PlayableHandle handle) { }

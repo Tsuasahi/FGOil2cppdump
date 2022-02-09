@@ -1,29 +1,151 @@
+	private static readonly Vector2 upVector; // 0x10
+	private static readonly Vector2 downVector; // 0x18
+	private static readonly Vector2 leftVector; // 0x20
+	private static readonly Vector2 rightVector; // 0x28
+	private static readonly Vector2 positiveInfinityVector; // 0x30
+	private static readonly Vector2 negativeInfinityVector; // 0x38
+	public const float kEpsilon = 1E-05;
+	public const float kEpsilonNormalSqrt = 1E-15;
 
-	// RVA: 0x1043048 Offset: 0x1043048 VA: 0x1043048
+	// Properties
+	public float Item { get; set; }
+	public Vector2 normalized { get; }
+	public float magnitude { get; }
+	public float sqrMagnitude { get; }
+	public static Vector2 zero { get; }
+	public static Vector2 one { get; }
+	public static Vector2 up { get; }
+	public static Vector2 right { get; }
+
+	// Methods
+
+	// RVA: 0xD6696C Offset: 0xD6696C VA: 0xD6696C
+	public void .ctor(float x, float y) { }
+
+	// RVA: 0xD66974 Offset: 0xD66974 VA: 0xD66974
+	public float get_Item(int index) { }
+
+	// RVA: 0xD6697C Offset: 0xD6697C VA: 0xD6697C
+	public void set_Item(int index, float value) { }
+
+	// RVA: 0xD66984 Offset: 0xD66984 VA: 0xD66984
+	public void Set(float newX, float newY) { }
+
+	// RVA: 0x217579C Offset: 0x217579C VA: 0x217579C
+	public static Vector2 Lerp(Vector2 a, Vector2 b, float t) { }
+
+	// RVA: 0x2175848 Offset: 0x2175848 VA: 0x2175848
+	public static Vector2 MoveTowards(Vector2 current, Vector2 target, float maxDistanceDelta) { }
+
+	// RVA: 0x2175A04 Offset: 0x2175A04 VA: 0x2175A04
+	public static Vector2 Scale(Vector2 a, Vector2 b) { }
+
+	// RVA: 0xD6698C Offset: 0xD6698C VA: 0xD6698C
+	public void Normalize() { }
+
+	// RVA: 0xD66994 Offset: 0xD66994 VA: 0xD66994
+	public Vector2 get_normalized() { }
+
+	// RVA: 0xD669C0 Offset: 0xD669C0 VA: 0xD669C0 Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0xD669C8 Offset: 0xD669C8 VA: 0xD669C8
+	public string ToString(string format) { }
+
+	// RVA: 0xD669D0 Offset: 0xD669D0 VA: 0xD669D0 Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0xD66A0C Offset: 0xD66A0C VA: 0xD66A0C Slot: 0
+	public override bool Equals(object other) { }
+
+	// RVA: 0xD66A14 Offset: 0xD66A14 VA: 0xD66A14 Slot: 4
+	public bool Equals(Vector2 other) { }
+
+	// RVA: 0x2175EA8 Offset: 0x2175EA8 VA: 0x2175EA8
+	public static float Dot(Vector2 lhs, Vector2 rhs) { }
+
+	// RVA: 0xD66A1C Offset: 0xD66A1C VA: 0xD66A1C
+	public float get_magnitude() { }
+
+	// RVA: 0xD66A24 Offset: 0xD66A24 VA: 0xD66A24
+	public float get_sqrMagnitude() { }
+
+	// RVA: 0x2175ECC Offset: 0x2175ECC VA: 0x2175ECC
+	public static float Angle(Vector2 from, Vector2 to) { }
+
+	// RVA: 0x2175FFC Offset: 0x2175FFC VA: 0x2175FFC
+	public static float Distance(Vector2 a, Vector2 b) { }
+
+	// RVA: 0x2176090 Offset: 0x2176090 VA: 0x2176090
+	public static Vector2 ClampMagnitude(Vector2 vector, float maxLength) { }
+
+	// RVA: 0x2176140 Offset: 0x2176140 VA: 0x2176140
+	public static float SqrMagnitude(Vector2 a) { }
+
+	// RVA: 0xD66A38 Offset: 0xD66A38 VA: 0xD66A38
+	public float SqrMagnitude() { }
+
+	// RVA: 0x2176164 Offset: 0x2176164 VA: 0x2176164
+	public static Vector2 Min(Vector2 lhs, Vector2 rhs) { }
+
+	// RVA: 0x217620C Offset: 0x217620C VA: 0x217620C
+	public static Vector2 Max(Vector2 lhs, Vector2 rhs) { }
+
+	// RVA: 0x21759F8 Offset: 0x21759F8 VA: 0x21759F8
+	public static Vector2 op_Addition(Vector2 a, Vector2 b) { }
+
+	// RVA: 0x217593C Offset: 0x217593C VA: 0x217593C
+	public static Vector2 op_Subtraction(Vector2 a, Vector2 b) { }
+
+	// RVA: 0x21762B4 Offset: 0x21762B4 VA: 0x21762B4
+	public static Vector2 op_Multiply(Vector2 a, Vector2 b) { }
+
+	// RVA: 0x21762C0 Offset: 0x21762C0 VA: 0x21762C0
+	public static Vector2 op_Division(Vector2 a, Vector2 b) { }
+
+	// RVA: 0x21762CC Offset: 0x21762CC VA: 0x21762CC
+	public static Vector2 op_UnaryNegation(Vector2 a) { }
+
+	// RVA: 0x21759EC Offset: 0x21759EC VA: 0x21759EC
+	public static Vector2 op_Multiply(Vector2 a, float d) { }
+
+	// RVA: 0x21762D8 Offset: 0x21762D8 VA: 0x21762D8
+	public static Vector2 op_Multiply(float d, Vector2 a) { }
+
+	// RVA: 0x21759E0 Offset: 0x21759E0 VA: 0x21759E0
+	public static Vector2 op_Division(Vector2 a, float d) { }
+
+	// RVA: 0x21762E8 Offset: 0x21762E8 VA: 0x21762E8
+	public static bool op_Equality(Vector2 lhs, Vector2 rhs) { }
+
+	// RVA: 0x2176388 Offset: 0x2176388 VA: 0x2176388
+	public static bool op_Inequality(Vector2 lhs, Vector2 rhs) { }
+
+	// RVA: 0x2176420 Offset: 0x2176420 VA: 0x2176420
 	public static Vector2 op_Implicit(Vector3 v) { }
 
-	// RVA: 0x104304C Offset: 0x104304C VA: 0x104304C
+	// RVA: 0x2176424 Offset: 0x2176424 VA: 0x2176424
 	public static Vector3 op_Implicit(Vector2 v) { }
 
-	// RVA: 0x1037688 Offset: 0x1037688 VA: 0x1037688
+	// RVA: 0x216AA60 Offset: 0x216AA60 VA: 0x216AA60
 	public static Vector2 get_zero() { }
 
-	// RVA: 0x1043054 Offset: 0x1043054 VA: 0x1043054
+	// RVA: 0x217642C Offset: 0x217642C VA: 0x217642C
 	public static Vector2 get_one() { }
 
-	// RVA: 0x10430BC Offset: 0x10430BC VA: 0x10430BC
+	// RVA: 0x2176494 Offset: 0x2176494 VA: 0x2176494
 	public static Vector2 get_up() { }
 
-	// RVA: 0x1043124 Offset: 0x1043124 VA: 0x1043124
+	// RVA: 0x21764FC Offset: 0x21764FC VA: 0x21764FC
 	public static Vector2 get_right() { }
 
-	// RVA: 0x104318C Offset: 0x104318C VA: 0x104318C
+	// RVA: 0x2176564 Offset: 0x2176564 VA: 0x2176564
 	private static void .cctor() { }
 }
 
 // Namespace: UnityEngine
-[DefaultMemberAttribute] // RVA: 0xC46EC4 Offset: 0xC46EC4 VA: 0xC46EC4
-[UsedByNativeCodeAttribute] // RVA: 0xC46EC4 Offset: 0xC46EC4 VA: 0xC46EC4
+[DefaultMemberAttribute] // RVA: 0xBDAD9C Offset: 0xBDAD9C VA: 0xBDAD9C
+[UsedByNativeCodeAttribute] // RVA: 0xBDAD9C Offset: 0xBDAD9C VA: 0xBDAD9C
 public struct Vector2Int : IEquatable<Vector2Int> // TypeDefIndex: 2458
 {
 	// Fields
@@ -42,36 +164,36 @@ public struct Vector2Int : IEquatable<Vector2Int> // TypeDefIndex: 2458
 
 	// Methods
 
-	// RVA: 0xBBA4B0 Offset: 0xBBA4B0 VA: 0xBBA4B0
+	// RVA: 0xD66A4C Offset: 0xD66A4C VA: 0xD66A4C
 	public void .ctor(int x, int y) { }
 
-	// RVA: 0xBBA4B8 Offset: 0xBBA4B8 VA: 0xBBA4B8
+	// RVA: 0xD66A54 Offset: 0xD66A54 VA: 0xD66A54
 	public int get_x() { }
 
-	// RVA: 0xBBA4C0 Offset: 0xBBA4C0 VA: 0xBBA4C0
+	// RVA: 0xD66A5C Offset: 0xD66A5C VA: 0xD66A5C
 	public int get_y() { }
 
-	// RVA: 0xBBA4C8 Offset: 0xBBA4C8 VA: 0xBBA4C8 Slot: 0
+	// RVA: 0xD66A64 Offset: 0xD66A64 VA: 0xD66A64 Slot: 0
 	public override bool Equals(object other) { }
 
-	// RVA: 0xBBA4D0 Offset: 0xBBA4D0 VA: 0xBBA4D0 Slot: 4
+	// RVA: 0xD66A6C Offset: 0xD66A6C VA: 0xD66A6C Slot: 4
 	public bool Equals(Vector2Int other) { }
 
-	// RVA: 0xBBA4D8 Offset: 0xBBA4D8 VA: 0xBBA4D8 Slot: 2
+	// RVA: 0xD66A74 Offset: 0xD66A74 VA: 0xD66A74 Slot: 2
 	public override int GetHashCode() { }
 
-	// RVA: 0xBBA4E0 Offset: 0xBBA4E0 VA: 0xBBA4E0 Slot: 3
+	// RVA: 0xD66A7C Offset: 0xD66A7C VA: 0xD66A7C Slot: 3
 	public override string ToString() { }
 
-	// RVA: 0x10434E8 Offset: 0x10434E8 VA: 0x10434E8
+	// RVA: 0x21768C0 Offset: 0x21768C0 VA: 0x21768C0
 	private static void .cctor() { }
 }
 
 // Namespace: UnityEngine
-[RequiredByNativeCodeAttribute] // RVA: 0xC46F10 Offset: 0xC46F10 VA: 0xC46F10
-[DefaultMemberAttribute] // RVA: 0xC46F10 Offset: 0xC46F10 VA: 0xC46F10
-[NativeClassAttribute] // RVA: 0xC46F10 Offset: 0xC46F10 VA: 0xC46F10
-[NativeHeaderAttribute] // RVA: 0xC46F10 Offset: 0xC46F10 VA: 0xC46F10
+[RequiredByNativeCodeAttribute] // RVA: 0xBDADE8 Offset: 0xBDADE8 VA: 0xBDADE8
+[DefaultMemberAttribute] // RVA: 0xBDADE8 Offset: 0xBDADE8 VA: 0xBDADE8
+[NativeClassAttribute] // RVA: 0xBDADE8 Offset: 0xBDADE8 VA: 0xBDADE8
+[NativeHeaderAttribute] // RVA: 0xBDADE8 Offset: 0xBDADE8 VA: 0xBDADE8
 public struct Vector4 : IEquatable<Vector4> // TypeDefIndex: 2459
 {
 	// Fields
@@ -93,90 +215,90 @@ public struct Vector4 : IEquatable<Vector4> // TypeDefIndex: 2459
 
 	// Methods
 
-	// RVA: 0xBBA59C Offset: 0xBBA59C VA: 0xBBA59C
+	// RVA: 0xD66B38 Offset: 0xD66B38 VA: 0xD66B38
 	public void .ctor(float x, float y, float z, float w) { }
 
-	// RVA: 0xBBA5A8 Offset: 0xBBA5A8 VA: 0xBBA5A8
+	// RVA: 0xD66B44 Offset: 0xD66B44 VA: 0xD66B44
 	public float get_Item(int index) { }
 
-	// RVA: 0xBBA5B0 Offset: 0xBBA5B0 VA: 0xBBA5B0
+	// RVA: 0xD66B4C Offset: 0xD66B4C VA: 0xD66B4C
 	public void set_Item(int index, float value) { }
 
-	// RVA: 0xBBA5B8 Offset: 0xBBA5B8 VA: 0xBBA5B8
+	// RVA: 0xD66B54 Offset: 0xD66B54 VA: 0xD66B54
 	public void Set(float newX, float newY, float newZ, float newW) { }
 
-	// RVA: 0xBBA5C4 Offset: 0xBBA5C4 VA: 0xBBA5C4 Slot: 2
+	// RVA: 0xD66B60 Offset: 0xD66B60 VA: 0xD66B60 Slot: 2
 	public override int GetHashCode() { }
 
-	// RVA: 0xBBA5CC Offset: 0xBBA5CC VA: 0xBBA5CC Slot: 0
+	// RVA: 0xD66B68 Offset: 0xD66B68 VA: 0xD66B68 Slot: 0
 	public override bool Equals(object other) { }
 
-	// RVA: 0xBBA5D4 Offset: 0xBBA5D4 VA: 0xBBA5D4 Slot: 4
+	// RVA: 0xD66B70 Offset: 0xD66B70 VA: 0xD66B70 Slot: 4
 	public bool Equals(Vector4 other) { }
 
-	// RVA: 0x1045220 Offset: 0x1045220 VA: 0x1045220
+	// RVA: 0x21785F8 Offset: 0x21785F8 VA: 0x21785F8
 	public static float Dot(Vector4 a, Vector4 b) { }
 
-	// RVA: 0xBBA5DC Offset: 0xBBA5DC VA: 0xBBA5DC
+	// RVA: 0xD66B78 Offset: 0xD66B78 VA: 0xD66B78
 	public float get_sqrMagnitude() { }
 
-	// RVA: 0x1037E10 Offset: 0x1037E10 VA: 0x1037E10
+	// RVA: 0x216B1E8 Offset: 0x216B1E8 VA: 0x216B1E8
 	public static Vector4 get_zero() { }
 
-	// RVA: 0x10452D4 Offset: 0x10452D4 VA: 0x10452D4
+	// RVA: 0x21786AC Offset: 0x21786AC VA: 0x21786AC
 	public static Vector4 get_one() { }
 
-	// RVA: 0x1045340 Offset: 0x1045340 VA: 0x1045340
+	// RVA: 0x2178718 Offset: 0x2178718 VA: 0x2178718
 	public static Vector4 op_Subtraction(Vector4 a, Vector4 b) { }
 
-	// RVA: 0x1045354 Offset: 0x1045354 VA: 0x1045354
+	// RVA: 0x217872C Offset: 0x217872C VA: 0x217872C
 	public static Vector4 op_Multiply(Vector4 a, float d) { }
 
-	// RVA: 0x1045368 Offset: 0x1045368 VA: 0x1045368
+	// RVA: 0x2178740 Offset: 0x2178740 VA: 0x2178740
 	public static Vector4 op_Division(Vector4 a, float d) { }
 
-	// RVA: 0x104537C Offset: 0x104537C VA: 0x104537C
+	// RVA: 0x2178754 Offset: 0x2178754 VA: 0x2178754
 	public static bool op_Equality(Vector4 lhs, Vector4 rhs) { }
 
-	// RVA: 0x10454D4 Offset: 0x10454D4 VA: 0x10454D4
+	// RVA: 0x21788AC Offset: 0x21788AC VA: 0x21788AC
 	public static bool op_Inequality(Vector4 lhs, Vector4 rhs) { }
 
-	// RVA: 0x104559C Offset: 0x104559C VA: 0x104559C
+	// RVA: 0x2178974 Offset: 0x2178974 VA: 0x2178974
 	public static Vector4 op_Implicit(Vector3 v) { }
 
-	// RVA: 0x10455A4 Offset: 0x10455A4 VA: 0x10455A4
+	// RVA: 0x217897C Offset: 0x217897C VA: 0x217897C
 	public static Vector3 op_Implicit(Vector4 v) { }
 
-	// RVA: 0x10455A8 Offset: 0x10455A8 VA: 0x10455A8
+	// RVA: 0x2178980 Offset: 0x2178980 VA: 0x2178980
 	public static Vector4 op_Implicit(Vector2 v) { }
 
-	// RVA: 0xBBA5E4 Offset: 0xBBA5E4 VA: 0xBBA5E4 Slot: 3
+	// RVA: 0xD66B80 Offset: 0xD66B80 VA: 0xD66B80 Slot: 3
 	public override string ToString() { }
 
-	// RVA: 0x104543C Offset: 0x104543C VA: 0x104543C
+	// RVA: 0x2178814 Offset: 0x2178814 VA: 0x2178814
 	public static float SqrMagnitude(Vector4 a) { }
 
-	// RVA: 0x10457CC Offset: 0x10457CC VA: 0x10457CC
+	// RVA: 0x2178BA4 Offset: 0x2178BA4 VA: 0x2178BA4
 	private static void .cctor() { }
 }
 
 // Namespace: UnityEngine
-[RequiredByNativeCodeAttribute] // RVA: 0xC46FC8 Offset: 0xC46FC8 VA: 0xC46FC8
+[RequiredByNativeCodeAttribute] // RVA: 0xBDAEA0 Offset: 0xBDAEA0 VA: 0xBDAEA0
 public sealed class WaitForEndOfFrame : YieldInstruction // TypeDefIndex: 2460
 {
 	// Methods
 
-	// RVA: 0x1045848 Offset: 0x1045848 VA: 0x1045848
+	// RVA: 0x2178C20 Offset: 0x2178C20 VA: 0x2178C20
 	public void .ctor() { }
 }
 
 // Namespace: UnityEngine
-[RequiredByNativeCodeAttribute] // RVA: 0xC46FD8 Offset: 0xC46FD8 VA: 0xC46FD8
+[RequiredByNativeCodeAttribute] // RVA: 0xBDAEB0 Offset: 0xBDAEB0 VA: 0xBDAEB0
 public sealed class WaitForFixedUpdate : YieldInstruction // TypeDefIndex: 2461
 {}
 
 // Namespace: UnityEngine
-[RequiredByNativeCodeAttribute] // RVA: 0xC46FE8 Offset: 0xC46FE8 VA: 0xC46FE8
+[RequiredByNativeCodeAttribute] // RVA: 0xBDAEC0 Offset: 0xBDAEC0 VA: 0xBDAEC0
 public sealed class WaitForSeconds : YieldInstruction // TypeDefIndex: 2462
 {
 	// Fields
@@ -184,7 +306,7 @@ public sealed class WaitForSeconds : YieldInstruction // TypeDefIndex: 2462
 
 	// Methods
 
-	// RVA: 0x1045858 Offset: 0x1045858 VA: 0x1045858
+	// RVA: 0x2178C30 Offset: 0x2178C30 VA: 0x2178C30
 	public void .ctor(float seconds) { }
 }
 
@@ -192,8 +314,8 @@ public sealed class WaitForSeconds : YieldInstruction // TypeDefIndex: 2462
 public class WaitForSecondsRealtime : CustomYieldInstruction // TypeDefIndex: 2463
 {
 	// Fields
-	[DebuggerBrowsableAttribute] // RVA: 0xC49968 Offset: 0xC49968 VA: 0xC49968
-	[CompilerGeneratedAttribute] // RVA: 0xC49968 Offset: 0xC49968 VA: 0xC49968
+	[DebuggerBrowsableAttribute] // RVA: 0xBDD840 Offset: 0xBDD840 VA: 0xBDD840
+	[CompilerGeneratedAttribute] // RVA: 0xBDD840 Offset: 0xBDD840 VA: 0xBDD840
 	private float <waitTime>k__BackingField; // 0x10
 	private float m_WaitUntilTime; // 0x14
 
@@ -203,18 +325,18 @@ public class WaitForSecondsRealtime : CustomYieldInstruction // TypeDefIndex: 24
 
 	// Methods
 
-	// RVA: 0x104588C Offset: 0x104588C VA: 0x104588C
+	// RVA: 0x2178C64 Offset: 0x2178C64 VA: 0x2178C64
 	public void .ctor(float time) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC509A0 Offset: 0xC509A0 VA: 0xC509A0
-	// RVA: 0x10458D0 Offset: 0x10458D0 VA: 0x10458D0
+	[CompilerGeneratedAttribute] // RVA: 0xBE4878 Offset: 0xBE4878 VA: 0xBE4878
+	// RVA: 0x2178CA8 Offset: 0x2178CA8 VA: 0x2178CA8
 	public float get_waitTime() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC509B0 Offset: 0xC509B0 VA: 0xC509B0
-	// RVA: 0x10458C8 Offset: 0x10458C8 VA: 0x10458C8
+	[CompilerGeneratedAttribute] // RVA: 0xBE4888 Offset: 0xBE4888 VA: 0xBE4888
+	// RVA: 0x2178CA0 Offset: 0x2178CA0 VA: 0x2178CA0
 	public void set_waitTime(float value) { }
 
-	// RVA: 0x10458D8 Offset: 0x10458D8 VA: 0x10458D8 Slot: 7
+	// RVA: 0x2178CB0 Offset: 0x2178CB0 VA: 0x2178CB0 Slot: 7
 	public override bool get_keepWaiting() { }
 }
 
@@ -229,10 +351,10 @@ public sealed class WaitUntil : CustomYieldInstruction // TypeDefIndex: 2464
 
 	// Methods
 
-	// RVA: 0x1045930 Offset: 0x1045930 VA: 0x1045930
+	// RVA: 0x2178D08 Offset: 0x2178D08 VA: 0x2178D08
 	public void .ctor(Func<bool> predicate) { }
 
-	// RVA: 0x104595C Offset: 0x104595C VA: 0x104595C Slot: 7
+	// RVA: 0x2178D34 Offset: 0x2178D34 VA: 0x2178D34 Slot: 7
 	public override bool get_keepWaiting() { }
 }
 
@@ -247,25 +369,25 @@ public sealed class WaitWhile : CustomYieldInstruction // TypeDefIndex: 2465
 
 	// Methods
 
-	// RVA: 0x10459C8 Offset: 0x10459C8 VA: 0x10459C8
+	// RVA: 0x2178DA0 Offset: 0x2178DA0 VA: 0x2178DA0
 	public void .ctor(Func<bool> predicate) { }
 
-	// RVA: 0x10459F4 Offset: 0x10459F4 VA: 0x10459F4 Slot: 7
+	// RVA: 0x2178DCC Offset: 0x2178DCC VA: 0x2178DCC Slot: 7
 	public override bool get_keepWaiting() { }
 }
 
 // Namespace: UnityEngine
-[UsedByNativeCodeAttribute] // RVA: 0xC46FF8 Offset: 0xC46FF8 VA: 0xC46FF8
+[UsedByNativeCodeAttribute] // RVA: 0xBDAED0 Offset: 0xBDAED0 VA: 0xBDAED0
 public class YieldInstruction // TypeDefIndex: 2466
 {
 	// Methods
 
-	// RVA: 0x1045850 Offset: 0x1045850 VA: 0x1045850
+	// RVA: 0x2178C28 Offset: 0x2178C28 VA: 0x2178C28
 	public void .ctor() { }
 }
 
 // Namespace: UnityEngine.Assertions
-[DebuggerStepThroughAttribute] // RVA: 0xC47008 Offset: 0xC47008 VA: 0xC47008
+[DebuggerStepThroughAttribute] // RVA: 0xBDAEE0 Offset: 0xBDAEE0 VA: 0xBDAEE0
 public static class Assert // TypeDefIndex: 2467
 {
 	// Fields
@@ -273,42 +395,42 @@ public static class Assert // TypeDefIndex: 2467
 
 	// Methods
 
-	// RVA: 0x2643738 Offset: 0x2643738 VA: 0x2643738
+	// RVA: 0x24C03A8 Offset: 0x24C03A8 VA: 0x24C03A8
 	private static void Fail(string message, string userMessage) { }
 
-	[ConditionalAttribute] // RVA: 0xC509C0 Offset: 0xC509C0 VA: 0xC509C0
+	[ConditionalAttribute] // RVA: 0xBE4898 Offset: 0xBE4898 VA: 0xBE4898
 	// RVA: -1 Offset: -1
 	public static void AreEqual<T>(T expected, T actual, string message) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2188CE4 Offset: 0x2188CE4 VA: 0x2188CE4
+	|-RVA: 0x1C1A084 Offset: 0x1C1A084 VA: 0x1C1A084
 	|-Assert.AreEqual<int>
 	|
-	|-RVA: 0x21890C0 Offset: 0x21890C0 VA: 0x21890C0
+	|-RVA: 0x1C1A460 Offset: 0x1C1A460 VA: 0x1C1A460
 	|-Assert.AreEqual<object>
 	*/
 
-	[ConditionalAttribute] // RVA: 0xC509F8 Offset: 0xC509F8 VA: 0xC509F8
+	[ConditionalAttribute] // RVA: 0xBE48D0 Offset: 0xBE48D0 VA: 0xBE48D0
 	// RVA: -1 Offset: -1
 	public static void AreEqual<T>(T expected, T actual, string message, IEqualityComparer<T> comparer) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2188DF4 Offset: 0x2188DF4 VA: 0x2188DF4
+	|-RVA: 0x1C1A194 Offset: 0x1C1A194 VA: 0x1C1A194
 	|-Assert.AreEqual<int>
 	|
-	|-RVA: 0x21891D0 Offset: 0x21891D0 VA: 0x21891D0
+	|-RVA: 0x1C1A570 Offset: 0x1C1A570 VA: 0x1C1A570
 	|-Assert.AreEqual<object>
 	*/
 
-	[ConditionalAttribute] // RVA: 0xC50A30 Offset: 0xC50A30 VA: 0xC50A30
-	// RVA: 0x26439C4 Offset: 0x26439C4 VA: 0x26439C4
+	[ConditionalAttribute] // RVA: 0xBE4908 Offset: 0xBE4908 VA: 0xBE4908
+	// RVA: 0x24C0634 Offset: 0x24C0634 VA: 0x24C0634
 	public static void AreEqual(Object expected, Object actual, string message) { }
 
-	[ConditionalAttribute] // RVA: 0xC50A68 Offset: 0xC50A68 VA: 0xC50A68
-	// RVA: 0x2643CD8 Offset: 0x2643CD8 VA: 0x2643CD8
+	[ConditionalAttribute] // RVA: 0xBE4940 Offset: 0xBE4940 VA: 0xBE4940
+	// RVA: 0x24C0948 Offset: 0x24C0948 VA: 0x24C0948
 	public static void AreEqual(int expected, int actual) { }
 
-	// RVA: 0x2643D74 Offset: 0x2643D74 VA: 0x2643D74
+	// RVA: 0x24C09E4 Offset: 0x24C09E4 VA: 0x24C09E4
 	private static void .cctor() { }
 }
 
@@ -323,10 +445,10 @@ public class AssertionException : Exception // TypeDefIndex: 2468
 
 	// Methods
 
-	// RVA: 0x26438BC Offset: 0x26438BC VA: 0x26438BC
+	// RVA: 0x24C052C Offset: 0x24C052C VA: 0x24C052C
 	public void .ctor(string message, string userMessage) { }
 
-	// RVA: 0x2643DC4 Offset: 0x2643DC4 VA: 0x2643DC4 Slot: 6
+	// RVA: 0x24C0A34 Offset: 0x24C0A34 VA: 0x24C0A34 Slot: 6
 	public override string get_Message() { }
 }
 
@@ -335,40 +457,40 @@ internal class AssertionMessageUtil // TypeDefIndex: 2469
 {
 	// Methods
 
-	// RVA: 0x2643E88 Offset: 0x2643E88 VA: 0x2643E88
+	// RVA: 0x24C0AF8 Offset: 0x24C0AF8 VA: 0x24C0AF8
 	public static string GetMessage(string failureMessage) { }
 
-	// RVA: 0x2643F9C Offset: 0x2643F9C VA: 0x2643F9C
+	// RVA: 0x24C0C0C Offset: 0x24C0C0C VA: 0x24C0C0C
 	public static string GetMessage(string failureMessage, string expected) { }
 
-	// RVA: 0x2643A98 Offset: 0x2643A98 VA: 0x2643A98
+	// RVA: 0x24C0708 Offset: 0x24C0708 VA: 0x24C0708
 	public static string GetEqualityMessage(object actual, object expected, bool expectEqual) { }
 }
 
 // Namespace: UnityEngine.Experimental.Rendering
-[NativeHeaderAttribute] // RVA: 0xC47018 Offset: 0xC47018 VA: 0xC47018
+[NativeHeaderAttribute] // RVA: 0xBDAEF0 Offset: 0xBDAEF0 VA: 0xBDAEF0
 internal class BuiltinRuntimeReflectionSystem : IScriptableRuntimeReflectionSystem, IDisposable // TypeDefIndex: 2470
 {
 	// Methods
 
-	// RVA: 0x264F09C Offset: 0x264F09C VA: 0x264F09C
+	// RVA: 0x24CBD0C Offset: 0x24CBD0C VA: 0x24CBD0C
 	public void .ctor() { }
 
-	// RVA: 0x264F0A4 Offset: 0x264F0A4 VA: 0x264F0A4 Slot: 4
+	// RVA: 0x24CBD14 Offset: 0x24CBD14 VA: 0x24CBD14 Slot: 4
 	public bool TickRealtimeProbes() { }
 
-	// RVA: 0x264F100 Offset: 0x264F100 VA: 0x264F100 Slot: 5
+	// RVA: 0x24CBD70 Offset: 0x24CBD70 VA: 0x24CBD70 Slot: 5
 	public void Dispose() { }
 
-	// RVA: 0x264F104 Offset: 0x264F104 VA: 0x264F104
+	// RVA: 0x24CBD74 Offset: 0x24CBD74 VA: 0x24CBD74
 	private void Dispose(bool disposing) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC50AA0 Offset: 0xC50AA0 VA: 0xC50AA0
-	// RVA: 0x264F0A8 Offset: 0x264F0A8 VA: 0x264F0A8
+	[StaticAccessorAttribute] // RVA: 0xBE4978 Offset: 0xBE4978 VA: 0xBE4978
+	// RVA: 0x24CBD18 Offset: 0x24CBD18 VA: 0x24CBD18
 	private static bool BuiltinUpdate() { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50AE8 Offset: 0xC50AE8 VA: 0xC50AE8
-	// RVA: 0x264F108 Offset: 0x264F108 VA: 0x264F108
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE49C0 Offset: 0xBE49C0 VA: 0xBE49C0
+	// RVA: 0x24CBD78 Offset: 0x24CBD78 VA: 0x24CBD78
 	private static BuiltinRuntimeReflectionSystem Internal_BuiltinRuntimeReflectionSystem_New() { }
 }
 
@@ -382,8 +504,8 @@ public interface IScriptableRuntimeReflectionSystem : IDisposable // TypeDefInde
 }
 
 // Namespace: UnityEngine.Experimental.Rendering
-[NativeHeaderAttribute] // RVA: 0xC47050 Offset: 0xC47050 VA: 0xC47050
-[RequiredByNativeCodeAttribute] // RVA: 0xC47050 Offset: 0xC47050 VA: 0xC47050
+[NativeHeaderAttribute] // RVA: 0xBDAF28 Offset: 0xBDAF28 VA: 0xBDAF28
+[RequiredByNativeCodeAttribute] // RVA: 0xBDAF28 Offset: 0xBDAF28 VA: 0xBDAF28
 public static class ScriptableRuntimeReflectionSystemSettings // TypeDefIndex: 2472
 {
 	// Fields
@@ -395,30 +517,30 @@ public static class ScriptableRuntimeReflectionSystemSettings // TypeDefIndex: 2
 
 	// Methods
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50AF8 Offset: 0xC50AF8 VA: 0xC50AF8
-	// RVA: 0x264F8AC Offset: 0x264F8AC VA: 0x264F8AC
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE49D0 Offset: 0xBE49D0 VA: 0xBE49D0
+	// RVA: 0x24CC51C Offset: 0x24CC51C VA: 0x24CC51C
 	private static void set_Internal_ScriptableRuntimeReflectionSystemSettings_system(IScriptableRuntimeReflectionSystem value) { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50B08 Offset: 0xC50B08 VA: 0xC50B08
-	// RVA: 0x264FA5C Offset: 0x264FA5C VA: 0x264FA5C
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE49E0 Offset: 0xBE49E0 VA: 0xBE49E0
+	// RVA: 0x24CC6CC Offset: 0x24CC6CC VA: 0x24CC6CC
 	private static ScriptableRuntimeReflectionSystemWrapper get_Internal_ScriptableRuntimeReflectionSystemSettings_instance() { }
 
-	[RuntimeInitializeOnLoadMethodAttribute] // RVA: 0xC50B18 Offset: 0xC50B18 VA: 0xC50B18
-	[StaticAccessorAttribute] // RVA: 0xC50B18 Offset: 0xC50B18 VA: 0xC50B18
-	// RVA: 0x264FAC4 Offset: 0x264FAC4 VA: 0x264FAC4
+	[RuntimeInitializeOnLoadMethodAttribute] // RVA: 0xBE49F0 Offset: 0xBE49F0 VA: 0xBE49F0
+	[StaticAccessorAttribute] // RVA: 0xBE49F0 Offset: 0xBE49F0 VA: 0xBE49F0
+	// RVA: 0x24CC734 Offset: 0x24CC734 VA: 0x24CC734
 	private static void ScriptingDirtyReflectionSystemInstance() { }
 
-	// RVA: 0x264FB1C Offset: 0x264FB1C VA: 0x264FB1C
+	// RVA: 0x24CC78C Offset: 0x24CC78C VA: 0x24CC78C
 	private static void .cctor() { }
 }
 
 // Namespace: UnityEngine.Experimental.Rendering
-[RequiredByNativeCodeAttribute] // RVA: 0xC4709C Offset: 0xC4709C VA: 0xC4709C
+[RequiredByNativeCodeAttribute] // RVA: 0xBDAF74 Offset: 0xBDAF74 VA: 0xBDAF74
 internal class ScriptableRuntimeReflectionSystemWrapper // TypeDefIndex: 2473
 {
 	// Fields
-	[DebuggerBrowsableAttribute] // RVA: 0xC499A4 Offset: 0xC499A4 VA: 0xC499A4
-	[CompilerGeneratedAttribute] // RVA: 0xC499A4 Offset: 0xC499A4 VA: 0xC499A4
+	[DebuggerBrowsableAttribute] // RVA: 0xBDD87C Offset: 0xBDD87C VA: 0xBDD87C
+	[CompilerGeneratedAttribute] // RVA: 0xBDD87C Offset: 0xBDD87C VA: 0xBDD87C
 	private IScriptableRuntimeReflectionSystem <implementation>k__BackingField; // 0x10
 
 	// Properties
@@ -426,131 +548,131 @@ internal class ScriptableRuntimeReflectionSystemWrapper // TypeDefIndex: 2473
 
 	// Methods
 
-	// RVA: 0x264FB88 Offset: 0x264FB88 VA: 0x264FB88
+	// RVA: 0x24CC7F8 Offset: 0x24CC7F8 VA: 0x24CC7F8
 	public void .ctor() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC50B6C Offset: 0xC50B6C VA: 0xC50B6C
-	// RVA: 0x264FA4C Offset: 0x264FA4C VA: 0x264FA4C
+	[CompilerGeneratedAttribute] // RVA: 0xBE4A44 Offset: 0xBE4A44 VA: 0xBE4A44
+	// RVA: 0x24CC6BC Offset: 0x24CC6BC VA: 0x24CC6BC
 	internal IScriptableRuntimeReflectionSystem get_implementation() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC50B7C Offset: 0xC50B7C VA: 0xC50B7C
-	// RVA: 0x264FA54 Offset: 0x264FA54 VA: 0x264FA54
+	[CompilerGeneratedAttribute] // RVA: 0xBE4A54 Offset: 0xBE4A54 VA: 0xBE4A54
+	// RVA: 0x24CC6C4 Offset: 0x24CC6C4 VA: 0x24CC6C4
 	internal void set_implementation(IScriptableRuntimeReflectionSystem value) { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50B8C Offset: 0xC50B8C VA: 0xC50B8C
-	// RVA: 0x264FB90 Offset: 0x264FB90 VA: 0x264FB90
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE4A64 Offset: 0xBE4A64 VA: 0xBE4A64
+	// RVA: 0x24CC800 Offset: 0x24CC800 VA: 0x24CC800
 	private void Internal_ScriptableRuntimeReflectionSystemWrapper_TickRealtimeProbes(IntPtr result) { }
 }
 
 // Namespace: Unity.Collections
-[RequiredByNativeCodeAttribute] // RVA: 0xC470AC Offset: 0xC470AC VA: 0xC470AC
-[AttributeUsageAttribute] // RVA: 0xC470AC Offset: 0xC470AC VA: 0xC470AC
+[RequiredByNativeCodeAttribute] // RVA: 0xBDAF84 Offset: 0xBDAF84 VA: 0xBDAF84
+[AttributeUsageAttribute] // RVA: 0xBDAF84 Offset: 0xBDAF84 VA: 0xBDAF84
 public sealed class ReadOnlyAttribute : Attribute // TypeDefIndex: 2474
 {}
 
 // Namespace: Unity.Collections
-[RequiredByNativeCodeAttribute] // RVA: 0xC470E8 Offset: 0xC470E8 VA: 0xC470E8
-[AttributeUsageAttribute] // RVA: 0xC470E8 Offset: 0xC470E8 VA: 0xC470E8
+[RequiredByNativeCodeAttribute] // RVA: 0xBDAFC0 Offset: 0xBDAFC0 VA: 0xBDAFC0
+[AttributeUsageAttribute] // RVA: 0xBDAFC0 Offset: 0xBDAFC0 VA: 0xBDAFC0
 public sealed class WriteOnlyAttribute : Attribute // TypeDefIndex: 2475
 {}
 
 // Namespace: Unity.Collections
-[RequiredByNativeCodeAttribute] // RVA: 0xC47124 Offset: 0xC47124 VA: 0xC47124
-[AttributeUsageAttribute] // RVA: 0xC47124 Offset: 0xC47124 VA: 0xC47124
+[RequiredByNativeCodeAttribute] // RVA: 0xBDAFFC Offset: 0xBDAFFC VA: 0xBDAFFC
+[AttributeUsageAttribute] // RVA: 0xBDAFFC Offset: 0xBDAFFC VA: 0xBDAFFC
 public sealed class DeallocateOnJobCompletionAttribute : Attribute // TypeDefIndex: 2476
 {}
 
 // Namespace: Unity.Collections
-[AttributeUsageAttribute] // RVA: 0xC47160 Offset: 0xC47160 VA: 0xC47160
-[RequiredByNativeCodeAttribute] // RVA: 0xC47160 Offset: 0xC47160 VA: 0xC47160
+[AttributeUsageAttribute] // RVA: 0xBDB038 Offset: 0xBDB038 VA: 0xBDB038
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB038 Offset: 0xBDB038 VA: 0xBDB038
 public sealed class NativeFixedLengthAttribute : Attribute // TypeDefIndex: 2477
 {}
 
 // Namespace: Unity.Collections
-[RequiredByNativeCodeAttribute] // RVA: 0xC4719C Offset: 0xC4719C VA: 0xC4719C
-[AttributeUsageAttribute] // RVA: 0xC4719C Offset: 0xC4719C VA: 0xC4719C
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB074 Offset: 0xBDB074 VA: 0xBDB074
+[AttributeUsageAttribute] // RVA: 0xBDB074 Offset: 0xBDB074 VA: 0xBDB074
 public sealed class NativeMatchesParallelForLengthAttribute : Attribute // TypeDefIndex: 2478
 {}
 
 // Namespace: Unity.Collections
-[AttributeUsageAttribute] // RVA: 0xC471D8 Offset: 0xC471D8 VA: 0xC471D8
-[RequiredByNativeCodeAttribute] // RVA: 0xC471D8 Offset: 0xC471D8 VA: 0xC471D8
+[AttributeUsageAttribute] // RVA: 0xBDB0B0 Offset: 0xBDB0B0 VA: 0xBDB0B0
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB0B0 Offset: 0xBDB0B0 VA: 0xBDB0B0
 public sealed class NativeDisableParallelForRestrictionAttribute : Attribute // TypeDefIndex: 2479
 {}
 
 // Namespace: Unity.Collections.LowLevel.Unsafe
-[AttributeUsageAttribute] // RVA: 0xC47214 Offset: 0xC47214 VA: 0xC47214
-[RequiredByNativeCodeAttribute] // RVA: 0xC47214 Offset: 0xC47214 VA: 0xC47214
+[AttributeUsageAttribute] // RVA: 0xBDB0EC Offset: 0xBDB0EC VA: 0xBDB0EC
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB0EC Offset: 0xBDB0EC VA: 0xBDB0EC
 public sealed class NativeContainerAttribute : Attribute // TypeDefIndex: 2480
 {}
 
 // Namespace: Unity.Collections.LowLevel.Unsafe
-[AttributeUsageAttribute] // RVA: 0xC47250 Offset: 0xC47250 VA: 0xC47250
-[RequiredByNativeCodeAttribute] // RVA: 0xC47250 Offset: 0xC47250 VA: 0xC47250
+[AttributeUsageAttribute] // RVA: 0xBDB128 Offset: 0xBDB128 VA: 0xBDB128
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB128 Offset: 0xBDB128 VA: 0xBDB128
 public sealed class NativeContainerIsReadOnlyAttribute : Attribute // TypeDefIndex: 2481
 {}
 
 // Namespace: Unity.Collections.LowLevel.Unsafe
-[RequiredByNativeCodeAttribute] // RVA: 0xC4728C Offset: 0xC4728C VA: 0xC4728C
-[AttributeUsageAttribute] // RVA: 0xC4728C Offset: 0xC4728C VA: 0xC4728C
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB164 Offset: 0xBDB164 VA: 0xBDB164
+[AttributeUsageAttribute] // RVA: 0xBDB164 Offset: 0xBDB164 VA: 0xBDB164
 public sealed class NativeContainerIsAtomicWriteOnlyAttribute : Attribute // TypeDefIndex: 2482
 {}
 
 // Namespace: Unity.Collections.LowLevel.Unsafe
-[AttributeUsageAttribute] // RVA: 0xC472C8 Offset: 0xC472C8 VA: 0xC472C8
-[RequiredByNativeCodeAttribute] // RVA: 0xC472C8 Offset: 0xC472C8 VA: 0xC472C8
+[AttributeUsageAttribute] // RVA: 0xBDB1A0 Offset: 0xBDB1A0 VA: 0xBDB1A0
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB1A0 Offset: 0xBDB1A0 VA: 0xBDB1A0
 public sealed class NativeContainerSupportsMinMaxWriteRestrictionAttribute : Attribute // TypeDefIndex: 2483
 {}
 
 // Namespace: Unity.Collections.LowLevel.Unsafe
-[RequiredByNativeCodeAttribute] // RVA: 0xC47304 Offset: 0xC47304 VA: 0xC47304
-[AttributeUsageAttribute] // RVA: 0xC47304 Offset: 0xC47304 VA: 0xC47304
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB1DC Offset: 0xBDB1DC VA: 0xBDB1DC
+[AttributeUsageAttribute] // RVA: 0xBDB1DC Offset: 0xBDB1DC VA: 0xBDB1DC
 public sealed class NativeContainerSupportsDeallocateOnJobCompletionAttribute : Attribute // TypeDefIndex: 2484
 {}
 
 // Namespace: Unity.Collections.LowLevel.Unsafe
-[RequiredByNativeCodeAttribute] // RVA: 0xC47340 Offset: 0xC47340 VA: 0xC47340
-[AttributeUsageAttribute] // RVA: 0xC47340 Offset: 0xC47340 VA: 0xC47340
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB218 Offset: 0xBDB218 VA: 0xBDB218
+[AttributeUsageAttribute] // RVA: 0xBDB218 Offset: 0xBDB218 VA: 0xBDB218
 public sealed class NativeContainerSupportsDeferredConvertListToArray : Attribute // TypeDefIndex: 2485
 {}
 
 // Namespace: Unity.Collections.LowLevel.Unsafe
-[AttributeUsageAttribute] // RVA: 0xC4737C Offset: 0xC4737C VA: 0xC4737C
-[RequiredByNativeCodeAttribute] // RVA: 0xC4737C Offset: 0xC4737C VA: 0xC4737C
+[AttributeUsageAttribute] // RVA: 0xBDB254 Offset: 0xBDB254 VA: 0xBDB254
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB254 Offset: 0xBDB254 VA: 0xBDB254
 public sealed class NativeSetThreadIndexAttribute : Attribute // TypeDefIndex: 2486
 {}
 
 // Namespace: Unity.Collections.LowLevel.Unsafe
-[ObsoleteAttribute] // RVA: 0xC473B8 Offset: 0xC473B8 VA: 0xC473B8
-[AttributeUsageAttribute] // RVA: 0xC473B8 Offset: 0xC473B8 VA: 0xC473B8
-[RequiredByNativeCodeAttribute] // RVA: 0xC473B8 Offset: 0xC473B8 VA: 0xC473B8
+[ObsoleteAttribute] // RVA: 0xBDB290 Offset: 0xBDB290 VA: 0xBDB290
+[AttributeUsageAttribute] // RVA: 0xBDB290 Offset: 0xBDB290 VA: 0xBDB290
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB290 Offset: 0xBDB290 VA: 0xBDB290
 public sealed class NativeContainerNeedsThreadIndexAttribute : Attribute // TypeDefIndex: 2487
 {}
 
 // Namespace: Unity.Collections.LowLevel.Unsafe
-[RequiredByNativeCodeAttribute] // RVA: 0xC47418 Offset: 0xC47418 VA: 0xC47418
-[AttributeUsageAttribute] // RVA: 0xC47418 Offset: 0xC47418 VA: 0xC47418
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB2F0 Offset: 0xBDB2F0 VA: 0xBDB2F0
+[AttributeUsageAttribute] // RVA: 0xBDB2F0 Offset: 0xBDB2F0 VA: 0xBDB2F0
 public sealed class NativeDisableUnsafePtrRestrictionAttribute : Attribute // TypeDefIndex: 2488
 {}
 
 // Namespace: Unity.Collections.LowLevel.Unsafe
-[AttributeUsageAttribute] // RVA: 0xC47454 Offset: 0xC47454 VA: 0xC47454
-[RequiredByNativeCodeAttribute] // RVA: 0xC47454 Offset: 0xC47454 VA: 0xC47454
+[AttributeUsageAttribute] // RVA: 0xBDB32C Offset: 0xBDB32C VA: 0xBDB32C
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB32C Offset: 0xBDB32C VA: 0xBDB32C
 public sealed class NativeDisableContainerSafetyRestrictionAttribute : Attribute // TypeDefIndex: 2489
 {}
 
 // Namespace: Unity.Collections.LowLevel.Unsafe
-[AttributeUsageAttribute] // RVA: 0xC47490 Offset: 0xC47490 VA: 0xC47490
-[RequiredByNativeCodeAttribute] // RVA: 0xC47490 Offset: 0xC47490 VA: 0xC47490
+[AttributeUsageAttribute] // RVA: 0xBDB368 Offset: 0xBDB368 VA: 0xBDB368
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB368 Offset: 0xBDB368 VA: 0xBDB368
 public sealed class NativeSetClassTypeToNullOnScheduleAttribute : Attribute // TypeDefIndex: 2490
 {}
 
 // Namespace: UnityEngine.Experimental.Playables
-[RequiredByNativeCodeAttribute] // RVA: 0xC474CC Offset: 0xC474CC VA: 0xC474CC
-[StaticAccessorAttribute] // RVA: 0xC474CC Offset: 0xC474CC VA: 0xC474CC
-[NativeHeaderAttribute] // RVA: 0xC474CC Offset: 0xC474CC VA: 0xC474CC
-[NativeHeaderAttribute] // RVA: 0xC474CC Offset: 0xC474CC VA: 0xC474CC
-[NativeHeaderAttribute] // RVA: 0xC474CC Offset: 0xC474CC VA: 0xC474CC
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB3A4 Offset: 0xBDB3A4 VA: 0xBDB3A4
+[StaticAccessorAttribute] // RVA: 0xBDB3A4 Offset: 0xBDB3A4 VA: 0xBDB3A4
+[NativeHeaderAttribute] // RVA: 0xBDB3A4 Offset: 0xBDB3A4 VA: 0xBDB3A4
+[NativeHeaderAttribute] // RVA: 0xBDB3A4 Offset: 0xBDB3A4 VA: 0xBDB3A4
+[NativeHeaderAttribute] // RVA: 0xBDB3A4 Offset: 0xBDB3A4 VA: 0xBDB3A4
 public struct CameraPlayable : IPlayable, IEquatable<CameraPlayable> // TypeDefIndex: 2491
 {
 	// Fields
@@ -558,10 +680,10 @@ public struct CameraPlayable : IPlayable, IEquatable<CameraPlayable> // TypeDefI
 
 	// Methods
 
-	// RVA: 0xDD2580 Offset: 0xDD2580 VA: 0xDD2580 Slot: 4
+	// RVA: 0xD6CE5C Offset: 0xD6CE5C VA: 0xD6CE5C Slot: 4
 	public PlayableHandle GetHandle() { }
 
-	// RVA: 0xDD258C Offset: 0xDD258C VA: 0xDD258C Slot: 5
+	// RVA: 0xD6CE68 Offset: 0xD6CE68 VA: 0xD6CE68 Slot: 5
 	public bool Equals(CameraPlayable other) { }
 }
 
@@ -584,12 +706,12 @@ public struct FrameData // TypeDefIndex: 2492
 
 	// Methods
 
-	// RVA: 0xDD29F8 Offset: 0xDD29F8 VA: 0xDD29F8
+	// RVA: 0xD6E8F4 Offset: 0xD6E8F4 VA: 0xD6E8F4
 	public float get_deltaTime() { }
 }
 
 // Namespace: 
-[FlagsAttribute] // RVA: 0xC47588 Offset: 0xC47588 VA: 0xC47588
+[FlagsAttribute] // RVA: 0xBDB460 Offset: 0xBDB460 VA: 0xBDB460
 internal enum FrameData.Flags // TypeDefIndex: 2493
 {
 	// Fields
@@ -603,7 +725,7 @@ internal enum FrameData.Flags // TypeDefIndex: 2493
 }
 
 // Namespace: UnityEngine.Playables
-[RequiredByNativeCodeAttribute] // RVA: 0xC47598 Offset: 0xC47598 VA: 0xC47598
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB470 Offset: 0xBDB470 VA: 0xBDB470
 public interface INotificationReceiver // TypeDefIndex: 2494
 {}
 
@@ -621,35 +743,35 @@ public interface IPlayableBehaviour // TypeDefIndex: 2496
 {
 	// Methods
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50B9C Offset: 0xC50B9C VA: 0xC50B9C
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE4A74 Offset: 0xBE4A74 VA: 0xBE4A74
 	// RVA: -1 Offset: -1 Slot: 0
 	public abstract void OnGraphStart(Playable playable);
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50BAC Offset: 0xC50BAC VA: 0xC50BAC
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE4A84 Offset: 0xBE4A84 VA: 0xBE4A84
 	// RVA: -1 Offset: -1 Slot: 1
 	public abstract void OnGraphStop(Playable playable);
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50BBC Offset: 0xC50BBC VA: 0xC50BBC
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE4A94 Offset: 0xBE4A94 VA: 0xBE4A94
 	// RVA: -1 Offset: -1 Slot: 2
 	public abstract void OnPlayableCreate(Playable playable);
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50BCC Offset: 0xC50BCC VA: 0xC50BCC
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE4AA4 Offset: 0xBE4AA4 VA: 0xBE4AA4
 	// RVA: -1 Offset: -1 Slot: 3
 	public abstract void OnPlayableDestroy(Playable playable);
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50BDC Offset: 0xC50BDC VA: 0xC50BDC
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE4AB4 Offset: 0xBE4AB4 VA: 0xBE4AB4
 	// RVA: -1 Offset: -1 Slot: 4
 	public abstract void OnBehaviourPlay(Playable playable, FrameData info);
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50BEC Offset: 0xC50BEC VA: 0xC50BEC
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE4AC4 Offset: 0xBE4AC4 VA: 0xBE4AC4
 	// RVA: -1 Offset: -1 Slot: 5
 	public abstract void OnBehaviourPause(Playable playable, FrameData info);
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50BFC Offset: 0xC50BFC VA: 0xC50BFC
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE4AD4 Offset: 0xBE4AD4 VA: 0xBE4AD4
 	// RVA: -1 Offset: -1 Slot: 6
 	public abstract void PrepareFrame(Playable playable, FrameData info);
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50C0C Offset: 0xC50C0C VA: 0xC50C0C
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE4AE4 Offset: 0xBE4AE4 VA: 0xBE4AE4
 	// RVA: -1 Offset: -1 Slot: 7
 	public abstract void ProcessFrame(Playable playable, FrameData info, object playerData);
 }
@@ -664,11 +786,11 @@ public interface IPlayableOutput // TypeDefIndex: 2497
 }
 
 // Namespace: UnityEngine.Experimental.Playables
-[NativeHeaderAttribute] // RVA: 0xC475A8 Offset: 0xC475A8 VA: 0xC475A8
-[RequiredByNativeCodeAttribute] // RVA: 0xC475A8 Offset: 0xC475A8 VA: 0xC475A8
-[NativeHeaderAttribute] // RVA: 0xC475A8 Offset: 0xC475A8 VA: 0xC475A8
-[StaticAccessorAttribute] // RVA: 0xC475A8 Offset: 0xC475A8 VA: 0xC475A8
-[NativeHeaderAttribute] // RVA: 0xC475A8 Offset: 0xC475A8 VA: 0xC475A8
+[NativeHeaderAttribute] // RVA: 0xBDB480 Offset: 0xBDB480 VA: 0xBDB480
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB480 Offset: 0xBDB480 VA: 0xBDB480
+[NativeHeaderAttribute] // RVA: 0xBDB480 Offset: 0xBDB480 VA: 0xBDB480
+[StaticAccessorAttribute] // RVA: 0xBDB480 Offset: 0xBDB480 VA: 0xBDB480
+[NativeHeaderAttribute] // RVA: 0xBDB480 Offset: 0xBDB480 VA: 0xBDB480
 public struct MaterialEffectPlayable : IPlayable, IEquatable<MaterialEffectPlayable> // TypeDefIndex: 2498
 {
 	// Fields
@@ -676,15 +798,15 @@ public struct MaterialEffectPlayable : IPlayable, IEquatable<MaterialEffectPlaya
 
 	// Methods
 
-	// RVA: 0xDD2594 Offset: 0xDD2594 VA: 0xDD2594 Slot: 4
+	// RVA: 0xD6CE70 Offset: 0xD6CE70 VA: 0xD6CE70 Slot: 4
 	public PlayableHandle GetHandle() { }
 
-	// RVA: 0xDD25A0 Offset: 0xDD25A0 VA: 0xDD25A0 Slot: 5
+	// RVA: 0xD6CE7C Offset: 0xD6CE7C VA: 0xD6CE7C Slot: 5
 	public bool Equals(MaterialEffectPlayable other) { }
 }
 
 // Namespace: UnityEngine.Playables
-[RequiredByNativeCodeAttribute] // RVA: 0xC47664 Offset: 0xC47664 VA: 0xC47664
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB53C Offset: 0xBDB53C VA: 0xBDB53C
 public struct Playable : IPlayable, IEquatable<Playable> // TypeDefIndex: 2499
 {
 	// Fields
@@ -696,26 +818,26 @@ public struct Playable : IPlayable, IEquatable<Playable> // TypeDefIndex: 2499
 
 	// Methods
 
-	[VisibleToOtherModulesAttribute] // RVA: 0xC50C1C Offset: 0xC50C1C VA: 0xC50C1C
-	// RVA: 0xDD2A04 Offset: 0xDD2A04 VA: 0xDD2A04
+	[VisibleToOtherModulesAttribute] // RVA: 0xBE4AF4 Offset: 0xBE4AF4 VA: 0xBE4AF4
+	// RVA: 0xD6E900 Offset: 0xD6E900 VA: 0xD6E900
 	internal void .ctor(PlayableHandle handle) { }
 
-	// RVA: 0x26B7068 Offset: 0x26B7068 VA: 0x26B7068
+	// RVA: 0x2571AC4 Offset: 0x2571AC4 VA: 0x2571AC4
 	public static Playable get_Null() { }
 
-	// RVA: 0xDD2A0C Offset: 0xDD2A0C VA: 0xDD2A0C Slot: 4
+	// RVA: 0xD6E908 Offset: 0xD6E908 VA: 0xD6E908 Slot: 4
 	public PlayableHandle GetHandle() { }
 
 	// RVA: -1 Offset: -1
 	public bool IsPlayableOfType<T>() { }
 
-	// RVA: 0xDD2A18 Offset: 0xDD2A18 VA: 0xDD2A18
+	// RVA: 0xD6E914 Offset: 0xD6E914 VA: 0xD6E914
 	public Type GetPlayableType() { }
 
-	// RVA: 0xDD2A40 Offset: 0xDD2A40 VA: 0xDD2A40 Slot: 5
+	// RVA: 0xD6E93C Offset: 0xD6E93C VA: 0xD6E93C Slot: 5
 	public bool Equals(Playable other) { }
 
-	// RVA: 0x26B7284 Offset: 0x26B7284 VA: 0x26B7284
+	// RVA: 0x2571CE0 Offset: 0x2571CE0 VA: 0x2571CE0
 	private static void .cctor() { }
 }
 
@@ -724,8 +846,8 @@ public interface IPlayableAsset // TypeDefIndex: 2500
 {}
 
 // Namespace: UnityEngine.Playables
-[AssetFileNameExtensionAttribute] // RVA: 0xC47674 Offset: 0xC47674 VA: 0xC47674
-[RequiredByNativeCodeAttribute] // RVA: 0xC47674 Offset: 0xC47674 VA: 0xC47674
+[AssetFileNameExtensionAttribute] // RVA: 0xBDB54C Offset: 0xBDB54C VA: 0xBDB54C
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB54C Offset: 0xBDB54C VA: 0xBDB54C
 [Serializable]
 public abstract class PlayableAsset : ScriptableObject, IPlayableAsset // TypeDefIndex: 2501
 {
@@ -735,62 +857,62 @@ public abstract class PlayableAsset : ScriptableObject, IPlayableAsset // TypeDe
 
 	// Methods
 
-	// RVA: 0x26B7360 Offset: 0x26B7360 VA: 0x26B7360
+	// RVA: 0x2571DBC Offset: 0x2571DBC VA: 0x2571DBC
 	protected void .ctor() { }
 
 	// RVA: -1 Offset: -1 Slot: 4
 	public abstract Playable CreatePlayable(PlayableGraph graph, GameObject owner);
 
-	// RVA: 0x26B7368 Offset: 0x26B7368 VA: 0x26B7368 Slot: 5
+	// RVA: 0x2571DC4 Offset: 0x2571DC4 VA: 0x2571DC4 Slot: 5
 	public virtual double get_duration() { }
 
-	// RVA: 0x26B73D0 Offset: 0x26B73D0 VA: 0x26B73D0 Slot: 6
+	// RVA: 0x2571E2C Offset: 0x2571E2C VA: 0x2571E2C Slot: 6
 	public virtual IEnumerable<PlayableBinding> get_outputs() { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50C2C Offset: 0xC50C2C VA: 0xC50C2C
-	// RVA: 0x26B7438 Offset: 0x26B7438 VA: 0x26B7438
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE4B04 Offset: 0xBE4B04 VA: 0xBE4B04
+	// RVA: 0x2571E94 Offset: 0x2571E94 VA: 0x2571E94
 	internal static void Internal_CreatePlayable(PlayableAsset asset, PlayableGraph graph, GameObject go, IntPtr ptr) { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC50C3C Offset: 0xC50C3C VA: 0xC50C3C
-	// RVA: 0x26B7530 Offset: 0x26B7530 VA: 0x26B7530
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE4B14 Offset: 0xBE4B14 VA: 0xBE4B14
+	// RVA: 0x2571F8C Offset: 0x2571F8C VA: 0x2571F8C
 	internal static void Internal_GetPlayableAssetDuration(PlayableAsset asset, IntPtr ptrToDouble) { }
 }
 
 // Namespace: UnityEngine.Playables
-[RequiredByNativeCodeAttribute] // RVA: 0xC47708 Offset: 0xC47708 VA: 0xC47708
+[RequiredByNativeCodeAttribute] // RVA: 0xBDB5E0 Offset: 0xBDB5E0 VA: 0xBDB5E0
 [Serializable]
 public abstract class PlayableBehaviour : IPlayableBehaviour, ICloneable // TypeDefIndex: 2502
 {
 	// Methods
 
-	// RVA: 0x26B758C Offset: 0x26B758C VA: 0x26B758C
+	// RVA: 0x2571FE8 Offset: 0x2571FE8 VA: 0x2571FE8
 	public void .ctor() { }
 
-	// RVA: 0x26B7594 Offset: 0x26B7594 VA: 0x26B7594 Slot: 13
+	// RVA: 0x2571FF0 Offset: 0x2571FF0 VA: 0x2571FF0 Slot: 13
 	public virtual void OnGraphStart(Playable playable) { }
 
-	// RVA: 0x26B7598 Offset: 0x26B7598 VA: 0x26B7598 Slot: 14
+	// RVA: 0x2571FF4 Offset: 0x2571FF4 VA: 0x2571FF4 Slot: 14
 	public virtual void OnGraphStop(Playable playable) { }
 
-	// RVA: 0x26B759C Offset: 0x26B759C VA: 0x26B759C Slot: 15
+	// RVA: 0x2571FF8 Offset: 0x2571FF8 VA: 0x2571FF8 Slot: 15
 	public virtual void OnPlayableCreate(Playable playable) { }
 
-	// RVA: 0x26B75A0 Offset: 0x26B75A0 VA: 0x26B75A0 Slot: 16
+	// RVA: 0x2571FFC Offset: 0x2571FFC VA: 0x2571FFC Slot: 16
 	public virtual void OnPlayableDestroy(Playable playable) { }
 
-	// RVA: 0x26B75A4 Offset: 0x26B75A4 VA: 0x26B75A4 Slot: 17
+	// RVA: 0x2572000 Offset: 0x2572000 VA: 0x2572000 Slot: 17
 	public virtual void OnBehaviourPlay(Playable playable, FrameData info) { }
 
-	// RVA: 0x26B75A8 Offset: 0x26B75A8 VA: 0x26B75A8 Slot: 18
+	// RVA: 0x2572004 Offset: 0x2572004 VA: 0x2572004 Slot: 18
 	public virtual void OnBehaviourPause(Playable playable, FrameData info) { }
 
-	// RVA: 0x26B75AC Offset: 0x26B75AC VA: 0x26B75AC Slot: 19
+	// RVA: 0x2572008 Offset: 0x2572008 VA: 0x2572008 Slot: 19
 	public virtual void PrepareFrame(Playable playable, FrameData info) { }
 
-	// RVA: 0x26B75B0 Offset: 0x26B75B0 VA: 0x26B75B0 Slot: 20
+	// RVA: 0x257200C Offset: 0x257200C VA: 0x257200C Slot: 20
 	public virtual void ProcessFrame(Playable playable, FrameData info, object playerData) { }
 
-	// RVA: 0x26B75B4 Offset: 0x26B75B4 VA: 0x26B75B4 Slot: 21
+	// RVA: 0x2572010 Offset: 0x2572010 VA: 0x2572010 Slot: 21
 	public virtual object Clone() { }
 }
 
@@ -807,194 +929,72 @@ public struct PlayableBinding // TypeDefIndex: 2503
 
 	// Methods
 
-	// RVA: 0x26B75BC Offset: 0x26B75BC VA: 0x26B75BC
+	// RVA: 0x2572018 Offset: 0x2572018 VA: 0x2572018
 	private static void .cctor() { }
 }
 
 // Namespace: 
-[VisibleToOtherModulesAttribute] // RVA: 0xC47718 Offset: 0xC47718 VA: 0xC47718
+[VisibleToOtherModulesAttribute] // RVA: 0xBDB5F0 Offset: 0xBDB5F0 VA: 0xBDB5F0
 internal sealed class PlayableBinding.CreateOutputMethod : MulticastDelegate // TypeDefIndex: 2504
 {
 	// Methods
 
-	// RVA: 0x26B7630 Offset: 0x26B7630 VA: 0x26B7630
+	// RVA: 0x257208C Offset: 0x257208C VA: 0x257208C
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x26B7640 Offset: 0x26B7640 VA: 0x26B7640 Slot: 11
+	// RVA: 0x257209C Offset: 0x257209C VA: 0x257209C Slot: 11
 	public virtual PlayableOutput Invoke(PlayableGraph graph, string name) { }
 
-	// RVA: 0x26B78A4 Offset: 0x26B78A4 VA: 0x26B78A4 Slot: 12
+	// RVA: 0x2572300 Offset: 0x2572300 VA: 0x2572300 Slot: 12
 	public virtual IAsyncResult BeginInvoke(PlayableGraph graph, string name, AsyncCallback callback, object object) { }
 
-	// RVA: 0x26B793C Offset: 0x26B793C VA: 0x26B793C Slot: 13
+	// RVA: 0x2572398 Offset: 0x2572398 VA: 0x2572398 Slot: 13
 	public virtual PlayableOutput EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: UnityEngine.Playables
-[ExtensionAttribute] // RVA: 0xC47728 Offset: 0xC47728 VA: 0xC47728
+[ExtensionAttribute] // RVA: 0xBDB600 Offset: 0xBDB600 VA: 0xBDB600
 public static class PlayableExtensions // TypeDefIndex: 2505
 {
 	// Methods
 
-	[ExtensionAttribute] // RVA: 0xC50C4C Offset: 0xC50C4C VA: 0xC50C4C
+	[ExtensionAttribute] // RVA: 0xBE4B24 Offset: 0xBE4B24 VA: 0xBE4B24
 	// RVA: -1 Offset: -1
 	public static bool IsValid<U>(U playable) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x1F93E98 Offset: 0x1F93E98 VA: 0x1F93E98
+	|-RVA: 0x1A1B724 Offset: 0x1A1B724 VA: 0x1A1B724
 	|-PlayableExtensions.IsValid<Playable>
 	*/
 
-	[ExtensionAttribute] // RVA: 0xC50C5C Offset: 0xC50C5C VA: 0xC50C5C
+	[ExtensionAttribute] // RVA: 0xBE4B34 Offset: 0xBE4B34 VA: 0xBE4B34
 	// RVA: -1 Offset: -1
 	public static PlayableGraph GetGraph<U>(U playable) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2B89978 Offset: 0x2B89978 VA: 0x2B89978
+	|-RVA: 0x2B28400 Offset: 0x2B28400 VA: 0x2B28400
 	|-PlayableExtensions.GetGraph<Playable>
 	*/
 
-	[ExtensionAttribute] // RVA: 0xC50C6C Offset: 0xC50C6C VA: 0xC50C6C
-	[ObsoleteAttribute] // RVA: 0xC50C6C Offset: 0xC50C6C VA: 0xC50C6C
+	[ExtensionAttribute] // RVA: 0xBE4B44 Offset: 0xBE4B44 VA: 0xBE4B44
+	[ObsoleteAttribute] // RVA: 0xBE4B44 Offset: 0xBE4B44 VA: 0xBE4B44
 	// RVA: -1 Offset: -1
 	public static void SetPlayState<U>(U playable, PlayState value) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x218B158 Offset: 0x218B158 VA: 0x218B158
+	|-RVA: 0x1C1C4F8 Offset: 0x1C1C4F8 VA: 0x1C1C4F8
 	|-PlayableExtensions.SetPlayState<Playable>
 	*/
 
-	[ExtensionAttribute] // RVA: 0xC50CBC Offset: 0xC50CBC VA: 0xC50CBC
+	[ExtensionAttribute] // RVA: 0xBE4B94 Offset: 0xBE4B94 VA: 0xBE4B94
 	// RVA: -1 Offset: -1
 	public static void SetSpeed<U>(U playable, double value) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x218B240 Offset: 0x218B240 VA: 0x218B240
+	|-RVA: 0x1C1C5E0 Offset: 0x1C1C5E0 VA: 0x1C1C5E0
 	|-PlayableExtensions.SetSpeed<Playable>
 	*/
 
-	[ExtensionAttribute] // RVA: 0xC50CCC Offset: 0xC50CCC VA: 0xC50CCC
+	[ExtensionAttribute] // RVA: 0xBE4BA4 Offset: 0xBE4BA4 VA: 0xBE4BA4
 	// RVA: -1 Offset: -1
 	public static double GetSpeed<U>(U playable) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x1FA7700 Offset: 0x1FA7700 VA: 0x1FA7700
-	|-PlayableExtensions.GetSpeed<Playable>
-	*/
-
-	[ExtensionAttribute] // RVA: 0xC50CDC Offset: 0xC50CDC VA: 0xC50CDC
-	// RVA: -1 Offset: -1
-	public static void SetDuration<U>(U playable, double value) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x218AFD0 Offset: 0x218AFD0 VA: 0x218AFD0
-	|-PlayableExtensions.SetDuration<AnimationClipPlayable>
-	*/
-
-	[ExtensionAttribute] // RVA: 0xC50CEC Offset: 0xC50CEC VA: 0xC50CEC
-	// RVA: -1 Offset: -1
-	public static double GetDuration<U>(U playable) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x1FA76C8 Offset: 0x1FA76C8 VA: 0x1FA76C8
-	|-PlayableExtensions.GetDuration<Playable>
-	*/
-
-	[ExtensionAttribute] // RVA: 0xC50CFC Offset: 0xC50CFC VA: 0xC50CFC
-	// RVA: -1 Offset: -1
-	public static void SetTime<U>(U playable, double value) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x218B288 Offset: 0x218B288 VA: 0x218B288
-	|-PlayableExtensions.SetTime<Playable>
-	*/
-
-	[ExtensionAttribute] // RVA: 0xC50D0C Offset: 0xC50D0C VA: 0xC50D0C
-	// RVA: -1 Offset: -1
-	public static double GetTime<U>(U playable) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x1FA7738 Offset: 0x1FA7738 VA: 0x1FA7738
-	|-PlayableExtensions.GetTime<Playable>
-	*/
-
-	[ExtensionAttribute] // RVA: 0xC50D1C Offset: 0xC50D1C VA: 0xC50D1C
-	// RVA: -1 Offset: -1
-	public static void SetDone<U>(U playable, bool value) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x218AF88 Offset: 0x218AF88 VA: 0x218AF88
-	|-PlayableExtensions.SetDone<Playable>
-	*/
-
-	[ExtensionAttribute] // RVA: 0xC50D2C Offset: 0xC50D2C VA: 0xC50D2C
-	// RVA: -1 Offset: -1
-	public static bool IsDone<U>(U playable) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x1F93E5C Offset: 0x1F93E5C VA: 0x1F93E5C
-	|-PlayableExtensions.IsDone<Playable>
-	*/
-
-	[ExtensionAttribute] // RVA: 0xC50D3C Offset: 0xC50D3C VA: 0xC50D3C
-	// RVA: -1 Offset: -1
-	public static void SetInputCount<U>(U playable, int value) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x218B018 Offset: 0x218B018 VA: 0x218B018
-	|-PlayableExtensions.SetInputCount<AnimationMixerPlayable>
-	|
-	|-RVA: 0x218B060 Offset: 0x218B060 VA: 0x218B060
-	|-PlayableExtensions.SetInputCount<Playable>
-	*/
-
-	[ExtensionAttribute] // RVA: 0xC50D4C Offset: 0xC50D4C VA: 0xC50D4C
-	// RVA: -1 Offset: -1
-	public static int GetInputCount<U>(U playable) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x21C9700 Offset: 0x21C9700 VA: 0x21C9700
-	|-PlayableExtensions.GetInputCount<AnimationMixerPlayable>
-	*/
-
-	[ExtensionAttribute] // RVA: 0xC50D5C Offset: 0xC50D5C VA: 0xC50D5C
-	// RVA: -1 Offset: -1
-	public static Playable GetInput<U>(U playable, int inputPort) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x2B89930 Offset: 0x2B89930 VA: 0x2B89930
-	|-PlayableExtensions.GetInput<AnimationMixerPlayable>
-	*/
-
-	[ExtensionAttribute] // RVA: 0xC50D6C Offset: 0xC50D6C VA: 0xC50D6C
-	// RVA: -1 Offset: -1
-	public static void SetInputWeight<U>(U playable, int inputIndex, float weight) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x218B0A8 Offset: 0x218B0A8 VA: 0x218B0A8
-	|-PlayableExtensions.SetInputWeight<AnimationMixerPlayable>
-	|
-	|-RVA: 0x218B100 Offset: 0x218B100 VA: 0x218B100
-	|-PlayableExtensions.SetInputWeight<Playable>
-	*/
-}
-
-// Namespace: UnityEngine.Playables
-public enum DirectorUpdateMode // TypeDefIndex: 2506
-{
-	// Fields
-	public int value__; // 0x0
-	public const DirectorUpdateMode DSPClock = 0;
-	public const DirectorUpdateMode GameTime = 1;
-	public const DirectorUpdateMode UnscaledGameTime = 2;
-	public const DirectorUpdateMode Manual = 3;
-}
-
-// Namespace: UnityEngine.Playables
-[NativeHeaderAttribute] // RVA: 0xC47738 Offset: 0xC47738 VA: 0xC47738
-[NativeHeaderAttribute] // RVA: 0xC47738 Offset: 0xC47738 VA: 0xC47738
-[NativeHeaderAttribute] // RVA: 0xC47738 Offset: 0xC47738 VA: 0xC47738
-[UsedByNativeCodeAttribute] // RVA: 0xC47738 Offset: 0xC47738 VA: 0xC47738
-[NativeHeaderAttribute] // RVA: 0xC47738 Offset: 0xC47738 VA: 0xC47738
-public struct PlayableGraph // TypeDefIndex: 2507
-{

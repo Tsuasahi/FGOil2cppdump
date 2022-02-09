@@ -1,33 +1,845 @@
-	// Methods
+	protected void EndLoadWipe(AssetData data) { }
 
-	// RVA: 0x2059DAC Offset: 0x2059DAC VA: 0x2059DAC
-	public void .ctor() { }
+	// RVA: 0x1A4EBA4 Offset: 0x1A4EBA4 VA: 0x1A4EBA4
+	protected void EndCreateEffect(CommonEffectComponent effect) { }
 
-	// RVA: 0x2059DBC Offset: 0x2059DBC VA: 0x2059DBC Slot: 4
-	public override void RecvParam(object param) { }
+	// RVA: 0x1A4ECA0 Offset: 0x1A4ECA0 VA: 0x1A4ECA0 Slot: 43
+	public override void Resume(bool isSkip) { }
+
+	// RVA: 0x1A4EBC0 Offset: 0x1A4EBC0 VA: 0x1A4EBC0
+	protected void EffectResume() { }
+
+	// RVA: 0x1A4ECC4 Offset: 0x1A4ECC4 VA: 0x1A4ECC4
+	protected void OnEndEffect() { }
+
+	// RVA: 0x1A4ED44 Offset: 0x1A4ED44 VA: 0x1A4ED44
+	protected void OnDestroy() { }
+
+	// RVA: 0x1A4EE34 Offset: 0x1A4EE34 VA: 0x1A4EE34 Slot: 21
+	protected override void OnUpdate() { }
 }
 
 // Namespace: 
-public class PointGroupNameEffectSubComponent : EffectSubComponent // TypeDefIndex: 7715
+public class CharaWipeTimeReverseEffectComponent : ProgramEffectComponent // TypeDefIndex: 7713
 {
 	// Fields
-	[SerializeField] // RVA: 0xCC2974 Offset: 0xCC2974 VA: 0xCC2974
+	[SerializeField] // RVA: 0xC568D4 Offset: 0xC568D4 VA: 0xC568D4
+	protected GameObject subEffectBase; // 0x1B0
+	[SerializeField] // RVA: 0xC568E4 Offset: 0xC568E4 VA: 0xC568E4
+	protected string subEffectName; // 0x1B8
+	[SerializeField] // RVA: 0xC568F4 Offset: 0xC568F4 VA: 0xC568F4
+	protected Color wipeColor; // 0x1C0
+	[SerializeField] // RVA: 0xC56904 Offset: 0xC56904 VA: 0xC56904
+	protected string wipeName; // 0x1D0
+	protected bool isWaitEndEffect; // 0x1D8
+	protected UIStandFigureM figure; // 0x1E0
+	protected AssetData wipeData; // 0x1E8
+	protected CommonEffectComponent childEffect; // 0x1F0
+	protected float addVolume; // 0x1F8
+	protected Vector2 bodySize; // 0x1FC
+	protected float maxAlpha; // 0x204
+
+	// Methods
+
+	// RVA: 0x1A4EF08 Offset: 0x1A4EF08 VA: 0x1A4EF08
+	public void .ctor() { }
+
+	// RVA: 0x1A4EF78 Offset: 0x1A4EF78 VA: 0x1A4EF78 Slot: 39
+	public override void SetTweenColor(Color c) { }
+
+	// RVA: 0x1A4EFEC Offset: 0x1A4EFEC VA: 0x1A4EFEC Slot: 41
+	public override void SetTweenVolume(float v) { }
+
+	// RVA: 0x1A4F030 Offset: 0x1A4F030 VA: 0x1A4F030
+	public void WipeStart(UIStandFigureM figure) { }
+
+	// RVA: 0x1A4F194 Offset: 0x1A4F194 VA: 0x1A4F194
+	protected void EndLoadWipe(AssetData data) { }
+
+	// RVA: 0x1A4F4C8 Offset: 0x1A4F4C8 VA: 0x1A4F4C8
+	protected void EndCreateEffect(CommonEffectComponent effect) { }
+
+	// RVA: 0x1A4F5C4 Offset: 0x1A4F5C4 VA: 0x1A4F5C4 Slot: 43
+	public override void Resume(bool isSkip) { }
+
+	// RVA: 0x1A4F4E4 Offset: 0x1A4F4E4 VA: 0x1A4F4E4
+	protected void EffectResume() { }
+
+	// RVA: 0x1A4F5E8 Offset: 0x1A4F5E8 VA: 0x1A4F5E8
+	protected void OnEndEffect() { }
+
+	// RVA: 0x1A4F668 Offset: 0x1A4F668 VA: 0x1A4F668
+	protected void OnDestroy() { }
+
+	// RVA: 0x1A4F758 Offset: 0x1A4F758 VA: 0x1A4F758 Slot: 21
+	protected override void OnUpdate() { }
+}
+
+// Namespace: 
+public class CommonEffectActionComponent : MonoBehaviour // TypeDefIndex: 7714
+{
+	// Fields
+	protected Action startAction; // 0x18
+	protected Action endAction; // 0x20
+	protected Dictionary<int, Action> eventActionList; // 0x28
+
+	// Methods
+
+	// RVA: 0xF2E800 Offset: 0xF2E800 VA: 0xF2E800
+	public void .ctor() { }
+
+	// RVA: 0xF2E808 Offset: 0xF2E808 VA: 0xF2E808
+	private void Awake() { }
+
+	// RVA: 0xF2E870 Offset: 0xF2E870 VA: 0xF2E870
+	public void SetStartAction(Action startAction) { }
+
+	// RVA: 0xF2E878 Offset: 0xF2E878 VA: 0xF2E878
+	public void CallStartAction() { }
+
+	// RVA: 0xF2E884 Offset: 0xF2E884 VA: 0xF2E884
+	public void SetEndAction(Action endAction) { }
+
+	// RVA: 0xF2E88C Offset: 0xF2E88C VA: 0xF2E88C
+	public void CallEndAction() { }
+
+	// RVA: 0xF2E898 Offset: 0xF2E898 VA: 0xF2E898
+	public void SetEventAction(int key, Action action) { }
+
+	// RVA: 0xF2E914 Offset: 0xF2E914 VA: 0xF2E914
+	public void CallEventAction(int key) { }
+}
+
+// Namespace: 
+public class CommonEffectComponent : BaseMonoBehaviour // TypeDefIndex: 7715
+{
+	// Fields
+	[SerializeField] // RVA: 0xC56914 Offset: 0xC56914 VA: 0xC56914
+	protected float endtime; // 0x18
+	[SerializeField] // RVA: 0xC56924 Offset: 0xC56924 VA: 0xC56924
+	protected float losttime; // 0x1C
+	[SerializeField] // RVA: 0xC56934 Offset: 0xC56934 VA: 0xC56934
+	protected bool loop; // 0x20
+	[SerializeField] // RVA: 0xC56944 Offset: 0xC56944 VA: 0xC56944
+	protected ParticleSystem[] particlelist; // 0x28
+	protected CommonEffectComponent.Status status; // 0x30
+	protected string requestAnimation; // 0x38
+	protected string playAnimation; // 0x40
+	protected string effectName; // 0x48
+	protected string baseName; // 0x50
+	protected AssetData asset; // 0x58
+	protected float totaltime; // 0x60
+	protected bool isDestroy; // 0x64
+	protected bool isEndless; // 0x65
+	protected bool isSkip; // 0x66
+	protected bool isPause; // 0x67
+	protected bool isStart; // 0x68
+	protected Action callAfterStart; // 0x70
+	protected Action callAfterStop; // 0x78
+	protected int useAnimNum; // 0x80
+	protected SimpleAnimation simpleAnimationComponent; // 0x88
+	protected Animation animationComponent; // 0x90
+	protected string settedVoiceStr; // 0x98
+	private Action voiceCallback; // 0xA0
+
+	// Properties
+	public string EffectName { get; }
+	public bool IsStart { get; }
+	public bool IsEndStatus { get; }
+
+	// Methods
+
+	// RVA: 0xF2E9BC Offset: 0xF2E9BC VA: 0xF2E9BC
+	public void .ctor() { }
+
+	// RVA: 0xF2E9D8 Offset: 0xF2E9D8 VA: 0xF2E9D8
+	public string get_EffectName() { }
+
+	// RVA: 0xF2E9E0 Offset: 0xF2E9E0 VA: 0xF2E9E0
+	public bool get_IsStart() { }
+
+	// RVA: 0xF2E9E8 Offset: 0xF2E9E8 VA: 0xF2E9E8
+	public bool get_IsEndStatus() { }
+
+	// RVA: 0xF2E9F8 Offset: 0xF2E9F8 VA: 0xF2E9F8
+	public void Init(bool isSkip = False, bool isPause = False) { }
+
+	// RVA: 0xF2F0E8 Offset: 0xF2F0E8 VA: 0xF2F0E8
+	public void Init(string effectName, bool isSkip = False, bool isPause = False) { }
+
+	// RVA: 0xF2F108 Offset: 0xF2F108 VA: 0xF2F108
+	public void Init(AssetData data, bool isSkip = False, bool isPause = False) { }
+
+	// RVA: 0xF2F17C Offset: 0xF2F17C VA: 0xF2F17C
+	public void Resume(bool isSkip) { }
+
+	// RVA: 0xF2F298 Offset: 0xF2F298 VA: 0xF2F298 Slot: 4
+	public virtual void SetParam(object param) { }
+
+	// RVA: 0xF2F29C Offset: 0xF2F29C VA: 0xF2F29C Slot: 5
+	protected virtual void NextPlayAnimation(CommonEffectComponent.Status next) { }
+
+	// RVA: 0xF2F284 Offset: 0xF2F284 VA: 0xF2F284
+	public void ForceStart() { }
+
+	// RVA: 0xF2FDE0 Offset: 0xF2FDE0 VA: 0xF2FDE0 Slot: 6
+	public virtual void ForceStart(bool isOverWrite, Action callback) { }
+
+	// RVA: 0xF300FC Offset: 0xF300FC VA: 0xF300FC
+	public void ForceLoop() { }
+
+	// RVA: 0xF3010C Offset: 0xF3010C VA: 0xF3010C Slot: 7
+	public virtual void ForceLoop(bool isOverWrite) { }
+
+	// RVA: 0xF30464 Offset: 0xF30464 VA: 0xF30464 Slot: 8
+	public virtual void Stop(bool isDestroy = True, Action callback) { }
+
+	// RVA: 0xF30754 Offset: 0xF30754 VA: 0xF30754 Slot: 9
+	public virtual void ForceStop(bool isDestroy = True, Action callback) { }
+
+	// RVA: 0xF30478 Offset: 0xF30478 VA: 0xF30478
+	protected void StopInternal(bool force, bool isDestroy, Action onStoppedCallback) { }
+
+	// RVA: 0xF30768 Offset: 0xF30768 VA: 0xF30768
+	public void Rewind() { }
+
+	// RVA: 0xF2EDB0 Offset: 0xF2EDB0 VA: 0xF2EDB0
+	protected void SetChildInit(Transform tf, int layer) { }
+
+	// RVA: 0xF30804 Offset: 0xF30804 VA: 0xF30804
+	protected void Awake() { }
+
+	// RVA: 0xF30874 Offset: 0xF30874 VA: 0xF30874
+	protected void Start() { }
+
+	// RVA: 0xF30880 Offset: 0xF30880 VA: 0xF30880
+	protected void Update() { }
+
+	// RVA: 0xF30D04 Offset: 0xF30D04 VA: 0xF30D04
+	protected void OnDestroy() { }
+
+	// RVA: 0xF30D84 Offset: 0xF30D84 VA: 0xF30D84
+	public void SetEndlessEnable(bool isEnable) { }
+
+	// RVA: 0xF30D90 Offset: 0xF30D90 VA: 0xF30D90
+	protected void PlaySe(string name) { }
+
+	// RVA: 0xF30F8C Offset: 0xF30F8C VA: 0xF30F8C
+	protected void PlayVoice(string name) { }
+
+	// RVA: 0xF30F94 Offset: 0xF30F94 VA: 0xF30F94
+	protected void PlayVoice(string name, Action callback) { }
+
+	// RVA: 0xF311EC Offset: 0xF311EC VA: 0xF311EC
+	public void SetVoice(string voiceStr) { }
+
+	// RVA: 0xF311F4 Offset: 0xF311F4 VA: 0xF311F4
+	public void SetVoice(string voiceStr, Action callback) { }
+
+	// RVA: 0xF311FC Offset: 0xF311FC VA: 0xF311FC
+	public void SetUseAnimNum(int num) { }
+
+	// RVA: 0xF31204 Offset: 0xF31204 VA: 0xF31204
+	protected void PlaySettedVoice() { }
+
+	// RVA: 0xF31218 Offset: 0xF31218 VA: 0xF31218
+	protected void SetSePitch(string str) { }
+
+	// RVA: 0xF3133C Offset: 0xF3133C VA: 0xF3133C
+	public void ResetPrewarmParticleList() { }
+}
+
+// Namespace: 
+protected enum CommonEffectComponent.Status // TypeDefIndex: 7716
+{
+	// Fields
+	public int value__; // 0x0
+	public const CommonEffectComponent.Status INIT = 0;
+	public const CommonEffectComponent.Status PAUSE = 1;
+	public const CommonEffectComponent.Status DESTORY = 2;
+	public const CommonEffectComponent.Status START = 3;
+	public const CommonEffectComponent.Status LOOP = 4;
+	public const CommonEffectComponent.Status END = 5;
+}
+
+// Namespace: 
+public class CommonEffectLoadComponent : BaseMonoBehaviour // TypeDefIndex: 7717
+{
+	// Fields
+	[SerializeField] // RVA: 0xC56954 Offset: 0xC56954 VA: 0xC56954
+	protected string effectName; // 0x18
+	protected bool isInit; // 0x20
+	protected bool isEnable; // 0x21
+	[CompilerGeneratedAttribute] // RVA: 0xC56964 Offset: 0xC56964 VA: 0xC56964
+	[DebuggerBrowsableAttribute] // RVA: 0xC56964 Offset: 0xC56964 VA: 0xC56964
+	private CommonEffectLoadComponent.LoadEndHandler loadCallback; // 0x28
+	protected object param; // 0x30
+	protected bool isSkip; // 0x38
+	protected bool isPause; // 0x39
+	protected CommonEffectManager.FlipKind flip; // 0x3C
+
+	// Properties
+	public string EffectName { get; }
+
+	// Methods
+
+	// RVA: 0xF314AC Offset: 0xF314AC VA: 0xF314AC
+	public void .ctor() { }
+
+	// RVA: 0xF314B4 Offset: 0xF314B4 VA: 0xF314B4
+	protected void add_loadCallback(CommonEffectLoadComponent.LoadEndHandler value) { }
+
+	// RVA: 0xF315A0 Offset: 0xF315A0 VA: 0xF315A0
+	protected void remove_loadCallback(CommonEffectLoadComponent.LoadEndHandler value) { }
+
+	// RVA: 0xF3168C Offset: 0xF3168C VA: 0xF3168C
+	public string get_EffectName() { }
+
+	// RVA: 0xF31694 Offset: 0xF31694 VA: 0xF31694
+	public void Init(string filename, CommonEffectLoadComponent.LoadEndHandler callback, bool isSkip = False, bool isPause = False, CommonEffectManager.FlipKind flip = 0) { }
+
+	// RVA: 0xF316B8 Offset: 0xF316B8 VA: 0xF316B8
+	public void Init(string filename, object param, CommonEffectLoadComponent.LoadEndHandler callback, bool isSkip = False, bool isPause = False, CommonEffectManager.FlipKind flip = 0) { }
+
+	// RVA: 0xF31768 Offset: 0xF31768 VA: 0xF31768
+	public void Init(string filename) { }
+
+	// RVA: 0xF31C94 Offset: 0xF31C94 VA: 0xF31C94
+	protected void EndLoad(AssetData data) { }
+
+	// RVA: 0xF32378 Offset: 0xF32378 VA: 0xF32378
+	public void Resume(bool isSkip) { }
+
+	// RVA: 0xF32388 Offset: 0xF32388 VA: 0xF32388
+	protected void Start() { }
+
+	// RVA: 0xF32410 Offset: 0xF32410 VA: 0xF32410
+	public bool Stop() { }
+
+	// RVA: 0xF324EC Offset: 0xF324EC VA: 0xF324EC
+	protected void OnDestroy() { }
+}
+
+// Namespace: 
+public sealed class CommonEffectLoadComponent.LoadEndHandler : MulticastDelegate // TypeDefIndex: 7718
+{
+	// Methods
+
+	// RVA: 0xF32570 Offset: 0xF32570 VA: 0xF32570
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0xF318F4 Offset: 0xF318F4 VA: 0xF318F4 Slot: 11
+	public virtual void Invoke(CommonEffectComponent effect) { }
+
+	// RVA: 0xF32580 Offset: 0xF32580 VA: 0xF32580 Slot: 12
+	public virtual IAsyncResult BeginInvoke(CommonEffectComponent effect, AsyncCallback callback, object object) { }
+
+	// RVA: 0xF325A4 Offset: 0xF325A4 VA: 0xF325A4 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class CommonEffectManager : SingletonMonoBehaviour<CommonEffectManager> // TypeDefIndex: 7719
+{
+	// Fields
+	[SerializeField] // RVA: 0xC569A0 Offset: 0xC569A0 VA: 0xC569A0
+	protected GameObject loadEffectPrefab; // 0x18
+	[SerializeField] // RVA: 0xC569B0 Offset: 0xC569B0 VA: 0xC569B0
+	protected GameObject communicationCharaEffectPrefab; // 0x20
+	[SerializeField] // RVA: 0xC569C0 Offset: 0xC569C0 VA: 0xC569C0
+	protected CommonEffectManager.skinLoadEffect[] skinEffectLoadLists; // 0x28
+	protected static string effectAssetStoragePath; // 0x0
+	protected static string skinEffectAssetStoragePath; // 0x8
+	protected static GameObject testEffectPrefab; // 0x10
+	protected static GameObject testBackEffectPrefab; // 0x18
+	protected static GameObject testCharaEffectPrefab; // 0x20
+	protected static GameObject testCharaBackEffectPrefab; // 0x28
+	private Dictionary<string, GameObject> skinedEffects; // 0x30
+	private string loadedSkinAssetName; // 0x38
+	private Action callbackAfterSkinLoad; // 0x40
+
+	// Methods
+
+	// RVA: 0xF325B0 Offset: 0xF325B0 VA: 0xF325B0
+	public void .ctor() { }
+
+	// RVA: 0xF32284 Offset: 0xF32284 VA: 0xF32284
+	public static Quaternion GetFlipQuaternion(CommonEffectManager.FlipKind flip) { }
+
+	// RVA: 0xF32600 Offset: 0xF32600 VA: 0xF32600
+	public static string GetAssetName(string effectName) { }
+
+	// RVA: 0xF3269C Offset: 0xF3269C VA: 0xF3269C
+	public static CommonEffectComponent[] Get(GameObject parent) { }
+
+	// RVA: 0xF32858 Offset: 0xF32858 VA: 0xF32858
+	public static bool IsBusy(GameObject parent) { }
+
+	// RVA: 0xF32A0C Offset: 0xF32A0C VA: 0xF32A0C
+	public static bool IsBusy(GameObject parent, string effectName) { }
+
+	// RVA: 0xF32C84 Offset: 0xF32C84 VA: 0xF32C84
+	public static bool IsStart(GameObject parent) { }
+
+	// RVA: 0xF32E50 Offset: 0xF32E50 VA: 0xF32E50
+	public static bool IsStart(GameObject parent, string effectName) { }
+
+	// RVA: 0xF330D0 Offset: 0xF330D0 VA: 0xF330D0
+	public static CommonEffectComponent Create(GameObject parent, string effectName, GameObject prefab) { }
+
+	// RVA: 0xF33430 Offset: 0xF33430 VA: 0xF33430
+	public static CommonEffectComponent Create(GameObject parent, string effectName, GameObject prefab, bool isSkip) { }
+
+	// RVA: 0xF33504 Offset: 0xF33504 VA: 0xF33504
+	public static CommonEffectComponent Create(GameObject parent, string effectName, GameObject prefab, Vector3 pos) { }
+
+	// RVA: 0xF331A4 Offset: 0xF331A4 VA: 0xF331A4
+	public static CommonEffectComponent Create(GameObject parent, string effectName, GameObject prefab, Vector3 pos, bool isSkip, CommonEffectManager.FlipKind flip) { }
+
+	// RVA: 0xF335D8 Offset: 0xF335D8 VA: 0xF335D8
+	public static CommonEffectComponent Create(GameObject parent, AssetData data, GameObject prefab) { }
+
+	// RVA: 0xF33920 Offset: 0xF33920 VA: 0xF33920
+	public static CommonEffectComponent Create(GameObject parent, AssetData data, GameObject prefab, bool isSkip) { }
+
+	// RVA: 0xF339F4 Offset: 0xF339F4 VA: 0xF339F4
+	public static CommonEffectComponent Create(GameObject parent, AssetData data, GameObject prefab, Vector3 pos) { }
+
+	// RVA: 0xF336AC Offset: 0xF336AC VA: 0xF336AC
+	public static CommonEffectComponent Create(GameObject parent, AssetData data, GameObject prefab, Vector3 pos, bool isSkip, CommonEffectManager.FlipKind flip) { }
+
+	// RVA: 0xF33AA0 Offset: 0xF33AA0 VA: 0xF33AA0
+	public static void Create(GameObject parent, string effectName, bool isSkip = False, bool isPause = False, CommonEffectManager.FlipKind flip = 0) { }
+
+	// RVA: 0xF3419C Offset: 0xF3419C VA: 0xF3419C
+	public static void Create(GameObject parent, string effectName, CommonEffectLoadComponent.LoadEndHandler callback, bool isSkip = False, bool isPause = False, CommonEffectManager.FlipKind flip = 0) { }
+
+	// RVA: 0xF342A8 Offset: 0xF342A8 VA: 0xF342A8
+	public static void Create(GameObject parent, string effectName, Vector3 pos, bool isSkip = False, bool isPause = False, CommonEffectManager.FlipKind flip = 0) { }
+
+	// RVA: 0xF34378 Offset: 0xF34378 VA: 0xF34378
+	public static void Create(GameObject parent, string effectName, Vector3 pos, CommonEffectLoadComponent.LoadEndHandler callback, bool isSkip = False, bool isPause = False, CommonEffectManager.FlipKind flip = 0) { }
+
+	// RVA: 0xF34454 Offset: 0xF34454 VA: 0xF34454
+	public static void CreateParam(GameObject parent, string effectName, object param, bool isSkip = False, bool isPause = False, CommonEffectManager.FlipKind flip = 0) { }
+
+	// RVA: 0xF34560 Offset: 0xF34560 VA: 0xF34560
+	public static void CreateParam(GameObject parent, string effectName, object param, CommonEffectLoadComponent.LoadEndHandler callback, bool isSkip = False, bool isPause = False, CommonEffectManager.FlipKind flip = 0) { }
+
+	// RVA: 0xF34670 Offset: 0xF34670 VA: 0xF34670
+	public static void CreateParam(GameObject parent, string effectName, Vector3 pos, object param, bool isSkip = False, bool isPause = False, CommonEffectManager.FlipKind flip = 0) { }
+
+	// RVA: 0xF3474C Offset: 0xF3474C VA: 0xF3474C
+	public static void CreateParam(GameObject parent, string effectName, Vector3 pos, object param, CommonEffectLoadComponent.LoadEndHandler callback, bool isSkip = False, bool isPause = False, CommonEffectManager.FlipKind flip = 0) { }
+
+	// RVA: 0xF3482C Offset: 0xF3482C VA: 0xF3482C
+	public static void Resume(GameObject parent, bool isSkip = False) { }
+
+	// RVA: 0xF34A18 Offset: 0xF34A18 VA: 0xF34A18
+	public static void Resume(GameObject parent, string effectName, bool isSkip = False) { }
+
+	// RVA: 0xF34CD0 Offset: 0xF34CD0 VA: 0xF34CD0
+	public static bool Stop(GameObject parent, bool isSkip = False, bool isLoadStop = False) { }
+
+	// RVA: 0xF35050 Offset: 0xF35050 VA: 0xF35050
+	public static bool Stop(GameObject parent, string effectName, bool isSkip = False, bool isLoadStop = False) { }
+
+	// RVA: 0xF350E0 Offset: 0xF350E0 VA: 0xF350E0
+	public static bool ForceStop(GameObject parent, bool isSkip = False, bool isLoadStop = False) { }
+
+	// RVA: 0xF35164 Offset: 0xF35164 VA: 0xF35164
+	public static bool ForceStop(GameObject parent, string effectName, bool isSkip = False, bool isLoadStop = False) { }
+
+	// RVA: 0xF34D54 Offset: 0xF34D54 VA: 0xF34D54
+	public static bool StopInternal(bool force, GameObject parent, string effectName, bool isSkip = False, bool isLoadStop = False) { }
+
+	// RVA: 0xF351F4 Offset: 0xF351F4 VA: 0xF351F4
+	public static void Destroy(GameObject parent) { }
+
+	// RVA: 0xF35500 Offset: 0xF35500 VA: 0xF35500
+	public static void Destroy(GameObject parent, string effectName) { }
+
+	// RVA: 0xF358BC Offset: 0xF358BC VA: 0xF358BC
+	public static void SetTestEffectPrefab(GameObject effectPrefab, GameObject backEffectPrefab, GameObject charaEffectPrefab, GameObject charaBackEffectPrefab) { }
+
+	// RVA: 0xF33BA0 Offset: 0xF33BA0 VA: 0xF33BA0
+	protected void LoadCreateLocal(GameObject parent, string effectName, Vector3 pos, object param, CommonEffectLoadComponent.LoadEndHandler callback, bool isSkip, bool isPause, CommonEffectManager.FlipKind flip) { }
+
+	// RVA: 0xF3595C Offset: 0xF3595C VA: 0xF3595C
+	public static void Reboot() { }
+
+	// RVA: 0xF35B74 Offset: 0xF35B74 VA: 0xF35B74
+	public void LoadSkinEffectsLocal(Action callback, int loadParallelMax = 1) { }
+
+	// RVA: 0xF359B8 Offset: 0xF359B8 VA: 0xF359B8
+	public void ReleaseSkinEffectsLocal() { }
+
+	// RVA: 0xF35D3C Offset: 0xF35D3C VA: 0xF35D3C
+	public void SetSkinEffectsLocal(string[] effects, GameObject parent, bool doSetDepthZero) { }
+
+	// RVA: 0xF35EF4 Offset: 0xF35EF4 VA: 0xF35EF4
+	public GameObject SetSkinEffectLocal(string effect, GameObject parent) { }
+
+	// RVA: 0xF36008 Offset: 0xF36008 VA: 0xF36008
+	public bool IsSkinEffectLoaded() { }
+
+	// RVA: 0xF36018 Offset: 0xF36018 VA: 0xF36018
+	public static void LoadSkinEffects(Action callback, int loadParallelMax = 1) { }
+
+	// RVA: 0xF3608C Offset: 0xF3608C VA: 0xF3608C
+	public static void ReleaseSkinEffects() { }
+
+	// RVA: 0xF360E8 Offset: 0xF360E8 VA: 0xF360E8
+	public static void SetSkinEffects(string[] effects, GameObject parent, bool doSetDepthZero) { }
+
+	// RVA: 0xF36164 Offset: 0xF36164 VA: 0xF36164
+	public static GameObject SetSkinEffect(string effects, GameObject parent) { }
+
+	// RVA: 0xF361D8 Offset: 0xF361D8 VA: 0xF361D8
+	public static bool IsLoadedSkinData() { }
+
+	// RVA: 0xF3623C Offset: 0xF3623C VA: 0xF3623C
+	private static void .cctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCACA0 Offset: 0xCCACA0 VA: 0xCCACA0
+	// RVA: 0xF362B0 Offset: 0xF362B0 VA: 0xF362B0
+	private void <LoadSkinEffectsLocal>m__0(AssetData data) { }
+}
+
+// Namespace: 
+public enum CommonEffectManager.FlipKind // TypeDefIndex: 7720
+{
+	// Fields
+	public int value__; // 0x0
+	public const CommonEffectManager.FlipKind NORMAL = 0;
+	public const CommonEffectManager.FlipKind HORIZONTAL = 1;
+	public const CommonEffectManager.FlipKind VERTICAL = 2;
+	public const CommonEffectManager.FlipKind FULL = 3;
+}
+
+// Namespace: 
+[Serializable]
+protected struct CommonEffectManager.skinLoadEffect // TypeDefIndex: 7721
+{
+	// Fields
+	public string[] EffectName; // 0x0
+}
+
+// Namespace: 
+public class CommonEffectParam // TypeDefIndex: 7722
+{
+	// Fields
+	public string title; // 0x10
+	public string message; // 0x18
+	public string messageRuby; // 0x20
+	public int type; // 0x28
+	public int questMessageLabelMaxLine; // 0x2C
+	public int questId; // 0x30
+
+	// Methods
+
+	// RVA: 0xF364D4 Offset: 0xF364D4 VA: 0xF364D4
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class CommonParticleControlComponent : MonoBehaviour // TypeDefIndex: 7723
+{
+	// Fields
+	[SerializeField] // RVA: 0xC569D0 Offset: 0xC569D0 VA: 0xC569D0
+	private List<ParticleSystem> particleParent; // 0x18
+
+	// Methods
+
+	// RVA: 0xF3C4C0 Offset: 0xF3C4C0 VA: 0xF3C4C0
+	public void .ctor() { }
+
+	// RVA: 0xF3C4C8 Offset: 0xF3C4C8 VA: 0xF3C4C8
+	public void init(int layer) { }
+
+	// RVA: 0xF3C5E8 Offset: 0xF3C5E8 VA: 0xF3C5E8
+	private void Update() { }
+
+	// RVA: 0xF3C51C Offset: 0xF3C51C VA: 0xF3C51C
+	private void setupLayer(int layer) { }
+
+	// RVA: 0xF3C77C Offset: 0xF3C77C VA: 0xF3C77C
+	public void particleStart(bool withChildren = True) { }
+
+	// RVA: 0xF3C878 Offset: 0xF3C878 VA: 0xF3C878
+	public void particleAllStop(bool withChildren = True) { }
+
+	// RVA: 0xF3C970 Offset: 0xF3C970 VA: 0xF3C970
+	public void particleStop(int idx, bool withChildren = True) { }
+
+	// RVA: 0xF3C6AC Offset: 0xF3C6AC VA: 0xF3C6AC
+	public bool isAlive(int idx, bool withChildren = True) { }
+}
+
+// Namespace: 
+public class CommunicationCharaEffectComponent : CommonEffectComponent // TypeDefIndex: 7724
+{
+	// Fields
+	[SerializeField] // RVA: 0xC569E0 Offset: 0xC569E0 VA: 0xC569E0
+	protected GameObject figureBase; // 0xA8
+	[SerializeField] // RVA: 0xC569F0 Offset: 0xC569F0 VA: 0xC569F0
+	protected CommonEffectComponent noiseEffect1; // 0xB0
+	[SerializeField] // RVA: 0xC56A00 Offset: 0xC56A00 VA: 0xC56A00
+	protected CommonEffectComponent noiseEffect2; // 0xB8
+	protected CommunicationCharaEffectParam communicationCharaParam; // 0xC0
+	protected UIStandFigureM figure; // 0xC8
+	protected bool isLoad; // 0xD0
+	protected float noiseCount; // 0xD4
+
+	// Methods
+
+	// RVA: 0x1630968 Offset: 0x1630968 VA: 0x1630968
+	public void .ctor() { }
+
+	// RVA: 0x1630970 Offset: 0x1630970 VA: 0x1630970 Slot: 4
+	public override void SetParam(object param) { }
+
+	// RVA: 0x1630B20 Offset: 0x1630B20 VA: 0x1630B20
+	protected void EndDispFigure() { }
+
+	// RVA: 0x1630BF0 Offset: 0x1630BF0 VA: 0x1630BF0
+	protected void Update() { }
+
+	// RVA: 0x1630C78 Offset: 0x1630C78 VA: 0x1630C78
+	public void SetFace(Face.Type faceType) { }
+}
+
+// Namespace: 
+public class CommunicationCharaEffectParam // TypeDefIndex: 7725
+{
+	// Fields
+	public int noiseKind; // 0x10
+	public int svtId; // 0x14
+	public int limitCount; // 0x18
+	public Face.Type faceType; // 0x1C
+	public bool isStartLoop; // 0x20
+	public Action callback; // 0x28
+
+	// Methods
+
+	// RVA: 0x1630D2C Offset: 0x1630D2C VA: 0x1630D2C
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class CutInEffectComponent : CommonEffectComponent // TypeDefIndex: 7726
+{
+	// Fields
+	[SerializeField] // RVA: 0xC56A10 Offset: 0xC56A10 VA: 0xC56A10
+	[TooltipAttribute] // RVA: 0xC56A10 Offset: 0xC56A10 VA: 0xC56A10
+	private GameObject[] prefabRoots; // 0xA8
+	private string[] voiceStrs; // 0xB0
+	private BattlePerformance battlePerformance; // 0xB8
+
+	// Methods
+
+	// RVA: 0x146E4EC Offset: 0x146E4EC VA: 0x146E4EC
+	public void .ctor() { }
+
+	// RVA: 0x146E4F4 Offset: 0x146E4F4 VA: 0x146E4F4
+	public void PlayVoiceFromIdx(int idx) { }
+
+	// RVA: 0x146E5F4 Offset: 0x146E5F4 VA: 0x146E5F4
+	public void SetVoiceStrs(string[] voiceStrs) { }
+
+	// RVA: 0x146E5FC Offset: 0x146E5FC VA: 0x146E5FC
+	public GameObject GetPrefabRoot(int idx) { }
+
+	// RVA: 0x146E680 Offset: 0x146E680 VA: 0x146E680
+	public void SetBattlePerformance(BattlePerformance performance) { }
+
+	// RVA: 0x146E688 Offset: 0x146E688 VA: 0x146E688
+	private void PlayBuffEffect(int functionIndex) { }
+}
+
+// Namespace: 
+public class CuttingEffectComponent : ProgramEffectComponent // TypeDefIndex: 7727
+{
+	// Fields
+	[SerializeField] // RVA: 0xC56A5C Offset: 0xC56A5C VA: 0xC56A5C
+	protected ExUIMeshRenderer leftMeshRenderer; // 0x1B0
+	[SerializeField] // RVA: 0xC56A6C Offset: 0xC56A6C VA: 0xC56A6C
+	protected ExUIMeshRenderer rightMeshRenderer; // 0x1B8
+
+	// Methods
+
+	// RVA: 0x146E738 Offset: 0x146E738 VA: 0x146E738
+	public void .ctor() { }
+
+	// RVA: 0x146E740 Offset: 0x146E740 VA: 0x146E740
+	public void CuttingStart(Texture texture) { }
+
+	// RVA: 0x146EAC8 Offset: 0x146EAC8 VA: 0x146EAC8 Slot: 43
+	public override void Resume(bool isSkip) { }
+
+	// RVA: 0x146E910 Offset: 0x146E910 VA: 0x146E910
+	protected void EffectResume() { }
+
+	// RVA: 0x146EAEC Offset: 0x146EAEC VA: 0x146EAEC
+	protected void OnEndEffect() { }
+}
+
+// Namespace: 
+public class EffectSoundPlayerComponent : BaseMonoBehaviour // TypeDefIndex: 7728
+{
+	// Methods
+
+	// RVA: 0x16F5780 Offset: 0x16F5780 VA: 0x16F5780
+	public void .ctor() { }
+
+	// RVA: 0x16F5788 Offset: 0x16F5788 VA: 0x16F5788
+	protected void PlaySe(string name) { }
+
+	// RVA: 0x16F5904 Offset: 0x16F5904 VA: 0x16F5904
+	protected void PlaySeContinue(string name) { }
+
+	// RVA: 0x16F5A80 Offset: 0x16F5A80 VA: 0x16F5A80
+	protected void PlayBgm(string bgmId) { }
+
+	// RVA: 0x16F5BAC Offset: 0x16F5BAC VA: 0x16F5BAC
+	protected void StopBgm() { }
+
+	// RVA: 0x16F5C0C Offset: 0x16F5C0C VA: 0x16F5C0C
+	protected void PauseBgm() { }
+
+	// RVA: 0x16F5C70 Offset: 0x16F5C70 VA: 0x16F5C70
+	protected void ResumeBgm() { }
+
+	// RVA: 0x16F5CD4 Offset: 0x16F5CD4 VA: 0x16F5CD4
+	protected void ChangeVolumeBgm(string name) { }
+}
+
+// Namespace: 
+public class EffectSubComponent : BaseMonoBehaviour // TypeDefIndex: 7729
+{
+	// Methods
+
+	// RVA: 0x16F5F14 Offset: 0x16F5F14 VA: 0x16F5F14
+	public void .ctor() { }
+
+	// RVA: 0x16F5F1C Offset: 0x16F5F1C VA: 0x16F5F1C Slot: 4
+	public virtual void RecvParam(object param) { }
+}
+
+// Namespace: 
+public class FlashEffectComponent : ProgramEffectComponent // TypeDefIndex: 7730
+{
+	// Fields
+	[SerializeField] // RVA: 0xC56A7C Offset: 0xC56A7C VA: 0xC56A7C
+	protected Color flashColor; // 0x1B0
+	[SerializeField] // RVA: 0xC56A8C Offset: 0xC56A8C VA: 0xC56A8C
+	protected string wipeName; // 0x1C0
+	[SerializeField] // RVA: 0xC56A9C Offset: 0xC56A9C VA: 0xC56A9C
+	protected ExUIMeshRenderer backFlashMesh; // 0x1C8
+	protected bool isWaitEndEffect; // 0x1D0
+	protected AssetData wipeData; // 0x1D8
+	protected float addVolume; // 0x1E0
+
+	// Methods
+
+	// RVA: 0x136D2F0 Offset: 0x136D2F0 VA: 0x136D2F0
+	public void .ctor() { }
+
+	// RVA: 0x136D360 Offset: 0x136D360 VA: 0x136D360 Slot: 39
+	public override void SetTweenColor(Color c) { }
+
+	// RVA: 0x136D3D4 Offset: 0x136D3D4 VA: 0x136D3D4 Slot: 41
+	public override void SetTweenVolume(float v) { }
+
+	// RVA: 0x136D420 Offset: 0x136D420 VA: 0x136D420
+	public void FlashStart() { }
+
+	// RVA: 0x136D5B4 Offset: 0x136D5B4 VA: 0x136D5B4
+	protected void EndLoadWipe(AssetData data) { }
+
+	// RVA: 0x136D8DC Offset: 0x136D8DC VA: 0x136D8DC Slot: 43
+	public override void Resume(bool isSkip) { }
+
+	// RVA: 0x136D7F8 Offset: 0x136D7F8 VA: 0x136D7F8
+	protected void EffectResume() { }
+
+	// RVA: 0x136D900 Offset: 0x136D900 VA: 0x136D900
+	protected void OnEndEffect() { }
+
+	// RVA: 0x136D984 Offset: 0x136D984 VA: 0x136D984
+	protected void OnDestroy() { }
+
+	// RVA: 0x136DA50 Offset: 0x136DA50 VA: 0x136DA50 Slot: 21
+	protected override void OnUpdate() { }
+}
+
+// Namespace: 
+public interface IEffectMesh // TypeDefIndex: 7731
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void SetTargetId(int targetId);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void Execute();
+}
+
+// Namespace: 
+public class LapTimeEffectSubComponent : EffectSubComponent // TypeDefIndex: 7732
+{
+	// Fields
+	[SerializeField] // RVA: 0xC56AAC Offset: 0xC56AAC VA: 0xC56AAC
 	protected UILabel label; // 0x18
 
 	// Methods
 
-	// RVA: 0x1BD5118 Offset: 0x1BD5118 VA: 0x1BD5118
+	// RVA: 0x11C9DA4 Offset: 0x11C9DA4 VA: 0x11C9DA4
 	public void .ctor() { }
 
-	// RVA: 0x1BD5120 Offset: 0x1BD5120 VA: 0x1BD5120 Slot: 4
+	// RVA: 0x11C9DAC Offset: 0x11C9DAC VA: 0x11C9DAC Slot: 4
 	public override void RecvParam(object param) { }
 }
 
 // Namespace: 
-public class ProgramEffectComponent : UITweenRenderer // TypeDefIndex: 7716
+public class ObjectSwitchEffectSubComponent : EffectSubComponent // TypeDefIndex: 7733
 {
 	// Fields
-	[SerializeField] // RVA: 0xCC2984 Offset: 0xCC2984 VA: 0xCC2984
+	[SerializeField] // RVA: 0xC56ABC Offset: 0xC56ABC VA: 0xC56ABC
+	protected int parameterIndex; // 0x18
+	[SerializeField] // RVA: 0xC56ACC Offset: 0xC56ACC VA: 0xC56ACC
+	protected GameObject[] switchObjectList; // 0x20
+
+	// Methods
+
+	// RVA: 0x1A924F0 Offset: 0x1A924F0 VA: 0x1A924F0
+	public void .ctor() { }
+
+	// RVA: 0x1A92500 Offset: 0x1A92500 VA: 0x1A92500 Slot: 4
+	public override void RecvParam(object param) { }
+}
+
+// Namespace: 
+public class PointGroupNameEffectSubComponent : EffectSubComponent // TypeDefIndex: 7734
+{
+	// Fields
+	[SerializeField] // RVA: 0xC56ADC Offset: 0xC56ADC VA: 0xC56ADC
+	protected UILabel label; // 0x18
+
+	// Methods
+
+	// RVA: 0x177EE48 Offset: 0x177EE48 VA: 0x177EE48
+	public void .ctor() { }
+
+	// RVA: 0x177EE50 Offset: 0x177EE50 VA: 0x177EE50 Slot: 4
+	public override void RecvParam(object param) { }
+}
+
+// Namespace: 
+public class ProgramEffectComponent : UITweenRenderer // TypeDefIndex: 7735
+{
+	// Fields
+	[SerializeField] // RVA: 0xC56AEC Offset: 0xC56AEC VA: 0xC56AEC
 	protected string effectName; // 0x188
 	protected Color effectColor; // 0x190
 	protected float effectRange; // 0x1A0
@@ -43,958 +855,146 @@ public class ProgramEffectComponent : UITweenRenderer // TypeDefIndex: 7716
 
 	// Methods
 
-	// RVA: 0x19D18F4 Offset: 0x19D18F4 VA: 0x19D18F4
+	// RVA: 0x12D3A78 Offset: 0x12D3A78 VA: 0x12D3A78
 	public void .ctor() { }
 
-	// RVA: 0x19D1930 Offset: 0x19D1930 VA: 0x19D1930
+	// RVA: 0x12D3AB4 Offset: 0x12D3AB4 VA: 0x12D3AB4
 	public string get_EffectName() { }
 
-	// RVA: 0x19D1938 Offset: 0x19D1938 VA: 0x19D1938
+	// RVA: 0x12D3ABC Offset: 0x12D3ABC VA: 0x12D3ABC
 	public bool get_IsStart() { }
 
-	// RVA: 0x19D1940 Offset: 0x19D1940 VA: 0x19D1940
+	// RVA: 0x12D3AC4 Offset: 0x12D3AC4 VA: 0x12D3AC4
 	public void Init(float time, Color color, float range, bool isSkip = False, bool isPause = False) { }
 
-	// RVA: 0x19D1B50 Offset: 0x19D1B50 VA: 0x19D1B50
+	// RVA: 0x12D3CD4 Offset: 0x12D3CD4 VA: 0x12D3CD4
 	protected void SetChildInit(Transform tf, int layer) { }
 
-	// RVA: 0x19D1E88 Offset: 0x19D1E88 VA: 0x19D1E88 Slot: 43
+	// RVA: 0x12D400C Offset: 0x12D400C VA: 0x12D400C Slot: 43
 	public virtual void Resume(bool isSkip) { }
 
-	// RVA: 0x19D1E98 Offset: 0x19D1E98 VA: 0x19D1E98 Slot: 44
+	// RVA: 0x12D401C Offset: 0x12D401C VA: 0x12D401C Slot: 44
 	public virtual void Stop() { }
 
-	// RVA: 0x19D1F14 Offset: 0x19D1F14 VA: 0x19D1F14 Slot: 21
+	// RVA: 0x12D4098 Offset: 0x12D4098 VA: 0x12D4098 Slot: 21
 	protected override void OnUpdate() { }
 }
 
 // Namespace: 
-public class ProgramEffectManager : SingletonMonoBehaviour<ProgramEffectManager> // TypeDefIndex: 7717
+public class ProgramEffectManager : SingletonMonoBehaviour<ProgramEffectManager> // TypeDefIndex: 7736
 {
 	// Fields
-	[SerializeField] // RVA: 0xCC2994 Offset: 0xCC2994 VA: 0xCC2994
+	[SerializeField] // RVA: 0xC56AFC Offset: 0xC56AFC VA: 0xC56AFC
 	protected GameObject[] mainSpecialEffectList; // 0x18
-	[SerializeField] // RVA: 0xCC29A4 Offset: 0xCC29A4 VA: 0xCC29A4
+	[SerializeField] // RVA: 0xC56B0C Offset: 0xC56B0C VA: 0xC56B0C
 	protected GameObject[] charaSpecialEffectList; // 0x20
 
 	// Methods
 
-	// RVA: 0x19D1F54 Offset: 0x19D1F54 VA: 0x19D1F54
+	// RVA: 0x12D40D8 Offset: 0x12D40D8 VA: 0x12D40D8
 	public void .ctor() { }
 
-	// RVA: 0x19D1FA4 Offset: 0x19D1FA4 VA: 0x19D1FA4
+	// RVA: 0x12D4128 Offset: 0x12D4128 VA: 0x12D4128
 	public static ProgramEffectComponent[] Get(GameObject parent) { }
 
-	// RVA: 0x19D2160 Offset: 0x19D2160 VA: 0x19D2160
+	// RVA: 0x12D42E4 Offset: 0x12D42E4 VA: 0x12D42E4
 	public static bool IsBusy(GameObject parent) { }
 
-	// RVA: 0x19D22B8 Offset: 0x19D22B8 VA: 0x19D22B8
+	// RVA: 0x12D443C Offset: 0x12D443C VA: 0x12D443C
 	public static bool IsBusy(GameObject parent, string effectName) { }
 
-	// RVA: 0x19D2454 Offset: 0x19D2454 VA: 0x19D2454
+	// RVA: 0x12D45D8 Offset: 0x12D45D8 VA: 0x12D45D8
 	public static bool IsStart(GameObject parent) { }
 
-	// RVA: 0x19D25C4 Offset: 0x19D25C4 VA: 0x19D25C4
+	// RVA: 0x12D4748 Offset: 0x12D4748 VA: 0x12D4748
 	public static bool IsStart(GameObject parent, string effectName) { }
 
-	// RVA: 0x19D2768 Offset: 0x19D2768 VA: 0x19D2768
+	// RVA: 0x12D48EC Offset: 0x12D48EC VA: 0x12D48EC
 	public static GameObject GetMainEffectPrefab(string effectName) { }
 
-	// RVA: 0x19D28C0 Offset: 0x19D28C0 VA: 0x19D28C0
+	// RVA: 0x12D4A44 Offset: 0x12D4A44 VA: 0x12D4A44
 	public static GameObject GetCharaEffectPrefab(string effectName) { }
 
-	// RVA: 0x19D2A18 Offset: 0x19D2A18 VA: 0x19D2A18
+	// RVA: 0x12D4B9C Offset: 0x12D4B9C VA: 0x12D4B9C
 	public static GameObject CreateMainEffect(GameObject parent, string effectName, Vector3 pos, float time, Color color, float range, bool isSkip = False, bool isPause = False) { }
 
-	// RVA: 0x19D2E10 Offset: 0x19D2E10 VA: 0x19D2E10
+	// RVA: 0x12D4F94 Offset: 0x12D4F94 VA: 0x12D4F94
 	public static GameObject CreateCharaEffect(GameObject parent, string effectName, Vector3 pos, float time, Color color, float range, bool isSkip = False, bool isPause = False) { }
 
-	// RVA: 0x19D2B58 Offset: 0x19D2B58 VA: 0x19D2B58
+	// RVA: 0x12D4CDC Offset: 0x12D4CDC VA: 0x12D4CDC
 	public static GameObject Create(GameObject parent, GameObject prefab, Vector3 pos, float time, Color color, float range, bool isSkip = False, bool isPause = False) { }
 
-	// RVA: 0x19D2F50 Offset: 0x19D2F50 VA: 0x19D2F50
+	// RVA: 0x12D50D4 Offset: 0x12D50D4 VA: 0x12D50D4
 	public static void Resume(GameObject parent, bool isSkip = False) { }
 
-	// RVA: 0x19D30CC Offset: 0x19D30CC VA: 0x19D30CC
+	// RVA: 0x12D5250 Offset: 0x12D5250 VA: 0x12D5250
 	public static void Resume(GameObject parent, string effectName, bool isSkip = False) { }
 
-	// RVA: 0x19D3288 Offset: 0x19D3288 VA: 0x19D3288
+	// RVA: 0x12D540C Offset: 0x12D540C VA: 0x12D540C
 	public static void Stop(GameObject parent) { }
 
-	// RVA: 0x19D33F8 Offset: 0x19D33F8 VA: 0x19D33F8
+	// RVA: 0x12D557C Offset: 0x12D557C VA: 0x12D557C
 	public static void Stop(GameObject parent, string effectName) { }
 
-	// RVA: 0x19D359C Offset: 0x19D359C VA: 0x19D359C
+	// RVA: 0x12D5720 Offset: 0x12D5720 VA: 0x12D5720
 	public static void Destory(GameObject parent) { }
 
-	// RVA: 0x19D3814 Offset: 0x19D3814 VA: 0x19D3814
+	// RVA: 0x12D5998 Offset: 0x12D5998 VA: 0x12D5998
 	public static void Destory(GameObject parent, string effectName) { }
 }
 
 // Namespace: 
-public class QuestStart2EffectComponent : QuestStartEffectComponent // TypeDefIndex: 7718
+public class QuestStart2EffectComponent : QuestStartEffectComponent // TypeDefIndex: 7737
 {
 	// Methods
 
-	// RVA: 0x1811E20 Offset: 0x1811E20 VA: 0x1811E20
+	// RVA: 0x127BA88 Offset: 0x127BA88 VA: 0x127BA88
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class QuestStartEffectComponent : CommonEffectComponent // TypeDefIndex: 7719
+public class QuestStartEffectComponent : CommonEffectComponent // TypeDefIndex: 7738
 {
 	// Fields
-	[SerializeField] // RVA: 0xCC29B4 Offset: 0xCC29B4 VA: 0xCC29B4
+	[SerializeField] // RVA: 0xC56B1C Offset: 0xC56B1C VA: 0xC56B1C
 	protected UILabel titleLabel; // 0xA8
-	[SerializeField] // RVA: 0xCC29C4 Offset: 0xCC29C4 VA: 0xCC29C4
+	[SerializeField] // RVA: 0xC56B2C Offset: 0xC56B2C VA: 0xC56B2C
 	private bool isTitleLabelNumberOnly; // 0xB0
-	[SerializeField] // RVA: 0xCC29D4 Offset: 0xCC29D4 VA: 0xCC29D4
+	[SerializeField] // RVA: 0xC56B3C Offset: 0xC56B3C VA: 0xC56B3C
 	protected UISprite titleSprite; // 0xB8
-	[SerializeField] // RVA: 0xCC29E4 Offset: 0xCC29E4 VA: 0xCC29E4
+	[SerializeField] // RVA: 0xC56B4C Offset: 0xC56B4C VA: 0xC56B4C
 	protected UISprite[] titleLabelDecoration; // 0xC0
-	[SerializeField] // RVA: 0xCC29F4 Offset: 0xCC29F4 VA: 0xCC29F4
+	[SerializeField] // RVA: 0xC56B5C Offset: 0xC56B5C VA: 0xC56B5C
 	protected UISprite[] titleSpriteDecoration; // 0xC8
-	[SerializeField] // RVA: 0xCC2A04 Offset: 0xCC2A04 VA: 0xCC2A04
+	[SerializeField] // RVA: 0xC56B6C Offset: 0xC56B6C VA: 0xC56B6C
 	protected UILabel messageLabel; // 0xD0
-	[SerializeField] // RVA: 0xCC2A14 Offset: 0xCC2A14 VA: 0xCC2A14
+	[SerializeField] // RVA: 0xC56B7C Offset: 0xC56B7C VA: 0xC56B7C
 	protected UISprite messageSprite; // 0xD8
-	[SerializeField] // RVA: 0xCC2A24 Offset: 0xCC2A24 VA: 0xCC2A24
+	[SerializeField] // RVA: 0xC56B8C Offset: 0xC56B8C VA: 0xC56B8C
 	protected ScriptLineMessage messageManager; // 0xE0
-	[SerializeField] // RVA: 0xCC2A34 Offset: 0xCC2A34 VA: 0xCC2A34
+	[SerializeField] // RVA: 0xC56B9C Offset: 0xC56B9C VA: 0xC56B9C
 	protected UISprite typeSprite; // 0xE8
-	[SerializeField] // RVA: 0xCC2A44 Offset: 0xCC2A44 VA: 0xCC2A44
+	[SerializeField] // RVA: 0xC56BAC Offset: 0xC56BAC VA: 0xC56BAC
 	protected UIPanel basePanel; // 0xF0
-	[SerializeField] // RVA: 0xCC2A54 Offset: 0xCC2A54 VA: 0xCC2A54
+	[SerializeField] // RVA: 0xC56BBC Offset: 0xC56BBC VA: 0xC56BBC
 	protected UIPanel base2Panel; // 0xF8
-	[SerializeField] // RVA: 0xCC2A64 Offset: 0xCC2A64 VA: 0xCC2A64
+	[SerializeField] // RVA: 0xC56BCC Offset: 0xC56BCC VA: 0xC56BCC
 	protected string overwriteEffectNameForTapSkip; // 0x100
 	protected CommonEffectParam commonParam; // 0x108
 
 	// Methods
 
-	// RVA: 0x1811E28 Offset: 0x1811E28 VA: 0x1811E28
+	// RVA: 0x127BA90 Offset: 0x127BA90 VA: 0x127BA90
 	public void .ctor() { }
 
-	// RVA: 0x1811E30 Offset: 0x1811E30 VA: 0x1811E30 Slot: 4
+	// RVA: 0x127BA98 Offset: 0x127BA98 VA: 0x127BA98 Slot: 4
 	public override void SetParam(object param) { }
 
-	// RVA: 0x18128B4 Offset: 0x18128B4 VA: 0x18128B4
+	// RVA: 0x127C51C Offset: 0x127C51C VA: 0x127C51C
 	protected void RefreshPanel() { }
 
-	// RVA: 0x1812A50 Offset: 0x1812A50 VA: 0x1812A50
+	// RVA: 0x127C6B8 Offset: 0x127C6B8 VA: 0x127C6B8
 	protected void Update() { }
 }
 
 // Namespace: 
-public class RaceResultEffectComponent : CommonEffectComponent // TypeDefIndex: 7720
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC2A74 Offset: 0xCC2A74 VA: 0xCC2A74
-	protected GameObject[] parameterRecvComponentList; // 0xA8
-	protected object param; // 0xB0
-
-	// Methods
-
-	// RVA: 0x181B878 Offset: 0x181B878 VA: 0x181B878
-	public void .ctor() { }
-
-	// RVA: 0x181B880 Offset: 0x181B880 VA: 0x181B880 Slot: 4
-	public override void SetParam(object param) { }
-
-	// RVA: 0x181B9BC Offset: 0x181B9BC VA: 0x181B9BC
-	public object GetParam() { }
-}
-
-// Namespace: 
-public class RaceResultPointGroupEffectSubComponent : BaseMonoBehaviour // TypeDefIndex: 7721
-{
-	// Fields
-	public static readonly string GROUP_IMAGE_NAME; // 0x0
-	public static readonly string GROUP_NAME_IMAGE_NAME; // 0x8
-	[SerializeField] // RVA: 0xCC2A84 Offset: 0xCC2A84 VA: 0xCC2A84
-	protected UILabel[] nameLabelList; // 0x18
-	[SerializeField] // RVA: 0xCC2A94 Offset: 0xCC2A94 VA: 0xCC2A94
-	protected UISprite[] nameSpriteList; // 0x20
-	[SerializeField] // RVA: 0xCC2AA4 Offset: 0xCC2AA4 VA: 0xCC2AA4
-	protected UISprite[] iconSpriteList; // 0x28
-	[SerializeField] // RVA: 0xCC2AB4 Offset: 0xCC2AB4 VA: 0xCC2AB4
-	protected UILabel[] timeLabelList; // 0x30
-
-	// Methods
-
-	// RVA: 0x181B9CC Offset: 0x181B9CC VA: 0x181B9CC
-	public void .ctor() { }
-
-	// RVA: 0x181B9D4 Offset: 0x181B9D4 VA: 0x181B9D4
-	public void RecvParam(object param) { }
-
-	// RVA: 0x181C354 Offset: 0x181C354 VA: 0x181C354
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public class RankObjectSwitchEffectSubComponent : EffectSubComponent // TypeDefIndex: 7722
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC2AC4 Offset: 0xCC2AC4 VA: 0xCC2AC4
-	protected GameObject[] switchObjectList; // 0x18
-
-	// Methods
-
-	// RVA: 0x181D948 Offset: 0x181D948 VA: 0x181D948
-	public void .ctor() { }
-
-	// RVA: 0x181D950 Offset: 0x181D950 VA: 0x181D950 Slot: 4
-	public override void RecvParam(object param) { }
-}
-
-// Namespace: 
-public class RaceResultEffectParam // TypeDefIndex: 7723
-{
-	// Fields
-	public int questId; // 0x10
-	public long[] parameterList; // 0x18
-
-	// Methods
-
-	// RVA: 0x181B9C4 Offset: 0x181B9C4 VA: 0x181B9C4
-	public void .ctor() { }
-}
-
-// Namespace: 
-public enum RaceResultEffectParam.ParamIndex // TypeDefIndex: 7724
-{
-	// Fields
-	public int value__; // 0x0
-	public const RaceResultEffectParam.ParamIndex EVENT_ID = 0;
-	public const RaceResultEffectParam.ParamIndex TERM_ID = 1;
-	public const RaceResultEffectParam.ParamIndex GROUP_ID = 2;
-	public const RaceResultEffectParam.ParamIndex RANK = 3;
-	public const RaceResultEffectParam.ParamIndex TIME = 4;
-}
-
-// Namespace: 
-public class SummonEffectAspectSetComponent : BaseMonoBehaviour // TypeDefIndex: 7725
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC2AD4 Offset: 0xCC2AD4 VA: 0xCC2AD4
-	private Transform go_above_cardScaler; // 0x18
-	[SerializeField] // RVA: 0xCC2AE4 Offset: 0xCC2AE4 VA: 0xCC2AE4
-	private Transform go_msg_shine00; // 0x20
-	[SerializeField] // RVA: 0xCC2AF4 Offset: 0xCC2AF4 VA: 0xCC2AF4
-	private Transform go_msg_shine01; // 0x28
-	[SerializeField] // RVA: 0xCC2B04 Offset: 0xCC2B04 VA: 0xCC2B04
-	private Transform go_msg_shine02; // 0x30
-	[SerializeField] // RVA: 0xCC2B14 Offset: 0xCC2B14 VA: 0xCC2B14
-	private ParticleSystem ps_appear_border; // 0x38
-	[SerializeField] // RVA: 0xCC2B24 Offset: 0xCC2B24 VA: 0xCC2B24
-	private ParticleSystem ps_appear_lightburst2; // 0x40
-
-	// Methods
-
-	// RVA: 0x170E544 Offset: 0x170E544 VA: 0x170E544
-	public void .ctor() { }
-
-	// RVA: 0x170E54C Offset: 0x170E54C VA: 0x170E54C
-	private void Start() { }
-}
-
-// Namespace: 
-public class TermNameEffectSubComponent : EffectSubComponent // TypeDefIndex: 7726
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC2B34 Offset: 0xCC2B34 VA: 0xCC2B34
-	protected UILabel label; // 0x18
-
-	// Methods
-
-	// RVA: 0x15ED370 Offset: 0x15ED370 VA: 0x15ED370
-	public void .ctor() { }
-
-	// RVA: 0x15ED378 Offset: 0x15ED378 VA: 0x15ED378 Slot: 4
-	public override void RecvParam(object param) { }
-}
-
-// Namespace: 
-public class TermObjectSwitchEffectSubComponent : EffectSubComponent // TypeDefIndex: 7727
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC2B44 Offset: 0xCC2B44 VA: 0xCC2B44
-	protected GameObject[] switchObjectList; // 0x18
-
-	// Methods
-
-	// RVA: 0x15ED578 Offset: 0x15ED578 VA: 0x15ED578
-	public void .ctor() { }
-
-	// RVA: 0x15ED580 Offset: 0x15ED580 VA: 0x15ED580 Slot: 4
-	public override void RecvParam(object param) { }
-}
-
-// Namespace: 
-public class VoiceEffectComponent : CommonEffectComponent // TypeDefIndex: 7728
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC2B54 Offset: 0xCC2B54 VA: 0xCC2B54
-	private string voiceDataStr; // 0xA8
-	[SerializeField] // RVA: 0xCC2B64 Offset: 0xCC2B64 VA: 0xCC2B64
-	private int voiceId; // 0xB0
-	private string voicePath; // 0xB8
-
-	// Methods
-
-	// RVA: 0x1B3AEF0 Offset: 0x1B3AEF0 VA: 0x1B3AEF0
-	public void .ctor() { }
-
-	// RVA: 0x1B3AEF8 Offset: 0x1B3AEF8 VA: 0x1B3AEF8
-	public void LoadVoiceAsset(Action callback) { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[TooltipAttribute] // RVA: 0xC91568 Offset: 0xC91568 VA: 0xC91568
-public abstract class iTweenFsmActionSimple : FsmStateAction // TypeDefIndex: 7729
-{
-	// Fields
-	internal iTweenFSMEvents itweenEvents; // 0x50
-	protected string itweenType; // 0x58
-	protected int itweenID; // 0x60
-
-	// Methods
-
-	// RVA: 0x2482934 Offset: 0x2482934 VA: 0x2482934
-	protected void .ctor() { }
-
-	// RVA: 0x24829B4 Offset: 0x24829B4 VA: 0x24829B4 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x2482A24 Offset: 0x2482A24 VA: 0x2482A24
-	protected void OnEnteriTween(FsmOwnerDefault anOwner) { }
-
-	// RVA: 0x2482B6C Offset: 0x2482B6C VA: 0x2482B6C
-	protected void IsLoop(bool aValue) { }
-
-	// RVA: 0x2482C08 Offset: 0x2482C08 VA: 0x2482C08
-	protected void OnExitiTween(FsmOwnerDefault anOwner) { }
-
-	// RVA: 0x2482D18 Offset: 0x2482D18 VA: 0x2482D18
-	public static bool IsLookAtSpecificValue(iTweenMoveTo src) { }
-
-	// RVA: 0x2482DD0 Offset: 0x2482DD0 VA: 0x2482DD0
-	public static bool IsEventsSpecificValue(iTweenMoveTo src) { }
-
-	// RVA: 0x2482E70 Offset: 0x2482E70 VA: 0x2482E70
-	public static bool IsLookAtDefault(iTweenMoveAdd src) { }
-
-	// RVA: 0x2482F2C Offset: 0x2482F2C VA: 0x2482F2C
-	public static bool IsEventsSpecificValue(iTweenMoveAdd src) { }
-
-	// RVA: 0x2482FCC Offset: 0x2482FCC VA: 0x2482FCC
-	public static bool IsLookAtSpecificValue(iTweenMoveUpdate src) { }
-}
-
-// Namespace: 
-public enum iTweenFsmActionSimple.AxisRestriction // TypeDefIndex: 7730
-{
-	// Fields
-	public int value__; // 0x0
-	public const iTweenFsmActionSimple.AxisRestriction none = 0;
-	public const iTweenFsmActionSimple.AxisRestriction x = 1;
-	public const iTweenFsmActionSimple.AxisRestriction y = 2;
-	public const iTweenFsmActionSimple.AxisRestriction z = 3;
-	public const iTweenFsmActionSimple.AxisRestriction xy = 4;
-	public const iTweenFsmActionSimple.AxisRestriction xz = 5;
-	public const iTweenFsmActionSimple.AxisRestriction yz = 6;
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC915A0 Offset: 0xC915A0 VA: 0xC915A0
-[TooltipAttribute] // RVA: 0xC915A0 Offset: 0xC915A0 VA: 0xC915A0
-public class iTweenMoveAddSimple : iTweenFsmActionSimple // TypeDefIndex: 7731
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCC2B74 Offset: 0xCC2B74 VA: 0xCC2B74
-	public FsmOwnerDefault gameObject; // 0x68
-	[TooltipAttribute] // RVA: 0xCC2B84 Offset: 0xCC2B84 VA: 0xCC2B84
-	public FsmString id; // 0x70
-	[RequiredFieldAttribute] // RVA: 0xCC2BBC Offset: 0xCC2BBC VA: 0xCC2BBC
-	[TooltipAttribute] // RVA: 0xCC2BBC Offset: 0xCC2BBC VA: 0xCC2BBC
-	public FsmVector3 vector; // 0x78
-	[TooltipAttribute] // RVA: 0xCC2C08 Offset: 0xCC2C08 VA: 0xCC2C08
-	public FsmFloat time; // 0x80
-	[TooltipAttribute] // RVA: 0xCC2C40 Offset: 0xCC2C40 VA: 0xCC2C40
-	public FsmFloat delay; // 0x88
-	[TooltipAttribute] // RVA: 0xCC2C78 Offset: 0xCC2C78 VA: 0xCC2C78
-	public FsmFloat speed; // 0x90
-	[TooltipAttribute] // RVA: 0xCC2CB0 Offset: 0xCC2CB0 VA: 0xCC2CB0
-	public iTween.EaseType easeType; // 0x98
-	[TooltipAttribute] // RVA: 0xCC2CE8 Offset: 0xCC2CE8 VA: 0xCC2CE8
-	public iTween.LoopType loopType; // 0x9C
-	public Space space; // 0xA0
-
-	// Methods
-
-	// RVA: 0x24863B8 Offset: 0x24863B8 VA: 0x24863B8
-	public void .ctor() { }
-
-	// RVA: 0x24863C4 Offset: 0x24863C4 VA: 0x24863C4 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x24864E8 Offset: 0x24864E8 VA: 0x24864E8 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x2486ABC Offset: 0x2486ABC VA: 0x2486ABC Slot: 37
-	public override void OnExit() { }
-
-	// RVA: 0x2486524 Offset: 0x2486524 VA: 0x2486524
-	private void DoiTween() { }
-
-	// RVA: 0x2486AC4 Offset: 0x2486AC4 VA: 0x2486AC4
-	public static bool IsConvertableData(iTweenMoveAdd src) { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC91600 Offset: 0xC91600 VA: 0xC91600
-[TooltipAttribute] // RVA: 0xC91600 Offset: 0xC91600 VA: 0xC91600
-public class iTweenMoveToSimple : iTweenFsmActionSimple // TypeDefIndex: 7732
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCC2D20 Offset: 0xCC2D20 VA: 0xCC2D20
-	public FsmOwnerDefault gameObject; // 0x68
-	[TooltipAttribute] // RVA: 0xCC2D30 Offset: 0xCC2D30 VA: 0xCC2D30
-	public FsmString id; // 0x70
-	[TooltipAttribute] // RVA: 0xCC2D68 Offset: 0xCC2D68 VA: 0xCC2D68
-	public FsmGameObject transformPosition; // 0x78
-	[TooltipAttribute] // RVA: 0xCC2DA0 Offset: 0xCC2DA0 VA: 0xCC2DA0
-	public FsmVector3 vectorPosition; // 0x80
-	[TooltipAttribute] // RVA: 0xCC2DD8 Offset: 0xCC2DD8 VA: 0xCC2DD8
-	public FsmFloat time; // 0x88
-	[TooltipAttribute] // RVA: 0xCC2E10 Offset: 0xCC2E10 VA: 0xCC2E10
-	public FsmFloat delay; // 0x90
-	[TooltipAttribute] // RVA: 0xCC2E48 Offset: 0xCC2E48 VA: 0xCC2E48
-	public FsmFloat speed; // 0x98
-	[TooltipAttribute] // RVA: 0xCC2E80 Offset: 0xCC2E80 VA: 0xCC2E80
-	public Space space; // 0xA0
-	[TooltipAttribute] // RVA: 0xCC2EB8 Offset: 0xCC2EB8 VA: 0xCC2EB8
-	public iTween.EaseType easeType; // 0xA4
-	[TooltipAttribute] // RVA: 0xCC2EF0 Offset: 0xCC2EF0 VA: 0xCC2EF0
-	public iTween.LoopType loopType; // 0xA8
-
-	// Methods
-
-	// RVA: 0x248A5A8 Offset: 0x248A5A8 VA: 0x248A5A8
-	public void .ctor() { }
-
-	// RVA: 0x248A5B4 Offset: 0x248A5B4 VA: 0x248A5B4 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x248A714 Offset: 0x248A714 VA: 0x248A714 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x248AEF4 Offset: 0x248AEF4 VA: 0x248AEF4 Slot: 37
-	public override void OnExit() { }
-
-	// RVA: 0x248A750 Offset: 0x248A750 VA: 0x248A750
-	private void DoiTween() { }
-
-	// RVA: 0x248AEFC Offset: 0x248AEFC VA: 0x248AEFC
-	private static bool IsPathSpecificValue(iTweenMoveTo src) { }
-
-	// RVA: 0x248AFA4 Offset: 0x248AFA4 VA: 0x248AFA4
-	public static bool IsConvertableData(iTweenMoveTo src) { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC91660 Offset: 0xC91660 VA: 0xC91660
-[TooltipAttribute] // RVA: 0xC91660 Offset: 0xC91660 VA: 0xC91660
-public class iTweenMoveUpdateSimple : iTweenFsmActionSimple // TypeDefIndex: 7733
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCC2F28 Offset: 0xCC2F28 VA: 0xCC2F28
-	public FsmOwnerDefault gameObject; // 0x68
-	[TooltipAttribute] // RVA: 0xCC2F38 Offset: 0xCC2F38 VA: 0xCC2F38
-	public FsmGameObject transformPosition; // 0x70
-	[TooltipAttribute] // RVA: 0xCC2F70 Offset: 0xCC2F70 VA: 0xCC2F70
-	public FsmVector3 vectorPosition; // 0x78
-	[TooltipAttribute] // RVA: 0xCC2FA8 Offset: 0xCC2FA8 VA: 0xCC2FA8
-	public FsmFloat time; // 0x80
-	[TooltipAttribute] // RVA: 0xCC2FE0 Offset: 0xCC2FE0 VA: 0xCC2FE0
-	public Space space; // 0x88
-	[ActionSection] // RVA: 0xCC3018 Offset: 0xCC3018 VA: 0xCC3018
-	[TooltipAttribute] // RVA: 0xCC3018 Offset: 0xCC3018 VA: 0xCC3018
-	public FsmBool orientToPath; // 0x90
-	private Hashtable hash; // 0x98
-	private GameObject go; // 0xA0
-
-	// Methods
-
-	// RVA: 0x248D030 Offset: 0x248D030 VA: 0x248D030
-	public void .ctor() { }
-
-	// RVA: 0x248D034 Offset: 0x248D034 VA: 0x248D034 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x248D13C Offset: 0x248D13C VA: 0x248D13C Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x248D808 Offset: 0x248D808 VA: 0x248D808 Slot: 34
-	public override void OnUpdate() { }
-
-	// RVA: 0x248DB50 Offset: 0x248DB50 VA: 0x248DB50 Slot: 37
-	public override void OnExit() { }
-
-	// RVA: 0x248D798 Offset: 0x248D798 VA: 0x248D798
-	private void DoiTween() { }
-
-	// RVA: 0x248DB54 Offset: 0x248DB54 VA: 0x248DB54
-	public static bool IsConvertableData(iTweenMoveUpdate src) { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC916C0 Offset: 0xC916C0 VA: 0xC916C0
-[TooltipAttribute] // RVA: 0xC916C0 Offset: 0xC916C0 VA: 0xC916C0
-public class SetRotationYFlip : FsmStateAction // TypeDefIndex: 7734
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCC3078 Offset: 0xCC3078 VA: 0xCC3078
-	[TooltipAttribute] // RVA: 0xCC3078 Offset: 0xCC3078 VA: 0xCC3078
-	public FsmOwnerDefault gameObject; // 0x50
-	public Space space; // 0x58
-	[TooltipAttribute] // RVA: 0xCC30C4 Offset: 0xCC30C4 VA: 0xCC30C4
-	public bool everyFrame; // 0x5C
-	private bool lateUpdate; // 0x5D
-
-	// Methods
-
-	// RVA: 0x212126C Offset: 0x212126C VA: 0x212126C
-	public void .ctor() { }
-
-	// RVA: 0x2121274 Offset: 0x2121274 VA: 0x2121274 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x2121280 Offset: 0x2121280 VA: 0x2121280 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x212142C Offset: 0x212142C VA: 0x212142C Slot: 34
-	public override void OnUpdate() { }
-
-	// RVA: 0x212143C Offset: 0x212143C VA: 0x212143C Slot: 36
-	public override void OnLateUpdate() { }
-
-	// RVA: 0x21212C8 Offset: 0x21212C8 VA: 0x21212C8
-	private void DoSetRotation() { }
-
-	// RVA: 0x2121484 Offset: 0x2121484 VA: 0x2121484
-	public static bool IsConvertableData(SetRotation src) { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC91710 Offset: 0xC91710 VA: 0xC91710
-[TooltipAttribute] // RVA: 0xC91710 Offset: 0xC91710 VA: 0xC91710
-public class SetRotationZero : FsmStateAction // TypeDefIndex: 7735
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCC30FC Offset: 0xCC30FC VA: 0xCC30FC
-	[TooltipAttribute] // RVA: 0xCC30FC Offset: 0xCC30FC VA: 0xCC30FC
-	public FsmOwnerDefault gameObject; // 0x50
-	public Space space; // 0x58
-	[TooltipAttribute] // RVA: 0xCC3148 Offset: 0xCC3148 VA: 0xCC3148
-	public bool everyFrame; // 0x5C
-	private bool lateUpdate; // 0x5D
-
-	// Methods
-
-	// RVA: 0x2121528 Offset: 0x2121528 VA: 0x2121528
-	public void .ctor() { }
-
-	// RVA: 0x2121530 Offset: 0x2121530 VA: 0x2121530 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x212153C Offset: 0x212153C VA: 0x212153C Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x21216E4 Offset: 0x21216E4 VA: 0x21216E4 Slot: 34
-	public override void OnUpdate() { }
-
-	// RVA: 0x21216F4 Offset: 0x21216F4 VA: 0x21216F4 Slot: 36
-	public override void OnLateUpdate() { }
-
-	// RVA: 0x2121584 Offset: 0x2121584 VA: 0x2121584
-	private void DoSetRotation() { }
-
-	// RVA: 0x212173C Offset: 0x212173C VA: 0x212173C
-	public static bool IsConvertableData(SetRotation src) { }
-}
-
-// Namespace: 
-[RequireComponent] // RVA: 0xC91760 Offset: 0xC91760 VA: 0xC91760
-public class CondensedScaleLabel : MonoBehaviour // TypeDefIndex: 7736
-{
-	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCC3180 Offset: 0xCC3180 VA: 0xCC3180
-	[DebuggerBrowsableAttribute] // RVA: 0xCC3180 Offset: 0xCC3180 VA: 0xCC3180
-	private UILabel <Label>k__BackingField; // 0x18
-	private string previousText; // 0x20
-	public int maxWidth; // 0x28
-	public bool autoUpdate; // 0x2C
-
-	// Properties
-	private UILabel Label { get; set; }
-
-	// Methods
-
-	// RVA: 0x1968B04 Offset: 0x1968B04 VA: 0x1968B04
-	public void .ctor() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38324 Offset: 0xD38324 VA: 0xD38324
-	// RVA: 0x1968B14 Offset: 0x1968B14 VA: 0x1968B14
-	private void set_Label(UILabel value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD38334 Offset: 0xD38334 VA: 0xD38334
-	// RVA: 0x1968B1C Offset: 0x1968B1C VA: 0x1968B1C
-	private UILabel get_Label() { }
-
-	// RVA: 0x1968B24 Offset: 0x1968B24 VA: 0x1968B24
-	private void Awake() { }
-
-	// RVA: 0x1968C68 Offset: 0x1968C68 VA: 0x1968C68
-	private void Update() { }
-
-	// RVA: 0x1968BF8 Offset: 0x1968BF8 VA: 0x1968BF8
-	public void SetCondensedScale() { }
-}
-
-// Namespace: 
-public class DigitRollLabel : MonoBehaviour // TypeDefIndex: 7737
-{
-	// Fields
-	public UILabel nowlabel; // 0x18
-	public UILabel nextlabel; // 0x20
-	private string nexttext; // 0x28
-
-	// Methods
-
-	// RVA: 0x162F044 Offset: 0x162F044 VA: 0x162F044
-	public void .ctor() { }
-
-	// RVA: 0x162F0BC Offset: 0x162F0BC VA: 0x162F0BC
-	public void Awake() { }
-
-	// RVA: 0x162F0F8 Offset: 0x162F0F8 VA: 0x162F0F8
-	public void changeSpeed(int speed) { }
-
-	// RVA: 0x162F7B4 Offset: 0x162F7B4 VA: 0x162F7B4
-	public void startChange(string text) { }
-
-	// RVA: 0x162FA84 Offset: 0x162FA84 VA: 0x162FA84
-	public void ChangeColor(Color color) { }
-
-	// RVA: 0x162FB50 Offset: 0x162FB50 VA: 0x162FB50
-	public void endChange(string text) { }
-
-	// RVA: 0x162FE6C Offset: 0x162FE6C VA: 0x162FE6C
-	public void changeText(string text) { }
-}
-
-// Namespace: 
-public class DrumRollLabel : MonoBehaviour // TypeDefIndex: 7738
-{
-	// Fields
-	public UILabel label; // 0x18
-	public DigitRollLabel[] diglabel; // 0x20
-	public float changetime; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xCC31BC Offset: 0xCC31BC VA: 0xCC31BC
-	[DebuggerBrowsableAttribute] // RVA: 0xCC31BC Offset: 0xCC31BC VA: 0xCC31BC
-	private DrumRollLabel.CompleteEventHandler callComplete; // 0x30
-	private int nowvalue; // 0x38
-	private int nextvalue; // 0x3C
-
-	// Methods
-
-	// RVA: 0x1633064 Offset: 0x1633064 VA: 0x1633064
-	public void .ctor() { }
-
-	// RVA: 0x1633078 Offset: 0x1633078 VA: 0x1633078
-	private void add_callComplete(DrumRollLabel.CompleteEventHandler value) { }
-
-	// RVA: 0x1633164 Offset: 0x1633164 VA: 0x1633164
-	private void remove_callComplete(DrumRollLabel.CompleteEventHandler value) { }
-
-	// RVA: 0x1633250 Offset: 0x1633250 VA: 0x1633250
-	public void setParam(int param) { }
-
-	// RVA: 0x1633258 Offset: 0x1633258 VA: 0x1633258
-	public void changeParam(int nextparam, bool isRapid = False, DrumRollLabel.CompleteEventHandler callevent, float delay = 0) { }
-
-	// RVA: 0x1633828 Offset: 0x1633828 VA: 0x1633828
-	public void updateValues(int value) { }
-
-	// RVA: 0x16339EC Offset: 0x16339EC VA: 0x16339EC
-	public void completeValues() { }
-
-	// RVA: 0x1633D80 Offset: 0x1633D80 VA: 0x1633D80
-	public int getCount() { }
-
-	// RVA: 0x1633D88 Offset: 0x1633D88 VA: 0x1633D88
-	public int getFinalCount() { }
-
-	// RVA: 0x1633D90 Offset: 0x1633D90 VA: 0x1633D90
-	public void SetLabelColor(Color color) { }
-
-	// RVA: 0x1633E40 Offset: 0x1633E40 VA: 0x1633E40
-	public void ChangeParamNonAnimation(int nextParam, bool isAllChange = False) { }
-}
-
-// Namespace: 
-public sealed class DrumRollLabel.CompleteEventHandler : MulticastDelegate // TypeDefIndex: 7739
-{
-	// Methods
-
-	// RVA: 0x1634020 Offset: 0x1634020 VA: 0x1634020
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x1633B80 Offset: 0x1633B80 VA: 0x1633B80 Slot: 11
-	public virtual void Invoke() { }
-
-	// RVA: 0x1634030 Offset: 0x1634030 VA: 0x1634030 Slot: 12
-	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
-
-	// RVA: 0x1634064 Offset: 0x1634064 VA: 0x1634064 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-[ExecuteInEditMode] // RVA: 0xC917C4 Offset: 0xC917C4 VA: 0xC917C4
-[AddComponentMenu] // RVA: 0xC917C4 Offset: 0xC917C4 VA: 0xC917C4
-[RequireComponent] // RVA: 0xC917C4 Offset: 0xC917C4 VA: 0xC917C4
-public class UICamera : MonoBehaviour // TypeDefIndex: 7740
-{
-	// Fields
-	private int ignoreCount; // 0x18
-	private const int ignoreCountMax = 5;
-	public static BetterList<UICamera> list; // 0x0
-	public static UICamera.GetKeyStateFunc GetKeyDown; // 0x8
-	public static UICamera.GetKeyStateFunc GetKeyUp; // 0x10
-	public static UICamera.GetKeyStateFunc GetKey; // 0x18
-	public static UICamera.GetAxisFunc GetAxis; // 0x20
-	public static UICamera.OnScreenResize onScreenResize; // 0x28
-	public UICamera.EventType eventType; // 0x1C
-	public bool eventsGoToColliders; // 0x20
-	public LayerMask eventReceiverMask; // 0x24
-	public bool debug; // 0x28
-	public bool useMouse; // 0x29
-	public bool useTouch; // 0x2A
-	public bool allowMultiTouch; // 0x2B
-	public bool useKeyboard; // 0x2C
-	public bool useController; // 0x2D
-	public bool stickyTooltip; // 0x2E
-	public float tooltipDelay; // 0x30
-	public float mouseDragThreshold; // 0x34
-	public float mouseClickThreshold; // 0x38
-	public float touchDragThreshold; // 0x3C
-	public float touchClickThreshold; // 0x40
-	public float rangeDistance; // 0x44
-	public string scrollAxisName; // 0x48
-	public string verticalAxisName; // 0x50
-	public string horizontalAxisName; // 0x58
-	public bool commandClick; // 0x60
-	public KeyCode submitKey0; // 0x64
-	public KeyCode submitKey1; // 0x68
-	public KeyCode cancelKey0; // 0x6C
-	public KeyCode cancelKey1; // 0x70
-	public static UICamera.OnCustomInput onCustomInput; // 0x30
-	public static bool showTooltips; // 0x38
-	public static Vector2 lastTouchPosition; // 0x3C
-	public static Vector3 lastWorldPosition; // 0x44
-	public static RaycastHit lastHit; // 0x50
-	public static UICamera current; // 0x80
-	public static Camera currentCamera; // 0x88
-	public static UICamera.ControlScheme currentScheme; // 0x90
-	public static int currentTouchID; // 0x94
-	public static KeyCode currentKey; // 0x98
-	public static UICamera.MouseOrTouch currentTouch; // 0xA0
-	public static bool inputHasFocus; // 0xA8
-	private static GameObject mGenericHandler; // 0xB0
-	public static GameObject fallThrough; // 0xB8
-	public static UICamera.VoidDelegate onClick; // 0xC0
-	public static UICamera.VoidDelegate onDoubleClick; // 0xC8
-	public static UICamera.BoolDelegate onHover; // 0xD0
-	public static UICamera.BoolDelegate onPress; // 0xD8
-	public static UICamera.BoolDelegate onSelect; // 0xE0
-	public static UICamera.FloatDelegate onScroll; // 0xE8
-	public static UICamera.VectorDelegate onDrag; // 0xF0
-	public static UICamera.VoidDelegate onDragStart; // 0xF8
-	public static UICamera.ObjectDelegate onDragOver; // 0x100
-	public static UICamera.ObjectDelegate onDragOut; // 0x108
-	public static UICamera.VoidDelegate onDragEnd; // 0x110
-	public static UICamera.ObjectDelegate onDrop; // 0x118
-	public static UICamera.KeyCodeDelegate onKey; // 0x120
-	public static UICamera.BoolDelegate onTooltip; // 0x128
-	public static UICamera.MoveDelegate onMouseMove; // 0x130
-	private static GameObject mCurrentSelection; // 0x138
-	private static UICamera.MouseOrTouch[] mMouse; // 0x140
-	private static GameObject mHover; // 0x148
-	public static UICamera.MouseOrTouch controller; // 0x150
-	private static float mNextEvent; // 0x158
-	private static Dictionary<int, UICamera.MouseOrTouch> mTouches; // 0x160
-	private static int mWidth; // 0x168
-	private static int mHeight; // 0x16C
-	private GameObject mTooltip; // 0x78
-	private Camera mCam; // 0x80
-	private float mTooltipTime; // 0x88
-	private float mNextRaycast; // 0x8C
-	public static bool isDragging; // 0x170
-	public static GameObject hoveredObject; // 0x178
-	private static UICamera.DepthEntry mHit; // 0x180
-	private static BetterList<UICamera.DepthEntry> mHits; // 0x1C8
-	private static Plane m2DPlane; // 0x1D0
-	private static int mNotifying; // 0x1E0
-	private static bool mUsingTouchEvents; // 0x1E4
-	public static UICamera.GetTouchCountCallback GetInputTouchCount; // 0x1E8
-	public static UICamera.GetTouchCallback GetInputTouch; // 0x1F0
-	[CompilerGeneratedAttribute] // RVA: 0xCC31F8 Offset: 0xCC31F8 VA: 0xCC31F8
-	private static BetterList.CompareFunc<UICamera.DepthEntry> <>f__am$cache0; // 0x1F8
-	[CompilerGeneratedAttribute] // RVA: 0xCC3208 Offset: 0xCC3208 VA: 0xCC3208
-	private static BetterList.CompareFunc<UICamera.DepthEntry> <>f__am$cache1; // 0x200
-	[CompilerGeneratedAttribute] // RVA: 0xCC3218 Offset: 0xCC3218 VA: 0xCC3218
-	private static BetterList.CompareFunc<UICamera> <>f__mg$cache0; // 0x208
-	[CompilerGeneratedAttribute] // RVA: 0xCC3228 Offset: 0xCC3228 VA: 0xCC3228
-	private static UICamera.GetKeyStateFunc <>f__mg$cache1; // 0x210
-	[CompilerGeneratedAttribute] // RVA: 0xCC3238 Offset: 0xCC3238 VA: 0xCC3238
-	private static UICamera.GetKeyStateFunc <>f__mg$cache2; // 0x218
-	[CompilerGeneratedAttribute] // RVA: 0xCC3248 Offset: 0xCC3248 VA: 0xCC3248
-	private static UICamera.GetKeyStateFunc <>f__mg$cache3; // 0x220
-	[CompilerGeneratedAttribute] // RVA: 0xCC3258 Offset: 0xCC3258 VA: 0xCC3258
-	private static UICamera.GetAxisFunc <>f__mg$cache4; // 0x228
-
-	// Properties
-	[ObsoleteAttribute] // RVA: 0xD4BBD4 Offset: 0xD4BBD4 VA: 0xD4BBD4
-	public bool stickyPress { get; }
-	public static Ray currentRay { get; }
-	[ObsoleteAttribute] // RVA: 0xD4BC0C Offset: 0xD4BC0C VA: 0xD4BC0C
-	public static GameObject genericEventHandler { get; set; }
-	private bool handlesEvents { get; }
-	public Camera cachedCamera { get; }
-	public static bool isOverUI { get; }
-	public static GameObject selectedObject { get; set; }
-	public static int touchCount { get; }
-	public static int dragCount { get; }
-	public static Camera mainCamera { get; }
-	public static UICamera eventHandler { get; }
-
-	// Methods
-
-	// RVA: 0x24AE77C Offset: 0x24AE77C VA: 0x24AE77C
-	public void .ctor() { }
-
-	// RVA: 0x24AE844 Offset: 0x24AE844 VA: 0x24AE844
-	private bool IsInputIgnore() { }
-
-	// RVA: 0x24AE854 Offset: 0x24AE854 VA: 0x24AE854
-	private void Update() { }
-
-	// RVA: 0x24AF038 Offset: 0x24AF038 VA: 0x24AF038
-	private void LateUpdate() { }
-
-	// RVA: 0x24AF1D0 Offset: 0x24AF1D0 VA: 0x24AF1D0
-	private void OnApplicationFocus(bool hasFocus) { }
-
-	// RVA: 0x24AF1DC Offset: 0x24AF1DC VA: 0x24AF1DC
-	public bool get_stickyPress() { }
-
-	// RVA: 0x24AF1E4 Offset: 0x24AF1E4 VA: 0x24AF1E4
-	public static Ray get_currentRay() { }
-
-	// RVA: 0x24AF38C Offset: 0x24AF38C VA: 0x24AF38C
-	public static GameObject get_genericEventHandler() { }
-
-	// RVA: 0x24AF3F4 Offset: 0x24AF3F4 VA: 0x24AF3F4
-	public static void set_genericEventHandler(GameObject value) { }
-
-	// RVA: 0x24AF460 Offset: 0x24AF460 VA: 0x24AF460
-	private bool get_handlesEvents() { }
-
-	// RVA: 0x24AF6A4 Offset: 0x24AF6A4 VA: 0x24AF6A4
-	public Camera get_cachedCamera() { }
-
-	// RVA: 0x24AF73C Offset: 0x24AF73C VA: 0x24AF73C
-	public static bool get_isOverUI() { }
-
-	// RVA: 0x24AB034 Offset: 0x24AB034 VA: 0x24AB034
-	public static GameObject get_selectedObject() { }
-
-	// RVA: 0x24AF938 Offset: 0x24AF938 VA: 0x24AF938
-	public static void set_selectedObject(GameObject value) { }
-
-	// RVA: 0x24B0628 Offset: 0x24B0628 VA: 0x24B0628
-	public static bool IsPressed(GameObject go) { }
-
-	// RVA: 0x24AC2F8 Offset: 0x24AC2F8 VA: 0x24AC2F8
-	public static int get_touchCount() { }
-
-	// RVA: 0x24B08FC Offset: 0x24B08FC VA: 0x24B08FC
-	public static int get_dragCount() { }
-
-	// RVA: 0x24B0BF8 Offset: 0x24B0BF8 VA: 0x24B0BF8
-	public static Camera get_mainCamera() { }
-
-	// RVA: 0x24AF4F8 Offset: 0x24AF4F8 VA: 0x24AF4F8
-	public static UICamera get_eventHandler() { }
-
-	// RVA: 0x24B0CB4 Offset: 0x24B0CB4 VA: 0x24B0CB4
-	private static int CompareFunc(UICamera a, UICamera b) { }
-
-	// RVA: 0x24B0DB0 Offset: 0x24B0DB0 VA: 0x24B0DB0
-	private static Rigidbody FindRootRigidbody(Transform trans) { }
-
-	// RVA: 0x24B0EFC Offset: 0x24B0EFC VA: 0x24B0EFC
-	private static Rigidbody2D FindRootRigidbody2D(Transform trans) { }
-
-	// RVA: 0x24B1048 Offset: 0x24B1048 VA: 0x24B1048
-	public static bool Raycast(Vector3 inPos) { }
-
-	// RVA: 0x24B2974 Offset: 0x24B2974 VA: 0x24B2974
-	private static bool IsVisible(Vector3 worldPoint, GameObject go) { }
-
-	// RVA: 0x24B2850 Offset: 0x24B2850 VA: 0x24B2850
-	private static bool IsVisible(ref UICamera.DepthEntry de) { }
-
-	// RVA: 0x24ABBE8 Offset: 0x24ABBE8 VA: 0x24ABBE8
-	public static bool IsHighlighted(GameObject go) { }
-
-	// RVA: 0x24B049C Offset: 0x24B049C VA: 0x24B049C
-	public static UICamera FindCameraForLayer(int layer) { }
-
-	// RVA: 0x24B2A90 Offset: 0x24B2A90 VA: 0x24B2A90
-	private static int GetDirection(KeyCode up, KeyCode down) { }
-
-	// RVA: 0x24B2DA4 Offset: 0x24B2DA4 VA: 0x24B2DA4
-	private static int GetDirection(KeyCode up0, KeyCode up1, KeyCode down0, KeyCode down1) { }
-
-	// RVA: 0x24B2F28 Offset: 0x24B2F28 VA: 0x24B2F28
-	private static int GetDirection(string axis) { }
-
-	// RVA: 0x24B0288 Offset: 0x24B0288 VA: 0x24B0288
-	public static void Notify(GameObject go, string funcName, object obj) { }
-
-	// RVA: 0x24B3450 Offset: 0x24B3450 VA: 0x24B3450
-	public static UICamera.MouseOrTouch GetMouse(int button) { }
-
-	// RVA: 0x24B34F0 Offset: 0x24B34F0 VA: 0x24B34F0
-	public static UICamera.MouseOrTouch GetTouch(int id) { }
-
-	// RVA: 0x24B366C Offset: 0x24B366C VA: 0x24B366C
-	public static void RemoveTouch(int id) { }
-
-	// RVA: 0x24B36F8 Offset: 0x24B36F8 VA: 0x24B36F8
-	private void Awake() { }
-
-	// RVA: 0x24B3A88 Offset: 0x24B3A88 VA: 0x24B3A88
-	private void OnEnable() { }
-
-	// RVA: 0x24B3BCC Offset: 0x24B3BCC VA: 0x24B3BCC
-	private void OnDisable() { }
-
-	// RVA: 0x24B3C58 Offset: 0x24B3C58 VA: 0x24B3C58
-	private void Start() { }
-
-	// RVA: 0x24AE8EC Offset: 0x24AE8EC VA: 0x24AE8EC

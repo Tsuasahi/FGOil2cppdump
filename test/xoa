@@ -1,20 +1,446 @@
+	public int sellRarePri; // 0x4C
+
+	// Methods
+
+	// RVA: 0x16602F0 Offset: 0x16602F0 VA: 0x16602F0
 	public void .ctor() { }
 
-	// RVA: 0x1828964 Offset: 0x1828964 VA: 0x1828964 Slot: 5
+	// RVA: 0x1660340 Offset: 0x1660340 VA: 0x1660340 Slot: 5
+	protected sealed override int CreatePrimaryKey() { }
+
+	// RVA: 0x16603B0 Offset: 0x16603B0 VA: 0x16603B0
+	public string GetName() { }
+
+	// RVA: 0x166041C Offset: 0x166041C VA: 0x166041C
+	public void GetSkillInfo(out int[] idList, out string[] titleList, out string[] explanationList) { }
+}
+
+// Namespace: 
+public class CommandCodeMaster : DataMasterBase<CommandCodeMaster, CommandCodeEntity, int> // TypeDefIndex: 6762
+{
+	// Methods
+
+	// RVA: 0x1660C30 Offset: 0x1660C30 VA: 0x1660C30
+	public void .ctor() { }
+
+	// RVA: 0x1660C84 Offset: 0x1660C84 VA: 0x1660C84
+	public int[] GetCollectionList() { }
+}
+
+// Namespace: 
+public class CommandCodeSkillEntity : DataEntityBase<string> // TypeDefIndex: 6763
+{
+	// Fields
+	public int commandCodeId; // 0x10
+	public int num; // 0x14
+	public int priority; // 0x18
+	public int skillId; // 0x1C
+	public long startedAt; // 0x20
+	public long endedAt; // 0x28
+
+	// Methods
+
+	// RVA: 0x1661150 Offset: 0x1661150 VA: 0x1661150
+	public void .ctor() { }
+
+	// RVA: 0x16611A0 Offset: 0x16611A0 VA: 0x16611A0 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x16611B4 Offset: 0x16611B4 VA: 0x16611B4
+	public static string CreatePK(int commandCodeId, int num, int priority) { }
+
+	// RVA: 0x16611C8 Offset: 0x16611C8 VA: 0x16611C8
+	public bool isUse(long userId, int beforeClearQuestId = -1) { }
+
+	// RVA: 0x1661480 Offset: 0x1661480 VA: 0x1661480
+	public void getEffectExplanation(out string title, out string explanation, int skillLv) { }
+
+	// RVA: 0x16615BC Offset: 0x16615BC VA: 0x16615BC
+	public string getSkillName() { }
+}
+
+// Namespace: 
+public class CommandCodeSkillMaster : DataMasterBase<CommandCodeSkillMaster, CommandCodeSkillEntity, string> // TypeDefIndex: 6764
+{
+	// Fields
+	protected Dictionary<string, CommandCodeSkillEntity[]> listCache; // 0x48
+	[CompilerGeneratedAttribute] // RVA: 0xC556AC Offset: 0xC556AC VA: 0xC556AC
+	private static Comparison<CommandCodeSkillEntity> <>f__am$cache0; // 0x0
+
+	// Methods
+
+	// RVA: 0x1661AFC Offset: 0x1661AFC VA: 0x1661AFC
+	public void .ctor() { }
+
+	// RVA: 0x1661B78 Offset: 0x1661B78 VA: 0x1661B78
+	public CommandCodeSkillEntity GetEntity(int commandCodeId, int num, int priority) { }
+
+	// RVA: 0x1661BFC Offset: 0x1661BFC VA: 0x1661BFC
+	public bool TryGetEntity(out CommandCodeSkillEntity entity, int commandCodeId, int num, int priority) { }
+
+	// RVA: 0x1661C88 Offset: 0x1661C88 VA: 0x1661C88
+	protected string getPriorityKey(int commandCodeId, int num) { }
+
+	// RVA: 0x1661D30 Offset: 0x1661D30 VA: 0x1661D30 Slot: 6
+	public override bool preProcess() { }
+
+	// RVA: 0x166228C Offset: 0x166228C VA: 0x166228C
+	public CommandCodeSkillEntity getEntityFromId(int commandCodeId, int num, int priority) { }
+
+	// RVA: 0x166255C Offset: 0x166255C VA: 0x166255C
+	public CommandCodeSkillEntity[] getCommandCodeSkillList(int commandCodeId) { }
+
+	// RVA: 0x16626D8 Offset: 0x16626D8 VA: 0x16626D8
+	public CommandCodeSkillEntity[] getEntityListFromIdNum(int commandCodeId, int num) { }
+
+	// RVA: 0x166277C Offset: 0x166277C VA: 0x166277C
+	public CommandCodeSkillEntity getUseEntity(int commandCodeId, int num, long userId, int beforeClearQuestId = -1) { }
+
+	// RVA: 0x166280C Offset: 0x166280C VA: 0x166280C
+	public CommandCodeSkillEntity[] getUseEntityList(int commandCodeId, long userId, int beforeClearQuestId = -1) { }
+
+	// RVA: 0x1660544 Offset: 0x1660544 VA: 0x1660544
+	public void getSkillInfo(out int[] idList, out string[] titleList, out string[] explanationList, int commandCodeId, long userId, int beforeClearQuestId = -1) { }
+
+	// RVA: 0x166296C Offset: 0x166296C VA: 0x166296C
+	public CommandCodeSkillEntity[] getCommandCodeActiveSkillList(int commandCodeId) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCA0F8 Offset: 0xCCA0F8 VA: 0xCCA0F8
+	// RVA: 0x1662B50 Offset: 0x1662B50 VA: 0x1662B50
+	private static int <preProcess>m__0(CommandCodeSkillEntity a, CommandCodeSkillEntity b) { }
+}
+
+// Namespace: 
+public class CommandCodeSkillReleaseEntity : DataEntityBase<string> // TypeDefIndex: 6765
+{
+	// Fields
+	public int commandCodeId; // 0x10
+	public int num; // 0x14
+	public int priority; // 0x18
+	public int idx; // 0x1C
+	public int condType; // 0x20
+	public int condTargetId; // 0x24
+	public int condNum; // 0x28
+	public int condGroup; // 0x2C
+
+	// Methods
+
+	// RVA: 0x1662B90 Offset: 0x1662B90 VA: 0x1662B90
+	public void .ctor() { }
+
+	// RVA: 0x1662BE0 Offset: 0x1662BE0 VA: 0x1662BE0
+	public static string getCreatePrimarykey(int commandCodeId, int num, int priority, int idx) { }
+
+	// RVA: 0x1662ED8 Offset: 0x1662ED8 VA: 0x1662ED8 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x1662EEC Offset: 0x1662EEC VA: 0x1662EEC
+	public static string CreatePK(int commandCodeId, int num, int priority, int idx) { }
+
+	// RVA: 0x1662F04 Offset: 0x1662F04 VA: 0x1662F04
+	public bool isUse(int beforeClearQuestId) { }
+}
+
+// Namespace: 
+public class CommandCodeSkillReleaseMaster : DataMasterBase<CommandCodeSkillReleaseMaster, CommandCodeSkillReleaseEntity, string> // TypeDefIndex: 6766
+{
+	// Methods
+
+	// RVA: 0x1663014 Offset: 0x1663014 VA: 0x1663014
+	public void .ctor() { }
+
+	// RVA: 0x1663068 Offset: 0x1663068 VA: 0x1663068
+	public CommandCodeSkillReleaseEntity GetEntity(int commandCodeId, int num, int priority, int idx) { }
+
+	// RVA: 0x16630F4 Offset: 0x16630F4 VA: 0x16630F4
+	public bool TryGetEntity(out CommandCodeSkillReleaseEntity entity, int commandCodeId, int num, int priority, int idx) { }
+
+	// RVA: 0x16612D0 Offset: 0x16612D0 VA: 0x16612D0
+	public bool isUse(int commandCodeId, int num, int priority, int beforeClearQuestId) { }
+}
+
+// Namespace: 
+public class CommandSpellEntity : DataEntityBase<int> // TypeDefIndex: 6767
+{
+	// Fields
+	public int id; // 0x10
+	public int consume; // 0x14
+	public int type; // 0x18
+	public int motion; // 0x1C
+	public string name; // 0x20
+	public string detail; // 0x28
+	public int[] funcId; // 0x30
+	public string[] svals; // 0x38
+	public int priority; // 0x40
+	public Dictionary<string, object> script; // 0x48
+	[CompilerGeneratedAttribute] // RVA: 0xC556BC Offset: 0xC556BC VA: 0xC556BC
+	private static Converter<string, int> <>f__am$cache0; // 0x0
+
+	// Methods
+
+	// RVA: 0x1663730 Offset: 0x1663730 VA: 0x1663730
+	public void .ctor() { }
+
+	// RVA: 0x1663780 Offset: 0x1663780 VA: 0x1663780 Slot: 5
+	protected sealed override int CreatePrimaryKey() { }
+
+	// RVA: 0x1663788 Offset: 0x1663788 VA: 0x1663788
+	public string getName() { }
+
+	// RVA: 0x1663790 Offset: 0x1663790 VA: 0x1663790
+	public bool isUseBattle() { }
+
+	// RVA: 0x16637A4 Offset: 0x16637A4 VA: 0x16637A4
+	public int[][] getValues() { }
+
+	// RVA: 0x1663AD0 Offset: 0x1663AD0 VA: 0x1663AD0
+	public DataVals[] getDataValsList() { }
+
+	// RVA: 0x1663CDC Offset: 0x1663CDC VA: 0x1663CDC
+	public bool checkScript(string key, out int param) { }
+
+	// RVA: 0x1663E0C Offset: 0x1663E0C VA: 0x1663E0C
+	public bool checkUseTreasure(Follower.Type type) { }
+
+	// RVA: 0x1663E9C Offset: 0x1663E9C VA: 0x1663E9C
+	public string getVoiceAssetName() { }
+
+	// RVA: 0x1663F98 Offset: 0x1663F98 VA: 0x1663F98
+	public string getPlayVoiceNo() { }
+
+	// RVA: 0x1664094 Offset: 0x1664094 VA: 0x1664094
+	public bool isPlayVoiceWait() { }
+
+	// RVA: 0x1664100 Offset: 0x1664100 VA: 0x1664100
+	public bool IsVoiceVolume() { }
+
+	// RVA: 0x166416C Offset: 0x166416C VA: 0x166416C
+	public float getVoiceVolume() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCA108 Offset: 0xCCA108 VA: 0xCCA108
+	// RVA: 0x1664298 Offset: 0x1664298 VA: 0x1664298
+	private static int <getValues>m__0(string input) { }
+}
+
+// Namespace: 
+public class CommandSpellMaster : DataMasterBase<CommandSpellMaster, CommandSpellEntity, int> // TypeDefIndex: 6768
+{
+	// Methods
+
+	// RVA: 0x16650AC Offset: 0x16650AC VA: 0x16650AC
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class CommonConsumeEntity : DataEntityBase<string> // TypeDefIndex: 6769
+{
+	// Fields
+	public int id; // 0x10
+	public int priority; // 0x14
+	public int type; // 0x18
+	public int objectId; // 0x1C
+	public int num; // 0x20
+
+	// Properties
+	public CommonConsumeEntity.CommonConsumeType consumeType { get; }
+
+	// Methods
+
+	// RVA: 0xF2E48C Offset: 0xF2E48C VA: 0xF2E48C
+	public void .ctor() { }
+
+	// RVA: 0xF2DF40 Offset: 0xF2DF40 VA: 0xF2DF40
+	public CommonConsumeEntity.CommonConsumeType get_consumeType() { }
+
+	// RVA: 0xF2E4DC Offset: 0xF2E4DC VA: 0xF2E4DC Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0xF2E4EC Offset: 0xF2E4EC VA: 0xF2E4EC
+	public static string CreatePK(int id, int priority) { }
+}
+
+// Namespace: 
+public enum CommonConsumeEntity.CommonConsumeType // TypeDefIndex: 6770
+{
+	// Fields
+	public int value__; // 0x0
+	public const CommonConsumeEntity.CommonConsumeType ITEM = 1;
+}
+
+// Namespace: 
+public class CommonConsumeMaster : DataMasterBase<CommonConsumeMaster, CommonConsumeEntity, string> // TypeDefIndex: 6771
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xC556CC Offset: 0xC556CC VA: 0xC556CC
+	private static Comparison<CommonConsumeEntity> <>f__am$cache0; // 0x0
+
+	// Methods
+
+	// RVA: 0xF2E4FC Offset: 0xF2E4FC VA: 0xF2E4FC
+	public void .ctor() { }
+
+	// RVA: 0xF2E550 Offset: 0xF2E550 VA: 0xF2E550
+	public CommonConsumeEntity GetEntity(int id, int priority) { }
+
+	// RVA: 0xF2E5C4 Offset: 0xF2E5C4 VA: 0xF2E5C4
+	public bool TryGetEntity(out CommonConsumeEntity entity, int id, int priority) { }
+
+	// RVA: 0xF2DD28 Offset: 0xF2DD28 VA: 0xF2DD28
+	public CommonConsumeEntity[] GetSortedEntityList(int id) { }
+
+	// RVA: 0xF2E648 Offset: 0xF2E648 VA: 0xF2E648
+	public CommonConsumeEntity[] GetIdEntityList(int id) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCA118 Offset: 0xCCA118 VA: 0xCCA118
+	// RVA: 0xF2E7C0 Offset: 0xF2E7C0 VA: 0xF2E7C0
+	private static int <GetSortedEntityList>m__0(CommonConsumeEntity x, CommonConsumeEntity y) { }
+}
+
+// Namespace: 
+public class CommonReleaseEntity : DataEntityBase<string> // TypeDefIndex: 6772
+{
+	// Fields
+	public int id; // 0x10
+	public int priority; // 0x14
+	public int condGroup; // 0x18
+	public int condType; // 0x1C
+	public int condId; // 0x20
+	public int condNum; // 0x24
+
+	// Methods
+
+	// RVA: 0xF3CA3C Offset: 0xF3CA3C VA: 0xF3CA3C
+	public void .ctor() { }
+
+	// RVA: 0xF3CA98 Offset: 0xF3CA98 VA: 0xF3CA98 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0xF3CAA8 Offset: 0xF3CAA8 VA: 0xF3CAA8
+	public static string CreatePK(int id, int priority) { }
+}
+
+// Namespace: 
+public class CommonReleaseMaster : DataMasterBase<CommonReleaseMaster, CommonReleaseEntity, string> // TypeDefIndex: 6773
+{
+	// Methods
+
+	// RVA: 0xF3CF5C Offset: 0xF3CF5C VA: 0xF3CF5C
+	public void .ctor() { }
+
+	// RVA: 0xF3CFB0 Offset: 0xF3CFB0 VA: 0xF3CFB0
+	public CommonReleaseEntity GetEntity(int id, int priority) { }
+
+	// RVA: 0xF3D024 Offset: 0xF3D024 VA: 0xF3D024
+	public bool TryGetEntity(out CommonReleaseEntity entity, int id, int priority) { }
+
+	// RVA: 0xF3D0A8 Offset: 0xF3D0A8 VA: 0xF3D0A8
+	public CommonReleaseEntity[] getList(int id) { }
+
+	// RVA: 0xF3CBF8 Offset: 0xF3CBF8 VA: 0xF3CBF8
+	public bool IsOpen(int id, CommonReleaseCondOverwriter overwriter) { }
+
+	// RVA: 0xF3D218 Offset: 0xF3D218 VA: 0xF3D218
+	private bool IsOpen(CommonReleaseEntity entity, CommonReleaseCondOverwriter overwriter) { }
+
+	// RVA: 0xF3D724 Offset: 0xF3D724 VA: 0xF3D724
+	public bool IsAllOpen(int id) { }
+}
+
+// Namespace: 
+public class CommonRestrictionEntity : DataEntityBase<int> // TypeDefIndex: 6774
+{
+	// Fields
+	public int id; // 0x10
+	public int[] targetSvtIds; // 0x18
+	public string message; // 0x20
+
+	// Methods
+
+	// RVA: 0xF3D7B8 Offset: 0xF3D7B8 VA: 0xF3D7B8
+	public void .ctor() { }
+
+	// RVA: 0xF3D808 Offset: 0xF3D808 VA: 0xF3D808 Slot: 5
+	protected sealed override int CreatePrimaryKey() { }
+
+	// RVA: 0xF3D810 Offset: 0xF3D810 VA: 0xF3D810
+	public int getId() { }
+
+	// RVA: 0xF3D818 Offset: 0xF3D818 VA: 0xF3D818
+	public int[] getTargetSvtIds() { }
+
+	// RVA: 0xF3D820 Offset: 0xF3D820 VA: 0xF3D820
+	public string getMessage() { }
+
+	// RVA: 0xF3D828 Offset: 0xF3D828 VA: 0xF3D828
+	public bool IsIncludedSvt(int baseSvtId) { }
+}
+
+// Namespace: 
+public class CommonRestrictionMaster : DataMasterBase<CommonRestrictionMaster, CommonRestrictionEntity, int> // TypeDefIndex: 6775
+{
+	// Fields
+	private static Dictionary<int, List<int>> restrictionCache; // 0x0
+
+	// Methods
+
+	// RVA: 0xF3D894 Offset: 0xF3D894 VA: 0xF3D894
+	public void .ctor() { }
+
+	// RVA: 0xF3D8E8 Offset: 0xF3D8E8 VA: 0xF3D8E8
+	public static CommonRestrictionEntity GetRestrictionEntityFromId(int id) { }
+
+	// RVA: 0xF3D974 Offset: 0xF3D974 VA: 0xF3D974
+	public static string GetRestrictionMessageFromId(int id) { }
+
+	// RVA: 0xF3D9E4 Offset: 0xF3D9E4 VA: 0xF3D9E4
+	public static List<DataEntityBase> GetRestrictionEntityList() { }
+
+	// RVA: 0xF3DA5C Offset: 0xF3DA5C VA: 0xF3DA5C
+	public static void ClearRestrictionCacheList() { }
+
+	// RVA: 0xF3DAE0 Offset: 0xF3DAE0 VA: 0xF3DAE0
+	public static List<int> GetRestrictionIdList(int baseSvtId) { }
+
+	// RVA: 0xF3DD58 Offset: 0xF3DD58 VA: 0xF3DD58
+	public static int GetIncludedRestrictionId(List<int> restrictionList, int baseSvtId) { }
+
+	// RVA: 0xF3DE5C Offset: 0xF3DE5C VA: 0xF3DE5C
+	public static int GetIncludedRestrictionIds(int cachedBaseSvtId, int baseSvtId) { }
+
+	// RVA: 0xF3DF0C Offset: 0xF3DF0C VA: 0xF3DF0C
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class CompleteMissionEntity : DataEntityBase<int> // TypeDefIndex: 6776
+{
+	// Fields
+	public int masterMissionId; // 0x10
+	public int objectId; // 0x14
+	public int presentMessageId; // 0x18
+	public int giftId; // 0x1C
+	public int bgmId; // 0x20
+
+	// Methods
+
+	// RVA: 0x1634A30 Offset: 0x1634A30 VA: 0x1634A30
+	public void .ctor() { }
+
+	// RVA: 0x1634A80 Offset: 0x1634A80 VA: 0x1634A80 Slot: 5
 	protected sealed override int CreatePrimaryKey() { }
 }
 
 // Namespace: 
-public class CompleteMissionMaster : DataMasterBase<CompleteMissionMaster, CompleteMissionEntity, int> // TypeDefIndex: 6773
+public class CompleteMissionMaster : DataMasterBase<CompleteMissionMaster, CompleteMissionEntity, int> // TypeDefIndex: 6777
 {
 	// Methods
 
-	// RVA: 0x1831A2C Offset: 0x1831A2C VA: 0x1831A2C
+	// RVA: 0x1639708 Offset: 0x1639708 VA: 0x1639708
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class ConstantEntity : DataEntityBase<string> // TypeDefIndex: 6774
+public class ConstantEntity : DataEntityBase<string> // TypeDefIndex: 6778
 {
 	// Fields
 	public string name; // 0x10
@@ -22,15 +448,15 @@ public class ConstantEntity : DataEntityBase<string> // TypeDefIndex: 6774
 
 	// Methods
 
-	// RVA: 0x1970934 Offset: 0x1970934 VA: 0x1970934
+	// RVA: 0x145DEC8 Offset: 0x145DEC8 VA: 0x145DEC8
 	public void .ctor() { }
 
-	// RVA: 0x1970984 Offset: 0x1970984 VA: 0x1970984 Slot: 5
+	// RVA: 0x145DF18 Offset: 0x145DF18 VA: 0x145DF18 Slot: 5
 	protected sealed override string CreatePrimaryKey() { }
 }
 
 // Namespace: 
-public class ConstantLongEntity : DataEntityBase<string> // TypeDefIndex: 6775
+public class ConstantLongEntity : DataEntityBase<string> // TypeDefIndex: 6779
 {
 	// Fields
 	public string name; // 0x10
@@ -38,75 +464,75 @@ public class ConstantLongEntity : DataEntityBase<string> // TypeDefIndex: 6775
 
 	// Methods
 
-	// RVA: 0x197098C Offset: 0x197098C VA: 0x197098C
+	// RVA: 0x145DF20 Offset: 0x145DF20 VA: 0x145DF20
 	public void .ctor() { }
 
-	// RVA: 0x19709DC Offset: 0x19709DC VA: 0x19709DC Slot: 5
+	// RVA: 0x145DF70 Offset: 0x145DF70 VA: 0x145DF70 Slot: 5
 	protected sealed override string CreatePrimaryKey() { }
 }
 
 // Namespace: 
-public class ConstantLongMaster : DataMasterBase<ConstantLongMaster, ConstantLongEntity, string> // TypeDefIndex: 6776
+public class ConstantLongMaster : DataMasterBase<ConstantLongMaster, ConstantLongEntity, string> // TypeDefIndex: 6780
 {
 	// Methods
 
-	// RVA: 0x19709E4 Offset: 0x19709E4 VA: 0x19709E4
+	// RVA: 0x145DF78 Offset: 0x145DF78 VA: 0x145DF78
 	public void .ctor() { }
 
-	// RVA: 0x1970A38 Offset: 0x1970A38 VA: 0x1970A38
+	// RVA: 0x145DFCC Offset: 0x145DFCC VA: 0x145DFCC
 	public static long getValue(string name) { }
 
-	// RVA: 0x1970C98 Offset: 0x1970C98 VA: 0x1970C98
+	// RVA: 0x145E22C Offset: 0x145E22C VA: 0x145E22C
 	public static float getRateValue(string name) { }
 
-	// RVA: 0x1970CBC Offset: 0x1970CBC VA: 0x1970CBC
+	// RVA: 0x145E250 Offset: 0x145E250 VA: 0x145E250
 	public long GetValue(string name) { }
 
-	// RVA: 0x1970D08 Offset: 0x1970D08 VA: 0x1970D08
+	// RVA: 0x145E29C Offset: 0x145E29C VA: 0x145E29C
 	public long GetValue(string name, long def) { }
 
-	// RVA: 0x1970AF4 Offset: 0x1970AF4 VA: 0x1970AF4
+	// RVA: 0x145E088 Offset: 0x145E088 VA: 0x145E088
 	public bool TryGetEntityFromId(out ConstantLongEntity result, string key) { }
 }
 
 // Namespace: 
-public class ConstantMaster : DataMasterBase<ConstantMaster, ConstantEntity, string> // TypeDefIndex: 6777
+public class ConstantMaster : DataMasterBase<ConstantMaster, ConstantEntity, string> // TypeDefIndex: 6781
 {
 	// Methods
 
-	// RVA: 0x1970D54 Offset: 0x1970D54 VA: 0x1970D54
+	// RVA: 0x145E2E8 Offset: 0x145E2E8 VA: 0x145E2E8
 	public void .ctor() { }
 
-	// RVA: 0x1970DA8 Offset: 0x1970DA8 VA: 0x1970DA8
+	// RVA: 0x145E33C Offset: 0x145E33C VA: 0x145E33C
 	public static int getValue(string name) { }
 
-	// RVA: 0x1971008 Offset: 0x1971008 VA: 0x1971008
+	// RVA: 0x145E59C Offset: 0x145E59C VA: 0x145E59C
 	public static float getRateValue(string name) { }
 
-	// RVA: 0x197102C Offset: 0x197102C VA: 0x197102C
+	// RVA: 0x145E5C0 Offset: 0x145E5C0 VA: 0x145E5C0
 	public int GetValue(string name) { }
 
-	// RVA: 0x1971078 Offset: 0x1971078 VA: 0x1971078
+	// RVA: 0x145E60C Offset: 0x145E60C VA: 0x145E60C
 	public int GetValue(string name, int def) { }
 
-	// RVA: 0x19710C4 Offset: 0x19710C4 VA: 0x19710C4
+	// RVA: 0x145E658 Offset: 0x145E658 VA: 0x145E658
 	public float GetRateValue(string name, float def) { }
 
-	// RVA: 0x1970E64 Offset: 0x1970E64 VA: 0x1970E64
+	// RVA: 0x145E3F8 Offset: 0x145E3F8 VA: 0x145E3F8
 	public bool TryGetEntityFromId(out ConstantEntity result, string key) { }
 
-	// RVA: 0x1971130 Offset: 0x1971130 VA: 0x1971130
+	// RVA: 0x145E6C4 Offset: 0x145E6C4 VA: 0x145E6C4
 	public static bool IsFlag20211217() { }
 
-	// RVA: 0x1971184 Offset: 0x1971184 VA: 0x1971184
+	// RVA: 0x145E718 Offset: 0x145E718 VA: 0x145E718
 	public static bool IsFLAG20220101() { }
 
-	// RVA: 0x19711D8 Offset: 0x19711D8 VA: 0x19711D8
+	// RVA: 0x145E76C Offset: 0x145E76C VA: 0x145E76C
 	public static bool IsFLAG20220119() { }
 }
 
 // Namespace: 
-public class ConstantStrEntity : DataEntityBase<string> // TypeDefIndex: 6778
+public class ConstantStrEntity : DataEntityBase<string> // TypeDefIndex: 6782
 {
 	// Fields
 	public string name; // 0x10
@@ -114,85 +540,85 @@ public class ConstantStrEntity : DataEntityBase<string> // TypeDefIndex: 6778
 
 	// Methods
 
-	// RVA: 0x197122C Offset: 0x197122C VA: 0x197122C
+	// RVA: 0x145E7C0 Offset: 0x145E7C0 VA: 0x145E7C0
 	public void .ctor() { }
 
-	// RVA: 0x197127C Offset: 0x197127C VA: 0x197127C Slot: 5
+	// RVA: 0x145E810 Offset: 0x145E810 VA: 0x145E810 Slot: 5
 	protected sealed override string CreatePrimaryKey() { }
 }
 
 // Namespace: 
-public class ConstantStrMaster : DataMasterBase<ConstantStrMaster, ConstantStrEntity, string> // TypeDefIndex: 6779
+public class ConstantStrMaster : DataMasterBase<ConstantStrMaster, ConstantStrEntity, string> // TypeDefIndex: 6783
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCC15C4 Offset: 0xCC15C4 VA: 0xCC15C4
+	[CompilerGeneratedAttribute] // RVA: 0xC556DC Offset: 0xC556DC VA: 0xC556DC
 	private static Func<string, int> <>f__mg$cache0; // 0x0
-	[CompilerGeneratedAttribute] // RVA: 0xCC15D4 Offset: 0xCC15D4 VA: 0xCC15D4
+	[CompilerGeneratedAttribute] // RVA: 0xC556EC Offset: 0xC556EC VA: 0xC556EC
 	private static Func<string, float> <>f__mg$cache1; // 0x8
 
 	// Methods
 
-	// RVA: 0x1971284 Offset: 0x1971284 VA: 0x1971284
+	// RVA: 0x145E818 Offset: 0x145E818 VA: 0x145E818
 	public void .ctor() { }
 
-	// RVA: 0x19712D8 Offset: 0x19712D8 VA: 0x19712D8
+	// RVA: 0x145E86C Offset: 0x145E86C VA: 0x145E86C
 	public static string getValue(string name) { }
 
-	// RVA: 0x1971378 Offset: 0x1971378 VA: 0x1971378
+	// RVA: 0x145E90C Offset: 0x145E90C VA: 0x145E90C
 	public static float GetValueFloat(string name, float defVal = 0) { }
 
-	// RVA: 0x1971410 Offset: 0x1971410 VA: 0x1971410
+	// RVA: 0x145E9A4 Offset: 0x145E9A4 VA: 0x145E9A4
 	public float GetFloat(string name, float defVal = 0) { }
 
-	// RVA: 0x19714D8 Offset: 0x19714D8 VA: 0x19714D8
+	// RVA: 0x145EA6C Offset: 0x145EA6C VA: 0x145EA6C
 	public string GetValue(string name) { }
 
-	// RVA: 0x1971544 Offset: 0x1971544 VA: 0x1971544
+	// RVA: 0x145EAD8 Offset: 0x145EAD8 VA: 0x145EAD8
 	public int[] GetValueArray(string name) { }
 
-	// RVA: 0x19716C8 Offset: 0x19716C8 VA: 0x19716C8
+	// RVA: 0x145EC5C Offset: 0x145EC5C VA: 0x145EC5C
 	public float[] GetValueFloatArray(string name) { }
 
-	// RVA: 0x1971848 Offset: 0x1971848 VA: 0x1971848
+	// RVA: 0x145EDDC Offset: 0x145EDDC VA: 0x145EDDC
 	public string[] GetValueStringArray(string name) { }
 
-	// RVA: 0x197191C Offset: 0x197191C VA: 0x197191C
+	// RVA: 0x145EEB0 Offset: 0x145EEB0 VA: 0x145EEB0
 	public Vector3 GetValueVector3(string name) { }
 
-	// RVA: 0x1971A40 Offset: 0x1971A40 VA: 0x1971A40
+	// RVA: 0x145EFD4 Offset: 0x145EFD4 VA: 0x145EFD4
 	public string[][] GetVoiceList(ConstantStrEntity ent) { }
 
-	// RVA: 0x1971C28 Offset: 0x1971C28 VA: 0x1971C28
+	// RVA: 0x145F1BC Offset: 0x145F1BC VA: 0x145F1BC
 	public string[][] GetCombineWelcomeVoiceList() { }
 
-	// RVA: 0x1971C8C Offset: 0x1971C8C VA: 0x1971C8C
+	// RVA: 0x145F220 Offset: 0x145F220 VA: 0x145F220
 	public string[][] GetCombineReturnVoiceList() { }
 
-	// RVA: 0x1971CF0 Offset: 0x1971CF0 VA: 0x1971CF0
+	// RVA: 0x145F284 Offset: 0x145F284 VA: 0x145F284
 	public string GetRandomVoice(string key) { }
 
-	// RVA: 0x1971DF4 Offset: 0x1971DF4 VA: 0x1971DF4
+	// RVA: 0x145F388 Offset: 0x145F388 VA: 0x145F388
 	public bool ExistValueArray(string name, int checkVal) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAED10 Offset: 0xCAED10 VA: 0xCAED10
-private sealed class ConstantStrMaster.<ExistValueArray>c__AnonStorey0 // TypeDefIndex: 6780
+[CompilerGeneratedAttribute] // RVA: 0xC42C24 Offset: 0xC42C24 VA: 0xC42C24
+private sealed class ConstantStrMaster.<ExistValueArray>c__AnonStorey0 // TypeDefIndex: 6784
 {
 	// Fields
 	internal int checkVal; // 0x10
 
 	// Methods
 
-	// RVA: 0x1971EDC Offset: 0x1971EDC VA: 0x1971EDC
+	// RVA: 0x145F470 Offset: 0x145F470 VA: 0x145F470
 	public void .ctor() { }
 
-	// RVA: 0x1971EE4 Offset: 0x1971EE4 VA: 0x1971EE4
+	// RVA: 0x145F478 Offset: 0x145F478 VA: 0x145F478
 	internal bool <>m__0(int val) { }
 }
 
 // Namespace: 
-public class CvEntity : DataEntityBase<int> // TypeDefIndex: 6781
+public class CvEntity : DataEntityBase<int> // TypeDefIndex: 6785
 {
 	// Fields
 	public int id; // 0x10
@@ -200,24 +626,24 @@ public class CvEntity : DataEntityBase<int> // TypeDefIndex: 6781
 
 	// Methods
 
-	// RVA: 0x19815D4 Offset: 0x19815D4 VA: 0x19815D4
+	// RVA: 0x146EB68 Offset: 0x146EB68 VA: 0x146EB68
 	public void .ctor() { }
 
-	// RVA: 0x1981624 Offset: 0x1981624 VA: 0x1981624 Slot: 5
+	// RVA: 0x146EBB8 Offset: 0x146EBB8 VA: 0x146EBB8 Slot: 5
 	protected sealed override int CreatePrimaryKey() { }
 }
 
 // Namespace: 
-public class CvMaster : DataMasterBase<CvMaster, CvEntity, int> // TypeDefIndex: 6782
+public class CvMaster : DataMasterBase<CvMaster, CvEntity, int> // TypeDefIndex: 6786
 {
 	// Methods
 
-	// RVA: 0x198162C Offset: 0x198162C VA: 0x198162C
+	// RVA: 0x146EBC0 Offset: 0x146EBC0 VA: 0x146EBC0
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class DialogMessageEntity : DataEntityBase<int> // TypeDefIndex: 6783
+public class DialogMessageEntity : DataEntityBase<int> // TypeDefIndex: 6787
 {
 	// Fields
 	public int id; // 0x10
@@ -230,92 +656,92 @@ public class DialogMessageEntity : DataEntityBase<int> // TypeDefIndex: 6783
 	public int frequencyType; // 0x40
 	public int openedAt; // 0x44
 	public int closedAt; // 0x48
-	[CompilerGeneratedAttribute] // RVA: 0xCC15E4 Offset: 0xCC15E4 VA: 0xCC15E4
+	[CompilerGeneratedAttribute] // RVA: 0xC556FC Offset: 0xC556FC VA: 0xC556FC
 	private static Converter<string, int> <>f__am$cache0; // 0x0
 
 	// Methods
 
-	// RVA: 0x162E0CC Offset: 0x162E0CC VA: 0x162E0CC
+	// RVA: 0x10CEE60 Offset: 0x10CEE60 VA: 0x10CEE60
 	public void .ctor() { }
 
-	// RVA: 0x162E11C Offset: 0x162E11C VA: 0x162E11C
+	// RVA: 0x10CEEB0 Offset: 0x10CEEB0 VA: 0x10CEEB0
 	private int[][] getTargets() { }
 
-	// RVA: 0x162E3DC Offset: 0x162E3DC VA: 0x162E3DC Slot: 5
+	// RVA: 0x10CF170 Offset: 0x10CF170 VA: 0x10CF170 Slot: 5
 	protected sealed override int CreatePrimaryKey() { }
 
-	// RVA: 0x162E3E4 Offset: 0x162E3E4 VA: 0x162E3E4
+	// RVA: 0x10CF178 Offset: 0x10CF178 VA: 0x10CF178
 	public DialogMessageMaster.OpenType GetOpenType() { }
 
-	// RVA: 0x162E3EC Offset: 0x162E3EC VA: 0x162E3EC
+	// RVA: 0x10CF180 Offset: 0x10CF180 VA: 0x10CF180
 	public bool isOpenTime(long now = 0) { }
 
-	// RVA: 0x162E488 Offset: 0x162E488 VA: 0x162E488
+	// RVA: 0x10CF21C Offset: 0x10CF21C VA: 0x10CF21C
 	public bool isOpenCondition(int ex1 = 0, int ex2 = 0, int ex3 = 0, int ex4 = 0) { }
 
-	// RVA: 0x162E4B4 Offset: 0x162E4B4 VA: 0x162E4B4
+	// RVA: 0x10CF248 Offset: 0x10CF248 VA: 0x10CF248
 	public void Open(Action callback) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD377EC Offset: 0xD377EC VA: 0xD377EC
-	// RVA: 0x162E678 Offset: 0x162E678 VA: 0x162E678
+	[CompilerGeneratedAttribute] // RVA: 0xCCA128 Offset: 0xCCA128 VA: 0xCCA128
+	// RVA: 0x10CF40C Offset: 0x10CF40C VA: 0x10CF40C
 	private static int <getTargets>m__0(string input) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAED20 Offset: 0xCAED20 VA: 0xCAED20
-private sealed class DialogMessageEntity.<Open>c__AnonStorey0 // TypeDefIndex: 6784
+[CompilerGeneratedAttribute] // RVA: 0xC42C34 Offset: 0xC42C34 VA: 0xC42C34
+private sealed class DialogMessageEntity.<Open>c__AnonStorey0 // TypeDefIndex: 6788
 {
 	// Fields
 	internal Action callback; // 0x10
 
 	// Methods
 
-	// RVA: 0x162E670 Offset: 0x162E670 VA: 0x162E670
+	// RVA: 0x10CF404 Offset: 0x10CF404 VA: 0x10CF404
 	public void .ctor() { }
 
-	// RVA: 0x162E6AC Offset: 0x162E6AC VA: 0x162E6AC
+	// RVA: 0x10CF440 Offset: 0x10CF440 VA: 0x10CF440
 	internal void <>m__0() { }
 
-	// RVA: 0x162E6DC Offset: 0x162E6DC VA: 0x162E6DC
+	// RVA: 0x10CF470 Offset: 0x10CF470 VA: 0x10CF470
 	internal void <>m__1() { }
 }
 
 // Namespace: 
-public class DialogMessageMaster : DataMasterBase<DialogMessageMaster, DialogMessageEntity, int> // TypeDefIndex: 6785
+public class DialogMessageMaster : DataMasterBase<DialogMessageMaster, DialogMessageEntity, int> // TypeDefIndex: 6789
 {
 	// Fields
 	private static readonly string SAVE_KEY; // 0x0
 	private List<int> seenList; // 0x48
-	[CompilerGeneratedAttribute] // RVA: 0xCC15F4 Offset: 0xCC15F4 VA: 0xCC15F4
+	[CompilerGeneratedAttribute] // RVA: 0xC5570C Offset: 0xC5570C VA: 0xC5570C
 	private static Comparison<DialogMessageEntity> <>f__am$cache0; // 0x8
 
 	// Methods
 
-	// RVA: 0x162E70C Offset: 0x162E70C VA: 0x162E70C
+	// RVA: 0x10CF4A0 Offset: 0x10CF4A0 VA: 0x10CF4A0
 	public void .ctor() { }
 
-	// RVA: 0x162E760 Offset: 0x162E760 VA: 0x162E760
+	// RVA: 0x10CF4F4 Offset: 0x10CF4F4 VA: 0x10CF4F4
 	public void ShowAvailables(DialogMessageMaster.OpenType opType, Action callback, int ex1, int ex2, int ex3, int ex4) { }
 
-	// RVA: 0x162EB98 Offset: 0x162EB98 VA: 0x162EB98
+	// RVA: 0x10CF92C Offset: 0x10CF92C VA: 0x10CF92C
 	private void showChain(DialogMessageEntity[] entitys, int idx, Action callBack) { }
 
-	// RVA: 0x162ED78 Offset: 0x162ED78 VA: 0x162ED78
+	// RVA: 0x10CFB0C Offset: 0x10CFB0C VA: 0x10CFB0C
 	private void saveAsSeen(DialogMessageEntity entity) { }
 
-	// RVA: 0x162EA38 Offset: 0x162EA38 VA: 0x162EA38
+	// RVA: 0x10CF7CC Offset: 0x10CF7CC VA: 0x10CF7CC
 	private bool isSavedAsSeen(DialogMessageEntity entity) { }
 
-	// RVA: 0x162EF04 Offset: 0x162EF04 VA: 0x162EF04
+	// RVA: 0x10CFC98 Offset: 0x10CFC98 VA: 0x10CFC98
 	private static void .cctor() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD377FC Offset: 0xD377FC VA: 0xD377FC
-	// RVA: 0x162EF60 Offset: 0x162EF60 VA: 0x162EF60
+	[CompilerGeneratedAttribute] // RVA: 0xCCA138 Offset: 0xCCA138 VA: 0xCCA138
+	// RVA: 0x10CFCF4 Offset: 0x10CFCF4 VA: 0x10CFCF4
 	private static int <ShowAvailables>m__0(DialogMessageEntity a, DialogMessageEntity b) { }
 }
 
 // Namespace: 
-public enum DialogMessageMaster.OpenType // TypeDefIndex: 6786
+public enum DialogMessageMaster.OpenType // TypeDefIndex: 6790
 {
 	// Fields
 	public int value__; // 0x0
@@ -323,8 +749,8 @@ public enum DialogMessageMaster.OpenType // TypeDefIndex: 6786
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAED30 Offset: 0xCAED30 VA: 0xCAED30
-private sealed class DialogMessageMaster.<showChain>c__AnonStorey0 // TypeDefIndex: 6787
+[CompilerGeneratedAttribute] // RVA: 0xC42C44 Offset: 0xC42C44 VA: 0xC42C44
+private sealed class DialogMessageMaster.<showChain>c__AnonStorey0 // TypeDefIndex: 6791
 {
 	// Fields
 	internal DialogMessageEntity[] entitys; // 0x10
@@ -334,15 +760,15 @@ private sealed class DialogMessageMaster.<showChain>c__AnonStorey0 // TypeDefInd
 
 	// Methods
 
-	// RVA: 0x162ED70 Offset: 0x162ED70 VA: 0x162ED70
+	// RVA: 0x10CFB04 Offset: 0x10CFB04 VA: 0x10CFB04
 	public void .ctor() { }
 
-	// RVA: 0x162EFA4 Offset: 0x162EFA4 VA: 0x162EFA4
+	// RVA: 0x10CFD38 Offset: 0x10CFD38 VA: 0x10CFD38
 	internal void <>m__0() { }
 }
 
 // Namespace: 
-public class EffectEntity : DataEntityBase<int> // TypeDefIndex: 6788
+public class EffectEntity : DataEntityBase<int> // TypeDefIndex: 6792
 {
 	// Fields
 	public int id; // 0x10
@@ -356,30 +782,30 @@ public class EffectEntity : DataEntityBase<int> // TypeDefIndex: 6788
 
 	// Methods
 
-	// RVA: 0x1CC8E14 Offset: 0x1CC8E14 VA: 0x1CC8E14
+	// RVA: 0x16F4DFC Offset: 0x16F4DFC VA: 0x16F4DFC
 	public void .ctor() { }
 
-	// RVA: 0x1CC8E64 Offset: 0x1CC8E64 VA: 0x1CC8E64 Slot: 5
+	// RVA: 0x16F4E4C Offset: 0x16F4E4C VA: 0x16F4E4C Slot: 5
 	protected sealed override int CreatePrimaryKey() { }
 
-	// RVA: 0x1CC8E6C Offset: 0x1CC8E6C VA: 0x1CC8E6C
+	// RVA: 0x16F4E54 Offset: 0x16F4E54 VA: 0x16F4E54
 	public bool isSe() { }
 
-	// RVA: 0x1CC8E94 Offset: 0x1CC8E94 VA: 0x1CC8E94
+	// RVA: 0x16F4E7C Offset: 0x16F4E7C VA: 0x16F4E7C
 	public string getNodeName() { }
 }
 
 // Namespace: 
-public class EffectMaster : DataMasterBase<EffectMaster, EffectEntity, int> // TypeDefIndex: 6789
+public class EffectMaster : DataMasterBase<EffectMaster, EffectEntity, int> // TypeDefIndex: 6793
 {
 	// Methods
 
-	// RVA: 0x1CC8E9C Offset: 0x1CC8E9C VA: 0x1CC8E9C
+	// RVA: 0x16F4E84 Offset: 0x16F4E84 VA: 0x16F4E84
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class EnemyMstBattleEntity : DataEntityBase<int> // TypeDefIndex: 6790
+public class EnemyMstBattleEntity : DataEntityBase<int> // TypeDefIndex: 6794
 {
 	// Fields
 	public int id; // 0x10
@@ -393,27 +819,27 @@ public class EnemyMstBattleEntity : DataEntityBase<int> // TypeDefIndex: 6790
 
 	// Methods
 
-	// RVA: 0x1CD19E4 Offset: 0x1CD19E4 VA: 0x1CD19E4
+	// RVA: 0x16FDD98 Offset: 0x16FDD98 VA: 0x16FDD98
 	public void .ctor() { }
 
-	// RVA: 0x1CD1A34 Offset: 0x1CD1A34 VA: 0x1CD1A34 Slot: 5
+	// RVA: 0x16FDDE8 Offset: 0x16FDDE8 VA: 0x16FDDE8 Slot: 5
 	protected sealed override int CreatePrimaryKey() { }
 
-	// RVA: 0x1CD1A3C Offset: 0x1CD1A3C VA: 0x1CD1A3C
+	// RVA: 0x16FDDF0 Offset: 0x16FDDF0 VA: 0x16FDDF0
 	public int GetCommandSpellCntFromCutInId(int commandSpellCnt) { }
 }
 
 // Namespace: 
-public class EnemyMstBattleMaster : DataMasterBase<EnemyMstBattleMaster, EnemyMstBattleEntity, int> // TypeDefIndex: 6791
+public class EnemyMstBattleMaster : DataMasterBase<EnemyMstBattleMaster, EnemyMstBattleEntity, int> // TypeDefIndex: 6795
 {
 	// Methods
 
-	// RVA: 0x1CD1BC8 Offset: 0x1CD1BC8 VA: 0x1CD1BC8
+	// RVA: 0x16FDF7C Offset: 0x16FDF7C VA: 0x16FDF7C
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class EnemyMstEntity : DataEntityBase<int> // TypeDefIndex: 6792
+public class EnemyMstEntity : DataEntityBase<int> // TypeDefIndex: 6796
 {
 	// Fields
 	public int id; // 0x10
@@ -421,24 +847,24 @@ public class EnemyMstEntity : DataEntityBase<int> // TypeDefIndex: 6792
 
 	// Methods
 
-	// RVA: 0x1CD1C1C Offset: 0x1CD1C1C VA: 0x1CD1C1C
+	// RVA: 0x16FDFD0 Offset: 0x16FDFD0 VA: 0x16FDFD0
 	public void .ctor() { }
 
-	// RVA: 0x1CD1C6C Offset: 0x1CD1C6C VA: 0x1CD1C6C Slot: 5
+	// RVA: 0x16FE020 Offset: 0x16FE020 VA: 0x16FE020 Slot: 5
 	protected sealed override int CreatePrimaryKey() { }
 }
 
 // Namespace: 
-public class EnemyMstMaster : DataMasterBase<EnemyMstMaster, EnemyMstEntity, int> // TypeDefIndex: 6793
+public class EnemyMstMaster : DataMasterBase<EnemyMstMaster, EnemyMstEntity, int> // TypeDefIndex: 6797
 {
 	// Methods
 
-	// RVA: 0x1CD1C74 Offset: 0x1CD1C74 VA: 0x1CD1C74
+	// RVA: 0x16FE028 Offset: 0x16FE028 VA: 0x16FE028
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class EquipEntity : DataEntityBase<int> // TypeDefIndex: 6794
+public class EquipEntity : DataEntityBase<int> // TypeDefIndex: 6798
 {
 	// Fields
 	public ObscuredInt id; // 0x10
@@ -454,15 +880,15 @@ public class EquipEntity : DataEntityBase<int> // TypeDefIndex: 6794
 
 	// Methods
 
-	// RVA: 0x1CD2590 Offset: 0x1CD2590 VA: 0x1CD2590
+	// RVA: 0x16FE944 Offset: 0x16FE944 VA: 0x16FE944
 	public void .ctor() { }
 
-	// RVA: 0x1CD25E0 Offset: 0x1CD25E0 VA: 0x1CD25E0 Slot: 5
+	// RVA: 0x16FE994 Offset: 0x16FE994 VA: 0x16FE994 Slot: 5
 	protected sealed override int CreatePrimaryKey() { }
 }
 
 // Namespace: 
-public class EquipExpEntity : DataEntityBase<string> // TypeDefIndex: 6795
+public class EquipExpEntity : DataEntityBase<string> // TypeDefIndex: 6799
 {
 	// Fields
 	public int equipId; // 0x10
@@ -474,39 +900,39 @@ public class EquipExpEntity : DataEntityBase<string> // TypeDefIndex: 6795
 
 	// Methods
 
-	// RVA: 0x1CD2650 Offset: 0x1CD2650 VA: 0x1CD2650
+	// RVA: 0x16FEA04 Offset: 0x16FEA04 VA: 0x16FEA04
 	public void .ctor() { }
 
-	// RVA: 0x1CD26A0 Offset: 0x1CD26A0 VA: 0x1CD26A0 Slot: 5
+	// RVA: 0x16FEA54 Offset: 0x16FEA54 VA: 0x16FEA54 Slot: 5
 	protected sealed override string CreatePrimaryKey() { }
 
-	// RVA: 0x1CD26B0 Offset: 0x1CD26B0 VA: 0x1CD26B0
+	// RVA: 0x16FEA64 Offset: 0x16FEA64 VA: 0x16FEA64
 	public static string CreatePK(int equipId, int lv) { }
 }
 
 // Namespace: 
-public class EquipExpMaster : DataMasterBase<EquipExpMaster, EquipExpEntity, string> // TypeDefIndex: 6796
+public class EquipExpMaster : DataMasterBase<EquipExpMaster, EquipExpEntity, string> // TypeDefIndex: 6800
 {
 	// Methods
 
-	// RVA: 0x1CD26C0 Offset: 0x1CD26C0 VA: 0x1CD26C0
+	// RVA: 0x16FEA74 Offset: 0x16FEA74 VA: 0x16FEA74
 	public void .ctor() { }
 
-	// RVA: 0x1CD2714 Offset: 0x1CD2714 VA: 0x1CD2714
+	// RVA: 0x16FEAC8 Offset: 0x16FEAC8 VA: 0x16FEAC8
 	public EquipExpEntity GetEntity(int equipId, int lv) { }
 
-	// RVA: 0x1CD2788 Offset: 0x1CD2788 VA: 0x1CD2788
+	// RVA: 0x16FEB3C Offset: 0x16FEB3C VA: 0x16FEB3C
 	public bool TryGetEntity(out EquipExpEntity entity, int equipId, int lv) { }
 
-	// RVA: 0x1CD280C Offset: 0x1CD280C VA: 0x1CD280C
+	// RVA: 0x16FEBC0 Offset: 0x16FEBC0 VA: 0x16FEBC0
 	public int getLevelMax(int id) { }
 
-	// RVA: 0x1CD2930 Offset: 0x1CD2930 VA: 0x1CD2930
+	// RVA: 0x16FECE4 Offset: 0x16FECE4 VA: 0x16FECE4
 	public int getLevel(int equipId, int exp, int start_lv) { }
 }
 
 // Namespace: 
-public class EquipImageEntity : DataEntityBase<int> // TypeDefIndex: 6797
+public class EquipImageEntity : DataEntityBase<int> // TypeDefIndex: 6801
 {
 	// Fields
 	public int id; // 0x10
@@ -517,36 +943,36 @@ public class EquipImageEntity : DataEntityBase<int> // TypeDefIndex: 6797
 
 	// Methods
 
-	// RVA: 0x1CDDF6C Offset: 0x1CDDF6C VA: 0x1CDDF6C
+	// RVA: 0x170A320 Offset: 0x170A320 VA: 0x170A320
 	public void .ctor() { }
 
-	// RVA: 0x1CDDFBC Offset: 0x1CDDFBC VA: 0x1CDDFBC Slot: 5
+	// RVA: 0x170A370 Offset: 0x170A370 VA: 0x170A370 Slot: 5
 	protected sealed override int CreatePrimaryKey() { }
 }
 
 // Namespace: 
-public class EquipImageMaster : DataMasterBase<EquipImageMaster, EquipImageEntity, int> // TypeDefIndex: 6798
+public class EquipImageMaster : DataMasterBase<EquipImageMaster, EquipImageEntity, int> // TypeDefIndex: 6802
 {
 	// Methods
 
-	// RVA: 0x1CDDFC4 Offset: 0x1CDDFC4 VA: 0x1CDDFC4
+	// RVA: 0x170A378 Offset: 0x170A378 VA: 0x170A378
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class EquipMaster : DataMasterBase<EquipMaster, EquipEntity, int> // TypeDefIndex: 6799
+public class EquipMaster : DataMasterBase<EquipMaster, EquipEntity, int> // TypeDefIndex: 6803
 {
 	// Methods
 
-	// RVA: 0x1CDE018 Offset: 0x1CDE018 VA: 0x1CDE018
+	// RVA: 0x170A3CC Offset: 0x170A3CC VA: 0x170A3CC
 	public void .ctor() { }
 
-	// RVA: 0x1CDE06C Offset: 0x1CDE06C VA: 0x1CDE06C
+	// RVA: 0x170A420 Offset: 0x170A420 VA: 0x170A420
 	public static string getEquipName(int equipId) { }
 }
 
 // Namespace: 
-public class EquipSkillEntity : DataEntityBase<string> // TypeDefIndex: 6800
+public class EquipSkillEntity : DataEntityBase<string> // TypeDefIndex: 6804
 {
 	// Fields
 	public int equipId; // 0x10
@@ -556,445 +982,19 @@ public class EquipSkillEntity : DataEntityBase<string> // TypeDefIndex: 6800
 
 	// Methods
 
-	// RVA: 0x1CDE13C Offset: 0x1CDE13C VA: 0x1CDE13C
+	// RVA: 0x170A4F0 Offset: 0x170A4F0 VA: 0x170A4F0
 	public void .ctor() { }
 
-	// RVA: 0x1CDE18C Offset: 0x1CDE18C VA: 0x1CDE18C Slot: 5
+	// RVA: 0x170A540 Offset: 0x170A540 VA: 0x170A540 Slot: 5
 	protected sealed override string CreatePrimaryKey() { }
 
-	// RVA: 0x1CDE19C Offset: 0x1CDE19C VA: 0x1CDE19C
+	// RVA: 0x170A550 Offset: 0x170A550 VA: 0x170A550
 	public static string CreatePK(int equipId, int num) { }
 
-	// RVA: 0x1CDE1AC Offset: 0x1CDE1AC VA: 0x1CDE1AC
+	// RVA: 0x170A560 Offset: 0x170A560 VA: 0x170A560
 	public bool isUse(int lv) { }
 
-	// RVA: 0x1CDE1BC Offset: 0x1CDE1BC VA: 0x1CDE1BC
+	// RVA: 0x170A570 Offset: 0x170A570 VA: 0x170A570
 	public int getSkillId() { }
 }
 
-// Namespace: 
-public class EquipSkillMaster : DataMasterBase<EquipSkillMaster, EquipSkillEntity, string> // TypeDefIndex: 6801
-{
-	// Methods
-
-	// RVA: 0x1CDE87C Offset: 0x1CDE87C VA: 0x1CDE87C
-	public void .ctor() { }
-
-	// RVA: 0x1CDE8D0 Offset: 0x1CDE8D0 VA: 0x1CDE8D0
-	public EquipSkillEntity GetEntity(int equipId, int num) { }
-
-	// RVA: 0x1CDE944 Offset: 0x1CDE944 VA: 0x1CDE944
-	public bool TryGetEntity(out EquipSkillEntity entity, int equipId, int num) { }
-}
-
-// Namespace: 
-public class EventAddEntity : DataEntityBase<string> // TypeDefIndex: 6802
-{
-	// Fields
-	public int eventId; // 0x10
-	public int overwriteType; // 0x14
-	public int priority; // 0x18
-	public int overwriteId; // 0x1C
-	public string overwriteText; // 0x20
-	public int condType; // 0x28
-	public int targetId; // 0x2C
-	public long startedAt; // 0x30
-	public long endedAt; // 0x38
-
-	// Methods
-
-	// RVA: 0x1D1C2AC Offset: 0x1D1C2AC VA: 0x1D1C2AC
-	public void .ctor() { }
-
-	// RVA: 0x1D1C2FC Offset: 0x1D1C2FC VA: 0x1D1C2FC Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x1D1C310 Offset: 0x1D1C310 VA: 0x1D1C310
-	public static string CreatePK(int eventId, int overwriteType, int priority) { }
-}
-
-// Namespace: 
-public enum EventAddEntity.OverwriteType // TypeDefIndex: 6803
-{
-	// Fields
-	public int value__; // 0x0
-	public const EventAddEntity.OverwriteType BG_IMAGE = 1;
-	public const EventAddEntity.OverwriteType BGM = 2;
-	public const EventAddEntity.OverwriteType NAME = 3;
-	public const EventAddEntity.OverwriteType BANNER = 4;
-	public const EventAddEntity.OverwriteType NOTICE_BANNER = 5;
-}
-
-// Namespace: 
-public class EventAddMaster : DataMasterBase<EventAddMaster, EventAddEntity, string> // TypeDefIndex: 6804
-{
-	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCC1604 Offset: 0xCC1604 VA: 0xCC1604
-	private static Comparison<EventAddEntity> <>f__am$cache0; // 0x0
-
-	// Methods
-
-	// RVA: 0x1D1C324 Offset: 0x1D1C324 VA: 0x1D1C324
-	public void .ctor() { }
-
-	// RVA: 0x1D1C378 Offset: 0x1D1C378 VA: 0x1D1C378
-	public EventAddEntity GetEntity(int eventId, int overwriteType, int priority) { }
-
-	// RVA: 0x1D1C3FC Offset: 0x1D1C3FC VA: 0x1D1C3FC
-	public bool TryGetEntity(out EventAddEntity entity, int eventId, int overwriteType, int priority) { }
-
-	// RVA: 0x1D1C488 Offset: 0x1D1C488 VA: 0x1D1C488
-	public EventAddEntity getOverwriteEventAddEntity(int eventId, EventAddEntity.OverwriteType overwriteType) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3780C Offset: 0xD3780C VA: 0xD3780C
-	// RVA: 0x1D1C77C Offset: 0x1D1C77C VA: 0x1D1C77C
-	private static int <getOverwriteEventAddEntity>m__0(EventAddEntity a, EventAddEntity b) { }
-}
-
-// Namespace: 
-public class EventBoardGameCellEntity : DataEntityBase<string> // TypeDefIndex: 6805
-{
-	// Fields
-	public int eventId; // 0x10
-	public int cellId; // 0x14
-	public string name; // 0x18
-	public int cellType; // 0x20
-	public int cellValue; // 0x24
-	public Dictionary<string, object> script; // 0x28
-
-	// Methods
-
-	// RVA: 0x1D1E50C Offset: 0x1D1E50C VA: 0x1D1E50C
-	public void .ctor() { }
-
-	// RVA: 0x1D1E55C Offset: 0x1D1E55C VA: 0x1D1E55C Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x1D1E56C Offset: 0x1D1E56C VA: 0x1D1E56C
-	public static string CreatePK(int eventId, int cellId) { }
-
-	// RVA: 0x1D1E57C Offset: 0x1D1E57C VA: 0x1D1E57C
-	public EventBoardGameCellMaster.EventBoardGameCellType GetCellType() { }
-}
-
-// Namespace: 
-public class EventBoardGameCellMaster : DataMasterBase<EventBoardGameCellMaster, EventBoardGameCellEntity, string> // TypeDefIndex: 6806
-{
-	// Methods
-
-	// RVA: 0x1D1E584 Offset: 0x1D1E584 VA: 0x1D1E584
-	public void .ctor() { }
-
-	// RVA: 0x1D1E5D8 Offset: 0x1D1E5D8 VA: 0x1D1E5D8
-	public EventBoardGameCellEntity GetEntity(int eventId, int cellId) { }
-
-	// RVA: 0x1D1E64C Offset: 0x1D1E64C VA: 0x1D1E64C
-	public bool TryGetEntity(out EventBoardGameCellEntity entity, int eventId, int cellId) { }
-
-	// RVA: 0x1D1E6D0 Offset: 0x1D1E6D0 VA: 0x1D1E6D0
-	public EventBoardGameCellEntity GetEntityFromEventIdAndCellId(int eventId, int cellId) { }
-
-	// RVA: 0x1D1E8C0 Offset: 0x1D1E8C0 VA: 0x1D1E8C0
-	public int GetBoardSquareCount(int eventId) { }
-}
-
-// Namespace: 
-public enum EventBoardGameCellMaster.EventBoardGameCellType // TypeDefIndex: 6807
-{
-	// Fields
-	public int value__; // 0x0
-	public const EventBoardGameCellMaster.EventBoardGameCellType FORCE_STOP = 1;
-	public const EventBoardGameCellMaster.EventBoardGameCellType MOVE = 2;
-	public const EventBoardGameCellMaster.EventBoardGameCellType QUEST = 3;
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAED40 Offset: 0xCAED40 VA: 0xCAED40
-private sealed class EventBoardGameCellMaster.<GetBoardSquareCount>c__AnonStorey0 // TypeDefIndex: 6808
-{
-	// Fields
-	internal int eventId; // 0x10
-
-	// Methods
-
-	// RVA: 0x1D1E9C0 Offset: 0x1D1E9C0 VA: 0x1D1E9C0
-	public void .ctor() { }
-
-	// RVA: 0x1D1E9C8 Offset: 0x1D1E9C8 VA: 0x1D1E9C8
-	internal bool <>m__0(DataEntityBase ent) { }
-}
-
-// Namespace: 
-public class EventBoardGameTokenEntity : DataEntityBase<string> // TypeDefIndex: 6809
-{
-	// Fields
-	public int eventId; // 0x10
-	public int tokenId; // 0x14
-	public string name; // 0x18
-	public int svtId; // 0x20
-	public int condQuestId; // 0x24
-	public int condQuestPhase; // 0x28
-	public int imageId; // 0x2C
-	public int beforeImageId; // 0x30
-	public int flag; // 0x34
-
-	// Methods
-
-	// RVA: 0x1D1F148 Offset: 0x1D1F148 VA: 0x1D1F148
-	public void .ctor() { }
-
-	// RVA: 0x1D1F198 Offset: 0x1D1F198 VA: 0x1D1F198 Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x1D1F1A8 Offset: 0x1D1F1A8 VA: 0x1D1F1A8
-	public static string CreatePK(int eventId, int tokenId) { }
-}
-
-// Namespace: 
-public enum EventBoardGameTokenEntity.EventBoardGameTokenFlag // TypeDefIndex: 6810
-{
-	// Fields
-	public int value__; // 0x0
-	public const EventBoardGameTokenEntity.EventBoardGameTokenFlag FIRST_GAME = 1;
-	public const EventBoardGameTokenEntity.EventBoardGameTokenFlag SECOND_GAME = 2;
-	public const EventBoardGameTokenEntity.EventBoardGameTokenFlag THIRD_GAME = 4;
-	public const EventBoardGameTokenEntity.EventBoardGameTokenFlag FOURTH_GAME = 8;
-	public const EventBoardGameTokenEntity.EventBoardGameTokenFlag FIFTH_GAME = 16;
-	public const EventBoardGameTokenEntity.EventBoardGameTokenFlag SIXTH_GAME = 32;
-}
-
-// Namespace: 
-public class EventBoardGameTokenMaster : DataMasterBase<EventBoardGameTokenMaster, EventBoardGameTokenEntity, string> // TypeDefIndex: 6811
-{
-	// Methods
-
-	// RVA: 0x1D20B3C Offset: 0x1D20B3C VA: 0x1D20B3C
-	public void .ctor() { }
-
-	// RVA: 0x1D20B90 Offset: 0x1D20B90 VA: 0x1D20B90
-	public EventBoardGameTokenEntity GetEntity(int eventId, int tokenId) { }
-
-	// RVA: 0x1D20C04 Offset: 0x1D20C04 VA: 0x1D20C04
-	public bool TryGetEntity(out EventBoardGameTokenEntity entity, int eventId, int tokenId) { }
-
-	// RVA: 0x1D20C88 Offset: 0x1D20C88 VA: 0x1D20C88
-	public EventBoardGameTokenEntity[] GetEntities(int eventId) { }
-}
-
-// Namespace: 
-public class EventBoardGameTokenRewardEntity : DataEntityBase<string> // TypeDefIndex: 6812
-{
-	// Fields
-	public int eventId; // 0x10
-	public int questId; // 0x14
-	public int questPhase; // 0x18
-	public int[] useTokenIds; // 0x20
-	public int giftId; // 0x28
-
-	// Methods
-
-	// RVA: 0x1D20DF8 Offset: 0x1D20DF8 VA: 0x1D20DF8
-	public void .ctor() { }
-
-	// RVA: 0x1D20E48 Offset: 0x1D20E48 VA: 0x1D20E48 Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x1D20E5C Offset: 0x1D20E5C VA: 0x1D20E5C
-	public static string CreatePK(int eventId, int questId, int questPhase) { }
-}
-
-// Namespace: 
-public class EventBoardGameTokenRewardMaster : DataMasterBase<EventBoardGameTokenRewardMaster, EventBoardGameTokenRewardEntity, string> // TypeDefIndex: 6813
-{
-	// Methods
-
-	// RVA: 0x1D20E70 Offset: 0x1D20E70 VA: 0x1D20E70
-	public void .ctor() { }
-
-	// RVA: 0x1D20EC4 Offset: 0x1D20EC4 VA: 0x1D20EC4
-	public EventBoardGameTokenRewardEntity GetEntity(int eventId, int questId, int questPhase) { }
-
-	// RVA: 0x1D20F48 Offset: 0x1D20F48 VA: 0x1D20F48
-	public bool TryGetEntity(out EventBoardGameTokenRewardEntity entity, int eventId, int questId, int questPhase) { }
-}
-
-// Namespace: 
-public class EventBonusFilterEntity : DataEntityBase<string> // TypeDefIndex: 6814
-{
-	// Fields
-	public int eventId; // 0x10
-	public int type; // 0x14
-	public int value; // 0x18
-	public int priority; // 0x1C
-
-	// Methods
-
-	// RVA: 0x1D20FD4 Offset: 0x1D20FD4 VA: 0x1D20FD4
-	public void .ctor() { }
-
-	// RVA: 0x1D21024 Offset: 0x1D21024 VA: 0x1D21024 Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x1D21038 Offset: 0x1D21038 VA: 0x1D21038
-	public static string CreatePK(int eventId, int type, int value, int priority) { }
-
-	// RVA: 0x1D21050 Offset: 0x1D21050 VA: 0x1D21050
-	public int[] GetEquipIdList() { }
-
-	// RVA: 0x1D2136C Offset: 0x1D2136C VA: 0x1D2136C
-	public bool CheckBonusFilterType(EventBonusFilterEntity.EventBonusFilterType type) { }
-}
-
-// Namespace: 
-public enum EventBonusFilterEntity.EventBonusFilterType // TypeDefIndex: 6815
-{
-	// Fields
-	public int value__; // 0x0
-	public const EventBonusFilterEntity.EventBonusFilterType SVT_EQUIP = 1;
-	public const EventBonusFilterEntity.EventBonusFilterType FILTER_GROUP = 2;
-	public const EventBonusFilterEntity.EventBonusFilterType SVT_EQUIP_EXP = 3;
-}
-
-// Namespace: 
-public class EventBonusFilterGroupInfoEntity : DataEntityBase<int> // TypeDefIndex: 6816
-{
-	// Fields
-	public int groupId; // 0x10
-	public string name; // 0x18
-	public int iconId; // 0x20
-	public int rarity; // 0x24
-	public int[] skillIds; // 0x28
-	public string skillDetail; // 0x30
-	public int skillIconId; // 0x38
-
-	// Methods
-
-	// RVA: 0x1D2137C Offset: 0x1D2137C VA: 0x1D2137C
-	public void .ctor() { }
-
-	// RVA: 0x1D213CC Offset: 0x1D213CC VA: 0x1D213CC Slot: 5
-	protected sealed override int CreatePrimaryKey() { }
-}
-
-// Namespace: 
-public class EventBonusFilterGroupInfoMaster : DataMasterBase<EventBonusFilterGroupInfoMaster, EventBonusFilterGroupInfoEntity, int> // TypeDefIndex: 6817
-{
-	// Methods
-
-	// RVA: 0x1D213D4 Offset: 0x1D213D4 VA: 0x1D213D4
-	public void .ctor() { }
-}
-
-// Namespace: 
-public class EventBonusFilterGroupMemberEntity : DataEntityBase<string> // TypeDefIndex: 6818
-{
-	// Fields
-	public int groupId; // 0x10
-	public int svtId; // 0x14
-
-	// Methods
-
-	// RVA: 0x1D21428 Offset: 0x1D21428 VA: 0x1D21428
-	public void .ctor() { }
-
-	// RVA: 0x1D21478 Offset: 0x1D21478 VA: 0x1D21478 Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x1D21488 Offset: 0x1D21488 VA: 0x1D21488
-	public static string CreatePK(int groupId, int svtId) { }
-}
-
-// Namespace: 
-public class EventBonusFilterGroupMemberMaster : DataMasterBase<EventBonusFilterGroupMemberMaster, EventBonusFilterGroupMemberEntity, string> // TypeDefIndex: 6819
-{
-	// Methods
-
-	// RVA: 0x1D21498 Offset: 0x1D21498 VA: 0x1D21498
-	public void .ctor() { }
-
-	// RVA: 0x1D214EC Offset: 0x1D214EC VA: 0x1D214EC
-	public EventBonusFilterGroupMemberEntity GetEntity(int groupId, int svtId) { }
-
-	// RVA: 0x1D21560 Offset: 0x1D21560 VA: 0x1D21560
-	public bool TryGetEntity(out EventBonusFilterGroupMemberEntity entity, int groupId, int svtId) { }
-
-	// RVA: 0x1D211FC Offset: 0x1D211FC VA: 0x1D211FC
-	public EventBonusFilterGroupMemberEntity[] GetEntitiesByGroupId(int groupId) { }
-}
-
-// Namespace: 
-public class EventBonusFilterMaster : DataMasterBase<EventBonusFilterMaster, EventBonusFilterEntity, string> // TypeDefIndex: 6820
-{
-	// Methods
-
-	// RVA: 0x1D215E4 Offset: 0x1D215E4 VA: 0x1D215E4
-	public void .ctor() { }
-
-	// RVA: 0x1D21638 Offset: 0x1D21638 VA: 0x1D21638
-	public EventBonusFilterEntity GetEntity(int eventId, int type, int value, int priority) { }
-
-	// RVA: 0x1D216C4 Offset: 0x1D216C4 VA: 0x1D216C4
-	public bool TryGetEntity(out EventBonusFilterEntity entity, int eventId, int type, int value, int priority) { }
-
-	// RVA: 0x1D21760 Offset: 0x1D21760 VA: 0x1D21760
-	public List<EventBonusFilterEntity> GetFilterList(int[] eventIdList, bool ignoreExpCard = False) { }
-
-	// RVA: 0x1D21938 Offset: 0x1D21938 VA: 0x1D21938
-	public int[] GetEventIdListBySvtId(int svtId) { }
-
-	// RVA: 0x1D21B68 Offset: 0x1D21B68 VA: 0x1D21B68
-	public int[] GetTargetEventEquipIdList(int[] eventIdList) { }
-
-	// RVA: 0x1D21DB4 Offset: 0x1D21DB4 VA: 0x1D21DB4
-	public int[] GetOtherEventEquipIdList(int[] eventIdList) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAED50 Offset: 0xCAED50 VA: 0xCAED50
-private sealed class EventBonusFilterMaster.<GetEventIdListBySvtId>c__AnonStorey0 // TypeDefIndex: 6821
-{
-	// Fields
-	internal int svtId; // 0x10
-
-	// Methods
-
-	// RVA: 0x1D21B60 Offset: 0x1D21B60 VA: 0x1D21B60
-	public void .ctor() { }
-
-	// RVA: 0x1D22124 Offset: 0x1D22124 VA: 0x1D22124
-	internal bool <>m__0(int x) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAED60 Offset: 0xCAED60 VA: 0xCAED60
-private sealed class EventBonusFilterMaster.<GetOtherEventEquipIdList>c__AnonStorey1 // TypeDefIndex: 6822
-{
-	// Fields
-	internal EventBonusFilterEntity entity; // 0x10
-
-	// Methods
-
-	// RVA: 0x1D22114 Offset: 0x1D22114 VA: 0x1D22114
-	public void .ctor() { }
-
-	// RVA: 0x1D22134 Offset: 0x1D22134 VA: 0x1D22134
-	internal bool <>m__0(int x) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAED70 Offset: 0xCAED70 VA: 0xCAED70
-private sealed class EventBonusFilterMaster.<GetOtherEventEquipIdList>c__AnonStorey2 // TypeDefIndex: 6823
-{
-	// Fields
-	internal int id; // 0x10
-
-	// Methods
-
-	// RVA: 0x1D2211C Offset: 0x1D2211C VA: 0x1D2211C
-	public void .ctor() { }
-
-	// RVA: 0x1D2216C Offset: 0x1D2216C VA: 0x1D2216C
-	internal bool <>m__0(int x) { }
-}
-
-// Namespace: 

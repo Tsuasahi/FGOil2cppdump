@@ -1,703 +1,899 @@
-	public GameObject enemyStage; // 0x60
-	public GameObject tacticBg; // 0x68
-	public Transform[] npcBattleTr; // 0x70
-	public Transform[] npcTacticalTr; // 0x78
-	private BattleActionData badata; // 0x80
-	private bool flgStep; // 0x88
-	[CompilerGeneratedAttribute] // RVA: 0xCCFE44 Offset: 0xCCFE44 VA: 0xCCFE44
-	[DebuggerBrowsableAttribute] // RVA: 0xCCFE44 Offset: 0xCCFE44 VA: 0xCCFE44
-	private int <motionCompleteCount>k__BackingField; // 0x8C
-	[CompilerGeneratedAttribute] // RVA: 0xCCFE80 Offset: 0xCCFE80 VA: 0xCCFE80
-	[DebuggerBrowsableAttribute] // RVA: 0xCCFE80 Offset: 0xCCFE80 VA: 0xCCFE80
-	private bool <isActiveMotion>k__BackingField; // 0x90
-	private Queue<BattleActionData.ReplaceMember> replaceMember; // 0x98
-	private string replaceEndEvent; // 0xA0
-	private BattleActionData.ReplaceMember targetReplaceData; // 0xA8
+	public virtual bool IsActionPassiveSkillOnBattle(BattleSkillInfoData skillInfo) { }
+
+	// RVA: 0xF64D68 Offset: 0xF64D68 VA: 0xF64D68 Slot: 23
+	public virtual int GetProgressBuffTurnCond(BuffEntity buffEnt) { }
+
+	// RVA: 0xF64E28 Offset: 0xF64E28 VA: 0xF64E28 Slot: 24
+	public virtual void SetDefaultPassiveBuffShowState(BattleBuffData.BuffData buff) { }
+
+	// RVA: 0xF64E2C Offset: 0xF64E2C VA: 0xF64E2C Slot: 25
+	public virtual void InitBattleStartTurn(bool isPlayer) { }
+
+	// RVA: 0xF64E30 Offset: 0xF64E30 VA: 0xF64E30 Slot: 26
+	public virtual bool IsRemainBattleEndWave() { }
+
+	// RVA: 0xF64E38 Offset: 0xF64E38 VA: 0xF64E38 Slot: 27
+	public virtual bool IsCommandAttackable() { }
+
+	// RVA: 0xF64E40 Offset: 0xF64E40 VA: 0xF64E40 Slot: 28
+	public virtual bool CheckBuffCommonProgressTurn(int svtUniqueId) { }
+
+	// RVA: 0xF64E48 Offset: 0xF64E48 VA: 0xF64E48 Slot: 29
+	public virtual void ProgressBuffTurn(BattleBuffData buffData, BattleBuffData.BuffData buff, bool isEndEnemyTurn, int defCondState) { }
+
+	// RVA: 0xF64E80 Offset: 0xF64E80 VA: 0xF64E80 Slot: 30
+	public virtual int MakeTurnCondStateByServant(int selfUniqueId) { }
+
+	// RVA: 0xF64E88 Offset: 0xF64E88 VA: 0xF64E88 Slot: 31
+	public virtual void ProgressNoExecJoinServantsBuff(int[] execUniqueIds, bool isEndEnemyTurn) { }
+
+	// RVA: 0xF65040 Offset: 0xF65040 VA: 0xF65040 Slot: 32
+	public virtual bool IsPossibleAddBuffParam(BattleServantData svtData) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43D24 Offset: 0xC43D24 VA: 0xC43D24
+private sealed class BaseBattleEvent.<ProgressNoExecJoinServantsBuff>c__AnonStorey0 // TypeDefIndex: 8880
+{
+	// Fields
+	internal int[] execUniqueIds; // 0x10
+	internal bool isEndEnemyTurn; // 0x18
+	internal BaseBattleEvent $this; // 0x20
+
+	// Methods
+
+	// RVA: 0xF65038 Offset: 0xF65038 VA: 0xF65038
+	public void .ctor() { }
+
+	// RVA: 0xF65074 Offset: 0xF65074 VA: 0xF65074
+	internal bool <>m__0(BattleServantData x) { }
+
+	// RVA: 0xF65160 Offset: 0xF65160 VA: 0xF65160
+	internal void <>m__1(BattleServantData x) { }
+}
+
+// Namespace: 
+public class WarBoardBattleEvent : BaseBattleEvent // TypeDefIndex: 8881
+{
+	// Fields
+	protected BattleWarBoardEventLimitTurn eventLimitTurn; // 0x20
+	[CompilerGeneratedAttribute] // RVA: 0xC62ED8 Offset: 0xC62ED8 VA: 0xC62ED8
+	[DebuggerBrowsableAttribute] // RVA: 0xC62ED8 Offset: 0xC62ED8 VA: 0xC62ED8
+	private BattleWarBoardInfo <WarBoardBattleInfo>k__BackingField; // 0x28
+	[CompilerGeneratedAttribute] // RVA: 0xC62F14 Offset: 0xC62F14 VA: 0xC62F14
+	[DebuggerBrowsableAttribute] // RVA: 0xC62F14 Offset: 0xC62F14 VA: 0xC62F14
+	private WarBoardBattleServantEvent <ServantEvent>k__BackingField; // 0x30
+	[CompilerGeneratedAttribute] // RVA: 0xC62F50 Offset: 0xC62F50 VA: 0xC62F50
+	[DebuggerBrowsableAttribute] // RVA: 0xC62F50 Offset: 0xC62F50 VA: 0xC62F50
+	private BattleWarBoardInfo.WarBoardMasterInfo <MasterPlayer>k__BackingField; // 0x38
+	[CompilerGeneratedAttribute] // RVA: 0xC62F8C Offset: 0xC62F8C VA: 0xC62F8C
+	[DebuggerBrowsableAttribute] // RVA: 0xC62F8C Offset: 0xC62F8C VA: 0xC62F8C
+	private BattleWarBoardInfo.WarBoardMasterInfo <MasterEnemy>k__BackingField; // 0x40
+	protected string warBoardDataJson; // 0x48
+	protected int curTurnCondState; // 0x50
+	protected int[] joinCurTurnUniqueIds; // 0x58
+	protected int[] aliveSvtUniqueIds; // 0x60
+	protected int[] notTakeOverBuffTypes; // 0x68
+	[CompilerGeneratedAttribute] // RVA: 0xC62FC8 Offset: 0xC62FC8 VA: 0xC62FC8
+	private static Predicate<BattleWarBoardInfo.WarBoardMasterInfo> <>f__am$cache0; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC62FD8 Offset: 0xC62FD8 VA: 0xC62FD8
+	private static Predicate<BattleWarBoardInfo.WarBoardMasterInfo> <>f__am$cache1; // 0x8
+	[CompilerGeneratedAttribute] // RVA: 0xC62FE8 Offset: 0xC62FE8 VA: 0xC62FE8
+	private static Func<BattleServantData, bool> <>f__am$cache2; // 0x10
+	[CompilerGeneratedAttribute] // RVA: 0xC62FF8 Offset: 0xC62FF8 VA: 0xC62FF8
+	private static Func<BattleServantData, bool> <>f__am$cache3; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xC63008 Offset: 0xC63008 VA: 0xC63008
+	private static Func<BattleServantData, int> <>f__am$cache4; // 0x20
 
 	// Properties
-	public BaseMotionSkip MotionSkip { get; }
-	public int motionCompleteCount { get; set; }
-	public bool isActiveMotion { get; set; }
+	public BattleWarBoardInfo WarBoardBattleInfo { get; set; }
+	public int WarBoardStageId { get; }
+	public override bool IsPrecedingPlayer { get; }
+	public int LimitBattleTurn { get; }
+	public int BgNo { get; }
+	public int BgType { get; }
+	public WarBoardBattleServantEvent ServantEvent { get; set; }
+	public BattleWarBoardInfo.WarBoardMasterInfo MasterPlayer { get; set; }
+	public BattleWarBoardInfo.WarBoardMasterInfo MasterEnemy { get; set; }
 
 	// Methods
 
-	// RVA: 0x1670258 Offset: 0x1670258 VA: 0x1670258
+	// RVA: 0x139EFB0 Offset: 0x139EFB0 VA: 0x139EFB0
 	public void .ctor() { }
 
-	// RVA: 0x16702C8 Offset: 0x16702C8 VA: 0x16702C8
-	public BaseMotionSkip get_MotionSkip() { }
+	[CompilerGeneratedAttribute] // RVA: 0xCCCDC0 Offset: 0xCCCDC0 VA: 0xCCCDC0
+	// RVA: 0x139F080 Offset: 0x139F080 VA: 0x139F080
+	private void set_WarBoardBattleInfo(BattleWarBoardInfo value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3A554 Offset: 0xD3A554 VA: 0xD3A554
-	// RVA: 0x16702F8 Offset: 0x16702F8 VA: 0x16702F8
-	public int get_motionCompleteCount() { }
+	[CompilerGeneratedAttribute] // RVA: 0xCCCDD0 Offset: 0xCCCDD0 VA: 0xCCCDD0
+	// RVA: 0x139F088 Offset: 0x139F088 VA: 0x139F088
+	public BattleWarBoardInfo get_WarBoardBattleInfo() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3A564 Offset: 0xD3A564 VA: 0xD3A564
-	// RVA: 0x1670300 Offset: 0x1670300 VA: 0x1670300
-	private void set_motionCompleteCount(int value) { }
+	// RVA: 0x139F090 Offset: 0x139F090 VA: 0x139F090
+	public int get_WarBoardStageId() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3A574 Offset: 0xD3A574 VA: 0xD3A574
-	// RVA: 0x1670308 Offset: 0x1670308 VA: 0x1670308
-	public bool get_isActiveMotion() { }
+	// RVA: 0x139F0A8 Offset: 0x139F0A8 VA: 0x139F0A8 Slot: 4
+	public override bool get_IsPrecedingPlayer() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3A584 Offset: 0xD3A584 VA: 0xD3A584
-	// RVA: 0x1670310 Offset: 0x1670310 VA: 0x1670310
-	protected void set_isActiveMotion(bool value) { }
+	// RVA: 0x139F0C8 Offset: 0x139F0C8 VA: 0x139F0C8
+	public int get_LimitBattleTurn() { }
 
-	// RVA: 0x167031C Offset: 0x167031C VA: 0x167031C
-	public void setPerf(BattlePerformance inperf) { }
+	// RVA: 0x139F0E0 Offset: 0x139F0E0 VA: 0x139F0E0
+	public int get_BgNo() { }
 
-	// RVA: 0x165DF60 Offset: 0x165DF60 VA: 0x165DF60
-	public Transform getEnemyPopPoint(int index) { }
+	// RVA: 0x139F0F8 Offset: 0x139F0F8 VA: 0x139F0F8
+	public int get_BgType() { }
 
-	// RVA: 0x16703EC Offset: 0x16703EC VA: 0x16703EC
-	public Transform getPopEnemy() { }
+	[CompilerGeneratedAttribute] // RVA: 0xCCCDE0 Offset: 0xCCCDE0 VA: 0xCCCDE0
+	// RVA: 0x139F110 Offset: 0x139F110 VA: 0x139F110
+	private void set_ServantEvent(WarBoardBattleServantEvent value) { }
 
-	// RVA: 0x165DEDC Offset: 0x165DEDC VA: 0x165DEDC
-	public Transform getPlayerPopTr(int index) { }
+	[CompilerGeneratedAttribute] // RVA: 0xCCCDF0 Offset: 0xCCCDF0 VA: 0xCCCDF0
+	// RVA: 0x139F118 Offset: 0x139F118 VA: 0x139F118
+	public WarBoardBattleServantEvent get_ServantEvent() { }
 
-	// RVA: 0x16703F4 Offset: 0x16703F4 VA: 0x16703F4
-	public Transform getPopPlayer() { }
+	[CompilerGeneratedAttribute] // RVA: 0xCCCE00 Offset: 0xCCCE00 VA: 0xCCCE00
+	// RVA: 0x139F120 Offset: 0x139F120 VA: 0x139F120
+	private void set_MasterPlayer(BattleWarBoardInfo.WarBoardMasterInfo value) { }
 
-	// RVA: 0x16703FC Offset: 0x16703FC VA: 0x16703FC
-	public Transform getPlayerTacticalTr(int index) { }
+	[CompilerGeneratedAttribute] // RVA: 0xCCCE10 Offset: 0xCCCE10 VA: 0xCCCE10
+	// RVA: 0x139F128 Offset: 0x139F128 VA: 0x139F128
+	public BattleWarBoardInfo.WarBoardMasterInfo get_MasterPlayer() { }
 
-	// RVA: 0x1670480 Offset: 0x1670480 VA: 0x1670480
-	public Transform getEnemyTacticalTr(int index) { }
+	[CompilerGeneratedAttribute] // RVA: 0xCCCE20 Offset: 0xCCCE20 VA: 0xCCCE20
+	// RVA: 0x139F130 Offset: 0x139F130 VA: 0x139F130
+	private void set_MasterEnemy(BattleWarBoardInfo.WarBoardMasterInfo value) { }
 
-	// RVA: 0x1670504 Offset: 0x1670504 VA: 0x1670504
-	public Transform GetTargetTr(FieldMotionManager.GET_TYPE type, int index) { }
+	[CompilerGeneratedAttribute] // RVA: 0xCCCE30 Offset: 0xCCCE30 VA: 0xCCCE30
+	// RVA: 0x139F138 Offset: 0x139F138 VA: 0x139F138
+	public BattleWarBoardInfo.WarBoardMasterInfo get_MasterEnemy() { }
 
-	// RVA: 0x1670590 Offset: 0x1670590 VA: 0x1670590
-	public void sendEvent(string eventstr) { }
+	// RVA: 0x139F140 Offset: 0x139F140 VA: 0x139F140
+	protected void OnTurnCond(BuffList.ProgressTurnCond cond) { }
 
-	// RVA: 0x16705C8 Offset: 0x16705C8 VA: 0x16705C8
-	public static string GetMotionName(BattleActionData baData) { }
+	// RVA: 0x139F150 Offset: 0x139F150 VA: 0x139F150 Slot: 5
+	public override void Init(BattleData data) { }
 
-	// RVA: 0x16706C0 Offset: 0x16706C0 VA: 0x16706C0
-	public void playBattleActionData(BattleActionData badata, string motionName) { }
+	// RVA: 0x139F4B4 Offset: 0x139F4B4 VA: 0x139F4B4 Slot: 6
+	public override BaseBattleServantEvent GetServantEvent() { }
 
-	// RVA: 0x167077C Offset: 0x167077C VA: 0x167077C
-	public void SetActiveMotion(bool active) { }
+	// RVA: 0x139F4BC Offset: 0x139F4BC VA: 0x139F4BC Slot: 7
+	public override void InitWave() { }
 
-	// RVA: 0x1670788 Offset: 0x1670788 VA: 0x1670788
-	public void procBuff() { }
+	// RVA: 0x139F4C0 Offset: 0x139F4C0 VA: 0x139F4C0 Slot: 8
+	public override void InitBGData(ref int bgNo, ref int bgType) { }
 
-	// RVA: 0x167078C Offset: 0x167078C VA: 0x167078C
-	public void finishMotion() { }
+	// RVA: 0x139F568 Offset: 0x139F568 VA: 0x139F568 Slot: 9
+	public override void InitStageData(StageEntity stage) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD3A594 Offset: 0xD3A594 VA: 0xD3A594
-	// RVA: 0x1670838 Offset: 0x1670838 VA: 0x1670838
-	private IEnumerator CameraCoroutine() { }
+	// RVA: 0x139F694 Offset: 0x139F694 VA: 0x139F694 Slot: 10
+	public override void InitServantData(bool isPlayer) { }
 
-	// RVA: 0x16708B0 Offset: 0x16708B0 VA: 0x16708B0
-	public void startReplaceActor(string endEvent) { }
+	// RVA: 0x139F9EC Offset: 0x139F9EC VA: 0x139F9EC
+	protected bool IsSettedAllServant() { }
 
-	// RVA: 0x1670AC8 Offset: 0x1670AC8 VA: 0x1670AC8
-	public void loadReplaceActor(string endEvent) { }
+	// RVA: 0x139F920 Offset: 0x139F920 VA: 0x139F920
+	protected void InitUsePlayerServantData() { }
 
-	// RVA: 0x1670C00 Offset: 0x1670C00 VA: 0x1670C00
-	public void loadReplace(string endEvent) { }
+	// RVA: 0x139FAFC Offset: 0x139FAFC VA: 0x139FAFC
+	protected int GetServantHaveStar(BattleServantData svtData) { }
 
-	// RVA: 0x1670CA0 Offset: 0x1670CA0 VA: 0x1670CA0
-	public void endLoadReplaceActor() { }
+	// RVA: 0x139FB74 Offset: 0x139FB74 VA: 0x139FB74 Slot: 11
+	public override void InitServantDataPrevAdd(BattleServantData svtData) { }
 
-	// RVA: 0x1670CD8 Offset: 0x1670CD8 VA: 0x1670CD8
-	public bool checkMotionEvent(string name) { }
+	// RVA: 0x139FC04 Offset: 0x139FC04 VA: 0x139FC04 Slot: 12
+	public override void InitPlayerMasterInfo() { }
 
-	// RVA: 0x1670DF0 Offset: 0x1670DF0 VA: 0x1670DF0
-	public void startFieldStep() { }
+	// RVA: 0x139FC08 Offset: 0x139FC08 VA: 0x139FC08
+	protected void TakeoverPlayerMasterSkill() { }
 
-	// RVA: 0x1670DFC Offset: 0x1670DFC VA: 0x1670DFC
-	public void endFieldStep() { }
+	// RVA: 0x139F5B8 Offset: 0x139F5B8 VA: 0x139F5B8
+	protected void TakeoverEnemyMasterInfo() { }
 
-	// RVA: 0x1670E04 Offset: 0x1670E04 VA: 0x1670E04
-	public bool isStep() { }
+	// RVA: 0x139FDBC Offset: 0x139FDBC VA: 0x139FDBC
+	protected int[] GetMasterSkillChargeTurnArray(BattleWarBoardInfo.WarBoardMasterInfo masterInfo) { }
 
-	// RVA: 0x1670E0C Offset: 0x1670E0C VA: 0x1670E0C
-	public void resetMotionCompleteCount() { }
+	// RVA: 0x139FEA4 Offset: 0x139FEA4 VA: 0x139FEA4
+	protected int[] GetMasterSkillSealedTurnArray(BattleWarBoardInfo.WarBoardMasterInfo masterInfo) { }
 
-	// RVA: 0x1670E14 Offset: 0x1670E14 VA: 0x1670E14
-	public void OnMotionComplete(string eventstr) { }
+	// RVA: 0x139F278 Offset: 0x139F278 VA: 0x139F278
+	protected BattleWarBoardInfo.WarBoardMasterInfo GetEventMasterInfo(BattleWarBoardInfo warBoardInfo, bool isPlayer) { }
 
-	// RVA: 0x1670E24 Offset: 0x1670E24 VA: 0x1670E24
-	public void ptStepOut(string name) { }
+	// RVA: 0x139FF8C Offset: 0x139FF8C VA: 0x139FF8C Slot: 13
+	public override int GetResultBgmId(int curBgmId) { }
 
-	// RVA: 0x1670E54 Offset: 0x1670E54 VA: 0x1670E54
-	public void loadPt(string name) { }
+	// RVA: 0x13A0064 Offset: 0x13A0064 VA: 0x13A0064 Slot: 14
+	public override bool SendBattleResult(BattleResultRequest.Argument arg, NetworkManager.ResultCallbackFunc func) { }
 
-	// RVA: 0x1670F34 Offset: 0x1670F34 VA: 0x1670F34
-	public GameObject getGameObject(string name) { }
+	// RVA: 0x13A06D8 Offset: 0x13A06D8 VA: 0x13A06D8 Slot: 15
+	public override void InitStartResult(BattleResultComponent.resultData result) { }
 
-	// RVA: 0x165FFF0 Offset: 0x165FFF0 VA: 0x165FFF0
-	public PlayMakerFSM getFsm() { }
+	// RVA: 0x13A07CC Offset: 0x13A07CC VA: 0x13A07CC
+	protected void HideTargetsResult(BattleResultComponent.resultData result, int[] hideTypes) { }
 
-	// RVA: 0x1671000 Offset: 0x1671000 VA: 0x1671000
-	public void FieldCallServant() { }
+	// RVA: 0x13A0174 Offset: 0x13A0174 VA: 0x13A0174
+	protected BattleWarBoardInfo MakeWarBoardBattleInfo() { }
 
-	// RVA: 0x1671030 Offset: 0x1671030 VA: 0x1671030
-	public void FieldCallEffect(bool isBefore) { }
+	// RVA: 0x13A08FC Offset: 0x13A08FC VA: 0x13A08FC
+	protected Dictionary<long, int> MakeDistributeStar() { }
 
-	// RVA: 0x1671068 Offset: 0x1671068 VA: 0x1671068
-	public void DisplayDefenceTarget() { }
+	// RVA: 0x139F3B4 Offset: 0x139F3B4 VA: 0x139F3B4
+	protected int[] GetResetBuffTypes() { }
+
+	// RVA: 0x13A0B00 Offset: 0x13A0B00 VA: 0x13A0B00
+	protected BattleWarBoardInfo.WarBoardMasterInfo[] MakeWarBoardMasterArray() { }
+
+	// RVA: 0x13A0F1C Offset: 0x13A0F1C VA: 0x13A0F1C
+	protected BattleWarBoardInfo.WarBoardMasterInfo MakeMasterInfo(int forceId, int groupId, int[] chargeArray, int[] sealedArray, int spellNum) { }
+
+	// RVA: 0x13A0BF4 Offset: 0x13A0BF4 VA: 0x13A0BF4
+	protected BattleWarBoardInfo.WarBoardMasterInfo GetTakeoverPlayerMasterInfo() { }
+
+	// RVA: 0x13A0E44 Offset: 0x13A0E44 VA: 0x13A0E44
+	protected BattleWarBoardInfo.WarBoardMasterInfo GetTakeoverEnemyMasterInfo(BattleWarBoardInfo.WarBoardMasterInfo enemyMaster) { }
+
+	// RVA: 0x13A10D0 Offset: 0x13A10D0 VA: 0x13A10D0
+	public void SetResponseWarBoardData(string json) { }
+
+	// RVA: 0x13A10D8 Offset: 0x13A10D8 VA: 0x13A10D8 Slot: 16
+	public override bool GoNextScene() { }
+
+	// RVA: 0x13A1214 Offset: 0x13A1214 VA: 0x13A1214 Slot: 17
+	public override void GetSaveData(BattleData.SaveData save) { }
+
+	// RVA: 0x13A1244 Offset: 0x13A1244 VA: 0x13A1244 Slot: 18
+	public override void SetSaveData(BattleData.SaveData save) { }
+
+	// RVA: 0x13A12D4 Offset: 0x13A12D4 VA: 0x13A12D4 Slot: 19
+	public override bool IsUseDefeatPointReady(BattleServantData svtData) { }
+
+	// RVA: 0x13A134C Offset: 0x13A134C VA: 0x13A134C Slot: 20
+	public override bool IsLogicEscape(BattleServantData svtData) { }
+
+	// RVA: 0x13A1380 Offset: 0x13A1380 VA: 0x13A1380 Slot: 21
+	public override bool IsTakeOverNextBattleBuff(BattleBuffData.BuffData buff, BuffEntity buffEnt, DataVals baseVals) { }
+
+	// RVA: 0x13A14D0 Offset: 0x13A14D0 VA: 0x13A14D0 Slot: 24
+	public override void SetDefaultPassiveBuffShowState(BattleBuffData.BuffData buff) { }
+
+	// RVA: 0x13A151C Offset: 0x13A151C VA: 0x13A151C Slot: 25
+	public override void InitBattleStartTurn(bool isPlayer) { }
+
+	// RVA: 0x13A1760 Offset: 0x13A1760 VA: 0x13A1760 Slot: 26
+	public override bool IsRemainBattleEndWave() { }
+
+	// RVA: 0x13A17E4 Offset: 0x13A17E4 VA: 0x13A17E4 Slot: 27
+	public override bool IsCommandAttackable() { }
+
+	// RVA: 0x13A1814 Offset: 0x13A1814 VA: 0x13A1814 Slot: 28
+	public override bool CheckBuffCommonProgressTurn(int svtUniqueId) { }
+
+	// RVA: 0x13A18E0 Offset: 0x13A18E0 VA: 0x13A18E0 Slot: 29
+	public override void ProgressBuffTurn(BattleBuffData buffData, BattleBuffData.BuffData buff, bool isEndEnemyTurn, int defCondState) { }
+
+	// RVA: 0x13A1A10 Offset: 0x13A1A10 VA: 0x13A1A10 Slot: 30
+	public override int MakeTurnCondStateByServant(int selfUniqueId) { }
+
+	// RVA: 0x13A1AEC Offset: 0x13A1AEC VA: 0x13A1AEC Slot: 31
+	public override void ProgressNoExecJoinServantsBuff(int[] execUniqueIds, bool isEndEnemyTurn) { }
+
+	// RVA: 0x13A1E30 Offset: 0x13A1E30 VA: 0x13A1E30 Slot: 32
+	public override bool IsPossibleAddBuffParam(BattleServantData svtData) { }
+
+	// RVA: 0x13A1E78 Offset: 0x13A1E78 VA: 0x13A1E78 Slot: 22
+	public override bool IsActionPassiveSkillOnBattle(BattleSkillInfoData skillInfo) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCE40 Offset: 0xCCCE40 VA: 0xCCCE40
+	// RVA: 0x13A1EAC Offset: 0x13A1EAC VA: 0x13A1EAC
+	private static bool <GetEventMasterInfo>m__0(BattleWarBoardInfo.WarBoardMasterInfo x) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCE50 Offset: 0xCCCE50 VA: 0xCCCE50
+	// RVA: 0x13A1EEC Offset: 0x13A1EEC VA: 0x13A1EEC
+	private static bool <GetEventMasterInfo>m__1(BattleWarBoardInfo.WarBoardMasterInfo x) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCE60 Offset: 0xCCCE60 VA: 0xCCCE60
+	// RVA: 0x13A1F2C Offset: 0x13A1F2C VA: 0x13A1F2C
+	private static bool <MakeDistributeStar>m__2(BattleServantData svt) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCE70 Offset: 0xCCCE70 VA: 0xCCCE70
+	// RVA: 0x13A1F5C Offset: 0x13A1F5C VA: 0x13A1F5C
+	private static bool <InitBattleStartTurn>m__3(BattleServantData svt) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCE80 Offset: 0xCCCE80 VA: 0xCCCE80
+	// RVA: 0x13A1F8C Offset: 0x13A1F8C VA: 0x13A1F8C
+	private static int <InitBattleStartTurn>m__4(BattleServantData svt) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAFE60 Offset: 0xCAFE60 VA: 0xCAFE60
-private sealed class BattleFieldMotionComponent.<CameraCoroutine>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8879
+public class WarBoardBattleEvent.TakeoverSvtArg // TypeDefIndex: 8882
 {
 	// Fields
-	internal BattleFieldMotionComponent $this; // 0x10
-	internal object $current; // 0x18
-	internal bool $disposing; // 0x20
-	internal int $PC; // 0x24
+	public BattleLogic logic; // 0x10
+	public Dictionary<long, int> dicDistributeStar; // 0x18
+	public int[] fieldIndiv; // 0x20
+	public WarBoardBattleServantEvent servantEvent; // 0x28
+
+	// Methods
+
+	// RVA: 0x13A0874 Offset: 0x13A0874 VA: 0x13A0874
+	public void .ctor() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43D34 Offset: 0xC43D34 VA: 0xC43D34
+private sealed class WarBoardBattleEvent.<MakeWarBoardBattleInfo>c__AnonStorey0 // TypeDefIndex: 8883
+{
+	// Fields
+	internal List<BattleWarBoardInfo.WarBoardServantInfo> svtList; // 0x10
+	internal WarBoardBattleEvent.TakeoverSvtArg arg; // 0x18
+
+	// Methods
+
+	// RVA: 0x13A086C Offset: 0x13A086C VA: 0x13A086C
+	public void .ctor() { }
+
+	// RVA: 0x13A2010 Offset: 0x13A2010 VA: 0x13A2010
+	internal void <>m__0(BattleServantData svt) { }
+
+	// RVA: 0x13A20A4 Offset: 0x13A20A4 VA: 0x13A20A4
+	internal void <>m__1(BattleServantData svt) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43D44 Offset: 0xC43D44 VA: 0xC43D44
+private sealed class WarBoardBattleEvent.<IsTakeOverNextBattleBuff>c__AnonStorey1 // TypeDefIndex: 8884
+{
+	// Fields
+	internal BuffEntity buffEnt; // 0x10
+
+	// Methods
+
+	// RVA: 0x13A14C8 Offset: 0x13A14C8 VA: 0x13A14C8
+	public void .ctor() { }
+
+	// RVA: 0x13A1FC8 Offset: 0x13A1FC8 VA: 0x13A1FC8
+	internal bool <>m__0(int type) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43D54 Offset: 0xC43D54 VA: 0xC43D54
+private sealed class WarBoardBattleEvent.<CheckBuffCommonProgressTurn>c__AnonStorey2 // TypeDefIndex: 8885
+{
+	// Fields
+	internal int svtUniqueId; // 0x10
+
+	// Methods
+
+	// RVA: 0x13A18D8 Offset: 0x13A18D8 VA: 0x13A18D8
+	public void .ctor() { }
+
+	// RVA: 0x13A1FB8 Offset: 0x13A1FB8 VA: 0x13A1FB8
+	internal bool <>m__0(int id) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43D64 Offset: 0xC43D64 VA: 0xC43D64
+private sealed class WarBoardBattleEvent.<MakeTurnCondStateByServant>c__AnonStorey3 // TypeDefIndex: 8886
+{
+	// Fields
+	internal int selfUniqueId; // 0x10
+
+	// Methods
+
+	// RVA: 0x13A1AE4 Offset: 0x13A1AE4 VA: 0x13A1AE4
+	public void .ctor() { }
+
+	// RVA: 0x13A2000 Offset: 0x13A2000 VA: 0x13A2000
+	internal bool <>m__0(int id) { }
+}
+
+// Namespace: 
+public class BattleWarBoardEventLimitTurn // TypeDefIndex: 8887
+{
+	// Fields
+	private int defLimitAct; // 0x10
+	private int defEffectType; // 0x14
+	private int[] defTurnEffect; // 0x18
+
+	// Methods
+
+	// RVA: 0x1576E6C Offset: 0x1576E6C VA: 0x1576E6C
+	public void .ctor() { }
+
+	// RVA: 0x1576F04 Offset: 0x1576F04 VA: 0x1576F04
+	public void InitLimitInfo(WarBoardBattleEvent battleEvent, StageEntity stage) { }
+}
+
+// Namespace: 
+public class BaseBattleServantEvent // TypeDefIndex: 8888
+{
+	// Methods
+
+	// RVA: 0xF64CAC Offset: 0xF64CAC VA: 0xF64CAC
+	public void .ctor() { }
+
+	// RVA: 0xF65290 Offset: 0xF65290 VA: 0xF65290 Slot: 4
+	public virtual bool IsApplyPassive(BattleSkillInfoData.TYPE type, BattleServantData svtData) { }
+
+	// RVA: 0xF65298 Offset: 0xF65298 VA: 0xF65298 Slot: 5
+	public virtual void AddSpecialPassive(BattleServantData svtData) { }
+}
+
+// Namespace: 
+public class WarBoardBattleServantEvent : BaseBattleServantEvent // TypeDefIndex: 8889
+{
+	// Fields
+	protected BattleWarBoardInfo.WarBoardServantInfo[] svtInfoArray; // 0x10
+
+	// Methods
+
+	// RVA: 0x139F24C Offset: 0x139F24C VA: 0x139F24C
+	public void .ctor(BattleWarBoardInfo.WarBoardServantInfo[] svtInfoArray) { }
+
+	// RVA: 0x139F84C Offset: 0x139F84C VA: 0x139F84C
+	public BattleWarBoardInfo.WarBoardServantInfo GetEventServantInfo(long userSvtId) { }
+
+	// RVA: 0x13A2444 Offset: 0x13A2444 VA: 0x13A2444 Slot: 4
+	public override bool IsApplyPassive(BattleSkillInfoData.TYPE type, BattleServantData svtData) { }
+
+	// RVA: 0x13A2450 Offset: 0x13A2450 VA: 0x13A2450 Slot: 5
+	public override void AddSpecialPassive(BattleServantData svtData) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43D74 Offset: 0xC43D74 VA: 0xC43D74
+private sealed class WarBoardBattleServantEvent.<GetEventServantInfo>c__AnonStorey0 // TypeDefIndex: 8890
+{
+	// Fields
+	internal long userSvtId; // 0x10
+
+	// Methods
+
+	// RVA: 0x13A243C Offset: 0x13A243C VA: 0x13A243C
+	public void .ctor() { }
+
+	// RVA: 0x13A2588 Offset: 0x13A2588 VA: 0x13A2588
+	internal bool <>m__0(BattleWarBoardInfo.WarBoardServantInfo x) { }
+}
+
+// Namespace: 
+public class BattleEventTutorial // TypeDefIndex: 8891
+{
+	// Fields
+	private BattleEntity battle_ent; // 0x10
+	private bool hasEventTutorial; // 0x18
+	private bool isBreakGuageEnemyAppeared; // 0x19
+	private List<EventTutorialEntity> tutList; // 0x20
+	private static readonly EventTutorialMaster.OpenType[] tacticalTargetTypes; // 0x0
+	private static readonly EventTutorialMaster.OpenType[] resultTargetTypes; // 0x8
+	private static readonly EventTutorialMaster.OpenType[] gimmickTargetTypes; // 0x10
+	[CompilerGeneratedAttribute] // RVA: 0xC63018 Offset: 0xC63018 VA: 0xC63018
+	private static Predicate<EventTutorialEntity> <>f__am$cache0; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xC63028 Offset: 0xC63028 VA: 0xC63028
+	private static Predicate<EventTutorialEntity> <>f__am$cache1; // 0x20
+	[CompilerGeneratedAttribute] // RVA: 0xC63038 Offset: 0xC63038 VA: 0xC63038
+	private static Predicate<EventTutorialEntity> <>f__am$cache2; // 0x28
+	[CompilerGeneratedAttribute] // RVA: 0xC63048 Offset: 0xC63048 VA: 0xC63048
+	private static Predicate<EventTutorialEntity> <>f__am$cache3; // 0x30
+	[CompilerGeneratedAttribute] // RVA: 0xC63058 Offset: 0xC63058 VA: 0xC63058
+	private static Predicate<EventTutorialEntity> <>f__am$cache4; // 0x38
+	[CompilerGeneratedAttribute] // RVA: 0xC63068 Offset: 0xC63068 VA: 0xC63068
+	private static Predicate<EventTutorialEntity> <>f__am$cache5; // 0x40
+	[CompilerGeneratedAttribute] // RVA: 0xC63078 Offset: 0xC63078 VA: 0xC63078
+	private static Predicate<EventTutorialEntity> <>f__am$cache6; // 0x48
+	[CompilerGeneratedAttribute] // RVA: 0xC63088 Offset: 0xC63088 VA: 0xC63088
+	private static Predicate<EventTutorialEntity> <>f__am$cache7; // 0x50
+	[CompilerGeneratedAttribute] // RVA: 0xC63098 Offset: 0xC63098 VA: 0xC63098
+	private static Predicate<EventTutorialEntity> <>f__am$cache8; // 0x58
+
+	// Methods
+
+	// RVA: 0x1125E58 Offset: 0x1125E58 VA: 0x1125E58
+	public void .ctor(BattleEntity ent) { }
+
+	// RVA: 0x1125E84 Offset: 0x1125E84 VA: 0x1125E84
+	public void OnBreakGuageEnemyAppeared() { }
+
+	// RVA: 0x1125E90 Offset: 0x1125E90 VA: 0x1125E90
+	public bool isStart() { }
+
+	// RVA: 0x1125FAC Offset: 0x1125FAC VA: 0x1125FAC
+	public bool isWave() { }
+
+	// RVA: 0x11260C8 Offset: 0x11260C8 VA: 0x11260C8
+	public bool isTurn() { }
+
+	// RVA: 0x11261E4 Offset: 0x11261E4 VA: 0x11261E4
+	public bool isBreakGauge() { }
+
+	// RVA: 0x1126308 Offset: 0x1126308 VA: 0x1126308
+	public bool isTacticalPhase() { }
+
+	// RVA: 0x1126424 Offset: 0x1126424 VA: 0x1126424
+	public bool CheckHasTacticalPhaseTutorial(int wave, int turn) { }
+
+	// RVA: 0x112655C Offset: 0x112655C VA: 0x112655C
+	public bool isResult() { }
+
+	// RVA: 0x1126678 Offset: 0x1126678 VA: 0x1126678
+	public bool isResultWin() { }
+
+	// RVA: 0x1126794 Offset: 0x1126794 VA: 0x1126794
+	public bool isResultLose() { }
+
+	// RVA: 0x11268B0 Offset: 0x11268B0 VA: 0x11268B0
+	public bool isResultPhase() { }
+
+	// RVA: 0x11269CC Offset: 0x11269CC VA: 0x11269CC
+	public bool CheckHasResultPhaseTutorial() { }
+
+	// RVA: 0x1126AF4 Offset: 0x1126AF4 VA: 0x1126AF4
+	public bool CheckHasGimmickPhaseTutorial() { }
+
+	// RVA: 0x1126C1C Offset: 0x1126C1C VA: 0x1126C1C
+	public void callStart(Action callbackAfter) { }
+
+	// RVA: 0x1126D64 Offset: 0x1126D64 VA: 0x1126D64
+	public void callWave(Action callbackAfter) { }
+
+	// RVA: 0x1126D74 Offset: 0x1126D74 VA: 0x1126D74
+	public void callTurn(Action callbackAfter) { }
+
+	// RVA: 0x1126D84 Offset: 0x1126D84 VA: 0x1126D84
+	public void callBreakGauge(Action callbackAfter) { }
+
+	// RVA: 0x1126DA4 Offset: 0x1126DA4 VA: 0x1126DA4
+	public void callResult(Action callbackAfter) { }
+
+	// RVA: 0x1126DB4 Offset: 0x1126DB4 VA: 0x1126DB4
+	public void callResultWin(Action callbackAfter) { }
+
+	// RVA: 0x1126DC4 Offset: 0x1126DC4 VA: 0x1126DC4
+	public void callResultLose(Action callbackAfter) { }
+
+	// RVA: 0x1126DD4 Offset: 0x1126DD4 VA: 0x1126DD4
+	public void callGimmick(Action callbackAfter) { }
+
+	// RVA: 0x1126C2C Offset: 0x1126C2C VA: 0x1126C2C
+	private void popAndCallNextTutorial(EventTutorialMaster.OpenType opType, Action callback) { }
+
+	// RVA: 0x1126DE4 Offset: 0x1126DE4 VA: 0x1126DE4
+	public void ClearTutorialList() { }
+
+	// RVA: 0x1126E6C Offset: 0x1126E6C VA: 0x1126E6C
+	private static void .cctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCE90 Offset: 0xCCCE90 VA: 0xCCCE90
+	// RVA: 0x1126F64 Offset: 0x1126F64 VA: 0x1126F64
+	private static bool <isStart>m__0(EventTutorialEntity x) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCEA0 Offset: 0xCCCEA0 VA: 0xCCCEA0
+	// RVA: 0x1126F9C Offset: 0x1126F9C VA: 0x1126F9C
+	private static bool <isWave>m__1(EventTutorialEntity x) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCEB0 Offset: 0xCCCEB0 VA: 0xCCCEB0
+	// RVA: 0x1126FD4 Offset: 0x1126FD4 VA: 0x1126FD4
+	private static bool <isTurn>m__2(EventTutorialEntity x) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCEC0 Offset: 0xCCCEC0 VA: 0xCCCEC0
+	// RVA: 0x112700C Offset: 0x112700C VA: 0x112700C
+	private static bool <isBreakGauge>m__3(EventTutorialEntity x) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCED0 Offset: 0xCCCED0 VA: 0xCCCED0
+	// RVA: 0x1127044 Offset: 0x1127044 VA: 0x1127044
+	private static bool <isTacticalPhase>m__4(EventTutorialEntity x) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCEE0 Offset: 0xCCCEE0 VA: 0xCCCEE0
+	// RVA: 0x1127134 Offset: 0x1127134 VA: 0x1127134
+	private static bool <isResult>m__5(EventTutorialEntity x) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCEF0 Offset: 0xCCCEF0 VA: 0xCCCEF0
+	// RVA: 0x112716C Offset: 0x112716C VA: 0x112716C
+	private static bool <isResultWin>m__6(EventTutorialEntity x) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCF00 Offset: 0xCCCF00 VA: 0xCCCF00
+	// RVA: 0x11271A4 Offset: 0x11271A4 VA: 0x11271A4
+	private static bool <isResultLose>m__7(EventTutorialEntity x) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCF10 Offset: 0xCCCF10 VA: 0xCCCF10
+	// RVA: 0x11271DC Offset: 0x11271DC VA: 0x11271DC
+	private static bool <isResultPhase>m__8(EventTutorialEntity x) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43D84 Offset: 0xC43D84 VA: 0xC43D84
+private sealed class BattleEventTutorial.<isTacticalPhase>c__AnonStorey0 // TypeDefIndex: 8892
+{
+	// Fields
+	internal EventTutorialEntity x; // 0x10
+
+	// Methods
+
+	// RVA: 0x112712C Offset: 0x112712C VA: 0x112712C
+	public void .ctor() { }
+
+	// RVA: 0x112730C Offset: 0x112730C VA: 0x112730C
+	internal bool <>m__0(EventTutorialMaster.OpenType y) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43D94 Offset: 0xC43D94 VA: 0xC43D94
+private sealed class BattleEventTutorial.<isResultPhase>c__AnonStorey1 // TypeDefIndex: 8893
+{
+	// Fields
+	internal EventTutorialEntity x; // 0x10
+
+	// Methods
+
+	// RVA: 0x11272C4 Offset: 0x11272C4 VA: 0x11272C4
+	public void .ctor() { }
+
+	// RVA: 0x11272CC Offset: 0x11272CC VA: 0x11272CC
+	internal bool <>m__0(EventTutorialMaster.OpenType y) { }
+}
+
+// Namespace: 
+public class BattleFBXComponent : MonoBehaviour // TypeDefIndex: 8894
+{
+	// Fields
+	public static bool EnableEvent; // 0x0
+	public static readonly float animFps; // 0x4
+	public static readonly string levelMarker; // 0x8
+	private static readonly string prefabMarker; // 0x10
+	private static readonly string chrnodeMarker; // 0x18
+	private static readonly string sideflipMarker; // 0x20
+	private static readonly string enItemMarker; // 0x28
+	private static readonly string enWeaponMarker; // 0x30
+	private static readonly string npPathHead; // 0x38
+	private static readonly string svtPathHead; // 0x40
+	private static readonly string[] yTransparenceShaderNames; // 0x48
+	[SerializeField] // RVA: 0xC630A8 Offset: 0xC630A8 VA: 0xC630A8
+	private Dictionary<string, string> RealAnimNames; // 0x18
+	private Dictionary<string, string> CommonAnimNames; // 0x20
+	private Transform rootTransform; // 0x28
+	private Animation animationComponent; // 0x30
+	private SimpleAnimation simpleAnimationComponent; // 0x38
+	public float timescale; // 0x40
+	public string animename; // 0x48
+	public bool isAutoPlay; // 0x50
+	public BattleFBXComponent.onEventDelegate OnEvent; // 0x58
+	public BattleFBXComponent.onEventDelegate Complete; // 0x60
+	private BattleFBXComponent.AnimEvent[][] eventlist; // 0x68
+	private string currentAnimName; // 0x70
+	private string currentCommonAnimName; // 0x78
+	private float currentAnimTime; // 0x80
+	private int currentEventIndex; // 0x84
+	private bool isDirty; // 0x88
+	private bool isStop; // 0x89
+	private List<Renderer> enableRendererList; // 0x90
+	private Dictionary<string, GameObject> actorEffectDict; // 0x98
+	private Dictionary<KeyValuePair<string, Material>, float> tempMaterialPropertyDict; // 0xA0
+	protected List<GameObject> PrefabNodes; // 0xA8
+	private BillBoard billBoard; // 0xB0
+	private List<XWeaponTrail> componentsXWeaponTrail; // 0xB8
+	private AnimationClip defSimpleAnimClip; // 0xC0
+	private AnimationClip defAnimClip; // 0xC8
+	[CompilerGeneratedAttribute] // RVA: 0xC630B8 Offset: 0xC630B8 VA: 0xC630B8
+	private static Func<Transform, bool> <>f__am$cache0; // 0x50
+	[CompilerGeneratedAttribute] // RVA: 0xC630C8 Offset: 0xC630C8 VA: 0xC630C8
+	private static Func<Transform, bool> <>f__am$cache1; // 0x58
 
 	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
+	public string CurrentCommonAnimName { get; }
+	public Transform RootTransform { get; set; }
+	public float CurrentAnimTime { get; }
+	public string CurrentAnimName { get; }
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xD48064 Offset: 0xD48064 VA: 0xD48064
-	// RVA: 0x16708A8 Offset: 0x16708A8 VA: 0x16708A8
+	// RVA: 0x112734C Offset: 0x112734C VA: 0x112734C
 	public void .ctor() { }
 
-	// RVA: 0x1671098 Offset: 0x1671098 VA: 0x1671098 Slot: 5
-	public bool MoveNext() { }
+	// RVA: 0x112745C Offset: 0x112745C VA: 0x112745C
+	public string get_CurrentCommonAnimName() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD48074 Offset: 0xD48074 VA: 0xD48074
-	// RVA: 0x16711D8 Offset: 0x16711D8 VA: 0x16711D8 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+	// RVA: 0x1127464 Offset: 0x1127464 VA: 0x1127464
+	public Transform get_RootTransform() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD48084 Offset: 0xD48084 VA: 0xD48084
-	// RVA: 0x16711E0 Offset: 0x16711E0 VA: 0x16711E0 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
+	// RVA: 0x112746C Offset: 0x112746C VA: 0x112746C
+	public void set_RootTransform(Transform value) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD48094 Offset: 0xD48094 VA: 0xD48094
-	// RVA: 0x16711E8 Offset: 0x16711E8 VA: 0x16711E8 Slot: 7
-	public void Dispose() { }
+	// RVA: 0x1127538 Offset: 0x1127538 VA: 0x1127538
+	public float get_CurrentAnimTime() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD480A4 Offset: 0xD480A4 VA: 0xD480A4
-	// RVA: 0x16711FC Offset: 0x16711FC VA: 0x16711FC Slot: 6
-	public void Reset() { }
-}
+	// RVA: 0x1127540 Offset: 0x1127540 VA: 0x1127540
+	public string get_CurrentAnimName() { }
 
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAFE70 Offset: 0xCAFE70 VA: 0xCAFE70
-private sealed class BattleFieldMotionComponent.<loadPt>c__AnonStorey1 // TypeDefIndex: 8880
-{
-	// Fields
-	internal string name; // 0x10
-	internal BattleFieldMotionComponent $this; // 0x18
+	// RVA: 0x1127548 Offset: 0x1127548 VA: 0x1127548
+	protected void InitAnimNameDict() { }
 
-	// Methods
+	// RVA: 0x11275CC Offset: 0x11275CC VA: 0x11275CC
+	private void Awake() { }
 
-	// RVA: 0x1670F2C Offset: 0x1670F2C VA: 0x1670F2C
-	public void .ctor() { }
-
-	// RVA: 0x1671264 Offset: 0x1671264 VA: 0x1671264
-	internal void <>m__0() { }
-}
-
-// Namespace: 
-public class BattleFieldStatus : AiInterface // TypeDefIndex: 8881
-{
-	// Fields
-	protected double[] wkZeroParam; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xCCFEBC Offset: 0xCCFEBC VA: 0xCCFEBC
-	private static Predicate<BattleServantData> <>f__am$cache0; // 0x0
-	[CompilerGeneratedAttribute] // RVA: 0xCCFECC Offset: 0xCCFECC VA: 0xCCFECC
-	private static Predicate<BattleServantData> <>f__am$cache1; // 0x8
-
-	// Methods
-
-	// RVA: 0x16712B0 Offset: 0x16712B0 VA: 0x16712B0
-	public void .ctor() { }
-
-	// RVA: 0x1671310 Offset: 0x1671310 VA: 0x1671310 Slot: 6
-	public virtual double[] getAiParam(BattleData bData, ConditionsInformation.PARAMATER param, int turn, int actCnt, long[] checkparams) { }
-
-	// RVA: 0x1671318 Offset: 0x1671318 VA: 0x1671318 Slot: 7
-	public virtual bool isAiTarget(ConditionsInformation.CheckInfo info, long[] indiv) { }
-
-	// RVA: 0x1671320 Offset: 0x1671320 VA: 0x1671320
-	protected int CommonAliveCount(List<BattleServantData> datalist) { }
-
-	// RVA: 0x167140C Offset: 0x167140C VA: 0x167140C
-	protected int CommonRestCount(List<BattleServantData> datalist) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3A5A4 Offset: 0xD3A5A4 VA: 0xD3A5A4
-	// RVA: 0x16714F4 Offset: 0x16714F4 VA: 0x16714F4
-	private static bool <CommonAliveCount>m__0(BattleServantData p) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3A5B4 Offset: 0xD3A5B4 VA: 0xD3A5B4
-	// RVA: 0x1671554 Offset: 0x1671554 VA: 0x1671554
-	private static bool <CommonRestCount>m__1(BattleServantData p) { }
-}
-
-// Namespace: 
-public class BattleFriendshipRewardInfo // TypeDefIndex: 8882
-{
-	// Fields
-	public bool isNew; // 0x10
-	public long userSvtId; // 0x18
-	public int mstGiftId; // 0x20
-	public int type; // 0x24
-	public int targetSvtId; // 0x28
-	public int objectId; // 0x2C
-	public int num; // 0x30
-	public int limitCount; // 0x34
-	public int lv; // 0x38
-	public int rarity; // 0x3C
-
-	// Methods
-
-	// RVA: 0x16715B0 Offset: 0x16715B0 VA: 0x16715B0
-	public void .ctor() { }
-
-	// RVA: 0x16715B8 Offset: 0x16715B8 VA: 0x16715B8
-	public GiftEntity getGiftEntity() { }
-
-	// RVA: 0x1671664 Offset: 0x1671664 VA: 0x1671664
-	public bool isShow() { }
-}
-
-// Namespace: 
-public class BattleHitStopControl : BaseMonoBehaviour // TypeDefIndex: 8883
-{
-	// Fields
-	private List<GameObject> stopobjlist; // 0x18
-
-	// Methods
-
-	// RVA: 0x1671740 Offset: 0x1671740 VA: 0x1671740
-	public void .ctor() { }
-
-	// RVA: 0x1671748 Offset: 0x1671748 VA: 0x1671748
+	// RVA: 0x11276C0 Offset: 0x11276C0 VA: 0x11276C0
 	private void Start() { }
 
-	// RVA: 0x16717B0 Offset: 0x16717B0 VA: 0x16717B0
-	public void Clear() { }
+	// RVA: 0x1127730 Offset: 0x1127730 VA: 0x1127730
+	public void AnimUpdate(float deltaTime) { }
 
-	// RVA: 0x1671810 Offset: 0x1671810 VA: 0x1671810
-	public void setTargetObject(GameObject obj) { }
+	// RVA: 0x1128528 Offset: 0x1128528 VA: 0x1128528
+	public void SetWrapMode(string animName, WrapMode wrapMode) { }
 
-	// RVA: 0x1671880 Offset: 0x1671880 VA: 0x1671880
-	public void actWait(float time) { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD3A5C4 Offset: 0xD3A5C4 VA: 0xD3A5C4
-	// RVA: 0x16718AC Offset: 0x16718AC VA: 0x16718AC
-	private IEnumerator stopwaitCor(float time) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAFE80 Offset: 0xCAFE80 VA: 0xCAFE80
-private sealed class BattleHitStopControl.<stopwaitCor>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8884
-{
-	// Fields
-	internal List.Enumerator<GameObject> $locvar0; // 0x10
-	internal float time; // 0x28
-	internal List.Enumerator<GameObject> $locvar1; // 0x30
-	internal BattleHitStopControl $this; // 0x48
-	internal object $current; // 0x50
-	internal bool $disposing; // 0x58
-	internal int $PC; // 0x5C
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD480B4 Offset: 0xD480B4 VA: 0xD480B4
-	// RVA: 0x1671940 Offset: 0x1671940 VA: 0x1671940
-	public void .ctor() { }
-
-	// RVA: 0x1671948 Offset: 0x1671948 VA: 0x1671948 Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD480C4 Offset: 0xD480C4 VA: 0xD480C4
-	// RVA: 0x1671C64 Offset: 0x1671C64 VA: 0x1671C64 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD480D4 Offset: 0xD480D4 VA: 0xD480D4
-	// RVA: 0x1671C6C Offset: 0x1671C6C VA: 0x1671C6C Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD480E4 Offset: 0xD480E4 VA: 0xD480E4
-	// RVA: 0x1671C74 Offset: 0x1671C74 VA: 0x1671C74 Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD480F4 Offset: 0xD480F4 VA: 0xD480F4
-	// RVA: 0x1671C88 Offset: 0x1671C88 VA: 0x1671C88 Slot: 6
-	public void Reset() { }
-}
-
-// Namespace: 
-public class BattleItemIconComponent : ItemIconComponent // TypeDefIndex: 8885
-{
-	// Fields
-	public Color32 addCountColor; // 0x80
-	public string addCountStr; // 0x88
-	public Color darkModeColor; // 0x90
-	private Color32 nowAddCountColor; // 0xA0
-
-	// Methods
-
-	// RVA: 0x17510D4 Offset: 0x17510D4 VA: 0x17510D4
-	public void .ctor() { }
-
-	// RVA: 0x1751174 Offset: 0x1751174 VA: 0x1751174
-	public void setCounterLabel(int type, int count, int addCount) { }
-
-	// RVA: 0x1751624 Offset: 0x1751624 VA: 0x1751624
-	public void SetActiveDarkMode(bool isActive) { }
-}
-
-// Namespace: 
-public class BattleLogData // TypeDefIndex: 8886
-{
-	// Fields
-	private List<string> list; // 0x10
-	private string tag; // 0x18
-	private int max; // 0x20
-
-	// Methods
-
-	// RVA: 0x1751980 Offset: 0x1751980 VA: 0x1751980
-	public void .ctor() { }
-
-	// RVA: 0x1751A3C Offset: 0x1751A3C VA: 0x1751A3C
-	public void .ctor(string intag) { }
-
-	// RVA: 0x1751AF8 Offset: 0x1751AF8 VA: 0x1751AF8
-	public void .ctor(string intag, int inmax) { }
-
-	// RVA: 0x1751BBC Offset: 0x1751BBC VA: 0x1751BBC
-	public void addStr(string str) { }
-
-	// RVA: 0x1751CC8 Offset: 0x1751CC8 VA: 0x1751CC8
-	public string[] getStringList() { }
-}
-
-// Namespace: 
-public class BattleMotionSkipManager // TypeDefIndex: 8887
-{
-	// Fields
-	private BaseMotionSkip defaultMotionSkip; // 0x10
-	private BaseMotionSkip mainMotionSkip; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xCCFEDC Offset: 0xCCFEDC VA: 0xCCFEDC
-	[DebuggerBrowsableAttribute] // RVA: 0xCCFEDC Offset: 0xCCFEDC VA: 0xCCFEDC
-	private BattlePerformance <Perf>k__BackingField; // 0x20
-
-	// Properties
-	public BaseMotionSkip Current { get; set; }
-	public BattlePerformance Perf { get; set; }
-
-	// Methods
-
-	// RVA: 0x1501608 Offset: 0x1501608 VA: 0x1501608
-	public void .ctor(BattlePerformance perf) { }
-
-	// RVA: 0x150168C Offset: 0x150168C VA: 0x150168C
-	private void set_Current(BaseMotionSkip value) { }
-
-	// RVA: 0x1501694 Offset: 0x1501694 VA: 0x1501694
-	public BaseMotionSkip get_Current() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3A5D4 Offset: 0xD3A5D4 VA: 0xD3A5D4
-	// RVA: 0x1501684 Offset: 0x1501684 VA: 0x1501684
-	private void set_Perf(BattlePerformance value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3A5E4 Offset: 0xD3A5E4 VA: 0xD3A5E4
-	// RVA: 0x15016AC Offset: 0x15016AC VA: 0x15016AC
-	public BattlePerformance get_Perf() { }
-
-	// RVA: 0x15016B4 Offset: 0x15016B4 VA: 0x15016B4
-	public void SetMotionSkip(BattleSkillInfoData skillInfo) { }
-
-	// RVA: 0x1501718 Offset: 0x1501718 VA: 0x1501718
-	public void ReleaseMotionSkip() { }
-}
-
-// Namespace: 
-public class BaseMotionSkip // TypeDefIndex: 8888
-{
-	// Properties
-	public virtual bool IsSkipping { get; }
-	public virtual float ResetTimeScaleDelayTime { get; }
-
-	// Methods
-
-	// RVA: 0x1483718 Offset: 0x1483718 VA: 0x1483718
-	public void .ctor() { }
-
-	// RVA: 0x1483720 Offset: 0x1483720 VA: 0x1483720 Slot: 4
-	public virtual bool get_IsSkipping() { }
-
-	// RVA: 0x1483728 Offset: 0x1483728 VA: 0x1483728 Slot: 5
-	public virtual float get_ResetTimeScaleDelayTime() { }
-
-	// RVA: 0x1483730 Offset: 0x1483730 VA: 0x1483730 Slot: 6
-	public virtual void Init(BattleMotionSkipManager manager) { }
-
-	// RVA: 0x1483734 Offset: 0x1483734 VA: 0x1483734 Slot: 7
-	public virtual void Release() { }
-
-	// RVA: 0x1483738 Offset: 0x1483738 VA: 0x1483738 Slot: 8
-	public virtual void MotionStart() { }
-
-	// RVA: 0x148373C Offset: 0x148373C VA: 0x148373C Slot: 9
-	public virtual void MotionEnd() { }
-
-	// RVA: 0x1483740 Offset: 0x1483740 VA: 0x1483740 Slot: 10
-	public virtual float ConvertSkipDuration(float duration) { }
-}
-
-// Namespace: 
-public class CommonMotionSkip : BaseMotionSkip // TypeDefIndex: 8889
-{
-	// Fields
-	protected BattleMotionSkipManager manager; // 0x10
-	protected BitValue<CommonMotionSkip.State> state; // 0x18
-	protected Coroutine corInputWait; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xCCFF18 Offset: 0xCCFF18 VA: 0xCCFF18
-	private static Func<CommonMotionSkip.State, int> <>f__am$cache0; // 0x0
-
-	// Properties
-	protected BattlePerformance Perf { get; }
-	protected virtual float SkipTimeScale { get; }
-	public override bool IsSkipping { get; }
-
-	// Methods
-
-	// RVA: 0x149ADEC Offset: 0x149ADEC VA: 0x149ADEC
-	public void .ctor() { }
-
-	// RVA: 0x149ADF4 Offset: 0x149ADF4 VA: 0x149ADF4
-	protected BattlePerformance get_Perf() { }
-
-	// RVA: 0x149AE24 Offset: 0x149AE24 VA: 0x149AE24 Slot: 11
-	protected virtual float get_SkipTimeScale() { }
-
-	// RVA: 0x149AE2C Offset: 0x149AE2C VA: 0x149AE2C Slot: 4
-	public override bool get_IsSkipping() { }
-
-	// RVA: 0x149AE90 Offset: 0x149AE90 VA: 0x149AE90 Slot: 6
-	public override void Init(BattleMotionSkipManager manager) { }
-
-	// RVA: 0x149AF70 Offset: 0x149AF70 VA: 0x149AF70 Slot: 7
-	public override void Release() { }
-
-	// RVA: 0x149B038 Offset: 0x149B038 VA: 0x149B038 Slot: 8
-	public override void MotionStart() { }
-
-	// RVA: 0x149B1B4 Offset: 0x149B1B4 VA: 0x149B1B4 Slot: 9
-	public override void MotionEnd() { }
-
-	// RVA: 0x149B1B8 Offset: 0x149B1B8 VA: 0x149B1B8 Slot: 10
-	public override float ConvertSkipDuration(float duration) { }
-
-	// RVA: 0x149B208 Offset: 0x149B208 VA: 0x149B208 Slot: 12
-	protected virtual void ExecSkip() { }
-
-	// RVA: 0x149AFE0 Offset: 0x149AFE0 VA: 0x149AFE0
-	protected void StopInputWaitCoroutine() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD3A5F4 Offset: 0xD3A5F4 VA: 0xD3A5F4
-	// RVA: 0x149B120 Offset: 0x149B120 VA: 0x149B120
-	protected IEnumerator CoroutineInputWait(BattleCallBackBase callback) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3A604 Offset: 0xD3A604 VA: 0xD3A604
-	// RVA: 0x149B2BC Offset: 0x149B2BC VA: 0x149B2BC
-	private static int <Init>m__0(CommonMotionSkip.State state) { }
-}
-
-// Namespace: 
-protected enum CommonMotionSkip.State // TypeDefIndex: 8890
-{
-	// Fields
-	public int value__; // 0x0
-	public const CommonMotionSkip.State SKIPPING = 1;
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAFE90 Offset: 0xCAFE90 VA: 0xCAFE90
-private sealed class CommonMotionSkip.<CoroutineInputWait>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8891
-{
-	// Fields
-	internal bool <isInputed>__1; // 0x10
-	internal BattleCallBackBase callback; // 0x18
-	internal CommonMotionSkip $this; // 0x20
-	internal object $current; // 0x28
-	internal bool $disposing; // 0x30
-	internal int $PC; // 0x34
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD48104 Offset: 0xD48104 VA: 0xD48104
-	// RVA: 0x149B2B4 Offset: 0x149B2B4 VA: 0x149B2B4
-	public void .ctor() { }
-
-	// RVA: 0x149B2C0 Offset: 0x149B2C0 VA: 0x149B2C0 Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD48114 Offset: 0xD48114 VA: 0xD48114
-	// RVA: 0x149B3D8 Offset: 0x149B3D8 VA: 0x149B3D8 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD48124 Offset: 0xD48124 VA: 0xD48124
-	// RVA: 0x149B3E0 Offset: 0x149B3E0 VA: 0x149B3E0 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD48134 Offset: 0xD48134 VA: 0xD48134
-	// RVA: 0x149B3E8 Offset: 0x149B3E8 VA: 0x149B3E8 Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD48144 Offset: 0xD48144 VA: 0xD48144
-	// RVA: 0x149B3FC Offset: 0x149B3FC VA: 0x149B3FC Slot: 6
-	public void Reset() { }
-}
-
-// Namespace: 
-public class SkillMotionSkip : CommonMotionSkip // TypeDefIndex: 8892
-{
-	// Properties
-	public override float ResetTimeScaleDelayTime { get; }
-
-	// Methods
-
-	// RVA: 0x1CE71F0 Offset: 0x1CE71F0 VA: 0x1CE71F0
-	public void .ctor() { }
-
-	// RVA: 0x1CE71F8 Offset: 0x1CE71F8 VA: 0x1CE71F8 Slot: 5
-	public override float get_ResetTimeScaleDelayTime() { }
-
-	// RVA: 0x1CE7228 Offset: 0x1CE7228 VA: 0x1CE7228 Slot: 7
-	public override void Release() { }
-}
-
-// Namespace: 
-public class BattleMoveObject : BaseMonoBehaviour // TypeDefIndex: 8893
-{
-	// Fields
-	public Vector3 checkvec; // 0x18
-	public Vector3 targetvec; // 0x24
-	public Transform targetTr; // 0x30
-	public GameObject destoryobject; // 0x38
-	private bool dropflg; // 0x40
-	private bool moveflg; // 0x41
-	public BattleMoveObject.TYPE type; // 0x44
-	private Rigidbody rigibody; // 0x48
-	private Spawner spawner; // 0x50
-	private Transform selfTransform; // 0x58
-	private bool isNotTweenMove; // 0x60
-	private BattleMoveObject.NotTweenInfo notTweenInfo; // 0x68
-	private BattleMoveObject.EASING easingType; // 0x90
-	public BattlePerformance perf; // 0x98
-	public int count; // 0xA0
-
-	// Methods
-
-	// RVA: 0x150175C Offset: 0x150175C VA: 0x150175C
-	public void .ctor() { }
-
-	// RVA: 0x1501764 Offset: 0x1501764 VA: 0x1501764
-	private void Start() { }
-
-	// RVA: 0x15017E0 Offset: 0x15017E0 VA: 0x15017E0
-	private void OnSpawn() { }
-
-	// RVA: 0x15017F8 Offset: 0x15017F8 VA: 0x15017F8
+	// RVA: 0x1128834 Offset: 0x1128834 VA: 0x1128834
 	private void Update() { }
 
-	// RVA: 0x1501C2C Offset: 0x1501C2C VA: 0x1501C2C
-	public void setTypeItem() { }
+	// RVA: 0x112847C Offset: 0x112847C VA: 0x112847C
+	private void OnAnimEvent(BattleFBXComponent.AnimEvent ev) { }
 
-	// RVA: 0x1501C38 Offset: 0x1501C38 VA: 0x1501C38
-	public bool isMoveToItems() { }
+	// RVA: 0x1128BFC Offset: 0x1128BFC VA: 0x1128BFC
+	public float getLength() { }
 
-	// RVA: 0x1501C48 Offset: 0x1501C48 VA: 0x1501C48
-	public void setAction(Vector3 vec) { }
+	// RVA: 0x1128E84 Offset: 0x1128E84 VA: 0x1128E84
+	protected void DestroyPrefabNode() { }
 
-	// RVA: 0x1501CA0 Offset: 0x1501CA0 VA: 0x1501CA0
-	public void setTarget(Vector3 vec) { }
+	// RVA: 0x1128FE0 Offset: 0x1128FE0 VA: 0x1128FE0
+	public void ChangeActorLimitCount() { }
 
-	// RVA: 0x1501CAC Offset: 0x1501CAC VA: 0x1501CAC
-	public void setTargetTr(Transform tr) { }
+	// RVA: 0x11290F0 Offset: 0x11290F0 VA: 0x11290F0
+	public void SetEvolutionLevel(int svtId, int limitcount) { }
 
-	// RVA: 0x1501CB4 Offset: 0x1501CB4 VA: 0x1501CB4
-	public void setParam(BattlePerformance perf, int count) { }
+	// RVA: 0x1129148 Offset: 0x1129148 VA: 0x1129148
+	public void inSetEvolutionLevel(GameObject gameObject, int svtId, int limitcount) { }
 
-	// RVA: 0x1501CC0 Offset: 0x1501CC0 VA: 0x1501CC0
-	public void startMoveTarget() { }
+	// RVA: 0x112A844 Offset: 0x112A844 VA: 0x112A844
+	protected GameObject CreatePrefabNode(Transform node, int svtId = -1, int limitcount = -1) { }
 
-	// RVA: 0x1501EC0 Offset: 0x1501EC0 VA: 0x1501EC0
-	public void onOpenComplete() { }
+	// RVA: 0x112AD88 Offset: 0x112AD88 VA: 0x112AD88
+	public void changeActiveEffect(bool active) { }
 
-	// RVA: 0x15021C4 Offset: 0x15021C4 VA: 0x15021C4
-	public Transform GetTransform() { }
+	// RVA: 0x112AF18 Offset: 0x112AF18 VA: 0x112AF18
+	public void stopParticle() { }
 
-	// RVA: 0x1502254 Offset: 0x1502254 VA: 0x1502254
-	public void SetRigidbodyGravity(bool flg) { }
+	// RVA: 0x11286F8 Offset: 0x11286F8 VA: 0x11286F8
+	private void setupAnimation() { }
 
-	// RVA: 0x1502318 Offset: 0x1502318 VA: 0x1502318
-	public void StartNotTweenMove(Vector3 from, Vector3 to, float time, float delay, Action<GameObject> callback) { }
+	// RVA: 0x112AFF0 Offset: 0x112AFF0 VA: 0x112AFF0
+	public void playAnimationTimeline(string filename, string startEvent = "", string stopEvent = "") { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD3A614 Offset: 0xD3A614 VA: 0xD3A614
-	// RVA: 0x1502384 Offset: 0x1502384 VA: 0x1502384
-	private IEnumerator _StartNotTweenMove(float delay) { }
+	// RVA: 0x112B5C4 Offset: 0x112B5C4 VA: 0x112B5C4
+	public void setCurrentAnimTime(float time) { }
 
-	// RVA: 0x1502420 Offset: 0x1502420 VA: 0x1502420
-	public void SetEasingType(BattleMoveObject.EASING type) { }
+	// RVA: 0x112B5CC Offset: 0x112B5CC VA: 0x112B5CC
+	public bool checkAnimation(string filename) { }
 
-	// RVA: 0x1501BE0 Offset: 0x1501BE0 VA: 0x1501BE0
-	private float easeInQuart(float start, float end, float value) { }
+	// RVA: 0x11275E0 Offset: 0x11275E0 VA: 0x11275E0
+	public void playAnimation(string filename) { }
 
-	// RVA: 0x1501BFC Offset: 0x1501BFC VA: 0x1501BFC
-	private float easeInBack(float start, float end, float value) { }
+	// RVA: 0x112B744 Offset: 0x112B744 VA: 0x112B744
+	public void playAnimationFromTag(string animname, string tag) { }
+
+	// RVA: 0x112B9E8 Offset: 0x112B9E8 VA: 0x112B9E8
+	public void stopAnimation() { }
+
+	// RVA: 0x112B438 Offset: 0x112B438 VA: 0x112B438
+	public float getTagTime(string animname, string tag) { }
+
+	// RVA: 0x112B9F4 Offset: 0x112B9F4 VA: 0x112B9F4
+	public void stopAnimationCheck() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCCCF20 Offset: 0xCCCF20 VA: 0xCCCF20
+	// RVA: 0x112BA48 Offset: 0x112BA48 VA: 0x112BA48
+	private IEnumerator AnimationCheck() { }
+
+	// RVA: 0x112BAC0 Offset: 0x112BAC0 VA: 0x112BAC0
+	public void setTimeScale(float timescale) { }
+
+	// RVA: 0x112BAC8 Offset: 0x112BAC8 VA: 0x112BAC8
+	public float GetCurrentTimeScale() { }
+
+	// RVA: 0x112BAD0 Offset: 0x112BAD0 VA: 0x112BAD0
+	private void OnAnimEvent(AnimationEvent ev) { }
+
+	// RVA: 0x112BC1C Offset: 0x112BC1C VA: 0x112BC1C
+	public void AttachCl() { }
+
+	// RVA: 0x112BC20 Offset: 0x112BC20 VA: 0x112BC20
+	public void loadAnimationEvents(TextAsset data, int svtId, int level) { }
+
+	// RVA: 0x112C450 Offset: 0x112C450 VA: 0x112C450
+	private void OnEnable() { }
+
+	// RVA: 0x112C5BC Offset: 0x112C5BC VA: 0x112C5BC
+	public GameObject GetPrefabNode(string name) { }
+
+	// RVA: 0x112C7F4 Offset: 0x112C7F4 VA: 0x112C7F4
+	public void SetConnectPrefabNode(string name, bool isConnect = True) { }
+
+	// RVA: 0x112C8A8 Offset: 0x112C8A8 VA: 0x112C8A8
+	public void SetConnectPrefabNode(GameObject obj, bool isConnect = True) { }
+
+	// RVA: 0x112CBE4 Offset: 0x112CBE4 VA: 0x112CBE4
+	public bool IsYTransparenceShader() { }
+
+	// RVA: 0x112CE34 Offset: 0x112CE34 VA: 0x112CE34
+	public void SetYTransparenceShaderProperty(float value, string propertyName) { }
+
+	// RVA: 0x112CFFC Offset: 0x112CFFC VA: 0x112CFFC
+	public void SetTempShaderFloatProperty(float value, string propertyName = "_y0") { }
+
+	// RVA: 0x112D2C4 Offset: 0x112D2C4 VA: 0x112D2C4
+	public void RevertShaderFloatProperty() { }
+
+	// RVA: 0x112B740 Offset: 0x112B740 VA: 0x112B740
+	private void DebugPrint(string str) { }
+
+	// RVA: 0x112D534 Offset: 0x112D534 VA: 0x112D534
+	public string getRealAnimationName(string animationName) { }
+
+	// RVA: 0x112D5F8 Offset: 0x112D5F8 VA: 0x112D5F8
+	public void SetActiveActorEffectFromNodeName(string nodeName, bool isActive) { }
+
+	// RVA: 0x112D6E4 Offset: 0x112D6E4 VA: 0x112D6E4
+	public void SetActiveActorEffectFromEffectName(string effectName, bool isActive) { }
+
+	// RVA: 0x112D8AC Offset: 0x112D8AC VA: 0x112D8AC
+	public void SetActiveActorEffectAll(bool isActive) { }
+
+	// RVA: 0x112DA2C Offset: 0x112DA2C VA: 0x112DA2C
+	public string GetRealAnimName(string targetName) { }
+
+	// RVA: 0x112DAC8 Offset: 0x112DAC8 VA: 0x112DAC8
+	public void SetTempDefaultAnimation(string updateAnimName) { }
+
+	// RVA: 0x112DF14 Offset: 0x112DF14 VA: 0x112DF14
+	public void RevertDefaultAnimation() { }
+
+	// RVA: 0x112E078 Offset: 0x112E078 VA: 0x112E078
+	private static void .cctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCF30 Offset: 0xCCCF30 VA: 0xCCCF30
+	// RVA: 0x112E4F8 Offset: 0x112E4F8 VA: 0x112E4F8
+	private static bool <inSetEvolutionLevel>m__0(Transform p) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCCF40 Offset: 0xCCCF40 VA: 0xCCCF40
+	// RVA: 0x112E64C Offset: 0x112E64C VA: 0x112E64C
+	private static bool <inSetEvolutionLevel>m__1(Transform p) { }
 }
 
 // Namespace: 
-public enum BattleMoveObject.TYPE // TypeDefIndex: 8894
+public sealed class BattleFBXComponent.onEventDelegate : MulticastDelegate // TypeDefIndex: 8895
 {
-	// Fields
-	public int value__; // 0x0
-	public const BattleMoveObject.TYPE NONE = 0;
-	public const BattleMoveObject.TYPE CRITICAL = 1;
-	public const BattleMoveObject.TYPE ITEM = 2;
+	// Methods
+
+	// RVA: 0x112EAA8 Offset: 0x112EAA8 VA: 0x112EAA8
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x112885C Offset: 0x112885C VA: 0x112885C Slot: 11
+	public virtual void Invoke(string n) { }
+
+	// RVA: 0x112EAB8 Offset: 0x112EAB8 VA: 0x112EAB8 Slot: 12
+	public virtual IAsyncResult BeginInvoke(string n, AsyncCallback callback, object object) { }
+
+	// RVA: 0x112EADC Offset: 0x112EADC VA: 0x112EADC Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: 
-public enum BattleMoveObject.EASING // TypeDefIndex: 8895
+private class BattleFBXComponent.AnimEvent // TypeDefIndex: 8896
 {
 	// Fields
-	public int value__; // 0x0
-	public const BattleMoveObject.EASING EASEINQUART = 0;
-	public const BattleMoveObject.EASING EASEINBACK = 1;
+	public float time; // 0x10
+	public string tag; // 0x18
+	public string param; // 0x20
+
+	// Methods
+
+	// RVA: 0x112C448 Offset: 0x112C448 VA: 0x112C448
+	public void .ctor() { }
 }
 
 // Namespace: 
-public struct BattleMoveObject.NotTweenInfo // TypeDefIndex: 8896
+[CompilerGeneratedAttribute] // RVA: 0xC43DA4 Offset: 0xC43DA4 VA: 0xC43DA4
+private sealed class BattleFBXComponent.<AnimationCheck>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8897
 {
 	// Fields
-	public Vector3 from; // 0x0
-	public Vector3 to; // 0xC
-	public float time; // 0x18
-	public float startTime; // 0x1C
-	public Action<GameObject> callback; // 0x20
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAFEA0 Offset: 0xCAFEA0 VA: 0xCAFEA0
-private sealed class BattleMoveObject.<_StartNotTweenMove>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8897
-{
-	// Fields
-	internal float delay; // 0x10
-	internal BattleMoveObject $this; // 0x18
+	internal string <prevname>__0; // 0x10
+	internal BattleFBXComponent $this; // 0x18
 	internal object $current; // 0x20
 	internal bool $disposing; // 0x28
 	internal int $PC; // 0x2C
@@ -708,293 +904,97 @@ private sealed class BattleMoveObject.<_StartNotTweenMove>c__Iterator0 : IEnumer
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xD48154 Offset: 0xD48154 VA: 0xD48154
-	// RVA: 0x1502418 Offset: 0x1502418 VA: 0x1502418
+	[DebuggerHiddenAttribute] // RVA: 0xCDADA0 Offset: 0xCDADA0 VA: 0xCDADA0
+	// RVA: 0x112BAB8 Offset: 0x112BAB8 VA: 0x112BAB8
 	public void .ctor() { }
 
-	// RVA: 0x1502428 Offset: 0x1502428 VA: 0x1502428 Slot: 5
+	// RVA: 0x112E708 Offset: 0x112E708 VA: 0x112E708 Slot: 5
 	public bool MoveNext() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD48164 Offset: 0xD48164 VA: 0xD48164
-	// RVA: 0x1502514 Offset: 0x1502514 VA: 0x1502514 Slot: 8
+	[DebuggerHiddenAttribute] // RVA: 0xCDADB0 Offset: 0xCDADB0 VA: 0xCDADB0
+	// RVA: 0x112E9E4 Offset: 0x112E9E4 VA: 0x112E9E4 Slot: 8
 	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD48174 Offset: 0xD48174 VA: 0xD48174
-	// RVA: 0x150251C Offset: 0x150251C VA: 0x150251C Slot: 4
+	[DebuggerHiddenAttribute] // RVA: 0xCDADC0 Offset: 0xCDADC0 VA: 0xCDADC0
+	// RVA: 0x112E9EC Offset: 0x112E9EC VA: 0x112E9EC Slot: 4
 	private object System.Collections.IEnumerator.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD48184 Offset: 0xD48184 VA: 0xD48184
-	// RVA: 0x1502524 Offset: 0x1502524 VA: 0x1502524 Slot: 7
+	[DebuggerHiddenAttribute] // RVA: 0xCDADD0 Offset: 0xCDADD0 VA: 0xCDADD0
+	// RVA: 0x112E9F4 Offset: 0x112E9F4 VA: 0x112E9F4 Slot: 7
 	public void Dispose() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD48194 Offset: 0xD48194 VA: 0xD48194
-	// RVA: 0x1502538 Offset: 0x1502538 VA: 0x1502538 Slot: 6
+	[DebuggerHiddenAttribute] // RVA: 0xCDADE0 Offset: 0xCDADE0 VA: 0xCDADE0
+	// RVA: 0x112EA08 Offset: 0x112EA08 VA: 0x112EA08 Slot: 6
 	public void Reset() { }
 }
 
 // Namespace: 
-public class BattlePanelEvent : MonoBehaviour // TypeDefIndex: 8898
+[CompilerGeneratedAttribute] // RVA: 0xC43DB4 Offset: 0xC43DB4 VA: 0xC43DB4
+private sealed class BattleFBXComponent.<IsYTransparenceShader>c__AnonStorey1 // TypeDefIndex: 8898
 {
 	// Fields
-	public GameObject Panel; // 0x18
+	internal string skinShaderName; // 0x10
 
 	// Methods
 
-	// RVA: 0x1504648 Offset: 0x1504648 VA: 0x1504648
+	// RVA: 0x112CE2C Offset: 0x112CE2C VA: 0x112CE2C
 	public void .ctor() { }
 
-	// RVA: 0x1504650 Offset: 0x1504650 VA: 0x1504650
-	private void OnDestroy() { }
-
-	// RVA: 0x1504660 Offset: 0x1504660 VA: 0x1504660
-	private void SetPanelActive() { }
-
-	// RVA: 0x1504658 Offset: 0x1504658 VA: 0x1504658
-	private void SetPanelDisable() { }
-
-	// RVA: 0x1504668 Offset: 0x1504668 VA: 0x1504668
-	private void SetPanelActive(bool flag) { }
+	// RVA: 0x112EA70 Offset: 0x112EA70 VA: 0x112EA70
+	internal bool <>m__0(string shaderName) { }
 }
 
 // Namespace: 
-public class BattleParamComponent : BaseMonoBehaviour // TypeDefIndex: 8899
+public class BattleFieldData : AiInterface // TypeDefIndex: 8899
 {
 	// Fields
-	[SerializeField] // RVA: 0xCCFF28 Offset: 0xCCFF28 VA: 0xCCFF28
-	public float endtime; // 0x18
-	[SerializeField] // RVA: 0xCCFF38 Offset: 0xCCFF38 VA: 0xCCFF38
-	public float nextStepTime; // 0x1C
-	[SerializeField] // RVA: 0xCCFF48 Offset: 0xCCFF48 VA: 0xCCFF48
-	private string baseAnimationName; // 0x20
-	[SerializeField] // RVA: 0xCCFF58 Offset: 0xCCFF58 VA: 0xCCFF58
-	private int maxPhase; // 0x28
-	[SerializeField] // RVA: 0xCCFF68 Offset: 0xCCFF68 VA: 0xCCFF68
-	private int[] switchPhase; // 0x30
-	[SerializeField] // RVA: 0xCCFF78 Offset: 0xCCFF78 VA: 0xCCFF78
-	private string voiceDataStr; // 0x38
-	private SimpleAnimation simpleAnim; // 0x40
-	private Animation anim; // 0x48
-	private int[] animationIds; // 0x50
-	private int currentPhase; // 0x58
-	private int switchIndex; // 0x5C
-	private string voicePath; // 0x60
-	private CommonEffectComponent commonEff; // 0x68
+	public int index; // 0x10
+	public int uniqueId; // 0x14
+	public AiState aiState; // 0x18
+	public BattleFieldData.AiField aiField; // 0x20
+	private BattleFieldData.SaveData tmpsave; // 0x28
+	private double[] wkZeroParam; // 0x30
 
 	// Methods
 
-	// RVA: 0x1504718 Offset: 0x1504718 VA: 0x1504718
+	// RVA: 0x112EAE8 Offset: 0x112EAE8 VA: 0x112EAE8
 	public void .ctor() { }
 
-	// RVA: 0x15047A0 Offset: 0x15047A0 VA: 0x15047A0
-	private void Init() { }
+	// RVA: 0x112EB70 Offset: 0x112EB70 VA: 0x112EB70
+	public void .ctor(int inIndex, object obj) { }
 
-	// RVA: 0x1504830 Offset: 0x1504830 VA: 0x1504830
-	public void SetInfo(int[] animationIds, int voiceId, Action callback) { }
+	// RVA: 0x112EE1C Offset: 0x112EE1C VA: 0x112EE1C
+	public int getUniqueID() { }
 
-	// RVA: 0x1504964 Offset: 0x1504964 VA: 0x1504964
-	public void Release() { }
+	// RVA: 0x112EE24 Offset: 0x112EE24 VA: 0x112EE24
+	public int getIndex() { }
 
-	// RVA: 0x1504A30 Offset: 0x1504A30 VA: 0x1504A30
-	public void PlayStartEffect(int start, int end, Action callback) { }
+	// RVA: 0x112EE2C Offset: 0x112EE2C VA: 0x112EE2C
+	public AiState getAiState() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD3A624 Offset: 0xD3A624 VA: 0xD3A624
-	// RVA: 0x1504A5C Offset: 0x1504A5C VA: 0x1504A5C
-	private IEnumerator playingEffect(int start, int end, Action callback) { }
+	// RVA: 0x112EE34 Offset: 0x112EE34 VA: 0x112EE34
+	public BattleFieldData.SaveData getSaveData() { }
 
-	// RVA: 0x1504B28 Offset: 0x1504B28 VA: 0x1504B28
-	public void SetEndressFlg(bool flg) { }
+	// RVA: 0x112EE90 Offset: 0x112EE90 VA: 0x112EE90
+	public void setSaveData(BattleFieldData.SaveData save) { }
+
+	// RVA: 0x112EED8 Offset: 0x112EED8 VA: 0x112EED8 Slot: 4
+	public double[] getAiParam(BattleData bData, ConditionsInformation.PARAMATER param, int turn, int actCnt, long[] checkparams) { }
+
+	// RVA: 0x112F0A4 Offset: 0x112F0A4 VA: 0x112F0A4 Slot: 5
+	public bool isAiTarget(ConditionsInformation.CheckInfo info, long[] indiv) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAFEB0 Offset: 0xCAFEB0 VA: 0xCAFEB0
-private sealed class BattleParamComponent.<playingEffect>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8900
-{
-	// Fields
-	internal int start; // 0x10
-	internal int end; // 0x14
-	internal string <name>__1; // 0x18
-	internal Action callback; // 0x20
-	internal BattleParamComponent $this; // 0x28
-	internal object $current; // 0x30
-	internal bool $disposing; // 0x38
-	internal int $PC; // 0x3C
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD481A4 Offset: 0xD481A4 VA: 0xD481A4
-	// RVA: 0x1504B20 Offset: 0x1504B20 VA: 0x1504B20
-	public void .ctor() { }
-
-	// RVA: 0x1504BD8 Offset: 0x1504BD8 VA: 0x1504BD8 Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD481B4 Offset: 0xD481B4 VA: 0xD481B4
-	// RVA: 0x15050E8 Offset: 0x15050E8 VA: 0x15050E8 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD481C4 Offset: 0xD481C4 VA: 0xD481C4
-	// RVA: 0x15050F0 Offset: 0x15050F0 VA: 0x15050F0 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD481D4 Offset: 0xD481D4 VA: 0xD481D4
-	// RVA: 0x15050F8 Offset: 0x15050F8 VA: 0x15050F8 Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD481E4 Offset: 0xD481E4 VA: 0xD481E4
-	// RVA: 0x150510C Offset: 0x150510C VA: 0x150510C Slot: 6
-	public void Reset() { }
-}
-
-// Namespace: 
-public class BattleRaidInfo // TypeDefIndex: 8901
+public class BattleFieldData.AiField // TypeDefIndex: 8900
 {
 	// Fields
 	public int day; // 0x10
-	public int uniqueId; // 0x14
-	public long maxHp; // 0x18
-	public long totalDamage; // 0x20
+	public int id; // 0x14
 
 	// Methods
 
-	// RVA: 0x16CF048 Offset: 0x16CF048 VA: 0x16CF048
+	// RVA: 0x112EE14 Offset: 0x112EE14 VA: 0x112EE14
 	public void .ctor() { }
 }
 
-// Namespace: 
-public class BattleRaidTurnStartEffect : MonoBehaviour // TypeDefIndex: 8902
-{
-	// Fields
-	public bool animeStop; // 0x18
-
-	// Methods
-
-	// RVA: 0x16CF050 Offset: 0x16CF050 VA: 0x16CF050
-	public void .ctor() { }
-
-	// RVA: 0x16CF058 Offset: 0x16CF058 VA: 0x16CF058
-	public void setStopFlg(bool stopFlag) { }
-
-	// RVA: 0x16CF064 Offset: 0x16CF064 VA: 0x16CF064
-	public void waitLimitTurnEffect() { }
-
-	// RVA: 0x16CF78C Offset: 0x16CF78C VA: 0x16CF78C
-	public void resumeLimitTurnEffect() { }
-}
-
-// Namespace: 
-public class BattleRandom : SingletonMonoBehaviour<BattleRandom> // TypeDefIndex: 8903
-{
-	// Fields
-	public Random logicrandom; // 0x18
-	public Random gutsrandom; // 0x20
-	public int logicCount; // 0x28
-	public int gutsCount; // 0x2C
-
-	// Methods
-
-	// RVA: 0x16CFEBC Offset: 0x16CFEBC VA: 0x16CFEBC
-	public void .ctor() { }
-
-	// RVA: 0x16CFF0C Offset: 0x16CFF0C VA: 0x16CFF0C
-	public static void setSeed(int seed) { }
-
-	// RVA: 0x16D0024 Offset: 0x16D0024 VA: 0x16D0024
-	public static void adjustment() { }
-
-	// RVA: 0x16D0138 Offset: 0x16D0138 VA: 0x16D0138
-	public static int getNext(int max) { }
-
-	// RVA: 0x16D023C Offset: 0x16D023C VA: 0x16D023C
-	public static int getGutsNext(int max) { }
-
-	// RVA: 0x16D033C Offset: 0x16D033C VA: 0x16D033C
-	public static int getRandom(int min, int max) { }
-
-	// RVA: -1 Offset: -1
-	public static T[] getShuffle<T>(T[] list) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x2B808CC Offset: 0x2B808CC VA: 0x2B808CC
-	|-BattleRandom.getShuffle<BattleCommandData>
-	|-BattleRandom.getShuffle<BattleServantData>
-	|-BattleRandom.getShuffle<object>
-	|
-	|-RVA: 0x2B8071C Offset: 0x2B8071C VA: 0x2B8071C
-	|-BattleRandom.getShuffle<int>
-	*/
-
-	// RVA: 0x16D0454 Offset: 0x16D0454 VA: 0x16D0454
-	public static void SetCount(int logic, int guts) { }
-
-	// RVA: 0x16D0514 Offset: 0x16D0514 VA: 0x16D0514
-	public static int GetLogicCount() { }
-
-	// RVA: 0x16D05B4 Offset: 0x16D05B4 VA: 0x16D05B4
-	public static int GetGutsCount() { }
-}
-
-// Namespace: 
-public class BattleRandomSwitchObj : MonoBehaviour // TypeDefIndex: 8904
-{
-	// Fields
-	[SerializeField] // RVA: 0xCCFF88 Offset: 0xCCFF88 VA: 0xCCFF88
-	[TooltipAttribute] // RVA: 0xCCFF88 Offset: 0xCCFF88 VA: 0xCCFF88
-	private BattleRandomSwitchObj.SwitchData[] switchDataArray; // 0x18
-
-	// Methods
-
-	// RVA: 0x16D0654 Offset: 0x16D0654 VA: 0x16D0654
-	public void .ctor() { }
-
-	// RVA: 0x16D06B4 Offset: 0x16D06B4 VA: 0x16D06B4
-	private void Start() { }
-
-	// RVA: 0x16D06B8 Offset: 0x16D06B8 VA: 0x16D06B8
-	public void Execution() { }
-}
-
-// Namespace: 
-[Serializable]
-public struct BattleRandomSwitchObj.SwitchData // TypeDefIndex: 8905
-{
-	// Fields
-	[TooltipAttribute] // RVA: 0xCCFFD4 Offset: 0xCCFFD4 VA: 0xCCFFD4
-	public GameObject[] objs; // 0x0
-	[TooltipAttribute] // RVA: 0xCD000C Offset: 0xCD000C VA: 0xCD000C
-	public int weight; // 0x8
-	[TooltipAttribute] // RVA: 0xCD0044 Offset: 0xCD0044 VA: 0xCD0044
-	public bool hitValue; // 0xC
-	[TooltipAttribute] // RVA: 0xCD007C Offset: 0xCD007C VA: 0xCD007C
-	public bool initValue; // 0xD
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAFEC0 Offset: 0xCAFEC0 VA: 0xCAFEC0
-private sealed class BattleRandomSwitchObj.<Execution>c__AnonStorey1 // TypeDefIndex: 8906
-{
-	// Fields
-	internal int hitIndex; // 0x10
-	internal BattleRandomSwitchObj $this; // 0x18
-
-	// Methods
-
-	// RVA: 0x16D0A8C Offset: 0x16D0A8C VA: 0x16D0A8C
-	public void .ctor() { }
-
-	// RVA: 0x16D0B38 Offset: 0x16D0B38 VA: 0x16D0B38
-	internal void <>m__0(GameObject g) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAFED0 Offset: 0xCAFED0 VA: 0xCAFED0
-private sealed class BattleRandomSwitchObj.<Execution>c__AnonStorey0 // TypeDefIndex: 8907
-{
-	// Fields
-	internal int i; // 0x10
-	internal BattleRandomSwitchObj.<Execution>c__AnonStorey1 <>f__ref$1; // 0x18
-
-	// Methods

@@ -1,55 +1,177 @@
-	// RVA: 0x23D61E4 Offset: 0x23D61E4 VA: 0x23D61E4
-	private static long packIntoLong(int b7, int b6, int b5, int b4, int b3, int b2, int b1, int b0) { }
+	private const int DigestLength = 24;
+	private long a; // 0x10
+	private long b; // 0x18
+	private long c; // 0x20
+	private long byteCount; // 0x28
+	private byte[] Buffer; // 0x30
+	private int bOff; // 0x38
+	private long[] x; // 0x40
+	private int xOff; // 0x48
 
-	// RVA: 0x23D61D0 Offset: 0x23D61D0 VA: 0x23D61D0
-	private static int maskWithReductionPolynomial(int input) { }
+	// Properties
+	public string AlgorithmName { get; }
 
-	// RVA: 0x23D6944 Offset: 0x23D6944 VA: 0x23D6944 Slot: 4
+	// Methods
+
+	// RVA: 0x201BCC8 Offset: 0x201BCC8 VA: 0x201BCC8
+	public void .ctor() { }
+
+	// RVA: 0x201BE58 Offset: 0x201BE58 VA: 0x201BE58
+	public void .ctor(TigerDigest t) { }
+
+	// RVA: 0x201C12C Offset: 0x201C12C VA: 0x201C12C Slot: 4
 	public string get_AlgorithmName() { }
 
-	// RVA: 0x23D698C Offset: 0x23D698C VA: 0x23D698C Slot: 5
+	// RVA: 0x201C174 Offset: 0x201C174 VA: 0x201C174 Slot: 5
 	public int GetDigestSize() { }
 
-	// RVA: 0x23D6994 Offset: 0x23D6994 VA: 0x23D6994 Slot: 9
-	public int DoFinal(byte[] output, int outOff) { }
-
-	// RVA: 0x23D6C00 Offset: 0x23D6C00 VA: 0x23D6C00 Slot: 10
-	public void Reset() { }
-
-	// RVA: 0x23D6D18 Offset: 0x23D6D18 VA: 0x23D6D18
-	private void processFilledBuffer() { }
-
-	// RVA: 0x23D6E38 Offset: 0x23D6E38 VA: 0x23D6E38
-	private static long bytesToLongFromBuffer(byte[] buffer, int startPos) { }
-
-	// RVA: 0x23D6B7C Offset: 0x23D6B7C VA: 0x23D6B7C
-	private static void convertLongToByteArray(long inputLong, byte[] outputArray, int offSet) { }
-
-	// RVA: 0x23D6FFC Offset: 0x23D6FFC VA: 0x23D6FFC
-	private void processBlock() { }
-
-	// RVA: 0x23D7F08 Offset: 0x23D7F08 VA: 0x23D7F08 Slot: 7
-	public void Update(byte input) { }
-
-	// RVA: 0x23D7F9C Offset: 0x23D7F9C VA: 0x23D7F9C
-	private void increment() { }
-
-	// RVA: 0x23D80F8 Offset: 0x23D80F8 VA: 0x23D80F8 Slot: 8
-	public void BlockUpdate(byte[] input, int inOff, int length) { }
-
-	// RVA: 0x23D6A78 Offset: 0x23D6A78 VA: 0x23D6A78
-	private void finish() { }
-
-	// RVA: 0x23D8184 Offset: 0x23D8184 VA: 0x23D8184
-	private byte[] copyBitLength() { }
-
-	// RVA: 0x23D8270 Offset: 0x23D8270 VA: 0x23D8270 Slot: 6
+	// RVA: 0x201C17C Offset: 0x201C17C VA: 0x201C17C Slot: 6
 	public int GetByteLength() { }
 
-	// RVA: 0x23D8278 Offset: 0x23D8278 VA: 0x23D8278 Slot: 11
+	// RVA: 0x201C184 Offset: 0x201C184 VA: 0x201C184
+	private void ProcessWord(byte[] b, int off) { }
+
+	// RVA: 0x201CA28 Offset: 0x201CA28 VA: 0x201CA28 Slot: 7
+	public void Update(byte input) { }
+
+	// RVA: 0x201CACC Offset: 0x201CACC VA: 0x201CACC Slot: 8
+	public void BlockUpdate(byte[] input, int inOff, int length) { }
+
+	// RVA: 0x201CC20 Offset: 0x201CC20 VA: 0x201CC20
+	private void RoundABC(long x, long mul) { }
+
+	// RVA: 0x201CF04 Offset: 0x201CF04 VA: 0x201CF04
+	private void RoundBCA(long x, long mul) { }
+
+	// RVA: 0x201D1E8 Offset: 0x201D1E8 VA: 0x201D1E8
+	private void RoundCAB(long x, long mul) { }
+
+	// RVA: 0x201D4C8 Offset: 0x201D4C8 VA: 0x201D4C8
+	private void KeySchedule() { }
+
+	// RVA: 0x201C3D0 Offset: 0x201C3D0 VA: 0x201C3D0
+	private void ProcessBlock() { }
+
+	// RVA: 0x201DC6C Offset: 0x201DC6C VA: 0x201DC6C
+	private void UnpackWord(long r, byte[] output, int outOff) { }
+
+	// RVA: 0x201DE1C Offset: 0x201DE1C VA: 0x201DE1C
+	private void ProcessLength(long bitLength) { }
+
+	// RVA: 0x201DE68 Offset: 0x201DE68 VA: 0x201DE68
+	private void Finish() { }
+
+	// RVA: 0x201DEB8 Offset: 0x201DEB8 VA: 0x201DEB8 Slot: 9
+	public int DoFinal(byte[] output, int outOff) { }
+
+	// RVA: 0x201BD48 Offset: 0x201BD48 VA: 0x201BD48 Slot: 10
+	public void Reset() { }
+
+	// RVA: 0x201DF24 Offset: 0x201DF24 VA: 0x201DF24 Slot: 11
 	public IMemoable Copy() { }
 
-	// RVA: 0x23D66FC Offset: 0x23D66FC VA: 0x23D66FC Slot: 12
+	// RVA: 0x201BEE8 Offset: 0x201BEE8 VA: 0x201BEE8 Slot: 12
+	public void Reset(IMemoable other) { }
+
+	// RVA: 0x201DF84 Offset: 0x201DF84 VA: 0x201DF84
+	private static void .cctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Digests
+public sealed class WhirlpoolDigest : IDigest, IMemoable // TypeDefIndex: 4657
+{
+	// Fields
+	private const int BYTE_LENGTH = 64;
+	private const int DIGEST_LENGTH_BYTES = 64;
+	private const int ROUNDS = 10;
+	private const int REDUCTION_POLYNOMIAL = 285;
+	private static readonly int[] SBOX; // 0x0
+	private static readonly long[] C0; // 0x8
+	private static readonly long[] C1; // 0x10
+	private static readonly long[] C2; // 0x18
+	private static readonly long[] C3; // 0x20
+	private static readonly long[] C4; // 0x28
+	private static readonly long[] C5; // 0x30
+	private static readonly long[] C6; // 0x38
+	private static readonly long[] C7; // 0x40
+	private readonly long[] _rc; // 0x10
+	private static readonly short[] EIGHT; // 0x48
+	private const int BITCOUNT_ARRAY_SIZE = 32;
+	private byte[] _buffer; // 0x18
+	private int _bufferPos; // 0x20
+	private short[] _bitCount; // 0x28
+	private long[] _hash; // 0x30
+	private long[] _K; // 0x38
+	private long[] _L; // 0x40
+	private long[] _block; // 0x48
+	private long[] _state; // 0x50
+
+	// Properties
+	public string AlgorithmName { get; }
+
+	// Methods
+
+	// RVA: 0x201E098 Offset: 0x201E098 VA: 0x201E098
+	private static void .cctor() { }
+
+	// RVA: 0x201E6BC Offset: 0x201E6BC VA: 0x201E6BC
+	public void .ctor() { }
+
+	// RVA: 0x201EAA8 Offset: 0x201EAA8 VA: 0x201EAA8
+	public void .ctor(WhirlpoolDigest originalDigest) { }
+
+	// RVA: 0x201E688 Offset: 0x201E688 VA: 0x201E688
+	private static long packIntoLong(int b7, int b6, int b5, int b4, int b3, int b2, int b1, int b0) { }
+
+	// RVA: 0x201E674 Offset: 0x201E674 VA: 0x201E674
+	private static int maskWithReductionPolynomial(int input) { }
+
+	// RVA: 0x201EDE8 Offset: 0x201EDE8 VA: 0x201EDE8 Slot: 4
+	public string get_AlgorithmName() { }
+
+	// RVA: 0x201EE30 Offset: 0x201EE30 VA: 0x201EE30 Slot: 5
+	public int GetDigestSize() { }
+
+	// RVA: 0x201EE38 Offset: 0x201EE38 VA: 0x201EE38 Slot: 9
+	public int DoFinal(byte[] output, int outOff) { }
+
+	// RVA: 0x201F0A4 Offset: 0x201F0A4 VA: 0x201F0A4 Slot: 10
+	public void Reset() { }
+
+	// RVA: 0x201F1BC Offset: 0x201F1BC VA: 0x201F1BC
+	private void processFilledBuffer() { }
+
+	// RVA: 0x201F2DC Offset: 0x201F2DC VA: 0x201F2DC
+	private static long bytesToLongFromBuffer(byte[] buffer, int startPos) { }
+
+	// RVA: 0x201F020 Offset: 0x201F020 VA: 0x201F020
+	private static void convertLongToByteArray(long inputLong, byte[] outputArray, int offSet) { }
+
+	// RVA: 0x201F4A0 Offset: 0x201F4A0 VA: 0x201F4A0
+	private void processBlock() { }
+
+	// RVA: 0x20203AC Offset: 0x20203AC VA: 0x20203AC Slot: 7
+	public void Update(byte input) { }
+
+	// RVA: 0x2020440 Offset: 0x2020440 VA: 0x2020440
+	private void increment() { }
+
+	// RVA: 0x202059C Offset: 0x202059C VA: 0x202059C Slot: 8
+	public void BlockUpdate(byte[] input, int inOff, int length) { }
+
+	// RVA: 0x201EF1C Offset: 0x201EF1C VA: 0x201EF1C
+	private void finish() { }
+
+	// RVA: 0x2020628 Offset: 0x2020628 VA: 0x2020628
+	private byte[] copyBitLength() { }
+
+	// RVA: 0x2020714 Offset: 0x2020714 VA: 0x2020714 Slot: 6
+	public int GetByteLength() { }
+
+	// RVA: 0x202071C Offset: 0x202071C VA: 0x202071C Slot: 11
+	public IMemoable Copy() { }
+
+	// RVA: 0x201EBA0 Offset: 0x201EBA0 VA: 0x201EBA0 Slot: 12
 	public void Reset(IMemoable other) { }
 }
 
@@ -68,43 +190,43 @@ public sealed class CustomNamedCurves // TypeDefIndex: 4658
 
 	// Methods
 
-	// RVA: 0x23D82D8 Offset: 0x23D82D8 VA: 0x23D82D8
+	// RVA: 0x202077C Offset: 0x202077C VA: 0x202077C
 	private void .ctor() { }
 
-	// RVA: 0x23D82E0 Offset: 0x23D82E0 VA: 0x23D82E0
+	// RVA: 0x2020784 Offset: 0x2020784 VA: 0x2020784
 	private static void .cctor() { }
 
-	// RVA: 0x23D9614 Offset: 0x23D9614 VA: 0x23D9614
+	// RVA: 0x2021AB8 Offset: 0x2021AB8 VA: 0x2021AB8
 	private static BigInteger FromHex(string hex) { }
 
-	// RVA: 0x23D96B0 Offset: 0x23D96B0 VA: 0x23D96B0
+	// RVA: 0x2021B54 Offset: 0x2021B54 VA: 0x2021B54
 	private static ECCurve ConfigureCurve(ECCurve curve) { }
 
-	// RVA: 0x23D96B4 Offset: 0x23D96B4 VA: 0x23D96B4
+	// RVA: 0x2021B58 Offset: 0x2021B58 VA: 0x2021B58
 	private static ECCurve ConfigureCurveGlv(ECCurve c, GlvTypeBParameters p) { }
 
-	// RVA: 0x23D8E98 Offset: 0x23D8E98 VA: 0x23D8E98
+	// RVA: 0x202133C Offset: 0x202133C VA: 0x202133C
 	private static void DefineCurve(string name, X9ECParametersHolder holder) { }
 
-	// RVA: 0x23D9044 Offset: 0x23D9044 VA: 0x23D9044
+	// RVA: 0x20214E8 Offset: 0x20214E8 VA: 0x20214E8
 	private static void DefineCurveWithOid(string name, DerObjectIdentifier oid, X9ECParametersHolder holder) { }
 
-	// RVA: 0x23D9388 Offset: 0x23D9388 VA: 0x23D9388
+	// RVA: 0x202182C Offset: 0x202182C VA: 0x202182C
 	private static void DefineCurveAlias(string name, DerObjectIdentifier oid) { }
 
-	// RVA: 0x23D9778 Offset: 0x23D9778 VA: 0x23D9778
+	// RVA: 0x2021C1C Offset: 0x2021C1C VA: 0x2021C1C
 	public static X9ECParameters GetByName(string name) { }
 
-	// RVA: 0x23D9930 Offset: 0x23D9930 VA: 0x23D9930
+	// RVA: 0x2021DD4 Offset: 0x2021DD4 VA: 0x2021DD4
 	public static X9ECParameters GetByOid(DerObjectIdentifier oid) { }
 
-	// RVA: 0x23D9AB4 Offset: 0x23D9AB4 VA: 0x23D9AB4
+	// RVA: 0x2021F58 Offset: 0x2021F58 VA: 0x2021F58
 	public static DerObjectIdentifier GetOid(string name) { }
 
-	// RVA: 0x23D9C58 Offset: 0x23D9C58 VA: 0x23D9C58
+	// RVA: 0x20220FC Offset: 0x20220FC VA: 0x20220FC
 	public static string GetName(DerObjectIdentifier oid) { }
 
-	// RVA: 0x23D9DAC Offset: 0x23D9DAC VA: 0x23D9DAC
+	// RVA: 0x2022250 Offset: 0x2022250 VA: 0x2022250
 	public static IEnumerable get_Names() { }
 }
 
@@ -116,13 +238,13 @@ internal class CustomNamedCurves.Curve25519Holder : X9ECParametersHolder // Type
 
 	// Methods
 
-	// RVA: 0x23D9E38 Offset: 0x23D9E38 VA: 0x23D9E38
+	// RVA: 0x20222DC Offset: 0x20222DC VA: 0x20222DC
 	private void .ctor() { }
 
-	// RVA: 0x23D9E40 Offset: 0x23D9E40 VA: 0x23D9E40 Slot: 4
+	// RVA: 0x20222E4 Offset: 0x20222E4 VA: 0x20222E4 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23D9FA8 Offset: 0x23D9FA8 VA: 0x23D9FA8
+	// RVA: 0x202244C Offset: 0x202244C VA: 0x202244C
 	private static void .cctor() { }
 }
 
@@ -134,13 +256,13 @@ internal class CustomNamedCurves.SecP128R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DA00C Offset: 0x23DA00C VA: 0x23DA00C
+	// RVA: 0x20224B0 Offset: 0x20224B0 VA: 0x20224B0
 	private void .ctor() { }
 
-	// RVA: 0x23DA014 Offset: 0x23DA014 VA: 0x23DA014 Slot: 4
+	// RVA: 0x20224B8 Offset: 0x20224B8 VA: 0x20224B8 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DA198 Offset: 0x23DA198 VA: 0x23DA198
+	// RVA: 0x202263C Offset: 0x202263C VA: 0x202263C
 	private static void .cctor() { }
 }
 
@@ -152,13 +274,13 @@ internal class CustomNamedCurves.SecP160K1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DA1FC Offset: 0x23DA1FC VA: 0x23DA1FC
+	// RVA: 0x20226A0 Offset: 0x20226A0 VA: 0x20226A0
 	private void .ctor() { }
 
-	// RVA: 0x23DA204 Offset: 0x23DA204 VA: 0x23DA204 Slot: 4
+	// RVA: 0x20226A8 Offset: 0x20226A8 VA: 0x20226A8 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DA658 Offset: 0x23DA658 VA: 0x23DA658
+	// RVA: 0x2022AFC Offset: 0x2022AFC VA: 0x2022AFC
 	private static void .cctor() { }
 }
 
@@ -170,13 +292,13 @@ internal class CustomNamedCurves.SecP160R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DA6BC Offset: 0x23DA6BC VA: 0x23DA6BC
+	// RVA: 0x2022B60 Offset: 0x2022B60 VA: 0x2022B60
 	private void .ctor() { }
 
-	// RVA: 0x23DA6C4 Offset: 0x23DA6C4 VA: 0x23DA6C4 Slot: 4
+	// RVA: 0x2022B68 Offset: 0x2022B68 VA: 0x2022B68 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DA848 Offset: 0x23DA848 VA: 0x23DA848
+	// RVA: 0x2022CEC Offset: 0x2022CEC VA: 0x2022CEC
 	private static void .cctor() { }
 }
 
@@ -188,13 +310,13 @@ internal class CustomNamedCurves.SecP160R2Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DA8AC Offset: 0x23DA8AC VA: 0x23DA8AC
+	// RVA: 0x2022D50 Offset: 0x2022D50 VA: 0x2022D50
 	private void .ctor() { }
 
-	// RVA: 0x23DA8B4 Offset: 0x23DA8B4 VA: 0x23DA8B4 Slot: 4
+	// RVA: 0x2022D58 Offset: 0x2022D58 VA: 0x2022D58 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DAA38 Offset: 0x23DAA38 VA: 0x23DAA38
+	// RVA: 0x2022EDC Offset: 0x2022EDC VA: 0x2022EDC
 	private static void .cctor() { }
 }
 
@@ -206,13 +328,13 @@ internal class CustomNamedCurves.SecP192K1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DAA9C Offset: 0x23DAA9C VA: 0x23DAA9C
+	// RVA: 0x2022F40 Offset: 0x2022F40 VA: 0x2022F40
 	private void .ctor() { }
 
-	// RVA: 0x23DAAA4 Offset: 0x23DAAA4 VA: 0x23DAAA4 Slot: 4
+	// RVA: 0x2022F48 Offset: 0x2022F48 VA: 0x2022F48 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DAEF8 Offset: 0x23DAEF8 VA: 0x23DAEF8
+	// RVA: 0x202339C Offset: 0x202339C VA: 0x202339C
 	private static void .cctor() { }
 }
 
@@ -224,13 +346,13 @@ internal class CustomNamedCurves.SecP192R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DAF5C Offset: 0x23DAF5C VA: 0x23DAF5C
+	// RVA: 0x2023400 Offset: 0x2023400 VA: 0x2023400
 	private void .ctor() { }
 
-	// RVA: 0x23DAF64 Offset: 0x23DAF64 VA: 0x23DAF64 Slot: 4
+	// RVA: 0x2023408 Offset: 0x2023408 VA: 0x2023408 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DB0E8 Offset: 0x23DB0E8 VA: 0x23DB0E8
+	// RVA: 0x202358C Offset: 0x202358C VA: 0x202358C
 	private static void .cctor() { }
 }
 
@@ -242,13 +364,13 @@ internal class CustomNamedCurves.SecP224K1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DB14C Offset: 0x23DB14C VA: 0x23DB14C
+	// RVA: 0x20235F0 Offset: 0x20235F0 VA: 0x20235F0
 	private void .ctor() { }
 
-	// RVA: 0x23DB154 Offset: 0x23DB154 VA: 0x23DB154 Slot: 4
+	// RVA: 0x20235F8 Offset: 0x20235F8 VA: 0x20235F8 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DB5A8 Offset: 0x23DB5A8 VA: 0x23DB5A8
+	// RVA: 0x2023A4C Offset: 0x2023A4C VA: 0x2023A4C
 	private static void .cctor() { }
 }
 
@@ -260,13 +382,13 @@ internal class CustomNamedCurves.SecP224R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DB60C Offset: 0x23DB60C VA: 0x23DB60C
+	// RVA: 0x2023AB0 Offset: 0x2023AB0 VA: 0x2023AB0
 	private void .ctor() { }
 
-	// RVA: 0x23DB614 Offset: 0x23DB614 VA: 0x23DB614 Slot: 4
+	// RVA: 0x2023AB8 Offset: 0x2023AB8 VA: 0x2023AB8 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DB798 Offset: 0x23DB798 VA: 0x23DB798
+	// RVA: 0x2023C3C Offset: 0x2023C3C VA: 0x2023C3C
 	private static void .cctor() { }
 }
 
@@ -278,13 +400,13 @@ internal class CustomNamedCurves.SecP256K1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DB7FC Offset: 0x23DB7FC VA: 0x23DB7FC
+	// RVA: 0x2023CA0 Offset: 0x2023CA0 VA: 0x2023CA0
 	private void .ctor() { }
 
-	// RVA: 0x23DB804 Offset: 0x23DB804 VA: 0x23DB804 Slot: 4
+	// RVA: 0x2023CA8 Offset: 0x2023CA8 VA: 0x2023CA8 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DBC58 Offset: 0x23DBC58 VA: 0x23DBC58
+	// RVA: 0x20240FC Offset: 0x20240FC VA: 0x20240FC
 	private static void .cctor() { }
 }
 
@@ -296,13 +418,13 @@ internal class CustomNamedCurves.SecP256R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DBCBC Offset: 0x23DBCBC VA: 0x23DBCBC
+	// RVA: 0x2024160 Offset: 0x2024160 VA: 0x2024160
 	private void .ctor() { }
 
-	// RVA: 0x23DBCC4 Offset: 0x23DBCC4 VA: 0x23DBCC4 Slot: 4
+	// RVA: 0x2024168 Offset: 0x2024168 VA: 0x2024168 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DBE48 Offset: 0x23DBE48 VA: 0x23DBE48
+	// RVA: 0x20242EC Offset: 0x20242EC VA: 0x20242EC
 	private static void .cctor() { }
 }
 
@@ -314,13 +436,13 @@ internal class CustomNamedCurves.SecP384R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DBEAC Offset: 0x23DBEAC VA: 0x23DBEAC
+	// RVA: 0x2024350 Offset: 0x2024350 VA: 0x2024350
 	private void .ctor() { }
 
-	// RVA: 0x23DBEB4 Offset: 0x23DBEB4 VA: 0x23DBEB4 Slot: 4
+	// RVA: 0x2024358 Offset: 0x2024358 VA: 0x2024358 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DC038 Offset: 0x23DC038 VA: 0x23DC038
+	// RVA: 0x20244DC Offset: 0x20244DC VA: 0x20244DC
 	private static void .cctor() { }
 }
 
@@ -332,13 +454,13 @@ internal class CustomNamedCurves.SecP521R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DC09C Offset: 0x23DC09C VA: 0x23DC09C
+	// RVA: 0x2024540 Offset: 0x2024540 VA: 0x2024540
 	private void .ctor() { }
 
-	// RVA: 0x23DC0A4 Offset: 0x23DC0A4 VA: 0x23DC0A4 Slot: 4
+	// RVA: 0x2024548 Offset: 0x2024548 VA: 0x2024548 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DC228 Offset: 0x23DC228 VA: 0x23DC228
+	// RVA: 0x20246CC Offset: 0x20246CC VA: 0x20246CC
 	private static void .cctor() { }
 }
 
@@ -350,13 +472,13 @@ internal class CustomNamedCurves.SecT113R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DC28C Offset: 0x23DC28C VA: 0x23DC28C
+	// RVA: 0x2024730 Offset: 0x2024730 VA: 0x2024730
 	private void .ctor() { }
 
-	// RVA: 0x23DC294 Offset: 0x23DC294 VA: 0x23DC294 Slot: 4
+	// RVA: 0x2024738 Offset: 0x2024738 VA: 0x2024738 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DC418 Offset: 0x23DC418 VA: 0x23DC418
+	// RVA: 0x20248BC Offset: 0x20248BC VA: 0x20248BC
 	private static void .cctor() { }
 }
 
@@ -368,13 +490,13 @@ internal class CustomNamedCurves.SecT113R2Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DC47C Offset: 0x23DC47C VA: 0x23DC47C
+	// RVA: 0x2024920 Offset: 0x2024920 VA: 0x2024920
 	private void .ctor() { }
 
-	// RVA: 0x23DC484 Offset: 0x23DC484 VA: 0x23DC484 Slot: 4
+	// RVA: 0x2024928 Offset: 0x2024928 VA: 0x2024928 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DC608 Offset: 0x23DC608 VA: 0x23DC608
+	// RVA: 0x2024AAC Offset: 0x2024AAC VA: 0x2024AAC
 	private static void .cctor() { }
 }
 
@@ -386,13 +508,13 @@ internal class CustomNamedCurves.SecT131R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DC66C Offset: 0x23DC66C VA: 0x23DC66C
+	// RVA: 0x2024B10 Offset: 0x2024B10 VA: 0x2024B10
 	private void .ctor() { }
 
-	// RVA: 0x23DC674 Offset: 0x23DC674 VA: 0x23DC674 Slot: 4
+	// RVA: 0x2024B18 Offset: 0x2024B18 VA: 0x2024B18 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DC7F8 Offset: 0x23DC7F8 VA: 0x23DC7F8
+	// RVA: 0x2024C9C Offset: 0x2024C9C VA: 0x2024C9C
 	private static void .cctor() { }
 }
 
@@ -404,13 +526,13 @@ internal class CustomNamedCurves.SecT131R2Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DC85C Offset: 0x23DC85C VA: 0x23DC85C
+	// RVA: 0x2024D00 Offset: 0x2024D00 VA: 0x2024D00
 	private void .ctor() { }
 
-	// RVA: 0x23DC864 Offset: 0x23DC864 VA: 0x23DC864 Slot: 4
+	// RVA: 0x2024D08 Offset: 0x2024D08 VA: 0x2024D08 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DC9E8 Offset: 0x23DC9E8 VA: 0x23DC9E8
+	// RVA: 0x2024E8C Offset: 0x2024E8C VA: 0x2024E8C
 	private static void .cctor() { }
 }
 
@@ -422,13 +544,13 @@ internal class CustomNamedCurves.SecT163K1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DCA4C Offset: 0x23DCA4C VA: 0x23DCA4C
+	// RVA: 0x2024EF0 Offset: 0x2024EF0 VA: 0x2024EF0
 	private void .ctor() { }
 
-	// RVA: 0x23DCA54 Offset: 0x23DCA54 VA: 0x23DCA54 Slot: 4
+	// RVA: 0x2024EF8 Offset: 0x2024EF8 VA: 0x2024EF8 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DCBBC Offset: 0x23DCBBC VA: 0x23DCBBC
+	// RVA: 0x2025060 Offset: 0x2025060 VA: 0x2025060
 	private static void .cctor() { }
 }
 
@@ -440,13 +562,13 @@ internal class CustomNamedCurves.SecT163R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DCC20 Offset: 0x23DCC20 VA: 0x23DCC20
+	// RVA: 0x20250C4 Offset: 0x20250C4 VA: 0x20250C4
 	private void .ctor() { }
 
-	// RVA: 0x23DCC28 Offset: 0x23DCC28 VA: 0x23DCC28 Slot: 4
+	// RVA: 0x20250CC Offset: 0x20250CC VA: 0x20250CC Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DCDAC Offset: 0x23DCDAC VA: 0x23DCDAC
+	// RVA: 0x2025250 Offset: 0x2025250 VA: 0x2025250
 	private static void .cctor() { }
 }
 
@@ -458,13 +580,13 @@ internal class CustomNamedCurves.SecT163R2Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DCE10 Offset: 0x23DCE10 VA: 0x23DCE10
+	// RVA: 0x20252B4 Offset: 0x20252B4 VA: 0x20252B4
 	private void .ctor() { }
 
-	// RVA: 0x23DCE18 Offset: 0x23DCE18 VA: 0x23DCE18 Slot: 4
+	// RVA: 0x20252BC Offset: 0x20252BC VA: 0x20252BC Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DCF9C Offset: 0x23DCF9C VA: 0x23DCF9C
+	// RVA: 0x2025440 Offset: 0x2025440 VA: 0x2025440
 	private static void .cctor() { }
 }
 
@@ -476,13 +598,13 @@ internal class CustomNamedCurves.SecT193R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DD000 Offset: 0x23DD000 VA: 0x23DD000
+	// RVA: 0x20254A4 Offset: 0x20254A4 VA: 0x20254A4
 	private void .ctor() { }
 
-	// RVA: 0x23DD008 Offset: 0x23DD008 VA: 0x23DD008 Slot: 4
+	// RVA: 0x20254AC Offset: 0x20254AC VA: 0x20254AC Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DD18C Offset: 0x23DD18C VA: 0x23DD18C
+	// RVA: 0x2025630 Offset: 0x2025630 VA: 0x2025630
 	private static void .cctor() { }
 }
 
@@ -494,13 +616,13 @@ internal class CustomNamedCurves.SecT193R2Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DD1F0 Offset: 0x23DD1F0 VA: 0x23DD1F0
+	// RVA: 0x2025694 Offset: 0x2025694 VA: 0x2025694
 	private void .ctor() { }
 
-	// RVA: 0x23DD1F8 Offset: 0x23DD1F8 VA: 0x23DD1F8 Slot: 4
+	// RVA: 0x202569C Offset: 0x202569C VA: 0x202569C Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DD37C Offset: 0x23DD37C VA: 0x23DD37C
+	// RVA: 0x2025820 Offset: 0x2025820 VA: 0x2025820
 	private static void .cctor() { }
 }
 
@@ -512,13 +634,13 @@ internal class CustomNamedCurves.SecT233K1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DD3E0 Offset: 0x23DD3E0 VA: 0x23DD3E0
+	// RVA: 0x2025884 Offset: 0x2025884 VA: 0x2025884
 	private void .ctor() { }
 
-	// RVA: 0x23DD3E8 Offset: 0x23DD3E8 VA: 0x23DD3E8 Slot: 4
+	// RVA: 0x202588C Offset: 0x202588C VA: 0x202588C Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DD550 Offset: 0x23DD550 VA: 0x23DD550
+	// RVA: 0x20259F4 Offset: 0x20259F4 VA: 0x20259F4
 	private static void .cctor() { }
 }
 
@@ -530,13 +652,13 @@ internal class CustomNamedCurves.SecT233R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DD5B4 Offset: 0x23DD5B4 VA: 0x23DD5B4
+	// RVA: 0x2025A58 Offset: 0x2025A58 VA: 0x2025A58
 	private void .ctor() { }
 
-	// RVA: 0x23DD5BC Offset: 0x23DD5BC VA: 0x23DD5BC Slot: 4
+	// RVA: 0x2025A60 Offset: 0x2025A60 VA: 0x2025A60 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DD740 Offset: 0x23DD740 VA: 0x23DD740
+	// RVA: 0x2025BE4 Offset: 0x2025BE4 VA: 0x2025BE4
 	private static void .cctor() { }
 }
 
@@ -548,13 +670,13 @@ internal class CustomNamedCurves.SecT239K1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DD7A4 Offset: 0x23DD7A4 VA: 0x23DD7A4
+	// RVA: 0x2025C48 Offset: 0x2025C48 VA: 0x2025C48
 	private void .ctor() { }
 
-	// RVA: 0x23DD7AC Offset: 0x23DD7AC VA: 0x23DD7AC Slot: 4
+	// RVA: 0x2025C50 Offset: 0x2025C50 VA: 0x2025C50 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DD914 Offset: 0x23DD914 VA: 0x23DD914
+	// RVA: 0x2025DB8 Offset: 0x2025DB8 VA: 0x2025DB8
 	private static void .cctor() { }
 }
 
@@ -566,13 +688,13 @@ internal class CustomNamedCurves.SecT283K1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DD978 Offset: 0x23DD978 VA: 0x23DD978
+	// RVA: 0x2025E1C Offset: 0x2025E1C VA: 0x2025E1C
 	private void .ctor() { }
 
-	// RVA: 0x23DD980 Offset: 0x23DD980 VA: 0x23DD980 Slot: 4
+	// RVA: 0x2025E24 Offset: 0x2025E24 VA: 0x2025E24 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DDAE8 Offset: 0x23DDAE8 VA: 0x23DDAE8
+	// RVA: 0x2025F8C Offset: 0x2025F8C VA: 0x2025F8C
 	private static void .cctor() { }
 }
 
@@ -584,13 +706,13 @@ internal class CustomNamedCurves.SecT283R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DDB4C Offset: 0x23DDB4C VA: 0x23DDB4C
+	// RVA: 0x2025FF0 Offset: 0x2025FF0 VA: 0x2025FF0
 	private void .ctor() { }
 
-	// RVA: 0x23DDB54 Offset: 0x23DDB54 VA: 0x23DDB54 Slot: 4
+	// RVA: 0x2025FF8 Offset: 0x2025FF8 VA: 0x2025FF8 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DDCD8 Offset: 0x23DDCD8 VA: 0x23DDCD8
+	// RVA: 0x202617C Offset: 0x202617C VA: 0x202617C
 	private static void .cctor() { }
 }
 
@@ -602,13 +724,13 @@ internal class CustomNamedCurves.SecT409K1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DDD3C Offset: 0x23DDD3C VA: 0x23DDD3C
+	// RVA: 0x20261E0 Offset: 0x20261E0 VA: 0x20261E0
 	private void .ctor() { }
 
-	// RVA: 0x23DDD44 Offset: 0x23DDD44 VA: 0x23DDD44 Slot: 4
+	// RVA: 0x20261E8 Offset: 0x20261E8 VA: 0x20261E8 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DDEAC Offset: 0x23DDEAC VA: 0x23DDEAC
+	// RVA: 0x2026350 Offset: 0x2026350 VA: 0x2026350
 	private static void .cctor() { }
 }
 
@@ -620,13 +742,13 @@ internal class CustomNamedCurves.SecT409R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DDF10 Offset: 0x23DDF10 VA: 0x23DDF10
+	// RVA: 0x20263B4 Offset: 0x20263B4 VA: 0x20263B4
 	private void .ctor() { }
 
-	// RVA: 0x23DDF18 Offset: 0x23DDF18 VA: 0x23DDF18 Slot: 4
+	// RVA: 0x20263BC Offset: 0x20263BC VA: 0x20263BC Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DE09C Offset: 0x23DE09C VA: 0x23DE09C
+	// RVA: 0x2026540 Offset: 0x2026540 VA: 0x2026540
 	private static void .cctor() { }
 }
 
@@ -638,13 +760,13 @@ internal class CustomNamedCurves.SecT571K1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DE100 Offset: 0x23DE100 VA: 0x23DE100
+	// RVA: 0x20265A4 Offset: 0x20265A4 VA: 0x20265A4
 	private void .ctor() { }
 
-	// RVA: 0x23DE108 Offset: 0x23DE108 VA: 0x23DE108 Slot: 4
+	// RVA: 0x20265AC Offset: 0x20265AC VA: 0x20265AC Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DE270 Offset: 0x23DE270 VA: 0x23DE270
+	// RVA: 0x2026714 Offset: 0x2026714 VA: 0x2026714
 	private static void .cctor() { }
 }
 
@@ -656,13 +778,13 @@ internal class CustomNamedCurves.SecT571R1Holder : X9ECParametersHolder // TypeD
 
 	// Methods
 
-	// RVA: 0x23DE2D4 Offset: 0x23DE2D4 VA: 0x23DE2D4
+	// RVA: 0x2026778 Offset: 0x2026778 VA: 0x2026778
 	private void .ctor() { }
 
-	// RVA: 0x23DE2DC Offset: 0x23DE2DC VA: 0x23DE2DC Slot: 4
+	// RVA: 0x2026780 Offset: 0x2026780 VA: 0x2026780 Slot: 4
 	protected override X9ECParameters CreateParameters() { }
 
-	// RVA: 0x23DE460 Offset: 0x23DE460 VA: 0x23DE460
+	// RVA: 0x2026904 Offset: 0x2026904 VA: 0x2026904
 	private static void .cctor() { }
 }
 
@@ -685,40 +807,40 @@ public class ISO9796d1Encoding : IAsymmetricBlockCipher // TypeDefIndex: 4690
 
 	// Methods
 
-	// RVA: 0x23DE4C4 Offset: 0x23DE4C4 VA: 0x23DE4C4
+	// RVA: 0x2026968 Offset: 0x2026968 VA: 0x2026968
 	public void .ctor(IAsymmetricBlockCipher cipher) { }
 
-	// RVA: 0x23DE4F0 Offset: 0x23DE4F0 VA: 0x23DE4F0 Slot: 4
+	// RVA: 0x2026994 Offset: 0x2026994 VA: 0x2026994 Slot: 4
 	public string get_AlgorithmName() { }
 
-	// RVA: 0x23DE5E4 Offset: 0x23DE5E4 VA: 0x23DE5E4
+	// RVA: 0x2026A88 Offset: 0x2026A88 VA: 0x2026A88
 	public IAsymmetricBlockCipher GetUnderlyingCipher() { }
 
-	// RVA: 0x23DE5EC Offset: 0x23DE5EC VA: 0x23DE5EC Slot: 5
+	// RVA: 0x2026A90 Offset: 0x2026A90 VA: 0x2026A90 Slot: 5
 	public void Init(bool forEncryption, ICipherParameters parameters) { }
 
-	// RVA: 0x23DE7DC Offset: 0x23DE7DC VA: 0x23DE7DC Slot: 6
+	// RVA: 0x2026C80 Offset: 0x2026C80 VA: 0x2026C80 Slot: 6
 	public int GetInputBlockSize() { }
 
-	// RVA: 0x23DE8B4 Offset: 0x23DE8B4 VA: 0x23DE8B4 Slot: 7
+	// RVA: 0x2026D58 Offset: 0x2026D58 VA: 0x2026D58 Slot: 7
 	public int GetOutputBlockSize() { }
 
-	// RVA: 0x23DE98C Offset: 0x23DE98C VA: 0x23DE98C
+	// RVA: 0x2026E30 Offset: 0x2026E30 VA: 0x2026E30
 	public void SetPadBits(int padBits) { }
 
-	// RVA: 0x23DEA28 Offset: 0x23DEA28 VA: 0x23DEA28
+	// RVA: 0x2026ECC Offset: 0x2026ECC VA: 0x2026ECC
 	public int GetPadBits() { }
 
-	// RVA: 0x23DEA30 Offset: 0x23DEA30 VA: 0x23DEA30 Slot: 8
+	// RVA: 0x2026ED4 Offset: 0x2026ED4 VA: 0x2026ED4 Slot: 8
 	public byte[] ProcessBlock(byte[] input, int inOff, int length) { }
 
-	// RVA: 0x23DEA40 Offset: 0x23DEA40 VA: 0x23DEA40
+	// RVA: 0x2026EE4 Offset: 0x2026EE4 VA: 0x2026EE4
 	private byte[] EncodeBlock(byte[] input, int inOff, int inLen) { }
 
-	// RVA: 0x23DEED8 Offset: 0x23DEED8 VA: 0x23DEED8
+	// RVA: 0x202737C Offset: 0x202737C VA: 0x202737C
 	private byte[] DecodeBlock(byte[] input, int inOff, int inLen) { }
 
-	// RVA: 0x23DF640 Offset: 0x23DF640 VA: 0x23DF640
+	// RVA: 0x2027AE4 Offset: 0x2027AE4 VA: 0x2027AE4
 	private static void .cctor() { }
 }
 
@@ -738,46 +860,46 @@ public class OaepEncoding : IAsymmetricBlockCipher // TypeDefIndex: 4691
 
 	// Methods
 
-	// RVA: 0x23DF744 Offset: 0x23DF744 VA: 0x23DF744
+	// RVA: 0x2027BE8 Offset: 0x2027BE8 VA: 0x2027BE8
 	public void .ctor(IAsymmetricBlockCipher cipher) { }
 
-	// RVA: 0x23DF7CC Offset: 0x23DF7CC VA: 0x23DF7CC
+	// RVA: 0x2027C70 Offset: 0x2027C70 VA: 0x2027C70
 	public void .ctor(IAsymmetricBlockCipher cipher, IDigest hash) { }
 
-	// RVA: 0x23DF7BC Offset: 0x23DF7BC VA: 0x23DF7BC
+	// RVA: 0x2027C60 Offset: 0x2027C60 VA: 0x2027C60
 	public void .ctor(IAsymmetricBlockCipher cipher, IDigest hash, byte[] encodingParams) { }
 
-	// RVA: 0x23DF7D8 Offset: 0x23DF7D8 VA: 0x23DF7D8
+	// RVA: 0x2027C7C Offset: 0x2027C7C VA: 0x2027C7C
 	public void .ctor(IAsymmetricBlockCipher cipher, IDigest hash, IDigest mgf1Hash, byte[] encodingParams) { }
 
-	// RVA: 0x23DF9E0 Offset: 0x23DF9E0 VA: 0x23DF9E0
+	// RVA: 0x2027E84 Offset: 0x2027E84 VA: 0x2027E84
 	public IAsymmetricBlockCipher GetUnderlyingCipher() { }
 
-	// RVA: 0x23DF9E8 Offset: 0x23DF9E8 VA: 0x23DF9E8 Slot: 4
+	// RVA: 0x2027E8C Offset: 0x2027E8C VA: 0x2027E8C Slot: 4
 	public string get_AlgorithmName() { }
 
-	// RVA: 0x23DFADC Offset: 0x23DFADC VA: 0x23DFADC Slot: 5
+	// RVA: 0x2027F80 Offset: 0x2027F80 VA: 0x2027F80 Slot: 5
 	public void Init(bool forEncryption, ICipherParameters param) { }
 
-	// RVA: 0x23DFC2C Offset: 0x23DFC2C VA: 0x23DFC2C Slot: 6
+	// RVA: 0x20280D0 Offset: 0x20280D0 VA: 0x20280D0 Slot: 6
 	public int GetInputBlockSize() { }
 
-	// RVA: 0x23DFD14 Offset: 0x23DFD14 VA: 0x23DFD14 Slot: 7
+	// RVA: 0x20281B8 Offset: 0x20281B8 VA: 0x20281B8 Slot: 7
 	public int GetOutputBlockSize() { }
 
-	// RVA: 0x23DFDFC Offset: 0x23DFDFC VA: 0x23DFDFC Slot: 8
+	// RVA: 0x20282A0 Offset: 0x20282A0 VA: 0x20282A0 Slot: 8
 	public byte[] ProcessBlock(byte[] inBytes, int inOff, int inLen) { }
 
-	// RVA: 0x23DFE0C Offset: 0x23DFE0C VA: 0x23DFE0C
+	// RVA: 0x20282B0 Offset: 0x20282B0 VA: 0x20282B0
 	private byte[] EncodeBlock(byte[] inBytes, int inOff, int inLen) { }
 
-	// RVA: 0x23E0210 Offset: 0x23E0210 VA: 0x23E0210
+	// RVA: 0x20286B4 Offset: 0x20286B4 VA: 0x20286B4
 	private byte[] DecodeBlock(byte[] inBytes, int inOff, int inLen) { }
 
-	// RVA: 0x23E0E70 Offset: 0x23E0E70 VA: 0x23E0E70
+	// RVA: 0x2029314 Offset: 0x2029314 VA: 0x2029314
 	private void ItoOSP(int i, byte[] sp) { }
 
-	// RVA: 0x23E08D0 Offset: 0x23E08D0 VA: 0x23E08D0
+	// RVA: 0x2028D74 Offset: 0x2028D74 VA: 0x2028D74
 	private byte[] maskGeneratorFunction1(byte[] Z, int zOff, int zLen, int length) { }
 }
 
@@ -802,52 +924,52 @@ public class Pkcs1Encoding : IAsymmetricBlockCipher // TypeDefIndex: 4692
 
 	// Methods
 
-	// RVA: 0x23E0F24 Offset: 0x23E0F24 VA: 0x23E0F24
+	// RVA: 0x20293C8 Offset: 0x20293C8 VA: 0x20293C8
 	private static void .cctor() { }
 
-	// RVA: 0x23E101C Offset: 0x23E101C VA: 0x23E101C
+	// RVA: 0x20294C0 Offset: 0x20294C0 VA: 0x20294C0
 	public void .ctor(IAsymmetricBlockCipher cipher) { }
 
-	// RVA: 0x23E113C Offset: 0x23E113C VA: 0x23E113C
+	// RVA: 0x20295E0 Offset: 0x20295E0 VA: 0x20295E0
 	public void .ctor(IAsymmetricBlockCipher cipher, int pLen) { }
 
-	// RVA: 0x23E11D4 Offset: 0x23E11D4 VA: 0x23E11D4
+	// RVA: 0x2029678 Offset: 0x2029678 VA: 0x2029678
 	public void .ctor(IAsymmetricBlockCipher cipher, byte[] fallback) { }
 
-	// RVA: 0x23E10AC Offset: 0x23E10AC VA: 0x23E10AC
+	// RVA: 0x2029550 Offset: 0x2029550 VA: 0x2029550
 	public static bool get_StrictLengthEnabled() { }
 
-	// RVA: 0x23E1280 Offset: 0x23E1280 VA: 0x23E1280
+	// RVA: 0x2029724 Offset: 0x2029724 VA: 0x2029724
 	public static void set_StrictLengthEnabled(bool value) { }
 
-	// RVA: 0x23E1318 Offset: 0x23E1318 VA: 0x23E1318
+	// RVA: 0x20297BC Offset: 0x20297BC VA: 0x20297BC
 	public IAsymmetricBlockCipher GetUnderlyingCipher() { }
 
-	// RVA: 0x23E1320 Offset: 0x23E1320 VA: 0x23E1320 Slot: 4
+	// RVA: 0x20297C4 Offset: 0x20297C4 VA: 0x20297C4 Slot: 4
 	public string get_AlgorithmName() { }
 
-	// RVA: 0x23E1414 Offset: 0x23E1414 VA: 0x23E1414 Slot: 5
+	// RVA: 0x20298B8 Offset: 0x20298B8 VA: 0x20298B8 Slot: 5
 	public void Init(bool forEncryption, ICipherParameters parameters) { }
 
-	// RVA: 0x23E161C Offset: 0x23E161C VA: 0x23E161C Slot: 6
+	// RVA: 0x2029AC0 Offset: 0x2029AC0 VA: 0x2029AC0 Slot: 6
 	public int GetInputBlockSize() { }
 
-	// RVA: 0x23E16E8 Offset: 0x23E16E8 VA: 0x23E16E8 Slot: 7
+	// RVA: 0x2029B8C Offset: 0x2029B8C VA: 0x2029B8C Slot: 7
 	public int GetOutputBlockSize() { }
 
-	// RVA: 0x23E17B4 Offset: 0x23E17B4 VA: 0x23E17B4 Slot: 8
+	// RVA: 0x2029C58 Offset: 0x2029C58 VA: 0x2029C58 Slot: 8
 	public byte[] ProcessBlock(byte[] input, int inOff, int length) { }
 
-	// RVA: 0x23E17C4 Offset: 0x23E17C4 VA: 0x23E17C4
+	// RVA: 0x2029C68 Offset: 0x2029C68 VA: 0x2029C68
 	private byte[] EncodeBlock(byte[] input, int inOff, int inLen) { }
 
-	// RVA: 0x23E1EC0 Offset: 0x23E1EC0 VA: 0x23E1EC0
+	// RVA: 0x202A364 Offset: 0x202A364 VA: 0x202A364
 	private static int CheckPkcs1Encoding(byte[] encoded, int pLen) { }
 
-	// RVA: 0x23E1FD8 Offset: 0x23E1FD8 VA: 0x23E1FD8
+	// RVA: 0x202A47C Offset: 0x202A47C VA: 0x202A47C
 	private byte[] DecodeBlockOrRandom(byte[] input, int inOff, int inLen) { }
 
-	// RVA: 0x23E1B74 Offset: 0x23E1B74 VA: 0x23E1B74
+	// RVA: 0x202A018 Offset: 0x202A018 VA: 0x202A018
 	private byte[] DecodeBlock(byte[] input, int inOff, int inLen) { }
 }
 
@@ -876,125 +998,3 @@ public class AesEngine : IBlockCipher // TypeDefIndex: 4693
 
 	// Properties
 	public virtual string AlgorithmName { get; }
-	public virtual bool IsPartialBlockOkay { get; }
-
-	// Methods
-
-	// RVA: 0x23E2360 Offset: 0x23E2360 VA: 0x23E2360
-	public void .ctor() { }
-
-	// RVA: 0x23E2368 Offset: 0x23E2368 VA: 0x23E2368
-	private static uint Shift(uint r, int shift) { }
-
-	// RVA: 0x23E2374 Offset: 0x23E2374 VA: 0x23E2374
-	private static uint FFmulX(uint x) { }
-
-	// RVA: 0x23E2394 Offset: 0x23E2394 VA: 0x23E2394
-	private static uint FFmulX2(uint x) { }
-
-	// RVA: 0x23E23B0 Offset: 0x23E23B0 VA: 0x23E23B0
-	private static uint Inv_Mcol(uint x) { }
-
-	// RVA: 0x23E2458 Offset: 0x23E2458 VA: 0x23E2458
-	private static uint SubWord(uint x) { }
-
-	// RVA: 0x23E25D8 Offset: 0x23E25D8 VA: 0x23E25D8
-	private uint[][] GenerateWorkingKey(byte[] key, bool forEncryption) { }
-
-	// RVA: 0x23E3DCC Offset: 0x23E3DCC VA: 0x23E3DCC Slot: 10
-	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
-
-	// RVA: 0x23E3F2C Offset: 0x23E3F2C VA: 0x23E3F2C Slot: 11
-	public virtual string get_AlgorithmName() { }
-
-	// RVA: 0x23E3F74 Offset: 0x23E3F74 VA: 0x23E3F74 Slot: 12
-	public virtual bool get_IsPartialBlockOkay() { }
-
-	// RVA: 0x23E3F7C Offset: 0x23E3F7C VA: 0x23E3F7C Slot: 13
-	public virtual int GetBlockSize() { }
-
-	// RVA: 0x23E3F84 Offset: 0x23E3F84 VA: 0x23E3F84 Slot: 14
-	public virtual int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
-
-	// RVA: 0x23E7264 Offset: 0x23E7264 VA: 0x23E7264 Slot: 15
-	public virtual void Reset() { }
-
-	// RVA: 0x23E40B0 Offset: 0x23E40B0 VA: 0x23E40B0
-	private void UnPackBlock(byte[] bytes, int off) { }
-
-	// RVA: 0x23E71F4 Offset: 0x23E71F4 VA: 0x23E71F4
-	private void PackBlock(byte[] bytes, int off) { }
-
-	// RVA: 0x23E412C Offset: 0x23E412C VA: 0x23E412C
-	private void EncryptBlock(uint[][] KW) { }
-
-	// RVA: 0x23E59A4 Offset: 0x23E59A4 VA: 0x23E59A4
-	private void DecryptBlock(uint[][] KW) { }
-
-	// RVA: 0x23E7268 Offset: 0x23E7268 VA: 0x23E7268
-	private static void .cctor() { }
-}
-
-// Namespace: Org.BouncyCastle.Crypto.Engines
-public class AesFastEngine : IBlockCipher // TypeDefIndex: 4694
-{
-	// Fields
-	private static readonly byte[] S; // 0x0
-	private static readonly byte[] Si; // 0x8
-	private static readonly byte[] rcon; // 0x10
-	private static readonly uint[] T0; // 0x18
-	private static readonly uint[] T1; // 0x20
-	private static readonly uint[] T2; // 0x28
-	private static readonly uint[] T3; // 0x30
-	private static readonly uint[] Tinv0; // 0x38
-	private static readonly uint[] Tinv1; // 0x40
-	private static readonly uint[] Tinv2; // 0x48
-	private static readonly uint[] Tinv3; // 0x50
-	private const uint m1 = 2155905152;
-	private const uint m2 = 2139062143;
-	private const uint m3 = 27;
-	private const uint m4 = 3233857728;
-	private const uint m5 = 1061109567;
-	private int ROUNDS; // 0x10
-	private uint[][] WorkingKey; // 0x18
-	private uint C0; // 0x20
-	private uint C1; // 0x24
-	private uint C2; // 0x28
-	private uint C3; // 0x2C
-	private bool forEncryption; // 0x30
-	private const int BLOCK_SIZE = 16;
-
-	// Properties
-	public virtual string AlgorithmName { get; }
-	public virtual bool IsPartialBlockOkay { get; }
-
-	// Methods
-
-	// RVA: 0x23E73B4 Offset: 0x23E73B4 VA: 0x23E73B4
-	public void .ctor() { }
-
-	// RVA: 0x23E73BC Offset: 0x23E73BC VA: 0x23E73BC
-	private static uint Shift(uint r, int shift) { }
-
-	// RVA: 0x23E73C8 Offset: 0x23E73C8 VA: 0x23E73C8
-	private static uint FFmulX(uint x) { }
-
-	// RVA: 0x23E73E8 Offset: 0x23E73E8 VA: 0x23E73E8
-	private static uint FFmulX2(uint x) { }
-
-	// RVA: 0x23E7404 Offset: 0x23E7404 VA: 0x23E7404
-	private static uint Inv_Mcol(uint x) { }
-
-	// RVA: 0x23E74AC Offset: 0x23E74AC VA: 0x23E74AC
-	private static uint SubWord(uint x) { }
-
-	// RVA: 0x23E762C Offset: 0x23E762C VA: 0x23E762C
-	private uint[][] GenerateWorkingKey(byte[] key, bool forEncryption) { }
-
-	// RVA: 0x23E8E20 Offset: 0x23E8E20 VA: 0x23E8E20 Slot: 10
-	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
-
-	// RVA: 0x23E8F80 Offset: 0x23E8F80 VA: 0x23E8F80 Slot: 11
-	public virtual string get_AlgorithmName() { }
-
-	// RVA: 0x23E8FC8 Offset: 0x23E8FC8 VA: 0x23E8FC8 Slot: 12

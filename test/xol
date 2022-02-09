@@ -1,5 +1,588 @@
+	public int materialFolderId; // 0x24
+
+	// Methods
+
+	// RVA: 0x1279FAC Offset: 0x1279FAC VA: 0x1279FAC
+	public void .ctor() { }
+
+	// RVA: 0x1279FFC Offset: 0x1279FFC VA: 0x1279FFC Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x127A010 Offset: 0x127A010 VA: 0x127A010
+	public static string CreatePK(int id, int folderType) { }
+
+	// RVA: 0x127A020 Offset: 0x127A020 VA: 0x127A020
+	public int getQuestId() { }
+
+	// RVA: 0x127A028 Offset: 0x127A028 VA: 0x127A028
+	public string getQuestName() { }
+
+	// RVA: 0x127A030 Offset: 0x127A030 VA: 0x127A030
+	public int GetFolderId() { }
+
+	// RVA: 0x127A04C Offset: 0x127A04C VA: 0x127A04C
+	public bool isMateiralRegistWithEventId(int eventId) { }
+}
+
 // Namespace: 
-public class ServantChangeEntity : DataEntityBase<string> // TypeDefIndex: 7187
+public enum QuestScriptEntity.FolderType // TypeDefIndex: 7175
+{
+	// Fields
+	public int value__; // 0x0
+	public const QuestScriptEntity.FolderType NONE = 0;
+	public const QuestScriptEntity.FolderType MATERIAL_FOLDER = 1;
+	public const QuestScriptEntity.FolderType EVENT = 2;
+	public const QuestScriptEntity.FolderType SVT = 3;
+}
+
+// Namespace: 
+public class QuestScriptMaster : DataMasterBase<QuestScriptMaster, QuestScriptEntity, string> // TypeDefIndex: 7176
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xC55C60 Offset: 0xC55C60 VA: 0xC55C60
+	private static Comparison<QuestScriptEntity> <>f__am$cache0; // 0x0
+
+	// Methods
+
+	// RVA: 0x127A070 Offset: 0x127A070 VA: 0x127A070
+	public void .ctor() { }
+
+	// RVA: 0x127A0C4 Offset: 0x127A0C4 VA: 0x127A0C4
+	public QuestScriptEntity GetEntity(int id, int folderType) { }
+
+	// RVA: 0x127A138 Offset: 0x127A138 VA: 0x127A138
+	public bool TryGetEntity(out QuestScriptEntity entity, int id, int folderType) { }
+
+	// RVA: 0x127A1BC Offset: 0x127A1BC VA: 0x127A1BC
+	public QuestScriptEntity GetEntityFromQuestId(int questId) { }
+
+	// RVA: 0x127A268 Offset: 0x127A268 VA: 0x127A268
+	public List<QuestScriptEntity> GetEntityListFromQuestId(int questId) { }
+
+	// RVA: 0x127A518 Offset: 0x127A518 VA: 0x127A518
+	public QuestScriptEntity[] GetEntityListFromFolderType(int folderType) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCA658 Offset: 0xCCA658 VA: 0xCCA658
+	// RVA: 0x127A694 Offset: 0x127A694 VA: 0x127A694
+	private static int <GetEntityListFromQuestId>m__0(QuestScriptEntity a, QuestScriptEntity b) { }
+}
+
+// Namespace: 
+public class QuestScriptReleaseEntity : DataEntityBase<string> // TypeDefIndex: 7177
+{
+	// Fields
+	public int scriptId; // 0x10
+	public int phase; // 0x14
+	public int id; // 0x18
+	public int flag; // 0x1C
+	public int condType; // 0x20
+	public int[] targetIds; // 0x28
+	public int targetNum; // 0x30
+
+	// Methods
+
+	// RVA: 0x127A6D4 Offset: 0x127A6D4 VA: 0x127A6D4
+	public void .ctor() { }
+
+	// RVA: 0x127A724 Offset: 0x127A724 VA: 0x127A724 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x127A738 Offset: 0x127A738 VA: 0x127A738
+	public static string CreatePK(int scriptId, int phase, int id) { }
+
+	// RVA: 0x127A74C Offset: 0x127A74C VA: 0x127A74C
+	public bool HasFlag(ScriptSceneType.Kind kind) { }
+
+	// RVA: 0x127A768 Offset: 0x127A768 VA: 0x127A768
+	public bool IsOpen() { }
+}
+
+// Namespace: 
+public class QuestScriptReleaseMaster : DataMasterBase<QuestScriptReleaseMaster, QuestScriptReleaseEntity, string> // TypeDefIndex: 7178
+{
+	// Methods
+
+	// RVA: 0x127A7EC Offset: 0x127A7EC VA: 0x127A7EC
+	public void .ctor() { }
+
+	// RVA: 0x127A840 Offset: 0x127A840 VA: 0x127A840
+	public QuestScriptReleaseEntity GetEntity(int scriptId, int phase, int id) { }
+
+	// RVA: 0x127A8C4 Offset: 0x127A8C4 VA: 0x127A8C4
+	public bool TryGetEntity(out QuestScriptReleaseEntity entity, int scriptId, int phase, int id) { }
+
+	// RVA: 0x127A950 Offset: 0x127A950 VA: 0x127A950
+	public bool IsMaterialCondTypeQuestClearOnly(int scriptQuestId, int scriptPhase, bool isMainInterlude, out List<QuestScriptReleaseEntity> questScriptReleaseEnt, out int checkCnt) { }
+
+	// RVA: 0x127AD48 Offset: 0x127AD48 VA: 0x127AD48
+	private bool IsOpenPhase(out bool isOpen, int scriptQuestId, int scriptPhase, ScriptSceneType.Kind kind, bool isMainInterlude = False) { }
+
+	// RVA: 0x127B248 Offset: 0x127B248 VA: 0x127B248
+	private bool IsOpenPhaseForSuperBoss(out bool isOpen, int scriptQuestId, int scriptPhase, ScriptSceneType.Kind kind) { }
+
+	// RVA: 0x127B5B0 Offset: 0x127B5B0 VA: 0x127B5B0
+	public int GetScriptQuestId(int questId, int phaseCnt, ScriptSceneType.Kind kind) { }
+
+	// RVA: 0x127B6CC Offset: 0x127B6CC VA: 0x127B6CC
+	public bool IsOpenMaterial(out bool isOpen, int scriptQuestId, bool isMainInterlude) { }
+}
+
+// Namespace: 
+public class QuestSpotReleaseEntity : DataEntityBase<string> // TypeDefIndex: 7179
+{
+	// Fields
+	public int questId; // 0x10
+	public int spotId; // 0x14
+	public int priority; // 0x18
+	public int condType; // 0x1C
+	public int condId; // 0x20
+	public int condNum; // 0x24
+
+	// Properties
+	public CondType.Kind CondType { get; }
+
+	// Methods
+
+	// RVA: 0x127B6DC Offset: 0x127B6DC VA: 0x127B6DC
+	public void .ctor() { }
+
+	// RVA: 0x127B72C Offset: 0x127B72C VA: 0x127B72C Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x127B740 Offset: 0x127B740 VA: 0x127B740
+	public static string CreatePK(int questId, int spotId, int priority) { }
+
+	// RVA: 0x127B754 Offset: 0x127B754 VA: 0x127B754
+	public CondType.Kind get_CondType() { }
+}
+
+// Namespace: 
+public class QuestSpotReleaseMaster : DataMasterBase<QuestSpotReleaseMaster, QuestSpotReleaseEntity, string> // TypeDefIndex: 7180
+{
+	// Methods
+
+	// RVA: 0x127B75C Offset: 0x127B75C VA: 0x127B75C
+	public void .ctor() { }
+
+	// RVA: 0x127B7B0 Offset: 0x127B7B0 VA: 0x127B7B0
+	public QuestSpotReleaseEntity GetEntity(int questId, int spotId, int priority) { }
+
+	// RVA: 0x127B834 Offset: 0x127B834 VA: 0x127B834
+	public bool TryGetEntity(out QuestSpotReleaseEntity entity, int questId, int spotId, int priority) { }
+
+	// RVA: 0x127B8C0 Offset: 0x127B8C0 VA: 0x127B8C0
+	public int GetSpotId(int questId) { }
+}
+
+// Namespace: 
+public class RecoverEntity : DataEntityBase<int> // TypeDefIndex: 7181
+{
+	// Fields
+	public int id; // 0x10
+	public int target; // 0x14
+	public int priority; // 0x18
+	public int recoverType; // 0x1C
+	public int targetId; // 0x20
+	public int num; // 0x24
+
+	// Methods
+
+	// RVA: 0x1584018 Offset: 0x1584018 VA: 0x1584018
+	public void .ctor() { }
+
+	// RVA: 0x1584068 Offset: 0x1584068 VA: 0x1584068 Slot: 5
+	protected sealed override int CreatePrimaryKey() { }
+
+	// RVA: 0x1584070 Offset: 0x1584070 VA: 0x1584070
+	public ItemEntity getRecvItemData() { }
+
+	// RVA: 0x1584108 Offset: 0x1584108 VA: 0x1584108
+	public CommandSpellEntity getRecvCmdSpellData() { }
+}
+
+// Namespace: 
+public enum RecoverEntity.RecoverTarget // TypeDefIndex: 7182
+{
+	// Fields
+	public int value__; // 0x0
+	public const RecoverEntity.RecoverTarget AP = 1;
+	public const RecoverEntity.RecoverTarget RP = 2;
+}
+
+// Namespace: 
+public class RecoverMaster : DataMasterBase<RecoverMaster, RecoverEntity, int> // TypeDefIndex: 7183
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xC55C70 Offset: 0xC55C70 VA: 0xC55C70
+	private static Comparison<RecoverEntity> <>f__am$cache0; // 0x0
+
+	// Methods
+
+	// RVA: 0x1585C2C Offset: 0x1585C2C VA: 0x1585C2C
+	public void .ctor() { }
+
+	// RVA: 0x15811C0 Offset: 0x15811C0 VA: 0x15811C0
+	public List<RecoverEntity> getRecvEntityList(RecoverEntity.RecoverTarget RecoverTarget) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCA668 Offset: 0xCCA668 VA: 0xCCA668
+	// RVA: 0x1585C80 Offset: 0x1585C80 VA: 0x1585C80
+	private static int <getRecvEntityList>m__0(RecoverEntity a, RecoverEntity b) { }
+}
+
+// Namespace: 
+public class ReprintStageEntity : DataEntityBase<string> // TypeDefIndex: 7184
+{
+	// Fields
+	public int questId; // 0x10
+	public int questPhase; // 0x14
+	public int wave; // 0x18
+	public int remapQuestId; // 0x1C
+	public int remapPhase; // 0x20
+	public int remapWave; // 0x24
+
+	// Methods
+
+	// RVA: 0x1585FA4 Offset: 0x1585FA4 VA: 0x1585FA4
+	public void .ctor() { }
+
+	// RVA: 0x1585FF4 Offset: 0x1585FF4 VA: 0x1585FF4
+	public void .ctor(ReprintStageEntity cSrc) { }
+
+	// RVA: 0x15860F8 Offset: 0x15860F8 VA: 0x15860F8
+	public int getQuestId() { }
+
+	// RVA: 0x1586100 Offset: 0x1586100 VA: 0x1586100
+	public int getPhase() { }
+
+	// RVA: 0x1586108 Offset: 0x1586108 VA: 0x1586108
+	public int getWave() { }
+
+	// RVA: 0x1586110 Offset: 0x1586110 VA: 0x1586110 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x1586124 Offset: 0x1586124 VA: 0x1586124
+	public static string CreatePK(int questId, int questPhase, int wave) { }
+}
+
+// Namespace: 
+public class ReprintStageMaster : DataMasterBase<ReprintStageMaster, ReprintStageEntity, string> // TypeDefIndex: 7185
+{
+	// Methods
+
+	// RVA: 0x1586138 Offset: 0x1586138 VA: 0x1586138
+	public void .ctor() { }
+
+	// RVA: 0x158618C Offset: 0x158618C VA: 0x158618C
+	public ReprintStageEntity GetEntity(int questId, int questPhase, int wave) { }
+
+	// RVA: 0x1586210 Offset: 0x1586210 VA: 0x1586210
+	public bool TryGetEntity(out ReprintStageEntity entity, int questId, int questPhase, int wave) { }
+}
+
+// Namespace: 
+public class RestrictionEntity : DataEntityBase<int> // TypeDefIndex: 7186
+{
+	// Fields
+	public int id; // 0x10
+	public string name; // 0x18
+	public int type; // 0x20
+	public int[] targetVals; // 0x28
+	public int[] targetVals2; // 0x30
+	public int rangeType; // 0x38
+
+	// Methods
+
+	// RVA: 0x158CC00 Offset: 0x158CC00 VA: 0x158CC00
+	public void .ctor() { }
+
+	// RVA: 0x158CC50 Offset: 0x158CC50 VA: 0x158CC50 Slot: 5
+	protected sealed override int CreatePrimaryKey() { }
+
+	// RVA: 0x158CC58 Offset: 0x158CC58 VA: 0x158CC58
+	public bool IsSearchVals(int v) { }
+
+	// RVA: 0x158CCDC Offset: 0x158CCDC VA: 0x158CCDC
+	public bool IsSearchVals(int[] vList) { }
+
+	// RVA: 0x158CDC0 Offset: 0x158CDC0 VA: 0x158CDC0
+	public bool IsRestriction(int v) { }
+
+	// RVA: 0x158CE54 Offset: 0x158CE54 VA: 0x158CE54
+	public bool IsRestriction(int[] vList) { }
+
+	// RVA: 0x158CF10 Offset: 0x158CF10 VA: 0x158CF10
+	public int getTotalCost() { }
+
+	// RVA: 0x158CF40 Offset: 0x158CF40 VA: 0x158CF40
+	public string getTitle() { }
+
+	// RVA: 0x158D1EC Offset: 0x158D1EC VA: 0x158D1EC
+	public bool[] getDeckPositionList() { }
+
+	// RVA: 0x158D608 Offset: 0x158D608 VA: 0x158D608
+	public int GetSpecifiedPosition() { }
+}
+
+// Namespace: 
+public class RestrictionMaster : DataMasterBase<RestrictionMaster, RestrictionEntity, int> // TypeDefIndex: 7187
+{
+	// Methods
+
+	// RVA: 0x158D638 Offset: 0x158D638 VA: 0x158D638
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class ServantAddEntity : DataEntityBase<int> // TypeDefIndex: 7188
+{
+	// Fields
+	public ObscuredInt svtId; // 0x10
+	public Dictionary<string, object> script; // 0x20
+
+	// Methods
+
+	// RVA: 0x17377D8 Offset: 0x17377D8 VA: 0x17377D8
+	public void .ctor() { }
+
+	// RVA: 0x1737828 Offset: 0x1737828 VA: 0x1737828 Slot: 5
+	protected sealed override int CreatePrimaryKey() { }
+
+	// RVA: 0x1737898 Offset: 0x1737898 VA: 0x1737898
+	public int GetScript(string key, int defaultValue = 0) { }
+
+	// RVA: 0x173799C Offset: 0x173799C VA: 0x173799C
+	public int GetPresentDialogMessageId() { }
+
+	// RVA: 0x1737A10 Offset: 0x1737A10 VA: 0x1737A10
+	public string GetOverwriteServantShortName() { }
+}
+
+// Namespace: 
+public class ServantAddMaster : DataMasterBase<ServantAddMaster, ServantAddEntity, int> // TypeDefIndex: 7189
+{
+	// Fields
+	public static readonly string PRESENT_DIALOG_MESSAGE_ID; // 0x0
+
+	// Methods
+
+	// RVA: 0x1737AF0 Offset: 0x1737AF0 VA: 0x1737AF0
+	public void .ctor() { }
+
+	// RVA: 0x1737B44 Offset: 0x1737B44 VA: 0x1737B44
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class ServantAnimationOverwriteEntity : DataEntityBase<string> // TypeDefIndex: 7190
+{
+	// Fields
+	public int svtId; // 0x10
+	public int svtLimitCount; // 0x14
+	public int idx; // 0x18
+	public int type; // 0x1C
+	public int applyTarget; // 0x20
+	public string targetName; // 0x28
+	public string overwriteName; // 0x30
+
+	// Methods
+
+	// RVA: 0x1737BA0 Offset: 0x1737BA0 VA: 0x1737BA0
+	public void .ctor() { }
+
+	// RVA: 0x1737BF0 Offset: 0x1737BF0 VA: 0x1737BF0 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x1737C04 Offset: 0x1737C04 VA: 0x1737C04
+	public static string CreatePK(int svtId, int svtLimitCount, int idx) { }
+
+	// RVA: 0x1737C18 Offset: 0x1737C18 VA: 0x1737C18
+	public bool IsLimitCountMatch(int limit) { }
+
+	// RVA: 0x1737C34 Offset: 0x1737C34 VA: 0x1737C34
+	public bool IsApplyTargetMatch(int target) { }
+}
+
+// Namespace: 
+public enum ServantAnimationOverwriteEntity.PhaseType // TypeDefIndex: 7191
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantAnimationOverwriteEntity.PhaseType NONE = 0;
+	public const ServantAnimationOverwriteEntity.PhaseType TACTICAL = 1;
+	public const ServantAnimationOverwriteEntity.PhaseType COMMAND = 2;
+	public const ServantAnimationOverwriteEntity.PhaseType BATTLE = 3;
+}
+
+// Namespace: 
+public enum ServantAnimationOverwriteEntity.ApplyType // TypeDefIndex: 7192
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantAnimationOverwriteEntity.ApplyType NONE = 0;
+	public const ServantAnimationOverwriteEntity.ApplyType PLAYER = 1;
+	public const ServantAnimationOverwriteEntity.ApplyType ENEMY = 2;
+	public const ServantAnimationOverwriteEntity.ApplyType ALL = 3;
+}
+
+// Namespace: 
+public class ServantAnimationOverwriteMaster : DataMasterBase<ServantAnimationOverwriteMaster, ServantAnimationOverwriteEntity, string> // TypeDefIndex: 7193
+{
+	// Properties
+	public static ServantAnimationOverwriteMaster Master { get; }
+
+	// Methods
+
+	// RVA: 0x1737C50 Offset: 0x1737C50 VA: 0x1737C50
+	public void .ctor() { }
+
+	// RVA: 0x1737CA4 Offset: 0x1737CA4 VA: 0x1737CA4
+	public ServantAnimationOverwriteEntity GetEntity(int svtId, int svtLimitCount, int idx) { }
+
+	// RVA: 0x1737D28 Offset: 0x1737D28 VA: 0x1737D28
+	public bool TryGetEntity(out ServantAnimationOverwriteEntity entity, int svtId, int svtLimitCount, int idx) { }
+
+	// RVA: 0x1737DB4 Offset: 0x1737DB4 VA: 0x1737DB4
+	public static ServantAnimationOverwriteMaster get_Master() { }
+
+	// RVA: 0x1737E20 Offset: 0x1737E20 VA: 0x1737E20
+	public ServantAnimationOverwriteEntity[] GetList(int svtId, int limitCount, bool isEnemy) { }
+
+	// RVA: 0x1737F68 Offset: 0x1737F68 VA: 0x1737F68
+	private bool IsSvtMatch(DataEntityBase baseEnt, int svtId, int limit, int target) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC42DB4 Offset: 0xC42DB4 VA: 0xC42DB4
+private sealed class ServantAnimationOverwriteMaster.<GetList>c__AnonStorey0 // TypeDefIndex: 7194
+{
+	// Fields
+	internal int svtId; // 0x10
+	internal int limitCount; // 0x14
+	internal int applyTarget; // 0x18
+	internal ServantAnimationOverwriteMaster $this; // 0x20
+
+	// Methods
+
+	// RVA: 0x1737F60 Offset: 0x1737F60 VA: 0x1737F60
+	public void .ctor() { }
+
+	// RVA: 0x173804C Offset: 0x173804C VA: 0x173804C
+	internal bool <>m__0(DataEntityBase x) { }
+}
+
+// Namespace: 
+public class ServantAppendPassiveSkillEntity : DataEntityBase<string> // TypeDefIndex: 7195
+{
+	// Fields
+	public int svtId; // 0x10
+	public int num; // 0x14
+	public int priority; // 0x18
+	public int skillId; // 0x1C
+
+	// Methods
+
+	// RVA: 0x1738098 Offset: 0x1738098 VA: 0x1738098
+	public void .ctor() { }
+
+	// RVA: 0x17380E8 Offset: 0x17380E8 VA: 0x17380E8 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x17380FC Offset: 0x17380FC VA: 0x17380FC
+	public static string CreatePK(int svtId, int num, int priority) { }
+
+	// RVA: 0x1738110 Offset: 0x1738110 VA: 0x1738110
+	public void GetEffectExplanation(out string title, out string explanation, int skillLv) { }
+}
+
+// Namespace: 
+public class ServantAppendPassiveSkillMaster : DataMasterBase<ServantAppendPassiveSkillMaster, ServantAppendPassiveSkillEntity, string> // TypeDefIndex: 7196
+{
+	// Fields
+	protected Dictionary<string, ServantAppendPassiveSkillEntity[]> listCache; // 0x48
+	[CompilerGeneratedAttribute] // RVA: 0xC55C80 Offset: 0xC55C80 VA: 0xC55C80
+	private static Comparison<ServantAppendPassiveSkillEntity> <>f__am$cache0; // 0x0
+
+	// Methods
+
+	// RVA: 0x1738250 Offset: 0x1738250 VA: 0x1738250
+	public void .ctor() { }
+
+	// RVA: 0x17382CC Offset: 0x17382CC VA: 0x17382CC
+	public ServantAppendPassiveSkillEntity GetEntity(int svtId, int num, int priority) { }
+
+	// RVA: 0x1738350 Offset: 0x1738350 VA: 0x1738350
+	public bool TryGetEntity(out ServantAppendPassiveSkillEntity entity, int svtId, int num, int priority) { }
+
+	// RVA: 0x17383DC Offset: 0x17383DC VA: 0x17383DC
+	private string CreateTempKey(int svtId, int num) { }
+
+	// RVA: 0x1738484 Offset: 0x1738484 VA: 0x1738484 Slot: 6
+	public override bool preProcess() { }
+
+	// RVA: 0x17389E0 Offset: 0x17389E0 VA: 0x17389E0
+	public ServantAppendPassiveSkillEntity[] GetEntityListFromSvtId(int svtId) { }
+
+	// RVA: 0x1738BB0 Offset: 0x1738BB0 VA: 0x1738BB0
+	public ServantAppendPassiveSkillEntity GetEntityFromIdNum(int svtId, int num) { }
+
+	// RVA: 0x1738C80 Offset: 0x1738C80 VA: 0x1738C80
+	public void GetAppendPassiveSkillInfo(out int[] idList, out string[] titleList, out string[] explanationList, out bool[] releaseStateList, out int[] lvList, int svtId, long userId, long userSvtId = 0) { }
+
+	// RVA: 0x17394CC Offset: 0x17394CC VA: 0x17394CC
+	public SvtUseSkillData GetSkillData(int svtId) { }
+
+	// RVA: 0x17396F4 Offset: 0x17396F4 VA: 0x17396F4
+	public void GetAppendPassiveSkillInfo(out int[] idList, out string[] titleList, out string[] explanationList, out bool[] releaseStateList, out int[] lvList, int svtId, int[] releaseSkillIds, int[] releaseSkillLvs) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCA678 Offset: 0xCCA678 VA: 0xCCA678
+	// RVA: 0x1739DCC Offset: 0x1739DCC VA: 0x1739DCC
+	private static int <preProcess>m__0(ServantAppendPassiveSkillEntity a, ServantAppendPassiveSkillEntity b) { }
+}
+
+// Namespace: 
+public class ServantCardEntity : DataEntityBase<string> // TypeDefIndex: 7197
+{
+	// Fields
+	public int svtId; // 0x10
+	public int cardId; // 0x14
+	public int motion; // 0x18
+	public int[] normalDamage; // 0x20
+	public int[] singleDamage; // 0x28
+	public int[] trinityDamage; // 0x30
+	public int[] unisonDamage; // 0x38
+	public int[] grandDamage; // 0x40
+	public int attackType; // 0x48
+	public int[] attackIndividuality; // 0x50
+
+	// Methods
+
+	// RVA: 0x13B43AC Offset: 0x13B43AC VA: 0x13B43AC
+	public void .ctor() { }
+
+	// RVA: 0x13B43FC Offset: 0x13B43FC VA: 0x13B43FC Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x13B440C Offset: 0x13B440C VA: 0x13B440C
+	public static string CreatePK(int svtId, int cardId) { }
+}
+
+// Namespace: 
+public class ServantCardMaster : DataMasterBase<ServantCardMaster, ServantCardEntity, string> // TypeDefIndex: 7198
+{
+	// Methods
+
+	// RVA: 0x13B441C Offset: 0x13B441C VA: 0x13B441C
+	public void .ctor() { }
+
+	// RVA: 0x13B4470 Offset: 0x13B4470 VA: 0x13B4470
+	public ServantCardEntity GetEntity(int svtId, int cardId) { }
+
+	// RVA: 0x13B44E4 Offset: 0x13B44E4 VA: 0x13B44E4
+	public bool TryGetEntity(out ServantCardEntity entity, int svtId, int cardId) { }
+}
+
+// Namespace: 
+public class ServantChangeEntity : DataEntityBase<string> // TypeDefIndex: 7199
 {
 	// Fields
 	public int svtId; // 0x10
@@ -19,30 +602,30 @@ public class ServantChangeEntity : DataEntityBase<string> // TypeDefIndex: 7187
 
 	// Methods
 
-	// RVA: 0x1988F80 Offset: 0x1988F80 VA: 0x1988F80
+	// RVA: 0x13B4568 Offset: 0x13B4568 VA: 0x13B4568
 	public void .ctor() { }
 
-	// RVA: 0x1988FD0 Offset: 0x1988FD0 VA: 0x1988FD0 Slot: 5
+	// RVA: 0x13B45B8 Offset: 0x13B45B8 VA: 0x13B45B8 Slot: 5
 	protected sealed override string CreatePrimaryKey() { }
 
-	// RVA: 0x1988FE4 Offset: 0x1988FE4 VA: 0x1988FE4
+	// RVA: 0x13B45CC Offset: 0x13B45CC VA: 0x13B45CC
 	public static string CreatePK(int svtId, int priority) { }
 
-	// RVA: 0x1988FF4 Offset: 0x1988FF4 VA: 0x1988FF4
+	// RVA: 0x13B45DC Offset: 0x13B45DC VA: 0x13B45DC
 	public bool IsEnable() { }
 
-	// RVA: 0x1989074 Offset: 0x1989074 VA: 0x1989074
+	// RVA: 0x13B465C Offset: 0x13B465C VA: 0x13B465C
 	public bool HasFlag(ServantChangeEntity.FlagType type) { }
 
-	// RVA: 0x1989084 Offset: 0x1989084 VA: 0x1989084
+	// RVA: 0x13B466C Offset: 0x13B466C VA: 0x13B466C
 	public int GetAfterTreasureDeviceId(int treasureDeviceId) { }
 
-	// RVA: 0x1989178 Offset: 0x1989178 VA: 0x1989178
+	// RVA: 0x13B4760 Offset: 0x13B4760 VA: 0x13B4760
 	public int GetBeforeTreasureDeviceId(int treasureDeviceId) { }
 }
 
 // Namespace: 
-public enum ServantChangeEntity.FlagType // TypeDefIndex: 7188
+public enum ServantChangeEntity.FlagType // TypeDefIndex: 7200
 {
 	// Fields
 	public int value__; // 0x0
@@ -54,67 +637,67 @@ public enum ServantChangeEntity.FlagType // TypeDefIndex: 7188
 }
 
 // Namespace: 
-public class ServantChangeMaster : DataMasterBase<ServantChangeMaster, ServantChangeEntity, string> // TypeDefIndex: 7189
+public class ServantChangeMaster : DataMasterBase<ServantChangeMaster, ServantChangeEntity, string> // TypeDefIndex: 7201
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCC1B78 Offset: 0xCC1B78 VA: 0xCC1B78
+	[CompilerGeneratedAttribute] // RVA: 0xC55C90 Offset: 0xC55C90 VA: 0xC55C90
 	private static Comparison<ServantChangeEntity> <>f__am$cache0; // 0x0
 
 	// Methods
 
-	// RVA: 0x198926C Offset: 0x198926C VA: 0x198926C
+	// RVA: 0x13B4854 Offset: 0x13B4854 VA: 0x13B4854
 	public void .ctor() { }
 
-	// RVA: 0x19892C0 Offset: 0x19892C0 VA: 0x19892C0
+	// RVA: 0x13B48A8 Offset: 0x13B48A8 VA: 0x13B48A8
 	public ServantChangeEntity GetEntity(int svtId, int priority) { }
 
-	// RVA: 0x1989334 Offset: 0x1989334 VA: 0x1989334
+	// RVA: 0x13B491C Offset: 0x13B491C VA: 0x13B491C
 	public bool TryGetEntity(out ServantChangeEntity entity, int svtId, int priority) { }
 
-	// RVA: 0x19893B8 Offset: 0x19893B8 VA: 0x19893B8
+	// RVA: 0x13B49A0 Offset: 0x13B49A0 VA: 0x13B49A0
 	public ServantChangeEntity[] GetEntityList(int svtId) { }
 
-	// RVA: 0x19895DC Offset: 0x19895DC VA: 0x19895DC
+	// RVA: 0x13B4BC4 Offset: 0x13B4BC4 VA: 0x13B4BC4
 	public ServantChangeEntity GetHiddenEntity(int svtId) { }
 
-	// RVA: 0x198961C Offset: 0x198961C VA: 0x198961C
+	// RVA: 0x13B4C04 Offset: 0x13B4C04 VA: 0x13B4C04
 	public ServantChangeEntity GetEnableEntity(int svtId) { }
 
-	// RVA: 0x19896C4 Offset: 0x19896C4 VA: 0x19896C4
+	// RVA: 0x13B4CAC Offset: 0x13B4CAC VA: 0x13B4CAC
 	public ServantChangeEntity TrueNameEntity(int svtId) { }
 
-	// RVA: 0x19897D0 Offset: 0x19897D0 VA: 0x19897D0
+	// RVA: 0x13B4DB8 Offset: 0x13B4DB8 VA: 0x13B4DB8
 	public bool IsNameTrue(int svtId) { }
 
-	// RVA: 0x19897F8 Offset: 0x19897F8 VA: 0x19897F8
+	// RVA: 0x13B4DE0 Offset: 0x13B4DE0 VA: 0x13B4DE0
 	public ServantChangeEntity[][] GetNameChangeByQuestClear(int questId, int questPhase, bool isQuestClear) { }
 
-	// RVA: 0x1989DC4 Offset: 0x1989DC4 VA: 0x1989DC4
+	// RVA: 0x13B53AC Offset: 0x13B53AC VA: 0x13B53AC
 	public ServantChangeEntity[] GetAllChanged(int svtId) { }
 
-	// RVA: 0x1989F34 Offset: 0x1989F34 VA: 0x1989F34
+	// RVA: 0x13B551C Offset: 0x13B551C VA: 0x13B551C
 	private int SortWithSvtIdAndPriority(ServantChangeEntity a, ServantChangeEntity b) { }
 
-	// RVA: 0x1989BD4 Offset: 0x1989BD4 VA: 0x1989BD4
+	// RVA: 0x13B51BC Offset: 0x13B51BC VA: 0x13B51BC
 	private List<ServantChangeEntity> getSortedEntityList() { }
 
-	// RVA: 0x1989F90 Offset: 0x1989F90 VA: 0x1989F90
+	// RVA: 0x13B5578 Offset: 0x13B5578 VA: 0x13B5578
 	public int[] GetEnableSvtVoiceList(int svtId) { }
 
-	// RVA: 0x198A39C Offset: 0x198A39C VA: 0x198A39C
+	// RVA: 0x13B5984 Offset: 0x13B5984 VA: 0x13B5984
 	public void MargeServantVoiceId(Dictionary<int, bool> isVoiceList) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD37D4C Offset: 0xD37D4C VA: 0xD37D4C
-	// RVA: 0x198A504 Offset: 0x198A504 VA: 0x198A504
+	[CompilerGeneratedAttribute] // RVA: 0xCCA688 Offset: 0xCCA688 VA: 0xCCA688
+	// RVA: 0x13B5AEC Offset: 0x13B5AEC VA: 0x13B5AEC
 	private static int <GetEntityList>m__0(ServantChangeEntity a, ServantChangeEntity b) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD37D5C Offset: 0xD37D5C VA: 0xD37D5C
-	// RVA: 0x198A548 Offset: 0x198A548 VA: 0x198A548
+	[CompilerGeneratedAttribute] // RVA: 0xCCA698 Offset: 0xCCA698 VA: 0xCCA698
+	// RVA: 0x13B5B30 Offset: 0x13B5B30 VA: 0x13B5B30
 	private int <getSortedEntityList>m__1(ServantChangeEntity a, ServantChangeEntity b) { }
 }
 
 // Namespace: 
-public class ServantClassEntity : DataEntityBase<int> // TypeDefIndex: 7190
+public class ServantClassEntity : DataEntityBase<int> // TypeDefIndex: 7202
 {
 	// Fields
 	public int id; // 0x10
@@ -132,21 +715,21 @@ public class ServantClassEntity : DataEntityBase<int> // TypeDefIndex: 7190
 
 	// Methods
 
-	// RVA: 0x1990B40 Offset: 0x1990B40 VA: 0x1990B40
+	// RVA: 0x13BC128 Offset: 0x13BC128 VA: 0x13BC128
 	public void .ctor() { }
 
-	// RVA: 0x1990B90 Offset: 0x1990B90 VA: 0x1990B90 Slot: 5
+	// RVA: 0x13BC178 Offset: 0x13BC178 VA: 0x13BC178 Slot: 5
 	protected sealed override int CreatePrimaryKey() { }
 
-	// RVA: 0x1990B98 Offset: 0x1990B98 VA: 0x1990B98
+	// RVA: 0x13BC180 Offset: 0x13BC180 VA: 0x13BC180
 	public float getAttackRate() { }
 
-	// RVA: 0x1990BB0 Offset: 0x1990BB0 VA: 0x1990BB0
+	// RVA: 0x13BC198 Offset: 0x13BC198 VA: 0x13BC198
 	public static bool IsValidClassOnSellectSupport(int classId) { }
 }
 
 // Namespace: 
-public enum ServantClassEntity.SupportGroupType // TypeDefIndex: 7191
+public enum ServantClassEntity.SupportGroupType // TypeDefIndex: 7203
 {
 	// Fields
 	public int value__; // 0x0
@@ -164,31 +747,31 @@ public enum ServantClassEntity.SupportGroupType // TypeDefIndex: 7191
 }
 
 // Namespace: 
-public class ServantClassMaster : DataMasterBase<ServantClassMaster, ServantClassEntity, int> // TypeDefIndex: 7192
+public class ServantClassMaster : DataMasterBase<ServantClassMaster, ServantClassEntity, int> // TypeDefIndex: 7204
 {
 	// Methods
 
-	// RVA: 0x19913C4 Offset: 0x19913C4 VA: 0x19913C4
+	// RVA: 0x13BC9AC Offset: 0x13BC9AC VA: 0x13BC9AC
 	public void .ctor() { }
 
-	// RVA: 0x1991418 Offset: 0x1991418 VA: 0x1991418
+	// RVA: 0x13BCA00 Offset: 0x13BCA00 VA: 0x13BCA00
 	public static float getClassAtk(int classId) { }
 
-	// RVA: 0x19914C8 Offset: 0x19914C8 VA: 0x19914C8
+	// RVA: 0x13BCAB0 Offset: 0x13BCAB0 VA: 0x13BCAB0
 	public int getRelationId(int classId) { }
 
-	// RVA: 0x199153C Offset: 0x199153C VA: 0x199153C Slot: 6
+	// RVA: 0x13BCB24 Offset: 0x13BCB24 VA: 0x13BCB24 Slot: 6
 	public override bool preProcess() { }
 
-	// RVA: 0x19917A4 Offset: 0x19917A4 VA: 0x19917A4
+	// RVA: 0x13BCD8C Offset: 0x13BCD8C VA: 0x13BCD8C
 	public ServantClassEntity.SupportGroupType getSupportGroupType(int classId) { }
 
-	// RVA: 0x1991870 Offset: 0x1991870 VA: 0x1991870
+	// RVA: 0x13BCE58 Offset: 0x13BCE58 VA: 0x13BCE58
 	public List<int> getExtraClassIdList() { }
 }
 
 // Namespace: 
-public class ServantCollectionEntity : DataEntityBase<string> // TypeDefIndex: 7193
+public class ServantCollectionEntity : DataEntityBase<string> // TypeDefIndex: 7205
 {
 	// Fields
 	public int collectionNo; // 0x10
@@ -198,24 +781,24 @@ public class ServantCollectionEntity : DataEntityBase<string> // TypeDefIndex: 7
 
 	// Methods
 
-	// RVA: 0x1992850 Offset: 0x1992850 VA: 0x1992850
+	// RVA: 0x13BDE38 Offset: 0x13BDE38 VA: 0x13BDE38
 	public void .ctor() { }
 
-	// RVA: 0x19928A0 Offset: 0x19928A0 VA: 0x19928A0 Slot: 5
+	// RVA: 0x13BDE88 Offset: 0x13BDE88 VA: 0x13BDE88 Slot: 5
 	protected sealed override string CreatePrimaryKey() { }
 
-	// RVA: 0x19928B0 Offset: 0x19928B0 VA: 0x19928B0
+	// RVA: 0x13BDE98 Offset: 0x13BDE98 VA: 0x13BDE98
 	public static string CreatePK(int collectionNo, int priority) { }
 
-	// RVA: 0x19928C0 Offset: 0x19928C0 VA: 0x19928C0
+	// RVA: 0x13BDEA8 Offset: 0x13BDEA8 VA: 0x13BDEA8
 	public bool IsOpenCondition() { }
 
-	// RVA: 0x1992954 Offset: 0x1992954 VA: 0x1992954
+	// RVA: 0x13BDF3C Offset: 0x13BDF3C VA: 0x13BDF3C
 	public ServantCollectionEntity.CollectionEffectType GetCollectionEffectType() { }
 }
 
 // Namespace: 
-public enum ServantCollectionEntity.CollectionEffectType // TypeDefIndex: 7194
+public enum ServantCollectionEntity.CollectionEffectType // TypeDefIndex: 7206
 {
 	// Fields
 	public int value__; // 0x0
@@ -226,45 +809,45 @@ public enum ServantCollectionEntity.CollectionEffectType // TypeDefIndex: 7194
 }
 
 // Namespace: 
-public class ServantCollectionMaster : DataMasterBase<ServantCollectionMaster, ServantCollectionEntity, string> // TypeDefIndex: 7195
+public class ServantCollectionMaster : DataMasterBase<ServantCollectionMaster, ServantCollectionEntity, string> // TypeDefIndex: 7207
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCC1B88 Offset: 0xCC1B88 VA: 0xCC1B88
+	[CompilerGeneratedAttribute] // RVA: 0xC55CA0 Offset: 0xC55CA0 VA: 0xC55CA0
 	private static Comparison<ServantCollectionEntity> <>f__am$cache0; // 0x0
 
 	// Methods
 
-	// RVA: 0x199295C Offset: 0x199295C VA: 0x199295C
+	// RVA: 0x13BDF44 Offset: 0x13BDF44 VA: 0x13BDF44
 	public void .ctor() { }
 
-	// RVA: 0x19929B0 Offset: 0x19929B0 VA: 0x19929B0
+	// RVA: 0x13BDF98 Offset: 0x13BDF98 VA: 0x13BDF98
 	public ServantCollectionEntity GetEntity(int collectionNo, int priority) { }
 
-	// RVA: 0x1992A24 Offset: 0x1992A24 VA: 0x1992A24
+	// RVA: 0x13BE00C Offset: 0x13BE00C VA: 0x13BE00C
 	public bool TryGetEntity(out ServantCollectionEntity entity, int collectionNo, int priority) { }
 
-	// RVA: 0x1992AA8 Offset: 0x1992AA8 VA: 0x1992AA8
+	// RVA: 0x13BE090 Offset: 0x13BE090 VA: 0x13BE090
 	public bool IsNeedOverrideDisplayType(UserServantCollectionEntity entity) { }
 
-	// RVA: 0x1992C14 Offset: 0x1992C14 VA: 0x1992C14
+	// RVA: 0x13BE1FC Offset: 0x13BE1FC VA: 0x13BE1FC
 	public bool IsNeedOverrideDisplayType(int collectionNo) { }
 
-	// RVA: 0x1992DD8 Offset: 0x1992DD8 VA: 0x1992DD8
+	// RVA: 0x13BE3C0 Offset: 0x13BE3C0 VA: 0x13BE3C0
 	public ServantCollectionEntity.CollectionEffectType GetOverrideDisplayType(UserServantCollectionEntity entity) { }
 
-	// RVA: 0x1992F40 Offset: 0x1992F40 VA: 0x1992F40
+	// RVA: 0x13BE528 Offset: 0x13BE528 VA: 0x13BE528
 	public ServantCollectionEntity.CollectionEffectType GetOverrideDisplayType(int collectionNo) { }
 
-	// RVA: 0x1992FE4 Offset: 0x1992FE4 VA: 0x1992FE4
+	// RVA: 0x13BE5CC Offset: 0x13BE5CC VA: 0x13BE5CC
 	private ServantCollectionEntity[] GetSortedEntities(int collectionNo) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD37D6C Offset: 0xD37D6C VA: 0xD37D6C
-	// RVA: 0x19932D0 Offset: 0x19932D0 VA: 0x19932D0
+	[CompilerGeneratedAttribute] // RVA: 0xCCA6A8 Offset: 0xCCA6A8 VA: 0xCCA6A8
+	// RVA: 0x13BE8B8 Offset: 0x13BE8B8 VA: 0x13BE8B8
 	private static int <GetSortedEntities>m__0(ServantCollectionEntity a, ServantCollectionEntity b) { }
 }
 
 // Namespace: 
-public class ServantCommandCodeUnlockEntity : DataEntityBase<string> // TypeDefIndex: 7196
+public class ServantCommandCodeUnlockEntity : DataEntityBase<string> // TypeDefIndex: 7208
 {
 	// Fields
 	public int svtId; // 0x10
@@ -275,33 +858,33 @@ public class ServantCommandCodeUnlockEntity : DataEntityBase<string> // TypeDefI
 
 	// Methods
 
-	// RVA: 0x199CAFC Offset: 0x199CAFC VA: 0x199CAFC
+	// RVA: 0x13C822C Offset: 0x13C822C VA: 0x13C822C
 	public void .ctor() { }
 
-	// RVA: 0x199CB4C Offset: 0x199CB4C VA: 0x199CB4C Slot: 5
+	// RVA: 0x13C827C Offset: 0x13C827C VA: 0x13C827C Slot: 5
 	protected sealed override string CreatePrimaryKey() { }
 
-	// RVA: 0x199CB5C Offset: 0x199CB5C VA: 0x199CB5C
+	// RVA: 0x13C828C Offset: 0x13C828C VA: 0x13C828C
 	public static string CreatePK(int svtId, int cardIdx) { }
 }
 
 // Namespace: 
-public class ServantCommandCodeUnlockMaster : DataMasterBase<ServantCommandCodeUnlockMaster, ServantCommandCodeUnlockEntity, string> // TypeDefIndex: 7197
+public class ServantCommandCodeUnlockMaster : DataMasterBase<ServantCommandCodeUnlockMaster, ServantCommandCodeUnlockEntity, string> // TypeDefIndex: 7209
 {
 	// Methods
 
-	// RVA: 0x199CB6C Offset: 0x199CB6C VA: 0x199CB6C
+	// RVA: 0x13C829C Offset: 0x13C829C VA: 0x13C829C
 	public void .ctor() { }
 
-	// RVA: 0x199CBC0 Offset: 0x199CBC0 VA: 0x199CBC0
+	// RVA: 0x13C82F0 Offset: 0x13C82F0 VA: 0x13C82F0
 	public ServantCommandCodeUnlockEntity GetEntity(int svtId, int cardIdx) { }
 
-	// RVA: 0x199CC34 Offset: 0x199CC34 VA: 0x199CC34
+	// RVA: 0x13C8364 Offset: 0x13C8364 VA: 0x13C8364
 	public bool TryGetEntity(out ServantCommandCodeUnlockEntity entity, int svtId, int cardIdx) { }
 }
 
 // Namespace: 
-public class ServantCommentAddEntity : DataEntityBase<string> // TypeDefIndex: 7198
+public class ServantCommentAddEntity : DataEntityBase<string> // TypeDefIndex: 7210
 {
 	// Fields
 	public int svtId; // 0x10
@@ -315,54 +898,54 @@ public class ServantCommentAddEntity : DataEntityBase<string> // TypeDefIndex: 7
 
 	// Methods
 
-	// RVA: 0x199CCB8 Offset: 0x199CCB8 VA: 0x199CCB8
+	// RVA: 0x13C83E8 Offset: 0x13C83E8 VA: 0x13C83E8
 	public void .ctor() { }
 
-	// RVA: 0x199CD08 Offset: 0x199CD08 VA: 0x199CD08 Slot: 5
+	// RVA: 0x13C8438 Offset: 0x13C8438 VA: 0x13C8438 Slot: 5
 	protected sealed override string CreatePrimaryKey() { }
 
-	// RVA: 0x199CD1C Offset: 0x199CD1C VA: 0x199CD1C
+	// RVA: 0x13C844C Offset: 0x13C844C VA: 0x13C844C
 	public static string CreatePK(int svtId, int id, int priority, int idx) { }
 
-	// RVA: 0x199CD34 Offset: 0x199CD34 VA: 0x199CD34
+	// RVA: 0x13C8464 Offset: 0x13C8464 VA: 0x13C8464
 	public bool IsOpen(int oldFriendShipRank = -1) { }
 
-	// RVA: 0x199D038 Offset: 0x199D038 VA: 0x199D038
+	// RVA: 0x13C8768 Offset: 0x13C8768 VA: 0x13C8768
 	public bool IsOnlyOpenQuestCond(int questId, int questPhase) { }
 }
 
 // Namespace: 
-public class ServantCommentAddMaster : DataMasterBase<ServantCommentAddMaster, ServantCommentAddEntity, string> // TypeDefIndex: 7199
+public class ServantCommentAddMaster : DataMasterBase<ServantCommentAddMaster, ServantCommentAddEntity, string> // TypeDefIndex: 7211
 {
 	// Methods
 
-	// RVA: 0x199D1FC Offset: 0x199D1FC VA: 0x199D1FC
+	// RVA: 0x13C892C Offset: 0x13C892C VA: 0x13C892C
 	public void .ctor() { }
 
-	// RVA: 0x199D250 Offset: 0x199D250 VA: 0x199D250
+	// RVA: 0x13C8980 Offset: 0x13C8980 VA: 0x13C8980
 	public ServantCommentAddEntity GetEntity(int svtId, int id, int priority, int idx) { }
 
-	// RVA: 0x199D2DC Offset: 0x199D2DC VA: 0x199D2DC
+	// RVA: 0x13C8A0C Offset: 0x13C8A0C VA: 0x13C8A0C
 	public bool TryGetEntity(out ServantCommentAddEntity entity, int svtId, int id, int priority, int idx) { }
 
-	// RVA: 0x199D378 Offset: 0x199D378 VA: 0x199D378
+	// RVA: 0x13C8AA8 Offset: 0x13C8AA8 VA: 0x13C8AA8
 	public ServantCommentAddEntity[] GetEntitiyList(int svtId, int id, int priority) { }
 
-	// RVA: 0x199D514 Offset: 0x199D514 VA: 0x199D514
+	// RVA: 0x13C8C44 Offset: 0x13C8C44 VA: 0x13C8C44
 	public bool IsEntityListCondContain(int svtId, int id, int priority, CondType.Kind condType) { }
 
-	// RVA: 0x199D660 Offset: 0x199D660 VA: 0x199D660
+	// RVA: 0x13C8D90 Offset: 0x13C8D90 VA: 0x13C8D90
 	public bool IsOpen(int svtId, int id, int priority, int oldFriendShipRank = -1) { }
 
-	// RVA: 0x199D6F8 Offset: 0x199D6F8 VA: 0x199D6F8
+	// RVA: 0x13C8E28 Offset: 0x13C8E28 VA: 0x13C8E28
 	public bool IsOnlyOpenQuestCond(int svtId, int id, int priority, int kind, int questId, int questPhase) { }
 
-	// RVA: 0x199D7B4 Offset: 0x199D7B4 VA: 0x199D7B4
+	// RVA: 0x13C8EE4 Offset: 0x13C8EE4 VA: 0x13C8EE4
 	public string GetConditionString(string textType, string textType2, int svtId, int id, int priority, int oldFriendShipRank = -1) { }
 }
 
 // Namespace: 
-public class ServantCommentEntity : DataEntityBase<string> // TypeDefIndex: 7200
+public class ServantCommentEntity : DataEntityBase<string> // TypeDefIndex: 7212
 {
 	// Fields
 	private static readonly string SCRIPT_IMAGE_LIMIT; // 0x0
@@ -377,624 +960,41 @@ public class ServantCommentEntity : DataEntityBase<string> // TypeDefIndex: 7200
 	public int[] condValues; // 0x38
 	public int condValue2; // 0x40
 	public Dictionary<string, object> script; // 0x48
-	[CompilerGeneratedAttribute] // RVA: 0xCC1B98 Offset: 0xCC1B98 VA: 0xCC1B98
+	[CompilerGeneratedAttribute] // RVA: 0xC55CB0 Offset: 0xC55CB0 VA: 0xC55CB0
 	private static Func<string, int> <>f__mg$cache0; // 0x10
 
 	// Methods
 
-	// RVA: 0x199DB94 Offset: 0x199DB94 VA: 0x199DB94
+	// RVA: 0x13C92C4 Offset: 0x13C92C4 VA: 0x13C92C4
 	public void .ctor() { }
 
-	// RVA: 0x199DBE4 Offset: 0x199DBE4 VA: 0x199DBE4 Slot: 5
+	// RVA: 0x13C9314 Offset: 0x13C9314 VA: 0x13C9314 Slot: 5
 	protected sealed override string CreatePrimaryKey() { }
 
-	// RVA: 0x199DC64 Offset: 0x199DC64 VA: 0x199DC64
+	// RVA: 0x13C9394 Offset: 0x13C9394 VA: 0x13C9394
 	public static string CreatePK(int svtId, int id, int priority) { }
 
-	// RVA: 0x199DC78 Offset: 0x199DC78 VA: 0x199DC78
+	// RVA: 0x13C93A8 Offset: 0x13C93A8 VA: 0x13C93A8
 	public bool IsConst() { }
 
-	// RVA: 0x199DCE4 Offset: 0x199DCE4 VA: 0x199DCE4
+	// RVA: 0x13C9414 Offset: 0x13C9414 VA: 0x13C9414
 	public bool IsOpen(int oldFriendShipRank = -1, bool addCheck = True) { }
 
-	// RVA: 0x199E064 Offset: 0x199E064 VA: 0x199E064
+	// RVA: 0x13C9794 Offset: 0x13C9794 VA: 0x13C9794
 	public bool IsOnlyOpenQuestCond(int questId, int questPhase) { }
 
-	// RVA: 0x199E228 Offset: 0x199E228 VA: 0x199E228
+	// RVA: 0x13C9958 Offset: 0x13C9958 VA: 0x13C9958
 	public void SetOpen() { }
 
-	// RVA: 0x199E4D4 Offset: 0x199E4D4 VA: 0x199E4D4
+	// RVA: 0x13C9C04 Offset: 0x13C9C04 VA: 0x13C9C04
 	public bool IsNew() { }
 
-	// RVA: 0x199E584 Offset: 0x199E584 VA: 0x199E584
+	// RVA: 0x13C9CB4 Offset: 0x13C9CB4 VA: 0x13C9CB4
 	public string GetConditiontext(string textType = "") { }
 
-	// RVA: 0x199DAB0 Offset: 0x199DAB0 VA: 0x199DAB0
+	// RVA: 0x13C91E0 Offset: 0x13C91E0 VA: 0x13C91E0
 	public static string GetConditionText(string textType, CondType.Kind condType, int condValue, int[] condValues, int condValue2) { }
 
-	// RVA: 0x199E664 Offset: 0x199E664 VA: 0x199E664
+	// RVA: 0x13C9D94 Offset: 0x13C9D94 VA: 0x13C9D94
 	public string GetComment() { }
 
-	// RVA: 0x199E6D0 Offset: 0x199E6D0 VA: 0x199E6D0
-	public object GetScriptObj(string key) { }
-
-	// RVA: 0x199E750 Offset: 0x199E750 VA: 0x199E750
-	public int GetScriptInt(string key, int defVal = -1) { }
-
-	// RVA: 0x199E828 Offset: 0x199E828 VA: 0x199E828
-	public List<object> GetScriptObjList(string key) { }
-
-	// RVA: 0x199E900 Offset: 0x199E900 VA: 0x199E900
-	public string GetScriptString(string key, string defVal = "") { }
-
-	// RVA: 0x199E9D0 Offset: 0x199E9D0 VA: 0x199E9D0
-	public int[] GetScriptIntArray(string key, int[] defVal) { }
-
-	// RVA: 0x199EC38 Offset: 0x199EC38 VA: 0x199EC38
-	public int[] GetImageLimit() { }
-
-	// RVA: 0x199ECAC Offset: 0x199ECAC VA: 0x199ECAC
-	public string GetCondTitle() { }
-
-	// RVA: 0x199ED58 Offset: 0x199ED58 VA: 0x199ED58
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public class ServantCommentMaster : DataMasterBase<ServantCommentMaster, ServantCommentEntity, string> // TypeDefIndex: 7201
-{
-	// Methods
-
-	// RVA: 0x19A2EC4 Offset: 0x19A2EC4 VA: 0x19A2EC4
-	public void .ctor() { }
-
-	// RVA: 0x19A2F18 Offset: 0x19A2F18 VA: 0x19A2F18
-	public ServantCommentEntity GetEntity(int svtId, int id, int priority) { }
-
-	// RVA: 0x19A2FBC Offset: 0x19A2FBC VA: 0x19A2FBC
-	public bool TryGetEntity(out ServantCommentEntity entity, int svtId, int id, int priority) { }
-
-	// RVA: 0x19A3068 Offset: 0x19A3068 VA: 0x19A3068
-	public ServantCommentEntity[] GetEntityList(int svtId, CondType.Kind condType = 0) { }
-
-	// RVA: 0x19A1AB0 Offset: 0x19A1AB0 VA: 0x19A1AB0
-	public ServantCommentEntity[] GetEntityList(int svtId, int imageLimitCount, CondType.Kind condType = 0, bool addCheck = False, bool overLimit = False) { }
-
-	// RVA: 0x19A25B8 Offset: 0x19A25B8 VA: 0x19A25B8
-	public ServantCommentEntity[] GetEntityListWithImageList(int svtId, int imageLimitCount, CondType.Kind condType, bool addCheck = False) { }
-
-	// RVA: 0x19A3080 Offset: 0x19A3080 VA: 0x19A3080
-	public ServantCommentEntity[] GetOpenEntitiyList(int svtId) { }
-
-	// RVA: 0x19A3460 Offset: 0x19A3460 VA: 0x19A3460
-	public void SetOpen(int svtId, int svtCommentId, int svtCommentPriority) { }
-
-	// RVA: 0x19A34DC Offset: 0x19A34DC VA: 0x19A34DC
-	public void SetOpen(int svtId, int[] svtCommentIdList, int[] svtCommentPriorityList) { }
-
-	// RVA: 0x19A3558 Offset: 0x19A3558 VA: 0x19A3558
-	public bool IsNew(int svtId) { }
-
-	// RVA: 0x19A1110 Offset: 0x19A1110 VA: 0x19A1110
-	public bool GetNewList(out int[] idList, out int[] priorityList, int svtId) { }
-
-	// RVA: 0x19A38DC Offset: 0x19A38DC VA: 0x19A38DC
-	public List<int> GetServantListWithQuestClear(int questId, int questPhase) { }
-
-	// RVA: 0x19A3CA0 Offset: 0x19A3CA0 VA: 0x19A3CA0
-	public ServantCommentEntity[] GetServantListWithQuestClearAndImageLimit(int questId, int questPhase) { }
-
-	// RVA: 0x19A3FE4 Offset: 0x19A3FE4 VA: 0x19A3FE4
-	public List<ServantCommentEntity> GetNewProfileEntities(int svtId) { }
-
-	// RVA: 0x19A43D8 Offset: 0x19A43D8 VA: 0x19A43D8
-	public bool IsOpenImageLimitProfile(int svtId, int limitCount) { }
-
-	// RVA: 0x19A46E4 Offset: 0x19A46E4 VA: 0x19A46E4
-	public static void OpenSaintGraphProfileChange(int svtId, int limitCount, ServantCommentMaster.ProfileChangeDecideDelegate decideAction, Action endAction) { }
-
-	// RVA: 0x19A49C4 Offset: 0x19A49C4 VA: 0x19A49C4
-	public static void DefaultProfileChangeDecideAction(int svtId, int limitCount, bool isDecide, Action endAction) { }
-}
-
-// Namespace: 
-public sealed class ServantCommentMaster.ProfileChangeDecideDelegate : MulticastDelegate // TypeDefIndex: 7202
-{
-	// Methods
-
-	// RVA: 0x20049D4 Offset: 0x20049D4 VA: 0x20049D4
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x2004750 Offset: 0x2004750 VA: 0x2004750 Slot: 11
-	public virtual void Invoke(int svtid, int limitCount, bool isDecide, Action finishCallback) { }
-
-	// RVA: 0x20049E4 Offset: 0x20049E4 VA: 0x20049E4 Slot: 12
-	public virtual IAsyncResult BeginInvoke(int svtid, int limitCount, bool isDecide, Action finishCallback, AsyncCallback callback, object object) { }
-
-	// RVA: 0x2004AB4 Offset: 0x2004AB4 VA: 0x2004AB4 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAEEB0 Offset: 0xCAEEB0 VA: 0xCAEEB0
-private sealed class ServantCommentMaster.<OpenSaintGraphProfileChange>c__AnonStorey0 // TypeDefIndex: 7203
-{
-	// Fields
-	internal ServantCommentMaster.ProfileChangeDecideDelegate decideAction; // 0x10
-	internal int svtId; // 0x18
-	internal int limitCount; // 0x1C
-	internal Action endAction; // 0x20
-
-	// Methods
-
-	// RVA: 0x2004708 Offset: 0x2004708 VA: 0x2004708
-	public void .ctor() { }
-
-	// RVA: 0x2004710 Offset: 0x2004710 VA: 0x2004710
-	internal void <>m__0(bool isDecide) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAEEC0 Offset: 0xCAEEC0 VA: 0xCAEEC0
-private sealed class ServantCommentMaster.<DefaultProfileChangeDecideAction>c__AnonStorey1 // TypeDefIndex: 7204
-{
-	// Fields
-	internal Action endAction; // 0x10
-
-	// Methods
-
-	// RVA: 0x2004540 Offset: 0x2004540 VA: 0x2004540
-	public void .ctor() { }
-
-	// RVA: 0x2004548 Offset: 0x2004548 VA: 0x2004548
-	internal void <>m__0(bool isDcd) { }
-
-	// RVA: 0x2004628 Offset: 0x2004628 VA: 0x2004628
-	internal void <>m__1() { }
-}
-
-// Namespace: 
-public class ServantCostumeEntity : DataEntityBase<string> // TypeDefIndex: 7205
-{
-	// Fields
-	public int svtId; // 0x10
-	public int id; // 0x14
-	public int groupIndex; // 0x18
-	public string name; // 0x20
-	public string shortName; // 0x28
-	public string detail; // 0x30
-	public string releaseInfo; // 0x38
-	public string costumeReleaseDetail; // 0x40
-	public string itemGetInfo; // 0x48
-	public int priority; // 0x50
-	public int flag; // 0x54
-	public int costumeCollectionNo; // 0x58
-	public int iconId; // 0x5C
-	public long openedAt; // 0x60
-	public long endedAt; // 0x68
-	public Dictionary<string, object> script; // 0x70
-
-	// Methods
-
-	// RVA: 0x20089D8 Offset: 0x20089D8 VA: 0x20089D8
-	public void .ctor() { }
-
-	// RVA: 0x2008A28 Offset: 0x2008A28 VA: 0x2008A28 Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x2008A38 Offset: 0x2008A38 VA: 0x2008A38
-	public static string CreatePK(int svtId, int id) { }
-
-	// RVA: 0x2008A48 Offset: 0x2008A48 VA: 0x2008A48
-	public bool checkFlag(CostumeListType.Flag flag) { }
-
-	// RVA: 0x2008A58 Offset: 0x2008A58 VA: 0x2008A58
-	public bool CheckEnableReleaseTime() { }
-
-	// RVA: 0x2008AE0 Offset: 0x2008AE0 VA: 0x2008AE0
-	public string getShortName() { }
-
-	// RVA: 0x2008B6C Offset: 0x2008B6C VA: 0x2008B6C
-	public bool IsEventCombineCostume() { }
-
-	// RVA: 0x2008C0C Offset: 0x2008C0C VA: 0x2008C0C
-	public bool checkScript(string key, out int param) { }
-
-	// RVA: 0x2008CCC Offset: 0x2008CCC VA: 0x2008CCC
-	public bool checkBgmId(out int param) { }
-}
-
-// Namespace: 
-public class ServantCostumeMaster : DataMasterBase<ServantCostumeMaster, ServantCostumeEntity, string> // TypeDefIndex: 7206
-{
-	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCC1BA8 Offset: 0xCC1BA8 VA: 0xCC1BA8
-	private static Comparison<ServantCostumeEntity> <>f__am$cache0; // 0x0
-
-	// Methods
-
-	// RVA: 0x200FBFC Offset: 0x200FBFC VA: 0x200FBFC
-	public void .ctor() { }
-
-	// RVA: 0x200FC50 Offset: 0x200FC50 VA: 0x200FC50
-	public ServantCostumeEntity GetEntity(int svtId, int id) { }
-
-	// RVA: 0x200FCC4 Offset: 0x200FCC4 VA: 0x200FCC4
-	public bool TryGetEntity(out ServantCostumeEntity entity, int svtId, int id) { }
-
-	// RVA: 0x200FD48 Offset: 0x200FD48 VA: 0x200FD48
-	public ServantCostumeEntity getEntityFromId(int svtId, int id) { }
-
-	// RVA: 0x200FE84 Offset: 0x200FE84 VA: 0x200FE84
-	public bool GetIsServantCostumeExist(int svtId) { }
-
-	// RVA: 0x200C55C Offset: 0x200C55C VA: 0x200C55C
-	public List<int> GetCostumeSvtIdList() { }
-
-	// RVA: 0x200CCA4 Offset: 0x200CCA4 VA: 0x200CCA4
-	public ServantCostumeEntity[] releasedCostumeEntityList(int svtId, bool isChkHave = False) { }
-
-	// RVA: 0x200FFA0 Offset: 0x200FFA0 VA: 0x200FFA0
-	public string[] GetCostumeNames(CostumeReleaseAnnounce[] releases) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD37D7C Offset: 0xD37D7C VA: 0xD37D7C
-	// RVA: 0x20101E4 Offset: 0x20101E4 VA: 0x20101E4
-	private static int <releasedCostumeEntityList>m__0(ServantCostumeEntity a, ServantCostumeEntity b) { }
-}
-
-// Namespace: 
-public class ServantCostumeReleaseEntity : DataEntityBase<string> // TypeDefIndex: 7207
-{
-	// Fields
-	public int svtId; // 0x10
-	public int costumeId; // 0x14
-	public int releaseType; // 0x18
-	public int condType; // 0x1C
-	public int condTargetId; // 0x20
-	public int condNum; // 0x24
-	public int priority; // 0x28
-	public int condGroup; // 0x2C
-
-	// Methods
-
-	// RVA: 0x2010228 Offset: 0x2010228 VA: 0x2010228
-	public void .ctor() { }
-
-	// RVA: 0x2010278 Offset: 0x2010278 VA: 0x2010278 Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x2010290 Offset: 0x2010290 VA: 0x2010290
-	public static string CreatePK(int svtId, int releaseType, int costumeId, int condType, int condTargetId) { }
-
-	// RVA: 0x20102AC Offset: 0x20102AC VA: 0x20102AC
-	public bool IsAvailable() { }
-
-	// RVA: 0x2010350 Offset: 0x2010350 VA: 0x2010350
-	public bool IsCondAboutQuestClear(int questId, int phase) { }
-}
-
-// Namespace: 
-public class ServantCostumeReleaseMaster : DataMasterBase<ServantCostumeReleaseMaster, ServantCostumeReleaseEntity, string> // TypeDefIndex: 7208
-{
-	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCC1BB8 Offset: 0xCC1BB8 VA: 0xCC1BB8
-	private static Comparison<ServantCostumeReleaseEntity> <>f__am$cache0; // 0x0
-	[CompilerGeneratedAttribute] // RVA: 0xCC1BC8 Offset: 0xCC1BC8 VA: 0xCC1BC8
-	private static Comparison<ServantCostumeReleaseEntity> <>f__am$cache1; // 0x8
-
-	// Methods
-
-	// RVA: 0x20103A8 Offset: 0x20103A8 VA: 0x20103A8
-	public void .ctor() { }
-
-	// RVA: 0x20103FC Offset: 0x20103FC VA: 0x20103FC
-	public ServantCostumeReleaseEntity GetEntity(int svtId, int releaseType, int costumeId, int condType, int condTargetId) { }
-
-	// RVA: 0x2010498 Offset: 0x2010498 VA: 0x2010498
-	public bool TryGetEntity(out ServantCostumeReleaseEntity entity, int svtId, int releaseType, int costumeId, int condType, int condTargetId) { }
-
-	// RVA: 0x201053C Offset: 0x201053C VA: 0x201053C
-	public bool isEnableMountCostume(int svtId, int id, int lv, int limitCount) { }
-
-	// RVA: 0x20106B0 Offset: 0x20106B0 VA: 0x20106B0
-	public ServantCostumeReleaseEntity[] GetEntityList(int svtId, int costumeId) { }
-
-	// RVA: 0x20108F4 Offset: 0x20108F4 VA: 0x20108F4
-	public List<List<ServantCostumeReleaseEntity>> GetCostumeCondGroupEntityList(int svtId, int costumeId) { }
-
-	// RVA: 0x200CFB8 Offset: 0x200CFB8 VA: 0x200CFB8
-	public bool checkItemHaving(int svtId, int costumeId) { }
-
-	// RVA: 0x200D31C Offset: 0x200D31C VA: 0x200D31C
-	public bool IsClearCostumeReleaseAllCond(ServantCostumeEntity targetEntity, int svtId, long userSvtId) { }
-
-	// RVA: 0x20074F8 Offset: 0x20074F8 VA: 0x20074F8
-	public bool IsCostumeReleaseCondClear(ServantCostumeEntity targetEntity, int svtId, long userSvtId) { }
-
-	// RVA: 0x200D130 Offset: 0x200D130 VA: 0x200D130
-	public bool IsClearEventItemCostumeReleaseAllCond(ServantCostumeEntity targetEntity, int svtId, long userSvtId) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD37D8C Offset: 0xD37D8C VA: 0xD37D8C
-	// RVA: 0x2010BD0 Offset: 0x2010BD0 VA: 0x2010BD0
-	private static int <GetEntityList>m__0(ServantCostumeReleaseEntity a, ServantCostumeReleaseEntity b) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD37D9C Offset: 0xD37D9C VA: 0xD37D9C
-	// RVA: 0x2010C10 Offset: 0x2010C10 VA: 0x2010C10
-	private static int <GetCostumeCondGroupEntityList>m__1(ServantCostumeReleaseEntity a, ServantCostumeReleaseEntity b) { }
-}
-
-// Namespace: 
-public class ServantEntity : DataEntityBase<int> // TypeDefIndex: 7209
-{
-	// Fields
-	public ObscuredInt id; // 0x10
-	public ObscuredInt baseSvtId; // 0x20
-	public ObscuredString name; // 0x30
-	private ObscuredString nameSave; // 0x38
-	public ObscuredString ruby; // 0x40
-	public string battleName; // 0x48
-	public int classId; // 0x50
-	public int type; // 0x54
-	public int limitMax; // 0x58
-	public int rewardLv; // 0x5C
-	public int friendshipId; // 0x60
-	public int maxFriendshipRank; // 0x64
-	public int genderType; // 0x68
-	public int attri; // 0x6C
-	public int combineSkillId; // 0x70
-	public int combineLimitId; // 0x74
-	public int sellQp; // 0x78
-	public int sellMana; // 0x7C
-	public int sellRarePri; // 0x80
-	public int expType; // 0x84
-	public int combineMaterialId; // 0x88
-	public int[] cardIds; // 0x90
-	public int cost; // 0x98
-	public int battleSize; // 0x9C
-	public int hpGaugeY; // 0xA0
-	public int[] classPassive; // 0xA8
-	public int[] individuality; // 0xB0
-	public int starRate; // 0xB8
-	public int attackAttri; // 0xBC
-	public Dictionary<string, object> script; // 0xC0
-	public int illustratorId; // 0xC8
-	public int cvId; // 0xCC
-	public int collectionNo; // 0xD0
-	public int materialStoryPriority; // 0xD4
-	public int[] relateQuestIds; // 0xD8
-	public int flag; // 0xE0
-	private Dictionary<string, object> mergedScript; // 0xE8
-	[CompilerGeneratedAttribute] // RVA: 0xCC1BD8 Offset: 0xCC1BD8 VA: 0xCC1BD8
-	private static Converter<object, int> <>f__am$cache0; // 0x0
-
-	// Properties
-	public bool IsServant { get; }
-	public bool IsKeepServant { get; }
-	public bool IsKeepServantEquip { get; }
-	public bool IsOrganization { get; }
-	public bool IsServantCollection { get; }
-	public bool IsServantEquip { get; }
-	public bool IsCombineMaterial { get; }
-	public bool IsStatusUp { get; }
-	public bool IsSvtEqMaterial { get; }
-	public bool IsServantEquipMaterial { get; }
-	public bool IsExpUp { get; }
-	public bool IsEnemy { get; }
-	public bool IsEnemyCollectionDetail { get; }
-	public bool IsAllClass { get; }
-	public bool IsServantMaterialTd { get; }
-	public bool IsUsableOnlyNpcSvtEquip { get; }
-	public bool IsFriendShipSvtEquip { get; }
-	public bool IsIgnoreCombineLimitSpecial { get; }
-	public bool IsSvtEquipExp { get; }
-	public bool IsChocolateSvtEquip { get; }
-
-	// Methods
-
-	// RVA: 0x2010C50 Offset: 0x2010C50 VA: 0x2010C50
-	public void .ctor() { }
-
-	// RVA: 0x2010CA0 Offset: 0x2010CA0 VA: 0x2010CA0 Slot: 5
-	protected sealed override int CreatePrimaryKey() { }
-
-	// RVA: 0x2010D10 Offset: 0x2010D10 VA: 0x2010D10
-	public bool checkIsCombineMaterialSvt() { }
-
-	// RVA: 0x2010D20 Offset: 0x2010D20 VA: 0x2010D20
-	public bool checkIsHeroineSvt() { }
-
-	// RVA: 0x2010D30 Offset: 0x2010D30 VA: 0x2010D30
-	public bool get_IsServant() { }
-
-	// RVA: 0x2010D3C Offset: 0x2010D3C VA: 0x2010D3C
-	public bool get_IsKeepServant() { }
-
-	// RVA: 0x2010D48 Offset: 0x2010D48 VA: 0x2010D48
-	public bool get_IsKeepServantEquip() { }
-
-	// RVA: 0x2010D54 Offset: 0x2010D54 VA: 0x2010D54
-	public bool get_IsOrganization() { }
-
-	// RVA: 0x2010D60 Offset: 0x2010D60 VA: 0x2010D60
-	public bool get_IsServantCollection() { }
-
-	// RVA: 0x2010D6C Offset: 0x2010D6C VA: 0x2010D6C
-	public bool get_IsServantEquip() { }
-
-	// RVA: 0x2010D78 Offset: 0x2010D78 VA: 0x2010D78
-	public bool get_IsCombineMaterial() { }
-
-	// RVA: 0x200A47C Offset: 0x200A47C VA: 0x200A47C
-	public bool get_IsStatusUp() { }
-
-	// RVA: 0x2010D84 Offset: 0x2010D84 VA: 0x2010D84
-	public bool get_IsSvtEqMaterial() { }
-
-	// RVA: 0x2010D90 Offset: 0x2010D90 VA: 0x2010D90
-	public bool get_IsServantEquipMaterial() { }
-
-	// RVA: 0x200A488 Offset: 0x200A488 VA: 0x200A488
-	public bool get_IsExpUp() { }
-
-	// RVA: 0x2010D9C Offset: 0x2010D9C VA: 0x2010D9C
-	public bool get_IsEnemy() { }
-
-	// RVA: 0x2010DA8 Offset: 0x2010DA8 VA: 0x2010DA8
-	public bool get_IsEnemyCollectionDetail() { }
-
-	// RVA: 0x200A470 Offset: 0x200A470 VA: 0x200A470
-	public bool get_IsAllClass() { }
-
-	// RVA: 0x2010DB4 Offset: 0x2010DB4 VA: 0x2010DB4
-	public bool get_IsServantMaterialTd() { }
-
-	// RVA: 0x2010DC0 Offset: 0x2010DC0 VA: 0x2010DC0
-	public bool get_IsUsableOnlyNpcSvtEquip() { }
-
-	// RVA: 0x2010DDC Offset: 0x2010DDC VA: 0x2010DDC
-	public bool get_IsFriendShipSvtEquip() { }
-
-	// RVA: 0x2010DE8 Offset: 0x2010DE8 VA: 0x2010DE8
-	public bool get_IsIgnoreCombineLimitSpecial() { }
-
-	// RVA: 0x2010DF4 Offset: 0x2010DF4 VA: 0x2010DF4
-	public bool get_IsSvtEquipExp() { }
-
-	// RVA: 0x2010E00 Offset: 0x2010E00 VA: 0x2010E00
-	public bool get_IsChocolateSvtEquip() { }
-
-	// RVA: 0x2010DCC Offset: 0x2010DCC VA: 0x2010DCC
-	public bool checkFlag(ServantEntity.FlagField flag) { }
-
-	// RVA: 0x2010E0C Offset: 0x2010E0C VA: 0x2010E0C
-	public string getClassName() { }
-
-	// RVA: 0x2010F40 Offset: 0x2010F40 VA: 0x2010F40
-	public int[] getIndividuality(int limitCount, int dispLimitCount) { }
-
-	// RVA: 0x2011298 Offset: 0x2011298 VA: 0x2011298
-	public bool IsIndividuality(int limitCount, int dispLimitCount, int individuality) { }
-
-	// RVA: 0x2011570 Offset: 0x2011570 VA: 0x2011570
-	public bool IsIndividuality(int limitCount, int dispLimitCount, int[] individualityList) { }
-
-	// RVA: 0x20118A0 Offset: 0x20118A0 VA: 0x20118A0
-	public int[] getClassPassive() { }
-
-	// RVA: 0x20118A8 Offset: 0x20118A8 VA: 0x20118A8
-	public void getClassSkillInfo(out int[] idList, out string[] titleList, out string[] explanationList) { }
-
-	// RVA: 0x2011B18 Offset: 0x2011B18 VA: 0x2011B18
-	public float getHeadUpY() { }
-
-	// RVA: 0x2011B30 Offset: 0x2011B30 VA: 0x2011B30
-	public Dictionary<string, object> GetScript() { }
-
-	// RVA: 0x2011E38 Offset: 0x2011E38 VA: 0x2011E38
-	private object GetScriptValue(string key) { }
-
-	// RVA: 0x2011EB8 Offset: 0x2011EB8 VA: 0x2011EB8
-	public bool checkScript(string key) { }
-
-	// RVA: 0x2011F30 Offset: 0x2011F30 VA: 0x2011F30
-	public bool checkScript(string key, out int param) { }
-
-	// RVA: 0x2011FB4 Offset: 0x2011FB4 VA: 0x2011FB4
-	public bool checkScript(string key, out float param, float denominator = 1000) { }
-
-	// RVA: 0x201204C Offset: 0x201204C VA: 0x201204C
-	public int getDressId() { }
-
-	// RVA: 0x20120BC Offset: 0x20120BC VA: 0x20120BC
-	public int getCameraActionId() { }
-
-	// RVA: 0x201212C Offset: 0x201212C VA: 0x201212C
-	public bool getBattleHeight(out float height) { }
-
-	// RVA: 0x2012194 Offset: 0x2012194 VA: 0x2012194
-	public bool isInvalidSkillShift() { }
-
-	// RVA: 0x20121E4 Offset: 0x20121E4 VA: 0x20121E4
-	public string GetCountFormat() { }
-
-	// RVA: 0x20122D4 Offset: 0x20122D4 VA: 0x20122D4
-	public string getName(int limitCount = -1) { }
-
-	// RVA: 0x2012984 Offset: 0x2012984 VA: 0x2012984
-	public string getTrueName(int limitCount = -1) { }
-
-	// RVA: 0x2012A10 Offset: 0x2012A10 VA: 0x2012A10
-	public string getHiddenName(int limitCount = -1) { }
-
-	// RVA: 0x2012B50 Offset: 0x2012B50 VA: 0x2012B50
-	public string getName(out string ruby, int limitCount = -1) { }
-
-	// RVA: 0x2012CA4 Offset: 0x2012CA4 VA: 0x2012CA4
-	public string getBattleName(bool isTrueNameForce = False, int limitCount = -1) { }
-
-	// RVA: 0x2013238 Offset: 0x2013238 VA: 0x2013238
-	public bool IsNameTrue() { }
-
-	// RVA: 0x201330C Offset: 0x201330C VA: 0x201330C
-	public bool IsNameTrueFromBattleSvt() { }
-
-	// RVA: 0x201341C Offset: 0x201341C VA: 0x201341C
-	public bool IsNameHide() { }
-
-	// RVA: 0x201350C Offset: 0x201350C VA: 0x201350C
-	public int GetTrueSvtId() { }
-
-	// RVA: 0x2012414 Offset: 0x2012414 VA: 0x2012414
-	public ObscuredString GetName(int limitCount = -1, bool isForceNeedToCheckEventJoinName = False) { }
-
-	// RVA: 0x2013604 Offset: 0x2013604 VA: 0x2013604
-	public void SetName(ObscuredString name) { }
-
-	// RVA: 0x201360C Offset: 0x201360C VA: 0x201360C
-	public bool GetIsEventJoinNameExist() { }
-
-	// RVA: 0x2013200 Offset: 0x2013200 VA: 0x2013200
-	public bool GetIsNeedToCheckEventJoinName() { }
-
-	// RVA: 0x2013A88 Offset: 0x2013A88 VA: 0x2013A88
-	public bool GetIsMasterForEventNameComplete() { }
-
-	// RVA: 0x20137A4 Offset: 0x20137A4 VA: 0x20137A4
-	private bool GetIsEventJoin() { }
-
-	// RVA: 0x2013924 Offset: 0x2013924 VA: 0x2013924
-	private bool GetIsCollectionStatusNotGet() { }
-
-	// RVA: -1 Offset: -1
-	public T[][] GetScriptMultiArray<T>(string key) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x2B87AC8 Offset: 0x2B87AC8 VA: 0x2B87AC8
-	|-ServantEntity.GetScriptMultiArray<int>
-	|
-	|-RVA: 0x2B87BB8 Offset: 0x2B87BB8 VA: 0x2B87BB8
-	|-ServantEntity.GetScriptMultiArray<object>
-	*/
-
-	// RVA: 0x2013B90 Offset: 0x2013B90 VA: 0x2013B90
-	public int[] GetRankUpSkillIds(int baseSkillId) { }
-
-	// RVA: 0x2013CB4 Offset: 0x2013CB4 VA: 0x2013CB4
-	public int GetChangeLimitVoiceFriendshpLv() { }
-
-	// RVA: 0x2013D1C Offset: 0x2013D1C VA: 0x2013D1C
-	public string GetHideInAnimNodeName() { }
-
-	// RVA: 0x2013DB0 Offset: 0x2013DB0 VA: 0x2013DB0
-	public bool IsAdditionExpandImage(int limitCount = -1) { }
-
-	// RVA: 0x2013E70 Offset: 0x2013E70 VA: 0x2013E70
-	public int[] getScriptIntArrayParam(string key) { }
-
-	// RVA: 0x2013FF0 Offset: 0x2013FF0 VA: 0x2013FF0
-	public bool IsCoinRoomCheck() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD37DAC Offset: 0xD37DAC VA: 0xD37DAC
-	// RVA: 0x2014040 Offset: 0x2014040 VA: 0x2014040
-	private static int <getScriptIntArrayParam>m__0(object x) { }
-}

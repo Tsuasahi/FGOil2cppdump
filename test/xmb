@@ -1,327 +1,146 @@
 
-// Namespace: 
-public class MissionRewardGetDialog : BaseDialog // TypeDefIndex: 5565
-{
-	// Fields
-	private readonly float ICON_SCALE_SIZE; // 0x58
-	private readonly float TYPE_SPRITE_POS_Y; // 0x5C
-	private readonly int NORMAL_FONT_SIZE; // 0x60
-	private readonly int SMALL_FONT_SIZE; // 0x64
-	[SerializeField] // RVA: 0xCB9D7C Offset: 0xCB9D7C VA: 0xCB9D7C
-	protected GameObject itemIcon; // 0x68
-	[SerializeField] // RVA: 0xCB9D8C Offset: 0xCB9D8C VA: 0xCB9D8C
-	protected UILabel itemGetDetailLabel; // 0x70
-	[SerializeField] // RVA: 0xCB9D9C Offset: 0xCB9D9C VA: 0xCB9D9C
-	protected UIGrid itemIconGrid; // 0x78
-	protected MissionRewardGetDialog.State state; // 0x80
-	protected MissionRewardGetDialog.ClickDelegate closeFunc; // 0x88
-	protected Action closeCallbackFunc; // 0x90
-
-	// Methods
-
-	// RVA: 0x16EE774 Offset: 0x16EE774 VA: 0x16EE774
-	public void .ctor() { }
-
-	// RVA: 0x16EE7F8 Offset: 0x16EE7F8 VA: 0x16EE7F8
-	public void Init() { }
-
-	// RVA: 0x16EEB94 Offset: 0x16EEB94 VA: 0x16EEB94
-	public void Open(GiftEntity[] rewards, string detail, MissionRewardGetDialog.ClickDelegate closeCb) { }
-
-	// RVA: 0x16EF084 Offset: 0x16EF084 VA: 0x16EF084
-	public void Open(EventRewardSetEntity reward, string detail, MissionRewardGetDialog.ClickDelegate closeCb) { }
-
-	// RVA: 0x16EF138 Offset: 0x16EF138 VA: 0x16EF138
-	protected void EndOpen() { }
-
-	// RVA: 0x16EF144 Offset: 0x16EF144 VA: 0x16EF144
-	public void Close() { }
-
-	// RVA: 0x16EF14C Offset: 0x16EF14C VA: 0x16EF14C
-	public void Close(Action callback) { }
-
-	// RVA: 0x16EF1DC Offset: 0x16EF1DC VA: 0x16EF1DC
-	protected void EndClose() { }
-
-	// RVA: 0x16EF218 Offset: 0x16EF218 VA: 0x16EF218
-	public void OnClickClose() { }
-}
-
-// Namespace: 
-protected enum MissionRewardGetDialog.State // TypeDefIndex: 5566
-{
-	// Fields
-	public int value__; // 0x0
-	public const MissionRewardGetDialog.State INIT = 0;
-	public const MissionRewardGetDialog.State OPEN = 1;
-	public const MissionRewardGetDialog.State INPUT = 2;
-	public const MissionRewardGetDialog.State CLOSE = 3;
-}
-
-// Namespace: 
-public sealed class MissionRewardGetDialog.ClickDelegate : MulticastDelegate // TypeDefIndex: 5567
-{
-	// Methods
-
-	// RVA: 0x16EF4B4 Offset: 0x16EF4B4 VA: 0x16EF4B4
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x16EF2B4 Offset: 0x16EF2B4 VA: 0x16EF2B4 Slot: 11
-	public virtual void Invoke() { }
-
-	// RVA: 0x16EF4C4 Offset: 0x16EF4C4 VA: 0x16EF4C4 Slot: 12
-	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
-
-	// RVA: 0x16EF4F8 Offset: 0x16EF4F8 VA: 0x16EF4F8 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-public class MissionListViewItem : ListViewItem // TypeDefIndex: 5568
-{
-	// Fields
-	protected EventMissionEntity eventMissionEnt; // 0x70
-	protected GiftEntity[] giftEnts; // 0x78
-	protected GiftEntity subGiftEntity; // 0x80
-	protected ServantEntity svtEnt; // 0x88
-	protected ItemEntity itemEnt; // 0x90
-	protected CommandCodeEntity cmdEnt; // 0x98
-	protected ServantCostumeEntity servantCostumeEnt; // 0xA0
-	protected int currentEventId; // 0xA8
-	protected int currentMissionId; // 0xAC
-	protected int rewardObjectId; // 0xB0
-	protected bool isNew; // 0xB4
-	protected int dispNo; // 0xB8
-	protected string condMsg; // 0xC0
-	protected long targetNum; // 0xC8
-	protected long progNum; // 0xD0
-	protected string progTxt; // 0xD8
-	protected float progVal; // 0xE0
-	protected string closedMessage; // 0xE8
-	protected int bannerGroupId; // 0xF0
-	protected string nameTxt; // 0xF8
-	protected int iconId; // 0x100
-	protected string rewardExtraDetailTxt; // 0x108
-	protected MissionInfoMaker.ProgStatus progStatus; // 0x110
-	protected MissionProgressType.Type progType; // 0x114
-	protected MissionProgressType.Type condMsgType; // 0x118
-	protected bool isNowMission; // 0x11C
-	protected bool isColliderEnable; // 0x11D
-	[CompilerGeneratedAttribute] // RVA: 0xCB9DAC Offset: 0xCB9DAC VA: 0xCB9DAC
-	private static Comparison<EventMissionAddEntity> <>f__am$cache0; // 0x0
-
-	// Properties
-	public RewardType.Type EventRewardType { get; }
-	public Gift.Type Type { get; }
-	public int RewardObjId { get; }
-	public int SetExtraIconId { get; }
-	public EventMissionEntity EventMissionEntity { get; }
-	public int MissionId { get; }
-	public ServantEntity SvtEntity { get; }
-	public ItemEntity ItemEntity { get; }
-	public CommandCodeEntity CmdEntity { get; }
-	public ServantCostumeEntity ServantCostumeEntity { get; }
-	public int CurrentEventId { get; }
-	public int CurrentMissionId { get; }
-	public int DispNo { get; }
-	public string CondMsg { get; }
-	public MissionInfoMaker.ProgStatus CurrentStatus { get; set; }
-	public virtual bool IsShowRewardInfo { get; }
-	public string NameText { get; }
-	public string ExtraDetailTxt { get; }
-	public bool IsNew { get; }
-	public int BannerGroupId { get; }
-	public bool IsEndMission { get; set; }
-	public bool IsOpenMission { get; }
-	public int DisplayGiftNum { get; }
-	public GiftEntity MiniIconGiftEntity { get; }
-	public string ClosedMessage { get; }
-	public GiftEntity[] GiftEntityList { get; }
-	public bool IsColliderEnable { get; set; }
-
-	// Methods
-
-	// RVA: 0x16E7248 Offset: 0x16E7248 VA: 0x16E7248
-	public void .ctor() { }
-
-	// RVA: 0x16E7250 Offset: 0x16E7250 VA: 0x16E7250 Slot: 6
-	public virtual void CheckMissionCond() { }
-
-	// RVA: 0x16E7334 Offset: 0x16E7334 VA: 0x16E7334
-	protected void SetMissionCondInfo() { }
-
-	// RVA: 0x16E7400 Offset: 0x16E7400 VA: 0x16E7400
-	protected void SetMissionCondMsg() { }
-
-	// RVA: 0x16E7548 Offset: 0x16E7548 VA: 0x16E7548
-	protected void SetRewardInfo() { }
-
-	// RVA: 0x16E7650 Offset: 0x16E7650 VA: 0x16E7650
-	protected void CheckEventMissionAdd() { }
-
-	// RVA: 0x16E796C Offset: 0x16E796C VA: 0x16E796C Slot: 7
-	protected virtual void SetGiftData() { }
-
-	// RVA: 0x16E7A08 Offset: 0x16E7A08 VA: 0x16E7A08
-	public void ModifyItem(bool isRecieveReward) { }
-
-	// RVA: 0x16E7A88 Offset: 0x16E7A88 VA: 0x16E7A88 Slot: 4
-	public override bool SetSortValue(ListViewSort sort) { }
-
-	// RVA: 0x16E7B9C Offset: 0x16E7B9C VA: 0x16E7B9C
-	public bool HasMissionConditionFlag(EventMissionConditionEntity.Flag flag) { }
-
-	// RVA: 0x16E7CC0 Offset: 0x16E7CC0 VA: 0x16E7CC0
-	public bool GetProgInfo(out string progTxt, out float barExp) { }
-
-	// RVA: 0x16E7CD8 Offset: 0x16E7CD8 VA: 0x16E7CD8
-	public RewardType.Type get_EventRewardType() { }
-
-	// RVA: 0x16E7D04 Offset: 0x16E7D04 VA: 0x16E7D04
-	public Gift.Type get_Type() { }
-
-	// RVA: 0x16E7D78 Offset: 0x16E7D78 VA: 0x16E7D78
+	// RVA: 0x129CE98 Offset: 0x129CE98 VA: 0x129CE98
 	public int get_RewardObjId() { }
 
-	// RVA: 0x16E7D80 Offset: 0x16E7D80 VA: 0x16E7D80
+	// RVA: 0x129CEA0 Offset: 0x129CEA0 VA: 0x129CEA0
 	public int get_SetExtraIconId() { }
 
-	// RVA: 0x16E7D88 Offset: 0x16E7D88 VA: 0x16E7D88
+	// RVA: 0x129CEA8 Offset: 0x129CEA8 VA: 0x129CEA8
 	public EventMissionEntity get_EventMissionEntity() { }
 
-	// RVA: 0x16E7D90 Offset: 0x16E7D90 VA: 0x16E7D90
+	// RVA: 0x129CEB0 Offset: 0x129CEB0 VA: 0x129CEB0
 	public int get_MissionId() { }
 
-	// RVA: 0x16E7DBC Offset: 0x16E7DBC VA: 0x16E7DBC
+	// RVA: 0x129CEDC Offset: 0x129CEDC VA: 0x129CEDC
 	public ServantEntity get_SvtEntity() { }
 
-	// RVA: 0x16E7DC4 Offset: 0x16E7DC4 VA: 0x16E7DC4
+	// RVA: 0x129CEE4 Offset: 0x129CEE4 VA: 0x129CEE4
 	public ItemEntity get_ItemEntity() { }
 
-	// RVA: 0x16E7DCC Offset: 0x16E7DCC VA: 0x16E7DCC
+	// RVA: 0x129CEEC Offset: 0x129CEEC VA: 0x129CEEC
 	public CommandCodeEntity get_CmdEntity() { }
 
-	// RVA: 0x16E7DD4 Offset: 0x16E7DD4 VA: 0x16E7DD4
+	// RVA: 0x129CEF4 Offset: 0x129CEF4 VA: 0x129CEF4
 	public ServantCostumeEntity get_ServantCostumeEntity() { }
 
-	// RVA: 0x16E7DDC Offset: 0x16E7DDC VA: 0x16E7DDC
+	// RVA: 0x129CEFC Offset: 0x129CEFC VA: 0x129CEFC
 	public int get_CurrentEventId() { }
 
-	// RVA: 0x16E7DE4 Offset: 0x16E7DE4 VA: 0x16E7DE4
+	// RVA: 0x129CF04 Offset: 0x129CF04 VA: 0x129CF04
 	public int get_CurrentMissionId() { }
 
-	// RVA: 0x16E7DEC Offset: 0x16E7DEC VA: 0x16E7DEC
+	// RVA: 0x129CF0C Offset: 0x129CF0C VA: 0x129CF0C
 	public int get_DispNo() { }
 
-	// RVA: 0x16E7DF4 Offset: 0x16E7DF4 VA: 0x16E7DF4
+	// RVA: 0x129CF14 Offset: 0x129CF14 VA: 0x129CF14
 	public string get_CondMsg() { }
 
-	// RVA: 0x16E7DFC Offset: 0x16E7DFC VA: 0x16E7DFC
+	// RVA: 0x129CF1C Offset: 0x129CF1C VA: 0x129CF1C
 	public MissionInfoMaker.ProgStatus get_CurrentStatus() { }
 
-	// RVA: 0x16E7E04 Offset: 0x16E7E04 VA: 0x16E7E04
+	// RVA: 0x129CF24 Offset: 0x129CF24 VA: 0x129CF24
 	public void set_CurrentStatus(MissionInfoMaker.ProgStatus value) { }
 
-	// RVA: 0x16E7E0C Offset: 0x16E7E0C VA: 0x16E7E0C Slot: 8
+	// RVA: 0x129CF2C Offset: 0x129CF2C VA: 0x129CF2C Slot: 8
 	public virtual bool get_IsShowRewardInfo() { }
 
-	// RVA: 0x16E7E1C Offset: 0x16E7E1C VA: 0x16E7E1C
+	// RVA: 0x129CF3C Offset: 0x129CF3C VA: 0x129CF3C
 	public string get_NameText() { }
 
-	// RVA: 0x16E7E24 Offset: 0x16E7E24 VA: 0x16E7E24
+	// RVA: 0x129CF44 Offset: 0x129CF44 VA: 0x129CF44
 	public string get_ExtraDetailTxt() { }
 
-	// RVA: 0x16E7E2C Offset: 0x16E7E2C VA: 0x16E7E2C
+	// RVA: 0x129CF4C Offset: 0x129CF4C VA: 0x129CF4C
 	public bool get_IsNew() { }
 
-	// RVA: 0x16E7E34 Offset: 0x16E7E34 VA: 0x16E7E34
+	// RVA: 0x129CF54 Offset: 0x129CF54 VA: 0x129CF54
 	public int get_BannerGroupId() { }
 
-	// RVA: 0x16E7E3C Offset: 0x16E7E3C VA: 0x16E7E3C
+	// RVA: 0x129CF5C Offset: 0x129CF5C VA: 0x129CF5C
 	public bool get_IsEndMission() { }
 
-	// RVA: 0x16E7E44 Offset: 0x16E7E44 VA: 0x16E7E44
+	// RVA: 0x129CF64 Offset: 0x129CF64 VA: 0x129CF64
 	public void set_IsEndMission(bool value) { }
 
-	// RVA: 0x16E7E50 Offset: 0x16E7E50 VA: 0x16E7E50
+	// RVA: 0x129CF70 Offset: 0x129CF70 VA: 0x129CF70
 	public bool get_IsOpenMission() { }
 
-	// RVA: 0x16E7E60 Offset: 0x16E7E60 VA: 0x16E7E60
+	// RVA: 0x129CF80 Offset: 0x129CF80 VA: 0x129CF80
 	public int get_DisplayGiftNum() { }
 
-	// RVA: 0x16E7F04 Offset: 0x16E7F04 VA: 0x16E7F04
+	// RVA: 0x129D024 Offset: 0x129D024 VA: 0x129D024
 	public GiftEntity get_MiniIconGiftEntity() { }
 
-	// RVA: 0x16E7F0C Offset: 0x16E7F0C VA: 0x16E7F0C
+	// RVA: 0x129D02C Offset: 0x129D02C VA: 0x129D02C
 	public string get_ClosedMessage() { }
 
-	// RVA: 0x16E7F14 Offset: 0x16E7F14 VA: 0x16E7F14
+	// RVA: 0x129D034 Offset: 0x129D034 VA: 0x129D034
 	public GiftEntity[] get_GiftEntityList() { }
 
-	// RVA: 0x16E7F1C Offset: 0x16E7F1C VA: 0x16E7F1C
+	// RVA: 0x129D03C Offset: 0x129D03C VA: 0x129D03C
 	public bool get_IsColliderEnable() { }
 
-	// RVA: 0x16E7F24 Offset: 0x16E7F24 VA: 0x16E7F24
+	// RVA: 0x129D044 Offset: 0x129D044 VA: 0x129D044
 	public void set_IsColliderEnable(bool value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35728 Offset: 0xD35728 VA: 0xD35728
-	// RVA: 0x16E7F30 Offset: 0x16E7F30 VA: 0x16E7F30
+	[CompilerGeneratedAttribute] // RVA: 0xCC8064 Offset: 0xCC8064 VA: 0xCC8064
+	// RVA: 0x129D050 Offset: 0x129D050 VA: 0x129D050
 	private static int <CheckEventMissionAdd>m__0(EventMissionAddEntity a, EventMissionAddEntity b) { }
 }
 
 // Namespace: 
-public class MissionListViewItemDraw : MonoBehaviour // TypeDefIndex: 5569
+public class MissionListViewItemDraw : MonoBehaviour // TypeDefIndex: 5557
 {
 	// Fields
 	protected static readonly int TIME_UPDATE_ITVL_SEC; // 0x0
 	protected static readonly int DEFAULT_FONT_SIZE; // 0x4
 	protected static readonly Color MISSION_COND_LB_LOCK_COLOR; // 0x8
 	protected static readonly int MISSION_COND_LB_DEPTH_INIT; // 0x18
-	[SerializeField] // RVA: 0xCB9DBC Offset: 0xCB9DBC VA: 0xCB9DBC
+	[SerializeField] // RVA: 0xC4DE68 Offset: 0xC4DE68 VA: 0xC4DE68
 	protected UISprite baseSprite; // 0x18
-	[SerializeField] // RVA: 0xCB9DCC Offset: 0xCB9DCC VA: 0xCB9DCC
+	[SerializeField] // RVA: 0xC4DE78 Offset: 0xC4DE78 VA: 0xC4DE78
 	protected UISprite rangeSprite; // 0x20
-	[SerializeField] // RVA: 0xCB9DDC Offset: 0xCB9DDC VA: 0xCB9DDC
+	[SerializeField] // RVA: 0xC4DE88 Offset: 0xC4DE88 VA: 0xC4DE88
 	protected UISprite addRangeSprite; // 0x28
-	[SerializeField] // RVA: 0xCB9DEC Offset: 0xCB9DEC VA: 0xCB9DEC
+	[SerializeField] // RVA: 0xC4DE98 Offset: 0xC4DE98 VA: 0xC4DE98
 	protected UICommonButton baseButton; // 0x30
-	[SerializeField] // RVA: 0xCB9DFC Offset: 0xCB9DFC VA: 0xCB9DFC
+	[SerializeField] // RVA: 0xC4DEA8 Offset: 0xC4DEA8 VA: 0xC4DEA8
 	protected ItemIconComponent itemIcon; // 0x38
-	[SerializeField] // RVA: 0xCB9E0C Offset: 0xCB9E0C VA: 0xCB9E0C
+	[SerializeField] // RVA: 0xC4DEB8 Offset: 0xC4DEB8 VA: 0xC4DEB8
 	protected UILabel missionCondLb; // 0x40
-	[SerializeField] // RVA: 0xCB9E1C Offset: 0xCB9E1C VA: 0xCB9E1C
+	[SerializeField] // RVA: 0xC4DEC8 Offset: 0xC4DEC8 VA: 0xC4DEC8
 	protected UILabel missionNoLb; // 0x48
-	[SerializeField] // RVA: 0xCB9E2C Offset: 0xCB9E2C VA: 0xCB9E2C
+	[SerializeField] // RVA: 0xC4DED8 Offset: 0xC4DED8 VA: 0xC4DED8
 	protected UIIconLabel iconLabel; // 0x50
-	[SerializeField] // RVA: 0xCB9E3C Offset: 0xCB9E3C VA: 0xCB9E3C
+	[SerializeField] // RVA: 0xC4DEE8 Offset: 0xC4DEE8 VA: 0xC4DEE8
 	protected GameObject completedImg; // 0x58
-	[SerializeField] // RVA: 0xCB9E4C Offset: 0xCB9E4C VA: 0xCB9E4C
+	[SerializeField] // RVA: 0xC4DEF8 Offset: 0xC4DEF8 VA: 0xC4DEF8
 	protected UILabel missionProgressLb; // 0x60
-	[SerializeField] // RVA: 0xCB9E5C Offset: 0xCB9E5C VA: 0xCB9E5C
+	[SerializeField] // RVA: 0xC4DF08 Offset: 0xC4DF08 VA: 0xC4DF08
 	protected UISlider expBar; // 0x68
-	[SerializeField] // RVA: 0xCB9E6C Offset: 0xCB9E6C VA: 0xCB9E6C
+	[SerializeField] // RVA: 0xC4DF18 Offset: 0xC4DF18 VA: 0xC4DF18
 	protected GameObject compInfo; // 0x70
-	[SerializeField] // RVA: 0xCB9E7C Offset: 0xCB9E7C VA: 0xCB9E7C
+	[SerializeField] // RVA: 0xC4DF28 Offset: 0xC4DF28 VA: 0xC4DF28
 	protected UILabel resTimeLb; // 0x78
-	[SerializeField] // RVA: 0xCB9E8C Offset: 0xCB9E8C VA: 0xCB9E8C
+	[SerializeField] // RVA: 0xC4DF38 Offset: 0xC4DF38 VA: 0xC4DF38
 	protected GameObject timeOverInfo; // 0x80
-	[SerializeField] // RVA: 0xCB9E9C Offset: 0xCB9E9C VA: 0xCB9E9C
+	[SerializeField] // RVA: 0xC4DF48 Offset: 0xC4DF48 VA: 0xC4DF48
 	protected UILabel timeOverLb; // 0x88
-	[SerializeField] // RVA: 0xCB9EAC Offset: 0xCB9EAC VA: 0xCB9EAC
+	[SerializeField] // RVA: 0xC4DF58 Offset: 0xC4DF58 VA: 0xC4DF58
 	protected GameObject rewardStatusInfo; // 0x90
-	[SerializeField] // RVA: 0xCB9EBC Offset: 0xCB9EBC VA: 0xCB9EBC
+	[SerializeField] // RVA: 0xC4DF68 Offset: 0xC4DF68 VA: 0xC4DF68
 	protected GameObject rewardImg; // 0x98
-	[SerializeField] // RVA: 0xCB9ECC Offset: 0xCB9ECC VA: 0xCB9ECC
+	[SerializeField] // RVA: 0xC4DF78 Offset: 0xC4DF78 VA: 0xC4DF78
 	protected ShiningIconComponent receiveIcon; // 0xA0
-	[SerializeField] // RVA: 0xCB9EDC Offset: 0xCB9EDC VA: 0xCB9EDC
+	[SerializeField] // RVA: 0xC4DF88 Offset: 0xC4DF88 VA: 0xC4DF88
 	protected GameObject rewardGetInfo; // 0xA8
-	[SerializeField] // RVA: 0xCB9EEC Offset: 0xCB9EEC VA: 0xCB9EEC
+	[SerializeField] // RVA: 0xC4DF98 Offset: 0xC4DF98 VA: 0xC4DF98
 	protected GameObject rewardAchiveInfo; // 0xB0
-	[SerializeField] // RVA: 0xCB9EFC Offset: 0xCB9EFC VA: 0xCB9EFC
+	[SerializeField] // RVA: 0xC4DFA8 Offset: 0xC4DFA8 VA: 0xC4DFA8
 	protected GameObject lockImgInfo; // 0xB8
-	[SerializeField] // RVA: 0xCB9F0C Offset: 0xCB9F0C VA: 0xCB9F0C
+	[SerializeField] // RVA: 0xC4DFB8 Offset: 0xC4DFB8 VA: 0xC4DFB8
 	protected UILabel closedMessageLabel; // 0xC0
-	[SerializeField] // RVA: 0xCB9F1C Offset: 0xCB9F1C VA: 0xCB9F1C
+	[SerializeField] // RVA: 0xC4DFC8 Offset: 0xC4DFC8 VA: 0xC4DFC8
 	protected MissionGiftMiniIconComponent miniIconComponent; // 0xC8
 	protected long oldTime; // 0xD0
 	protected bool isDispTime; // 0xD8
@@ -332,51 +151,51 @@ public class MissionListViewItemDraw : MonoBehaviour // TypeDefIndex: 5569
 
 	// Methods
 
-	// RVA: 0x16E7F70 Offset: 0x16E7F70 VA: 0x16E7F70
+	// RVA: 0x129D090 Offset: 0x129D090 VA: 0x129D090
 	public void .ctor() { }
 
-	// RVA: 0x16E7F78 Offset: 0x16E7F78 VA: 0x16E7F78
+	// RVA: 0x129D098 Offset: 0x129D098 VA: 0x129D098
 	protected void Awake() { }
 
-	// RVA: 0x16E8030 Offset: 0x16E8030 VA: 0x16E8030 Slot: 4
+	// RVA: 0x129D150 Offset: 0x129D150 VA: 0x129D150 Slot: 4
 	public virtual bool SetItem(MissionListViewItem missionListViewItem, MissionListViewItemDraw.DispMode mode, ListViewManager listViewManager) { }
 
-	// RVA: 0x16E855C Offset: 0x16E855C VA: 0x16E855C
+	// RVA: 0x129D67C Offset: 0x129D67C VA: 0x129D67C
 	public void CheckLockMissionBoard(MissionListViewItem missionListViewItem) { }
 
-	// RVA: 0x16E87AC Offset: 0x16E87AC VA: 0x16E87AC Slot: 5
+	// RVA: 0x129D8CC Offset: 0x129D8CC VA: 0x129D8CC Slot: 5
 	protected virtual void InitDispResTime(MissionListViewItem missionListviewItem) { }
 
-	// RVA: 0x16E8A84 Offset: 0x16E8A84 VA: 0x16E8A84 Slot: 6
+	// RVA: 0x129DBA4 Offset: 0x129DBA4 VA: 0x129DBA4 Slot: 6
 	protected virtual void SetLockMissionBoard(MissionListViewItem missionListViewItem) { }
 
-	// RVA: 0x16E8690 Offset: 0x16E8690 VA: 0x16E8690
+	// RVA: 0x129D7B0 Offset: 0x129D7B0 VA: 0x129D7B0
 	public void SetBoardImage(MissionListViewItem missionListviewItem) { }
 
-	// RVA: 0x16E8CB8 Offset: 0x16E8CB8 VA: 0x16E8CB8 Slot: 7
+	// RVA: 0x129DDD8 Offset: 0x129DDD8 VA: 0x129DDD8 Slot: 7
 	protected virtual bool IsUseDefaultLockBoard() { }
 
-	// RVA: 0x16E8CC0 Offset: 0x16E8CC0 VA: 0x16E8CC0 Slot: 8
+	// RVA: 0x129DDE0 Offset: 0x129DDE0 VA: 0x129DDE0 Slot: 8
 	protected virtual void SetRewardStatusImg(MissionInfoMaker.ProgStatus status) { }
 
-	// RVA: 0x16E8F98 Offset: 0x16E8F98 VA: 0x16E8F98
+	// RVA: 0x129E0B8 Offset: 0x129E0B8 VA: 0x129E0B8
 	protected static string GetTimeText(string key, string timrStr) { }
 
-	// RVA: 0x16E9050 Offset: 0x16E9050 VA: 0x16E9050 Slot: 9
+	// RVA: 0x129E170 Offset: 0x129E170 VA: 0x129E170 Slot: 9
 	public virtual void UpdateDispResTime(MissionListViewItem missionListViewItem, long nowTime) { }
 
-	// RVA: 0x16E91C4 Offset: 0x16E91C4 VA: 0x16E91C4
+	// RVA: 0x129E2E4 Offset: 0x129E2E4 VA: 0x129E2E4
 	protected void SetRewardIconAlpha(float alpha) { }
 
-	// RVA: 0x16E921C Offset: 0x16E921C VA: 0x16E921C Slot: 10
+	// RVA: 0x129E33C Offset: 0x129E33C VA: 0x129E33C Slot: 10
 	public virtual void SetInput(MissionListViewItem missionListViewItem) { }
 
-	// RVA: 0x16E94E0 Offset: 0x16E94E0 VA: 0x16E94E0
+	// RVA: 0x129E600 Offset: 0x129E600 VA: 0x129E600
 	private static void .cctor() { }
 }
 
 // Namespace: 
-public enum MissionListViewItemDraw.DispMode // TypeDefIndex: 5570
+public enum MissionListViewItemDraw.DispMode // TypeDefIndex: 5558
 {
 	// Fields
 	public int value__; // 0x0
@@ -387,12 +206,334 @@ public enum MissionListViewItemDraw.DispMode // TypeDefIndex: 5570
 }
 
 // Namespace: 
-public class MissionListViewObject : ListViewObject // TypeDefIndex: 5571
+public class MissionListViewManager : ListViewManager // TypeDefIndex: 5559
+{
+	// Fields
+	protected static readonly float ALPHA_ANIMATION_SPD; // 0x0
+	protected static readonly int REWARD_ICON_FADE_FRAME_NUM; // 0x4
+	protected static readonly float ALPHA_ANIMATION_INTERVAL; // 0x8
+	protected static readonly int ALPHA_ANIM_COUNT_RESET_VAL; // 0xC
+	protected MissionListViewManager.InitMode initMode; // 0x138
+	protected float alphaAnimNow; // 0x13C
+	protected float alphaAnimTimeOld; // 0x140
+	protected int alphaAnimCnt; // 0x144
+	private AlphaTransitionCalculator rewardIconAlphaCalculator; // 0x148
+	[CompilerGeneratedAttribute] // RVA: 0xC4DFD8 Offset: 0xC4DFD8 VA: 0xC4DFD8
+	[DebuggerBrowsableAttribute] // RVA: 0xC4DFD8 Offset: 0xC4DFD8 VA: 0xC4DFD8
+	private Action callbackFunc2; // 0x150
+	protected int callbackCount; // 0x158
+	protected float listInDelay; // 0x15C
+	protected float openItemTime; // 0x160
+	protected float endEffectTime; // 0x164
+	protected EventMissionEntity missionToRecieve; // 0x168
+	protected GetSvts[] getSvtList; // 0x170
+	protected GetCommandCodes[] getCommandCodeList; // 0x178
+	private ServantRewardAction svtRewardComp; // 0x180
+	protected const int messageDlgDepth = 150;
+	protected Action ShowMSG; // 0x188
+	[SerializeField] // RVA: 0xC4E014 Offset: 0xC4E014 VA: 0xC4E014
+	private Transform instantiatingPOS; // 0x190
+	[SerializeField] // RVA: 0xC4E024 Offset: 0xC4E024 VA: 0xC4E024
+	protected GameObject touchBlockObj; // 0x198
+
+	// Properties
+	public EventMissionEntity ReceiveMissionReward { get; }
+	protected GameObject TouchBlockObj { get; }
+	public float AlphaAnimNow { get; }
+
+	// Methods
+
+	// RVA: 0x129E6AC Offset: 0x129E6AC VA: 0x129E6AC
+	public void .ctor() { }
+
+	// RVA: 0x129E6C0 Offset: 0x129E6C0 VA: 0x129E6C0
+	protected void add_callbackFunc2(Action value) { }
+
+	// RVA: 0x129E7B0 Offset: 0x129E7B0 VA: 0x129E7B0
+	protected void remove_callbackFunc2(Action value) { }
+
+	// RVA: 0x129E8A0 Offset: 0x129E8A0 VA: 0x129E8A0
+	public EventMissionEntity get_ReceiveMissionReward() { }
+
+	// RVA: 0x129E8A8 Offset: 0x129E8A8 VA: 0x129E8A8
+	protected GameObject get_TouchBlockObj() { }
+
+	// RVA: -1 Offset: -1
+	protected List<TObject> GetObjectList<TObject>() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x1A2D258 Offset: 0x1A2D258 VA: 0x1A2D258
+	|-MissionListViewManager.GetObjectList<CompleteMissionListViewObject>
+	|-MissionListViewManager.GetObjectList<EventMissionItemListViewObject>
+	|-MissionListViewManager.GetObjectList<EventRandomMissionListViewObject>
+	|-MissionListViewManager.GetObjectList<MasterMissionListViewObject>
+	|-MissionListViewManager.GetObjectList<MissionListViewObject>
+	|-MissionListViewManager.GetObjectList<object>
+	*/
+
+	// RVA: 0x129E8B0 Offset: 0x129E8B0 VA: 0x129E8B0
+	private void Update() { }
+
+	// RVA: 0x129E8D8 Offset: 0x129E8D8 VA: 0x129E8D8
+	protected void UpdateAnim() { }
+
+	// RVA: 0x129EAC8 Offset: 0x129EAC8 VA: 0x129EAC8
+	private AlphaTransitionCalculator CreateRewardIconAlphaCalculator() { }
+
+	// RVA: 0x129EB8C Offset: 0x129EB8C VA: 0x129EB8C
+	protected void ResetAlphaAnimTime() { }
+
+	// RVA: 0x129EBD4 Offset: 0x129EBD4 VA: 0x129EBD4
+	public int GetAlphaAnimCnt(int length) { }
+
+	// RVA: 0x129EBE4 Offset: 0x129EBE4 VA: 0x129EBE4 Slot: 12
+	protected virtual void OnChangeAlphaAnim() { }
+
+	// RVA: 0x129EBE8 Offset: 0x129EBE8 VA: 0x129EBE8
+	public float get_AlphaAnimNow() { }
+
+	// RVA: 0x129EBF0 Offset: 0x129EBF0 VA: 0x129EBF0
+	public void SetMode(MissionListViewManager.InitMode mode, Action callback) { }
+
+	// RVA: 0x129ED50 Offset: 0x129ED50 VA: 0x129ED50
+	public void SetMode(MissionListViewManager.InitMode mode, float delay, Action callback) { }
+
+	// RVA: 0x129EBF8 Offset: 0x129EBF8 VA: 0x129EBF8
+	public void SetMode(MissionListViewManager.InitMode mode) { }
+
+	// RVA: 0x129ED64 Offset: 0x129ED64 VA: 0x129ED64
+	protected void RequestListObject(MissionListViewObject.InitMode mode, float delay) { }
+
+	// RVA: 0x129ED5C Offset: 0x129ED5C VA: 0x129ED5C
+	protected void RequestListObject(MissionListViewObject.InitMode mode) { }
+
+	// RVA: 0x129F1EC Offset: 0x129F1EC VA: 0x129F1EC
+	protected void RequestInto() { }
+
+	// RVA: 0x129F3CC Offset: 0x129F3CC VA: 0x129F3CC
+	protected void OnMoveEnd() { }
+
+	// RVA: 0x129F518 Offset: 0x129F518 VA: 0x129F518 Slot: 4
+	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
+
+	// RVA: 0x129F5EC Offset: 0x129F5EC VA: 0x129F5EC
+	public void ShowRewardDetailInfo(MissionListViewItem selectItem) { }
+
+	// RVA: 0x129FC68 Offset: 0x129FC68 VA: 0x129FC68
+	protected void OpenCostumeReleaseDetail(int objectId) { }
+
+	// RVA: 0x129FEFC Offset: 0x129FEFC VA: 0x129FEFC
+	public void CloseItemDetail(bool isDecide) { }
+
+	// RVA: 0x129FF88 Offset: 0x129FF88 VA: 0x129FF88
+	protected void CloseServantStatusDetail(bool isDecide) { }
+
+	// RVA: 0x129FFEC Offset: 0x129FFEC VA: 0x129FFEC
+	protected void CloseCommandCodeDetail(bool isDecide) { }
+
+	// RVA: 0x12A0050 Offset: 0x12A0050 VA: 0x12A0050
+	protected void StartItemGetEffectAction(GiftEntity[] gifts, int idx, Action afterDetail) { }
+
+	// RVA: 0x12A0754 Offset: 0x12A0754 VA: 0x12A0754
+	private void EndItemGetEffectAction(Action afterDetail) { }
+
+	// RVA: 0x12A0A74 Offset: 0x12A0A74 VA: 0x12A0A74
+	private void StartRewardCostumeReleaseGetEffect(string name, GiftEntity[] gifts, int idx, Action afterDetail) { }
+
+	// RVA: 0x12A0C08 Offset: 0x12A0C08 VA: 0x12A0C08
+	private void StartRewardItemGetEffect(int itemId, GiftEntity[] gifts, int idx, Action afterDetail) { }
+
+	// RVA: 0x12A0878 Offset: 0x12A0878 VA: 0x12A0878
+	private void StartRewardGetEffect(long userSvtID, bool isNew, bool isDoEffect, Gift.Type giftType, GiftEntity[] gifts, int idx, Action afterDetail) { }
+
+	// RVA: 0x12A0E8C Offset: 0x12A0E8C VA: 0x12A0E8C
+	protected void StartSvtListGetEffect(int callCnt, Action callback) { }
+
+	// RVA: 0x12A103C Offset: 0x12A103C VA: 0x12A103C
+	private void SvtEffCaller(Action callback) { }
+
+	// RVA: 0x129FD24 Offset: 0x129FD24 VA: 0x129FD24
+	protected bool TryGetServantCostumeEntity(out ServantCostumeEntity resultEntity, int objectId) { }
+
+	// RVA: 0x12A1154 Offset: 0x12A1154 VA: 0x12A1154
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public enum MissionListViewManager.InitMode // TypeDefIndex: 5560
+{
+	// Fields
+	public int value__; // 0x0
+	public const MissionListViewManager.InitMode NONE = 0;
+	public const MissionListViewManager.InitMode INTO = 1;
+	public const MissionListViewManager.InitMode VALID = 2;
+	public const MissionListViewManager.InitMode INPUT = 3;
+	public const MissionListViewManager.InitMode ENTER = 4;
+	public const MissionListViewManager.InitMode EXIT = 5;
+	public const MissionListViewManager.InitMode MODIFY = 6;
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC41EF4 Offset: 0xC41EF4 VA: 0xC41EF4
+private sealed class MissionListViewManager.<EndItemGetEffectAction>c__AnonStorey0 // TypeDefIndex: 5561
+{
+	// Fields
+	internal Action afterDetail; // 0x10
+	internal MissionListViewManager $this; // 0x18
+
+	// Methods
+
+	// RVA: 0x12A0E6C Offset: 0x12A0E6C VA: 0x12A0E6C
+	public void .ctor() { }
+
+	// RVA: 0x12A11D8 Offset: 0x12A11D8 VA: 0x12A11D8
+	internal void <>m__0() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC41F04 Offset: 0xC41F04 VA: 0xC41F04
+private sealed class MissionListViewManager.<StartRewardCostumeReleaseGetEffect>c__AnonStorey1 // TypeDefIndex: 5562
+{
+	// Fields
+	internal string name; // 0x10
+	internal GiftEntity[] gifts; // 0x18
+	internal int idx; // 0x20
+	internal Action afterDetail; // 0x28
+	internal MissionListViewManager $this; // 0x30
+
+	// Methods
+
+	// RVA: 0x12A0E74 Offset: 0x12A0E74 VA: 0x12A0E74
+	public void .ctor() { }
+
+	// RVA: 0x12A123C Offset: 0x12A123C VA: 0x12A123C
+	internal void <>m__0() { }
+
+	// RVA: 0x12A12E0 Offset: 0x12A12E0 VA: 0x12A12E0
+	internal void <>m__1() { }
+
+	// RVA: 0x12A1394 Offset: 0x12A1394 VA: 0x12A1394
+	internal void <>m__2() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC41F14 Offset: 0xC41F14 VA: 0xC41F14
+private sealed class MissionListViewManager.<StartRewardItemGetEffect>c__AnonStorey2 // TypeDefIndex: 5563
+{
+	// Fields
+	internal int effectId; // 0x10
+	internal QuestRewardInfo questRewardInfo; // 0x18
+	internal GiftEntity[] gifts; // 0x20
+	internal int idx; // 0x28
+	internal Action afterDetail; // 0x30
+	internal MissionListViewManager $this; // 0x38
+
+	// Methods
+
+	// RVA: 0x12A0E7C Offset: 0x12A0E7C VA: 0x12A0E7C
+	public void .ctor() { }
+
+	// RVA: 0x12A1AB4 Offset: 0x12A1AB4 VA: 0x12A1AB4
+	internal void <>m__0() { }
+
+	// RVA: 0x12A1BE4 Offset: 0x12A1BE4 VA: 0x12A1BE4
+	internal void <>m__1(AssetData data) { }
+}
+
+// Namespace: 
+private sealed class MissionListViewManager.<StartRewardItemGetEffect>c__AnonStorey2.<StartRewardItemGetEffect>c__AnonStorey3 // TypeDefIndex: 5564
+{
+	// Fields
+	internal QuestRewardItemAction mRewardItemAction; // 0x10
+	internal AssetData data; // 0x18
+	internal MissionListViewManager.<StartRewardItemGetEffect>c__AnonStorey2 <>f__ref$2; // 0x20
+
+	// Methods
+
+	// RVA: 0x12A1E8C Offset: 0x12A1E8C VA: 0x12A1E8C
+	public void .ctor() { }
+
+	// RVA: 0x12A1E94 Offset: 0x12A1E94 VA: 0x12A1E94
+	internal void <>m__0() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC41F24 Offset: 0xC41F24 VA: 0xC41F24
+private sealed class MissionListViewManager.<StartRewardGetEffect>c__AnonStorey4 // TypeDefIndex: 5565
+{
+	// Fields
+	internal Gift.Type giftType; // 0x10
+	internal long userSvtID; // 0x18
+	internal bool isDoEffect; // 0x20
+	internal bool isNew; // 0x21
+	internal GiftEntity[] gifts; // 0x28
+	internal int idx; // 0x30
+	internal Action afterDetail; // 0x38
+	internal MissionListViewManager $this; // 0x40
+
+	// Methods
+
+	// RVA: 0x12A0E84 Offset: 0x12A0E84 VA: 0x12A0E84
+	public void .ctor() { }
+
+	// RVA: 0x12A142C Offset: 0x12A142C VA: 0x12A142C
+	internal void <>m__0() { }
+
+	// RVA: 0x12A14D0 Offset: 0x12A14D0 VA: 0x12A14D0
+	internal void <>m__1() { }
+
+	// RVA: 0x12A19EC Offset: 0x12A19EC VA: 0x12A19EC
+	internal void <>m__2() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC41F34 Offset: 0xC41F34 VA: 0xC41F34
+private sealed class MissionListViewManager.<StartSvtListGetEffect>c__AnonStorey5 // TypeDefIndex: 5566
+{
+	// Fields
+	internal int callCnt; // 0x10
+	internal Action callback; // 0x18
+	internal MissionListViewManager $this; // 0x20
+
+	// Methods
+
+	// RVA: 0x12A1034 Offset: 0x12A1034 VA: 0x12A1034
+	public void .ctor() { }
+
+	// RVA: 0x12A1FDC Offset: 0x12A1FDC VA: 0x12A1FDC
+	internal void <>m__0() { }
+
+	// RVA: 0x12A2404 Offset: 0x12A2404 VA: 0x12A2404
+	internal void <>m__1() { }
+
+	// RVA: 0x12A24E0 Offset: 0x12A24E0 VA: 0x12A24E0
+	internal void <>m__2() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC41F44 Offset: 0xC41F44 VA: 0xC41F44
+private sealed class MissionListViewManager.<SvtEffCaller>c__AnonStorey6 // TypeDefIndex: 5567
+{
+	// Fields
+	internal Action callback; // 0x10
+	internal MissionListViewManager $this; // 0x18
+
+	// Methods
+
+	// RVA: 0x12A114C Offset: 0x12A114C VA: 0x12A114C
+	public void .ctor() { }
+
+	// RVA: 0x12A2520 Offset: 0x12A2520 VA: 0x12A2520
+	internal void <>m__0() { }
+}
+
+// Namespace: 
+public class MissionListViewObject : ListViewObject // TypeDefIndex: 5568
 {
 	// Fields
 	protected MissionListViewObject.State state; // 0x6C
-	[CompilerGeneratedAttribute] // RVA: 0xCB9F2C Offset: 0xCB9F2C VA: 0xCB9F2C
-	[DebuggerBrowsableAttribute] // RVA: 0xCB9F2C Offset: 0xCB9F2C VA: 0xCB9F2C
+	[CompilerGeneratedAttribute] // RVA: 0xC4E034 Offset: 0xC4E034 VA: 0xC4E034
+	[DebuggerBrowsableAttribute] // RVA: 0xC4E034 Offset: 0xC4E034 VA: 0xC4E034
 	private Action onCompleteMoveAction; // 0x70
 	protected MissionListViewItemDraw itemDraw; // 0x78
 	protected MissionListViewItemDraw.DispMode dispMode; // 0x80
@@ -400,72 +541,72 @@ public class MissionListViewObject : ListViewObject // TypeDefIndex: 5571
 
 	// Methods
 
-	// RVA: 0x16E958C Offset: 0x16E958C VA: 0x16E958C
+	// RVA: 0x12A25C8 Offset: 0x12A25C8 VA: 0x12A25C8
 	public void .ctor() { }
 
-	// RVA: 0x16E95F4 Offset: 0x16E95F4 VA: 0x16E95F4
+	// RVA: 0x12A2630 Offset: 0x12A2630 VA: 0x12A2630
 	protected void add_onCompleteMoveAction(Action value) { }
 
-	// RVA: 0x16E96E0 Offset: 0x16E96E0 VA: 0x16E96E0
+	// RVA: 0x12A271C Offset: 0x12A271C VA: 0x12A271C
 	protected void remove_onCompleteMoveAction(Action value) { }
 
-	// RVA: 0x16E97CC Offset: 0x16E97CC VA: 0x16E97CC
+	// RVA: 0x12A2808 Offset: 0x12A2808 VA: 0x12A2808
 	protected void Awake() { }
 
-	// RVA: 0x16E9840 Offset: 0x16E9840 VA: 0x16E9840
+	// RVA: 0x12A287C Offset: 0x12A287C VA: 0x12A287C
 	private void OnDestroy() { }
 
-	// RVA: 0x16E98EC Offset: 0x16E98EC VA: 0x16E98EC Slot: 6
+	// RVA: 0x12A2928 Offset: 0x12A2928 VA: 0x12A2928 Slot: 6
 	public override void SetItem(ListViewItem item, ListViewItemSeed seed) { }
 
-	// RVA: 0x16E98F8 Offset: 0x16E98F8 VA: 0x16E98F8 Slot: 9
+	// RVA: 0x12A2934 Offset: 0x12A2934 VA: 0x12A2934 Slot: 9
 	public override void SetInput(bool isInput) { }
 
-	// RVA: 0x16E9A00 Offset: 0x16E9A00 VA: 0x16E9A00 Slot: 8
+	// RVA: 0x12A2A3C Offset: 0x12A2A3C VA: 0x12A2A3C Slot: 8
 	public override GameObject CreateDragObject() { }
 
-	// RVA: 0x16E9AA4 Offset: 0x16E9AA4 VA: 0x16E9AA4
+	// RVA: 0x12A2AD0 Offset: 0x12A2AD0 VA: 0x12A2AD0
 	public void RedispResTime() { }
 
-	// RVA: 0x16E9BCC Offset: 0x16E9BCC VA: 0x16E9BCC
+	// RVA: 0x129EF7C Offset: 0x129EF7C VA: 0x129EF7C
 	public void Init(MissionListViewObject.InitMode initMode, Action onCompleteMove, float delay, bool isColliderEnable = True) { }
 
-	// RVA: 0x16EA258 Offset: 0x16EA258 VA: 0x16EA258
+	// RVA: 0x12A3014 Offset: 0x12A3014 VA: 0x12A3014
 	public void Init(MissionListViewObject.InitMode initMode, Action onCompleteMove, bool isColliderEnable = True) { }
 
-	// RVA: 0x16E9A94 Offset: 0x16E9A94 VA: 0x16E9A94
+	// RVA: 0x129F5DC Offset: 0x129F5DC VA: 0x129F5DC
 	public void Init(MissionListViewObject.InitMode initMode, bool isColliderEnable = True) { }
 
-	// RVA: 0x16EA110 Offset: 0x16EA110 VA: 0x16EA110
+	// RVA: 0x12A2ECC Offset: 0x12A2ECC VA: 0x12A2ECC
 	private void SetupDisp(bool isColliderEnable = True) { }
 
-	// RVA: 0x16E9E3C Offset: 0x16E9E3C VA: 0x16E9E3C
+	// RVA: 0x12A2BF8 Offset: 0x12A2BF8 VA: 0x12A2BF8
 	private void EventIntoStart(float delay) { }
 
-	// RVA: 0x16EA264 Offset: 0x16EA264 VA: 0x16EA264
+	// RVA: 0x12A3020 Offset: 0x12A3020 VA: 0x12A3020
 	private void EventIntoMove() { }
 
-	// RVA: 0x16EA404 Offset: 0x16EA404 VA: 0x16EA404
+	// RVA: 0x12A31C0 Offset: 0x12A31C0 VA: 0x12A31C0
 	private void OnCompleteEventIntoMove() { }
 
-	// RVA: 0x16E9FB4 Offset: 0x16E9FB4 VA: 0x16E9FB4
+	// RVA: 0x12A2D70 Offset: 0x12A2D70 VA: 0x12A2D70
 	private void EventExitStart(float delay) { }
 
-	// RVA: 0x16EA4F8 Offset: 0x16EA4F8 VA: 0x16EA4F8
+	// RVA: 0x12A32B4 Offset: 0x12A32B4 VA: 0x12A32B4
 	private void EventExitMove() { }
 
-	// RVA: 0x16EA77C Offset: 0x16EA77C VA: 0x16EA77C
+	// RVA: 0x12A3538 Offset: 0x12A3538 VA: 0x12A3538
 	private void OnCompleteEventExitMove() { }
 
-	// RVA: 0x16EA4D0 Offset: 0x16EA4D0 VA: 0x16EA4D0
+	// RVA: 0x12A328C Offset: 0x12A328C VA: 0x12A328C
 	protected void CommonEventMoveEnd() { }
 
-	// RVA: 0x16EA818 Offset: 0x16EA818 VA: 0x16EA818
+	// RVA: 0x12A35D4 Offset: 0x12A35D4 VA: 0x12A35D4
 	public void OnClickSelect() { }
 }
 
 // Namespace: 
-public enum MissionListViewObject.InitMode // TypeDefIndex: 5572
+public enum MissionListViewObject.InitMode // TypeDefIndex: 5569
 {
 	// Fields
 	public int value__; // 0x0
@@ -480,7 +621,7 @@ public enum MissionListViewObject.InitMode // TypeDefIndex: 5572
 }
 
 // Namespace: 
-protected enum MissionListViewObject.State // TypeDefIndex: 5573
+protected enum MissionListViewObject.State // TypeDefIndex: 5570
 {
 	// Fields
 	public int value__; // 0x0
@@ -491,7 +632,7 @@ protected enum MissionListViewObject.State // TypeDefIndex: 5573
 }
 
 // Namespace: 
-public class MissionActionManager : MonoBehaviour // TypeDefIndex: 5574
+public class MissionActionManager : MonoBehaviour // TypeDefIndex: 5571
 {
 	// Fields
 	private List<EventMissionActionInfo> eventMissionActionList; // 0x18
@@ -499,82 +640,82 @@ public class MissionActionManager : MonoBehaviour // TypeDefIndex: 5574
 	private bool isGoneTerminal; // 0x21
 	private bool isStopMissionNotify; // 0x22
 	private Action afterVoiceCallback; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xCB9F68 Offset: 0xCB9F68 VA: 0xCB9F68
+	[CompilerGeneratedAttribute] // RVA: 0xC4E070 Offset: 0xC4E070 VA: 0xC4E070
 	private static Predicate<EventMissionActionAddEntity> <>f__am$cache0; // 0x0
-	[CompilerGeneratedAttribute] // RVA: 0xCB9F78 Offset: 0xCB9F78 VA: 0xCB9F78
+	[CompilerGeneratedAttribute] // RVA: 0xC4E080 Offset: 0xC4E080 VA: 0xC4E080
 	private static Predicate<EventMissionActionEntity> <>f__am$cache1; // 0x8
-	[CompilerGeneratedAttribute] // RVA: 0xCB9F88 Offset: 0xCB9F88 VA: 0xCB9F88
+	[CompilerGeneratedAttribute] // RVA: 0xC4E090 Offset: 0xC4E090 VA: 0xC4E090
 	private static Predicate<EventMissionActionAddEntity> <>f__am$cache2; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xCB9F98 Offset: 0xCB9F98 VA: 0xCB9F98
+	[CompilerGeneratedAttribute] // RVA: 0xC4E0A0 Offset: 0xC4E0A0 VA: 0xC4E0A0
 	private static Predicate<EventMissionActionEntity> <>f__am$cache3; // 0x18
 
 	// Methods
 
-	// RVA: 0x16E1BB8 Offset: 0x16E1BB8 VA: 0x16E1BB8
+	// RVA: 0x1296CD8 Offset: 0x1296CD8 VA: 0x1296CD8
 	public void .ctor() { }
 
-	// RVA: 0x16E1BC0 Offset: 0x16E1BC0 VA: 0x16E1BC0
+	// RVA: 0x1296CE0 Offset: 0x1296CE0 VA: 0x1296CE0
 	public void setMissionAction(int missionID, MissionProgressType.Type progressType, bool restricted) { }
 
-	// RVA: 0x16E3470 Offset: 0x16E3470 VA: 0x16E3470
+	// RVA: 0x1298590 Offset: 0x1298590 VA: 0x1298590
 	public void addMissionAction(int missionID, MissionProgressType.Type progressType) { }
 
-	// RVA: 0x16E37D0 Offset: 0x16E37D0 VA: 0x16E37D0
+	// RVA: 0x12988F0 Offset: 0x12988F0 VA: 0x12988F0
 	public void setStatusMissionNotify(int missionID, MissionProgressType.Type progressType, bool restricted) { }
 
-	// RVA: 0x16E3AF0 Offset: 0x16E3AF0 VA: 0x16E3AF0
+	// RVA: 0x1298C10 Offset: 0x1298C10 VA: 0x1298C10
 	public static bool checkScroll(int missionID, MissionProgressType.Type progressType) { }
 
-	// RVA: 0x16E1F64 Offset: 0x16E1F64 VA: 0x16E1F64
+	// RVA: 0x1297084 Offset: 0x1297084 VA: 0x1297084
 	public void doMissionAction() { }
 
-	// RVA: 0x16E3CF4 Offset: 0x16E3CF4 VA: 0x16E3CF4
+	// RVA: 0x1298E14 Offset: 0x1298E14 VA: 0x1298E14
 	private void SetBackGroundUntouchableWhileMissionAction(bool onoff) { }
 
-	// RVA: 0x16E3D5C Offset: 0x16E3D5C VA: 0x16E3D5C
+	// RVA: 0x1298E7C Offset: 0x1298E7C VA: 0x1298E7C
 	private void VoiceEnds() { }
 
-	// RVA: 0x16E3E68 Offset: 0x16E3E68 VA: 0x16E3E68
+	// RVA: 0x1298F88 Offset: 0x1298F88 VA: 0x1298F88
 	public void TerminateMissionAction() { }
 
-	// RVA: 0x16E3F50 Offset: 0x16E3F50 VA: 0x16E3F50
+	// RVA: 0x1299070 Offset: 0x1299070 VA: 0x1299070
 	public void SetCallbackAfterVoice(Action callback) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35738 Offset: 0xD35738 VA: 0xD35738
-	// RVA: 0x16E3F74 Offset: 0x16E3F74 VA: 0x16E3F74
+	[CompilerGeneratedAttribute] // RVA: 0xCC8074 Offset: 0xCC8074 VA: 0xCC8074
+	// RVA: 0x1299094 Offset: 0x1299094 VA: 0x1299094
 	private static bool <setStatusMissionNotify>m__0(EventMissionActionAddEntity x) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35748 Offset: 0xD35748 VA: 0xD35748
-	// RVA: 0x16E3FA4 Offset: 0x16E3FA4 VA: 0x16E3FA4
+	[CompilerGeneratedAttribute] // RVA: 0xCC8084 Offset: 0xCC8084 VA: 0xCC8084
+	// RVA: 0x12990C4 Offset: 0x12990C4 VA: 0x12990C4
 	private static bool <setStatusMissionNotify>m__1(EventMissionActionEntity x) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35758 Offset: 0xD35758 VA: 0xD35758
-	// RVA: 0x16E3FD4 Offset: 0x16E3FD4 VA: 0x16E3FD4
+	[CompilerGeneratedAttribute] // RVA: 0xCC8094 Offset: 0xCC8094 VA: 0xCC8094
+	// RVA: 0x12990F4 Offset: 0x12990F4 VA: 0x12990F4
 	private static bool <checkScroll>m__2(EventMissionActionAddEntity x) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35768 Offset: 0xD35768 VA: 0xD35768
-	// RVA: 0x16E4004 Offset: 0x16E4004 VA: 0x16E4004
+	[CompilerGeneratedAttribute] // RVA: 0xCC80A4 Offset: 0xCC80A4 VA: 0xCC80A4
+	// RVA: 0x1299124 Offset: 0x1299124 VA: 0x1299124
 	private static bool <checkScroll>m__3(EventMissionActionEntity x) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35778 Offset: 0xD35778 VA: 0xD35778
-	// RVA: 0x16E4034 Offset: 0x16E4034 VA: 0x16E4034
+	[CompilerGeneratedAttribute] // RVA: 0xCC80B4 Offset: 0xCC80B4 VA: 0xCC80B4
+	// RVA: 0x1299154 Offset: 0x1299154 VA: 0x1299154
 	private void <doMissionAction>m__4(bool skip) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35788 Offset: 0xD35788 VA: 0xD35788
-	// RVA: 0x16E4258 Offset: 0x16E4258 VA: 0x16E4258
+	[CompilerGeneratedAttribute] // RVA: 0xCC80C4 Offset: 0xCC80C4 VA: 0xCC80C4
+	// RVA: 0x1299378 Offset: 0x1299378 VA: 0x1299378
 	private void <doMissionAction>m__5(bool skip) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35798 Offset: 0xD35798 VA: 0xD35798
-	// RVA: 0x16E447C Offset: 0x16E447C VA: 0x16E447C
+	[CompilerGeneratedAttribute] // RVA: 0xCC80D4 Offset: 0xCC80D4 VA: 0xCC80D4
+	// RVA: 0x129959C Offset: 0x129959C VA: 0x129959C
 	private void <doMissionAction>m__6() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD357A8 Offset: 0xD357A8 VA: 0xD357A8
-	// RVA: 0x16E4480 Offset: 0x16E4480 VA: 0x16E4480
+	[CompilerGeneratedAttribute] // RVA: 0xCC80E4 Offset: 0xCC80E4 VA: 0xCC80E4
+	// RVA: 0x12995A0 Offset: 0x12995A0 VA: 0x12995A0
 	private void <doMissionAction>m__7() { }
 }
 
 // Namespace: 
-public class MissionListDlgComponent : BaseDialog // TypeDefIndex: 5575
+public class MissionListDlgComponent : BaseDialog // TypeDefIndex: 5572
 {
 	// Fields
 	private static readonly int SCROLL_ENABLED_VIEW_COUNT; // 0x0
@@ -582,54 +723,54 @@ public class MissionListDlgComponent : BaseDialog // TypeDefIndex: 5575
 	private static readonly float SINGLE_DESIGN_SUB_TITLE_POS_Y; // 0x8
 	private static readonly float SINGLE_DESIGN_BTN_POS_Y; // 0xC
 	private static readonly int SINGLE_DESIGN_LIST_BG_HEIGHT; // 0x10
-	[SerializeField] // RVA: 0xCB9FA8 Offset: 0xCB9FA8 VA: 0xCB9FA8
+	[SerializeField] // RVA: 0xC4E0B0 Offset: 0xC4E0B0 VA: 0xC4E0B0
 	protected UILabel titleLabel; // 0x58
-	[SerializeField] // RVA: 0xCB9FB8 Offset: 0xCB9FB8 VA: 0xCB9FB8
+	[SerializeField] // RVA: 0xC4E0C0 Offset: 0xC4E0C0 VA: 0xC4E0C0
 	protected UILabel subTitleLabel; // 0x60
-	[SerializeField] // RVA: 0xCB9FC8 Offset: 0xCB9FC8 VA: 0xCB9FC8
+	[SerializeField] // RVA: 0xC4E0D0 Offset: 0xC4E0D0 VA: 0xC4E0D0
 	protected EventMissionItemListViewManager eventMissionListViewManager; // 0x68
-	[SerializeField] // RVA: 0xCB9FD8 Offset: 0xCB9FD8 VA: 0xCB9FD8
+	[SerializeField] // RVA: 0xC4E0E0 Offset: 0xC4E0E0 VA: 0xC4E0E0
 	protected UISprite listBg; // 0x70
-	[SerializeField] // RVA: 0xCB9FE8 Offset: 0xCB9FE8 VA: 0xCB9FE8
+	[SerializeField] // RVA: 0xC4E0F0 Offset: 0xC4E0F0 VA: 0xC4E0F0
 	protected GameObject closeBtn; // 0x78
-	[SerializeField] // RVA: 0xCB9FF8 Offset: 0xCB9FF8 VA: 0xCB9FF8
+	[SerializeField] // RVA: 0xC4E100 Offset: 0xC4E100 VA: 0xC4E100
 	protected GameObject missionBtn; // 0x80
 	protected EventDetailEntity eventDetailEntity; // 0x88
 	protected EventMissionEntity[] eventMissionEntityList; // 0x90
 	protected Action missionBtnCallbackFunc; // 0x98
 	protected bool isTouchEnabled; // 0xA0
-	[CompilerGeneratedAttribute] // RVA: 0xCBA008 Offset: 0xCBA008 VA: 0xCBA008
+	[CompilerGeneratedAttribute] // RVA: 0xC4E110 Offset: 0xC4E110 VA: 0xC4E110
 	private static Action <>f__am$cache0; // 0x18
 
 	// Methods
 
-	// RVA: 0x16E66B8 Offset: 0x16E66B8 VA: 0x16E66B8
+	// RVA: 0x129B7D8 Offset: 0x129B7D8 VA: 0x129B7D8
 	public void .ctor() { }
 
-	// RVA: 0x16E6720 Offset: 0x16E6720 VA: 0x16E6720
+	// RVA: 0x129B840 Offset: 0x129B840 VA: 0x129B840
 	public void OpenEventMissionListDialog(string title, string subTitle, EventDetailEntity eventDetailEnt, EventMissionEntity[] eventMissionEntList, Action missionBtnCallback) { }
 
-	// RVA: 0x16E68DC Offset: 0x16E68DC VA: 0x16E68DC
+	// RVA: 0x129B9FC Offset: 0x129B9FC VA: 0x129B9FC
 	public void OnClickMissionList() { }
 
-	// RVA: 0x16E6A24 Offset: 0x16E6A24 VA: 0x16E6A24
+	// RVA: 0x129BB44 Offset: 0x129BB44 VA: 0x129BB44
 	public void OnClickClose() { }
 
-	// RVA: 0x16E6BE8 Offset: 0x16E6BE8 VA: 0x16E6BE8
+	// RVA: 0x129BD08 Offset: 0x129BD08 VA: 0x129BD08
 	private static void .cctor() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD357B8 Offset: 0xD357B8 VA: 0xD357B8
-	// RVA: 0x16E6C74 Offset: 0x16E6C74 VA: 0x16E6C74
+	[CompilerGeneratedAttribute] // RVA: 0xCC80F4 Offset: 0xCC80F4 VA: 0xCC80F4
+	// RVA: 0x129BD94 Offset: 0x129BD94 VA: 0x129BD94
 	private void <OnClickMissionList>m__0() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD357C8 Offset: 0xD357C8 VA: 0xD357C8
-	// RVA: 0x16E6D40 Offset: 0x16E6D40 VA: 0x16E6D40
+	[CompilerGeneratedAttribute] // RVA: 0xCC8104 Offset: 0xCC8104 VA: 0xCC8104
+	// RVA: 0x129BE60 Offset: 0x129BE60 VA: 0x129BE60
 	private static void <OnClickClose>m__1() { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAE040 Offset: 0xCAE040 VA: 0xCAE040
-private sealed class MissionListDlgComponent.<OpenEventMissionListDialog>c__AnonStorey0 // TypeDefIndex: 5576
+[CompilerGeneratedAttribute] // RVA: 0xC41F54 Offset: 0xC41F54 VA: 0xC41F54
+private sealed class MissionListDlgComponent.<OpenEventMissionListDialog>c__AnonStorey0 // TypeDefIndex: 5573
 {
 	// Fields
 	internal string title; // 0x10
@@ -642,18 +783,18 @@ private sealed class MissionListDlgComponent.<OpenEventMissionListDialog>c__Anon
 
 	// Methods
 
-	// RVA: 0x16E68D4 Offset: 0x16E68D4 VA: 0x16E68D4
+	// RVA: 0x129B9F4 Offset: 0x129B9F4 VA: 0x129B9F4
 	public void .ctor() { }
 
-	// RVA: 0x16E6DFC Offset: 0x16E6DFC VA: 0x16E6DFC
+	// RVA: 0x129BF1C Offset: 0x129BF1C VA: 0x129BF1C
 	internal void <>m__0() { }
 
-	// RVA: 0x16E7244 Offset: 0x16E7244 VA: 0x16E7244
+	// RVA: 0x129C364 Offset: 0x129C364 VA: 0x129C364
 	private static void <>m__1() { }
 }
 
 // Namespace: 
-public class MissionNotifyComponent : MonoBehaviour // TypeDefIndex: 5577
+public class MissionNotifyComponent : MonoBehaviour // TypeDefIndex: 5574
 {
 	// Fields
 	private const float SHOWING_TIME = 2;
@@ -674,35 +815,35 @@ public class MissionNotifyComponent : MonoBehaviour // TypeDefIndex: 5577
 	private const string MISSION_TYPE_EVENT = "master_mission_event";
 	private const string MISSION_TYPE_LIMITED = "master_mission_special";
 	private const string MISSION_TYPE_PANEL = "master_mission_panel";
-	[SerializeField] // RVA: 0xCBA018 Offset: 0xCBA018 VA: 0xCBA018
+	[SerializeField] // RVA: 0xC4E120 Offset: 0xC4E120 VA: 0xC4E120
 	private UISprite baseSp; // 0x18
-	[SerializeField] // RVA: 0xCBA028 Offset: 0xCBA028 VA: 0xCBA028
+	[SerializeField] // RVA: 0xC4E130 Offset: 0xC4E130 VA: 0xC4E130
 	private GameObject noRoot; // 0x20
-	[SerializeField] // RVA: 0xCBA038 Offset: 0xCBA038 VA: 0xCBA038
+	[SerializeField] // RVA: 0xC4E140 Offset: 0xC4E140 VA: 0xC4E140
 	private UILabel noLabel; // 0x28
-	[SerializeField] // RVA: 0xCBA048 Offset: 0xCBA048 VA: 0xCBA048
+	[SerializeField] // RVA: 0xC4E150 Offset: 0xC4E150 VA: 0xC4E150
 	private UILabel missionNameLabel; // 0x30
-	[SerializeField] // RVA: 0xCBA058 Offset: 0xCBA058 VA: 0xCBA058
+	[SerializeField] // RVA: 0xC4E160 Offset: 0xC4E160 VA: 0xC4E160
 	private UILabel masterMissionNameLabel; // 0x38
-	[SerializeField] // RVA: 0xCBA068 Offset: 0xCBA068 VA: 0xCBA068
+	[SerializeField] // RVA: 0xC4E170 Offset: 0xC4E170 VA: 0xC4E170
 	private GameObject progressBarRoot; // 0x40
-	[SerializeField] // RVA: 0xCBA078 Offset: 0xCBA078 VA: 0xCBA078
+	[SerializeField] // RVA: 0xC4E180 Offset: 0xC4E180 VA: 0xC4E180
 	private UISlider progressBarUpSlider; // 0x48
-	[SerializeField] // RVA: 0xCBA088 Offset: 0xCBA088 VA: 0xCBA088
+	[SerializeField] // RVA: 0xC4E190 Offset: 0xC4E190 VA: 0xC4E190
 	private UISlider progressBarNowSlider; // 0x50
-	[SerializeField] // RVA: 0xCBA098 Offset: 0xCBA098 VA: 0xCBA098
+	[SerializeField] // RVA: 0xC4E1A0 Offset: 0xC4E1A0 VA: 0xC4E1A0
 	private UILabel progressLabel; // 0x58
-	[SerializeField] // RVA: 0xCBA0A8 Offset: 0xCBA0A8 VA: 0xCBA0A8
+	[SerializeField] // RVA: 0xC4E1B0 Offset: 0xC4E1B0 VA: 0xC4E1B0
 	private UISprite clearSp; // 0x60
-	[SerializeField] // RVA: 0xCBA0B8 Offset: 0xCBA0B8 VA: 0xCBA0B8
+	[SerializeField] // RVA: 0xC4E1C0 Offset: 0xC4E1C0 VA: 0xC4E1C0
 	private UISprite typeSp; // 0x68
-	[SerializeField] // RVA: 0xCBA0C8 Offset: 0xCBA0C8 VA: 0xCBA0C8
+	[SerializeField] // RVA: 0xC4E1D0 Offset: 0xC4E1D0 VA: 0xC4E1D0
 	private GameObject rewardMessage; // 0x70
-	[SerializeField] // RVA: 0xCBA0D8 Offset: 0xCBA0D8 VA: 0xCBA0D8
+	[SerializeField] // RVA: 0xC4E1E0 Offset: 0xC4E1E0 VA: 0xC4E1E0
 	private ItemIconComponent itemIcon; // 0x78
-	[SerializeField] // RVA: 0xCBA0E8 Offset: 0xCBA0E8 VA: 0xCBA0E8
+	[SerializeField] // RVA: 0xC4E1F0 Offset: 0xC4E1F0 VA: 0xC4E1F0
 	private NoticeNumberComponent noticeNumberPrefab; // 0x80
-	[SerializeField] // RVA: 0xCBA0F8 Offset: 0xCBA0F8 VA: 0xCBA0F8
+	[SerializeField] // RVA: 0xC4E200 Offset: 0xC4E200 VA: 0xC4E200
 	private GameObject clearEffectPrefab; // 0x88
 	private SimpleAnimation mClearEffectSimpleAnim; // 0x90
 	private Animation mClearEffectAnim; // 0x98
@@ -723,54 +864,54 @@ public class MissionNotifyComponent : MonoBehaviour // TypeDefIndex: 5577
 
 	// Methods
 
-	// RVA: 0x16EA880 Offset: 0x16EA880 VA: 0x16EA880
+	// RVA: 0x12A363C Offset: 0x12A363C VA: 0x12A363C
 	public void .ctor() { }
 
-	// RVA: 0x16EA888 Offset: 0x16EA888 VA: 0x16EA888
+	// RVA: 0x12A3644 Offset: 0x12A3644 VA: 0x12A3644
 	public NoticeNumberComponent get_NoticeNumberPrefab() { }
 
-	// RVA: 0x16EA890 Offset: 0x16EA890 VA: 0x16EA890
+	// RVA: 0x12A364C Offset: 0x12A364C VA: 0x12A364C
 	public bool IsBusy() { }
 
-	// RVA: 0x16EA928 Offset: 0x16EA928 VA: 0x16EA928
+	// RVA: 0x12A36E4 Offset: 0x12A36E4 VA: 0x12A36E4
 	public bool IsPress() { }
 
-	// RVA: 0x16EA930 Offset: 0x16EA930 VA: 0x16EA930
+	// RVA: 0x12A36EC Offset: 0x12A36EC VA: 0x12A36EC
 	private void Awake() { }
 
-	// RVA: 0x16EACE4 Offset: 0x16EACE4 VA: 0x16EACE4
+	// RVA: 0x12A3AA0 Offset: 0x12A3AA0 VA: 0x12A3AA0
 	private void Update() { }
 
-	// RVA: 0x16EAD44 Offset: 0x16EAD44 VA: 0x16EAD44
+	// RVA: 0x12A3B00 Offset: 0x12A3B00 VA: 0x12A3B00
 	public void SetupAndPlay(MissionNotifyDispInfo disp_info, Action drag_start_act, Func<MissionNotifyComponent> frame_out_start_func, Action<MissionNotifyComponent> frame_out_end_act) { }
 
-	// RVA: 0x16EA8C8 Offset: 0x16EA8C8 VA: 0x16EA8C8
+	// RVA: 0x12A3684 Offset: 0x12A3684 VA: 0x12A3684
 	public MissionNotifyComponent.STATE GetState() { }
 
-	// RVA: 0x16EAC74 Offset: 0x16EAC74 VA: 0x16EAC74
+	// RVA: 0x12A3A30 Offset: 0x12A3A30 VA: 0x12A3A30
 	public void SetState(MissionNotifyComponent.STATE state) { }
 
-	// RVA: 0x16EB868 Offset: 0x16EB868 VA: 0x16EB868
+	// RVA: 0x12A4624 Offset: 0x12A4624 VA: 0x12A4624
 	public void FrameIn(Action end_act, bool is_force = False) { }
 
-	// RVA: 0x16EAC40 Offset: 0x16EAC40 VA: 0x16EAC40
+	// RVA: 0x12A39FC Offset: 0x12A39FC VA: 0x12A39FC
 	public void FrameOut(Action end_act, bool is_force = False) { }
 
-	// RVA: 0x16EB87C Offset: 0x16EB87C VA: 0x16EB87C
+	// RVA: 0x12A4638 Offset: 0x12A4638 VA: 0x12A4638
 	public void FrameInOut(bool is_framein, Action end_act, bool is_force = False) { }
 
-	// RVA: 0x16EBB30 Offset: 0x16EBB30 VA: 0x16EBB30
+	// RVA: 0x12A48EC Offset: 0x12A48EC VA: 0x12A48EC
 	private void OnClick() { }
 
-	// RVA: 0x16EBB6C Offset: 0x16EBB6C VA: 0x16EBB6C
+	// RVA: 0x12A4928 Offset: 0x12A4928 VA: 0x12A4928
 	private void OnPress(bool is_press) { }
 
-	// RVA: 0x16EBBBC Offset: 0x16EBBBC VA: 0x16EBBBC
+	// RVA: 0x12A4978 Offset: 0x12A4978 VA: 0x12A4978
 	private void OnDragStart() { }
 }
 
 // Namespace: 
-public enum MissionNotifyComponent.STATE // TypeDefIndex: 5578
+public enum MissionNotifyComponent.STATE // TypeDefIndex: 5575
 {
 	// Fields
 	public int value__; // 0x0
@@ -782,59 +923,59 @@ public enum MissionNotifyComponent.STATE // TypeDefIndex: 5578
 }
 
 // Namespace: 
-private class MissionNotifyComponent.StateNone : IState<MissionNotifyComponent> // TypeDefIndex: 5579
+private class MissionNotifyComponent.StateNone : IState<MissionNotifyComponent> // TypeDefIndex: 5576
 {
 	// Methods
 
-	// RVA: 0x16EAC54 Offset: 0x16EAC54 VA: 0x16EAC54
+	// RVA: 0x12A3A10 Offset: 0x12A3A10 VA: 0x12A3A10
 	public void .ctor() { }
 
-	// RVA: 0x16EC6F8 Offset: 0x16EC6F8 VA: 0x16EC6F8 Slot: 4
+	// RVA: 0x12A54B4 Offset: 0x12A54B4 VA: 0x12A54B4 Slot: 4
 	public void begin(MissionNotifyComponent that) { }
 
-	// RVA: 0x16EC6FC Offset: 0x16EC6FC VA: 0x16EC6FC Slot: 5
+	// RVA: 0x12A54B8 Offset: 0x12A54B8 VA: 0x12A54B8 Slot: 5
 	public void update(MissionNotifyComponent that) { }
 
-	// RVA: 0x16EC700 Offset: 0x16EC700 VA: 0x16EC700 Slot: 6
+	// RVA: 0x12A54BC Offset: 0x12A54BC VA: 0x12A54BC Slot: 6
 	public void end(MissionNotifyComponent that) { }
 }
 
 // Namespace: 
-private class MissionNotifyComponent.StateFrameIn : IState<MissionNotifyComponent> // TypeDefIndex: 5580
+private class MissionNotifyComponent.StateFrameIn : IState<MissionNotifyComponent> // TypeDefIndex: 5577
 {
 	// Methods
 
-	// RVA: 0x16EAC5C Offset: 0x16EAC5C VA: 0x16EAC5C
+	// RVA: 0x12A3A18 Offset: 0x12A3A18 VA: 0x12A3A18
 	public void .ctor() { }
 
-	// RVA: 0x16EBEB8 Offset: 0x16EBEB8 VA: 0x16EBEB8 Slot: 4
+	// RVA: 0x12A4C74 Offset: 0x12A4C74 VA: 0x12A4C74 Slot: 4
 	public void begin(MissionNotifyComponent that) { }
 
-	// RVA: 0x16EBFAC Offset: 0x16EBFAC VA: 0x16EBFAC Slot: 5
+	// RVA: 0x12A4D68 Offset: 0x12A4D68 VA: 0x12A4D68 Slot: 5
 	public void update(MissionNotifyComponent that) { }
 
-	// RVA: 0x16EBFB0 Offset: 0x16EBFB0 VA: 0x16EBFB0 Slot: 6
+	// RVA: 0x12A4D6C Offset: 0x12A4D6C VA: 0x12A4D6C Slot: 6
 	public void end(MissionNotifyComponent that) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAE050 Offset: 0xCAE050 VA: 0xCAE050
-private sealed class MissionNotifyComponent.StateFrameIn.<begin>c__AnonStorey0 // TypeDefIndex: 5581
+[CompilerGeneratedAttribute] // RVA: 0xC41F64 Offset: 0xC41F64 VA: 0xC41F64
+private sealed class MissionNotifyComponent.StateFrameIn.<begin>c__AnonStorey0 // TypeDefIndex: 5578
 {
 	// Fields
 	internal MissionNotifyComponent that; // 0x10
 
 	// Methods
 
-	// RVA: 0x16EBFA4 Offset: 0x16EBFA4 VA: 0x16EBFA4
+	// RVA: 0x12A4D60 Offset: 0x12A4D60 VA: 0x12A4D60
 	public void .ctor() { }
 
-	// RVA: 0x16EBFB4 Offset: 0x16EBFB4 VA: 0x16EBFB4
+	// RVA: 0x12A4D70 Offset: 0x12A4D70 VA: 0x12A4D70
 	internal void <>m__0() { }
 }
 
 // Namespace: 
-private class MissionNotifyComponent.StateShowing : IState<MissionNotifyComponent> // TypeDefIndex: 5582
+private class MissionNotifyComponent.StateShowing : IState<MissionNotifyComponent> // TypeDefIndex: 5579
 {
 	// Fields
 	private Vector2 mTouchPosNow; // 0x10
@@ -846,155 +987,14 @@ private class MissionNotifyComponent.StateShowing : IState<MissionNotifyComponen
 
 	// Methods
 
-	// RVA: 0x16EAC64 Offset: 0x16EAC64 VA: 0x16EAC64
+	// RVA: 0x12A3A20 Offset: 0x12A3A20 VA: 0x12A3A20
 	public void .ctor() { }
 
-	// RVA: 0x16EC704 Offset: 0x16EC704 VA: 0x16EC704 Slot: 4
+	// RVA: 0x12A54C0 Offset: 0x12A54C0 VA: 0x12A54C0 Slot: 4
 	public void begin(MissionNotifyComponent that) { }
 
-	// RVA: 0x16EC844 Offset: 0x16EC844 VA: 0x16EC844 Slot: 5
+	// RVA: 0x12A5600 Offset: 0x12A5600 VA: 0x12A5600 Slot: 5
 	public void update(MissionNotifyComponent that) { }
 
-	// RVA: 0x16ECAA4 Offset: 0x16ECAA4 VA: 0x16ECAA4 Slot: 6
+	// RVA: 0x12A5860 Offset: 0x12A5860 VA: 0x12A5860 Slot: 6
 	public void end(MissionNotifyComponent that) { }
-}
-
-// Namespace: 
-private class MissionNotifyComponent.StateFrameOut : IState<MissionNotifyComponent> // TypeDefIndex: 5583
-{
-	// Fields
-	private MissionNotifyComponent mNextComp; // 0x10
-
-	// Methods
-
-	// RVA: 0x16EAC6C Offset: 0x16EAC6C VA: 0x16EAC6C
-	public void .ctor() { }
-
-	// RVA: 0x16EBFE4 Offset: 0x16EBFE4 VA: 0x16EBFE4 Slot: 4
-	public void begin(MissionNotifyComponent that) { }
-
-	// RVA: 0x16EC24C Offset: 0x16EC24C VA: 0x16EC24C Slot: 5
-	public void update(MissionNotifyComponent that) { }
-
-	// RVA: 0x16EC638 Offset: 0x16EC638 VA: 0x16EC638 Slot: 6
-	public void end(MissionNotifyComponent that) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAE060 Offset: 0xCAE060 VA: 0xCAE060
-private sealed class MissionNotifyComponent.StateFrameOut.<begin>c__AnonStorey0 // TypeDefIndex: 5584
-{
-	// Fields
-	internal MissionNotifyComponent that; // 0x10
-
-	// Methods
-
-	// RVA: 0x16EC244 Offset: 0x16EC244 VA: 0x16EC244
-	public void .ctor() { }
-
-	// RVA: 0x16EC698 Offset: 0x16EC698 VA: 0x16EC698
-	internal void <>m__0() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAE070 Offset: 0xCAE070 VA: 0xCAE070
-private sealed class MissionNotifyComponent.StateFrameOut.<update>c__AnonStorey1 // TypeDefIndex: 5585
-{
-	// Fields
-	internal MissionNotifyComponent that; // 0x10
-
-	// Methods
-
-	// RVA: 0x16EC630 Offset: 0x16EC630 VA: 0x16EC630
-	public void .ctor() { }
-
-	// RVA: 0x16EC6C8 Offset: 0x16EC6C8 VA: 0x16EC6C8
-	internal void <>m__0() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAE080 Offset: 0xCAE080 VA: 0xCAE080
-private sealed class MissionNotifyComponent.<FrameInOut>c__AnonStorey0 // TypeDefIndex: 5586
-{
-	// Fields
-	internal GameObject tgt_obj; // 0x10
-	internal Vector3 pos_to; // 0x18
-	internal int alp_to; // 0x24
-	internal Action end_act; // 0x28
-	internal EasingObject eo; // 0x30
-	internal Vector3 pos_from; // 0x38
-	internal int alp_from; // 0x44
-	internal MissionNotifyComponent $this; // 0x48
-
-	// Methods
-
-	// RVA: 0x16EBB28 Offset: 0x16EBB28 VA: 0x16EBB28
-	public void .ctor() { }
-
-	// RVA: 0x16EBCDC Offset: 0x16EBCDC VA: 0x16EBCDC
-	internal void <>m__0() { }
-
-	// RVA: 0x16EBD54 Offset: 0x16EBD54 VA: 0x16EBD54
-	internal void <>m__1() { }
-}
-
-// Namespace: 
-public class MissionNotifyDispInfo // TypeDefIndex: 5587
-{
-	// Fields
-	public int eventMissionId; // 0x10
-	public int missionProgressType; // 0x14
-	public int id; // 0x18
-	public string message; // 0x20
-	public int progressFrom; // 0x28
-	public int progressTo; // 0x2C
-	public int condition; // 0x30
-	public int dispNo; // 0x34
-	public int banner_group; // 0x38
-
-	// Methods
-
-	// RVA: 0x16ECBBC Offset: 0x16ECBBC VA: 0x16ECBBC
-	public void .ctor() { }
-
-	// RVA: 0x16ECBC4 Offset: 0x16ECBC4 VA: 0x16ECBC4
-	public bool HasFlag(EventMissionConditionEntity.Flag flag) { }
-
-	// RVA: 0x16ECCA0 Offset: 0x16ECCA0 VA: 0x16ECCA0
-	public bool IsDispPossible() { }
-
-	// RVA: 0x16ECD44 Offset: 0x16ECD44 VA: 0x16ECD44
-	private bool IsBattle() { }
-}
-
-// Namespace: 
-public class MissionNotifyManager : SingletonTemplate<MissionNotifyManager> // TypeDefIndex: 5588
-{
-	// Fields
-	private const int NOTICE_NUMBER_X = 270;
-	private const int NOTICE_NUMBER_Y = 275;
-	private const float NOTICE_NUMBER_SCALE = 0.75;
-	private List<MissionNotifyDispInfo> mDispInfos; // 0x10
-	private List<MissionNotifyDispInfo> mNoDispInfos; // 0x18
-	private List<MissionNotifyComponent> mMissionNotifyComps; // 0x20
-	private NoticeNumberComponent mNoticeNumberComp; // 0x28
-	private List<int> assetLoadedEventIdList; // 0x30
-	private MissionNotifyDispInfo[] backDispInfos; // 0x38
-	private int dispInfosIndex; // 0x40
-	private int mPauseCount; // 0x44
-
-	// Methods
-
-	// RVA: 0x16ECE84 Offset: 0x16ECE84 VA: 0x16ECE84
-	public void .ctor() { }
-
-	// RVA: 0x16ECF8C Offset: 0x16ECF8C VA: 0x16ECF8C
-	public bool IsPause() { }
-
-	// RVA: 0x16ECF9C Offset: 0x16ECF9C VA: 0x16ECF9C
-	public bool IsPress() { }
-
-	// RVA: 0x16E3AE0 Offset: 0x16E3AE0 VA: 0x16E3AE0
-	public void StartPause() { }
-
-	// RVA: 0x16E4528 Offset: 0x16E4528 VA: 0x16E4528

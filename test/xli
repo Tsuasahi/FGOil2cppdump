@@ -1,85 +1,207 @@
+	public static void CheckFieldElements(ECFieldElement a, ECFieldElement b) { }
+
+	// RVA: 0x220A8BC Offset: 0x220A8BC VA: 0x220A8BC Slot: 7
+	public override ECFieldElement Add(ECFieldElement b) { }
+
+	// RVA: 0x220AA00 Offset: 0x220AA00 VA: 0x220AA00 Slot: 8
+	public override ECFieldElement AddOne() { }
+
+	// RVA: 0x220AA98 Offset: 0x220AA98 VA: 0x220AA98 Slot: 9
+	public override ECFieldElement Subtract(ECFieldElement b) { }
+
+	// RVA: 0x220AAA4 Offset: 0x220AAA4 VA: 0x220AAA4 Slot: 10
+	public override ECFieldElement Multiply(ECFieldElement b) { }
+
+	// RVA: 0x220AC50 Offset: 0x220AC50 VA: 0x220AC50 Slot: 19
+	public override ECFieldElement MultiplyMinusProduct(ECFieldElement b, ECFieldElement x, ECFieldElement y) { }
+
+	// RVA: 0x220AC60 Offset: 0x220AC60 VA: 0x220AC60 Slot: 20
+	public override ECFieldElement MultiplyPlusProduct(ECFieldElement b, ECFieldElement x, ECFieldElement y) { }
+
+	// RVA: 0x220B090 Offset: 0x220B090 VA: 0x220B090 Slot: 11
+	public override ECFieldElement Divide(ECFieldElement b) { }
+
+	// RVA: 0x220B0E0 Offset: 0x220B0E0 VA: 0x220B0E0 Slot: 12
+	public override ECFieldElement Negate() { }
+
+	// RVA: 0x220B0E4 Offset: 0x220B0E4 VA: 0x220B0E4 Slot: 13
+	public override ECFieldElement Square() { }
+
+	// RVA: 0x220B184 Offset: 0x220B184 VA: 0x220B184 Slot: 21
+	public override ECFieldElement SquareMinusProduct(ECFieldElement x, ECFieldElement y) { }
+
+	// RVA: 0x220B194 Offset: 0x220B194 VA: 0x220B194 Slot: 22
+	public override ECFieldElement SquarePlusProduct(ECFieldElement x, ECFieldElement y) { }
+
+	// RVA: 0x220B4DC Offset: 0x220B4DC VA: 0x220B4DC Slot: 23
+	public override ECFieldElement SquarePow(int pow) { }
+
+	// RVA: 0x220B594 Offset: 0x220B594 VA: 0x220B594 Slot: 14
+	public override ECFieldElement Invert() { }
+
+	// RVA: 0x220B634 Offset: 0x220B634 VA: 0x220B634 Slot: 15
+	public override ECFieldElement Sqrt() { }
+
+	// RVA: 0x220B6B4 Offset: 0x220B6B4 VA: 0x220B6B4
+	public int get_Representation() { }
+
+	// RVA: 0x220B6BC Offset: 0x220B6BC VA: 0x220B6BC
+	public int get_M() { }
+
+	// RVA: 0x220B6C4 Offset: 0x220B6C4 VA: 0x220B6C4
+	public int get_K1() { }
+
+	// RVA: 0x220B708 Offset: 0x220B708 VA: 0x220B708
+	public int get_K2() { }
+
+	// RVA: 0x220B778 Offset: 0x220B778 VA: 0x220B778
+	public int get_K3() { }
+
+	// RVA: 0x220B7E8 Offset: 0x220B7E8 VA: 0x220B7E8 Slot: 0
+	public override bool Equals(object obj) { }
+
+	// RVA: 0x220B8A4 Offset: 0x220B8A4 VA: 0x220B8A4 Slot: 27
+	public virtual bool Equals(F2mFieldElement other) { }
+
+	// RVA: 0x220B944 Offset: 0x220B944 VA: 0x220B944 Slot: 2
+	public override int GetHashCode() { }
+}
+
+// Namespace: Org.BouncyCastle.Math.EC
+public abstract class ECPoint // TypeDefIndex: 5125
+{
+	// Fields
+	protected static ECFieldElement[] EMPTY_ZS; // 0x0
+	protected internal readonly ECCurve m_curve; // 0x10
+	protected internal readonly ECFieldElement m_x; // 0x18
+	protected internal readonly ECFieldElement m_y; // 0x20
+	protected internal readonly ECFieldElement[] m_zs; // 0x28
+	protected internal readonly bool m_withCompression; // 0x30
+	protected internal IDictionary m_preCompTable; // 0x38
+
+	// Properties
+	public virtual ECCurve Curve { get; }
+	protected virtual int CurveCoordinateSystem { get; }
+	[ObsoleteAttribute] // RVA: 0xCDE8D8 Offset: 0xCDE8D8 VA: 0xCDE8D8
+	public virtual ECFieldElement X { get; }
+	[ObsoleteAttribute] // RVA: 0xCDE910 Offset: 0xCDE910 VA: 0xCDE910
+	public virtual ECFieldElement Y { get; }
+	public virtual ECFieldElement AffineXCoord { get; }
+	public virtual ECFieldElement AffineYCoord { get; }
+	public virtual ECFieldElement XCoord { get; }
+	public virtual ECFieldElement YCoord { get; }
+	protected internal ECFieldElement RawXCoord { get; }
+	protected internal ECFieldElement RawYCoord { get; }
+	protected internal ECFieldElement[] RawZCoords { get; }
+	public bool IsInfinity { get; }
+	public bool IsCompressed { get; }
+	protected internal abstract bool CompressionYTilde { get; }
+
+	// Methods
+
+	// RVA: 0x2207B98 Offset: 0x2207B98 VA: 0x2207B98
+	protected void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y, bool withCompression) { }
+
+	// RVA: 0x2207FAC Offset: 0x2207FAC VA: 0x2207FAC
+	internal void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y, ECFieldElement[] zs, bool withCompression) { }
+
+	// RVA: 0x2207C40 Offset: 0x2207C40 VA: 0x2207C40
+	protected static ECFieldElement[] GetInitialZCoords(ECCurve curve) { }
+
+	// RVA: 0x2207424 Offset: 0x2207424 VA: 0x2207424
+	protected internal bool SatisfiesCofactor() { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	protected abstract bool SatisfiesCurveEquation();
+
+	// RVA: 0x2208004 Offset: 0x2208004 VA: 0x2208004
+	public ECPoint GetDetachedPoint() { }
+
+	// RVA: 0x2208044 Offset: 0x2208044 VA: 0x2208044 Slot: 5
+	public virtual ECCurve get_Curve() { }
+
 	// RVA: -1 Offset: -1 Slot: 6
 	protected abstract ECPoint Detach();
 
-	// RVA: 0x25081B8 Offset: 0x25081B8 VA: 0x25081B8 Slot: 7
+	// RVA: 0x220804C Offset: 0x220804C VA: 0x220804C Slot: 7
 	protected virtual int get_CurveCoordinateSystem() { }
 
-	// RVA: 0x25081D4 Offset: 0x25081D4 VA: 0x25081D4 Slot: 8
+	// RVA: 0x2208068 Offset: 0x2208068 VA: 0x2208068 Slot: 8
 	public virtual ECFieldElement get_X() { }
 
-	// RVA: 0x2508214 Offset: 0x2508214 VA: 0x2508214 Slot: 9
+	// RVA: 0x22080A8 Offset: 0x22080A8 VA: 0x22080A8 Slot: 9
 	public virtual ECFieldElement get_Y() { }
 
-	// RVA: 0x2508254 Offset: 0x2508254 VA: 0x2508254 Slot: 10
+	// RVA: 0x22080E8 Offset: 0x22080E8 VA: 0x22080E8 Slot: 10
 	public virtual ECFieldElement get_AffineXCoord() { }
 
-	// RVA: 0x250828C Offset: 0x250828C VA: 0x250828C Slot: 11
+	// RVA: 0x2208120 Offset: 0x2208120 VA: 0x2208120 Slot: 11
 	public virtual ECFieldElement get_AffineYCoord() { }
 
-	// RVA: 0x25082C4 Offset: 0x25082C4 VA: 0x25082C4 Slot: 12
+	// RVA: 0x2208158 Offset: 0x2208158 VA: 0x2208158 Slot: 12
 	public virtual ECFieldElement get_XCoord() { }
 
-	// RVA: 0x25082CC Offset: 0x25082CC VA: 0x25082CC Slot: 13
+	// RVA: 0x2208160 Offset: 0x2208160 VA: 0x2208160 Slot: 13
 	public virtual ECFieldElement get_YCoord() { }
 
-	// RVA: 0x25082D4 Offset: 0x25082D4 VA: 0x25082D4 Slot: 14
+	// RVA: 0x2208168 Offset: 0x2208168 VA: 0x2208168 Slot: 14
 	public virtual ECFieldElement GetZCoord(int index) { }
 
-	// RVA: 0x250835C Offset: 0x250835C VA: 0x250835C Slot: 15
+	// RVA: 0x22081F0 Offset: 0x22081F0 VA: 0x22081F0 Slot: 15
 	public virtual ECFieldElement[] GetZCoords() { }
 
-	// RVA: 0x24FB548 Offset: 0x24FB548 VA: 0x24FB548
+	// RVA: 0x21FB3DC Offset: 0x21FB3DC VA: 0x21FB3DC
 	protected internal ECFieldElement get_RawXCoord() { }
 
-	// RVA: 0x24FB550 Offset: 0x24FB550 VA: 0x24FB550
+	// RVA: 0x21FB3E4 Offset: 0x21FB3E4 VA: 0x21FB3E4
 	protected internal ECFieldElement get_RawYCoord() { }
 
-	// RVA: 0x24FB578 Offset: 0x24FB578 VA: 0x24FB578
+	// RVA: 0x21FB40C Offset: 0x21FB40C VA: 0x21FB40C
 	protected internal ECFieldElement[] get_RawZCoords() { }
 
-	// RVA: 0x25083F8 Offset: 0x25083F8 VA: 0x25083F8 Slot: 16
+	// RVA: 0x220828C Offset: 0x220828C VA: 0x220828C Slot: 16
 	protected virtual void CheckNormalized() { }
 
-	// RVA: 0x2508494 Offset: 0x2508494 VA: 0x2508494 Slot: 17
+	// RVA: 0x2208328 Offset: 0x2208328 VA: 0x2208328 Slot: 17
 	public virtual bool IsNormalized() { }
 
-	// RVA: 0x2508530 Offset: 0x2508530 VA: 0x2508530 Slot: 18
+	// RVA: 0x22083C4 Offset: 0x22083C4 VA: 0x22083C4 Slot: 18
 	public virtual ECPoint Normalize() { }
 
-	// RVA: 0x2508600 Offset: 0x2508600 VA: 0x2508600 Slot: 19
+	// RVA: 0x2208494 Offset: 0x2208494 VA: 0x2208494 Slot: 19
 	internal virtual ECPoint Normalize(ECFieldElement zInv) { }
 
-	// RVA: 0x2508724 Offset: 0x2508724 VA: 0x2508724 Slot: 20
+	// RVA: 0x22085B8 Offset: 0x22085B8 VA: 0x22085B8 Slot: 20
 	protected virtual ECPoint CreateScaledPoint(ECFieldElement sx, ECFieldElement sy) { }
 
-	// RVA: 0x24FB558 Offset: 0x24FB558 VA: 0x24FB558
+	// RVA: 0x21FB3EC Offset: 0x21FB3EC VA: 0x21FB3EC
 	public bool get_IsInfinity() { }
 
-	// RVA: 0x24FBEF4 Offset: 0x24FBEF4 VA: 0x24FBEF4
+	// RVA: 0x21FBD88 Offset: 0x21FBD88 VA: 0x21FBD88
 	public bool get_IsCompressed() { }
 
-	// RVA: 0x2504E00 Offset: 0x2504E00 VA: 0x2504E00
+	// RVA: 0x2204C94 Offset: 0x2204C94 VA: 0x2204C94
 	public bool IsValid() { }
 
-	// RVA: 0x25087E8 Offset: 0x25087E8 VA: 0x25087E8 Slot: 21
+	// RVA: 0x220867C Offset: 0x220867C VA: 0x220867C Slot: 21
 	public virtual ECPoint ScaleX(ECFieldElement scale) { }
 
-	// RVA: 0x25088B4 Offset: 0x25088B4 VA: 0x25088B4 Slot: 22
+	// RVA: 0x2208748 Offset: 0x2208748 VA: 0x2208748 Slot: 22
 	public virtual ECPoint ScaleY(ECFieldElement scale) { }
 
-	// RVA: 0x2508980 Offset: 0x2508980 VA: 0x2508980 Slot: 0
+	// RVA: 0x2208814 Offset: 0x2208814 VA: 0x2208814 Slot: 0
 	public override bool Equals(object obj) { }
 
-	// RVA: 0x2508A1C Offset: 0x2508A1C VA: 0x2508A1C Slot: 23
+	// RVA: 0x22088B0 Offset: 0x22088B0 VA: 0x22088B0 Slot: 23
 	public virtual bool Equals(ECPoint other) { }
 
-	// RVA: 0x2508D54 Offset: 0x2508D54 VA: 0x2508D54 Slot: 2
+	// RVA: 0x2208BE8 Offset: 0x2208BE8 VA: 0x2208BE8 Slot: 2
 	public override int GetHashCode() { }
 
-	// RVA: 0x2508E3C Offset: 0x2508E3C VA: 0x2508E3C Slot: 3
+	// RVA: 0x2208CD0 Offset: 0x2208CD0 VA: 0x2208CD0 Slot: 3
 	public override string ToString() { }
 
-	// RVA: 0x250903C Offset: 0x250903C VA: 0x250903C Slot: 24
+	// RVA: 0x2208ED0 Offset: 0x2208ED0 VA: 0x2208ED0 Slot: 24
 	public virtual byte[] GetEncoded() { }
 
 	// RVA: -1 Offset: -1 Slot: 25
@@ -97,7 +219,7 @@
 	// RVA: -1 Offset: -1 Slot: 29
 	public abstract ECPoint Negate();
 
-	// RVA: 0x2509050 Offset: 0x2509050 VA: 0x2509050 Slot: 30
+	// RVA: 0x2208EE4 Offset: 0x2208EE4 VA: 0x2208EE4 Slot: 30
 	public virtual ECPoint TimesPow2(int e) { }
 
 	// RVA: -1 Offset: -1 Slot: 31
@@ -106,13 +228,13 @@
 	// RVA: -1 Offset: -1 Slot: 32
 	public abstract ECPoint Multiply(BigInteger b);
 
-	// RVA: 0x2509128 Offset: 0x2509128 VA: 0x2509128 Slot: 33
+	// RVA: 0x2208FBC Offset: 0x2208FBC VA: 0x2208FBC Slot: 33
 	public virtual ECPoint TwicePlus(ECPoint b) { }
 
-	// RVA: 0x2509178 Offset: 0x2509178 VA: 0x2509178 Slot: 34
+	// RVA: 0x220900C Offset: 0x220900C VA: 0x220900C Slot: 34
 	public virtual ECPoint ThreeTimes() { }
 
-	// RVA: 0x250918C Offset: 0x250918C VA: 0x250918C
+	// RVA: 0x2209020 Offset: 0x2209020 VA: 0x2209020
 	private static void .cctor() { }
 }
 
@@ -121,16 +243,16 @@ public abstract class ECPointBase : ECPoint // TypeDefIndex: 5126
 {
 	// Methods
 
-	// RVA: 0x25091F0 Offset: 0x25091F0 VA: 0x25091F0
+	// RVA: 0x2209084 Offset: 0x2209084 VA: 0x2209084
 	protected internal void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y, bool withCompression) { }
 
-	// RVA: 0x2509284 Offset: 0x2509284 VA: 0x2509284
+	// RVA: 0x2209118 Offset: 0x2209118 VA: 0x2209118
 	protected internal void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y, ECFieldElement[] zs, bool withCompression) { }
 
-	// RVA: 0x250932C Offset: 0x250932C VA: 0x250932C Slot: 25
+	// RVA: 0x22091C0 Offset: 0x22091C0 VA: 0x22091C0 Slot: 25
 	public override byte[] GetEncoded(bool compressed) { }
 
-	// RVA: 0x2509560 Offset: 0x2509560 VA: 0x2509560 Slot: 32
+	// RVA: 0x22093F4 Offset: 0x22093F4 VA: 0x22093F4 Slot: 32
 	public override ECPoint Multiply(BigInteger k) { }
 }
 
@@ -142,19 +264,19 @@ public abstract class AbstractFpPoint : ECPointBase // TypeDefIndex: 5127
 
 	// Methods
 
-	// RVA: 0x2652C78 Offset: 0x2652C78 VA: 0x2652C78
+	// RVA: 0x24EBAC8 Offset: 0x24EBAC8 VA: 0x24EBAC8
 	protected void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y, bool withCompression) { }
 
-	// RVA: 0x2652C84 Offset: 0x2652C84 VA: 0x2652C84
+	// RVA: 0x24EBAD4 Offset: 0x24EBAD4 VA: 0x24EBAD4
 	protected void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y, ECFieldElement[] zs, bool withCompression) { }
 
-	// RVA: 0x2652C90 Offset: 0x2652C90 VA: 0x2652C90 Slot: 26
+	// RVA: 0x24EBAE0 Offset: 0x24EBAE0 VA: 0x24EBAE0 Slot: 26
 	protected internal override bool get_CompressionYTilde() { }
 
-	// RVA: 0x2652CD0 Offset: 0x2652CD0 VA: 0x2652CD0 Slot: 4
+	// RVA: 0x24EBB20 Offset: 0x24EBB20 VA: 0x24EBB20 Slot: 4
 	protected override bool SatisfiesCurveEquation() { }
 
-	// RVA: 0x26530B8 Offset: 0x26530B8 VA: 0x26530B8 Slot: 28
+	// RVA: 0x24EBF08 Offset: 0x24EBF08 VA: 0x24EBF08 Slot: 28
 	public override ECPoint Subtract(ECPoint b) { }
 }
 
@@ -163,61 +285,61 @@ public class FpPoint : AbstractFpPoint // TypeDefIndex: 5128
 {
 	// Methods
 
-	// RVA: 0x250E310 Offset: 0x250E310 VA: 0x250E310
+	// RVA: 0x220E1A4 Offset: 0x220E1A4 VA: 0x220E1A4
 	public void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y) { }
 
-	// RVA: 0x250E6D0 Offset: 0x250E6D0 VA: 0x250E6D0
+	// RVA: 0x220E564 Offset: 0x220E564 VA: 0x220E564
 	public void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y, bool withCompression) { }
 
-	// RVA: 0x250E83C Offset: 0x250E83C VA: 0x250E83C
+	// RVA: 0x220E6D0 Offset: 0x220E6D0 VA: 0x220E6D0
 	internal void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y, ECFieldElement[] zs, bool withCompression) { }
 
-	// RVA: 0x2511128 Offset: 0x2511128 VA: 0x2511128 Slot: 6
+	// RVA: 0x2210FBC Offset: 0x2210FBC VA: 0x2210FBC Slot: 6
 	protected override ECPoint Detach() { }
 
-	// RVA: 0x25111C8 Offset: 0x25111C8 VA: 0x25111C8 Slot: 14
+	// RVA: 0x221105C Offset: 0x221105C VA: 0x221105C Slot: 14
 	public override ECFieldElement GetZCoord(int index) { }
 
-	// RVA: 0x251122C Offset: 0x251122C VA: 0x251122C Slot: 27
+	// RVA: 0x22110C0 Offset: 0x22110C0 VA: 0x22110C0 Slot: 27
 	public override ECPoint Add(ECPoint b) { }
 
-	// RVA: 0x2512148 Offset: 0x2512148 VA: 0x2512148 Slot: 31
+	// RVA: 0x2211FDC Offset: 0x2211FDC VA: 0x2211FDC Slot: 31
 	public override ECPoint Twice() { }
 
-	// RVA: 0x2512DD4 Offset: 0x2512DD4 VA: 0x2512DD4 Slot: 33
+	// RVA: 0x2212C68 Offset: 0x2212C68 VA: 0x2212C68 Slot: 33
 	public override ECPoint TwicePlus(ECPoint b) { }
 
-	// RVA: 0x2513358 Offset: 0x2513358 VA: 0x2513358 Slot: 34
+	// RVA: 0x22131EC Offset: 0x22131EC VA: 0x22131EC Slot: 34
 	public override ECPoint ThreeTimes() { }
 
-	// RVA: 0x251382C Offset: 0x251382C VA: 0x251382C Slot: 30
+	// RVA: 0x22136C0 Offset: 0x22136C0 VA: 0x22136C0 Slot: 30
 	public override ECPoint TimesPow2(int e) { }
 
-	// RVA: 0x2514188 Offset: 0x2514188 VA: 0x2514188 Slot: 35
+	// RVA: 0x221401C Offset: 0x221401C VA: 0x221401C Slot: 35
 	protected virtual ECFieldElement Two(ECFieldElement x) { }
 
-	// RVA: 0x25141C0 Offset: 0x25141C0 VA: 0x25141C0 Slot: 36
+	// RVA: 0x2214054 Offset: 0x2214054 VA: 0x2214054 Slot: 36
 	protected virtual ECFieldElement Three(ECFieldElement x) { }
 
-	// RVA: 0x2514208 Offset: 0x2514208 VA: 0x2514208 Slot: 37
+	// RVA: 0x221409C Offset: 0x221409C VA: 0x221409C Slot: 37
 	protected virtual ECFieldElement Four(ECFieldElement x) { }
 
-	// RVA: 0x2514248 Offset: 0x2514248 VA: 0x2514248 Slot: 38
+	// RVA: 0x22140DC Offset: 0x22140DC VA: 0x22140DC Slot: 38
 	protected virtual ECFieldElement Eight(ECFieldElement x) { }
 
-	// RVA: 0x2514288 Offset: 0x2514288 VA: 0x2514288 Slot: 39
+	// RVA: 0x221411C Offset: 0x221411C VA: 0x221411C Slot: 39
 	protected virtual ECFieldElement DoubleProductFromSquares(ECFieldElement a, ECFieldElement b, ECFieldElement aSquared, ECFieldElement bSquared) { }
 
-	// RVA: 0x2514330 Offset: 0x2514330 VA: 0x2514330 Slot: 29
+	// RVA: 0x22141C4 Offset: 0x22141C4 VA: 0x22141C4 Slot: 29
 	public override ECPoint Negate() { }
 
-	// RVA: 0x2514458 Offset: 0x2514458 VA: 0x2514458 Slot: 40
+	// RVA: 0x22142EC Offset: 0x22142EC VA: 0x22142EC Slot: 40
 	protected virtual ECFieldElement CalculateJacobianModifiedW(ECFieldElement Z, ECFieldElement ZSquared) { }
 
-	// RVA: 0x25145F0 Offset: 0x25145F0 VA: 0x25145F0 Slot: 41
+	// RVA: 0x2214484 Offset: 0x2214484 VA: 0x2214484 Slot: 41
 	protected virtual ECFieldElement GetJacobianModifiedW() { }
 
-	// RVA: 0x25146CC Offset: 0x25146CC VA: 0x25146CC Slot: 42
+	// RVA: 0x2214560 Offset: 0x2214560 VA: 0x2214560 Slot: 42
 	protected virtual FpPoint TwiceJacobianModified(bool calculateW) { }
 }
 
@@ -226,28 +348,28 @@ public abstract class AbstractF2mPoint : ECPointBase // TypeDefIndex: 5129
 {
 	// Methods
 
-	// RVA: 0x2651648 Offset: 0x2651648 VA: 0x2651648
+	// RVA: 0x24EA498 Offset: 0x24EA498 VA: 0x24EA498
 	protected void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y, bool withCompression) { }
 
-	// RVA: 0x2651654 Offset: 0x2651654 VA: 0x2651654
+	// RVA: 0x24EA4A4 Offset: 0x24EA4A4 VA: 0x24EA4A4
 	protected void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y, ECFieldElement[] zs, bool withCompression) { }
 
-	// RVA: 0x2651660 Offset: 0x2651660 VA: 0x2651660 Slot: 4
+	// RVA: 0x24EA4B0 Offset: 0x24EA4B0 VA: 0x24EA4B0 Slot: 4
 	protected override bool SatisfiesCurveEquation() { }
 
-	// RVA: 0x2651BEC Offset: 0x2651BEC VA: 0x2651BEC Slot: 21
+	// RVA: 0x24EAA3C Offset: 0x24EAA3C VA: 0x24EAA3C Slot: 21
 	public override ECPoint ScaleX(ECFieldElement scale) { }
 
-	// RVA: 0x2651F68 Offset: 0x2651F68 VA: 0x2651F68 Slot: 22
+	// RVA: 0x24EADB8 Offset: 0x24EADB8 VA: 0x24EADB8 Slot: 22
 	public override ECPoint ScaleY(ECFieldElement scale) { }
 
-	// RVA: 0x26520D8 Offset: 0x26520D8 VA: 0x26520D8 Slot: 28
+	// RVA: 0x24EAF28 Offset: 0x24EAF28 VA: 0x24EAF28 Slot: 28
 	public override ECPoint Subtract(ECPoint b) { }
 
-	// RVA: 0x2652158 Offset: 0x2652158 VA: 0x2652158 Slot: 35
+	// RVA: 0x24EAFA8 Offset: 0x24EAFA8 VA: 0x24EAFA8 Slot: 35
 	public virtual AbstractF2mPoint Tau() { }
 
-	// RVA: 0x2652520 Offset: 0x2652520 VA: 0x2652520 Slot: 36
+	// RVA: 0x24EB370 Offset: 0x24EB370 VA: 0x24EB370 Slot: 36
 	public virtual AbstractF2mPoint TauPow(int pow) { }
 }
 
@@ -260,38 +382,38 @@ public class F2mPoint : AbstractF2mPoint // TypeDefIndex: 5130
 
 	// Methods
 
-	// RVA: 0x2509F58 Offset: 0x2509F58 VA: 0x2509F58
+	// RVA: 0x2209DEC Offset: 0x2209DEC VA: 0x2209DEC
 	public void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y) { }
 
-	// RVA: 0x250A508 Offset: 0x250A508 VA: 0x250A508
+	// RVA: 0x220A39C Offset: 0x220A39C VA: 0x220A39C
 	public void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y, bool withCompression) { }
 
-	// RVA: 0x250A6B8 Offset: 0x250A6B8 VA: 0x250A6B8
+	// RVA: 0x220A54C Offset: 0x220A54C VA: 0x220A54C
 	internal void .ctor(ECCurve curve, ECFieldElement x, ECFieldElement y, ECFieldElement[] zs, bool withCompression) { }
 
-	[ObsoleteAttribute] // RVA: 0xD34DD8 Offset: 0xD34DD8 VA: 0xD34DD8
-	// RVA: 0x250BB0C Offset: 0x250BB0C VA: 0x250BB0C
+	[ObsoleteAttribute] // RVA: 0xCC7704 Offset: 0xCC7704 VA: 0xCC7704
+	// RVA: 0x220B9A0 Offset: 0x220B9A0 VA: 0x220B9A0
 	public void .ctor(ECCurve curve) { }
 
-	// RVA: 0x250BB1C Offset: 0x250BB1C VA: 0x250BB1C Slot: 6
+	// RVA: 0x220B9B0 Offset: 0x220B9B0 VA: 0x220B9B0 Slot: 6
 	protected override ECPoint Detach() { }
 
-	// RVA: 0x250BBBC Offset: 0x250BBBC VA: 0x250BBBC Slot: 13
+	// RVA: 0x220BA50 Offset: 0x220BA50 VA: 0x220BA50 Slot: 13
 	public override ECFieldElement get_YCoord() { }
 
-	// RVA: 0x250BD04 Offset: 0x250BD04 VA: 0x250BD04 Slot: 26
+	// RVA: 0x220BB98 Offset: 0x220BB98 VA: 0x220BB98 Slot: 26
 	protected internal override bool get_CompressionYTilde() { }
 
-	// RVA: 0x250BDF4 Offset: 0x250BDF4 VA: 0x250BDF4 Slot: 27
+	// RVA: 0x220BC88 Offset: 0x220BC88 VA: 0x220BC88 Slot: 27
 	public override ECPoint Add(ECPoint b) { }
 
-	// RVA: 0x250CCCC Offset: 0x250CCCC VA: 0x250CCCC Slot: 31
+	// RVA: 0x220CB60 Offset: 0x220CB60 VA: 0x220CB60 Slot: 31
 	public override ECPoint Twice() { }
 
-	// RVA: 0x250D73C Offset: 0x250D73C VA: 0x250D73C Slot: 33
+	// RVA: 0x220D5D0 Offset: 0x220D5D0 VA: 0x220D5D0 Slot: 33
 	public override ECPoint TwicePlus(ECPoint b) { }
 
-	// RVA: 0x250DD98 Offset: 0x250DD98 VA: 0x250DD98 Slot: 29
+	// RVA: 0x220DC2C Offset: 0x220DC2C VA: 0x220DC2C Slot: 29
 	public override ECPoint Negate() { }
 }
 
@@ -343,19 +465,19 @@ public class GlvTypeBEndomorphism : GlvEndomorphism, ECEndomorphism // TypeDefIn
 
 	// Methods
 
-	// RVA: 0x2509654 Offset: 0x2509654 VA: 0x2509654
+	// RVA: 0x22094E8 Offset: 0x22094E8 VA: 0x22094E8
 	public void .ctor(ECCurve curve, GlvTypeBParameters parameters) { }
 
-	// RVA: 0x2509720 Offset: 0x2509720 VA: 0x2509720 Slot: 7
+	// RVA: 0x22095B4 Offset: 0x22095B4 VA: 0x22095B4 Slot: 7
 	public virtual BigInteger[] DecomposeScalar(BigInteger k) { }
 
-	// RVA: 0x2509AAC Offset: 0x2509AAC VA: 0x2509AAC Slot: 8
+	// RVA: 0x2209940 Offset: 0x2209940 VA: 0x2209940 Slot: 8
 	public virtual ECPointMap get_PointMap() { }
 
-	// RVA: 0x2509AB4 Offset: 0x2509AB4 VA: 0x2509AB4 Slot: 9
+	// RVA: 0x2209948 Offset: 0x2209948 VA: 0x2209948 Slot: 9
 	public virtual bool get_HasEfficientPointMap() { }
 
-	// RVA: 0x2509ABC Offset: 0x2509ABC VA: 0x2509ABC Slot: 10
+	// RVA: 0x2209950 Offset: 0x2209950 VA: 0x2209950 Slot: 10
 	protected virtual BigInteger CalculateB(BigInteger k, BigInteger g, int t) { }
 }
 
@@ -382,28 +504,28 @@ public class GlvTypeBParameters // TypeDefIndex: 5135
 
 	// Methods
 
-	// RVA: 0x2509C58 Offset: 0x2509C58 VA: 0x2509C58
+	// RVA: 0x2209AEC Offset: 0x2209AEC VA: 0x2209AEC
 	public void .ctor(BigInteger beta, BigInteger lambda, BigInteger[] v1, BigInteger[] v2, BigInteger g1, BigInteger g2, int bits) { }
 
-	// RVA: 0x2509CC0 Offset: 0x2509CC0 VA: 0x2509CC0 Slot: 4
+	// RVA: 0x2209B54 Offset: 0x2209B54 VA: 0x2209B54 Slot: 4
 	public virtual BigInteger get_Beta() { }
 
-	// RVA: 0x2509CC8 Offset: 0x2509CC8 VA: 0x2509CC8 Slot: 5
+	// RVA: 0x2209B5C Offset: 0x2209B5C VA: 0x2209B5C Slot: 5
 	public virtual BigInteger get_Lambda() { }
 
-	// RVA: 0x2509CD0 Offset: 0x2509CD0 VA: 0x2509CD0 Slot: 6
+	// RVA: 0x2209B64 Offset: 0x2209B64 VA: 0x2209B64 Slot: 6
 	public virtual BigInteger[] get_V1() { }
 
-	// RVA: 0x2509CD8 Offset: 0x2509CD8 VA: 0x2509CD8 Slot: 7
+	// RVA: 0x2209B6C Offset: 0x2209B6C VA: 0x2209B6C Slot: 7
 	public virtual BigInteger[] get_V2() { }
 
-	// RVA: 0x2509CE0 Offset: 0x2509CE0 VA: 0x2509CE0 Slot: 8
+	// RVA: 0x2209B74 Offset: 0x2209B74 VA: 0x2209B74 Slot: 8
 	public virtual BigInteger get_G1() { }
 
-	// RVA: 0x2509CE8 Offset: 0x2509CE8 VA: 0x2509CE8 Slot: 9
+	// RVA: 0x2209B7C Offset: 0x2209B7C VA: 0x2209B7C Slot: 9
 	public virtual BigInteger get_G2() { }
 
-	// RVA: 0x2509CF0 Offset: 0x2509CF0 VA: 0x2509CF0 Slot: 10
+	// RVA: 0x2209B84 Offset: 0x2209B84 VA: 0x2209B84 Slot: 10
 	public virtual int get_Bits() { }
 }
 
@@ -425,208 +547,208 @@ internal class LongArray // TypeDefIndex: 5136
 
 	// Methods
 
-	// RVA: 0x25F9B60 Offset: 0x25F9B60 VA: 0x25F9B60
+	// RVA: 0x24787D0 Offset: 0x24787D0 VA: 0x24787D0
 	public void .ctor(int intLen) { }
 
-	// RVA: 0x25F9BD0 Offset: 0x25F9BD0 VA: 0x25F9BD0
+	// RVA: 0x2478840 Offset: 0x2478840 VA: 0x2478840
 	public void .ctor(long[] ints) { }
 
-	// RVA: 0x25F9BFC Offset: 0x25F9BFC VA: 0x25F9BFC
+	// RVA: 0x247886C Offset: 0x247886C VA: 0x247886C
 	public void .ctor(long[] ints, int off, int len) { }
 
-	// RVA: 0x25F9CCC Offset: 0x25F9CCC VA: 0x25F9CCC
+	// RVA: 0x247893C Offset: 0x247893C VA: 0x247893C
 	public void .ctor(BigInteger bigInt) { }
 
-	// RVA: 0x25F9F94 Offset: 0x25F9F94 VA: 0x25F9F94
+	// RVA: 0x2478C04 Offset: 0x2478C04 VA: 0x2478C04
 	public bool IsOne() { }
 
-	// RVA: 0x25FA034 Offset: 0x25FA034 VA: 0x25FA034
+	// RVA: 0x2478CA4 Offset: 0x2478CA4 VA: 0x2478CA4
 	public bool IsZero() { }
 
-	// RVA: 0x25FA0AC Offset: 0x25FA0AC VA: 0x25FA0AC
+	// RVA: 0x2478D1C Offset: 0x2478D1C VA: 0x2478D1C
 	public int GetUsedLength() { }
 
-	// RVA: 0x25FA0E0 Offset: 0x25FA0E0 VA: 0x25FA0E0
+	// RVA: 0x2478D50 Offset: 0x2478D50 VA: 0x2478D50
 	public int GetUsedLengthFrom(int from) { }
 
-	// RVA: 0x25FA1D4 Offset: 0x25FA1D4 VA: 0x25FA1D4
+	// RVA: 0x2478E44 Offset: 0x2478E44 VA: 0x2478E44
 	public int Degree() { }
 
-	// RVA: 0x25FA48C Offset: 0x25FA48C VA: 0x25FA48C
+	// RVA: 0x24790FC Offset: 0x24790FC VA: 0x24790FC
 	private int DegreeFrom(int limit) { }
 
-	// RVA: 0x25FA2C0 Offset: 0x25FA2C0 VA: 0x25FA2C0
+	// RVA: 0x2478F30 Offset: 0x2478F30 VA: 0x2478F30
 	private static int BitLength(long w) { }
 
-	// RVA: 0x25FA570 Offset: 0x25FA570 VA: 0x25FA570
+	// RVA: 0x24791E0 Offset: 0x24791E0 VA: 0x24791E0
 	private long[] ResizedInts(int newLen) { }
 
-	// RVA: 0x25FA614 Offset: 0x25FA614 VA: 0x25FA614
+	// RVA: 0x2479284 Offset: 0x2479284 VA: 0x2479284
 	public BigInteger ToBigInteger() { }
 
-	// RVA: 0x25FA8E4 Offset: 0x25FA8E4 VA: 0x25FA8E4
+	// RVA: 0x2479554 Offset: 0x2479554 VA: 0x2479554
 	private static long ShiftUp(long[] x, int xOff, int count, int shift) { }
 
-	// RVA: 0x25FA9A8 Offset: 0x25FA9A8 VA: 0x25FA9A8
+	// RVA: 0x2479618 Offset: 0x2479618 VA: 0x2479618
 	private static long ShiftUp(long[] x, int xOff, long[] z, int zOff, int count, int shift) { }
 
-	// RVA: 0x25FAAA4 Offset: 0x25FAAA4 VA: 0x25FAAA4
+	// RVA: 0x2479714 Offset: 0x2479714 VA: 0x2479714
 	public LongArray AddOne() { }
 
-	// RVA: 0x25FABB4 Offset: 0x25FABB4 VA: 0x25FABB4
+	// RVA: 0x2479824 Offset: 0x2479824 VA: 0x2479824
 	private void AddShiftedByBitsSafe(LongArray other, int otherDegree, int bits) { }
 
-	// RVA: 0x25FADC0 Offset: 0x25FADC0 VA: 0x25FADC0
+	// RVA: 0x2479A30 Offset: 0x2479A30 VA: 0x2479A30
 	private static long AddShiftedUp(long[] x, int xOff, long[] y, int yOff, int count, int shift) { }
 
-	// RVA: 0x25FAEB4 Offset: 0x25FAEB4 VA: 0x25FAEB4
+	// RVA: 0x2479B24 Offset: 0x2479B24 VA: 0x2479B24
 	private static long AddShiftedDown(long[] x, int xOff, long[] y, int yOff, int count, int shift) { }
 
-	// RVA: 0x25FAFA4 Offset: 0x25FAFA4 VA: 0x25FAFA4
+	// RVA: 0x2479C14 Offset: 0x2479C14 VA: 0x2479C14
 	public void AddShiftedByWords(LongArray other, int words) { }
 
-	// RVA: 0x25FACF4 Offset: 0x25FACF4 VA: 0x25FACF4
+	// RVA: 0x2479964 Offset: 0x2479964 VA: 0x2479964
 	private static void Add(long[] x, int xOff, long[] y, int yOff, int count) { }
 
-	// RVA: 0x25FB0B0 Offset: 0x25FB0B0 VA: 0x25FB0B0
+	// RVA: 0x2479D20 Offset: 0x2479D20 VA: 0x2479D20
 	private static void Add(long[] x, int xOff, long[] y, int yOff, long[] z, int zOff, int count) { }
 
-	// RVA: 0x25FB1C0 Offset: 0x25FB1C0 VA: 0x25FB1C0
+	// RVA: 0x2479E30 Offset: 0x2479E30 VA: 0x2479E30
 	private static void AddBoth(long[] x, int xOff, long[] y1, int y1Off, long[] y2, int y2Off, int count) { }
 
-	// RVA: 0x25FB2F0 Offset: 0x25FB2F0 VA: 0x25FB2F0
+	// RVA: 0x2479F60 Offset: 0x2479F60 VA: 0x2479F60
 	private static void Distribute(long[] x, int src, int dst1, int dst2, int count) { }
 
-	// RVA: 0x25FB3E4 Offset: 0x25FB3E4 VA: 0x25FB3E4
+	// RVA: 0x247A054 Offset: 0x247A054 VA: 0x247A054
 	public int get_Length() { }
 
-	// RVA: 0x25FB410 Offset: 0x25FB410 VA: 0x25FB410
+	// RVA: 0x247A080 Offset: 0x247A080 VA: 0x247A080
 	private static void FlipWord(long[] buf, int off, int bit, long word) { }
 
-	// RVA: 0x25FB4D8 Offset: 0x25FB4D8 VA: 0x25FB4D8
+	// RVA: 0x247A148 Offset: 0x247A148 VA: 0x247A148
 	public bool TestBitZero() { }
 
-	// RVA: 0x25FB548 Offset: 0x25FB548 VA: 0x25FB548
+	// RVA: 0x247A1B8 Offset: 0x247A1B8 VA: 0x247A1B8
 	private static bool TestBit(long[] buf, int off, int n) { }
 
-	// RVA: 0x25FB5C4 Offset: 0x25FB5C4 VA: 0x25FB5C4
+	// RVA: 0x247A234 Offset: 0x247A234 VA: 0x247A234
 	private static void FlipBit(long[] buf, int off, int n) { }
 
-	// RVA: 0x25FB640 Offset: 0x25FB640 VA: 0x25FB640
+	// RVA: 0x247A2B0 Offset: 0x247A2B0 VA: 0x247A2B0
 	private static void MultiplyWord(long a, long[] b, int bLen, long[] c, int cOff) { }
 
-	// RVA: 0x25FB78C Offset: 0x25FB78C VA: 0x25FB78C
+	// RVA: 0x247A3FC Offset: 0x247A3FC VA: 0x247A3FC
 	public LongArray ModMultiplyLD(LongArray other, int m, int[] ks) { }
 
-	// RVA: 0x25FBEB8 Offset: 0x25FBEB8 VA: 0x25FBEB8
+	// RVA: 0x247AB28 Offset: 0x247AB28 VA: 0x247AB28
 	public LongArray ModMultiply(LongArray other, int m, int[] ks) { }
 
-	// RVA: 0x25FC418 Offset: 0x25FC418 VA: 0x25FC418
+	// RVA: 0x247B088 Offset: 0x247B088 VA: 0x247B088
 	public LongArray ModMultiplyAlt(LongArray other, int m, int[] ks) { }
 
-	// RVA: 0x25FCC20 Offset: 0x25FCC20 VA: 0x25FCC20
+	// RVA: 0x247B890 Offset: 0x247B890 VA: 0x247B890
 	public LongArray ModReduce(int m, int[] ks) { }
 
-	// RVA: 0x25FCFE0 Offset: 0x25FCFE0 VA: 0x25FCFE0
+	// RVA: 0x247BC50 Offset: 0x247BC50 VA: 0x247BC50
 	public LongArray Multiply(LongArray other, int m, int[] ks) { }
 
-	// RVA: 0x25FD4F0 Offset: 0x25FD4F0 VA: 0x25FD4F0
+	// RVA: 0x247C160 Offset: 0x247C160 VA: 0x247C160
 	public void Reduce(int m, int[] ks) { }
 
-	// RVA: 0x25FBDF8 Offset: 0x25FBDF8 VA: 0x25FBDF8
+	// RVA: 0x247AA68 Offset: 0x247AA68 VA: 0x247AA68
 	private static LongArray ReduceResult(long[] buf, int off, int len, int m, int[] ks) { }
 
-	// RVA: 0x25FCCE8 Offset: 0x25FCCE8 VA: 0x25FCCE8
+	// RVA: 0x247B958 Offset: 0x247B958 VA: 0x247B958
 	private static int ReduceInPlace(long[] buf, int off, int len, int m, int[] ks) { }
 
-	// RVA: 0x25FD960 Offset: 0x25FD960 VA: 0x25FD960
+	// RVA: 0x247C5D0 Offset: 0x247C5D0 VA: 0x247C5D0
 	private static void ReduceBitWise(long[] buf, int off, int BitLength, int m, int[] ks) { }
 
-	// RVA: 0x25FDA3C Offset: 0x25FDA3C VA: 0x25FDA3C
+	// RVA: 0x247C6AC Offset: 0x247C6AC VA: 0x247C6AC
 	private static void ReduceBit(long[] buf, int off, int bit, int m, int[] ks) { }
 
-	// RVA: 0x25FD74C Offset: 0x25FD74C VA: 0x25FD74C
+	// RVA: 0x247C3BC Offset: 0x247C3BC VA: 0x247C3BC
 	private static void ReduceWordWise(long[] buf, int off, int len, int toBit, int m, int[] ks) { }
 
-	// RVA: 0x25FDB7C Offset: 0x25FDB7C VA: 0x25FDB7C
+	// RVA: 0x247C7EC Offset: 0x247C7EC VA: 0x247C7EC
 	private static void ReduceWord(long[] buf, int off, int bit, long word, int m, int[] ks) { }
 
-	// RVA: 0x25FD5E8 Offset: 0x25FD5E8 VA: 0x25FD5E8
+	// RVA: 0x247C258 Offset: 0x247C258 VA: 0x247C258
 	private static void ReduceVectorWise(long[] buf, int off, int len, int words, int m, int[] ks) { }
 
-	// RVA: 0x25FDCB0 Offset: 0x25FDCB0 VA: 0x25FDCB0
+	// RVA: 0x247C920 Offset: 0x247C920 VA: 0x247C920
 	private static void FlipVector(long[] x, int xOff, long[] y, int yOff, int yLen, int bits) { }
 
-	// RVA: 0x25FDDE4 Offset: 0x25FDDE4 VA: 0x25FDDE4
+	// RVA: 0x247CA54 Offset: 0x247CA54 VA: 0x247CA54
 	public LongArray ModSquare(int m, int[] ks) { }
 
-	// RVA: 0x25FE158 Offset: 0x25FE158 VA: 0x25FE158
+	// RVA: 0x247CDC8 Offset: 0x247CDC8 VA: 0x247CDC8
 	public LongArray ModSquareN(int n, int m, int[] ks) { }
 
-	// RVA: 0x25FE3C8 Offset: 0x25FE3C8 VA: 0x25FE3C8
+	// RVA: 0x247D038 Offset: 0x247D038 VA: 0x247D038
 	public LongArray Square(int m, int[] ks) { }
 
-	// RVA: 0x25FE290 Offset: 0x25FE290 VA: 0x25FE290
+	// RVA: 0x247CF00 Offset: 0x247CF00 VA: 0x247CF00
 	private static void SquareInPlace(long[] x, int xLen, int m, int[] ks) { }
 
-	// RVA: 0x25FCA40 Offset: 0x25FCA40 VA: 0x25FCA40
+	// RVA: 0x247B6B0 Offset: 0x247B6B0 VA: 0x247B6B0
 	private static void Interleave(long[] x, int xOff, long[] z, int zOff, int count, int width) { }
 
-	// RVA: 0x25FE570 Offset: 0x25FE570 VA: 0x25FE570
+	// RVA: 0x247D1E0 Offset: 0x247D1E0 VA: 0x247D1E0
 	private static void Interleave3(long[] x, int xOff, long[] z, int zOff, int count) { }
 
-	// RVA: 0x25FE9E0 Offset: 0x25FE9E0 VA: 0x25FE9E0
+	// RVA: 0x247D650 Offset: 0x247D650 VA: 0x247D650
 	private static long Interleave3(long x) { }
 
-	// RVA: 0x25FEA78 Offset: 0x25FEA78 VA: 0x25FEA78
+	// RVA: 0x247D6E8 Offset: 0x247D6E8 VA: 0x247D6E8
 	private static long Interleave3_21to63(int x) { }
 
-	// RVA: 0x25FE688 Offset: 0x25FE688 VA: 0x25FE688
+	// RVA: 0x247D2F8 Offset: 0x247D2F8 VA: 0x247D2F8
 	private static void Interleave5(long[] x, int xOff, long[] z, int zOff, int count) { }
 
-	// RVA: 0x25FEBB0 Offset: 0x25FEBB0 VA: 0x25FEBB0
+	// RVA: 0x247D820 Offset: 0x247D820 VA: 0x247D820
 	private static long Interleave5(long x) { }
 
-	// RVA: 0x25FEC68 Offset: 0x25FEC68 VA: 0x25FEC68
+	// RVA: 0x247D8D8 Offset: 0x247D8D8 VA: 0x247D8D8
 	private static long Interleave3_13to65(int x) { }
 
-	// RVA: 0x25FE7A0 Offset: 0x25FE7A0 VA: 0x25FE7A0
+	// RVA: 0x247D410 Offset: 0x247D410 VA: 0x247D410
 	private static void Interleave7(long[] x, int xOff, long[] z, int zOff, int count) { }
 
-	// RVA: 0x25FED58 Offset: 0x25FED58 VA: 0x25FED58
+	// RVA: 0x247D9C8 Offset: 0x247D9C8 VA: 0x247D9C8
 	private static long Interleave7(long x) { }
 
-	// RVA: 0x25FE8B8 Offset: 0x25FE8B8 VA: 0x25FE8B8
+	// RVA: 0x247D528 Offset: 0x247D528 VA: 0x247D528
 	private static void Interleave2_n(long[] x, int xOff, long[] z, int zOff, int count, int rounds) { }
 
-	// RVA: 0x25FEFB8 Offset: 0x25FEFB8 VA: 0x25FEFB8
+	// RVA: 0x247DC28 Offset: 0x247DC28 VA: 0x247DC28
 	private static long Interleave2_n(long x, int rounds) { }
 
-	// RVA: 0x25FF0CC Offset: 0x25FF0CC VA: 0x25FF0CC
+	// RVA: 0x247DD3C Offset: 0x247DD3C VA: 0x247DD3C
 	private static long Interleave4_16to64(int x) { }
 
-	// RVA: 0x25FDFD8 Offset: 0x25FDFD8 VA: 0x25FDFD8
+	// RVA: 0x247CC48 Offset: 0x247CC48 VA: 0x247CC48
 	private static long Interleave2_32to64(int x) { }
 
-	// RVA: 0x25FF1BC Offset: 0x25FF1BC VA: 0x25FF1BC
+	// RVA: 0x247DE2C Offset: 0x247DE2C VA: 0x247DE2C
 	public LongArray ModInverse(int m, int[] ks) { }
 
-	// RVA: 0x25FF908 Offset: 0x25FF908 VA: 0x25FF908 Slot: 0
+	// RVA: 0x247E578 Offset: 0x247E578 VA: 0x247E578 Slot: 0
 	public override bool Equals(object obj) { }
 
-	// RVA: 0x25FF9A0 Offset: 0x25FF9A0 VA: 0x25FF9A0 Slot: 4
+	// RVA: 0x247E610 Offset: 0x247E610 VA: 0x247E610 Slot: 4
 	public virtual bool Equals(LongArray other) { }
 
-	// RVA: 0x25FFA98 Offset: 0x25FFA98 VA: 0x25FFA98 Slot: 2
+	// RVA: 0x247E708 Offset: 0x247E708 VA: 0x247E708 Slot: 2
 	public override int GetHashCode() { }
 
-	// RVA: 0x25FF890 Offset: 0x25FF890 VA: 0x25FF890
+	// RVA: 0x247E500 Offset: 0x247E500 VA: 0x247E500
 	public LongArray Copy() { }
 
-	// RVA: 0x25FFB40 Offset: 0x25FFB40 VA: 0x25FFB40 Slot: 3
+	// RVA: 0x247E7B0 Offset: 0x247E7B0 VA: 0x247E7B0 Slot: 3
 	public override string ToString() { }
 
-	// RVA: 0x25FFD6C Offset: 0x25FFD6C VA: 0x25FFD6C
+	// RVA: 0x247E9DC Offset: 0x247E9DC VA: 0x247E9DC
 	private static void .cctor() { }
 }
 
@@ -635,10 +757,10 @@ public abstract class AbstractECMultiplier : ECMultiplier // TypeDefIndex: 5137
 {
 	// Methods
 
-	// RVA: 0x25FFEF8 Offset: 0x25FFEF8 VA: 0x25FFEF8
+	// RVA: 0x247EB68 Offset: 0x247EB68 VA: 0x247EB68
 	protected void .ctor() { }
 
-	// RVA: 0x25FFF00 Offset: 0x25FFF00 VA: 0x25FFF00 Slot: 5
+	// RVA: 0x247EB70 Offset: 0x247EB70 VA: 0x247EB70 Slot: 5
 	public virtual ECPoint Multiply(ECPoint p, BigInteger k) { }
 
 	// RVA: -1 Offset: -1 Slot: 6
@@ -659,13 +781,13 @@ public class FixedPointCombMultiplier : AbstractECMultiplier // TypeDefIndex: 51
 {
 	// Methods
 
-	// RVA: 0x2600018 Offset: 0x2600018 VA: 0x2600018
+	// RVA: 0x247EC88 Offset: 0x247EC88 VA: 0x247EC88
 	public void .ctor() { }
 
-	// RVA: 0x2600020 Offset: 0x2600020 VA: 0x2600020 Slot: 6
+	// RVA: 0x247EC90 Offset: 0x247EC90 VA: 0x247EC90 Slot: 6
 	protected override ECPoint MultiplyPositive(ECPoint p, BigInteger k) { }
 
-	// RVA: 0x2600824 Offset: 0x2600824 VA: 0x2600824 Slot: 7
+	// RVA: 0x247F494 Offset: 0x247F494 VA: 0x247F494 Slot: 7
 	protected virtual int GetWidthForCombSize(int combSize) { }
 }
 
@@ -682,19 +804,19 @@ public class FixedPointPreCompInfo : PreCompInfo // TypeDefIndex: 5140
 
 	// Methods
 
-	// RVA: 0x2600834 Offset: 0x2600834 VA: 0x2600834
+	// RVA: 0x247F4A4 Offset: 0x247F4A4 VA: 0x247F4A4
 	public void .ctor() { }
 
-	// RVA: 0x2600844 Offset: 0x2600844 VA: 0x2600844 Slot: 4
+	// RVA: 0x247F4B4 Offset: 0x247F4B4 VA: 0x247F4B4 Slot: 4
 	public virtual ECPoint[] get_PreComp() { }
 
-	// RVA: 0x260084C Offset: 0x260084C VA: 0x260084C Slot: 5
+	// RVA: 0x247F4BC Offset: 0x247F4BC VA: 0x247F4BC Slot: 5
 	public virtual void set_PreComp(ECPoint[] value) { }
 
-	// RVA: 0x2600854 Offset: 0x2600854 VA: 0x2600854 Slot: 6
+	// RVA: 0x247F4C4 Offset: 0x247F4C4 VA: 0x247F4C4 Slot: 6
 	public virtual int get_Width() { }
 
-	// RVA: 0x260085C Offset: 0x260085C VA: 0x260085C Slot: 7
+	// RVA: 0x247F4CC Offset: 0x247F4CC VA: 0x247F4CC Slot: 7
 	public virtual void set_Width(int value) { }
 }
 
@@ -706,19 +828,19 @@ public class FixedPointUtilities // TypeDefIndex: 5141
 
 	// Methods
 
-	// RVA: 0x2600864 Offset: 0x2600864 VA: 0x2600864
+	// RVA: 0x247F4D4 Offset: 0x247F4D4 VA: 0x247F4D4
 	public void .ctor() { }
 
-	// RVA: 0x26002A0 Offset: 0x26002A0 VA: 0x26002A0
+	// RVA: 0x247EF10 Offset: 0x247EF10 VA: 0x247EF10
 	public static int GetCombSize(ECCurve c) { }
 
-	// RVA: 0x260086C Offset: 0x260086C VA: 0x260086C
+	// RVA: 0x247F4DC Offset: 0x247F4DC VA: 0x247F4DC
 	public static FixedPointPreCompInfo GetFixedPointPreCompInfo(PreCompInfo preCompInfo) { }
 
-	// RVA: 0x2600300 Offset: 0x2600300 VA: 0x2600300
+	// RVA: 0x247EF70 Offset: 0x247EF70 VA: 0x247EF70
 	public static FixedPointPreCompInfo Precompute(ECPoint p, int minWidth) { }
 
-	// RVA: 0x2600900 Offset: 0x2600900 VA: 0x2600900
+	// RVA: 0x247F570 Offset: 0x247F570 VA: 0x247F570
 	private static void .cctor() { }
 }
 
@@ -731,10 +853,10 @@ public class GlvMultiplier : AbstractECMultiplier // TypeDefIndex: 5142
 
 	// Methods
 
-	// RVA: 0x260095C Offset: 0x260095C VA: 0x260095C
+	// RVA: 0x247F5CC Offset: 0x247F5CC VA: 0x247F5CC
 	public void .ctor(ECCurve curve, GlvEndomorphism glvEndomorphism) { }
 
-	// RVA: 0x2600A28 Offset: 0x2600A28 VA: 0x2600A28 Slot: 6
+	// RVA: 0x247F698 Offset: 0x247F698 VA: 0x247F698 Slot: 6
 	protected override ECPoint MultiplyPositive(ECPoint p, BigInteger k) { }
 }
 
@@ -747,13 +869,13 @@ public class WNafL2RMultiplier : AbstractECMultiplier // TypeDefIndex: 5144
 {
 	// Methods
 
-	// RVA: 0x2600DC4 Offset: 0x2600DC4 VA: 0x2600DC4
+	// RVA: 0x247FA34 Offset: 0x247FA34 VA: 0x247FA34
 	public void .ctor() { }
 
-	// RVA: 0x2600DCC Offset: 0x2600DCC VA: 0x2600DCC Slot: 6
+	// RVA: 0x247FA3C Offset: 0x247FA3C VA: 0x247FA3C Slot: 6
 	protected override ECPoint MultiplyPositive(ECPoint p, BigInteger k) { }
 
-	// RVA: 0x2601D70 Offset: 0x2601D70 VA: 0x2601D70 Slot: 7
+	// RVA: 0x24809E0 Offset: 0x24809E0 VA: 0x24809E0 Slot: 7
 	protected virtual int GetWindowSize(int bits) { }
 }
 
@@ -772,25 +894,25 @@ public class WNafPreCompInfo : PreCompInfo // TypeDefIndex: 5145
 
 	// Methods
 
-	// RVA: 0x2601E44 Offset: 0x2601E44 VA: 0x2601E44
+	// RVA: 0x2480AB4 Offset: 0x2480AB4 VA: 0x2480AB4
 	public void .ctor() { }
 
-	// RVA: 0x2601E4C Offset: 0x2601E4C VA: 0x2601E4C Slot: 4
+	// RVA: 0x2480ABC Offset: 0x2480ABC VA: 0x2480ABC Slot: 4
 	public virtual ECPoint[] get_PreComp() { }
 
-	// RVA: 0x2601E54 Offset: 0x2601E54 VA: 0x2601E54 Slot: 5
+	// RVA: 0x2480AC4 Offset: 0x2480AC4 VA: 0x2480AC4 Slot: 5
 	public virtual void set_PreComp(ECPoint[] value) { }
 
-	// RVA: 0x2601E5C Offset: 0x2601E5C VA: 0x2601E5C Slot: 6
+	// RVA: 0x2480ACC Offset: 0x2480ACC VA: 0x2480ACC Slot: 6
 	public virtual ECPoint[] get_PreCompNeg() { }
 
-	// RVA: 0x2601E64 Offset: 0x2601E64 VA: 0x2601E64 Slot: 7
+	// RVA: 0x2480AD4 Offset: 0x2480AD4 VA: 0x2480AD4 Slot: 7
 	public virtual void set_PreCompNeg(ECPoint[] value) { }
 
-	// RVA: 0x2601E6C Offset: 0x2601E6C VA: 0x2601E6C Slot: 8
+	// RVA: 0x2480ADC Offset: 0x2480ADC VA: 0x2480ADC Slot: 8
 	public virtual ECPoint get_Twice() { }
 
-	// RVA: 0x2601E74 Offset: 0x2601E74 VA: 0x2601E74 Slot: 9
+	// RVA: 0x2480AE4 Offset: 0x2480AE4 VA: 0x2480AE4 Slot: 9
 	public virtual void set_Twice(ECPoint value) { }
 }
 
@@ -806,55 +928,55 @@ public abstract class WNafUtilities // TypeDefIndex: 5146
 
 	// Methods
 
-	// RVA: 0x2601E7C Offset: 0x2601E7C VA: 0x2601E7C
+	// RVA: 0x2480AEC Offset: 0x2480AEC VA: 0x2480AEC
 	protected void .ctor() { }
 
-	// RVA: 0x2601E84 Offset: 0x2601E84 VA: 0x2601E84
+	// RVA: 0x2480AF4 Offset: 0x2480AF4 VA: 0x2480AF4
 	public static int[] GenerateCompactNaf(BigInteger k) { }
 
-	// RVA: 0x2601A18 Offset: 0x2601A18 VA: 0x2601A18
+	// RVA: 0x2480688 Offset: 0x2480688 VA: 0x2480688
 	public static int[] GenerateCompactWindowNaf(int width, BigInteger k) { }
 
-	// RVA: 0x2602214 Offset: 0x2602214 VA: 0x2602214
+	// RVA: 0x2480E84 Offset: 0x2480E84 VA: 0x2480E84
 	public static byte[] GenerateJsf(BigInteger g, BigInteger h) { }
 
-	// RVA: 0x26025A0 Offset: 0x26025A0 VA: 0x26025A0
+	// RVA: 0x2481210 Offset: 0x2481210 VA: 0x2481210
 	public static byte[] GenerateNaf(BigInteger k) { }
 
-	// RVA: 0x26027BC Offset: 0x26027BC VA: 0x26027BC
+	// RVA: 0x248142C Offset: 0x248142C VA: 0x248142C
 	public static byte[] GenerateWindowNaf(int width, BigInteger k) { }
 
-	// RVA: 0x2602AC8 Offset: 0x2602AC8 VA: 0x2602AC8
+	// RVA: 0x2481738 Offset: 0x2481738 VA: 0x2481738
 	public static int GetNafWeight(BigInteger k) { }
 
-	// RVA: 0x2602B70 Offset: 0x2602B70 VA: 0x2602B70
+	// RVA: 0x24817E0 Offset: 0x24817E0 VA: 0x24817E0
 	public static WNafPreCompInfo GetWNafPreCompInfo(ECPoint p) { }
 
-	// RVA: 0x2602C30 Offset: 0x2602C30 VA: 0x2602C30
+	// RVA: 0x24818A0 Offset: 0x24818A0 VA: 0x24818A0
 	public static WNafPreCompInfo GetWNafPreCompInfo(PreCompInfo preCompInfo) { }
 
-	// RVA: 0x2601DD4 Offset: 0x2601DD4 VA: 0x2601DD4
+	// RVA: 0x2480A44 Offset: 0x2480A44 VA: 0x2480A44
 	public static int GetWindowSize(int bits) { }
 
-	// RVA: 0x2602CBC Offset: 0x2602CBC VA: 0x2602CBC
+	// RVA: 0x248192C Offset: 0x248192C VA: 0x248192C
 	public static int GetWindowSize(int bits, int[] windowSizeCutoffs) { }
 
-	// RVA: 0x2602D3C Offset: 0x2602D3C VA: 0x2602D3C
+	// RVA: 0x24819AC Offset: 0x24819AC VA: 0x24819AC
 	public static ECPoint MapPointWithPrecomp(ECPoint p, int width, bool includeNegated, ECPointMap pointMap) { }
 
-	// RVA: 0x26011D4 Offset: 0x26011D4 VA: 0x26011D4
+	// RVA: 0x247FE44 Offset: 0x247FE44 VA: 0x247FE44
 	public static WNafPreCompInfo Precompute(ECPoint p, int width, bool includeNegated) { }
 
-	// RVA: 0x2602514 Offset: 0x2602514 VA: 0x2602514
+	// RVA: 0x2481184 Offset: 0x2481184 VA: 0x2481184
 	private static byte[] Trim(byte[] a, int length) { }
 
-	// RVA: 0x2602188 Offset: 0x2602188 VA: 0x2602188
+	// RVA: 0x2480DF8 Offset: 0x2480DF8 VA: 0x2480DF8
 	private static int[] Trim(int[] a, int length) { }
 
-	// RVA: 0x260325C Offset: 0x260325C VA: 0x260325C
+	// RVA: 0x2481ECC Offset: 0x2481ECC VA: 0x2481ECC
 	private static ECPoint[] ResizeTable(ECPoint[] a, int length) { }
 
-	// RVA: 0x26032EC Offset: 0x26032EC VA: 0x26032EC
+	// RVA: 0x2481F5C Offset: 0x2481F5C VA: 0x2481F5C
 	private static void .cctor() { }
 }
 
@@ -866,135 +988,13 @@ public class WTauNafMultiplier : AbstractECMultiplier // TypeDefIndex: 5147
 
 	// Methods
 
-	// RVA: 0x26033E0 Offset: 0x26033E0 VA: 0x26033E0
+	// RVA: 0x2482050 Offset: 0x2482050 VA: 0x2482050
 	public void .ctor() { }
 
-	// RVA: 0x26033E8 Offset: 0x26033E8 VA: 0x26033E8 Slot: 6
+	// RVA: 0x2482058 Offset: 0x2482058 VA: 0x2482058 Slot: 6
 	protected override ECPoint MultiplyPositive(ECPoint point, BigInteger k) { }
 
-	// RVA: 0x260369C Offset: 0x260369C VA: 0x260369C
+	// RVA: 0x248230C Offset: 0x248230C VA: 0x248230C
 	private AbstractF2mPoint MultiplyWTnaf(AbstractF2mPoint p, ZTauElement lambda, PreCompInfo preCompInfo, sbyte a, sbyte mu) { }
 
-	// RVA: 0x2603800 Offset: 0x2603800 VA: 0x2603800
-	private static AbstractF2mPoint MultiplyFromWTnaf(AbstractF2mPoint p, sbyte[] u, PreCompInfo preCompInfo) { }
-
-	// RVA: 0x2603EB4 Offset: 0x2603EB4 VA: 0x2603EB4
-	private static void .cctor() { }
-}
-
-// Namespace: Org.BouncyCastle.Math.EC.Multiplier
-public class WTauNafPreCompInfo : PreCompInfo // TypeDefIndex: 5148
-{
-	// Fields
-	protected AbstractF2mPoint[] m_preComp; // 0x10
-
-	// Properties
-	public virtual AbstractF2mPoint[] PreComp { get; set; }
-
-	// Methods
-
-	// RVA: 0x2603EAC Offset: 0x2603EAC VA: 0x2603EAC
-	public void .ctor() { }
-
-	// RVA: 0x2603F10 Offset: 0x2603F10 VA: 0x2603F10 Slot: 4
-	public virtual AbstractF2mPoint[] get_PreComp() { }
-
-	// RVA: 0x2603F18 Offset: 0x2603F18 VA: 0x2603F18 Slot: 5
-	public virtual void set_PreComp(AbstractF2mPoint[] value) { }
-}
-
-// Namespace: Org.BouncyCastle.Math.EC
-public class ScaleXPointMap : ECPointMap // TypeDefIndex: 5149
-{
-	// Fields
-	protected readonly ECFieldElement scale; // 0x10
-
-	// Methods
-
-	// RVA: 0x2603F20 Offset: 0x2603F20 VA: 0x2603F20
-	public void .ctor(ECFieldElement scale) { }
-
-	// RVA: 0x2603F4C Offset: 0x2603F4C VA: 0x2603F4C Slot: 5
-	public virtual ECPoint Map(ECPoint p) { }
-}
-
-// Namespace: Org.BouncyCastle.Math.Field
-public abstract class FiniteFields // TypeDefIndex: 5150
-{
-	// Fields
-	internal static readonly IFiniteField GF_2; // 0x0
-	internal static readonly IFiniteField GF_3; // 0x8
-
-	// Methods
-
-	// RVA: 0x2603F8C Offset: 0x2603F8C VA: 0x2603F8C
-	protected void .ctor() { }
-
-	// RVA: 0x2603F94 Offset: 0x2603F94 VA: 0x2603F94
-	public static IPolynomialExtensionField GetBinaryExtensionField(int[] exponents) { }
-
-	// RVA: 0x26041D8 Offset: 0x26041D8 VA: 0x26041D8
-	public static IFiniteField GetPrimeField(BigInteger characteristic) { }
-
-	// RVA: 0x260439C Offset: 0x260439C VA: 0x260439C
-	private static void .cctor() { }
-}
-
-// Namespace: Org.BouncyCastle.Math.Field
-internal class GenericPolynomialExtensionField : IPolynomialExtensionField, IExtensionField, IFiniteField // TypeDefIndex: 5151
-{
-	// Fields
-	protected readonly IFiniteField subfield; // 0x10
-	protected readonly IPolynomial minimalPolynomial; // 0x18
-
-	// Properties
-	public virtual BigInteger Characteristic { get; }
-	public virtual int Dimension { get; }
-	public virtual IFiniteField Subfield { get; }
-	public virtual int Degree { get; }
-	public virtual IPolynomial MinimalPolynomial { get; }
-
-	// Methods
-
-	// RVA: 0x26041A0 Offset: 0x26041A0 VA: 0x26041A0
-	internal void .ctor(IFiniteField subfield, IPolynomial polynomial) { }
-
-	// RVA: 0x26045BC Offset: 0x26045BC VA: 0x26045BC Slot: 9
-	public virtual BigInteger get_Characteristic() { }
-
-	// RVA: 0x2604670 Offset: 0x2604670 VA: 0x2604670 Slot: 10
-	public virtual int get_Dimension() { }
-
-	// RVA: 0x26047AC Offset: 0x26047AC VA: 0x26047AC Slot: 11
-	public virtual IFiniteField get_Subfield() { }
-
-	// RVA: 0x26047B4 Offset: 0x26047B4 VA: 0x26047B4 Slot: 12
-	public virtual int get_Degree() { }
-
-	// RVA: 0x2604868 Offset: 0x2604868 VA: 0x2604868 Slot: 13
-	public virtual IPolynomial get_MinimalPolynomial() { }
-
-	// RVA: 0x2604870 Offset: 0x2604870 VA: 0x2604870 Slot: 0
-	public override bool Equals(object obj) { }
-
-	// RVA: 0x2604978 Offset: 0x2604978 VA: 0x2604978 Slot: 2
-	public override int GetHashCode() { }
-}
-
-// Namespace: Org.BouncyCastle.Math.Field
-internal class GF2Polynomial : IPolynomial // TypeDefIndex: 5152
-{
-	// Fields
-	protected readonly int[] exponents; // 0x10
-
-	// Properties
-	public virtual int Degree { get; }
-
-	// Methods
-
-	// RVA: 0x2604168 Offset: 0x2604168 VA: 0x2604168
-	internal void .ctor(int[] exponents) { }
-
-	// RVA: 0x2604480 Offset: 0x2604480 VA: 0x2604480 Slot: 6
-	public virtual int get_Degree() { }
-
+	// RVA: 0x2482470 Offset: 0x2482470 VA: 0x2482470

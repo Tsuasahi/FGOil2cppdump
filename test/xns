@@ -1,10 +1,375 @@
+	// RVA: 0x13FCB6C Offset: 0x13FCB6C VA: 0x13FCB6C
+	private void <OpenViewLocal>m__2(string msg) { }
 
-	// RVA: 0x1673C6C Offset: 0x1673C6C VA: 0x1673C6C
+	[CompilerGeneratedAttribute] // RVA: 0xCC9E08 Offset: 0xCC9E08 VA: 0xCC9E08
+	// RVA: 0x13FCB74 Offset: 0x13FCB74 VA: 0x13FCB74
+	private void <OpenViewLocal>m__3(string msg) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCC9E18 Offset: 0xCC9E18 VA: 0xCC9E18
+	// RVA: 0x13FCB78 Offset: 0x13FCB78 VA: 0x13FCB78
+	private void <OpenViewLocal>m__4(string msg) { }
+}
+
+// Namespace: 
+public class Bezier // TypeDefIndex: 6574
+{
+	// Methods
+
+	// RVA: 0x19A538C Offset: 0x19A538C VA: 0x19A538C
+	public void .ctor() { }
+
+	// RVA: 0x19A5394 Offset: 0x19A5394 VA: 0x19A5394
+	public static Vector3 GetPoint(Vector3 p0, Vector3 p1, Vector3 p2, float t) { }
+
+	// RVA: 0x19A54AC Offset: 0x19A54AC VA: 0x19A54AC
+	public static Vector3 GetPoint(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t) { }
+
+	// RVA: 0x19A56A4 Offset: 0x19A56A4 VA: 0x19A56A4
+	public static Vector3 GetFirstDerivative(Vector3 p0, Vector3 p1, Vector3 p2, float t) { }
+
+	// RVA: 0x19A5800 Offset: 0x19A5800 VA: 0x19A5800
+	public static Vector3 GetFirstDerivative(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t) { }
+}
+
+// Namespace: 
+public enum BezierControlPointMode // TypeDefIndex: 6575
+{
+	// Fields
+	public int value__; // 0x0
+	public const BezierControlPointMode Free = 0;
+	public const BezierControlPointMode Aligned = 1;
+	public const BezierControlPointMode Mirrored = 2;
+}
+
+// Namespace: 
+public class Custom2dSplineMesh : MonoBehaviour // TypeDefIndex: 6576
+{
+	// Fields
+	private static float JUMP_THRESH_HOLD; // 0x0
+	[SerializeField] // RVA: 0xC55314 Offset: 0xC55314 VA: 0xC55314
+	[HideInInspector] // RVA: 0xC55314 Offset: 0xC55314 VA: 0xC55314
+	public Vector3[] points; // 0x18
+	[SerializeField] // RVA: 0xC5534C Offset: 0xC5534C VA: 0xC5534C
+	private BezierControlPointMode[] modes; // 0x20
+	[SerializeField] // RVA: 0xC5535C Offset: 0xC5535C VA: 0xC5535C
+	private float[] curveWeight; // 0x28
+	public Vector3 PointOffset; // 0x30
+	private float PathRate; // 0x3C
+	public Custom2dSplineMesh.FlattenAxis flattenAxis; // 0x40
+	public bool FlipMesh; // 0x44
+	public bool DrawPath; // 0x45
+	public bool ResetOnUpdate; // 0x46
+	public float UVrate; // 0x48
+	public float UVslice; // 0x4C
+	public float complexity; // 0x50
+	public float directionChange; // 0x54
+	public bool createVertsEveryStep; // 0x58
+	public float DrawWidth; // 0x5C
+	public bool flattenAxisAsWidthVariable; // 0x60
+	public float AxisWidthOffset; // 0x64
+	public bool DrawCap; // 0x68
+	public bool CutOnFreePoint; // 0x69
+	public bool StrictUVmode; // 0x6A
+	public int CapComplexity; // 0x6C
+	private Mesh drawMesh; // 0x70
+	private MeshFilter meshFilter; // 0x78
+	private List<Vector3> splinePos; // 0x80
+	private float capVmin; // 0x88
+	private float capVmax; // 0x8C
+	private float lineVmin; // 0x90
+	private float lineVmax; // 0x94
+	private List<Vector3> verts; // 0x98
+	private List<int> trianges; // 0xA0
+	private List<Vector2> uvs; // 0xA8
+	private int vtxIdx; // 0xB0
+
+	// Properties
+	public int CurveCount { get; }
+	public int ControlPointCount { get; }
+
+	// Methods
+
+	// RVA: 0x1468C80 Offset: 0x1468C80 VA: 0x1468C80
+	public void .ctor() { }
+
+	// RVA: 0x1468D18 Offset: 0x1468D18 VA: 0x1468D18
+	public int get_CurveCount() { }
+
+	// RVA: 0x1468D60 Offset: 0x1468D60 VA: 0x1468D60
+	public int get_ControlPointCount() { }
+
+	// RVA: 0x1468D8C Offset: 0x1468D8C VA: 0x1468D8C
+	public Vector3 GetControlPoint(int index) { }
+
+	// RVA: 0x1468DE8 Offset: 0x1468DE8 VA: 0x1468DE8
+	public BezierControlPointMode GetControlPointMode(int index) { }
+
+	// RVA: 0x1468E58 Offset: 0x1468E58 VA: 0x1468E58
+	public void SetControlPoint(int index, Vector3 point) { }
+
+	// RVA: 0x14694EC Offset: 0x14694EC VA: 0x14694EC
+	public void SetControlPointMode(int index, BezierControlPointMode mode) { }
+
+	// RVA: 0x1469124 Offset: 0x1469124 VA: 0x1469124
+	private void EnforceMode(int index) { }
+
+	// RVA: 0x146957C Offset: 0x146957C VA: 0x146957C
+	public void Reset() { }
+
+	// RVA: 0x1469770 Offset: 0x1469770 VA: 0x1469770
+	public float GetTotalWeight() { }
+
+	// RVA: 0x14699D4 Offset: 0x14699D4 VA: 0x14699D4
+	public float GetCurveWeight(int index) { }
+
+	// RVA: 0x146980C Offset: 0x146980C VA: 0x146980C
+	private void checkWeightNull() { }
+
+	// RVA: 0x1469A48 Offset: 0x1469A48 VA: 0x1469A48
+	public void ChangeWeight(int index, float value) { }
+
+	// RVA: 0x1469AD8 Offset: 0x1469AD8 VA: 0x1469AD8
+	public int AddCurve(int index) { }
+
+	// RVA: 0x146A630 Offset: 0x146A630 VA: 0x146A630
+	public void DeletePoint(int index) { }
+
+	// RVA: 0x146A914 Offset: 0x146A914 VA: 0x146A914
+	public Vector3 GetPoint(float t) { }
+
+	// RVA: 0x146AC20 Offset: 0x146AC20 VA: 0x146AC20
+	public Vector3 GetPointAsWorld(float t) { }
+
+	// RVA: 0x146AD18 Offset: 0x146AD18 VA: 0x146AD18
+	public Vector3 GetPointAsWorldFlatten(float t) { }
+
+	// RVA: 0x146AE74 Offset: 0x146AE74 VA: 0x146AE74
+	public Vector3 GetVelocity(float t) { }
+
+	// RVA: 0x146B108 Offset: 0x146B108 VA: 0x146B108
+	public Vector3 GetDirection(float t) { }
+
+	// RVA: 0x146AAC0 Offset: 0x146AAC0 VA: 0x146AAC0
+	private int GetWeightedPointIdxAndT(float t, out float innerT) { }
+
+	// RVA: 0x146B138 Offset: 0x146B138 VA: 0x146B138
+	private void Start() { }
+
+	// RVA: 0x146C58C Offset: 0x146C58C VA: 0x146C58C
+	private void Update() { }
+
+	// RVA: 0x146C7CC Offset: 0x146C7CC VA: 0x146C7CC
+	private void OnDestroy() { }
+
+	// RVA: 0x146C874 Offset: 0x146C874 VA: 0x146C874
+	public void SetPathRate(float pRate) { }
+
+	// RVA: 0x146C87C Offset: 0x146C87C VA: 0x146C87C
+	public float GetPathRate() { }
+
+	// RVA: 0x146B1B0 Offset: 0x146B1B0 VA: 0x146B1B0
+	private void SetList() { }
+
+	// RVA: 0x146C884 Offset: 0x146C884 VA: 0x146C884
+	public void DrawOnUI() { }
+
+	// RVA: 0x146C888 Offset: 0x146C888 VA: 0x146C888
+	public void CreateMesh() { }
+
+	// RVA: 0x146C900 Offset: 0x146C900 VA: 0x146C900
+	public void RemoveMesh() { }
+
+	// RVA: 0x146C934 Offset: 0x146C934 VA: 0x146C934
+	private Vector3 upVec() { }
+
+	// RVA: 0x146C99C Offset: 0x146C99C VA: 0x146C99C
+	private Vector3 GetOffset(float rate) { }
+
+	// RVA: 0x146CC30 Offset: 0x146CC30 VA: 0x146CC30
+	private Vector3 RotateVec3(float angleDegree, Vector3 org) { }
+
+	// RVA: 0x146CB90 Offset: 0x146CB90 VA: 0x146CB90
+	private float GetWidth(float rate) { }
+
+	// RVA: 0x146AE44 Offset: 0x146AE44 VA: 0x146AE44
+	private Vector3 GetFlatten(Vector3 org) { }
+
+	// RVA: 0x146CD78 Offset: 0x146CD78 VA: 0x146CD78
+	private Vector2 GetUV(Vector3 pos, float coordU, float coordV) { }
+
+	// RVA: 0x146CDC0 Offset: 0x146CDC0 VA: 0x146CDC0
+	private Vector2 GetUV(Vector3 pos) { }
+
+	// RVA: 0x146CED8 Offset: 0x146CED8 VA: 0x146CED8
+	private bool isJumpcut(float now, float increment, out float jumps) { }
+
+	// RVA: 0x146B23C Offset: 0x146B23C VA: 0x146B23C
+	private void GenMesh() { }
+
+	// RVA: 0x146CFF0 Offset: 0x146CFF0 VA: 0x146CFF0
+	private void AddCap(Vector3 pos, Vector3 normalizedDir, Vector3 offset, float width, bool isTail) { }
+
+	// RVA: 0x146E494 Offset: 0x146E494 VA: 0x146E494
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public enum Custom2dSplineMesh.FlattenAxis // TypeDefIndex: 6577
+{
+	// Fields
+	public int value__; // 0x0
+	public const Custom2dSplineMesh.FlattenAxis X = 0;
+	public const Custom2dSplineMesh.FlattenAxis Y = 1;
+	public const Custom2dSplineMesh.FlattenAxis Z = 2;
+}
+
+// Namespace: 
+public class AppendPassiveSkillInfo // TypeDefIndex: 6578
+{
+	// Fields
+	public int skillId; // 0x10
+	public int skillLv; // 0x14
+
+	// Methods
+
+	// RVA: 0x107B42C Offset: 0x107B42C VA: 0x107B42C
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class BattleInfoData // TypeDefIndex: 6579
+{
+	// Fields
+	public int dataVer; // 0x10
+	public string appVer; // 0x18
+	public int targetUserSvtId; // 0x20
+	public int userEquipId; // 0x24
+	public bool useEventEquip; // 0x28
+	public DeckData myDeck; // 0x30
+	public DeckData[] enemyDeck; // 0x38
+	public BattleRaidInfo[] raidInfo; // 0x40
+	public BattleRaidInfo[] startRaidInfo; // 0x48
+	public BattleSuperBossInfo[] superBossInfo; // 0x50
+	public BattleWarBoardInfo warBoardBattleInfo; // 0x58
+	public UserFormationData userFormation; // 0x60
+	public BattleUserServantData[] userSvt; // 0x68
+	public DeckData transformDeck; // 0x70
+	public DeckData[] callDeck; // 0x78
+	public DeckData[] shiftDeck; // 0x80
+	public DeckData aiNpcDeck; // 0x88
+	public int friendId; // 0x90
+	public int id; // 0x94
+	public bool isCompress; // 0x98
+	public string resultInfo; // 0xA0
+	public string resultInfoBlob; // 0xA8
+	public int targetId; // 0xB0
+	public int useOrderCnt; // 0xB4
+	public int useOrderMax; // 0xB8
+	public int userId; // 0xBC
+	public int blankCardCnt; // 0xC0
+	public int groundNo; // 0xC4
+	public BattleInfoData.UsedBoostItem[] boostItems; // 0xC8
+	private BaseBattleServantEvent servantEvent; // 0xD0
+	public BattleInfoData.UsedBoost[] boosts; // 0xD8
+
+	// Properties
+	public BattleDeckServantData[] AiNpcDeckSvts { get; }
+
+	// Methods
+
+	// RVA: 0x1131558 Offset: 0x1131558 VA: 0x1131558
+	public void .ctor() { }
+
+	// RVA: 0x11315C0 Offset: 0x11315C0 VA: 0x11315C0
+	public BattleDeckServantData[] get_AiNpcDeckSvts() { }
+
+	// RVA: 0x113162C Offset: 0x113162C VA: 0x113162C
+	public void SetServantEvent(BaseBattleServantEvent svtEvent) { }
+
+	// RVA: 0x1131634 Offset: 0x1131634 VA: 0x1131634
+	public BaseBattleServantEvent GetServantEvent() { }
+
+	// RVA: 0x11316A0 Offset: 0x11316A0 VA: 0x11316A0
+	public BattleUserServantData getUserServantFromID(long usersvtid) { }
+
+	// RVA: 0x11317F8 Offset: 0x11317F8 VA: 0x11317F8
+	public BattleUserServantData getEquipFromID(long usersvtid) { }
+
+	// RVA: 0x1131950 Offset: 0x1131950 VA: 0x1131950
+	public DeckData getEnemyDeck(int battlecount) { }
+
+	// RVA: 0x11319A4 Offset: 0x11319A4 VA: 0x11319A4
+	public bool isNextBattle(int battlecount) { }
+
+	// RVA: 0x11319E0 Offset: 0x11319E0 VA: 0x11319E0
+	public bool isLastStage(int wavecount) { }
+
+	// RVA: 0x1131A1C Offset: 0x1131A1C VA: 0x1131A1C
+	public int getLastWave() { }
+
+	// RVA: 0x1131A4C Offset: 0x1131A4C VA: 0x1131A4C
+	public int getGroundNo() { }
+
+	// RVA: 0x1131A54 Offset: 0x1131A54 VA: 0x1131A54
+	public int[] getBoostSKillIds() { }
+
+	// RVA: 0x1131B68 Offset: 0x1131B68 VA: 0x1131B68
+	public int getBoostItemImageId(int index, bool reboot = False) { }
+
+	// RVA: 0x1131CEC Offset: 0x1131CEC VA: 0x1131CEC
+	public BattleBoostItem[] getBattleBoostItemList(bool reboot = False) { }
+
+	// RVA: 0x1131F8C Offset: 0x1131F8C VA: 0x1131F8C
+	public int getRaidDay(int uniqueId) { }
+
+	// RVA: 0x113201C Offset: 0x113201C VA: 0x113201C
+	public long getRaidBossMaxHp(int raidId) { }
+
+	// RVA: 0x11320AC Offset: 0x11320AC VA: 0x11320AC
+	public BattleRaidInfo getMyInfo(int day) { }
+
+	// RVA: 0x113213C Offset: 0x113213C VA: 0x113213C
+	public string getStartRaidState(int eventId, int raidId) { }
+
+	// RVA: 0x1132360 Offset: 0x1132360 VA: 0x1132360
+	public BattleDeckServantData getTransformDeckServantData(int uniqueId, int trIndex) { }
+
+	// RVA: 0x1132418 Offset: 0x1132418 VA: 0x1132418
+	public BattleDeckServantData getDeckServantData(int uniqueId) { }
+
+	// RVA: 0x11324B8 Offset: 0x11324B8 VA: 0x11324B8
+	public BattleDeckServantData getEnemyDeckServantData(int uniqueId) { }
+
+	// RVA: 0x11325A8 Offset: 0x11325A8 VA: 0x11325A8
+	public long getSuperBossMaxHp(int id) { }
+
+	// RVA: 0x1132638 Offset: 0x1132638 VA: 0x1132638
+	public long getSuperBossNokoriHp(int id) { }
+
+	// RVA: 0x11326CC Offset: 0x11326CC VA: 0x11326CC
+	public BattleDeckServantData getSummonServantData(int npcId) { }
+
+	// RVA: 0x11327BC Offset: 0x11327BC VA: 0x11327BC
+	public BattleDeckServantData getShiftServantData(int npcId) { }
+
+	// RVA: 0x11328AC Offset: 0x11328AC VA: 0x11328AC
+	public BattleDeckServantData getDefaultServantData(int uniqueId) { }
+
+	// RVA: 0x113299C Offset: 0x113299C VA: 0x113299C
+	public int getLastUniqueID() { }
+
+	// RVA: 0x1132A84 Offset: 0x1132A84 VA: 0x1132A84
+	public int getRaidId() { }
+
+	// RVA: 0x1132B90 Offset: 0x1132B90 VA: 0x1132B90
+	public int[] getAliveEnemys(int nowWaveCount, int[] nowWaveAliveEnemys) { }
+
+	// RVA: 0x1132DAC Offset: 0x1132DAC VA: 0x1132DAC
 	public int[] getBoostSkillArray() { }
 }
 
 // Namespace: 
-public class BattleInfoData.UsedBoostItem // TypeDefIndex: 6576
+public class BattleInfoData.UsedBoostItem // TypeDefIndex: 6580
 {
 	// Fields
 	public int itemId; // 0x10
@@ -12,12 +377,12 @@ public class BattleInfoData.UsedBoostItem // TypeDefIndex: 6576
 
 	// Methods
 
-	// RVA: 0x1673DC4 Offset: 0x1673DC4 VA: 0x1673DC4
+	// RVA: 0x1132F04 Offset: 0x1132F04 VA: 0x1132F04
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class BattleInfoData.UsedBoost // TypeDefIndex: 6577
+public class BattleInfoData.UsedBoost // TypeDefIndex: 6581
 {
 	// Fields
 	public int boostId; // 0x10
@@ -25,12 +390,12 @@ public class BattleInfoData.UsedBoost // TypeDefIndex: 6577
 
 	// Methods
 
-	// RVA: 0x1673DBC Offset: 0x1673DBC VA: 0x1673DBC
+	// RVA: 0x1132EFC Offset: 0x1132EFC VA: 0x1132EFC
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class BattleSetupInfo // TypeDefIndex: 6578
+public class BattleSetupInfo // TypeDefIndex: 6582
 {
 	// Fields
 	public int warId; // 0x10
@@ -64,36 +429,36 @@ public class BattleSetupInfo // TypeDefIndex: 6578
 
 	// Methods
 
-	// RVA: 0x1AE205C Offset: 0x1AE205C VA: 0x1AE205C
+	// RVA: 0x156D064 Offset: 0x156D064 VA: 0x156D064
 	public void .ctor() { }
 
-	// RVA: 0x1AE2064 Offset: 0x1AE2064 VA: 0x1AE2064
+	// RVA: 0x156D06C Offset: 0x156D06C VA: 0x156D06C
 	public void .ctor(BattleSetupInfo.BattleSetupSaveInfo saveInfo) { }
 
-	// RVA: 0x1AE2734 Offset: 0x1AE2734 VA: 0x1AE2734
+	// RVA: 0x156D73C Offset: 0x156D73C VA: 0x156D73C
 	public BattleSetupInfo.BattleSetupSaveInfo GetInfoForSave() { }
 
-	// RVA: 0x1AE2A1C Offset: 0x1AE2A1C VA: 0x1AE2A1C
+	// RVA: 0x156DA24 Offset: 0x156DA24 VA: 0x156DA24
 	public int TargetQuestId() { }
 
-	// RVA: 0x1AE2A84 Offset: 0x1AE2A84 VA: 0x1AE2A84
+	// RVA: 0x156DA8C Offset: 0x156DA8C VA: 0x156DA8C
 	public int TargetQuestBranchIdx() { }
 
-	// RVA: 0x1AE2340 Offset: 0x1AE2340 VA: 0x1AE2340
+	// RVA: 0x156D348 Offset: 0x156D348 VA: 0x156D348
 	public void SetEventUpValues() { }
 
-	// RVA: 0x1AE2444 Offset: 0x1AE2444 VA: 0x1AE2444
+	// RVA: 0x156D44C Offset: 0x156D44C VA: 0x156D44C
 	public void SetRestriction(bool isResetDeck = False) { }
 
-	// RVA: 0x1AE25D0 Offset: 0x1AE25D0 VA: 0x1AE25D0
+	// RVA: 0x156D5D8 Offset: 0x156D5D8 VA: 0x156D5D8
 	public void SetSelectableQuests() { }
 
-	// RVA: 0x1AE2AA8 Offset: 0x1AE2AA8 VA: 0x1AE2AA8
+	// RVA: 0x156DAB0 Offset: 0x156DAB0 VA: 0x156DAB0
 	public BattleSetupInfo ConvertBattleSetupInfo(int warId, int qId, int qPhase, bool isScriptBeforePartySelect, bool isScriptBeforeWarBoard, int selectedBranch = 0) { }
 }
 
 // Namespace: 
-public class BattleSetupInfo.BattleSetupSaveInfo // TypeDefIndex: 6579
+public class BattleSetupInfo.BattleSetupSaveInfo // TypeDefIndex: 6583
 {
 	// Fields
 	public int warId; // 0x10
@@ -123,12 +488,12 @@ public class BattleSetupInfo.BattleSetupSaveInfo // TypeDefIndex: 6579
 
 	// Methods
 
-	// RVA: 0x1AE2A14 Offset: 0x1AE2A14 VA: 0x1AE2A14
+	// RVA: 0x156DA1C Offset: 0x156DA1C VA: 0x156DA1C
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class BattleUserServantData : UserServantEntity // TypeDefIndex: 6580
+public class BattleUserServantData : UserServantEntity // TypeDefIndex: 6584
 {
 	// Fields
 	public int recover; // 0x138
@@ -168,36 +533,36 @@ public class BattleUserServantData : UserServantEntity // TypeDefIndex: 6580
 
 	// Methods
 
-	// RVA: 0x1AE8FB0 Offset: 0x1AE8FB0 VA: 0x1AE8FB0
+	// RVA: 0x1573FB0 Offset: 0x1573FB0 VA: 0x1573FB0
 	public void .ctor() { }
 
-	// RVA: 0x1AE9018 Offset: 0x1AE9018 VA: 0x1AE9018
+	// RVA: 0x1574018 Offset: 0x1574018 VA: 0x1574018
 	public int getBattleSvtId() { }
 
-	// RVA: 0x1AE90E0 Offset: 0x1AE90E0 VA: 0x1AE90E0
+	// RVA: 0x15740E0 Offset: 0x15740E0 VA: 0x15740E0
 	public int[] getBattleSkillIdList() { }
 
-	// RVA: 0x1AE91DC Offset: 0x1AE91DC VA: 0x1AE91DC
+	// RVA: 0x15741DC Offset: 0x15741DC VA: 0x15741DC
 	public int[] getAddPassiveSkill() { }
 
-	// RVA: 0x1AE9240 Offset: 0x1AE9240 VA: 0x1AE9240
+	// RVA: 0x1574240 Offset: 0x1574240 VA: 0x1574240
 	public SimpleSkillData[] GetAddPassiveSkillArray() { }
 
-	// RVA: 0x1AE940C Offset: 0x1AE940C VA: 0x1AE940C
+	// RVA: 0x157440C Offset: 0x157440C VA: 0x157440C
 	public long[] getBattleEquipTargetList() { }
 
-	// RVA: 0x1AE94C0 Offset: 0x1AE94C0 VA: 0x1AE94C0
+	// RVA: 0x15744C0 Offset: 0x15744C0 VA: 0x15744C0
 	public int[] getClassPassive() { }
 
-	// RVA: 0x1AE94C8 Offset: 0x1AE94C8 VA: 0x1AE94C8
+	// RVA: 0x15744C8 Offset: 0x15744C8 VA: 0x15744C8
 	public SimpleSkillData[] GetAppendPassiveSkillArray() { }
 
-	// RVA: 0x1AE92D0 Offset: 0x1AE92D0 VA: 0x1AE92D0
+	// RVA: 0x15742D0 Offset: 0x15742D0 VA: 0x15742D0
 	protected SimpleSkillData[] MakeSimpleSkillArray(int[] skillIds, int[] skillLvs) { }
 }
 
 // Namespace: 
-public class CommandCodeStatus // TypeDefIndex: 6581
+public class CommandCodeStatus // TypeDefIndex: 6585
 {
 	// Fields
 	public int idx; // 0x10
@@ -206,12 +571,12 @@ public class CommandCodeStatus // TypeDefIndex: 6581
 
 	// Methods
 
-	// RVA: 0x1B66934 Offset: 0x1B66934 VA: 0x1B66934
+	// RVA: 0x1663190 Offset: 0x1663190 VA: 0x1663190
 	public void .ctor() { }
 }
 
 // Namespace: 
-public static class CommonConsumeDetail // TypeDefIndex: 6582
+public static class CommonConsumeDetail // TypeDefIndex: 6586
 {
 	// Properties
 	private static CommonConsumeMaster commonConusmeMaster { get; }
@@ -220,38 +585,38 @@ public static class CommonConsumeDetail // TypeDefIndex: 6582
 
 	// Methods
 
-	// RVA: 0x148DCE4 Offset: 0x148DCE4 VA: 0x148DCE4
+	// RVA: 0xF2D97C Offset: 0xF2D97C VA: 0xF2D97C
 	private static CommonConsumeMaster get_commonConusmeMaster() { }
 
-	// RVA: 0x148DD50 Offset: 0x148DD50 VA: 0x148DD50
+	// RVA: 0xF2D9E8 Offset: 0xF2D9E8 VA: 0xF2D9E8
 	private static ItemMaster get_itemMaster() { }
 
-	// RVA: 0x148DDBC Offset: 0x148DDBC VA: 0x148DDBC
+	// RVA: 0xF2DA54 Offset: 0xF2DA54 VA: 0xF2DA54
 	private static UserItemMaster get_userItemMaster() { }
 
-	// RVA: 0x148DE28 Offset: 0x148DE28 VA: 0x148DE28
+	// RVA: 0xF2DAC0 Offset: 0xF2DAC0 VA: 0xF2DAC0
 	public static CommonConsumeDetailInfo[] GetConsumeDetailInfoByConsumeId(int commonConsumeId) { }
 
-	// RVA: 0x148E320 Offset: 0x148E320 VA: 0x148E320
+	// RVA: 0xF2DFB8 Offset: 0xF2DFB8 VA: 0xF2DFB8
 	public static string GetConsumeDetailDescription(CommonConsumeDetailInfo[] consumeItemInfoArray) { }
 
-	// RVA: 0x148E5CC Offset: 0x148E5CC VA: 0x148E5CC
+	// RVA: 0xF2E264 Offset: 0xF2E264 VA: 0xF2E264
 	public static bool IsAllSatisfied(CommonConsumeDetailInfo[] consumeItemInfoArray) { }
 }
 
 // Namespace: 
-public class CommonConsumeDetailInfo // TypeDefIndex: 6583
+public class CommonConsumeDetailInfo // TypeDefIndex: 6587
 {
 	// Fields
 	public CommonConsumeEntity CommonConsumeEntity; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xCC1254 Offset: 0xCC1254 VA: 0xCC1254
-	[DebuggerBrowsableAttribute] // RVA: 0xCC1254 Offset: 0xCC1254 VA: 0xCC1254
+	[CompilerGeneratedAttribute] // RVA: 0xC5536C Offset: 0xC5536C VA: 0xC5536C
+	[DebuggerBrowsableAttribute] // RVA: 0xC5536C Offset: 0xC5536C VA: 0xC5536C
 	private string <Name>k__BackingField; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xCC1290 Offset: 0xCC1290 VA: 0xCC1290
-	[DebuggerBrowsableAttribute] // RVA: 0xCC1290 Offset: 0xCC1290 VA: 0xCC1290
+	[CompilerGeneratedAttribute] // RVA: 0xC553A8 Offset: 0xC553A8 VA: 0xC553A8
+	[DebuggerBrowsableAttribute] // RVA: 0xC553A8 Offset: 0xC553A8 VA: 0xC553A8
 	private int <Num>k__BackingField; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xCC12CC Offset: 0xCC12CC VA: 0xCC12CC
-	[DebuggerBrowsableAttribute] // RVA: 0xCC12CC Offset: 0xCC12CC VA: 0xCC12CC
+	[CompilerGeneratedAttribute] // RVA: 0xC553E4 Offset: 0xC553E4 VA: 0xC553E4
+	[DebuggerBrowsableAttribute] // RVA: 0xC553E4 Offset: 0xC553E4 VA: 0xC553E4
 	private bool <IsOwnedEnoughly>k__BackingField; // 0x24
 	private object targetEntity; // 0x28
 	private object userOwnStatusEntity; // 0x30
@@ -263,69 +628,69 @@ public class CommonConsumeDetailInfo // TypeDefIndex: 6583
 
 	// Methods
 
-	// RVA: 0x148E2B0 Offset: 0x148E2B0 VA: 0x148E2B0
+	// RVA: 0xF2DF48 Offset: 0xF2DF48 VA: 0xF2DF48
 	public void .ctor(CommonConsumeEntity commonConsumeEntity, object targetEntity, object userOwnStatusEntity) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD374EC Offset: 0xD374EC VA: 0xD374EC
-	// RVA: 0x148E5BC Offset: 0x148E5BC VA: 0x148E5BC
+	[CompilerGeneratedAttribute] // RVA: 0xCC9E28 Offset: 0xCC9E28 VA: 0xCC9E28
+	// RVA: 0xF2E254 Offset: 0xF2E254 VA: 0xF2E254
 	public string get_Name() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD374FC Offset: 0xD374FC VA: 0xD374FC
-	// RVA: 0x148E70C Offset: 0x148E70C VA: 0x148E70C
+	[CompilerGeneratedAttribute] // RVA: 0xCC9E38 Offset: 0xCC9E38 VA: 0xCC9E38
+	// RVA: 0xF2E3A4 Offset: 0xF2E3A4 VA: 0xF2E3A4
 	private void set_Name(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3750C Offset: 0xD3750C VA: 0xD3750C
-	// RVA: 0x148E5C4 Offset: 0x148E5C4 VA: 0x148E5C4
+	[CompilerGeneratedAttribute] // RVA: 0xCC9E48 Offset: 0xCC9E48 VA: 0xCC9E48
+	// RVA: 0xF2E25C Offset: 0xF2E25C VA: 0xF2E25C
 	public int get_Num() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3751C Offset: 0xD3751C VA: 0xD3751C
-	// RVA: 0x148E654 Offset: 0x148E654 VA: 0x148E654
+	[CompilerGeneratedAttribute] // RVA: 0xCC9E58 Offset: 0xCC9E58 VA: 0xCC9E58
+	// RVA: 0xF2E2EC Offset: 0xF2E2EC VA: 0xF2E2EC
 	private void set_Num(int value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3752C Offset: 0xD3752C VA: 0xD3752C
-	// RVA: 0x148E5B4 Offset: 0x148E5B4 VA: 0x148E5B4
+	[CompilerGeneratedAttribute] // RVA: 0xCC9E68 Offset: 0xCC9E68 VA: 0xCC9E68
+	// RVA: 0xF2E24C Offset: 0xF2E24C VA: 0xF2E24C
 	public bool get_IsOwnedEnoughly() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3753C Offset: 0xD3753C VA: 0xD3753C
-	// RVA: 0x148E7E8 Offset: 0x148E7E8 VA: 0x148E7E8
+	[CompilerGeneratedAttribute] // RVA: 0xCC9E78 Offset: 0xCC9E78 VA: 0xCC9E78
+	// RVA: 0xF2E480 Offset: 0xF2E480 VA: 0xF2E480
 	private void set_IsOwnedEnoughly(bool value) { }
 
-	// RVA: 0x148E65C Offset: 0x148E65C VA: 0x148E65C
+	// RVA: 0xF2E2F4 Offset: 0xF2E2F4 VA: 0xF2E2F4
 	private string GetTargetName() { }
 
-	// RVA: 0x148E714 Offset: 0x148E714 VA: 0x148E714
+	// RVA: 0xF2E3AC Offset: 0xF2E3AC VA: 0xF2E3AC
 	private bool CheckIsOwnedEnoughly() { }
 }
 
 // Namespace: 
-public static class CommonReleaseExtension // TypeDefIndex: 6584
+public static class CommonReleaseExtension // TypeDefIndex: 6588
 {
 	// Properties
 	private static CommonReleaseMaster master { get; }
 
 	// Methods
 
-	// RVA: 0x149CE20 Offset: 0x149CE20 VA: 0x149CE20
+	// RVA: 0xF3CAB8 Offset: 0xF3CAB8 VA: 0xF3CAB8
 	private static CommonReleaseMaster get_master() { }
 
-	// RVA: 0x149CE8C Offset: 0x149CE8C VA: 0x149CE8C
+	// RVA: 0xF3CB24 Offset: 0xF3CB24 VA: 0xF3CB24
 	public static bool IsOpenConsiderBeforeClearQuest(int commonReleaseId, int beforeClearQuestId = -1, bool isCheckResetFlag = False) { }
 }
 
 // Namespace: 
-private class CommonReleaseExtension.CommonReleaseCondOverwriterBase : CommonReleaseCondOverwriter // TypeDefIndex: 6585
+private class CommonReleaseExtension.CommonReleaseCondOverwriterBase : CommonReleaseCondOverwriter // TypeDefIndex: 6589
 {
 	// Methods
 
-	// RVA: 0x149D084 Offset: 0x149D084 VA: 0x149D084
+	// RVA: 0xF3CD1C Offset: 0xF3CD1C VA: 0xF3CD1C
 	public void .ctor() { }
 
-	// RVA: 0x149D08C Offset: 0x149D08C VA: 0x149D08C Slot: 5
+	// RVA: 0xF3CD24 Offset: 0xF3CD24 VA: 0xF3CD24 Slot: 5
 	public virtual bool IsOpen(CommonReleaseEntity entity) { }
 }
 
 // Namespace: 
-private class CommonReleaseExtension.CommonReleaseCondOverwriterBeforeClearQuest : CommonReleaseExtension.CommonReleaseCondOverwriterBase, CommonReleaseCondOverwriter // TypeDefIndex: 6586
+private class CommonReleaseExtension.CommonReleaseCondOverwriterBeforeClearQuest : CommonReleaseExtension.CommonReleaseCondOverwriterBase, CommonReleaseCondOverwriter // TypeDefIndex: 6590
 {
 	// Fields
 	private int beforeClearQuestId; // 0x10
@@ -333,15 +698,15 @@ private class CommonReleaseExtension.CommonReleaseCondOverwriterBeforeClearQuest
 
 	// Methods
 
-	// RVA: 0x149CF20 Offset: 0x149CF20 VA: 0x149CF20
+	// RVA: 0xF3CBB8 Offset: 0xF3CBB8 VA: 0xF3CBB8
 	public void .ctor(int beforeClearQuestId = -1, bool isCheckResetFlag = False) { }
 
-	// RVA: 0x149D13C Offset: 0x149D13C VA: 0x149D13C Slot: 5
+	// RVA: 0xF3CDD4 Offset: 0xF3CDD4 VA: 0xF3CDD4 Slot: 5
 	public override bool IsOpen(CommonReleaseEntity entity) { }
 }
 
 // Namespace: 
-public interface CommonReleaseCondOverwriter // TypeDefIndex: 6587
+public interface CommonReleaseCondOverwriter // TypeDefIndex: 6591
 {
 	// Methods
 
@@ -350,10 +715,10 @@ public interface CommonReleaseCondOverwriter // TypeDefIndex: 6587
 }
 
 // Namespace: 
-public class DataManager : SingletonMonoBehaviour<DataManager> // TypeDefIndex: 6588
+public class DataManager : SingletonMonoBehaviour<DataManager> // TypeDefIndex: 6592
 {
 	// Fields
-	[SerializeField] // RVA: 0xCC1308 Offset: 0xCC1308 VA: 0xCC1308
+	[SerializeField] // RVA: 0xC55420 Offset: 0xC55420 VA: 0xC55420
 	protected bool _DispLog; // 0x18
 	protected static int readDataVersion; // 0x0
 	protected static long readDateVersion; // 0x8
@@ -381,7 +746,7 @@ public class DataManager : SingletonMonoBehaviour<DataManager> // TypeDefIndex: 
 	private Thread writeMasterDataThread; // 0x78
 	private bool writeMasterDataThreadEnd; // 0x80
 	private Exception writeMasterDataThreadException; // 0x88
-	[CompilerGeneratedAttribute] // RVA: 0xCC1318 Offset: 0xCC1318 VA: 0xCC1318
+	[CompilerGeneratedAttribute] // RVA: 0xC55430 Offset: 0xC55430 VA: 0xC55430
 	private static Func<DataMasterBase[]> <>f__mg$cache0; // 0x48
 
 	// Properties
@@ -389,150 +754,150 @@ public class DataManager : SingletonMonoBehaviour<DataManager> // TypeDefIndex: 
 
 	// Methods
 
-	// RVA: 0x176CD6C Offset: 0x176CD6C VA: 0x176CD6C
+	// RVA: 0x11D4E90 Offset: 0x11D4E90 VA: 0x11D4E90
 	public void .ctor() { }
 
-	// RVA: 0x176CE34 Offset: 0x176CE34 VA: 0x176CE34
+	// RVA: 0x11D4F58 Offset: 0x11D4F58 VA: 0x11D4F58
 	public bool get_DispLog() { }
 
-	// RVA: 0x176CE3C Offset: 0x176CE3C VA: 0x176CE3C
+	// RVA: 0x11D4F60 Offset: 0x11D4F60 VA: 0x11D4F60
 	public static string getCachePath() { }
 
-	// RVA: 0x176CF14 Offset: 0x176CF14 VA: 0x176CF14
+	// RVA: 0x11D5038 Offset: 0x11D5038 VA: 0x11D5038
 	protected static string getCacheVersionFileName() { }
 
-	// RVA: 0x176CFE8 Offset: 0x176CFE8 VA: 0x176CFE8
+	// RVA: 0x11D510C Offset: 0x11D510C VA: 0x11D510C
 	protected static string getCacheListFileName() { }
 
-	// RVA: 0x176D0BC Offset: 0x176D0BC VA: 0x176D0BC
+	// RVA: 0x11D51E0 Offset: 0x11D51E0 VA: 0x11D51E0
 	protected static string getCacheFileName() { }
 
-	// RVA: 0x176D190 Offset: 0x176D190 VA: 0x176D190
+	// RVA: 0x11D52B4 Offset: 0x11D52B4 VA: 0x11D52B4
 	private static string getOldEnvCachePath() { }
 
-	// RVA: 0x176D268 Offset: 0x176D268 VA: 0x176D268
+	// RVA: 0x11D538C Offset: 0x11D538C VA: 0x11D538C
 	public static void ClearOldEnvCacheAll() { }
 
-	// RVA: 0x176D360 Offset: 0x176D360 VA: 0x176D360
+	// RVA: 0x11D5484 Offset: 0x11D5484 VA: 0x11D5484
 	private void OnDestroy() { }
 
-	// RVA: 0x176D498 Offset: 0x176D498 VA: 0x176D498
+	// RVA: 0x11D55BC Offset: 0x11D55BC VA: 0x11D55BC
 	public static void ClearCacheAll() { }
 
-	// RVA: 0x176D2C8 Offset: 0x176D2C8 VA: 0x176D2C8
+	// RVA: 0x11D53EC Offset: 0x11D53EC VA: 0x11D53EC
 	private static void ClearCacheAllCommonProc(string cachePath) { }
 
-	// RVA: 0x176D4F8 Offset: 0x176D4F8 VA: 0x176D4F8
+	// RVA: 0x11D561C Offset: 0x11D561C VA: 0x11D561C
 	public void Initialize() { }
 
-	// RVA: 0x176D5FC Offset: 0x176D5FC VA: 0x176D5FC
+	// RVA: 0x11D5720 Offset: 0x11D5720 VA: 0x11D5720
 	private void InitializeInternal(Func<DataMasterBase[]> createMasterDataMethod) { }
 
-	// RVA: 0x176D7BC Offset: 0x176D7BC VA: 0x176D7BC
+	// RVA: 0x11D58E0 Offset: 0x11D58E0 VA: 0x11D58E0
 	public void setServerHash(object obj) { }
 
-	// RVA: 0x176D9D0 Offset: 0x176D9D0 VA: 0x176D9D0
+	// RVA: 0x11D5AF4 Offset: 0x11D5AF4 VA: 0x11D5AF4
 	public string getServerHash() { }
 
-	// RVA: 0x176DA38 Offset: 0x176DA38 VA: 0x176DA38
+	// RVA: 0x11D5B5C Offset: 0x11D5B5C VA: 0x11D5B5C
 	public void setWebViewData(object obj) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD3754C Offset: 0xD3754C VA: 0xD3754C
-	// RVA: 0x176DAA4 Offset: 0x176DAA4 VA: 0x176DAA4
+	[DebuggerHiddenAttribute] // RVA: 0xCC9E88 Offset: 0xCC9E88 VA: 0xCC9E88
+	// RVA: 0x11D5BC8 Offset: 0x11D5BC8 VA: 0x11D5BC8
 	public IEnumerator updateWebViewData() { }
 
-	// RVA: 0x176DB1C Offset: 0x176DB1C VA: 0x176DB1C
+	// RVA: 0x11D5C40 Offset: 0x11D5C40 VA: 0x11D5C40
 	public int getMasterDataVersion() { }
 
-	// RVA: 0x176DB84 Offset: 0x176DB84 VA: 0x176DB84
+	// RVA: 0x11D5CA8 Offset: 0x11D5CA8 VA: 0x11D5CA8
 	public long getMasterDateVersion() { }
 
-	// RVA: 0x176DBEC Offset: 0x176DBEC VA: 0x176DBEC
+	// RVA: 0x11D5D10 Offset: 0x11D5D10 VA: 0x11D5D10
 	public void setMasterDataVersion(int dataVer, long dateVer) { }
 
-	// RVA: 0x176DC6C Offset: 0x176DC6C VA: 0x176DC6C
+	// RVA: 0x11D5D90 Offset: 0x11D5D90 VA: 0x11D5D90
 	public void setMasterData(int dataVer, long dateVer, object obj) { }
 
-	// RVA: 0x176DD68 Offset: 0x176DD68 VA: 0x176DD68
+	// RVA: 0x11D5E8C Offset: 0x11D5E8C VA: 0x11D5E8C
 	public DataManager.ReadMasterVersionResult getReadMasterVersionResult() { }
 
-	// RVA: 0x176DDD0 Offset: 0x176DDD0 VA: 0x176DDD0
+	// RVA: 0x11D5EF4 Offset: 0x11D5EF4 VA: 0x11D5EF4
 	public DataManager.ReadMasterDataResult getReadMasterDataResult() { }
 
-	// RVA: 0x176DE38 Offset: 0x176DE38 VA: 0x176DE38
+	// RVA: 0x11D5F5C Offset: 0x11D5F5C VA: 0x11D5F5C
 	private bool CheckWaitforFrame() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD3755C Offset: 0xD3755C VA: 0xD3755C
-	// RVA: 0x176DE84 Offset: 0x176DE84 VA: 0x176DE84
+	[DebuggerHiddenAttribute] // RVA: 0xCC9E98 Offset: 0xCC9E98 VA: 0xCC9E98
+	// RVA: 0x11D5FA8 Offset: 0x11D5FA8 VA: 0x11D5FA8
 	public IEnumerator readMasterVersion() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD3756C Offset: 0xD3756C VA: 0xD3756C
-	// RVA: 0x176DEFC Offset: 0x176DEFC VA: 0x176DEFC
+	[DebuggerHiddenAttribute] // RVA: 0xCC9EA8 Offset: 0xCC9EA8 VA: 0xCC9EA8
+	// RVA: 0x11D6020 Offset: 0x11D6020 VA: 0x11D6020
 	public IEnumerator readMasterData() { }
 
-	// RVA: 0x176DF74 Offset: 0x176DF74 VA: 0x176DF74
+	// RVA: 0x11D6098 Offset: 0x11D6098 VA: 0x11D6098
 	public DataManager.UpdateMasterDataResult getUpdateMasterDataResult() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD3757C Offset: 0xD3757C VA: 0xD3757C
-	// RVA: 0x176DFDC Offset: 0x176DFDC VA: 0x176DFDC
+	[DebuggerHiddenAttribute] // RVA: 0xCC9EB8 Offset: 0xCC9EB8 VA: 0xCC9EB8
+	// RVA: 0x11D6100 Offset: 0x11D6100 VA: 0x11D6100
 	public IEnumerator updateMasterData(bool isUseTips) { }
 
-	// RVA: 0x176E080 Offset: 0x176E080 VA: 0x176E080
+	// RVA: 0x11D61A4 Offset: 0x11D61A4 VA: 0x11D61A4
 	private void StartMasterLoadThread(int maxIndex, List<int> loadedIndices) { }
 
-	// RVA: 0x176D3D4 Offset: 0x176D3D4 VA: 0x176D3D4
+	// RVA: 0x11D54F8 Offset: 0x11D54F8 VA: 0x11D54F8
 	private void StopMasterLoadThread() { }
 
-	// RVA: 0x176E348 Offset: 0x176E348 VA: 0x176E348
+	// RVA: 0x11D646C Offset: 0x11D646C VA: 0x11D646C
 	private void LoadMasterDataThread(object indexList) { }
 
-	// RVA: 0x176E8C8 Offset: 0x176E8C8 VA: 0x176E8C8
+	// RVA: 0x11D69EC Offset: 0x11D69EC VA: 0x11D69EC
 	private void StartWriteLocalFile(string fileName) { }
 
-	// RVA: 0x176D384 Offset: 0x176D384 VA: 0x176D384
+	// RVA: 0x11D54A8 Offset: 0x11D54A8 VA: 0x11D54A8
 	private void StopWriteLocalFile() { }
 
-	// RVA: 0x176E984 Offset: 0x176E984 VA: 0x176E984
+	// RVA: 0x11D6AA8 Offset: 0x11D6AA8 VA: 0x11D6AA8
 	private void WriteLocalFileThread(object param) { }
 
-	// RVA: 0x176EE7C Offset: 0x176EE7C VA: 0x176EE7C
+	// RVA: 0x11D6FA0 Offset: 0x11D6FA0 VA: 0x11D6FA0
 	private void GetMasterCheckName() { }
 
-	// RVA: 0x176EFE0 Offset: 0x176EFE0 VA: 0x176EFE0
+	// RVA: 0x11D7104 Offset: 0x11D7104 VA: 0x11D7104
 	protected uint getMdk(string name, int version) { }
 
-	// RVA: 0x176F160 Offset: 0x176F160 VA: 0x176F160
+	// RVA: 0x11D7284 Offset: 0x11D7284 VA: 0x11D7284
 	protected void ClearSaveDataList() { }
 
-	// RVA: 0x176F21C Offset: 0x176F21C VA: 0x176F21C
+	// RVA: 0x11D7340 Offset: 0x11D7340 VA: 0x11D7340
 	protected void DeleteCacheFile() { }
 
-	// RVA: 0x176F340 Offset: 0x176F340 VA: 0x176F340
+	// RVA: 0x11D7464 Offset: 0x11D7464 VA: 0x11D7464
 	public bool readMasterVersionFile() { }
 
-	// RVA: 0x176FCD8 Offset: 0x176FCD8 VA: 0x176FCD8
+	// RVA: 0x11D7DFC Offset: 0x11D7DFC VA: 0x11D7DFC
 	protected void writeMasterVersionFile() { }
 
-	// RVA: 0x177030C Offset: 0x177030C VA: 0x177030C
+	// RVA: 0x11D8430 Offset: 0x11D8430 VA: 0x11D8430
 	public bool readMasterDataListFile() { }
 
-	// RVA: 0x1771160 Offset: 0x1771160 VA: 0x1771160
+	// RVA: 0x11D9284 Offset: 0x11D9284 VA: 0x11D9284
 	protected void writeMasterDataListFile() { }
 
-	// RVA: 0x177169C Offset: 0x177169C VA: 0x177169C
+	// RVA: 0x11D97C0 Offset: 0x11D97C0 VA: 0x11D97C0
 	public void updateJsonData(object obj) { }
 
-	// RVA: 0x1771774 Offset: 0x1771774 VA: 0x1771774
+	// RVA: 0x11D9898 Offset: 0x11D9898 VA: 0x11D9898
 	public void updateJsonData(Dictionary<string, object> data) { }
 
-	// RVA: 0x177205C Offset: 0x177205C VA: 0x177205C
+	// RVA: 0x11DA180 Offset: 0x11DA180 VA: 0x11DA180
 	public int getRevisionTotal() { }
 
 	// RVA: -1 Offset: -1
 	public static TMaster GetMaster<TMaster>() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x21A14B0 Offset: 0x21A14B0 VA: 0x21A14B0
+	|-RVA: 0x1C32850 Offset: 0x1C32850 VA: 0x1C32850
 	|-DataManager.GetMaster<BattleMaster>
 	|-DataManager.GetMaster<BgmMaster>
 	|-DataManager.GetMaster<BoxGachaBaseMaster>
@@ -546,14 +911,17 @@ public class DataManager : SingletonMonoBehaviour<DataManager> // TypeDefIndex: 
 	|-DataManager.GetMaster<ConstantStrMaster>
 	|-DataManager.GetMaster<EffectMaster>
 	|-DataManager.GetMaster<EquipMaster>
+	|-DataManager.GetMaster<EventBuddyPointMaster>
 	|-DataManager.GetMaster<EventDetailMaster>
 	|-DataManager.GetMaster<EventMaster>
+	|-DataManager.GetMaster<EventMissionConditionMaster>
 	|-DataManager.GetMaster<EventMissionMaster>
 	|-DataManager.GetMaster<EventPanelMapMaster>
 	|-DataManager.GetMaster<EventPointBuffMaster>
 	|-DataManager.GetMaster<EventProgressValueMaster>
 	|-DataManager.GetMaster<EventRaidMaster>
 	|-DataManager.GetMaster<EventRandomMissionMaster>
+	|-DataManager.GetMaster<EventServantPointRankMaster>
 	|-DataManager.GetMaster<FunctionMaster>
 	|-DataManager.GetMaster<GachaAppendMaster>
 	|-DataManager.GetMaster<GachaGroupMaster>
@@ -580,8 +948,11 @@ public class DataManager : SingletonMonoBehaviour<DataManager> // TypeDefIndex: 
 	|-DataManager.GetMaster<ServantLvDetailMaster>
 	|-DataManager.GetMaster<ServantMaster>
 	|-DataManager.GetMaster<ShopActionMaster>
+	|-DataManager.GetMaster<ShopDetailMaster>
+	|-DataManager.GetMaster<ShopGroupMaster>
 	|-DataManager.GetMaster<ShopMaster>
 	|-DataManager.GetMaster<ShopReleaseMaster>
+	|-DataManager.GetMaster<ShopScriptMaster>
 	|-DataManager.GetMaster<SkillLvMaster>
 	|-DataManager.GetMaster<SkillMaster>
 	|-DataManager.GetMaster<SpotMaster>
@@ -595,12 +966,14 @@ public class DataManager : SingletonMonoBehaviour<DataManager> // TypeDefIndex: 
 	|-DataManager.GetMaster<UserDeckMaster>
 	|-DataManager.GetMaster<UserEventPointMaster>
 	|-DataManager.GetMaster<UserEventRandomMissionMaster>
+	|-DataManager.GetMaster<UserEventServantPointMaster>
 	|-DataManager.GetMaster<UserGachaDrawLogMaster>
 	|-DataManager.GetMaster<UserGachaExtraCountMaster>
 	|-DataManager.GetMaster<UserGachaHistoryMaster>
 	|-DataManager.GetMaster<UserItemMaster>
 	|-DataManager.GetMaster<UserPresentBoxMaster>
 	|-DataManager.GetMaster<UserQuestInfoMaster>
+	|-DataManager.GetMaster<UserQuestMaster>
 	|-DataManager.GetMaster<UserServantAppendPassiveSkillLvMaster>
 	|-DataManager.GetMaster<UserServantAppendPassiveSkillMaster>
 	|-DataManager.GetMaster<UserServantCollectionMaster>
@@ -610,6 +983,7 @@ public class DataManager : SingletonMonoBehaviour<DataManager> // TypeDefIndex: 
 	|-DataManager.GetMaster<UserShopMaster>
 	|-DataManager.GetMaster<UserSvtCoinMaster>
 	|-DataManager.GetMaster<ViewEnemyMaster>
+	|-DataManager.GetMaster<VoiceMaster>
 	|-DataManager.GetMaster<WarAddMaster>
 	|-DataManager.GetMaster<WarMaster>
 	*/
@@ -618,383 +992,9 @@ public class DataManager : SingletonMonoBehaviour<DataManager> // TypeDefIndex: 
 	public TMaster GetMasterData<TMaster>() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x21A151C Offset: 0x21A151C VA: 0x21A151C
+	|-RVA: 0x1C328BC Offset: 0x1C328BC VA: 0x1C328BC
 	|-DataManager.GetMasterData<AiActMaster>
 	|-DataManager.GetMasterData<BankShopMaster>
 	|-DataManager.GetMasterData<BattleMasterImageMaster>
 	|-DataManager.GetMasterData<BgmMaster>
 	|-DataManager.GetMasterData<CommandCodeMaster>
-	|-DataManager.GetMasterData<CommandCodeSkillMaster>
-	|-DataManager.GetMasterData<CommonConsumeMaster>
-	|-DataManager.GetMasterData<CommonReleaseMaster>
-	|-DataManager.GetMasterData<EventBossStatusUiMaster>
-	|-DataManager.GetMasterData<EventCampaignMaster>
-	|-DataManager.GetMasterData<EventDetailMaster>
-	|-DataManager.GetMasterData<EventMaster>
-	|-DataManager.GetMasterData<EventMissionConditionMaster>
-	|-DataManager.GetMasterData<EventPointGroupMaster>
-	|-DataManager.GetMasterData<EventQuestCooltimeMaster>
-	|-DataManager.GetMasterData<EventRaidMaster>
-	|-DataManager.GetMasterData<EventRewardMaster>
-	|-DataManager.GetMasterData<EventRewardSceneMaster>
-	|-DataManager.GetMasterData<FunctionCategoryMaster>
-	|-DataManager.GetMasterData<FunctionMaster>
-	|-DataManager.GetMasterData<GachaMaster>
-	|-DataManager.GetMasterData<GiftMaster>
-	|-DataManager.GetMasterData<ItemMaster>
-	|-DataManager.GetMasterData<MyRoomAddMaster>
-	|-DataManager.GetMasterData<QuestAddMaster>
-	|-DataManager.GetMasterData<QuestMaster>
-	|-DataManager.GetMasterData<QuestPhaseMaster>
-	|-DataManager.GetMasterData<QuestReleaseMaster>
-	|-DataManager.GetMasterData<ServantCommentAddMaster>
-	|-DataManager.GetMasterData<ServantCommentMaster>
-	|-DataManager.GetMasterData<ServantCostumeMaster>
-	|-DataManager.GetMasterData<ServantCostumeReleaseMaster>
-	|-DataManager.GetMasterData<ServantLimitAddMaster>
-	|-DataManager.GetMasterData<ServantLimitImageMaster>
-	|-DataManager.GetMasterData<ServantLimitMaster>
-	|-DataManager.GetMasterData<ServantMaster>
-	|-DataManager.GetMasterData<ServantScriptMaster>
-	|-DataManager.GetMasterData<ServantTreasureDeviceReleaseMaster>
-	|-DataManager.GetMasterData<ServantVoiceMaster>
-	|-DataManager.GetMasterData<ServantVoiceRelationMaster>
-	|-DataManager.GetMasterData<ShopMaster>
-	|-DataManager.GetMasterData<ShopReleaseMaster>
-	|-DataManager.GetMasterData<SkillLvMaster>
-	|-DataManager.GetMasterData<SpotMaster>
-	|-DataManager.GetMasterData<SvtCoinMaster>
-	|-DataManager.GetMasterData<SvtMaterialTdMaster>
-	|-DataManager.GetMasterData<SvtMultiPortraitMaster>
-	|-DataManager.GetMasterData<object>
-	|-DataManager.GetMasterData<TreasureBoxGiftMaster>
-	|-DataManager.GetMasterData<TreasureBoxMaster>
-	|-DataManager.GetMasterData<TreasureBoxTalkMaster>
-	|-DataManager.GetMasterData<TreasureDvcMaster>
-	|-DataManager.GetMasterData<UpdateProfileDialogInfoMaster>
-	|-DataManager.GetMasterData<UserCoinRoomMaster>
-	|-DataManager.GetMasterData<UserCommandCodeMaster>
-	|-DataManager.GetMasterData<UserDeckMaster>
-	|-DataManager.GetMasterData<UserEventMaster>
-	|-DataManager.GetMasterData<UserEventRaidMaster>
-	|-DataManager.GetMasterData<UserFriendPointGachaFreeDrawCampaignLogMaster>
-	|-DataManager.GetMasterData<UserGachaExtraCountMaster>
-	|-DataManager.GetMasterData<UserGachaMaster>
-	|-DataManager.GetMasterData<UserItemMaster>
-	|-DataManager.GetMasterData<UserQuestMaster>
-	|-DataManager.GetMasterData<UserServantCollectionMaster>
-	|-DataManager.GetMasterData<UserServantMaster>
-	|-DataManager.GetMasterData<UserShopMaster>
-	|-DataManager.GetMasterData<UserSvtCoinMaster>
-	|-DataManager.GetMasterData<VoiceMaster>
-	|-DataManager.GetMasterData<VoicePlayCondMaster>
-	|-DataManager.GetMasterData<WarMaster>
-	*/
-
-	[ObsoleteAttribute] // RVA: 0xD3758C Offset: 0xD3758C VA: 0xD3758C
-	// RVA: 0x1772118 Offset: 0x1772118 VA: 0x1772118
-	public DataMasterBase getMasterData(DataNameKind.Kind kind) { }
-
-	[ObsoleteAttribute] // RVA: 0xD375C4 Offset: 0xD375C4 VA: 0xD375C4
-	// RVA: -1 Offset: -1
-	public T getMasterData<T>(DataNameKind.Kind kind) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x218CC70 Offset: 0x218CC70 VA: 0x218CC70
-	|-DataManager.getMasterData<AiActMaster>
-	|-DataManager.getMasterData<AiFieldMaster>
-	|-DataManager.getMasterData<AiMaster>
-	|-DataManager.getMasterData<AssistMaster>
-	|-DataManager.getMasterData<AttriRelationMaster>
-	|-DataManager.getMasterData<AuraEffectMaster>
-	|-DataManager.getMasterData<AuraEffectPosOverwriteMaster>
-	|-DataManager.getMasterData<BankShopMaster>
-	|-DataManager.getMasterData<BannerAddMaster>
-	|-DataManager.getMasterData<BannerMaster>
-	|-DataManager.getMasterData<BattleBgMaster>
-	|-DataManager.getMasterData<BgmMaster>
-	|-DataManager.getMasterData<BgmReleaseMaster>
-	|-DataManager.getMasterData<BoardMessageMaster>
-	|-DataManager.getMasterData<BoardMessageReleaseMaster>
-	|-DataManager.getMasterData<BoostMaster>
-	|-DataManager.getMasterData<BoxGachaBaseMaster>
-	|-DataManager.getMasterData<BoxGachaHistoryMaster>
-	|-DataManager.getMasterData<BoxGachaMaster>
-	|-DataManager.getMasterData<BoxGachaTalkMaster>
-	|-DataManager.getMasterData<BuffMaster>
-	|-DataManager.getMasterData<CampaignInfoMaster>
-	|-DataManager.getMasterData<CardMaster>
-	|-DataManager.getMasterData<ClassRelationMaster>
-	|-DataManager.getMasterData<ClassRelationOverwriteMaster>
-	|-DataManager.getMasterData<ClosedMessageMaster>
-	|-DataManager.getMasterData<CombineCostumeMaster>
-	|-DataManager.getMasterData<CombineLimitMaster>
-	|-DataManager.getMasterData<CombineMaster>
-	|-DataManager.getMasterData<CombineMaterialMaster>
-	|-DataManager.getMasterData<CombineQpMaster>
-	|-DataManager.getMasterData<CombineQpSvtEquipMaster>
-	|-DataManager.getMasterData<CombineSkillMaster>
-	|-DataManager.getMasterData<CommandCardRankParamMaster>
-	|-DataManager.getMasterData<CommandCodeCommentMaster>
-	|-DataManager.getMasterData<CommandCodeMaster>
-	|-DataManager.getMasterData<CommandCodeSkillMaster>
-	|-DataManager.getMasterData<CommandCodeSkillReleaseMaster>
-	|-DataManager.getMasterData<CommandSpellMaster>
-	|-DataManager.getMasterData<CommonConsumeMaster>
-	|-DataManager.getMasterData<CommonReleaseMaster>
-	|-DataManager.getMasterData<CommonRestrictionMaster>
-	|-DataManager.getMasterData<CompleteMissionMaster>
-	|-DataManager.getMasterData<ConstantLongMaster>
-	|-DataManager.getMasterData<ConstantMaster>
-	|-DataManager.getMasterData<ConstantStrMaster>
-	|-DataManager.getMasterData<DialogMessageMaster>
-	|-DataManager.getMasterData<EffectMaster>
-	|-DataManager.getMasterData<EnemyMstBattleMaster>
-	|-DataManager.getMasterData<EquipExpMaster>
-	|-DataManager.getMasterData<EquipMaster>
-	|-DataManager.getMasterData<EquipSkillMaster>
-	|-DataManager.getMasterData<EventAddMaster>
-	|-DataManager.getMasterData<EventBoardGameCellMaster>
-	|-DataManager.getMasterData<EventBoardGameTokenMaster>
-	|-DataManager.getMasterData<EventBoardGameTokenRewardMaster>
-	|-DataManager.getMasterData<EventBonusFilterGroupInfoMaster>
-	|-DataManager.getMasterData<EventBonusFilterGroupMemberMaster>
-	|-DataManager.getMasterData<EventBonusFilterMaster>
-	|-DataManager.getMasterData<EventBoostItemUsedMaster>
-	|-DataManager.getMasterData<EventBossStatusUiMaster>
-	|-DataManager.getMasterData<EventBulletinBoardMaster>
-	|-DataManager.getMasterData<EventBulletinBoardReleaseMaster>
-	|-DataManager.getMasterData<EventCampaignMaster>
-	|-DataManager.getMasterData<EventCampaignReleaseMaster>
-	|-DataManager.getMasterData<EventCombineCostumeMaster>
-	|-DataManager.getMasterData<EventConquestRewardMaster>
-	|-DataManager.getMasterData<EventDetailMaster>
-	|-DataManager.getMasterData<EventEquipSkillReleaseMaster>
-	|-DataManager.getMasterData<EventFactoryMaster>
-	|-DataManager.getMasterData<EventFatigueRecoveryMaster>
-	|-DataManager.getMasterData<EventFilterMaster>
-	|-DataManager.getMasterData<EventGroupMaster>
-	|-DataManager.getMasterData<EventItemDisplayGroupMaster>
-	|-DataManager.getMasterData<EventItemDisplayMaster>
-	|-DataManager.getMasterData<EventItemDisplayReleaseMaster>
-	|-DataManager.getMasterData<EventLocationCampaignMaster>
-	|-DataManager.getMasterData<EventMaster>
-	|-DataManager.getMasterData<EventMissionActionAddMaster>
-	|-DataManager.getMasterData<EventMissionActionMaster>
-	|-DataManager.getMasterData<EventMissionAddMaster>
-	|-DataManager.getMasterData<EventMissionCondDetailMaster>
-	|-DataManager.getMasterData<EventMissionConditionMaster>
-	|-DataManager.getMasterData<EventMissionMaster>
-	|-DataManager.getMasterData<EventPanelMapDetailMaster>
-	|-DataManager.getMasterData<EventPanelMapMaster>
-	|-DataManager.getMasterData<EventPanelScanMaster>
-	|-DataManager.getMasterData<EventPanelSpotMaster>
-	|-DataManager.getMasterData<EventPointActivityMaster>
-	|-DataManager.getMasterData<EventPointBuffMaster>
-	|-DataManager.getMasterData<EventPointGroupAddMaster>
-	|-DataManager.getMasterData<EventPointGroupMaster>
-	|-DataManager.getMasterData<EventPointMaster>
-	|-DataManager.getMasterData<EventPointUpperMaster>
-	|-DataManager.getMasterData<EventPointUpperReleaseMaster>
-	|-DataManager.getMasterData<EventQuestCooltimeMaster>
-	|-DataManager.getMasterData<EventQuestMaster>
-	|-DataManager.getMasterData<EventRaceMaster>
-	|-DataManager.getMasterData<EventRaceResultMaster>
-	|-DataManager.getMasterData<EventRaidMaster>
-	|-DataManager.getMasterData<EventRewardBgMaster>
-	|-DataManager.getMasterData<EventRewardGuideReleaseMaster>
-	|-DataManager.getMasterData<EventRewardMaster>
-	|-DataManager.getMasterData<EventRewardSceneMaster>
-	|-DataManager.getMasterData<EventRewardSceneReleaseMaster>
-	|-DataManager.getMasterData<EventScriptMaster>
-	|-DataManager.getMasterData<EventScriptReleaseMaster>
-	|-DataManager.getMasterData<EventServantFatigueMaster>
-	|-DataManager.getMasterData<EventServantMaster>
-	|-DataManager.getMasterData<EventStatusMaster>
-	|-DataManager.getMasterData<EventStatusQuestMaster>
-	|-DataManager.getMasterData<EventSuperBossMaster>
-	|-DataManager.getMasterData<EventTowerMaster>
-	|-DataManager.getMasterData<EventTowerRewardMaster>
-	|-DataManager.getMasterData<EventTutorialCondMaster>
-	|-DataManager.getMasterData<EventTutorialMaster>
-	|-DataManager.getMasterData<EventUiMaster>
-	|-DataManager.getMasterData<EventUiReleaseMaster>
-	|-DataManager.getMasterData<EventUiValueMaster>
-	|-DataManager.getMasterData<EventVoicePlayMaster>
-	|-DataManager.getMasterData<FriendshipMaster>
-	|-DataManager.getMasterData<FriendshipQuestDialogInfoMaster>
-	|-DataManager.getMasterData<FunctionGroupMaster>
-	|-DataManager.getMasterData<FunctionMaster>
-	|-DataManager.getMasterData<GachaBehaviorMaster>
-	|-DataManager.getMasterData<GachaDetailMaster>
-	|-DataManager.getMasterData<GachaMaster>
-	|-DataManager.getMasterData<GachaReleaseMaster>
-	|-DataManager.getMasterData<GachaStoryAdjustMaster>
-	|-DataManager.getMasterData<GachaSubMaster>
-	|-DataManager.getMasterData<GiftAddMaster>
-	|-DataManager.getMasterData<GiftMaster>
-	|-DataManager.getMasterData<GuideMaster>
-	|-DataManager.getMasterData<ItemMaster>
-	|-DataManager.getMasterData<ItemSelectMaster>
-	|-DataManager.getMasterData<LoginQuestMaster>
-	|-DataManager.getMasterData<MapButtonMaster>
-	|-DataManager.getMasterData<MapCondMaster>
-	|-DataManager.getMasterData<MapGimmickMaster>
-	|-DataManager.getMasterData<MapGimmickReleaseMaster>
-	|-DataManager.getMasterData<MapMaster>
-	|-DataManager.getMasterData<MaterialFolderMaster>
-	|-DataManager.getMasterData<MstMissionDisplayInfoMaster>
-	|-DataManager.getMasterData<MstMissionMaster>
-	|-DataManager.getMasterData<NewsMaster>
-	|-DataManager.getMasterData<NotEndEventMissionFixMaster>
-	|-DataManager.getMasterData<NpcFollowerMaster>
-	|-DataManager.getMasterData<NpcFollowerReleaseMaster>
-	|-DataManager.getMasterData<NpcServantEquipMaster>
-	|-DataManager.getMasterData<NpcServantFollowerMaster>
-	|-DataManager.getMasterData<OpeningMovieMaster>
-	|-DataManager.getMasterData<OtherUserGameMaster>
-	|-DataManager.getMasterData<PartialMaintenanceMaster>
-	|-DataManager.getMasterData<PickupUserFollowerMaster>
-	|-DataManager.getMasterData<PrivilegeMaster>
-	|-DataManager.getMasterData<QuestBehaviorMaster>
-	|-DataManager.getMasterData<QuestConsumeItemMaster>
-	|-DataManager.getMasterData<QuestDateRangeMaster>
-	|-DataManager.getMasterData<QuestGroupMaster>
-	|-DataManager.getMasterData<QuestMaster>
-	|-DataManager.getMasterData<QuestMessageMaster>
-	|-DataManager.getMasterData<QuestPhaseDetailAddMaster>
-	|-DataManager.getMasterData<QuestPhaseDetailMaster>
-	|-DataManager.getMasterData<QuestPhaseMaster>
-	|-DataManager.getMasterData<QuestPickupMaster>
-	|-DataManager.getMasterData<QuestRacePointMaster>
-	|-DataManager.getMasterData<QuestRandomGroupMaster>
-	|-DataManager.getMasterData<QuestReleaseMaster>
-	|-DataManager.getMasterData<QuestResetMaster>
-	|-DataManager.getMasterData<QuestRestrictionInfoMaster>
-	|-DataManager.getMasterData<QuestRestrictionMaster>
-	|-DataManager.getMasterData<QuestScriptMaster>
-	|-DataManager.getMasterData<QuestScriptReleaseMaster>
-	|-DataManager.getMasterData<QuestSpotReleaseMaster>
-	|-DataManager.getMasterData<RecoverMaster>
-	|-DataManager.getMasterData<RestrictionMaster>
-	|-DataManager.getMasterData<ServantAnimationOverwriteMaster>
-	|-DataManager.getMasterData<ServantChangeMaster>
-	|-DataManager.getMasterData<ServantClassMaster>
-	|-DataManager.getMasterData<ServantCollectionMaster>
-	|-DataManager.getMasterData<ServantCommandCodeUnlockMaster>
-	|-DataManager.getMasterData<ServantCommentAddMaster>
-	|-DataManager.getMasterData<ServantCommentMaster>
-	|-DataManager.getMasterData<ServantCostumeMaster>
-	|-DataManager.getMasterData<ServantCostumeReleaseMaster>
-	|-DataManager.getMasterData<ServantExceedMaster>
-	|-DataManager.getMasterData<ServantExpMaster>
-	|-DataManager.getMasterData<ServantFilterMaster>
-	|-DataManager.getMasterData<ServantFlagMaster>
-	|-DataManager.getMasterData<ServantFlagReleaseMaster>
-	|-DataManager.getMasterData<ServantGroupMaster>
-	|-DataManager.getMasterData<ServantLimitAddMaster>
-	|-DataManager.getMasterData<ServantLimitImageMaster>
-	|-DataManager.getMasterData<ServantLimitMaster>
-	|-DataManager.getMasterData<ServantLimitSpoilerProtectionMaster>
-	|-DataManager.getMasterData<ServantLvDetailMaster>
-	|-DataManager.getMasterData<ServantMaster>
-	|-DataManager.getMasterData<ServantMaterialFolderMaster>
-	|-DataManager.getMasterData<ServantPassiveSkillMaster>
-	|-DataManager.getMasterData<ServantPassiveSkillReleaseMaster>
-	|-DataManager.getMasterData<ServantProfileMaster>
-	|-DataManager.getMasterData<ServantRarityMaster>
-	|-DataManager.getMasterData<ServantScriptAddMaster>
-	|-DataManager.getMasterData<ServantScriptMaster>
-	|-DataManager.getMasterData<ServantSkillMaster>
-	|-DataManager.getMasterData<ServantSkillReleaseMaster>
-	|-DataManager.getMasterData<ServantTreasureDeviceAddMaster>
-	|-DataManager.getMasterData<ServantTreasureDeviceDamageMaster>
-	|-DataManager.getMasterData<ServantTreasureDeviceReleaseMaster>
-	|-DataManager.getMasterData<ServantTreasureDvcMaster>
-	|-DataManager.getMasterData<ServantVoiceMaster>
-	|-DataManager.getMasterData<ServantVoiceRelationMaster>
-	|-DataManager.getMasterData<SetItemMaster>
-	|-DataManager.getMasterData<ShopActionMaster>
-	|-DataManager.getMasterData<ShopDetailMaster>
-	|-DataManager.getMasterData<ShopGroupMaster>
-	|-DataManager.getMasterData<ShopMaster>
-	|-DataManager.getMasterData<ShopReleaseMaster>
-	|-DataManager.getMasterData<ShopScriptMaster>
-	|-DataManager.getMasterData<SkillAddMaster>
-	|-DataManager.getMasterData<SkillDetailMaster>
-	|-DataManager.getMasterData<SkillLvMaster>
-	|-DataManager.getMasterData<SkillMaster>
-	|-DataManager.getMasterData<SpotAddMaster>
-	|-DataManager.getMasterData<SpotImageMaster>
-	|-DataManager.getMasterData<SpotMaster>
-	|-DataManager.getMasterData<SpotPathMaster>
-	|-DataManager.getMasterData<SpotRoadMaster>
-	|-DataManager.getMasterData<StatusEffectPosOverwriteMaster>
-	|-DataManager.getMasterData<StoneShopMaster>
-	|-DataManager.getMasterData<object>
-	|-DataManager.getMasterData<TblFriendMaster>
-	|-DataManager.getMasterData<TblUserMaster>
-	|-DataManager.getMasterData<TipsBattleMaster>
-	|-DataManager.getMasterData<TotalBoxGachaMaster>
-	|-DataManager.getMasterData<TotalEventPointMaster>
-	|-DataManager.getMasterData<TotalEventRaceMaster>
-	|-DataManager.getMasterData<TotalEventRaidMaster>
-	|-DataManager.getMasterData<TotalLoginMaster>
-	|-DataManager.getMasterData<TreasureDvcDetailMaster>
-	|-DataManager.getMasterData<TreasureDvcLvMaster>
-	|-DataManager.getMasterData<TreasureDvcMaster>
-	|-DataManager.getMasterData<UserBlacklistMaster>
-	|-DataManager.getMasterData<UserBoxGachaMaster>
-	|-DataManager.getMasterData<UserCombineExpMaster>
-	|-DataManager.getMasterData<UserCommandCodeCollectionMaster>
-	|-DataManager.getMasterData<UserCommandCodeMaster>
-	|-DataManager.getMasterData<UserContinueMaster>
-	|-DataManager.getMasterData<UserDeckMaster>
-	|-DataManager.getMasterData<UserEquipMaster>
-	|-DataManager.getMasterData<UserEventBoardGameTokenMaster>
-	|-DataManager.getMasterData<UserEventDeckMaster>
-	|-DataManager.getMasterData<UserEventMapMaster>
-	|-DataManager.getMasterData<UserEventMaster>
-	|-DataManager.getMasterData<UserEventMissionCondDetailMaster>
-	|-DataManager.getMasterData<UserEventMissionFixMaster>
-	|-DataManager.getMasterData<UserEventMissionMaster>
-	|-DataManager.getMasterData<UserEventPointMaster>
-	|-DataManager.getMasterData<UserEventQuestCooltimeMaster>
-	|-DataManager.getMasterData<UserEventRaceMaster>
-	|-DataManager.getMasterData<UserEventRaidMaster>
-	|-DataManager.getMasterData<UserEventServantFatigueMaster>
-	|-DataManager.getMasterData<UserEventSpotMaster>
-	|-DataManager.getMasterData<UserExpMaster>
-	|-DataManager.getMasterData<UserFollowMaster>
-	|-DataManager.getMasterData<UserFollowerMaster>
-	|-DataManager.getMasterData<UserFriendRequestHistoryMaster>
-	|-DataManager.getMasterData<UserGachaExtraCountMaster>
-	|-DataManager.getMasterData<UserGachaMaster>
-	|-DataManager.getMasterData<UserGameMaster>
-	|-DataManager.getMasterData<UserItemMaster>
-	|-DataManager.getMasterData<UserPresentBoxMaster>
-	|-DataManager.getMasterData<UserPresentHistoryMaster>
-	|-DataManager.getMasterData<UserPrivilegeMaster>
-	|-DataManager.getMasterData<UserProfileMaster>
-	|-DataManager.getMasterData<UserQuestInfoMaster>
-	|-DataManager.getMasterData<UserQuestMaster>
-	|-DataManager.getMasterData<UserQuestRecordMaster>
-	|-DataManager.getMasterData<UserQuestRouteMaster>
-	|-DataManager.getMasterData<UserServantCollectionMaster>
-	|-DataManager.getMasterData<UserServantCommandCardMaster>
-	|-DataManager.getMasterData<UserServantCommandCodeMaster>
-	|-DataManager.getMasterData<UserServantLeaderMaster>
-	|-DataManager.getMasterData<UserServantMaster>
-	|-DataManager.getMasterData<UserServantStorageMaster>
-	|-DataManager.getMasterData<UserShopMaster>
-	|-DataManager.getMasterData<UserSuperBossMaster>
-	|-DataManager.getMasterData<UserSupportDeckMaster>
-	|-DataManager.getMasterData<ViewEnemyMaster>
-	|-DataManager.getMasterData<ViewQuestInfoMaster>
-	|-DataManager.getMasterData<VoiceClosedMessageMaster>
-	|-DataManager.getMasterData<VoiceCondMaster>
-	|-DataManager.getMasterData<VoiceMaster>
-	|-DataManager.getMasterData<VoiceMaterialCondMaster>
-	|-DataManager.getMasterData<VoicePlayCondMaster>
-	|-DataManager.getMasterData<VoicePlayGroupMaster>
-	|-DataManager.getMasterData<VoiceReleaseMaster>

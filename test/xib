@@ -1,51 +1,173 @@
+	// RVA: 0x1F71424 Offset: 0x1F71424 VA: 0x1F71424 Slot: 5
+	protected override void OnEnable() { }
+
+	// RVA: 0x1F71578 Offset: 0x1F71578 VA: 0x1F71578 Slot: 7
+	protected override void OnDisable() { }
+}
+
+// Namespace: UnityEngine.EventSystems
+[AddComponentMenu] // RVA: 0xC120CC Offset: 0xC120CC VA: 0xC120CC
+[RequireComponent] // RVA: 0xC120CC Offset: 0xC120CC VA: 0xC120CC
+public class Physics2DRaycaster : PhysicsRaycaster // TypeDefIndex: 3042
+{
+	// Fields
+	private RaycastHit2D[] m_Hits; // 0x38
+
+	// Methods
+
+	// RVA: 0x1F74C28 Offset: 0x1F74C28 VA: 0x1F74C28
+	protected void .ctor() { }
+
+	// RVA: 0x1F74C98 Offset: 0x1F74C98 VA: 0x1F74C98 Slot: 17
+	public override void Raycast(PointerEventData eventData, List<RaycastResult> resultAppendList) { }
+}
+
+// Namespace: UnityEngine.EventSystems
+[AddComponentMenu] // RVA: 0xC12154 Offset: 0xC12154 VA: 0xC12154
+[RequireComponent] // RVA: 0xC12154 Offset: 0xC12154 VA: 0xC12154
+public class PhysicsRaycaster : BaseRaycaster // TypeDefIndex: 3043
+{
+	// Fields
+	protected const int kNoEventMaskSet = -1;
+	protected Camera m_EventCamera; // 0x18
+	[SerializeField] // RVA: 0xC137D0 Offset: 0xC137D0 VA: 0xC137D0
+	protected LayerMask m_EventMask; // 0x20
+	[SerializeField] // RVA: 0xC137E0 Offset: 0xC137E0 VA: 0xC137E0
+	protected int m_MaxRayIntersections; // 0x24
+	protected int m_LastMaxRayIntersections; // 0x28
+	private RaycastHit[] m_Hits; // 0x30
+	[CompilerGeneratedAttribute] // RVA: 0xC137F0 Offset: 0xC137F0 VA: 0xC137F0
+	private static Comparison<RaycastHit> <>f__am$cache0; // 0x0
+
+	// Properties
+	public override Camera eventCamera { get; }
+	public virtual int depth { get; }
+	public int finalEventMask { get; }
+	public LayerMask eventMask { get; set; }
+	public int maxRayIntersections { get; set; }
+
+	// Methods
+
+	// RVA: 0x1F74C60 Offset: 0x1F74C60 VA: 0x1F74C60
+	protected void .ctor() { }
+
+	// RVA: 0x1F75784 Offset: 0x1F75784 VA: 0x1F75784 Slot: 18
+	public override Camera get_eventCamera() { }
+
+	// RVA: 0x1F7582C Offset: 0x1F7582C VA: 0x1F7582C Slot: 22
+	public virtual int get_depth() { }
+
+	// RVA: 0x1F75698 Offset: 0x1F75698 VA: 0x1F75698
+	public int get_finalEventMask() { }
+
+	// RVA: 0x1F758F4 Offset: 0x1F758F4 VA: 0x1F758F4
+	public LayerMask get_eventMask() { }
+
+	// RVA: 0x1F758FC Offset: 0x1F758FC VA: 0x1F758FC
+	public void set_eventMask(LayerMask value) { }
+
+	// RVA: 0x1F75690 Offset: 0x1F75690 VA: 0x1F75690
+	public int get_maxRayIntersections() { }
+
+	// RVA: 0x1F75904 Offset: 0x1F75904 VA: 0x1F75904
+	public void set_maxRayIntersections(int value) { }
+
+	// RVA: 0x1F752F4 Offset: 0x1F752F4 VA: 0x1F752F4
+	protected bool ComputeRayAndDistance(PointerEventData eventData, ref Ray ray, ref int eventDisplayIndex, ref float distanceToClipPlane) { }
+
+	// RVA: 0x1F7590C Offset: 0x1F7590C VA: 0x1F7590C Slot: 17
+	public override void Raycast(PointerEventData eventData, List<RaycastResult> resultAppendList) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC157B0 Offset: 0xC157B0 VA: 0xC157B0
+	// RVA: 0x1F75E10 Offset: 0x1F75E10 VA: 0x1F75E10
+	private static int <Raycast>m__0(RaycastHit r1, RaycastHit r2) { }
+}
+
+// Namespace: UnityEngine.UI.CoroutineTween
+internal interface ITweenValue // TypeDefIndex: 3044
+{
+	// Properties
+	public abstract bool ignoreTimeScale { get; }
+	public abstract float duration { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void TweenValue(float floatPercentage);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract bool get_ignoreTimeScale();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract float get_duration();
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract bool ValidTarget();
+}
+
+// Namespace: UnityEngine.UI.CoroutineTween
+internal struct ColorTween : ITweenValue // TypeDefIndex: 3045
+{
+	// Fields
+	private ColorTween.ColorTweenCallback m_Target; // 0x0
+	private Color m_StartColor; // 0x8
+	private Color m_TargetColor; // 0x18
+	private ColorTween.ColorTweenMode m_TweenMode; // 0x28
+	private float m_Duration; // 0x2C
+	private bool m_IgnoreTimeScale; // 0x30
+
+	// Properties
+	public Color startColor { get; set; }
+	public Color targetColor { get; set; }
+	public ColorTween.ColorTweenMode tweenMode { get; set; }
 	public float duration { get; set; }
 	public bool ignoreTimeScale { get; set; }
 
 	// Methods
 
-	// RVA: 0xBB7604 Offset: 0xBB7604 VA: 0xBB7604
+	// RVA: 0xD63AB4 Offset: 0xD63AB4 VA: 0xD63AB4
 	public Color get_startColor() { }
 
-	// RVA: 0xBB7610 Offset: 0xBB7610 VA: 0xBB7610
+	// RVA: 0xD63AC0 Offset: 0xD63AC0 VA: 0xD63AC0
 	public void set_startColor(Color value) { }
 
-	// RVA: 0xBB761C Offset: 0xBB761C VA: 0xBB761C
+	// RVA: 0xD63ACC Offset: 0xD63ACC VA: 0xD63ACC
 	public Color get_targetColor() { }
 
-	// RVA: 0xBB7628 Offset: 0xBB7628 VA: 0xBB7628
+	// RVA: 0xD63AD8 Offset: 0xD63AD8 VA: 0xD63AD8
 	public void set_targetColor(Color value) { }
 
-	// RVA: 0xBB7634 Offset: 0xBB7634 VA: 0xBB7634
+	// RVA: 0xD63AE4 Offset: 0xD63AE4 VA: 0xD63AE4
 	public ColorTween.ColorTweenMode get_tweenMode() { }
 
-	// RVA: 0xBB763C Offset: 0xBB763C VA: 0xBB763C
+	// RVA: 0xD63AEC Offset: 0xD63AEC VA: 0xD63AEC
 	public void set_tweenMode(ColorTween.ColorTweenMode value) { }
 
-	// RVA: 0xBB7644 Offset: 0xBB7644 VA: 0xBB7644 Slot: 6
+	// RVA: 0xD63AF4 Offset: 0xD63AF4 VA: 0xD63AF4 Slot: 6
 	public float get_duration() { }
 
-	// RVA: 0xBB764C Offset: 0xBB764C VA: 0xBB764C
+	// RVA: 0xD63AFC Offset: 0xD63AFC VA: 0xD63AFC
 	public void set_duration(float value) { }
 
-	// RVA: 0xBB7654 Offset: 0xBB7654 VA: 0xBB7654 Slot: 5
+	// RVA: 0xD63B04 Offset: 0xD63B04 VA: 0xD63B04 Slot: 5
 	public bool get_ignoreTimeScale() { }
 
-	// RVA: 0xBB765C Offset: 0xBB765C VA: 0xBB765C
+	// RVA: 0xD63B0C Offset: 0xD63B0C VA: 0xD63B0C
 	public void set_ignoreTimeScale(bool value) { }
 
-	// RVA: 0xBB7668 Offset: 0xBB7668 VA: 0xBB7668 Slot: 4
+	// RVA: 0xD63B18 Offset: 0xD63B18 VA: 0xD63B18 Slot: 4
 	public void TweenValue(float floatPercentage) { }
 
-	// RVA: 0xBB7670 Offset: 0xBB7670 VA: 0xBB7670
+	// RVA: 0xD63B20 Offset: 0xD63B20 VA: 0xD63B20
 	public void AddOnChangedCallback(UnityAction<Color> callback) { }
 
-	// RVA: 0xBB7678 Offset: 0xBB7678 VA: 0xBB7678
+	// RVA: 0xD63B28 Offset: 0xD63B28 VA: 0xD63B28
 	public bool GetIgnoreTimescale() { }
 
-	// RVA: 0xBB7680 Offset: 0xBB7680 VA: 0xBB7680
+	// RVA: 0xD63B30 Offset: 0xD63B30 VA: 0xD63B30
 	public float GetDuration() { }
 
-	// RVA: 0xBB7688 Offset: 0xBB7688 VA: 0xBB7688 Slot: 7
+	// RVA: 0xD63B38 Offset: 0xD63B38 VA: 0xD63B38 Slot: 7
 	public bool ValidTarget() { }
 }
 
@@ -64,7 +186,7 @@ public class ColorTween.ColorTweenCallback : UnityEvent<Color> // TypeDefIndex: 
 {
 	// Methods
 
-	// RVA: 0xF1A654 Offset: 0xF1A654 VA: 0xF1A654
+	// RVA: 0x1F7FCE0 Offset: 0x1F7FCE0 VA: 0x1F7FCE0
 	public void .ctor() { }
 }
 
@@ -86,43 +208,43 @@ internal struct FloatTween : ITweenValue // TypeDefIndex: 3048
 
 	// Methods
 
-	// RVA: 0xBB76E4 Offset: 0xBB76E4 VA: 0xBB76E4
+	// RVA: 0xD63B94 Offset: 0xD63B94 VA: 0xD63B94
 	public float get_startValue() { }
 
-	// RVA: 0xBB76EC Offset: 0xBB76EC VA: 0xBB76EC
+	// RVA: 0xD63B9C Offset: 0xD63B9C VA: 0xD63B9C
 	public void set_startValue(float value) { }
 
-	// RVA: 0xBB76F4 Offset: 0xBB76F4 VA: 0xBB76F4
+	// RVA: 0xD63BA4 Offset: 0xD63BA4 VA: 0xD63BA4
 	public float get_targetValue() { }
 
-	// RVA: 0xBB76FC Offset: 0xBB76FC VA: 0xBB76FC
+	// RVA: 0xD63BAC Offset: 0xD63BAC VA: 0xD63BAC
 	public void set_targetValue(float value) { }
 
-	// RVA: 0xBB7704 Offset: 0xBB7704 VA: 0xBB7704 Slot: 6
+	// RVA: 0xD63BB4 Offset: 0xD63BB4 VA: 0xD63BB4 Slot: 6
 	public float get_duration() { }
 
-	// RVA: 0xBB770C Offset: 0xBB770C VA: 0xBB770C
+	// RVA: 0xD63BBC Offset: 0xD63BBC VA: 0xD63BBC
 	public void set_duration(float value) { }
 
-	// RVA: 0xBB7714 Offset: 0xBB7714 VA: 0xBB7714 Slot: 5
+	// RVA: 0xD63BC4 Offset: 0xD63BC4 VA: 0xD63BC4 Slot: 5
 	public bool get_ignoreTimeScale() { }
 
-	// RVA: 0xBB771C Offset: 0xBB771C VA: 0xBB771C
+	// RVA: 0xD63BCC Offset: 0xD63BCC VA: 0xD63BCC
 	public void set_ignoreTimeScale(bool value) { }
 
-	// RVA: 0xBB7728 Offset: 0xBB7728 VA: 0xBB7728 Slot: 4
+	// RVA: 0xD63BD8 Offset: 0xD63BD8 VA: 0xD63BD8 Slot: 4
 	public void TweenValue(float floatPercentage) { }
 
-	// RVA: 0xBB7730 Offset: 0xBB7730 VA: 0xBB7730
+	// RVA: 0xD63BE0 Offset: 0xD63BE0 VA: 0xD63BE0
 	public void AddOnChangedCallback(UnityAction<float> callback) { }
 
-	// RVA: 0xBB7738 Offset: 0xBB7738 VA: 0xBB7738
+	// RVA: 0xD63BE8 Offset: 0xD63BE8 VA: 0xD63BE8
 	public bool GetIgnoreTimescale() { }
 
-	// RVA: 0xBB7740 Offset: 0xBB7740 VA: 0xBB7740
+	// RVA: 0xD63BF0 Offset: 0xD63BF0 VA: 0xD63BF0
 	public float GetDuration() { }
 
-	// RVA: 0xBB7748 Offset: 0xBB7748 VA: 0xBB7748 Slot: 7
+	// RVA: 0xD63BF8 Offset: 0xD63BF8 VA: 0xD63BF8 Slot: 7
 	public bool ValidTarget() { }
 }
 
@@ -131,7 +253,7 @@ public class FloatTween.FloatTweenCallback : UnityEvent<float> // TypeDefIndex: 
 {
 	// Methods
 
-	// RVA: 0xF1A868 Offset: 0xF1A868 VA: 0xF1A868
+	// RVA: 0x1F7FEF4 Offset: 0x1F7FEF4 VA: 0x1F7FEF4
 	public void .ctor() { }
 }
 
@@ -148,22 +270,22 @@ internal class TweenRunner<T> // TypeDefIndex: 3050
 	public void .ctor() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2B8F7C4 Offset: 0x2B8F7C4 VA: 0x2B8F7C4
+	|-RVA: 0x2B088C0 Offset: 0x2B088C0 VA: 0x2B088C0
 	|-TweenRunner<ColorTween>..ctor
 	|
-	|-RVA: 0x2B8FAFC Offset: 0x2B8FAFC VA: 0x2B8FAFC
+	|-RVA: 0x2B08BF8 Offset: 0x2B08BF8 VA: 0x2B08BF8
 	|-TweenRunner<FloatTween>..ctor
 	*/
 
-	[DebuggerHiddenAttribute] // RVA: 0xC818E8 Offset: 0xC818E8 VA: 0xC818E8
+	[DebuggerHiddenAttribute] // RVA: 0xC157C0 Offset: 0xC157C0 VA: 0xC157C0
 	// RVA: -1 Offset: -1
 	private static IEnumerator Start(T tweenInfo) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2B8F7F0 Offset: 0x2B8F7F0 VA: 0x2B8F7F0
+	|-RVA: 0x2B088EC Offset: 0x2B088EC VA: 0x2B088EC
 	|-TweenRunner<ColorTween>.Start
 	|
-	|-RVA: 0x2B8FB28 Offset: 0x2B8FB28 VA: 0x2B8FB28
+	|-RVA: 0x2B08C24 Offset: 0x2B08C24 VA: 0x2B08C24
 	|-TweenRunner<FloatTween>.Start
 	*/
 
@@ -171,10 +293,10 @@ internal class TweenRunner<T> // TypeDefIndex: 3050
 	public void Init(MonoBehaviour coroutineContainer) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2B8F8F8 Offset: 0x2B8F8F8 VA: 0x2B8F8F8
+	|-RVA: 0x2B089F4 Offset: 0x2B089F4 VA: 0x2B089F4
 	|-TweenRunner<ColorTween>.Init
 	|
-	|-RVA: 0x2B8FC10 Offset: 0x2B8FC10 VA: 0x2B8FC10
+	|-RVA: 0x2B08D0C Offset: 0x2B08D0C VA: 0x2B08D0C
 	|-TweenRunner<FloatTween>.Init
 	*/
 
@@ -182,10 +304,10 @@ internal class TweenRunner<T> // TypeDefIndex: 3050
 	public void StartTween(T info) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2B8F900 Offset: 0x2B8F900 VA: 0x2B8F900
+	|-RVA: 0x2B089FC Offset: 0x2B089FC VA: 0x2B089FC
 	|-TweenRunner<ColorTween>.StartTween
 	|
-	|-RVA: 0x2B8FC18 Offset: 0x2B8FC18 VA: 0x2B8FC18
+	|-RVA: 0x2B08D14 Offset: 0x2B08D14 VA: 0x2B08D14
 	|-TweenRunner<FloatTween>.StartTween
 	*/
 
@@ -193,16 +315,16 @@ internal class TweenRunner<T> // TypeDefIndex: 3050
 	public void StopTween() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2B8FAAC Offset: 0x2B8FAAC VA: 0x2B8FAAC
+	|-RVA: 0x2B08BA8 Offset: 0x2B08BA8 VA: 0x2B08BA8
 	|-TweenRunner<ColorTween>.StopTween
 	|
-	|-RVA: 0x2B8FDB8 Offset: 0x2B8FDB8 VA: 0x2B8FDB8
+	|-RVA: 0x2B08EB4 Offset: 0x2B08EB4 VA: 0x2B08EB4
 	|-TweenRunner<FloatTween>.StopTween
 	*/
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC7F058 Offset: 0xC7F058 VA: 0xC7F058
+[CompilerGeneratedAttribute] // RVA: 0xC12F30 Offset: 0xC12F30 VA: 0xC12F30
 private sealed class TweenRunner.<Start>c__Iterator0<T> : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 3051
 {
 	// Fields
@@ -219,15 +341,15 @@ private sealed class TweenRunner.<Start>c__Iterator0<T> : IEnumerator, IDisposab
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81DE0 Offset: 0xC81DE0 VA: 0xC81DE0
+	[DebuggerHiddenAttribute] // RVA: 0xC15CB8 Offset: 0xC15CB8 VA: 0xC15CB8
 	// RVA: -1 Offset: -1
 	public void .ctor() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2B8F354 Offset: 0x2B8F354 VA: 0x2B8F354
+	|-RVA: 0x2B08450 Offset: 0x2B08450 VA: 0x2B08450
 	|-TweenRunner.<Start>c__Iterator0<ColorTween>..ctor
 	|
-	|-RVA: 0x2B8F58C Offset: 0x2B8F58C VA: 0x2B8F58C
+	|-RVA: 0x2B08688 Offset: 0x2B08688 VA: 0x2B08688
 	|-TweenRunner.<Start>c__Iterator0<FloatTween>..ctor
 	*/
 
@@ -235,58 +357,58 @@ private sealed class TweenRunner.<Start>c__Iterator0<T> : IEnumerator, IDisposab
 	public bool MoveNext() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2B8F380 Offset: 0x2B8F380 VA: 0x2B8F380
+	|-RVA: 0x2B0847C Offset: 0x2B0847C VA: 0x2B0847C
 	|-TweenRunner.<Start>c__Iterator0<ColorTween>.MoveNext
 	|
-	|-RVA: 0x2B8F5B8 Offset: 0x2B8F5B8 VA: 0x2B8F5B8
+	|-RVA: 0x2B086B4 Offset: 0x2B086B4 VA: 0x2B086B4
 	|-TweenRunner.<Start>c__Iterator0<FloatTween>.MoveNext
 	*/
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81DF0 Offset: 0xC81DF0 VA: 0xC81DF0
+	[DebuggerHiddenAttribute] // RVA: 0xC15CC8 Offset: 0xC15CC8 VA: 0xC15CC8
 	// RVA: -1 Offset: -1 Slot: 8
 	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2B8F500 Offset: 0x2B8F500 VA: 0x2B8F500
+	|-RVA: 0x2B085FC Offset: 0x2B085FC VA: 0x2B085FC
 	|-TweenRunner.<Start>c__Iterator0<ColorTween>.System.Collections.Generic.IEnumerator<object>.get_Current
 	|
-	|-RVA: 0x2B8F738 Offset: 0x2B8F738 VA: 0x2B8F738
+	|-RVA: 0x2B08834 Offset: 0x2B08834 VA: 0x2B08834
 	|-TweenRunner.<Start>c__Iterator0<FloatTween>.System.Collections.Generic.IEnumerator<object>.get_Current
 	*/
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81E00 Offset: 0xC81E00 VA: 0xC81E00
+	[DebuggerHiddenAttribute] // RVA: 0xC15CD8 Offset: 0xC15CD8 VA: 0xC15CD8
 	// RVA: -1 Offset: -1 Slot: 4
 	private object System.Collections.IEnumerator.get_Current() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2B8F508 Offset: 0x2B8F508 VA: 0x2B8F508
+	|-RVA: 0x2B08604 Offset: 0x2B08604 VA: 0x2B08604
 	|-TweenRunner.<Start>c__Iterator0<ColorTween>.System.Collections.IEnumerator.get_Current
 	|
-	|-RVA: 0x2B8F740 Offset: 0x2B8F740 VA: 0x2B8F740
+	|-RVA: 0x2B0883C Offset: 0x2B0883C VA: 0x2B0883C
 	|-TweenRunner.<Start>c__Iterator0<FloatTween>.System.Collections.IEnumerator.get_Current
 	*/
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81E10 Offset: 0xC81E10 VA: 0xC81E10
+	[DebuggerHiddenAttribute] // RVA: 0xC15CE8 Offset: 0xC15CE8 VA: 0xC15CE8
 	// RVA: -1 Offset: -1 Slot: 7
 	public void Dispose() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2B8F510 Offset: 0x2B8F510 VA: 0x2B8F510
+	|-RVA: 0x2B0860C Offset: 0x2B0860C VA: 0x2B0860C
 	|-TweenRunner.<Start>c__Iterator0<ColorTween>.Dispose
 	|
-	|-RVA: 0x2B8F748 Offset: 0x2B8F748 VA: 0x2B8F748
+	|-RVA: 0x2B08844 Offset: 0x2B08844 VA: 0x2B08844
 	|-TweenRunner.<Start>c__Iterator0<FloatTween>.Dispose
 	*/
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81E20 Offset: 0xC81E20 VA: 0xC81E20
+	[DebuggerHiddenAttribute] // RVA: 0xC15CF8 Offset: 0xC15CF8 VA: 0xC15CF8
 	// RVA: -1 Offset: -1 Slot: 6
 	public void Reset() { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x2B8F524 Offset: 0x2B8F524 VA: 0x2B8F524
+	|-RVA: 0x2B08620 Offset: 0x2B08620 VA: 0x2B08620
 	|-TweenRunner.<Start>c__Iterator0<ColorTween>.Reset
 	|
-	|-RVA: 0x2B8F75C Offset: 0x2B8F75C VA: 0x2B8F75C
+	|-RVA: 0x2B08858 Offset: 0x2B08858 VA: 0x2B08858
 	|-TweenRunner.<Start>c__Iterator0<FloatTween>.Reset
 	*/
 }
@@ -300,18 +422,18 @@ public class AnimationTriggers // TypeDefIndex: 3052
 	private const string kDefaultSelectedAnimName = "Highlighted";
 	private const string kDefaultPressedAnimName = "Pressed";
 	private const string kDefaultDisabledAnimName = "Disabled";
-	[FormerlySerializedAsAttribute] // RVA: 0xC7F928 Offset: 0xC7F928 VA: 0xC7F928
-	[SerializeField] // RVA: 0xC7F928 Offset: 0xC7F928 VA: 0xC7F928
+	[FormerlySerializedAsAttribute] // RVA: 0xC13800 Offset: 0xC13800 VA: 0xC13800
+	[SerializeField] // RVA: 0xC13800 Offset: 0xC13800 VA: 0xC13800
 	private string m_NormalTrigger; // 0x10
-	[FormerlySerializedAsAttribute] // RVA: 0xC7F974 Offset: 0xC7F974 VA: 0xC7F974
-	[FormerlySerializedAsAttribute] // RVA: 0xC7F974 Offset: 0xC7F974 VA: 0xC7F974
-	[SerializeField] // RVA: 0xC7F974 Offset: 0xC7F974 VA: 0xC7F974
+	[FormerlySerializedAsAttribute] // RVA: 0xC1384C Offset: 0xC1384C VA: 0xC1384C
+	[FormerlySerializedAsAttribute] // RVA: 0xC1384C Offset: 0xC1384C VA: 0xC1384C
+	[SerializeField] // RVA: 0xC1384C Offset: 0xC1384C VA: 0xC1384C
 	private string m_HighlightedTrigger; // 0x18
-	[FormerlySerializedAsAttribute] // RVA: 0xC7F9E4 Offset: 0xC7F9E4 VA: 0xC7F9E4
-	[SerializeField] // RVA: 0xC7F9E4 Offset: 0xC7F9E4 VA: 0xC7F9E4
+	[FormerlySerializedAsAttribute] // RVA: 0xC138BC Offset: 0xC138BC VA: 0xC138BC
+	[SerializeField] // RVA: 0xC138BC Offset: 0xC138BC VA: 0xC138BC
 	private string m_PressedTrigger; // 0x20
-	[FormerlySerializedAsAttribute] // RVA: 0xC7FA30 Offset: 0xC7FA30 VA: 0xC7FA30
-	[SerializeField] // RVA: 0xC7FA30 Offset: 0xC7FA30 VA: 0xC7FA30
+	[FormerlySerializedAsAttribute] // RVA: 0xC13908 Offset: 0xC13908 VA: 0xC13908
+	[SerializeField] // RVA: 0xC13908 Offset: 0xC13908 VA: 0xC13908
 	private string m_DisabledTrigger; // 0x28
 
 	// Properties
@@ -322,41 +444,41 @@ public class AnimationTriggers // TypeDefIndex: 3052
 
 	// Methods
 
-	// RVA: 0xF161C0 Offset: 0xF161C0 VA: 0xF161C0
+	// RVA: 0x1F7B84C Offset: 0x1F7B84C VA: 0x1F7B84C
 	public void .ctor() { }
 
-	// RVA: 0xF16248 Offset: 0xF16248 VA: 0xF16248
+	// RVA: 0x1F7B8D4 Offset: 0x1F7B8D4 VA: 0x1F7B8D4
 	public string get_normalTrigger() { }
 
-	// RVA: 0xF16250 Offset: 0xF16250 VA: 0xF16250
+	// RVA: 0x1F7B8DC Offset: 0x1F7B8DC VA: 0x1F7B8DC
 	public void set_normalTrigger(string value) { }
 
-	// RVA: 0xF16258 Offset: 0xF16258 VA: 0xF16258
+	// RVA: 0x1F7B8E4 Offset: 0x1F7B8E4 VA: 0x1F7B8E4
 	public string get_highlightedTrigger() { }
 
-	// RVA: 0xF16260 Offset: 0xF16260 VA: 0xF16260
+	// RVA: 0x1F7B8EC Offset: 0x1F7B8EC VA: 0x1F7B8EC
 	public void set_highlightedTrigger(string value) { }
 
-	// RVA: 0xF16268 Offset: 0xF16268 VA: 0xF16268
+	// RVA: 0x1F7B8F4 Offset: 0x1F7B8F4 VA: 0x1F7B8F4
 	public string get_pressedTrigger() { }
 
-	// RVA: 0xF16270 Offset: 0xF16270 VA: 0xF16270
+	// RVA: 0x1F7B8FC Offset: 0x1F7B8FC VA: 0x1F7B8FC
 	public void set_pressedTrigger(string value) { }
 
-	// RVA: 0xF16278 Offset: 0xF16278 VA: 0xF16278
+	// RVA: 0x1F7B904 Offset: 0x1F7B904 VA: 0x1F7B904
 	public string get_disabledTrigger() { }
 
-	// RVA: 0xF16280 Offset: 0xF16280 VA: 0xF16280
+	// RVA: 0x1F7B90C Offset: 0x1F7B90C VA: 0x1F7B90C
 	public void set_disabledTrigger(string value) { }
 }
 
 // Namespace: UnityEngine.UI
-[AddComponentMenu] // RVA: 0xC7E304 Offset: 0xC7E304 VA: 0xC7E304
+[AddComponentMenu] // RVA: 0xC121DC Offset: 0xC121DC VA: 0xC121DC
 public class Button : Selectable, IPointerClickHandler, ISubmitHandler, IEventSystemHandler // TypeDefIndex: 3053
 {
 	// Fields
-	[FormerlySerializedAsAttribute] // RVA: 0xC7FA7C Offset: 0xC7FA7C VA: 0xC7FA7C
-	[SerializeField] // RVA: 0xC7FA7C Offset: 0xC7FA7C VA: 0xC7FA7C
+	[FormerlySerializedAsAttribute] // RVA: 0xC13954 Offset: 0xC13954 VA: 0xC13954
+	[SerializeField] // RVA: 0xC13954 Offset: 0xC13954 VA: 0xC13954
 	private Button.ButtonClickedEvent m_OnClick; // 0xD8
 
 	// Properties
@@ -364,26 +486,26 @@ public class Button : Selectable, IPointerClickHandler, ISubmitHandler, IEventSy
 
 	// Methods
 
-	// RVA: 0xF16E40 Offset: 0xF16E40 VA: 0xF16E40
+	// RVA: 0x1F7C4CC Offset: 0x1F7C4CC VA: 0x1F7C4CC
 	protected void .ctor() { }
 
-	// RVA: 0xF16ED0 Offset: 0xF16ED0 VA: 0xF16ED0
+	// RVA: 0x1F7C55C Offset: 0x1F7C55C VA: 0x1F7C55C
 	public Button.ButtonClickedEvent get_onClick() { }
 
-	// RVA: 0xF16ED8 Offset: 0xF16ED8 VA: 0xF16ED8
+	// RVA: 0x1F7C564 Offset: 0x1F7C564 VA: 0x1F7C564
 	public void set_onClick(Button.ButtonClickedEvent value) { }
 
-	// RVA: 0xF16EE0 Offset: 0xF16EE0 VA: 0xF16EE0
+	// RVA: 0x1F7C56C Offset: 0x1F7C56C VA: 0x1F7C56C
 	private void Press() { }
 
-	// RVA: 0xF16F88 Offset: 0xF16F88 VA: 0xF16F88 Slot: 41
+	// RVA: 0x1F7C614 Offset: 0x1F7C614 VA: 0x1F7C614 Slot: 41
 	public virtual void OnPointerClick(PointerEventData eventData) { }
 
-	// RVA: 0xF16FCC Offset: 0xF16FCC VA: 0xF16FCC Slot: 42
+	// RVA: 0x1F7C658 Offset: 0x1F7C658 VA: 0x1F7C658 Slot: 42
 	public virtual void OnSubmit(BaseEventData eventData) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC818F8 Offset: 0xC818F8 VA: 0xC818F8
-	// RVA: 0xF17054 Offset: 0xF17054 VA: 0xF17054
+	[DebuggerHiddenAttribute] // RVA: 0xC157D0 Offset: 0xC157D0 VA: 0xC157D0
+	// RVA: 0x1F7C6E0 Offset: 0x1F7C6E0 VA: 0x1F7C6E0
 	private IEnumerator OnFinishSubmit() { }
 }
 
@@ -393,12 +515,12 @@ public class Button.ButtonClickedEvent : UnityEvent // TypeDefIndex: 3054
 {
 	// Methods
 
-	// RVA: 0xF16EC8 Offset: 0xF16EC8 VA: 0xF16EC8
+	// RVA: 0x1F7C554 Offset: 0x1F7C554 VA: 0x1F7C554
 	public void .ctor() { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC7F068 Offset: 0xC7F068 VA: 0xC7F068
+[CompilerGeneratedAttribute] // RVA: 0xC12F40 Offset: 0xC12F40 VA: 0xC12F40
 private sealed class Button.<OnFinishSubmit>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 3055
 {
 	// Fields
@@ -415,27 +537,27 @@ private sealed class Button.<OnFinishSubmit>c__Iterator0 : IEnumerator, IDisposa
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81E30 Offset: 0xC81E30 VA: 0xC81E30
-	// RVA: 0xF170C4 Offset: 0xF170C4 VA: 0xF170C4
+	[DebuggerHiddenAttribute] // RVA: 0xC15D08 Offset: 0xC15D08 VA: 0xC15D08
+	// RVA: 0x1F7C750 Offset: 0x1F7C750 VA: 0x1F7C750
 	public void .ctor() { }
 
-	// RVA: 0xF170CC Offset: 0xF170CC VA: 0xF170CC Slot: 5
+	// RVA: 0x1F7C758 Offset: 0x1F7C758 VA: 0x1F7C758 Slot: 5
 	public bool MoveNext() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81E40 Offset: 0xC81E40 VA: 0xC81E40
-	// RVA: 0xF17210 Offset: 0xF17210 VA: 0xF17210 Slot: 8
+	[DebuggerHiddenAttribute] // RVA: 0xC15D18 Offset: 0xC15D18 VA: 0xC15D18
+	// RVA: 0x1F7C89C Offset: 0x1F7C89C VA: 0x1F7C89C Slot: 8
 	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81E50 Offset: 0xC81E50 VA: 0xC81E50
-	// RVA: 0xF17218 Offset: 0xF17218 VA: 0xF17218 Slot: 4
+	[DebuggerHiddenAttribute] // RVA: 0xC15D28 Offset: 0xC15D28 VA: 0xC15D28
+	// RVA: 0x1F7C8A4 Offset: 0x1F7C8A4 VA: 0x1F7C8A4 Slot: 4
 	private object System.Collections.IEnumerator.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81E60 Offset: 0xC81E60 VA: 0xC81E60
-	// RVA: 0xF17220 Offset: 0xF17220 VA: 0xF17220 Slot: 7
+	[DebuggerHiddenAttribute] // RVA: 0xC15D38 Offset: 0xC15D38 VA: 0xC15D38
+	// RVA: 0x1F7C8AC Offset: 0x1F7C8AC VA: 0x1F7C8AC Slot: 7
 	public void Dispose() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81E70 Offset: 0xC81E70 VA: 0xC81E70
-	// RVA: 0xF17234 Offset: 0xF17234 VA: 0xF17234 Slot: 6
+	[DebuggerHiddenAttribute] // RVA: 0xC15D48 Offset: 0xC15D48 VA: 0xC15D48
+	// RVA: 0x1F7C8C0 Offset: 0x1F7C8C0 VA: 0x1F7C8C0 Slot: 6
 	public void Reset() { }
 }
 
@@ -486,7 +608,7 @@ public class CanvasUpdateRegistry // TypeDefIndex: 3058
 	private readonly IndexedSet<ICanvasElement> m_LayoutRebuildQueue; // 0x18
 	private readonly IndexedSet<ICanvasElement> m_GraphicRebuildQueue; // 0x20
 	private static readonly Comparison<ICanvasElement> s_SortLayoutFunction; // 0x8
-	[CompilerGeneratedAttribute] // RVA: 0xC7FAC8 Offset: 0xC7FAC8 VA: 0xC7FAC8
+	[CompilerGeneratedAttribute] // RVA: 0xC139A0 Offset: 0xC139A0 VA: 0xC139A0
 	private static Comparison<ICanvasElement> <>f__mg$cache0; // 0x10
 
 	// Properties
@@ -494,61 +616,61 @@ public class CanvasUpdateRegistry // TypeDefIndex: 3058
 
 	// Methods
 
-	// RVA: 0xF17BB8 Offset: 0xF17BB8 VA: 0xF17BB8
+	// RVA: 0x1F7D244 Offset: 0x1F7D244 VA: 0x1F7D244
 	protected void .ctor() { }
 
-	// RVA: 0xF17C80 Offset: 0xF17C80 VA: 0xF17C80
+	// RVA: 0x1F7D30C Offset: 0x1F7D30C VA: 0x1F7D30C
 	public static CanvasUpdateRegistry get_instance() { }
 
-	// RVA: 0xF17D40 Offset: 0xF17D40 VA: 0xF17D40
+	// RVA: 0x1F7D3CC Offset: 0x1F7D3CC VA: 0x1F7D3CC
 	private bool ObjectValidForUpdate(ICanvasElement element) { }
 
-	// RVA: 0xF17E20 Offset: 0xF17E20 VA: 0xF17E20
+	// RVA: 0x1F7D4AC Offset: 0x1F7D4AC VA: 0x1F7D4AC
 	private void CleanInvalidItems() { }
 
-	// RVA: 0xF18178 Offset: 0xF18178 VA: 0xF18178
+	// RVA: 0x1F7D804 Offset: 0x1F7D804 VA: 0x1F7D804
 	private void PerformUpdate() { }
 
-	// RVA: 0xF18B14 Offset: 0xF18B14 VA: 0xF18B14
+	// RVA: 0x1F7E1A0 Offset: 0x1F7E1A0 VA: 0x1F7E1A0
 	private static int ParentCount(Transform child) { }
 
-	// RVA: 0xF18C00 Offset: 0xF18C00 VA: 0xF18C00
+	// RVA: 0x1F7E28C Offset: 0x1F7E28C VA: 0x1F7E28C
 	private static int SortLayoutList(ICanvasElement x, ICanvasElement y) { }
 
-	// RVA: 0xF18D78 Offset: 0xF18D78 VA: 0xF18D78
+	// RVA: 0x1F7E404 Offset: 0x1F7E404 VA: 0x1F7E404
 	public static void RegisterCanvasElementForLayoutRebuild(ICanvasElement element) { }
 
-	// RVA: 0xF18EA0 Offset: 0xF18EA0 VA: 0xF18EA0
+	// RVA: 0x1F7E52C Offset: 0x1F7E52C VA: 0x1F7E52C
 	public static bool TryRegisterCanvasElementForLayoutRebuild(ICanvasElement element) { }
 
-	// RVA: 0xF18DF0 Offset: 0xF18DF0 VA: 0xF18DF0
+	// RVA: 0x1F7E47C Offset: 0x1F7E47C VA: 0x1F7E47C
 	private bool InternalRegisterCanvasElementForLayoutRebuild(ICanvasElement element) { }
 
-	// RVA: 0xF18F18 Offset: 0xF18F18 VA: 0xF18F18
+	// RVA: 0x1F7E5A4 Offset: 0x1F7E5A4 VA: 0x1F7E5A4
 	public static void RegisterCanvasElementForGraphicRebuild(ICanvasElement element) { }
 
-	// RVA: 0xF19088 Offset: 0xF19088 VA: 0xF19088
+	// RVA: 0x1F7E714 Offset: 0x1F7E714 VA: 0x1F7E714
 	public static bool TryRegisterCanvasElementForGraphicRebuild(ICanvasElement element) { }
 
-	// RVA: 0xF18F90 Offset: 0xF18F90 VA: 0xF18F90
+	// RVA: 0x1F7E61C Offset: 0x1F7E61C VA: 0x1F7E61C
 	private bool InternalRegisterCanvasElementForGraphicRebuild(ICanvasElement element) { }
 
-	// RVA: 0xF19100 Offset: 0xF19100 VA: 0xF19100
+	// RVA: 0x1F7E78C Offset: 0x1F7E78C VA: 0x1F7E78C
 	public static void UnRegisterCanvasElementForRebuild(ICanvasElement element) { }
 
-	// RVA: 0xF19194 Offset: 0xF19194 VA: 0xF19194
+	// RVA: 0x1F7E820 Offset: 0x1F7E820 VA: 0x1F7E820
 	private void InternalUnRegisterCanvasElementForLayoutRebuild(ICanvasElement element) { }
 
-	// RVA: 0xF1932C Offset: 0xF1932C VA: 0xF1932C
+	// RVA: 0x1F7E9B8 Offset: 0x1F7E9B8 VA: 0x1F7E9B8
 	private void InternalUnRegisterCanvasElementForGraphicRebuild(ICanvasElement element) { }
 
-	// RVA: 0xF194C4 Offset: 0xF194C4 VA: 0xF194C4
+	// RVA: 0x1F7EB50 Offset: 0x1F7EB50 VA: 0x1F7EB50
 	public static bool IsRebuildingLayout() { }
 
-	// RVA: 0xF19534 Offset: 0xF19534 VA: 0xF19534
+	// RVA: 0x1F7EBC0 Offset: 0x1F7EBC0 VA: 0x1F7EBC0
 	public static bool IsRebuildingGraphics() { }
 
-	// RVA: 0xF195A4 Offset: 0xF195A4 VA: 0xF195A4
+	// RVA: 0x1F7EC30 Offset: 0x1F7EC30 VA: 0x1F7EC30
 	private static void .cctor() { }
 }
 
@@ -557,24 +679,24 @@ public class CanvasUpdateRegistry // TypeDefIndex: 3058
 public struct ColorBlock : IEquatable<ColorBlock> // TypeDefIndex: 3059
 {
 	// Fields
-	[FormerlySerializedAsAttribute] // RVA: 0xC7FAD8 Offset: 0xC7FAD8 VA: 0xC7FAD8
-	[SerializeField] // RVA: 0xC7FAD8 Offset: 0xC7FAD8 VA: 0xC7FAD8
+	[FormerlySerializedAsAttribute] // RVA: 0xC139B0 Offset: 0xC139B0 VA: 0xC139B0
+	[SerializeField] // RVA: 0xC139B0 Offset: 0xC139B0 VA: 0xC139B0
 	private Color m_NormalColor; // 0x0
-	[FormerlySerializedAsAttribute] // RVA: 0xC7FB24 Offset: 0xC7FB24 VA: 0xC7FB24
-	[FormerlySerializedAsAttribute] // RVA: 0xC7FB24 Offset: 0xC7FB24 VA: 0xC7FB24
-	[SerializeField] // RVA: 0xC7FB24 Offset: 0xC7FB24 VA: 0xC7FB24
+	[FormerlySerializedAsAttribute] // RVA: 0xC139FC Offset: 0xC139FC VA: 0xC139FC
+	[FormerlySerializedAsAttribute] // RVA: 0xC139FC Offset: 0xC139FC VA: 0xC139FC
+	[SerializeField] // RVA: 0xC139FC Offset: 0xC139FC VA: 0xC139FC
 	private Color m_HighlightedColor; // 0x10
-	[FormerlySerializedAsAttribute] // RVA: 0xC7FB94 Offset: 0xC7FB94 VA: 0xC7FB94
-	[SerializeField] // RVA: 0xC7FB94 Offset: 0xC7FB94 VA: 0xC7FB94
+	[FormerlySerializedAsAttribute] // RVA: 0xC13A6C Offset: 0xC13A6C VA: 0xC13A6C
+	[SerializeField] // RVA: 0xC13A6C Offset: 0xC13A6C VA: 0xC13A6C
 	private Color m_PressedColor; // 0x20
-	[FormerlySerializedAsAttribute] // RVA: 0xC7FBE0 Offset: 0xC7FBE0 VA: 0xC7FBE0
-	[SerializeField] // RVA: 0xC7FBE0 Offset: 0xC7FBE0 VA: 0xC7FBE0
+	[FormerlySerializedAsAttribute] // RVA: 0xC13AB8 Offset: 0xC13AB8 VA: 0xC13AB8
+	[SerializeField] // RVA: 0xC13AB8 Offset: 0xC13AB8 VA: 0xC13AB8
 	private Color m_DisabledColor; // 0x30
-	[RangeAttribute] // RVA: 0xC7FC2C Offset: 0xC7FC2C VA: 0xC7FC2C
-	[SerializeField] // RVA: 0xC7FC2C Offset: 0xC7FC2C VA: 0xC7FC2C
+	[RangeAttribute] // RVA: 0xC13B04 Offset: 0xC13B04 VA: 0xC13B04
+	[SerializeField] // RVA: 0xC13B04 Offset: 0xC13B04 VA: 0xC13B04
 	private float m_ColorMultiplier; // 0x40
-	[FormerlySerializedAsAttribute] // RVA: 0xC7FC6C Offset: 0xC7FC6C VA: 0xC7FC6C
-	[SerializeField] // RVA: 0xC7FC6C Offset: 0xC7FC6C VA: 0xC7FC6C
+	[FormerlySerializedAsAttribute] // RVA: 0xC13B44 Offset: 0xC13B44 VA: 0xC13B44
+	[SerializeField] // RVA: 0xC13B44 Offset: 0xC13B44 VA: 0xC13B44
 	private float m_FadeDuration; // 0x44
 
 	// Properties
@@ -588,58 +710,58 @@ public struct ColorBlock : IEquatable<ColorBlock> // TypeDefIndex: 3059
 
 	// Methods
 
-	// RVA: 0xBB74E8 Offset: 0xBB74E8 VA: 0xBB74E8
+	// RVA: 0xD63998 Offset: 0xD63998 VA: 0xD63998
 	public Color get_normalColor() { }
 
-	// RVA: 0xBB74F4 Offset: 0xBB74F4 VA: 0xBB74F4
+	// RVA: 0xD639A4 Offset: 0xD639A4 VA: 0xD639A4
 	public void set_normalColor(Color value) { }
 
-	// RVA: 0xBB7500 Offset: 0xBB7500 VA: 0xBB7500
+	// RVA: 0xD639B0 Offset: 0xD639B0 VA: 0xD639B0
 	public Color get_highlightedColor() { }
 
-	// RVA: 0xBB750C Offset: 0xBB750C VA: 0xBB750C
+	// RVA: 0xD639BC Offset: 0xD639BC VA: 0xD639BC
 	public void set_highlightedColor(Color value) { }
 
-	// RVA: 0xBB7518 Offset: 0xBB7518 VA: 0xBB7518
+	// RVA: 0xD639C8 Offset: 0xD639C8 VA: 0xD639C8
 	public Color get_pressedColor() { }
 
-	// RVA: 0xBB7524 Offset: 0xBB7524 VA: 0xBB7524
+	// RVA: 0xD639D4 Offset: 0xD639D4 VA: 0xD639D4
 	public void set_pressedColor(Color value) { }
 
-	// RVA: 0xBB7530 Offset: 0xBB7530 VA: 0xBB7530
+	// RVA: 0xD639E0 Offset: 0xD639E0 VA: 0xD639E0
 	public Color get_disabledColor() { }
 
-	// RVA: 0xBB753C Offset: 0xBB753C VA: 0xBB753C
+	// RVA: 0xD639EC Offset: 0xD639EC VA: 0xD639EC
 	public void set_disabledColor(Color value) { }
 
-	// RVA: 0xBB7548 Offset: 0xBB7548 VA: 0xBB7548
+	// RVA: 0xD639F8 Offset: 0xD639F8 VA: 0xD639F8
 	public float get_colorMultiplier() { }
 
-	// RVA: 0xBB7550 Offset: 0xBB7550 VA: 0xBB7550
+	// RVA: 0xD63A00 Offset: 0xD63A00 VA: 0xD63A00
 	public void set_colorMultiplier(float value) { }
 
-	// RVA: 0xBB7558 Offset: 0xBB7558 VA: 0xBB7558
+	// RVA: 0xD63A08 Offset: 0xD63A08 VA: 0xD63A08
 	public float get_fadeDuration() { }
 
-	// RVA: 0xBB7560 Offset: 0xBB7560 VA: 0xBB7560
+	// RVA: 0xD63A10 Offset: 0xD63A10 VA: 0xD63A10
 	public void set_fadeDuration(float value) { }
 
-	// RVA: 0xF19C9C Offset: 0xF19C9C VA: 0xF19C9C
+	// RVA: 0x1F7F328 Offset: 0x1F7F328 VA: 0x1F7F328
 	public static ColorBlock get_defaultColorBlock() { }
 
-	// RVA: 0xBB7568 Offset: 0xBB7568 VA: 0xBB7568 Slot: 0
+	// RVA: 0xD63A18 Offset: 0xD63A18 VA: 0xD63A18 Slot: 0
 	public override bool Equals(object obj) { }
 
-	// RVA: 0xBB7570 Offset: 0xBB7570 VA: 0xBB7570 Slot: 4
+	// RVA: 0xD63A20 Offset: 0xD63A20 VA: 0xD63A20 Slot: 4
 	public bool Equals(ColorBlock other) { }
 
-	// RVA: 0xF19F5C Offset: 0xF19F5C VA: 0xF19F5C
+	// RVA: 0x1F7F5E8 Offset: 0x1F7F5E8 VA: 0x1F7F5E8
 	public static bool op_Equality(ColorBlock point1, ColorBlock point2) { }
 
-	// RVA: 0xF19F9C Offset: 0xF19F9C VA: 0xF19F9C
+	// RVA: 0x1F7F628 Offset: 0x1F7F628 VA: 0x1F7F628
 	public static bool op_Inequality(ColorBlock point1, ColorBlock point2) { }
 
-	// RVA: 0xBB75B0 Offset: 0xBB75B0 VA: 0xBB75B0 Slot: 2
+	// RVA: 0xD63A60 Offset: 0xD63A60 VA: 0xD63A60 Slot: 2
 	public override int GetHashCode() { }
 }
 
@@ -659,58 +781,58 @@ public static class DefaultControls // TypeDefIndex: 3060
 
 	// Methods
 
-	// RVA: 0xF1A8C8 Offset: 0xF1A8C8 VA: 0xF1A8C8
+	// RVA: 0x1F7FF54 Offset: 0x1F7FF54 VA: 0x1F7FF54
 	private static GameObject CreateUIElementRoot(string name, Vector2 size) { }
 
-	// RVA: 0xF1A97C Offset: 0xF1A97C VA: 0xF1A97C
+	// RVA: 0x1F80008 Offset: 0x1F80008 VA: 0x1F80008
 	private static GameObject CreateUIObject(string name, GameObject parent) { }
 
-	// RVA: 0xF1AB68 Offset: 0xF1AB68 VA: 0xF1AB68
+	// RVA: 0x1F801F4 Offset: 0x1F801F4 VA: 0x1F801F4
 	private static void SetDefaultTextValues(Text lbl) { }
 
-	// RVA: 0xF1AC2C Offset: 0xF1AC2C VA: 0xF1AC2C
+	// RVA: 0x1F802B8 Offset: 0x1F802B8 VA: 0x1F802B8
 	private static void SetDefaultColorTransitionValues(Selectable slider) { }
 
-	// RVA: 0xF1AA38 Offset: 0xF1AA38 VA: 0xF1AA38
+	// RVA: 0x1F800C4 Offset: 0x1F800C4 VA: 0x1F800C4
 	private static void SetParentAndAlign(GameObject child, GameObject parent) { }
 
-	// RVA: 0xF1ACC8 Offset: 0xF1ACC8 VA: 0xF1ACC8
+	// RVA: 0x1F80354 Offset: 0x1F80354 VA: 0x1F80354
 	private static void SetLayerRecursively(GameObject go, int layer) { }
 
-	// RVA: 0xF1ADF8 Offset: 0xF1ADF8 VA: 0xF1ADF8
+	// RVA: 0x1F80484 Offset: 0x1F80484 VA: 0x1F80484
 	public static GameObject CreatePanel(DefaultControls.Resources resources) { }
 
-	// RVA: 0xF1B044 Offset: 0xF1B044 VA: 0xF1B044
+	// RVA: 0x1F806D0 Offset: 0x1F806D0 VA: 0x1F806D0
 	public static GameObject CreateButton(DefaultControls.Resources resources) { }
 
-	// RVA: 0xF1B348 Offset: 0xF1B348 VA: 0xF1B348
+	// RVA: 0x1F809D4 Offset: 0x1F809D4 VA: 0x1F809D4
 	public static GameObject CreateText(DefaultControls.Resources resources) { }
 
-	// RVA: 0xF1B418 Offset: 0xF1B418 VA: 0xF1B418
+	// RVA: 0x1F80AA4 Offset: 0x1F80AA4 VA: 0x1F80AA4
 	public static GameObject CreateImage(DefaultControls.Resources resources) { }
 
-	// RVA: 0xF1B4B4 Offset: 0xF1B4B4 VA: 0xF1B4B4
+	// RVA: 0x1F80B40 Offset: 0x1F80B40 VA: 0x1F80B40
 	public static GameObject CreateRawImage(DefaultControls.Resources resources) { }
 
-	// RVA: 0xF1B550 Offset: 0xF1B550 VA: 0xF1B550
+	// RVA: 0x1F80BDC Offset: 0x1F80BDC VA: 0x1F80BDC
 	public static GameObject CreateSlider(DefaultControls.Resources resources) { }
 
-	// RVA: 0xF1BC70 Offset: 0xF1BC70 VA: 0xF1BC70
+	// RVA: 0x1F812FC Offset: 0x1F812FC VA: 0x1F812FC
 	public static GameObject CreateScrollbar(DefaultControls.Resources resources) { }
 
-	// RVA: 0xF1C044 Offset: 0xF1C044 VA: 0xF1C044
+	// RVA: 0x1F816D0 Offset: 0x1F816D0 VA: 0x1F816D0
 	public static GameObject CreateToggle(DefaultControls.Resources resources) { }
 
-	// RVA: 0xF1C5EC Offset: 0xF1C5EC VA: 0xF1C5EC
+	// RVA: 0x1F81C78 Offset: 0x1F81C78 VA: 0x1F81C78
 	public static GameObject CreateInputField(DefaultControls.Resources resources) { }
 
-	// RVA: 0xF1CB7C Offset: 0xF1CB7C VA: 0xF1CB7C
+	// RVA: 0x1F82208 Offset: 0x1F82208 VA: 0x1F82208
 	public static GameObject CreateDropdown(DefaultControls.Resources resources) { }
 
-	// RVA: 0xF1E2E0 Offset: 0xF1E2E0 VA: 0xF1E2E0
+	// RVA: 0x1F8396C Offset: 0x1F8396C VA: 0x1F8396C
 	public static GameObject CreateScrollView(DefaultControls.Resources resources) { }
 
-	// RVA: 0xF1EBE4 Offset: 0xF1EBE4 VA: 0xF1EBE4
+	// RVA: 0x1F84270 Offset: 0x1F84270 VA: 0x1F84270
 	private static void .cctor() { }
 }
 
@@ -728,30 +850,30 @@ public struct DefaultControls.Resources // TypeDefIndex: 3061
 }
 
 // Namespace: UnityEngine.UI
-[AddComponentMenu] // RVA: 0xC7E340 Offset: 0xC7E340 VA: 0xC7E340
-[RequireComponent] // RVA: 0xC7E340 Offset: 0xC7E340 VA: 0xC7E340
+[AddComponentMenu] // RVA: 0xC12218 Offset: 0xC12218 VA: 0xC12218
+[RequireComponent] // RVA: 0xC12218 Offset: 0xC12218 VA: 0xC12218
 public class Dropdown : Selectable, IPointerClickHandler, ISubmitHandler, ICancelHandler, IEventSystemHandler // TypeDefIndex: 3062
 {
 	// Fields
-	[SerializeField] // RVA: 0xC7FCB8 Offset: 0xC7FCB8 VA: 0xC7FCB8
+	[SerializeField] // RVA: 0xC13B90 Offset: 0xC13B90 VA: 0xC13B90
 	private RectTransform m_Template; // 0xD8
-	[SerializeField] // RVA: 0xC7FCC8 Offset: 0xC7FCC8 VA: 0xC7FCC8
+	[SerializeField] // RVA: 0xC13BA0 Offset: 0xC13BA0 VA: 0xC13BA0
 	private Text m_CaptionText; // 0xE0
-	[SerializeField] // RVA: 0xC7FCD8 Offset: 0xC7FCD8 VA: 0xC7FCD8
+	[SerializeField] // RVA: 0xC13BB0 Offset: 0xC13BB0 VA: 0xC13BB0
 	private Image m_CaptionImage; // 0xE8
-	[SpaceAttribute] // RVA: 0xC7FCE8 Offset: 0xC7FCE8 VA: 0xC7FCE8
-	[SerializeField] // RVA: 0xC7FCE8 Offset: 0xC7FCE8 VA: 0xC7FCE8
+	[SpaceAttribute] // RVA: 0xC13BC0 Offset: 0xC13BC0 VA: 0xC13BC0
+	[SerializeField] // RVA: 0xC13BC0 Offset: 0xC13BC0 VA: 0xC13BC0
 	private Text m_ItemText; // 0xF0
-	[SerializeField] // RVA: 0xC7FD20 Offset: 0xC7FD20 VA: 0xC7FD20
+	[SerializeField] // RVA: 0xC13BF8 Offset: 0xC13BF8 VA: 0xC13BF8
 	private Image m_ItemImage; // 0xF8
-	[SpaceAttribute] // RVA: 0xC7FD30 Offset: 0xC7FD30 VA: 0xC7FD30
-	[SerializeField] // RVA: 0xC7FD30 Offset: 0xC7FD30 VA: 0xC7FD30
+	[SpaceAttribute] // RVA: 0xC13C08 Offset: 0xC13C08 VA: 0xC13C08
+	[SerializeField] // RVA: 0xC13C08 Offset: 0xC13C08 VA: 0xC13C08
 	private int m_Value; // 0x100
-	[SpaceAttribute] // RVA: 0xC7FD68 Offset: 0xC7FD68 VA: 0xC7FD68
-	[SerializeField] // RVA: 0xC7FD68 Offset: 0xC7FD68 VA: 0xC7FD68
+	[SpaceAttribute] // RVA: 0xC13C40 Offset: 0xC13C40 VA: 0xC13C40
+	[SerializeField] // RVA: 0xC13C40 Offset: 0xC13C40 VA: 0xC13C40
 	private Dropdown.OptionDataList m_Options; // 0x108
-	[SpaceAttribute] // RVA: 0xC7FDA0 Offset: 0xC7FDA0 VA: 0xC7FDA0
-	[SerializeField] // RVA: 0xC7FDA0 Offset: 0xC7FDA0 VA: 0xC7FDA0
+	[SpaceAttribute] // RVA: 0xC13C78 Offset: 0xC13C78 VA: 0xC13C78
+	[SerializeField] // RVA: 0xC13C78 Offset: 0xC13C78 VA: 0xC13C78
 	private Dropdown.DropdownEvent m_OnValueChanged; // 0x110
 	private GameObject m_Dropdown; // 0x118
 	private GameObject m_Blocker; // 0x120
@@ -772,229 +894,107 @@ public class Dropdown : Selectable, IPointerClickHandler, ISubmitHandler, ICance
 
 	// Methods
 
-	// RVA: 0xF1ED88 Offset: 0xF1ED88 VA: 0xF1ED88
+	// RVA: 0x1F84414 Offset: 0x1F84414 VA: 0x1F84414
 	protected void .ctor() { }
 
-	// RVA: 0xF1EE5C Offset: 0xF1EE5C VA: 0xF1EE5C
+	// RVA: 0x1F844E8 Offset: 0x1F844E8 VA: 0x1F844E8
 	public RectTransform get_template() { }
 
-	// RVA: 0xF1DFB0 Offset: 0xF1DFB0 VA: 0xF1DFB0
+	// RVA: 0x1F8363C Offset: 0x1F8363C VA: 0x1F8363C
 	public void set_template(RectTransform value) { }
 
-	// RVA: 0xF1EE64 Offset: 0xF1EE64 VA: 0xF1EE64
+	// RVA: 0x1F844F0 Offset: 0x1F844F0 VA: 0x1F844F0
 	public Text get_captionText() { }
 
-	// RVA: 0xF1DFB8 Offset: 0xF1DFB8 VA: 0xF1DFB8
+	// RVA: 0x1F83644 Offset: 0x1F83644 VA: 0x1F83644
 	public void set_captionText(Text value) { }
 
-	// RVA: 0xF1EE6C Offset: 0xF1EE6C VA: 0xF1EE6C
+	// RVA: 0x1F844F8 Offset: 0x1F844F8 VA: 0x1F844F8
 	public Image get_captionImage() { }
 
-	// RVA: 0xF1EE74 Offset: 0xF1EE74 VA: 0xF1EE74
+	// RVA: 0x1F84500 Offset: 0x1F84500 VA: 0x1F84500
 	public void set_captionImage(Image value) { }
 
-	// RVA: 0xF1EE7C Offset: 0xF1EE7C VA: 0xF1EE7C
+	// RVA: 0x1F84508 Offset: 0x1F84508 VA: 0x1F84508
 	public Text get_itemText() { }
 
-	// RVA: 0xF1DFC0 Offset: 0xF1DFC0 VA: 0xF1DFC0
+	// RVA: 0x1F8364C Offset: 0x1F8364C VA: 0x1F8364C
 	public void set_itemText(Text value) { }
 
-	// RVA: 0xF1EE84 Offset: 0xF1EE84 VA: 0xF1EE84
+	// RVA: 0x1F84510 Offset: 0x1F84510 VA: 0x1F84510
 	public Image get_itemImage() { }
 
-	// RVA: 0xF1EE8C Offset: 0xF1EE8C VA: 0xF1EE8C
+	// RVA: 0x1F84518 Offset: 0x1F84518 VA: 0x1F84518
 	public void set_itemImage(Image value) { }
 
-	// RVA: 0xF1DFC8 Offset: 0xF1DFC8 VA: 0xF1DFC8
+	// RVA: 0x1F83654 Offset: 0x1F83654 VA: 0x1F83654
 	public List<Dropdown.OptionData> get_options() { }
 
-	// RVA: 0xF1EE94 Offset: 0xF1EE94 VA: 0xF1EE94
+	// RVA: 0x1F84520 Offset: 0x1F84520 VA: 0x1F84520
 	public void set_options(List<Dropdown.OptionData> value) { }
 
-	// RVA: 0xF1EEE0 Offset: 0xF1EEE0 VA: 0xF1EEE0
+	// RVA: 0x1F8456C Offset: 0x1F8456C VA: 0x1F8456C
 	public Dropdown.DropdownEvent get_onValueChanged() { }
 
-	// RVA: 0xF1EEE8 Offset: 0xF1EEE8 VA: 0xF1EEE8
+	// RVA: 0x1F84574 Offset: 0x1F84574 VA: 0x1F84574
 	public void set_onValueChanged(Dropdown.DropdownEvent value) { }
 
-	// RVA: 0xF1EEF0 Offset: 0xF1EEF0 VA: 0xF1EEF0
+	// RVA: 0x1F8457C Offset: 0x1F8457C VA: 0x1F8457C
 	public int get_value() { }
 
-	// RVA: 0xF1EEF8 Offset: 0xF1EEF8 VA: 0xF1EEF8
+	// RVA: 0x1F84584 Offset: 0x1F84584 VA: 0x1F84584
 	public void set_value(int value) { }
 
-	// RVA: 0xF1F048 Offset: 0xF1F048 VA: 0xF1F048 Slot: 4
+	// RVA: 0x1F846D4 Offset: 0x1F846D4 VA: 0x1F846D4 Slot: 4
 	protected override void Awake() { }
 
-	// RVA: 0xF1F1EC Offset: 0xF1F1EC VA: 0xF1F1EC Slot: 6
+	// RVA: 0x1F84878 Offset: 0x1F84878 VA: 0x1F84878 Slot: 6
 	protected override void Start() { }
 
-	// RVA: 0xF1DFF8 Offset: 0xF1DFF8 VA: 0xF1DFF8
+	// RVA: 0x1F83684 Offset: 0x1F83684 VA: 0x1F83684
 	public void RefreshShownValue() { }
 
-	// RVA: 0xF1F1F0 Offset: 0xF1F1F0 VA: 0xF1F1F0
+	// RVA: 0x1F8487C Offset: 0x1F8487C VA: 0x1F8487C
 	public void AddOptions(List<Dropdown.OptionData> options) { }
 
-	// RVA: 0xF1F26C Offset: 0xF1F26C VA: 0xF1F26C
+	// RVA: 0x1F848F8 Offset: 0x1F848F8 VA: 0x1F848F8
 	public void AddOptions(List<string> options) { }
 
-	// RVA: 0xF1F384 Offset: 0xF1F384 VA: 0xF1F384
+	// RVA: 0x1F84A10 Offset: 0x1F84A10 VA: 0x1F84A10
 	public void AddOptions(List<Sprite> options) { }
 
-	// RVA: 0xF1F49C Offset: 0xF1F49C VA: 0xF1F49C
+	// RVA: 0x1F84B28 Offset: 0x1F84B28 VA: 0x1F84B28
 	public void ClearOptions() { }
 
-	// RVA: 0xF1F508 Offset: 0xF1F508 VA: 0xF1F508
+	// RVA: 0x1F84B94 Offset: 0x1F84B94 VA: 0x1F84B94
 	private void SetupTemplate() { }
 
 	// RVA: -1 Offset: -1
 	private static T GetOrAddComponent<T>(GameObject go) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x21A108C Offset: 0x21A108C VA: 0x21A108C
+	|-RVA: 0x1C3242C Offset: 0x1C3242C VA: 0x1C3242C
 	|-Dropdown.GetOrAddComponent<object>
 	|-Dropdown.GetOrAddComponent<Canvas>
 	|-Dropdown.GetOrAddComponent<CanvasGroup>
 	|-Dropdown.GetOrAddComponent<GraphicRaycaster>
 	*/
 
-	// RVA: 0xF1FB5C Offset: 0xF1FB5C VA: 0xF1FB5C Slot: 42
+	// RVA: 0x1F851E8 Offset: 0x1F851E8 VA: 0x1F851E8 Slot: 42
 	public virtual void OnPointerClick(PointerEventData eventData) { }
 
-	// RVA: 0xF20C24 Offset: 0xF20C24 VA: 0xF20C24 Slot: 43
+	// RVA: 0x1F862B0 Offset: 0x1F862B0 VA: 0x1F862B0 Slot: 43
 	public virtual void OnSubmit(BaseEventData eventData) { }
 
-	// RVA: 0xF20C28 Offset: 0xF20C28 VA: 0xF20C28 Slot: 44
+	// RVA: 0x1F862B4 Offset: 0x1F862B4 VA: 0x1F862B4 Slot: 44
 	public virtual void OnCancel(BaseEventData eventData) { }
 
-	// RVA: 0xF1FB60 Offset: 0xF1FB60 VA: 0xF1FB60
+	// RVA: 0x1F851EC Offset: 0x1F851EC VA: 0x1F851EC
 	public void Show() { }
 
-	// RVA: 0xF21378 Offset: 0xF21378 VA: 0xF21378 Slot: 45
+	// RVA: 0x1F86A04 Offset: 0x1F86A04 VA: 0x1F86A04 Slot: 45
 	protected virtual GameObject CreateBlocker(Canvas rootCanvas) { }
 
-	// RVA: 0xF21748 Offset: 0xF21748 VA: 0xF21748 Slot: 46
+	// RVA: 0x1F86DD4 Offset: 0x1F86DD4 VA: 0x1F86DD4 Slot: 46
 	protected virtual void DestroyBlocker(GameObject blocker) { }
 
-	// RVA: 0xF217B0 Offset: 0xF217B0 VA: 0xF217B0 Slot: 47
-	protected virtual GameObject CreateDropdownList(GameObject template) { }
-
-	// RVA: 0xF21820 Offset: 0xF21820 VA: 0xF21820 Slot: 48
-	protected virtual void DestroyDropdownList(GameObject dropdownList) { }
-
-	// RVA: 0xF21888 Offset: 0xF21888 VA: 0xF21888 Slot: 49
-	protected virtual Dropdown.DropdownItem CreateItem(Dropdown.DropdownItem itemTemplate) { }
-
-	// RVA: 0xF218F8 Offset: 0xF218F8 VA: 0xF218F8 Slot: 50
-	protected virtual void DestroyItem(Dropdown.DropdownItem item) { }
-
-	// RVA: 0xF20D58 Offset: 0xF20D58 VA: 0xF20D58
-	private Dropdown.DropdownItem AddItem(Dropdown.OptionData data, bool selected, Dropdown.DropdownItem itemTemplate, List<Dropdown.DropdownItem> items) { }
-
-	// RVA: 0xF218FC Offset: 0xF218FC VA: 0xF218FC
-	private void AlphaFadeList(float duration, float alpha) { }
-
-	// RVA: 0xF21258 Offset: 0xF21258 VA: 0xF21258
-	private void AlphaFadeList(float duration, float start, float end) { }
-
-	// RVA: 0xF21998 Offset: 0xF21998 VA: 0xF21998
-	private void SetAlpha(float alpha) { }
-
-	// RVA: 0xF20C2C Offset: 0xF20C2C VA: 0xF20C2C
-	public void Hide() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xC81908 Offset: 0xC81908 VA: 0xC81908
-	// RVA: 0xF21A64 Offset: 0xF21A64 VA: 0xF21A64
-	private IEnumerator DelayedDestroyDropdownList(float delay) { }
-
-	// RVA: 0xF21AF8 Offset: 0xF21AF8 VA: 0xF21AF8
-	private void OnSelectItem(Toggle toggle) { }
-
-	// RVA: 0xF21C6C Offset: 0xF21C6C VA: 0xF21C6C
-	private static void .cctor() { }
-}
-
-// Namespace: 
-protected internal class Dropdown.DropdownItem : MonoBehaviour, IPointerEnterHandler, ICancelHandler, IEventSystemHandler // TypeDefIndex: 3063
-{
-	// Fields
-	[SerializeField] // RVA: 0xC7FDD8 Offset: 0xC7FDD8 VA: 0xC7FDD8
-	private Text m_Text; // 0x18
-	[SerializeField] // RVA: 0xC7FDE8 Offset: 0xC7FDE8 VA: 0xC7FDE8
-	private Image m_Image; // 0x20
-	[SerializeField] // RVA: 0xC7FDF8 Offset: 0xC7FDF8 VA: 0xC7FDF8
-	private RectTransform m_RectTransform; // 0x28
-	[SerializeField] // RVA: 0xC7FE08 Offset: 0xC7FE08 VA: 0xC7FE08
-	private Toggle m_Toggle; // 0x30
-
-	// Properties
-	public Text text { get; set; }
-	public Image image { get; set; }
-	public RectTransform rectTransform { get; set; }
-	public Toggle toggle { get; set; }
-
-	// Methods
-
-	// RVA: 0x1012F7C Offset: 0x1012F7C VA: 0x1012F7C
-	public void .ctor() { }
-
-	// RVA: 0x1012F84 Offset: 0x1012F84 VA: 0x1012F84
-	public Text get_text() { }
-
-	// RVA: 0x1012F8C Offset: 0x1012F8C VA: 0x1012F8C
-	public void set_text(Text value) { }
-
-	// RVA: 0x1012F94 Offset: 0x1012F94 VA: 0x1012F94
-	public Image get_image() { }
-
-	// RVA: 0x1012F9C Offset: 0x1012F9C VA: 0x1012F9C
-	public void set_image(Image value) { }
-
-	// RVA: 0x1012FA4 Offset: 0x1012FA4 VA: 0x1012FA4
-	public RectTransform get_rectTransform() { }
-
-	// RVA: 0x1012FAC Offset: 0x1012FAC VA: 0x1012FAC
-	public void set_rectTransform(RectTransform value) { }
-
-	// RVA: 0x1012F24 Offset: 0x1012F24 VA: 0x1012F24
-	public Toggle get_toggle() { }
-
-	// RVA: 0x1012FB4 Offset: 0x1012FB4 VA: 0x1012FB4
-	public void set_toggle(Toggle value) { }
-
-	// RVA: 0x1012FBC Offset: 0x1012FBC VA: 0x1012FBC Slot: 6
-	public virtual void OnPointerEnter(PointerEventData eventData) { }
-
-	// RVA: 0x1013050 Offset: 0x1013050 VA: 0x1013050 Slot: 7
-	public virtual void OnCancel(BaseEventData eventData) { }
-}
-
-// Namespace: 
-[Serializable]
-public class Dropdown.OptionData // TypeDefIndex: 3064
-{
-	// Fields
-	[SerializeField] // RVA: 0xC7FE18 Offset: 0xC7FE18 VA: 0xC7FE18
-	private string m_Text; // 0x10
-	[SerializeField] // RVA: 0xC7FE28 Offset: 0xC7FE28 VA: 0xC7FE28
-	private Sprite m_Image; // 0x18
-
-	// Properties
-	public string text { get; set; }
-	public Sprite image { get; set; }
-
-	// Methods
-
-	// RVA: 0x10130FC Offset: 0x10130FC VA: 0x10130FC
-	public void .ctor() { }
-
-	// RVA: 0x1013104 Offset: 0x1013104 VA: 0x1013104
-	public void .ctor(string text) { }
-
-	// RVA: 0x1013138 Offset: 0x1013138 VA: 0x1013138
-	public void .ctor(Sprite image) { }
-
-	// RVA: 0x101316C Offset: 0x101316C VA: 0x101316C
-	public void .ctor(string text, Sprite image) { }
-
-	// RVA: 0x10131A4 Offset: 0x10131A4 VA: 0x10131A4

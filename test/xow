@@ -1,3 +1,784 @@
+
+	// Methods
+
+	// RVA: 0x147BCE8 Offset: 0x147BCE8 VA: 0x147BCE8
+	public void .ctor() { }
+
+	// RVA: 0x147BD3C Offset: 0x147BD3C VA: 0x147BD3C
+	public bool IsEnable(ref int closedType, int svtVoiceId, string voiceId, int voicePrefix, bool isMainResult, int svtId, ref string overwriteCloseMessage) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCAA98 Offset: 0xCCAA98 VA: 0xCCAA98
+	// RVA: 0x147C514 Offset: 0x147C514 VA: 0x147C514
+	private static int <IsEnable>m__0(VoiceCondEntity a, VoiceCondEntity b) { }
+}
+
+// Namespace: 
+public class VoiceEntity : DataEntityBase<string> // TypeDefIndex: 7536
+{
+	// Fields
+	public ObscuredString id; // 0x10
+	public int priority; // 0x18
+	public int svtVoiceType; // 0x1C
+	public ObscuredString name; // 0x20
+	public ObscuredString nameDefault; // 0x28
+	public int condType; // 0x30
+	public int condValue; // 0x34
+	public int voicePlayedValue; // 0x38
+	public int firstPlayPriority; // 0x3C
+	public int closedType; // 0x40
+	public int flag; // 0x44
+
+	// Methods
+
+	// RVA: 0x147C65C Offset: 0x147C65C VA: 0x147C65C
+	public void .ctor() { }
+
+	// RVA: 0x147C6AC Offset: 0x147C6AC VA: 0x147C6AC Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x147C718 Offset: 0x147C718 VA: 0x147C718
+	public bool IsCondEnable(int svtId) { }
+
+	// RVA: 0x147C89C Offset: 0x147C89C VA: 0x147C89C
+	public bool IsHide() { }
+
+	// RVA: 0x147C8AC Offset: 0x147C8AC VA: 0x147C8AC
+	public bool HasFlag(VoiceEntity.Flag typeFlag) { }
+}
+
+// Namespace: 
+public enum VoiceEntity.Flag // TypeDefIndex: 7537
+{
+	// Fields
+	public int value__; // 0x0
+	public const VoiceEntity.Flag MATERIAL_OPEN = 2;
+}
+
+// Namespace: 
+public class VoiceMaster : DataMasterBase<VoiceMaster, VoiceEntity, string> // TypeDefIndex: 7538
+{
+	// Methods
+
+	// RVA: 0x147C8EC Offset: 0x147C8EC VA: 0x147C8EC
+	public void .ctor() { }
+
+	// RVA: 0x147C940 Offset: 0x147C940 VA: 0x147C940
+	public VoiceEntity getEntityFromId(string id) { }
+
+	// RVA: 0x147CA50 Offset: 0x147CA50 VA: 0x147CA50
+	private bool isEnableBirthdayVoice(long userBirthDay, long createDay) { }
+
+	// RVA: 0x147CDC8 Offset: 0x147CDC8 VA: 0x147CDC8
+	public VoiceInfo[] getEnableInfo(int svtId, int changeSvtVoiceId, int limitCount, List<CondType.Kind> disableCondTypeList, bool isCheckPlayCond = True, bool isMaterial = False) { }
+
+	// RVA: 0x147E82C Offset: 0x147E82C VA: 0x147E82C
+	public int getFlagRequestNumber(int svtId, string labelName, bool isUpdate = True) { }
+
+	// RVA: 0x147EB7C Offset: 0x147EB7C VA: 0x147EB7C
+	public int getFirstPlayPriority(int svtId, string labelName) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC42EB4 Offset: 0xC42EB4 VA: 0xC42EB4
+private sealed class VoiceMaster.<getEnableInfo>c__AnonStorey0 // TypeDefIndex: 7539
+{
+	// Fields
+	internal UserServantCollectionEntity userStvCollectionEntity; // 0x10
+
+	// Methods
+
+	// RVA: 0x147E824 Offset: 0x147E824 VA: 0x147E824
+	public void .ctor() { }
+
+	// RVA: 0x147EDB8 Offset: 0x147EDB8 VA: 0x147EDB8
+	internal bool <>m__0(int id) { }
+}
+
+// Namespace: 
+public class VoiceMaterialCondEntity : DataEntityBase<string> // TypeDefIndex: 7540
+{
+	// Fields
+	public ObscuredInt svtId; // 0x10
+	public int voicePrefix; // 0x20
+	public ObscuredString voiceId; // 0x28
+	public int idx; // 0x30
+	public int condGroup; // 0x34
+	public int condType; // 0x38
+	public int targetId; // 0x3C
+	public int[] condValues; // 0x40
+
+	// Methods
+
+	// RVA: 0x147EE50 Offset: 0x147EE50 VA: 0x147EE50
+	public void .ctor() { }
+
+	// RVA: 0x147EEA0 Offset: 0x147EEA0 VA: 0x147EEA0 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x147EF70 Offset: 0x147EF70 VA: 0x147EF70
+	public static string CreatePK(int svtId, int voicePrefix, string voiceId, int idx) { }
+
+	// RVA: 0x147EF84 Offset: 0x147EF84 VA: 0x147EF84
+	public CondType.Kind getCondType() { }
+
+	// RVA: 0x147EF8C Offset: 0x147EF8C VA: 0x147EF8C
+	public int getCondValue() { }
+}
+
+// Namespace: 
+public class VoiceMaterialCondMaster : DataMasterBase<VoiceMaterialCondMaster, VoiceMaterialCondEntity, string> // TypeDefIndex: 7541
+{
+	// Methods
+
+	// RVA: 0x147EFF8 Offset: 0x147EFF8 VA: 0x147EFF8
+	public void .ctor() { }
+
+	// RVA: 0x147F04C Offset: 0x147F04C VA: 0x147F04C
+	public List<VoiceMaterialCondEntity> GetEntityList(int servantId, int voicePrefix, string voiceId) { }
+
+	// RVA: 0x147F310 Offset: 0x147F310 VA: 0x147F310
+	public List<int> GetPlayableLimitCountList(int servantId, int voicePrefix, string voiceId) { }
+
+	// RVA: 0x147F4BC Offset: 0x147F4BC VA: 0x147F4BC
+	private int GetVoicePrefix(ref string voiceId) { }
+
+	// RVA: 0x147F5BC Offset: 0x147F5BC VA: 0x147F5BC
+	public bool IsVoicePlay(int svtId, int voicePrefix, string voiceId, int limitCount) { }
+}
+
+// Namespace: 
+public class VoicePlayCondEntity : DataEntityBase<string> // TypeDefIndex: 7542
+{
+	// Fields
+	public ObscuredInt svtId; // 0x10
+	public int voicePrefix; // 0x20
+	public ObscuredString voiceId; // 0x28
+	public int idx; // 0x30
+	public int condGroup; // 0x34
+	public int condType; // 0x38
+	public int targetId; // 0x3C
+	public int[] condValues; // 0x40
+
+	// Methods
+
+	// RVA: 0x147F814 Offset: 0x147F814 VA: 0x147F814
+	public void .ctor() { }
+
+	// RVA: 0x147F864 Offset: 0x147F864 VA: 0x147F864 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x147F934 Offset: 0x147F934 VA: 0x147F934
+	public static string CreatePK(int svtId, int voicePrefix, string voiceId, int idx) { }
+
+	// RVA: 0x147F948 Offset: 0x147F948 VA: 0x147F948
+	public CondType.Kind getCondType() { }
+
+	// RVA: 0x147F950 Offset: 0x147F950 VA: 0x147F950
+	public int getCondValue() { }
+}
+
+// Namespace: 
+public class VoicePlayCondMaster : DataMasterBase<VoicePlayCondMaster, VoicePlayCondEntity, string> // TypeDefIndex: 7543
+{
+	// Fields
+	private static readonly int VOICE_PREFIX_NONE; // 0x0
+
+	// Methods
+
+	// RVA: 0x147F9BC Offset: 0x147F9BC VA: 0x147F9BC
+	public void .ctor() { }
+
+	// RVA: 0x147FA10 Offset: 0x147FA10 VA: 0x147FA10
+	public bool isVoicePlay(int svtId, string voiceId, List<CondType.Kind> disableCondTypeList, long userSvtId = -1, int genderType = -1) { }
+
+	// RVA: 0x147FFFC Offset: 0x147FFFC VA: 0x147FFFC
+	public bool isVoiceCond(int svtId, string voiceId, CondType.Kind cond) { }
+
+	// RVA: 0x147FE1C Offset: 0x147FE1C VA: 0x147FE1C
+	private bool IsNotPrefix(int svtId, string voiceId, int idx) { }
+
+	// RVA: 0x1480268 Offset: 0x1480268 VA: 0x1480268
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class VoicePlayGroupEntity : DataEntityBase<string> // TypeDefIndex: 7544
+{
+	// Fields
+	public ObscuredString id; // 0x10
+	public int svtVoiceType; // 0x18
+
+	// Methods
+
+	// RVA: 0x14802BC Offset: 0x14802BC VA: 0x14802BC
+	public void .ctor() { }
+
+	// RVA: 0x148030C Offset: 0x148030C VA: 0x148030C Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+}
+
+// Namespace: 
+public class VoicePlayGroupMaster : DataMasterBase<VoicePlayGroupMaster, VoicePlayGroupEntity, string> // TypeDefIndex: 7545
+{
+	// Methods
+
+	// RVA: 0x1480378 Offset: 0x1480378 VA: 0x1480378
+	public void .ctor() { }
+
+	// RVA: 0x14803CC Offset: 0x14803CC VA: 0x14803CC
+	public string[] getVoiceIDList(int voiceType) { }
+}
+
+// Namespace: 
+public class VoiceReleaseEntity : DataEntityBase<string> // TypeDefIndex: 7546
+{
+	// Fields
+	public ObscuredString voiceId; // 0x10
+	public int condType; // 0x18
+	public int condValue; // 0x1C
+
+	// Methods
+
+	// RVA: 0x1480690 Offset: 0x1480690 VA: 0x1480690
+	public void .ctor() { }
+
+	// RVA: 0x14806E0 Offset: 0x14806E0 VA: 0x14806E0 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x1480758 Offset: 0x1480758 VA: 0x1480758
+	public static string CreatePK(string voiceId, int condType) { }
+
+	// RVA: 0x1480764 Offset: 0x1480764 VA: 0x1480764
+	public bool IsCondEnable(int svtId) { }
+}
+
+// Namespace: 
+public class VoiceReleaseMaster : DataMasterBase<VoiceReleaseMaster, VoiceReleaseEntity, string> // TypeDefIndex: 7547
+{
+	// Methods
+
+	// RVA: 0x148081C Offset: 0x148081C VA: 0x148081C
+	public void .ctor() { }
+
+	// RVA: 0x1480870 Offset: 0x1480870 VA: 0x1480870
+	public VoiceReleaseEntity[] GetEntitiyList(string voiceId) { }
+
+	// RVA: 0x147C7EC Offset: 0x147C7EC VA: 0x147C7EC
+	public bool IsCondEnable(string voiceId, int svtId) { }
+}
+
+// Namespace: 
+public class WarAddEntity : DataEntityBase<string> // TypeDefIndex: 7548
+{
+	// Fields
+	public static readonly string BG_CHANGE_TYPE_KEY; // 0x0
+	public static readonly string BG_CHANGE_TIME_KEY; // 0x8
+	public static readonly string EVENT_TOWER_ID; // 0x10
+	public int warId; // 0x10
+	public int type; // 0x14
+	public int priority; // 0x18
+	public int overwriteId; // 0x1C
+	public string overwriteStr; // 0x20
+	public int condType; // 0x28
+	public int targetId; // 0x2C
+	public int value; // 0x30
+	public long startedAt; // 0x38
+	public long endedAt; // 0x40
+	public Dictionary<string, object> script; // 0x48
+
+	// Methods
+
+	// RVA: 0x1480A24 Offset: 0x1480A24 VA: 0x1480A24
+	public void .ctor() { }
+
+	// RVA: 0x1480A74 Offset: 0x1480A74 VA: 0x1480A74 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x1480AF4 Offset: 0x1480AF4 VA: 0x1480AF4
+	public static string CreatePK(int warId, int type, int priority) { }
+
+	// RVA: 0x1480B08 Offset: 0x1480B08 VA: 0x1480B08
+	public CondType.Kind GetCondType() { }
+
+	// RVA: 0x1480B10 Offset: 0x1480B10 VA: 0x1480B10
+	public bool HasBGChange() { }
+
+	// RVA: 0x1480BA4 Offset: 0x1480BA4 VA: 0x1480BA4
+	public int getScript(string key, int defVal = 0) { }
+
+	// RVA: 0x1480CA8 Offset: 0x1480CA8 VA: 0x1480CA8
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public enum WarAddEntity.WarOverwriteType // TypeDefIndex: 7549
+{
+	// Fields
+	public int value__; // 0x0
+	public const WarAddEntity.WarOverwriteType BGM = 1;
+	public const WarAddEntity.WarOverwriteType PARENT_WAR = 2;
+	public const WarAddEntity.WarOverwriteType BANNER = 3;
+	public const WarAddEntity.WarOverwriteType BG_IMAGE = 4;
+	public const WarAddEntity.WarOverwriteType SVT_IMAGE = 5;
+	public const WarAddEntity.WarOverwriteType FLAG = 6;
+	public const WarAddEntity.WarOverwriteType BASE_MAP_ID = 7;
+	public const WarAddEntity.WarOverwriteType NAME = 8;
+	public const WarAddEntity.WarOverwriteType LONG_NAME = 9;
+	public const WarAddEntity.WarOverwriteType MATERIAL_PARENT_WAR = 10;
+	public const WarAddEntity.WarOverwriteType COORDINATES = 11;
+	public const WarAddEntity.WarOverwriteType EFFECT_CHANGE_BLACK_MARK = 12;
+	public const WarAddEntity.WarOverwriteType QUEST_BOARD_SECTION_IMAGE = 13;
+	public const WarAddEntity.WarOverwriteType WAR_FORCE_DISP = 14;
+	public const WarAddEntity.WarOverwriteType WAR_FORCE_HIDE = 15;
+	public const WarAddEntity.WarOverwriteType START_TYPE = 16;
+	public const WarAddEntity.WarOverwriteType NOTICE_DIALOG_TEXT = 17;
+}
+
+// Namespace: 
+public class WarAddMaster : DataMasterBase<WarAddMaster, WarAddEntity, string> // TypeDefIndex: 7550
+{
+	// Methods
+
+	// RVA: 0x1480D30 Offset: 0x1480D30 VA: 0x1480D30
+	public void .ctor() { }
+
+	// RVA: 0x1480D84 Offset: 0x1480D84 VA: 0x1480D84
+	public WarAddEntity GetEntity(int warId, int type, int priority) { }
+
+	// RVA: 0x1480E28 Offset: 0x1480E28 VA: 0x1480E28
+	public bool TryGetEntity(out WarAddEntity entity, int warId, int type, int priority) { }
+
+	// RVA: 0x1480ED4 Offset: 0x1480ED4 VA: 0x1480ED4
+	public WarAddEntity GetPrioredEntity(WarAddEntity.WarOverwriteType type, int warId) { }
+
+	// RVA: 0x1481118 Offset: 0x1481118 VA: 0x1481118
+	public int GetPrioredID(WarAddEntity.WarOverwriteType type, int warId, int defVal) { }
+
+	// RVA: 0x1481144 Offset: 0x1481144 VA: 0x1481144
+	public string GetPrioredStr(WarAddEntity.WarOverwriteType type, int warId, string defVal) { }
+
+	// RVA: 0x1481170 Offset: 0x1481170 VA: 0x1481170
+	public int GetBGImageID(out WarAddEntity changeWarAdd, int warId, int beforeClearQuestId) { }
+
+	// RVA: 0x14815A8 Offset: 0x14815A8 VA: 0x14815A8
+	public int GetEventTowerBackGroundId(int warId, int type, int towerId) { }
+}
+
+// Namespace: 
+public class WarBoardActionPointEntity : DataEntityBase<string> // TypeDefIndex: 7551
+{
+	// Fields
+	public int stageId; // 0x10
+	public int forceId; // 0x14
+	public int groupId; // 0x18
+	public int baseActionPoint; // 0x1C
+	public int attackCost; // 0x20
+	public int moveCost; // 0x24
+	public int masterMoveCost; // 0x28
+	public int itemCost; // 0x2C
+
+	// Methods
+
+	// RVA: 0x139D6B4 Offset: 0x139D6B4 VA: 0x139D6B4
+	public void .ctor() { }
+
+	// RVA: 0x139D704 Offset: 0x139D704 VA: 0x139D704 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x139D718 Offset: 0x139D718 VA: 0x139D718
+	public static string CreatePK(int stageId, int forceId, int groupId) { }
+}
+
+// Namespace: 
+public class WarBoardActionPointMaster : DataMasterBase<WarBoardActionPointMaster, WarBoardActionPointEntity, string> // TypeDefIndex: 7552
+{
+	// Methods
+
+	// RVA: 0x139D72C Offset: 0x139D72C VA: 0x139D72C
+	public void .ctor() { }
+
+	// RVA: 0x139D780 Offset: 0x139D780 VA: 0x139D780
+	public WarBoardActionPointEntity GetEntity(int stageId, int forceId, int groupId) { }
+
+	// RVA: 0x139D804 Offset: 0x139D804 VA: 0x139D804
+	public bool TryGetEntity(out WarBoardActionPointEntity entity, int stageId, int forceId, int groupId) { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCCAAA8 Offset: 0xCCAAA8 VA: 0xCCAAA8
+	// RVA: 0x139D890 Offset: 0x139D890 VA: 0x139D890
+	public IEnumerable<WarBoardActionPointEntity> GetWarBoardActionPointEntities(int stageId) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC42EC4 Offset: 0xC42EC4 VA: 0xC42EC4
+private sealed class WarBoardActionPointMaster.<GetWarBoardActionPointEntities>c__Iterator0 : IEnumerable, IEnumerable<WarBoardActionPointEntity>, IEnumerator, IDisposable, IEnumerator<WarBoardActionPointEntity> // TypeDefIndex: 7553
+{
+	// Fields
+	internal int <count>__0; // 0x10
+	internal int <i>__1; // 0x14
+	internal WarBoardActionPointEntity <entity>__2; // 0x18
+	internal int stageId; // 0x20
+	internal WarBoardActionPointMaster $this; // 0x28
+	internal WarBoardActionPointEntity $current; // 0x30
+	internal bool $disposing; // 0x38
+	internal int $PC; // 0x3C
+
+	// Properties
+	private WarBoardActionPointEntity System.Collections.Generic.IEnumerator<WarBoardActionPointEntity>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9140 Offset: 0xCD9140 VA: 0xCD9140
+	// RVA: 0x139D93C Offset: 0x139D93C VA: 0x139D93C
+	public void .ctor() { }
+
+	// RVA: 0x139D944 Offset: 0x139D944 VA: 0x139D944 Slot: 7
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9150 Offset: 0xCD9150 VA: 0xCD9150
+	// RVA: 0x139DAF0 Offset: 0x139DAF0 VA: 0x139DAF0 Slot: 10
+	private WarBoardActionPointEntity System.Collections.Generic.IEnumerator<WarBoardActionPointEntity>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9160 Offset: 0xCD9160 VA: 0xCD9160
+	// RVA: 0x139DAF8 Offset: 0x139DAF8 VA: 0x139DAF8 Slot: 6
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9170 Offset: 0xCD9170 VA: 0xCD9170
+	// RVA: 0x139DB00 Offset: 0x139DB00 VA: 0x139DB00 Slot: 9
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9180 Offset: 0xCD9180 VA: 0xCD9180
+	// RVA: 0x139DB14 Offset: 0x139DB14 VA: 0x139DB14 Slot: 8
+	public void Reset() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD9190 Offset: 0xCD9190 VA: 0xCD9190
+	// RVA: 0x139DB7C Offset: 0x139DB7C VA: 0x139DB7C Slot: 4
+	private IEnumerator System.Collections.IEnumerable.GetEnumerator() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD91A0 Offset: 0xCD91A0 VA: 0xCD91A0
+	// RVA: 0x139DB80 Offset: 0x139DB80 VA: 0x139DB80 Slot: 5
+	private IEnumerator<WarBoardActionPointEntity> System.Collections.Generic.IEnumerable<WarBoardActionPointEntity>.GetEnumerator() { }
+}
+
+// Namespace: 
+public class WarBoardActionTrendConditionEntity : DataEntityBase<int> // TypeDefIndex: 7554
+{
+	// Fields
+	public int id; // 0x10
+	public int[] conditionTypes; // 0x18
+	public int value; // 0x20
+
+	// Methods
+
+	// RVA: 0x139DC40 Offset: 0x139DC40 VA: 0x139DC40
+	public void .ctor() { }
+
+	// RVA: 0x139DCB4 Offset: 0x139DCB4 VA: 0x139DCB4
+	public void .ctor(WarBoardActionTrendConditionEntity cSrc) { }
+
+	// RVA: 0x139DD64 Offset: 0x139DD64 VA: 0x139DD64 Slot: 5
+	protected sealed override int CreatePrimaryKey() { }
+
+	// RVA: 0x139DD6C Offset: 0x139DD6C VA: 0x139DD6C
+	public WarBoardActionTrendConditionEntity.ConditionType GetConditionType(int conditionType) { }
+}
+
+// Namespace: 
+public enum WarBoardActionTrendConditionEntity.ConditionType // TypeDefIndex: 7555
+{
+	// Fields
+	public int value__; // 0x0
+	public const WarBoardActionTrendConditionEntity.ConditionType ATTACK_RANGE = 1;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_ATTACK_RANGE = 2;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_ATTACK_RANGE = 3;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_MOVE_BY_ATTACK_RANGE = 4;
+	public const WarBoardActionTrendConditionEntity.ConditionType REPLACE = 5;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_REPLACE = 6;
+	public const WarBoardActionTrendConditionEntity.ConditionType DEFENSE_AREA_ON_ENEMY = 7;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_DEFENSE_AREA_ENEMY = 8;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_DEFENSE_AREA_ON_ENEMY = 9;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_MOVE_BY_DEFENSE_AREA_ON_ENEMY = 10;
+	public const WarBoardActionTrendConditionEntity.ConditionType DEFENSE_AREA_ON_MY_SERVANT = 11;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_DEFENSE_AREA_ON_MY_SERVANT = 12;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_DEFENSE_AREA_ON_MY_SERVANT = 13;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_MOVE_BY_DEFENSE_AREA_ON_MY_SERVANT = 14;
+	public const WarBoardActionTrendConditionEntity.ConditionType BENEFIT_RANGE = 15;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_BENEFIT_RANGE = 16;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_BENEFIT_RANGE = 17;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_MOVE_BY_BENEFIT_RANGE = 18;
+	public const WarBoardActionTrendConditionEntity.ConditionType EXIST_CLASS_ADVANTAGE_SERVANT = 19;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_EXIST_CLASS_ADVANTAGE_SERVANT = 20;
+	public const WarBoardActionTrendConditionEntity.ConditionType EXIST_CLASS_DIS_ADVANTAGE_SERVANT = 21;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_EXIST_CLASS_DIS_ADVANTAGE_SERVANT = 22;
+	public const WarBoardActionTrendConditionEntity.ConditionType EXIST_DESIGNATION_ITEM = 23;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_EXIST_DESIGNATION_ITEM = 24;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_MASTER_AND_ENEMY_RANGE_APPROACH = 25;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_MASTER_AND_ENEMY_RANGE_LEAVE = 26;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_MASTER_AND_ENEMY_RANGE_NO_CHANGE = 27;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_MY_SERVANT_AND_ENEMY_RANGE_APPROACH = 28;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_MY_SERVANT_AND_ENEMY_RANGE_LEAVE = 29;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_MY_SERVANT_AND_ENEMY_RANGE_NO_CHANGE = 30;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_MY_SERVANT_AND_MASTER_RANGE_APPROACH = 31;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_MY_SERVANT_AND_MASTER_RANGE_LEAVE = 32;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_MY_SERVANT_AND_MASTER_RANGE_NO_CHANGE = 33;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_CLASS_ADVANTAGE_SERVANT_RANGE_APPROACH = 34;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_CLASS_ADVANTAGE_SERVANT_RANGE_LEAVE = 35;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_CLASS_ADVANTAGE_SERVANT_RANGE_NO_CHANGE = 36;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_CLASS_DIS_ADVANTAGE_SERVANT_RANGE_APPROACH = 37;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_CLASS_DIS_ADVANTAGE_SERVANT_RANGE_LEAVE = 38;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_CLASS_DIS_ADVANTAGE_SERVANT_RANGE_NO_CHANGE = 39;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_DESIGNATION_ITEM_RANGE_APPROACH = 40;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_DESIGNATION_ITEM_RANGE_LEAVE = 41;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_DESIGNATION_ITEM_RANGE_NO_CHANGE = 42;
+	public const WarBoardActionTrendConditionEntity.ConditionType EXIST_ATTACK_ADVANTAGE_SERVANT = 43;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_EXIST_ATTACK_ADVANTAGE_SERVANT = 44;
+	public const WarBoardActionTrendConditionEntity.ConditionType EXIST_ATTACK_DIS_ADVANTAGE_SERVANT = 45;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_EXIST_ATTACK_DIS_ADVANTAGE_SERVANT = 46;
+	public const WarBoardActionTrendConditionEntity.ConditionType EXIST_DEFENSE_ADVANTAGE_SERVANT = 47;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_EXIST_DEFENSE_ADVANTAGE_SERVANT = 48;
+	public const WarBoardActionTrendConditionEntity.ConditionType EXIST_DEFENSE_DIS_ADVANTAGE_SERVANT = 49;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_EXIST_DEFENSE_DIS_ADVANTAGE_SERVANT = 50;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_ATTACK_ADVANTAGE_SERVANT_RANGE_APPROACH = 51;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_ATTACK_ADVANTAGE_SERVANT_RANGE_LEAVE = 52;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_ATTACK_ADVANTAGE_SERVANT_RANGE_NO_CHANGE = 53;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_ATTACK_DIS_ADVANTAGE_SERVANT_RANGE_APPROACH = 54;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_ATTACK_DIS_ADVANTAGE_SERVANT_RANGE_LEAVE = 55;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_ATTACK_DIS_ADVANTAGE_SERVANT_RANGE_NO_CHANGE = 56;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_DEFENSE_ADVANTAGE_SERVANT_RANGE_APPROACH = 57;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_DEFENSE_ADVANTAGE_SERVANT_RANGE_LEAVE = 58;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_DEFENSE_ADVANTAGE_SERVANT_RANGE_NO_CHANGE = 59;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_DEFENSE_DIS_ADVANTAGE_SERVANT_RANGE_APPROACH = 60;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_DEFENSE_DIS_ADVANTAGE_SERVANT_RANGE_LEAVE = 61;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_SERVANT_AND_DEFENSE_DIS_ADVANTAGE_SERVANT_RANGE_NO_CHANGE = 62;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_ATTACK_RQANGE_ENEMY_MASTER = 63;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_MOVE_BY_ATTACK_RQANGE_ENEMY_MASTER = 64;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_ENEMY_MASTER_RANGE_APPROACH = 65;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_ENEMY_MASTER_RANGE_LEAVE = 66;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_ENEMY_MASTER_RANGE_NO_CHANGE = 67;
+	public const WarBoardActionTrendConditionEntity.ConditionType ATTACK_MASTER = 68;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_ATTACK_MASTER = 69;
+	public const WarBoardActionTrendConditionEntity.ConditionType ACTION_TYPE = 70;
+	public const WarBoardActionTrendConditionEntity.ConditionType ACTION_COUNT_ON_THIS_TURN = 71;
+	public const WarBoardActionTrendConditionEntity.ConditionType ACTION_COUNT_ON_THIS_TURN_OVER = 72;
+	public const WarBoardActionTrendConditionEntity.ConditionType ACTION_COUNT_ON_THIS_TURN_UNDER = 73;
+	public const WarBoardActionTrendConditionEntity.ConditionType EXIST_TARGET = 74;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_EXIST_TARGET = 75;
+	public const WarBoardActionTrendConditionEntity.ConditionType IS_TARGET_ENEMY = 76;
+	public const WarBoardActionTrendConditionEntity.ConditionType IS_NOT_TARGET_ENEMY = 77;
+	public const WarBoardActionTrendConditionEntity.ConditionType AROUND_TARGET = 78;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOR_AROUND_TARGET = 79;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_TARGET_RANGE_APPROACH = 80;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_TARGET_RANGE_LEAVE = 81;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_TARGET_RANGE_NO_CHANGE = 82;
+	public const WarBoardActionTrendConditionEntity.ConditionType DETOUR_TARGET_ROUTE = 83;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_DETOUR_TARGET_ROUTE = 84;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_USE_DRTOUR_TARGET_RANGE_APPROACH = 85;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_USE_DRTOUR_TARGET_RANGE_LEAVE = 86;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_USE_DRTOUR_TARGET_RANGE_NO_CHANGE = 87;
+	public const WarBoardActionTrendConditionEntity.ConditionType ALLY_BLOCK_SHORTEST_ROUTE_ENEMY_AND_MASTER = 88;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_ALLY_BLOCK_SHORTEST_ROUTE_ENEMY_AND_MASTER = 89;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOBE_BY_ALLY_BLOCK_SHORTEST_ROUTE_ENEMY_AND_MASTER = 90;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOBE_BY_NOT_ALLY_BLOCK_SHORTEST_ROUTE_ENEMY_AND_MASTER = 91;
+	public const WarBoardActionTrendConditionEntity.ConditionType ON_SHORTEST_ROUTE_ENEMY_AND_MASTER = 92;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_ON_SHORTEST_ROUTE_ENEMY_AND_MASTER = 93;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_ON_SHORTEST_ROUTE_ENEMY_AND_MASTER = 94;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_NOT_ON_SHORTEST_ROUTE_ENEMY_AND_MASTER = 95;
+	public const WarBoardActionTrendConditionEntity.ConditionType ENEMY_IN_SHORTEST_ROUTE_TARGET = 96;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_ENEMY_IN_SHORTEST_ROUTE_TARGET = 97;
+	public const WarBoardActionTrendConditionEntity.ConditionType EXIST_ENEMY_IN_RANGE_UNDER = 98;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_EXIST_ENEMY_IN_RANGE_UNDER = 99;
+	public const WarBoardActionTrendConditionEntity.ConditionType ATTACK_COUNT_ON_THIS_TURN = 100;
+	public const WarBoardActionTrendConditionEntity.ConditionType ATTACK_COUNT_ON_THIS_TURN_OVER = 101;
+	public const WarBoardActionTrendConditionEntity.ConditionType ATTACK_COUNT_ON_THIS_TURN_UNDER = 102;
+	public const WarBoardActionTrendConditionEntity.ConditionType AROUND_ALLY_MASTER = 103;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_AROUND_ALLY_MASTER = 104;
+	public const WarBoardActionTrendConditionEntity.ConditionType AROUND_ALLY_SERVANT = 105;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_AROUND_ALLY_SERVANT = 106;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_MASTER_ENEMY_SHORTEST_ROUTE_WITHIN_ALLY_SERVANT = 107;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_MOVE_BY_MASTER_ENEMY_SHORTEST_ROUTE_WITHIN_ALLY_SERVANT = 108;
+	public const WarBoardActionTrendConditionEntity.ConditionType DEFENSE_AREA_WITHIN_ENEMY_ALL_BLOCK = 109;
+	public const WarBoardActionTrendConditionEntity.ConditionType NOT_DEFENSE_AREA_WITHIN_ENEMY_ALL_BLOCK = 110;
+	public const WarBoardActionTrendConditionEntity.ConditionType IS_TARGET_ALLY = 111;
+	public const WarBoardActionTrendConditionEntity.ConditionType IS_NOT_TARGET_ALLY = 112;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_ON_DETOUR_ROUTE = 113;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_NOT_ON_DETOUR_ROUTE = 114;
+	public const WarBoardActionTrendConditionEntity.ConditionType ACTION_TYPE_ADVANCE = 115;
+	public const WarBoardActionTrendConditionEntity.ConditionType ACTION_TYPE_MIDDLE = 116;
+	public const WarBoardActionTrendConditionEntity.ConditionType ACTION_TYPE_REAR = 117;
+	public const WarBoardActionTrendConditionEntity.ConditionType IS_ALL_DEFENSE_AREA_ENEMY_ROUTE_BLOCK = 118;
+	public const WarBoardActionTrendConditionEntity.ConditionType IS_NOT_ALL_DEFENSE_AREA_ENEMY_ROUTE_BLOCK = 119;
+	public const WarBoardActionTrendConditionEntity.ConditionType IS_COME_BACK_SQUARE = 120;
+	public const WarBoardActionTrendConditionEntity.ConditionType IS_NOT_COME_BACK_SQUARE = 121;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_USE_DRTOUR_TARGET_RANGE_APPROACH_DRTOUR = 122;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_USE_DRTOUR_TARGET_RANGE_LEAVE_DRTOUR = 123;
+	public const WarBoardActionTrendConditionEntity.ConditionType MOVE_BY_USE_DRTOUR_TARGET_RANGE_NO_CHANGE_DRTOUR = 124;
+}
+
+// Namespace: 
+public class WarBoardActionTrendConditionMaster : DataMasterBase<WarBoardActionTrendConditionMaster, WarBoardActionTrendConditionEntity, int> // TypeDefIndex: 7556
+{
+	// Methods
+
+	// RVA: 0x139DD74 Offset: 0x139DD74 VA: 0x139DD74
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class WarBoardActionTrendEntity : DataEntityBase<int> // TypeDefIndex: 7557
+{
+	// Fields
+	public int id; // 0x10
+	public int[] conditionIds; // 0x18
+	public int viewPoint; // 0x20
+	public int[] actionTypeIds; // 0x28
+	public int attackValue; // 0x30
+	public int moveValue; // 0x34
+
+	// Methods
+
+	// RVA: 0x139DDC8 Offset: 0x139DDC8 VA: 0x139DDC8
+	public void .ctor() { }
+
+	// RVA: 0x139DEB4 Offset: 0x139DEB4 VA: 0x139DEB4
+	public void .ctor(WarBoardActionTrendEntity cSrc) { }
+
+	// RVA: 0x139DFB8 Offset: 0x139DFB8 VA: 0x139DFB8 Slot: 5
+	protected sealed override int CreatePrimaryKey() { }
+
+	// RVA: 0x139DFC0 Offset: 0x139DFC0 VA: 0x139DFC0
+	public WarBoardActionTrendEntity.ActionType GetActionType(int attackTypeId) { }
+
+	// RVA: 0x139DFC8 Offset: 0x139DFC8 VA: 0x139DFC8
+	public WarBoardRatingBaseEntity.Viewpoint GetViewPoint() { }
+
+	// RVA: 0x139DFD0 Offset: 0x139DFD0 VA: 0x139DFD0
+	public float GetAttackValue() { }
+
+	// RVA: 0x139DFE8 Offset: 0x139DFE8 VA: 0x139DFE8
+	public float GetMoveValue() { }
+}
+
+// Namespace: 
+public enum WarBoardActionTrendEntity.ActionType // TypeDefIndex: 7558
+{
+	// Fields
+	public int value__; // 0x0
+	public const WarBoardActionTrendEntity.ActionType ATTACK = 1;
+	public const WarBoardActionTrendEntity.ActionType MASTER_DEFENSE = 2;
+}
+
+// Namespace: 
+public class WarBoardActionTrendMaster : DataMasterBase<WarBoardActionTrendMaster, WarBoardActionTrendEntity, int> // TypeDefIndex: 7559
+{
+	// Methods
+
+	// RVA: 0x139E000 Offset: 0x139E000 VA: 0x139E000
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class WarBoardAIEntity : DataEntityBase<int> // TypeDefIndex: 7560
+{
+	// Fields
+	public int id; // 0x10
+	public int[] actionTrendIds; // 0x18
+	public int[] ratingOffsetIds; // 0x20
+
+	// Methods
+
+	// RVA: 0x148525C Offset: 0x148525C VA: 0x148525C
+	public void .ctor() { }
+
+	// RVA: 0x14852DC Offset: 0x14852DC VA: 0x14852DC Slot: 5
+	protected sealed override int CreatePrimaryKey() { }
+}
+
+// Namespace: 
+public class WarBoardAIMaster : DataMasterBase<WarBoardAIMaster, WarBoardAIEntity, int> // TypeDefIndex: 7561
+{
+	// Methods
+
+	// RVA: 0x148B05C Offset: 0x148B05C VA: 0x148B05C
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class WarBoardDataEntity : DataEntityBase<string> // TypeDefIndex: 7562
+{
+	// Fields
+	public WarBoardUserServantData[] svtInfo; // 0x10
+	public WarBoardUserMasterData[] masterInfo; // 0x18
+	public WarBoardUserGetItemData[] getItemInfo; // 0x20
+	public WarBoardUserTreasureData[] treasureInfo; // 0x28
+	public WarBoardDataEntity.WarBoardDeckData myDeck; // 0x30
+	public WarBoardDataEntity.WarBoardDeckData enemyDeck; // 0x38
+	public WarBoardDataEntity.WarBoardDeckData transformDeck; // 0x40
+	public CommandCodeInfo[] userCommandCode; // 0x48
+	public int userId; // 0x50
+	public int turn; // 0x54
+	public int progressType; // 0x58
+	public int turnForceId; // 0x5C
+	public int turnGroupId; // 0x60
+	public int questId; // 0x64
+	public int questPhase; // 0x68
+	public int stageId; // 0x6C
+	public int seed; // 0x70
+
+	// Methods
+
+	// RVA: 0x13AD244 Offset: 0x13AD244 VA: 0x13AD244
+	public void .ctor() { }
+
+	// RVA: 0x13AD294 Offset: 0x13AD294 VA: 0x13AD294 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x13AD2A4 Offset: 0x13AD2A4 VA: 0x13AD2A4
+	public static string CreatePK(int questId, int questPhase) { }
+}
+
+// Namespace: 
+public enum WarBoardDataEntity.ProgressType // TypeDefIndex: 7563
+{
+	// Fields
+	public int value__; // 0x0
+	public const WarBoardDataEntity.ProgressType NORMAL = 1;
+	public const WarBoardDataEntity.ProgressType BATTLE = 2;
+	public const WarBoardDataEntity.ProgressType PREPARE = 3;
+}
+
+// Namespace: 
+public class WarBoardDataEntity.WarBoardDeckData : DeckData // TypeDefIndex: 7564
+{
+	// Fields
+	public int userEquipId; // 0x20
+
+	// Methods
+
+	// RVA: 0x13AD2B4 Offset: 0x13AD2B4 VA: 0x13AD2B4
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class WarBoardDataMaster : DataMasterBase<WarBoardDataMaster, WarBoardDataEntity, string> // TypeDefIndex: 7565
+{
+	// Methods
+
+	// RVA: 0x13AD2BC Offset: 0x13AD2BC VA: 0x13AD2BC
+	public void .ctor() { }
+
+	// RVA: 0x13AD310 Offset: 0x13AD310 VA: 0x13AD310
+	public WarBoardDataEntity GetEntity(int questId, int questPhase) { }
+
+	// RVA: 0x13AD384 Offset: 0x13AD384 VA: 0x13AD384
+	public bool TryGetEntity(out WarBoardDataEntity entity, int questId, int questPhase) { }
+}
+
+// Namespace: 
+public class WarBoardEffectEntity : DataEntityBase<int> // TypeDefIndex: 7566
+{
+	// Fields
+	public int id; // 0x10
+	public string name; // 0x18
 	public string effectName; // 0x20
 	public int iconId; // 0x28
 	public int skillId; // 0x2C
@@ -5,24 +786,24 @@
 
 	// Methods
 
-	// RVA: 0x18EE7F0 Offset: 0x18EE7F0 VA: 0x18EE7F0
+	// RVA: 0x13ADF48 Offset: 0x13ADF48 VA: 0x13ADF48
 	public void .ctor() { }
 
-	// RVA: 0x18EE840 Offset: 0x18EE840 VA: 0x18EE840 Slot: 5
+	// RVA: 0x13ADF98 Offset: 0x13ADF98 VA: 0x13ADF98 Slot: 5
 	protected sealed override int CreatePrimaryKey() { }
 }
 
 // Namespace: 
-public class WarBoardEffectMaster : DataMasterBase<WarBoardEffectMaster, WarBoardEffectEntity, int> // TypeDefIndex: 7548
+public class WarBoardEffectMaster : DataMasterBase<WarBoardEffectMaster, WarBoardEffectEntity, int> // TypeDefIndex: 7567
 {
 	// Methods
 
-	// RVA: 0x18EE848 Offset: 0x18EE848 VA: 0x18EE848
+	// RVA: 0x13ADFA0 Offset: 0x13ADFA0 VA: 0x13ADFA0
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class WarBoardEntity : DataEntityBase<int> // TypeDefIndex: 7549
+public class WarBoardEntity : DataEntityBase<int> // TypeDefIndex: 7568
 {
 	// Fields
 	public int id; // 0x10
@@ -32,15 +813,15 @@ public class WarBoardEntity : DataEntityBase<int> // TypeDefIndex: 7549
 
 	// Methods
 
-	// RVA: 0x18EE89C Offset: 0x18EE89C VA: 0x18EE89C
+	// RVA: 0x13ADFF4 Offset: 0x13ADFF4 VA: 0x13ADFF4
 	public void .ctor() { }
 
-	// RVA: 0x18EE8EC Offset: 0x18EE8EC VA: 0x18EE8EC Slot: 5
+	// RVA: 0x13AE044 Offset: 0x13AE044 VA: 0x13AE044 Slot: 5
 	protected sealed override int CreatePrimaryKey() { }
 }
 
 // Namespace: 
-public class WarBoardIndividualityClassEntity : DataEntityBase<int> // TypeDefIndex: 7550
+public class WarBoardIndividualityClassEntity : DataEntityBase<int> // TypeDefIndex: 7569
 {
 	// Fields
 	public int individuality; // 0x10
@@ -48,18 +829,18 @@ public class WarBoardIndividualityClassEntity : DataEntityBase<int> // TypeDefIn
 
 	// Methods
 
-	// RVA: 0x18EFD10 Offset: 0x18EFD10 VA: 0x18EFD10
+	// RVA: 0x13AF468 Offset: 0x13AF468 VA: 0x13AF468
 	public void .ctor() { }
 
-	// RVA: 0x18EFD60 Offset: 0x18EFD60 VA: 0x18EFD60 Slot: 5
+	// RVA: 0x13AF4B8 Offset: 0x13AF4B8 VA: 0x13AF4B8 Slot: 5
 	protected sealed override int CreatePrimaryKey() { }
 
-	// RVA: 0x18EFD68 Offset: 0x18EFD68 VA: 0x18EFD68
+	// RVA: 0x13AF4C0 Offset: 0x13AF4C0 VA: 0x13AF4C0
 	public ServantClassEntity GetServantClassEntity() { }
 }
 
 // Namespace: 
-public class WarBoardIndividualityClassMaster : DataMasterBase<WarBoardIndividualityClassMaster, WarBoardIndividualityClassEntity, int> // TypeDefIndex: 7551
+public class WarBoardIndividualityClassMaster : DataMasterBase<WarBoardIndividualityClassMaster, WarBoardIndividualityClassEntity, int> // TypeDefIndex: 7570
 {
 	// Fields
 	public static int ALL_CLASS_ID; // 0x0
@@ -67,43 +848,43 @@ public class WarBoardIndividualityClassMaster : DataMasterBase<WarBoardIndividua
 
 	// Methods
 
-	// RVA: 0x18EFE00 Offset: 0x18EFE00 VA: 0x18EFE00
+	// RVA: 0x13AF558 Offset: 0x13AF558 VA: 0x13AF558
 	public void .ctor() { }
 
-	// RVA: 0x18EFE54 Offset: 0x18EFE54 VA: 0x18EFE54
+	// RVA: 0x13AF5AC Offset: 0x13AF5AC VA: 0x13AF5AC
 	public WarBoardIndividualityClassEntity[] GetEntities(int[] individualities) { }
 
-	// RVA: 0x18E826C Offset: 0x18E826C VA: 0x18E826C
+	// RVA: 0x13A79C4 Offset: 0x13A79C4 VA: 0x13A79C4
 	public ServantClassEntity[] GetServantClassEntities(int[] individualities) { }
 
-	// RVA: 0x18F0160 Offset: 0x18F0160 VA: 0x18F0160
+	// RVA: 0x13AF8B8 Offset: 0x13AF8B8 VA: 0x13AF8B8
 	public ServantClassEntity GetServantClassEntity(int individuality) { }
 
-	// RVA: 0x18F0210 Offset: 0x18F0210 VA: 0x18F0210
+	// RVA: 0x13AF968 Offset: 0x13AF968 VA: 0x13AF968
 	public ServantClassEntity GetAllClassServantEntity() { }
 
-	// RVA: 0x18F02D4 Offset: 0x18F02D4 VA: 0x18F02D4
+	// RVA: 0x13AFA2C Offset: 0x13AFA2C VA: 0x13AFA2C
 	private static void .cctor() { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAEF90 Offset: 0xCAEF90 VA: 0xCAEF90
-private sealed class WarBoardIndividualityClassMaster.<GetEntities>c__AnonStorey0 // TypeDefIndex: 7552
+[CompilerGeneratedAttribute] // RVA: 0xC42ED4 Offset: 0xC42ED4 VA: 0xC42ED4
+private sealed class WarBoardIndividualityClassMaster.<GetEntities>c__AnonStorey0 // TypeDefIndex: 7571
 {
 	// Fields
 	internal WarBoardIndividualityClassEntity entity; // 0x10
 
 	// Methods
 
-	// RVA: 0x18F0158 Offset: 0x18F0158 VA: 0x18F0158
+	// RVA: 0x13AF8B0 Offset: 0x13AF8B0 VA: 0x13AF8B0
 	public void .ctor() { }
 
-	// RVA: 0x18F0338 Offset: 0x18F0338 VA: 0x18F0338
+	// RVA: 0x13AFA90 Offset: 0x13AFA90 VA: 0x13AFA90
 	internal bool <>m__0(int x) { }
 }
 
 // Namespace: 
-public class WarBoardItemEntity : DataEntityBase<int> // TypeDefIndex: 7553
+public class WarBoardItemEntity : DataEntityBase<int> // TypeDefIndex: 7572
 {
 	// Fields
 	public int id; // 0x10
@@ -117,33 +898,33 @@ public class WarBoardItemEntity : DataEntityBase<int> // TypeDefIndex: 7553
 
 	// Methods
 
-	// RVA: 0x18A2468 Offset: 0x18A2468 VA: 0x18A2468
+	// RVA: 0x13444D8 Offset: 0x13444D8 VA: 0x13444D8
 	public void .ctor() { }
 
-	// RVA: 0x18A24B8 Offset: 0x18A24B8 VA: 0x18A24B8 Slot: 5
+	// RVA: 0x1344528 Offset: 0x1344528 VA: 0x1344528 Slot: 5
 	protected sealed override int CreatePrimaryKey() { }
 }
 
 // Namespace: 
-public class WarBoardItemMaster : DataMasterBase<WarBoardItemMaster, WarBoardItemEntity, int> // TypeDefIndex: 7554
+public class WarBoardItemMaster : DataMasterBase<WarBoardItemMaster, WarBoardItemEntity, int> // TypeDefIndex: 7573
 {
 	// Methods
 
-	// RVA: 0x18A24C0 Offset: 0x18A24C0 VA: 0x18A24C0
+	// RVA: 0x1344530 Offset: 0x1344530 VA: 0x1344530
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class WarBoardMaster : DataMasterBase<WarBoardMaster, WarBoardEntity, int> // TypeDefIndex: 7555
+public class WarBoardMaster : DataMasterBase<WarBoardMaster, WarBoardEntity, int> // TypeDefIndex: 7574
 {
 	// Methods
 
-	// RVA: 0x1BFA07C Offset: 0x1BFA07C VA: 0x1BFA07C
+	// RVA: 0x1688B1C Offset: 0x1688B1C VA: 0x1688B1C
 	public void .ctor() { }
 }
 
 // Namespace: 
-public class WarBoardOnboardSkillEntity : DataEntityBase<string> // TypeDefIndex: 7556
+public class WarBoardOnboardSkillEntity : DataEntityBase<string> // TypeDefIndex: 7575
 {
 	// Fields
 	public int stageId; // 0x10
@@ -158,18 +939,18 @@ public class WarBoardOnboardSkillEntity : DataEntityBase<string> // TypeDefIndex
 
 	// Methods
 
-	// RVA: 0x1BFC48C Offset: 0x1BFC48C VA: 0x1BFC48C
+	// RVA: 0x168AF2C Offset: 0x168AF2C VA: 0x168AF2C
 	public void .ctor() { }
 
-	// RVA: 0x1BFC4DC Offset: 0x1BFC4DC VA: 0x1BFC4DC Slot: 5
+	// RVA: 0x168AF7C Offset: 0x168AF7C VA: 0x168AF7C Slot: 5
 	protected sealed override string CreatePrimaryKey() { }
 
-	// RVA: 0x1BFC4EC Offset: 0x1BFC4EC VA: 0x1BFC4EC
+	// RVA: 0x168AF8C Offset: 0x168AF8C VA: 0x168AF8C
 	public static string CreatePK(int stageId, int idx) { }
 }
 
 // Namespace: 
-public enum WarBoardOnboardSkillEntity.SkillTiming // TypeDefIndex: 7557
+public enum WarBoardOnboardSkillEntity.SkillTiming // TypeDefIndex: 7576
 {
 	// Fields
 	public int value__; // 0x0
@@ -179,7 +960,7 @@ public enum WarBoardOnboardSkillEntity.SkillTiming // TypeDefIndex: 7557
 }
 
 // Namespace: 
-public enum WarBoardOnboardSkillEntity.SkillEffect // TypeDefIndex: 7558
+public enum WarBoardOnboardSkillEntity.SkillEffect // TypeDefIndex: 7577
 {
 	// Fields
 	public int value__; // 0x0
@@ -189,812 +970,31 @@ public enum WarBoardOnboardSkillEntity.SkillEffect // TypeDefIndex: 7558
 }
 
 // Namespace: 
-public class WarBoardOnboardSkillMaster : DataMasterBase<WarBoardOnboardSkillMaster, WarBoardOnboardSkillEntity, string> // TypeDefIndex: 7559
+public class WarBoardOnboardSkillMaster : DataMasterBase<WarBoardOnboardSkillMaster, WarBoardOnboardSkillEntity, string> // TypeDefIndex: 7578
 {
 	// Methods
 
-	// RVA: 0x1BFC4FC Offset: 0x1BFC4FC VA: 0x1BFC4FC
+	// RVA: 0x168AF9C Offset: 0x168AF9C VA: 0x168AF9C
 	public void .ctor() { }
 
-	// RVA: 0x1BFC550 Offset: 0x1BFC550 VA: 0x1BFC550
+	// RVA: 0x168AFF0 Offset: 0x168AFF0 VA: 0x168AFF0
 	public WarBoardOnboardSkillEntity GetEntity(int stageId, int idx) { }
 
-	// RVA: 0x1BFC5C4 Offset: 0x1BFC5C4 VA: 0x1BFC5C4
+	// RVA: 0x168B064 Offset: 0x168B064 VA: 0x168B064
 	public bool TryGetEntity(out WarBoardOnboardSkillEntity entity, int stageId, int idx) { }
 
-	// RVA: 0x1BFC648 Offset: 0x1BFC648 VA: 0x1BFC648
+	// RVA: 0x168B0E8 Offset: 0x168B0E8 VA: 0x168B0E8
 	public bool IsOnBoardSkillExist(int stageId, WarBoardOnboardSkillEntity.SkillTiming timing, int turn) { }
 
-	// RVA: 0x1BFC784 Offset: 0x1BFC784 VA: 0x1BFC784
+	// RVA: 0x168B224 Offset: 0x168B224 VA: 0x168B224
 	public List<WarBoardOnboardSkillEntity> GetEntityList(int stageId, WarBoardOnboardSkillEntity.SkillTiming timing, int turn) { }
 }
 
 // Namespace: 
-public class WarBoardQuestEntity : DataEntityBase<string> // TypeDefIndex: 7560
+public class WarBoardQuestEntity : DataEntityBase<string> // TypeDefIndex: 7579
 {
 	// Fields
 	public int questId; // 0x10
 	public int questPhase; // 0x14
 	public int stageId; // 0x18
 
-	// Methods
-
-	// RVA: 0x1C0C9A4 Offset: 0x1C0C9A4 VA: 0x1C0C9A4
-	public void .ctor() { }
-
-	// RVA: 0x1C0C9F4 Offset: 0x1C0C9F4 VA: 0x1C0C9F4 Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x1C0CA04 Offset: 0x1C0CA04 VA: 0x1C0CA04
-	public static string CreatePK(int questId, int questPhase) { }
-}
-
-// Namespace: 
-public class WarBoardQuestMaster : DataMasterBase<WarBoardQuestMaster, WarBoardQuestEntity, string> // TypeDefIndex: 7561
-{
-	// Methods
-
-	// RVA: 0x1C0CA14 Offset: 0x1C0CA14 VA: 0x1C0CA14
-	public void .ctor() { }
-
-	// RVA: 0x1C0CA68 Offset: 0x1C0CA68 VA: 0x1C0CA68
-	public WarBoardQuestEntity GetEntity(int questId, int questPhase) { }
-
-	// RVA: 0x1C0CADC Offset: 0x1C0CADC VA: 0x1C0CADC
-	public bool TryGetEntity(out WarBoardQuestEntity entity, int questId, int questPhase) { }
-}
-
-// Namespace: 
-public class WarBoardRatingBaseEntity : DataEntityBase<int> // TypeDefIndex: 7562
-{
-	// Fields
-	public int id; // 0x10
-	public int type; // 0x14
-	public int viewPoint; // 0x18
-	public int adjustmentValueA1; // 0x1C
-	public int adjustmentValueA2; // 0x20
-	public int adjustmentValueB; // 0x24
-
-	// Methods
-
-	// RVA: 0x1C0CC2C Offset: 0x1C0CC2C VA: 0x1C0CC2C
-	public void .ctor() { }
-
-	// RVA: 0x1C0CC88 Offset: 0x1C0CC88 VA: 0x1C0CC88
-	public void .ctor(WarBoardRatingBaseEntity cSrc) { }
-
-	// RVA: 0x1C0CD8C Offset: 0x1C0CD8C VA: 0x1C0CD8C Slot: 5
-	protected sealed override int CreatePrimaryKey() { }
-}
-
-// Namespace: 
-public enum WarBoardRatingBaseEntity.Type // TypeDefIndex: 7563
-{
-	// Fields
-	public int value__; // 0x0
-	public const WarBoardRatingBaseEntity.Type ALLY_SERVANT_SHORTEST_DISTANCE = 0;
-	public const WarBoardRatingBaseEntity.Type ENEMY_SERVANT_SHORTEST_DISTANCE = 1;
-	public const WarBoardRatingBaseEntity.Type ALLY_MASTER_SHORTEST_DISTANCE = 2;
-	public const WarBoardRatingBaseEntity.Type ENEMY_MASTER_SHORTEST_DISTANCE = 3;
-	public const WarBoardRatingBaseEntity.Type ITEM_SHORTEST_DISTANCE = 4;
-	public const WarBoardRatingBaseEntity.Type PRIORITY_SPACE_SHORTEST_DISTANCE = 5;
-}
-
-// Namespace: 
-public enum WarBoardRatingBaseEntity.Viewpoint // TypeDefIndex: 7564
-{
-	// Fields
-	public int value__; // 0x0
-	public const WarBoardRatingBaseEntity.Viewpoint WARSITUATION = 0;
-	public const WarBoardRatingBaseEntity.Viewpoint BENEFIT = 1;
-}
-
-// Namespace: 
-public class WarBoardRatingBaseMaster : DataMasterBase<WarBoardRatingBaseMaster, WarBoardRatingBaseEntity, int> // TypeDefIndex: 7565
-{
-	// Methods
-
-	// RVA: 0x1A7F958 Offset: 0x1A7F958 VA: 0x1A7F958
-	public void .ctor() { }
-}
-
-// Namespace: 
-public class WarBoardRatingOffsetEntity : DataEntityBase<int> // TypeDefIndex: 7566
-{
-	// Fields
-	public int id; // 0x10
-	public int type; // 0x14
-	public int category; // 0x18
-	public int value; // 0x1C
-	public int value2; // 0x20
-	public int addValue; // 0x24
-
-	// Methods
-
-	// RVA: 0x1A7F9AC Offset: 0x1A7F9AC VA: 0x1A7F9AC
-	public void .ctor() { }
-
-	// RVA: 0x1A7FA08 Offset: 0x1A7FA08 VA: 0x1A7FA08
-	public void .ctor(WarBoardRatingOffsetEntity cSrc) { }
-
-	// RVA: 0x1A7FB0C Offset: 0x1A7FB0C VA: 0x1A7FB0C
-	public WarBoardRatingOffsetEntity.Category GetCategory() { }
-
-	// RVA: 0x1A7FB14 Offset: 0x1A7FB14 VA: 0x1A7FB14 Slot: 5
-	protected sealed override int CreatePrimaryKey() { }
-}
-
-// Namespace: 
-public enum WarBoardRatingOffsetEntity.Type // TypeDefIndex: 7567
-{
-	// Fields
-	public int value__; // 0x0
-	public const WarBoardRatingOffsetEntity.Type BASE_POINT = 0;
-	public const WarBoardRatingOffsetEntity.Type ATTACK_MULTIPLE_ENEMY_WITH_BATTLE = 1;
-	public const WarBoardRatingOffsetEntity.Type ATTACK_MULTIPLE_ALLY_WITH_BATTLE = 2;
-	public const WarBoardRatingOffsetEntity.Type REPLACE = 3;
-	public const WarBoardRatingOffsetEntity.Type NO_REPLACE = 4;
-	public const WarBoardRatingOffsetEntity.Type ATTACK_TARGET_SERVANT_BREAK_POINT_UNDER_OVER = 5;
-	public const WarBoardRatingOffsetEntity.Type ATTACK_TARGET_SERVANT_BREAK_POINT_LESSTHAN_OVER = 6;
-	public const WarBoardRatingOffsetEntity.Type ATTACK_TARGET_MASTER = 7;
-	public const WarBoardRatingOffsetEntity.Type NO_ATTACK_TARGET_MASTER = 8;
-	public const WarBoardRatingOffsetEntity.Type ATTACK_TARGET_SERVANT_ATTACK_DEFENSE_ADVANTAGE = 9;
-	public const WarBoardRatingOffsetEntity.Type ATTACK_TARGET_SERVANT_NOT_ATTACK_DEFENSE_ADVANTAGE_ATTACK_ADVANTAGE = 10;
-	public const WarBoardRatingOffsetEntity.Type ATTACK_TARGET_SERVANT_NOT_ATTACK_DEFENSE_ADVANTAGE_NOT_ATTACK_ADVANTAGE_DEFENSE_DISADVANTAGE = 11;
-	public const WarBoardRatingOffsetEntity.Type ATTACK_TARGET_SERVANT_ADVANTAGE_OTHER = 12;
-	public const WarBoardRatingOffsetEntity.Type ACTION_PIECE_BREAK_POINT_UNDER_OVER = 13;
-	public const WarBoardRatingOffsetEntity.Type ACTION_PIECE_BREAK_POINT_LESSTHAN_OVER = 14;
-	public const WarBoardRatingOffsetEntity.Type ACTION_PIECE_NP_OVER = 15;
-	public const WarBoardRatingOffsetEntity.Type NO_ACTION_PIECE_NP_OVER = 16;
-	public const WarBoardRatingOffsetEntity.Type MOVE_AROUND_ENEMY_SERVANT_NONE = 17;
-	public const WarBoardRatingOffsetEntity.Type MOVE_AROUND_ENEMY_SERVANT_EXIST = 18;
-	public const WarBoardRatingOffsetEntity.Type MOVE_AROUND_ENEMY_SERVANT_OVER = 19;
-	public const WarBoardRatingOffsetEntity.Type MOVE_AROUND_ALLY_SERVANT_NONE = 20;
-	public const WarBoardRatingOffsetEntity.Type MOVE_AROUND_ALLY_SERVANT_EXIST = 21;
-	public const WarBoardRatingOffsetEntity.Type MOVE_AROUND_ALLY_SERVANT_OVER = 22;
-	public const WarBoardRatingOffsetEntity.Type MOVE_AROUND_ALLY_SERVANT_RANGE = 23;
-	public const WarBoardRatingOffsetEntity.Type MOVE_AROUND_ALLY_SERVANT_RANGE_OVER = 24;
-	public const WarBoardRatingOffsetEntity.Type MOVE_GET_DESIGNATION_ITEM = 25;
-	public const WarBoardRatingOffsetEntity.Type NO_MOVE_GET_DESIGNATION_ITEM = 26;
-	public const WarBoardRatingOffsetEntity.Type MOVE_AROUND_ALLY_SERVANT_RANGE_UNDER = 27;
-	public const WarBoardRatingOffsetEntity.Type MOVE_AROUND_ALLY_SERVANT_RANGE_OVER_UNDER = 28;
-	public const WarBoardRatingOffsetEntity.Type REPLACE_BETWEEN_SERVANT = 29;
-	public const WarBoardRatingOffsetEntity.Type NO_REPLACE_BETWEEN_SERVANT = 30;
-	public const WarBoardRatingOffsetEntity.Type MOVE_AROUND_ITEM = 31;
-	public const WarBoardRatingOffsetEntity.Type MOVE_ON_ITEM = 32;
-	public const WarBoardRatingOffsetEntity.Type MOVE_ON_EFFECT = 33;
-}
-
-// Namespace: 
-public enum WarBoardRatingOffsetEntity.Category // TypeDefIndex: 7568
-{
-	// Fields
-	public int value__; // 0x0
-	public const WarBoardRatingOffsetEntity.Category ATTACK = 0;
-	public const WarBoardRatingOffsetEntity.Category MOVE = 1;
-}
-
-// Namespace: 
-public class WarBoardRatingOffsetMaster : DataMasterBase<WarBoardRatingOffsetMaster, WarBoardRatingOffsetEntity, int> // TypeDefIndex: 7569
-{
-	// Methods
-
-	// RVA: 0x1A7FB1C Offset: 0x1A7FB1C VA: 0x1A7FB1C
-	public void .ctor() { }
-}
-
-// Namespace: 
-public class WarBoardRoadEntity : DataEntityBase<string> // TypeDefIndex: 7570
-{
-	// Fields
-	public int warBoardId; // 0x10
-	public int squareIndex1; // 0x14
-	public int squareIndex2; // 0x18
-	public int mobilityLimitId; // 0x1C
-
-	// Methods
-
-	// RVA: 0x1A8055C Offset: 0x1A8055C VA: 0x1A8055C
-	public void .ctor() { }
-
-	// RVA: 0x1A805AC Offset: 0x1A805AC VA: 0x1A805AC Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x1A805C0 Offset: 0x1A805C0 VA: 0x1A805C0
-	public static string CreatePK(int warBoardId, int squareIndex1, int squareIndex2) { }
-}
-
-// Namespace: 
-public class WarBoardRoadMaster : DataMasterBase<WarBoardRoadMaster, WarBoardRoadEntity, string> // TypeDefIndex: 7571
-{
-	// Methods
-
-	// RVA: 0x1A805D4 Offset: 0x1A805D4 VA: 0x1A805D4
-	public void .ctor() { }
-
-	// RVA: 0x1A80628 Offset: 0x1A80628 VA: 0x1A80628
-	public WarBoardRoadEntity GetEntity(int warBoardId, int squareIndex1, int squareIndex2) { }
-
-	// RVA: 0x1A806AC Offset: 0x1A806AC VA: 0x1A806AC
-	public bool TryGetEntity(out WarBoardRoadEntity entity, int warBoardId, int squareIndex1, int squareIndex2) { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD3812C Offset: 0xD3812C VA: 0xD3812C
-	// RVA: 0x1A80738 Offset: 0x1A80738 VA: 0x1A80738
-	public IEnumerable<WarBoardRoadEntity> GetWarBoardRoadEntities(int warBoardId) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAEFA0 Offset: 0xCAEFA0 VA: 0xCAEFA0
-private sealed class WarBoardRoadMaster.<GetWarBoardRoadEntities>c__Iterator0 : IEnumerable, IEnumerable<WarBoardRoadEntity>, IEnumerator, IDisposable, IEnumerator<WarBoardRoadEntity> // TypeDefIndex: 7572
-{
-	// Fields
-	internal int <count>__0; // 0x10
-	internal int <i>__1; // 0x14
-	internal WarBoardRoadEntity <entity>__2; // 0x18
-	internal int warBoardId; // 0x20
-	internal WarBoardRoadMaster $this; // 0x28
-	internal WarBoardRoadEntity $current; // 0x30
-	internal bool $disposing; // 0x38
-	internal int $PC; // 0x3C
-
-	// Properties
-	private WarBoardRoadEntity System.Collections.Generic.IEnumerator<WarBoardRoadEntity>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD464C4 Offset: 0xD464C4 VA: 0xD464C4
-	// RVA: 0x1A807E4 Offset: 0x1A807E4 VA: 0x1A807E4
-	public void .ctor() { }
-
-	// RVA: 0x1A807EC Offset: 0x1A807EC VA: 0x1A807EC Slot: 7
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD464D4 Offset: 0xD464D4 VA: 0xD464D4
-	// RVA: 0x1A80998 Offset: 0x1A80998 VA: 0x1A80998 Slot: 10
-	private WarBoardRoadEntity System.Collections.Generic.IEnumerator<WarBoardRoadEntity>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD464E4 Offset: 0xD464E4 VA: 0xD464E4
-	// RVA: 0x1A809A0 Offset: 0x1A809A0 VA: 0x1A809A0 Slot: 6
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD464F4 Offset: 0xD464F4 VA: 0xD464F4
-	// RVA: 0x1A809A8 Offset: 0x1A809A8 VA: 0x1A809A8 Slot: 9
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46504 Offset: 0xD46504 VA: 0xD46504
-	// RVA: 0x1A809BC Offset: 0x1A809BC VA: 0x1A809BC Slot: 8
-	public void Reset() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46514 Offset: 0xD46514 VA: 0xD46514
-	// RVA: 0x1A80A24 Offset: 0x1A80A24 VA: 0x1A80A24 Slot: 4
-	private IEnumerator System.Collections.IEnumerable.GetEnumerator() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46524 Offset: 0xD46524 VA: 0xD46524
-	// RVA: 0x1A80A28 Offset: 0x1A80A28 VA: 0x1A80A28 Slot: 5
-	private IEnumerator<WarBoardRoadEntity> System.Collections.Generic.IEnumerable<WarBoardRoadEntity>.GetEnumerator() { }
-}
-
-// Namespace: 
-public class WarBoardSquareEntity : DataEntityBase<string> // TypeDefIndex: 7573
-{
-	// Fields
-	public int warBoardId; // 0x10
-	public int squareIndex; // 0x14
-	public int positionX; // 0x18
-	public int positionY; // 0x1C
-	public int bgNo; // 0x20
-	public int bgType; // 0x24
-	private Nullable<Vector3> position; // 0x28
-
-	// Methods
-
-	// RVA: 0x1A8A53C Offset: 0x1A8A53C VA: 0x1A8A53C
-	public void .ctor() { }
-
-	// RVA: 0x1A8A58C Offset: 0x1A8A58C VA: 0x1A8A58C
-	public Vector3 GetPosition() { }
-
-	// RVA: 0x1A8A658 Offset: 0x1A8A658 VA: 0x1A8A658 Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x1A8A668 Offset: 0x1A8A668 VA: 0x1A8A668
-	public static string CreatePK(int warBoardId, int squareIndex) { }
-}
-
-// Namespace: 
-public class WarBoardSquareMaster : DataMasterBase<WarBoardSquareMaster, WarBoardSquareEntity, string> // TypeDefIndex: 7574
-{
-	// Methods
-
-	// RVA: 0x1A8A678 Offset: 0x1A8A678 VA: 0x1A8A678
-	public void .ctor() { }
-
-	// RVA: 0x1A8A6CC Offset: 0x1A8A6CC VA: 0x1A8A6CC
-	public WarBoardSquareEntity GetEntity(int warBoardId, int squareIndex) { }
-
-	// RVA: 0x1A8A740 Offset: 0x1A8A740 VA: 0x1A8A740
-	public bool TryGetEntity(out WarBoardSquareEntity entity, int warBoardId, int squareIndex) { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD3813C Offset: 0xD3813C VA: 0xD3813C
-	// RVA: 0x1A8A7C4 Offset: 0x1A8A7C4 VA: 0x1A8A7C4
-	public IEnumerable<WarBoardSquareEntity> GetWarBoardSquareEntities(int warBoardId) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAEFB0 Offset: 0xCAEFB0 VA: 0xCAEFB0
-private sealed class WarBoardSquareMaster.<GetWarBoardSquareEntities>c__Iterator0 : IEnumerable, IEnumerable<WarBoardSquareEntity>, IEnumerator, IDisposable, IEnumerator<WarBoardSquareEntity> // TypeDefIndex: 7575
-{
-	// Fields
-	internal int <count>__0; // 0x10
-	internal int <i>__1; // 0x14
-	internal WarBoardSquareEntity <entity>__2; // 0x18
-	internal int warBoardId; // 0x20
-	internal WarBoardSquareMaster $this; // 0x28
-	internal WarBoardSquareEntity $current; // 0x30
-	internal bool $disposing; // 0x38
-	internal int $PC; // 0x3C
-
-	// Properties
-	private WarBoardSquareEntity System.Collections.Generic.IEnumerator<WarBoardSquareEntity>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46534 Offset: 0xD46534 VA: 0xD46534
-	// RVA: 0x1A8A870 Offset: 0x1A8A870 VA: 0x1A8A870
-	public void .ctor() { }
-
-	// RVA: 0x1A8A878 Offset: 0x1A8A878 VA: 0x1A8A878 Slot: 7
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46544 Offset: 0xD46544 VA: 0xD46544
-	// RVA: 0x1A8AA24 Offset: 0x1A8AA24 VA: 0x1A8AA24 Slot: 10
-	private WarBoardSquareEntity System.Collections.Generic.IEnumerator<WarBoardSquareEntity>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46554 Offset: 0xD46554 VA: 0xD46554
-	// RVA: 0x1A8AA2C Offset: 0x1A8AA2C VA: 0x1A8AA2C Slot: 6
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46564 Offset: 0xD46564 VA: 0xD46564
-	// RVA: 0x1A8AA34 Offset: 0x1A8AA34 VA: 0x1A8AA34 Slot: 9
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46574 Offset: 0xD46574 VA: 0xD46574
-	// RVA: 0x1A8AA48 Offset: 0x1A8AA48 VA: 0x1A8AA48 Slot: 8
-	public void Reset() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46584 Offset: 0xD46584 VA: 0xD46584
-	// RVA: 0x1A8AAB0 Offset: 0x1A8AAB0 VA: 0x1A8AAB0 Slot: 4
-	private IEnumerator System.Collections.IEnumerable.GetEnumerator() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46594 Offset: 0xD46594 VA: 0xD46594
-	// RVA: 0x1A8AAB4 Offset: 0x1A8AAB4 VA: 0x1A8AAB4 Slot: 5
-	private IEnumerator<WarBoardSquareEntity> System.Collections.Generic.IEnumerable<WarBoardSquareEntity>.GetEnumerator() { }
-}
-
-// Namespace: 
-public class WarBoardStageEntity : DataEntityBase<int> // TypeDefIndex: 7576
-{
-	// Fields
-	public int id; // 0x10
-	public int warBoardId; // 0x14
-	public string name; // 0x18
-	public int editBgmId; // 0x20
-	public int playBgmId; // 0x24
-	public int formationCost; // 0x28
-	public string boardMessage; // 0x30
-	public int hasTitleAction; // 0x38
-
-	// Methods
-
-	// RVA: 0x1A8AB74 Offset: 0x1A8AB74 VA: 0x1A8AB74
-	public void .ctor() { }
-
-	// RVA: 0x1A8ABC4 Offset: 0x1A8ABC4 VA: 0x1A8ABC4 Slot: 5
-	protected sealed override int CreatePrimaryKey() { }
-}
-
-// Namespace: 
-public class WarBoardStageLayoutEntity : DataEntityBase<string> // TypeDefIndex: 7577
-{
-	// Fields
-	public int stageId; // 0x10
-	public int squareIndex; // 0x14
-	public int type; // 0x18
-	public int effectId; // 0x1C
-	public bool isPiecePut; // 0x20
-	public int limitActionPoint; // 0x24
-	public int breakPoint; // 0x28
-	public int forceId; // 0x2C
-	public int groupId; // 0x30
-	public int pieceIndex; // 0x34
-	public int followerType; // 0x38
-	public int restrictionId; // 0x3C
-	public int evalValue; // 0x40
-	public int imageId; // 0x44
-	public int actionType; // 0x48
-
-	// Methods
-
-	// RVA: 0x1A8ABCC Offset: 0x1A8ABCC VA: 0x1A8ABCC
-	public void .ctor() { }
-
-	// RVA: 0x1A8AC1C Offset: 0x1A8AC1C VA: 0x1A8AC1C Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x1A8AC2C Offset: 0x1A8AC2C VA: 0x1A8AC2C
-	public static string CreatePK(int stageId, int squareIndex) { }
-}
-
-// Namespace: 
-public enum WarBoardStageLayoutEntity.Type // TypeDefIndex: 7578
-{
-	// Fields
-	public int value__; // 0x0
-	public const WarBoardStageLayoutEntity.Type NORMAL = 1;
-	public const WarBoardStageLayoutEntity.Type ITEM = 2;
-	public const WarBoardStageLayoutEntity.Type EFFECT = 3;
-	public const WarBoardStageLayoutEntity.Type TREASURE = 4;
-}
-
-// Namespace: 
-public enum WarBoardStageLayoutEntity.ActionType // TypeDefIndex: 7579
-{
-	// Fields
-	public int value__; // 0x0
-	public const WarBoardStageLayoutEntity.ActionType ADVANCE = 1;
-	public const WarBoardStageLayoutEntity.ActionType MIDDLE = 2;
-	public const WarBoardStageLayoutEntity.ActionType REAR = 3;
-}
-
-// Namespace: 
-public class WarBoardStageLayoutMaster : DataMasterBase<WarBoardStageLayoutMaster, WarBoardStageLayoutEntity, string> // TypeDefIndex: 7580
-{
-	// Methods
-
-	// RVA: 0x1A8AC3C Offset: 0x1A8AC3C VA: 0x1A8AC3C
-	public void .ctor() { }
-
-	// RVA: 0x1A8AC90 Offset: 0x1A8AC90 VA: 0x1A8AC90
-	public WarBoardStageLayoutEntity GetEntity(int stageId, int squareIndex) { }
-
-	// RVA: 0x1A8AD04 Offset: 0x1A8AD04 VA: 0x1A8AD04
-	public bool TryGetEntity(out WarBoardStageLayoutEntity entity, int stageId, int squareIndex) { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD3814C Offset: 0xD3814C VA: 0xD3814C
-	// RVA: 0x1A8AD88 Offset: 0x1A8AD88 VA: 0x1A8AD88
-	public IEnumerable<WarBoardStageLayoutEntity> GetWarBoardStageLayoutEntities(int stageId) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAEFC0 Offset: 0xCAEFC0 VA: 0xCAEFC0
-private sealed class WarBoardStageLayoutMaster.<GetWarBoardStageLayoutEntities>c__Iterator0 : IEnumerable, IEnumerable<WarBoardStageLayoutEntity>, IEnumerator, IDisposable, IEnumerator<WarBoardStageLayoutEntity> // TypeDefIndex: 7581
-{
-	// Fields
-	internal int <count>__0; // 0x10
-	internal int <i>__1; // 0x14
-	internal WarBoardStageLayoutEntity <entity>__2; // 0x18
-	internal int stageId; // 0x20
-	internal WarBoardStageLayoutMaster $this; // 0x28
-	internal WarBoardStageLayoutEntity $current; // 0x30
-	internal bool $disposing; // 0x38
-	internal int $PC; // 0x3C
-
-	// Properties
-	private WarBoardStageLayoutEntity System.Collections.Generic.IEnumerator<WarBoardStageLayoutEntity>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD465A4 Offset: 0xD465A4 VA: 0xD465A4
-	// RVA: 0x1A8AE34 Offset: 0x1A8AE34 VA: 0x1A8AE34
-	public void .ctor() { }
-
-	// RVA: 0x1A8AE3C Offset: 0x1A8AE3C VA: 0x1A8AE3C Slot: 7
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD465B4 Offset: 0xD465B4 VA: 0xD465B4
-	// RVA: 0x1A8AFE8 Offset: 0x1A8AFE8 VA: 0x1A8AFE8 Slot: 10
-	private WarBoardStageLayoutEntity System.Collections.Generic.IEnumerator<WarBoardStageLayoutEntity>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD465C4 Offset: 0xD465C4 VA: 0xD465C4
-	// RVA: 0x1A8AFF0 Offset: 0x1A8AFF0 VA: 0x1A8AFF0 Slot: 6
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD465D4 Offset: 0xD465D4 VA: 0xD465D4
-	// RVA: 0x1A8AFF8 Offset: 0x1A8AFF8 VA: 0x1A8AFF8 Slot: 9
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD465E4 Offset: 0xD465E4 VA: 0xD465E4
-	// RVA: 0x1A8B00C Offset: 0x1A8B00C VA: 0x1A8B00C Slot: 8
-	public void Reset() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD465F4 Offset: 0xD465F4 VA: 0xD465F4
-	// RVA: 0x1A8B074 Offset: 0x1A8B074 VA: 0x1A8B074 Slot: 4
-	private IEnumerator System.Collections.IEnumerable.GetEnumerator() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46604 Offset: 0xD46604 VA: 0xD46604
-	// RVA: 0x1A8B078 Offset: 0x1A8B078 VA: 0x1A8B078 Slot: 5
-	private IEnumerator<WarBoardStageLayoutEntity> System.Collections.Generic.IEnumerable<WarBoardStageLayoutEntity>.GetEnumerator() { }
-}
-
-// Namespace: 
-public class WarBoardStageMaster : DataMasterBase<WarBoardStageMaster, WarBoardStageEntity, int> // TypeDefIndex: 7582
-{
-	// Methods
-
-	// RVA: 0x1A8B138 Offset: 0x1A8B138 VA: 0x1A8B138
-	public void .ctor() { }
-
-	// RVA: 0x1A8B18C Offset: 0x1A8B18C VA: 0x1A8B18C
-	public int GetTitleAction(int stageId) { }
-}
-
-// Namespace: 
-public class WarBoardStageNpcEntity : DataEntityBase<string> // TypeDefIndex: 7583
-{
-	// Fields
-	public int stageId; // 0x10
-	public int forceId; // 0x14
-	public int groupId; // 0x18
-	public string masterName; // 0x20
-	public int masterImageId; // 0x28
-	public long[] servants; // 0x30
-	public long[] svtEquipIds; // 0x38
-	public int[] aiIds; // 0x40
-	public int[] ratingBaseIds; // 0x48
-	public int[] tacticalIds; // 0x50
-	public int searchDepth; // 0x58
-	public int pickValue; // 0x5C
-	public int defenseArea; // 0x60
-	public int calcEllipsis; // 0x64
-	public int calcEllipsisMin; // 0x68
-
-	// Methods
-
-	// RVA: 0x1A8B3E0 Offset: 0x1A8B3E0 VA: 0x1A8B3E0
-	public void .ctor() { }
-
-	// RVA: 0x1A8B490 Offset: 0x1A8B490 VA: 0x1A8B490
-	public void .ctor(WarBoardStageNpcEntity cSrc) { }
-
-	// RVA: 0x1A8B690 Offset: 0x1A8B690 VA: 0x1A8B690 Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x1A8B6A4 Offset: 0x1A8B6A4 VA: 0x1A8B6A4
-	public static string CreatePK(int stageId, int forceId, int groupId) { }
-}
-
-// Namespace: 
-public class WarBoardStageNpcMaster : DataMasterBase<WarBoardStageNpcMaster, WarBoardStageNpcEntity, string> // TypeDefIndex: 7584
-{
-	// Methods
-
-	// RVA: 0x1A8B6B8 Offset: 0x1A8B6B8 VA: 0x1A8B6B8
-	public void .ctor() { }
-
-	// RVA: 0x1A8B70C Offset: 0x1A8B70C VA: 0x1A8B70C
-	public WarBoardStageNpcEntity GetEntity(int stageId, int forceId, int groupId) { }
-
-	// RVA: 0x1A8B790 Offset: 0x1A8B790 VA: 0x1A8B790
-	public bool TryGetEntity(out WarBoardStageNpcEntity entity, int stageId, int forceId, int groupId) { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD3815C Offset: 0xD3815C VA: 0xD3815C
-	// RVA: 0x1A8B81C Offset: 0x1A8B81C VA: 0x1A8B81C
-	public IEnumerable<WarBoardStageNpcEntity> GetWarBoardStageEntities(int stageId) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAEFD0 Offset: 0xCAEFD0 VA: 0xCAEFD0
-private sealed class WarBoardStageNpcMaster.<GetWarBoardStageEntities>c__Iterator0 : IEnumerable, IEnumerable<WarBoardStageNpcEntity>, IEnumerator, IDisposable, IEnumerator<WarBoardStageNpcEntity> // TypeDefIndex: 7585
-{
-	// Fields
-	internal int <count>__0; // 0x10
-	internal int <i>__1; // 0x14
-	internal WarBoardStageNpcEntity <entity>__2; // 0x18
-	internal int stageId; // 0x20
-	internal WarBoardStageNpcMaster $this; // 0x28
-	internal WarBoardStageNpcEntity $current; // 0x30
-	internal bool $disposing; // 0x38
-	internal int $PC; // 0x3C
-
-	// Properties
-	private WarBoardStageNpcEntity System.Collections.Generic.IEnumerator<WarBoardStageNpcEntity>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46614 Offset: 0xD46614 VA: 0xD46614
-	// RVA: 0x1A8B8C8 Offset: 0x1A8B8C8 VA: 0x1A8B8C8
-	public void .ctor() { }
-
-	// RVA: 0x1A8B8D0 Offset: 0x1A8B8D0 VA: 0x1A8B8D0 Slot: 7
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46624 Offset: 0xD46624 VA: 0xD46624
-	// RVA: 0x1A8BA7C Offset: 0x1A8BA7C VA: 0x1A8BA7C Slot: 10
-	private WarBoardStageNpcEntity System.Collections.Generic.IEnumerator<WarBoardStageNpcEntity>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46634 Offset: 0xD46634 VA: 0xD46634
-	// RVA: 0x1A8BA84 Offset: 0x1A8BA84 VA: 0x1A8BA84 Slot: 6
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46644 Offset: 0xD46644 VA: 0xD46644
-	// RVA: 0x1A8BA8C Offset: 0x1A8BA8C VA: 0x1A8BA8C Slot: 9
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46654 Offset: 0xD46654 VA: 0xD46654
-	// RVA: 0x1A8BAA0 Offset: 0x1A8BAA0 VA: 0x1A8BAA0 Slot: 8
-	public void Reset() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46664 Offset: 0xD46664 VA: 0xD46664
-	// RVA: 0x1A8BB08 Offset: 0x1A8BB08 VA: 0x1A8BB08 Slot: 4
-	private IEnumerator System.Collections.IEnumerable.GetEnumerator() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46674 Offset: 0xD46674 VA: 0xD46674
-	// RVA: 0x1A8BB0C Offset: 0x1A8BB0C VA: 0x1A8BB0C Slot: 5
-	private IEnumerator<WarBoardStageNpcEntity> System.Collections.Generic.IEnumerable<WarBoardStageNpcEntity>.GetEnumerator() { }
-}
-
-// Namespace: 
-public class WarBoardStagePieceDetailEntity : DataEntityBase<string> // TypeDefIndex: 7586
-{
-	// Fields
-	public int stageId; // 0x10
-	public int forceId; // 0x14
-	public int groupId; // 0x18
-	public int pieceIndex; // 0x1C
-	public int flag; // 0x20
-	public Dictionary<string, object> script; // 0x28
-
-	// Methods
-
-	// RVA: 0x1A8BBCC Offset: 0x1A8BBCC VA: 0x1A8BBCC
-	public void .ctor() { }
-
-	// RVA: 0x1A8BC24 Offset: 0x1A8BC24 VA: 0x1A8BC24
-	public void .ctor(WarBoardStagePieceDetailEntity cSrc) { }
-
-	// RVA: 0x1A8BCF0 Offset: 0x1A8BCF0 VA: 0x1A8BCF0 Slot: 5
-	protected sealed override string CreatePrimaryKey() { }
-
-	// RVA: 0x1A8BD04 Offset: 0x1A8BD04 VA: 0x1A8BD04
-	public static string CreatePK(int stageId, int forceId, int groupId, int pieceIndex) { }
-
-	// RVA: 0x1A8BD1C Offset: 0x1A8BD1C VA: 0x1A8BD1C
-	public int getScriptIntParam(string key, int defVal = 0) { }
-
-	// RVA: 0x1A8BDF4 Offset: 0x1A8BDF4 VA: 0x1A8BDF4
-	public object getScriptObj(string key) { }
-
-	// RVA: 0x1A8BE74 Offset: 0x1A8BE74 VA: 0x1A8BE74
-	public int getRoleType() { }
-
-	// RVA: 0x1A8BEC8 Offset: 0x1A8BEC8 VA: 0x1A8BEC8
-	private bool HasFlag(WarBoardStagePieceDetailEntity.Flag targetFlag) { }
-
-	// RVA: 0x1A8BED8 Offset: 0x1A8BED8 VA: 0x1A8BED8
-	public bool IsNotIncludeWin() { }
-}
-
-// Namespace: 
-private enum WarBoardStagePieceDetailEntity.Flag // TypeDefIndex: 7587
-{
-	// Fields
-	public int value__; // 0x0
-	public const WarBoardStagePieceDetailEntity.Flag NOT_INCLUDE_WIN = 1;
-}
-
-// Namespace: 
-public class WarBoardStagePieceDetailMaster : DataMasterBase<WarBoardStagePieceDetailMaster, WarBoardStagePieceDetailEntity, string> // TypeDefIndex: 7588
-{
-	// Methods
-
-	// RVA: 0x1A8BEE4 Offset: 0x1A8BEE4 VA: 0x1A8BEE4
-	public void .ctor() { }
-
-	// RVA: 0x1A8BF38 Offset: 0x1A8BF38 VA: 0x1A8BF38
-	public WarBoardStagePieceDetailEntity GetEntity(int stageId, int forceId, int groupId, int pieceIndex) { }
-
-	// RVA: 0x1A8BFC4 Offset: 0x1A8BFC4 VA: 0x1A8BFC4
-	public bool TryGetEntity(out WarBoardStagePieceDetailEntity entity, int stageId, int forceId, int groupId, int pieceIndex) { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD3816C Offset: 0xD3816C VA: 0xD3816C
-	// RVA: 0x1A8C060 Offset: 0x1A8C060 VA: 0x1A8C060
-	public IEnumerable<WarBoardStagePieceDetailEntity> GetWarBoardStagePieceDetailEntities(int stageId) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAEFE0 Offset: 0xCAEFE0 VA: 0xCAEFE0
-private sealed class WarBoardStagePieceDetailMaster.<GetWarBoardStagePieceDetailEntities>c__Iterator0 : IEnumerable, IEnumerable<WarBoardStagePieceDetailEntity>, IEnumerator, IDisposable, IEnumerator<WarBoardStagePieceDetailEntity> // TypeDefIndex: 7589
-{
-	// Fields
-	internal int <count>__0; // 0x10
-	internal int <i>__1; // 0x14
-	internal WarBoardStagePieceDetailEntity <entity>__2; // 0x18
-	internal int stageId; // 0x20
-	internal WarBoardStagePieceDetailMaster $this; // 0x28
-	internal WarBoardStagePieceDetailEntity $current; // 0x30
-	internal bool $disposing; // 0x38
-	internal int $PC; // 0x3C
-
-	// Properties
-	private WarBoardStagePieceDetailEntity System.Collections.Generic.IEnumerator<WarBoardStagePieceDetailEntity>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46684 Offset: 0xD46684 VA: 0xD46684
-	// RVA: 0x1A8C10C Offset: 0x1A8C10C VA: 0x1A8C10C
-	public void .ctor() { }
-
-	// RVA: 0x1A8C114 Offset: 0x1A8C114 VA: 0x1A8C114 Slot: 7
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46694 Offset: 0xD46694 VA: 0xD46694
-	// RVA: 0x1A8C2C0 Offset: 0x1A8C2C0 VA: 0x1A8C2C0 Slot: 10
-	private WarBoardStagePieceDetailEntity System.Collections.Generic.IEnumerator<WarBoardStagePieceDetailEntity>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD466A4 Offset: 0xD466A4 VA: 0xD466A4
-	// RVA: 0x1A8C2C8 Offset: 0x1A8C2C8 VA: 0x1A8C2C8 Slot: 6
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD466B4 Offset: 0xD466B4 VA: 0xD466B4
-	// RVA: 0x1A8C2D0 Offset: 0x1A8C2D0 VA: 0x1A8C2D0 Slot: 9
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD466C4 Offset: 0xD466C4 VA: 0xD466C4
-	// RVA: 0x1A8C2E4 Offset: 0x1A8C2E4 VA: 0x1A8C2E4 Slot: 8
-	public void Reset() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD466D4 Offset: 0xD466D4 VA: 0xD466D4
-	// RVA: 0x1A8C34C Offset: 0x1A8C34C VA: 0x1A8C34C Slot: 4
-	private IEnumerator System.Collections.IEnumerable.GetEnumerator() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD466E4 Offset: 0xD466E4 VA: 0xD466E4
-	// RVA: 0x1A8C350 Offset: 0x1A8C350 VA: 0x1A8C350 Slot: 5
-	private IEnumerator<WarBoardStagePieceDetailEntity> System.Collections.Generic.IEnumerable<WarBoardStagePieceDetailEntity>.GetEnumerator() { }
-}
-
-// Namespace: 
-public class WarBoardTacticalTrendEntity : DataEntityBase<int> // TypeDefIndex: 7590
-{
-	// Fields
-	public int id; // 0x10
-	public int type; // 0x14
-	public int value; // 0x18
-	public int bestMagnification; // 0x1C
-	public int lowestMagnification; // 0x20
-	public int immobilityMagnification; // 0x24
-
-	// Methods
-
-	// RVA: 0x1A8C638 Offset: 0x1A8C638 VA: 0x1A8C638
-	public void .ctor() { }
-
-	// RVA: 0x1A8C694 Offset: 0x1A8C694 VA: 0x1A8C694
-	public void .ctor(WarBoardTacticalTrendEntity cSrc) { }
-
-	// RVA: 0x1A8C798 Offset: 0x1A8C798 VA: 0x1A8C798 Slot: 5
-	protected sealed override int CreatePrimaryKey() { }
-
-	// RVA: 0x1A8C7A0 Offset: 0x1A8C7A0 VA: 0x1A8C7A0
-	public float GetBestMagnification() { }
-
-	// RVA: 0x1A8C7B8 Offset: 0x1A8C7B8 VA: 0x1A8C7B8
-	public float GetLowestMagnification() { }
-
-	// RVA: 0x1A8C7D0 Offset: 0x1A8C7D0 VA: 0x1A8C7D0
-	public float GetImmobilityMagnification() { }
-
-	// RVA: 0x1A8C7E8 Offset: 0x1A8C7E8 VA: 0x1A8C7E8
-	public WarBoardTacticalTrendEntity.Type GetTrendType() { }
-}
-
-// Namespace: 
-public enum WarBoardTacticalTrendEntity.Type // TypeDefIndex: 7591
-{
-	// Fields
-	public int value__; // 0x0
-	public const WarBoardTacticalTrendEntity.Type EVAL_VALUE = 0;

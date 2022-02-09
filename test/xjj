@@ -1,37 +1,159 @@
+	public const CriAtomEx.Format HCA = 3;
+	public const CriAtomEx.Format HCA_MX = 4;
+	public const CriAtomEx.Format WAVE = 5;
+	public const CriAtomEx.Format RAW_PCM = 6;
+}
+
+// Namespace: 
+private enum CriAtomEx.SpeakerSystem // TypeDefIndex: 3862
+{
+	// Fields
+	public uint value__; // 0x0
+	public const CriAtomEx.SpeakerSystem Surround_5_1 = 0;
+	public const CriAtomEx.SpeakerSystem Surround_7_1 = 1;
+}
+
+// Namespace: 
+public struct CriAtomEx.SpeakerAngles6ch // TypeDefIndex: 3863
+{
+	// Fields
+	public float frontLeft; // 0x0
+	public float frontRight; // 0x4
+	public float frontCenter; // 0x8
+	public float lowFrequency; // 0xC
+	public float surroundLeft; // 0x10
+	public float surroundRight; // 0x14
 
 	// Methods
 
-	// RVA: 0xBBE3E4 Offset: 0xBBE3E4 VA: 0xBBE3E4
+	// RVA: 0x246CBAC Offset: 0x246CBAC VA: 0x246CBAC
+	public static CriAtomEx.SpeakerAngles6ch Default() { }
+}
+
+// Namespace: 
+public struct CriAtomEx.SpeakerAngles8ch // TypeDefIndex: 3864
+{
+	// Fields
+	public float frontLeft; // 0x0
+	public float frontRight; // 0x4
+	public float frontCenter; // 0x8
+	public float lowFrequency; // 0xC
+	public float surroundLeft; // 0x10
+	public float surroundRight; // 0x14
+	public float surroundBackLeft; // 0x18
+	public float surroundBackRight; // 0x1C
+
+	// Methods
+
+	// RVA: 0x246CBC8 Offset: 0x246CBC8 VA: 0x246CBC8
+	public static CriAtomEx.SpeakerAngles8ch Default() { }
+}
+
+// Namespace: 
+public struct CriAtomEx.FormatInfo // TypeDefIndex: 3865
+{
+	// Fields
+	public CriAtomEx.Format format; // 0x0
+	public int samplingRate; // 0x4
+	public long numSamples; // 0x8
+	public long loopOffset; // 0x10
+	public long loopLength; // 0x18
+	public int numChannels; // 0x20
+	public uint reserved; // 0x24
+}
+
+// Namespace: 
+public struct CriAtomEx.AisacControlInfo // TypeDefIndex: 3866
+{
+	// Fields
+	public readonly string name; // 0x0
+	public uint id; // 0x8
+
+	// Methods
+
+	// RVA: 0xD6B480 Offset: 0xD6B480 VA: 0xD6B480
+	public void .ctor(byte[] data, int startIndex) { }
+}
+
+// Namespace: 
+public enum CriAtomEx.Randomize3dCalcType // TypeDefIndex: 3867
+{
+	// Fields
+	public int value__; // 0x0
+	public const CriAtomEx.Randomize3dCalcType None = -1;
+	public const CriAtomEx.Randomize3dCalcType Rectangle = 0;
+	public const CriAtomEx.Randomize3dCalcType Cuboid = 1;
+	public const CriAtomEx.Randomize3dCalcType Circle = 2;
+	public const CriAtomEx.Randomize3dCalcType Cylinder = 3;
+	public const CriAtomEx.Randomize3dCalcType Sphere = 4;
+	public const CriAtomEx.Randomize3dCalcType List = 6;
+}
+
+// Namespace: 
+public enum CriAtomEx.Randomize3dParamType // TypeDefIndex: 3868
+{
+	// Fields
+	public int value__; // 0x0
+	public const CriAtomEx.Randomize3dParamType None = 0;
+	public const CriAtomEx.Randomize3dParamType Width = 1;
+	public const CriAtomEx.Randomize3dParamType Depth = 2;
+	public const CriAtomEx.Randomize3dParamType Height = 3;
+	public const CriAtomEx.Randomize3dParamType Radius = 4;
+}
+
+// Namespace: 
+[Serializable]
+public struct CriAtomEx.Randomize3dConfig // TypeDefIndex: 3869
+{
+	// Fields
+	public const int NumOfCalcParams = 3;
+	[SerializeField] // RVA: 0xC20C9C Offset: 0xC20C9C VA: 0xC20C9C
+	private bool followsOriginalSource; // 0x0
+	[SerializeField] // RVA: 0xC20CAC Offset: 0xC20CAC VA: 0xC20CAC
+	private CriAtomEx.Randomize3dCalcType calculationType; // 0x4
+	[SerializeField] // RVA: 0xC20CBC Offset: 0xC20CBC VA: 0xC20CBC
+	private float[] calculationParameters; // 0x8
+
+	// Properties
+	public bool FollowsOriginalSource { get; }
+	public CriAtomEx.Randomize3dCalcType CalculationType { get; }
+	public float CalculationParameter1 { get; }
+	public float CalculationParameter2 { get; }
+	public float CalculationParameter3 { get; }
+
+	// Methods
+
+	// RVA: 0xD6BC00 Offset: 0xD6BC00 VA: 0xD6BC00
 	internal void .ctor(byte[] data, int startIndex) { }
 
-	// RVA: 0xBBE3EC Offset: 0xBBE3EC VA: 0xBBE3EC
+	// RVA: 0xD6BC08 Offset: 0xD6BC08 VA: 0xD6BC08
 	public void .ctor(bool followsOriginalSource, CriAtomEx.Randomize3dCalcType calculationType, float param1 = 0, float param2 = 0, float param3 = 0) { }
 
-	// RVA: 0xBBE3F8 Offset: 0xBBE3F8 VA: 0xBBE3F8
+	// RVA: 0xD6BC14 Offset: 0xD6BC14 VA: 0xD6BC14
 	public void .ctor(int dummy) { }
 
-	// RVA: 0xBBE400 Offset: 0xBBE400 VA: 0xBBE400
+	// RVA: 0xD6BC1C Offset: 0xD6BC1C VA: 0xD6BC1C
 	public bool get_FollowsOriginalSource() { }
 
-	// RVA: 0xBBE408 Offset: 0xBBE408 VA: 0xBBE408
+	// RVA: 0xD6BC24 Offset: 0xD6BC24 VA: 0xD6BC24
 	public CriAtomEx.Randomize3dCalcType get_CalculationType() { }
 
-	// RVA: 0xBBE410 Offset: 0xBBE410 VA: 0xBBE410
+	// RVA: 0xD6BC2C Offset: 0xD6BC2C VA: 0xD6BC2C
 	public float get_CalculationParameter1() { }
 
-	// RVA: 0xBBE418 Offset: 0xBBE418 VA: 0xBBE418
+	// RVA: 0xD6BC34 Offset: 0xD6BC34 VA: 0xD6BC34
 	public float get_CalculationParameter2() { }
 
-	// RVA: 0xBBE420 Offset: 0xBBE420 VA: 0xBBE420
+	// RVA: 0xD6BC3C Offset: 0xD6BC3C VA: 0xD6BC3C
 	public float get_CalculationParameter3() { }
 
-	// RVA: 0xBBE428 Offset: 0xBBE428 VA: 0xBBE428
+	// RVA: 0xD6BC44 Offset: 0xD6BC44 VA: 0xD6BC44
 	public void ClearCalcParams(float initVal = 0) { }
 
-	// RVA: 0xBBE430 Offset: 0xBBE430 VA: 0xBBE430
+	// RVA: 0xD6BC4C Offset: 0xD6BC4C VA: 0xD6BC4C
 	public bool GetParamByType(CriAtomEx.Randomize3dParamType paramType, ref float paramVal) { }
 
-	// RVA: 0xBBE438 Offset: 0xBBE438 VA: 0xBBE438
+	// RVA: 0xD6BC54 Offset: 0xD6BC54 VA: 0xD6BC54
 	public bool SetParamByType(CriAtomEx.Randomize3dParamType paramType, float paramVal) { }
 }
 
@@ -56,7 +178,7 @@ public struct CriAtomEx.CuePos3dInfo // TypeDefIndex: 3870
 
 	// Methods
 
-	// RVA: 0xBBE3AC Offset: 0xBBE3AC VA: 0xBBE3AC
+	// RVA: 0xD6BBC8 Offset: 0xD6BBC8 VA: 0xD6BBC8
 	public void .ctor(byte[] data, int startIndex) { }
 }
 
@@ -70,10 +192,10 @@ public struct CriAtomEx.GameVariableInfo // TypeDefIndex: 3871
 
 	// Methods
 
-	// RVA: 0xBBE3B4 Offset: 0xBBE3B4 VA: 0xBBE3B4
+	// RVA: 0xD6BBD0 Offset: 0xD6BBD0 VA: 0xD6BBD0
 	public void .ctor(byte[] data, int startIndex) { }
 
-	// RVA: 0xBBE3BC Offset: 0xBBE3BC VA: 0xBBE3BC
+	// RVA: 0xD6BBD8 Offset: 0xD6BBD8 VA: 0xD6BBD8
 	public void .ctor(string name, uint id, float gameValue) { }
 }
 
@@ -117,7 +239,7 @@ public struct CriAtomEx.CueInfo // TypeDefIndex: 3873
 
 	// Methods
 
-	// RVA: 0xBBE268 Offset: 0xBBE268 VA: 0xBBE268
+	// RVA: 0xD6BA84 Offset: 0xD6BA84 VA: 0xD6BA84
 	public void .ctor(byte[] data, int startIndex) { }
 }
 
@@ -135,7 +257,7 @@ public struct CriAtomEx.WaveformInfo // TypeDefIndex: 3874
 
 	// Methods
 
-	// RVA: 0xBBE560 Offset: 0xBBE560 VA: 0xBBE560
+	// RVA: 0xD6BD7C Offset: 0xD6BD7C VA: 0xD6BD7C
 	public void .ctor(byte[] data, int startIndex) { }
 }
 
@@ -151,7 +273,7 @@ public struct CriAtomEx.AisacInfo // TypeDefIndex: 3875
 
 	// Methods
 
-	// RVA: 0xBBDD48 Offset: 0xBBDD48 VA: 0xBBDD48
+	// RVA: 0xD6B564 Offset: 0xD6B564 VA: 0xD6B564
 	public void .ctor(byte[] data, int startIndex) { }
 }
 
@@ -186,10 +308,10 @@ public struct CriAtomEx.NativeVector // TypeDefIndex: 3878
 
 	// Methods
 
-	// RVA: 0xBBE3CC Offset: 0xBBE3CC VA: 0xBBE3CC
+	// RVA: 0xD6BBE8 Offset: 0xD6BBE8 VA: 0xD6BBE8
 	public void .ctor(float x, float y, float z) { }
 
-	// RVA: 0xBBE3D8 Offset: 0xBBE3D8 VA: 0xBBE3D8
+	// RVA: 0xD6BBF4 Offset: 0xD6BBF4 VA: 0xD6BBF4
 	public void .ctor(Vector3 vector) { }
 }
 
@@ -204,21 +326,21 @@ public struct CriAtomEx.CueLinkInfo // TypeDefIndex: 3879
 }
 
 // Namespace: 
-[UnmanagedFunctionPointerAttribute] // RVA: 0xC8AFD8 Offset: 0xC8AFD8 VA: 0xC8AFD8
+[UnmanagedFunctionPointerAttribute] // RVA: 0xC1EEB0 Offset: 0xC1EEB0 VA: 0xC1EEB0
 public sealed class CriAtomEx.CueLinkCbFunc : MulticastDelegate // TypeDefIndex: 3880
 {
 	// Methods
 
-	// RVA: 0x11ED4F4 Offset: 0x11ED4F4 VA: 0x11ED4F4
+	// RVA: 0x2467CD4 Offset: 0x2467CD4 VA: 0x2467CD4
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x11ED0C4 Offset: 0x11ED0C4 VA: 0x11ED0C4 Slot: 11
+	// RVA: 0x24678A4 Offset: 0x24678A4 VA: 0x24678A4 Slot: 11
 	public virtual void Invoke(ref CriAtomEx.CueLinkInfo info) { }
 
-	// RVA: 0x11F196C Offset: 0x11F196C VA: 0x11F196C Slot: 12
+	// RVA: 0x246C14C Offset: 0x246C14C VA: 0x246C14C Slot: 12
 	public virtual IAsyncResult BeginInvoke(ref CriAtomEx.CueLinkInfo info, AsyncCallback callback, object object) { }
 
-	// RVA: 0x11F1A00 Offset: 0x11F1A00 VA: 0x11F1A00 Slot: 13
+	// RVA: 0x246C1E0 Offset: 0x246C1E0 VA: 0x246C1E0 Slot: 13
 	public virtual void EndInvoke(ref CriAtomEx.CueLinkInfo info, IAsyncResult result) { }
 }
 
@@ -227,156 +349,156 @@ public static class CriAtomExCategory // TypeDefIndex: 3881
 {
 	// Methods
 
-	// RVA: 0x1192DB0 Offset: 0x1192DB0 VA: 0x1192DB0
+	// RVA: 0x23C8108 Offset: 0x23C8108 VA: 0x23C8108
 	public static void SetVolume(string name, float volume) { }
 
-	// RVA: 0x1192E70 Offset: 0x1192E70 VA: 0x1192E70
+	// RVA: 0x23C81C8 Offset: 0x23C81C8 VA: 0x23C81C8
 	public static void SetVolume(int id, float volume) { }
 
-	// RVA: 0x1192F20 Offset: 0x1192F20 VA: 0x1192F20
+	// RVA: 0x23C8278 Offset: 0x23C8278 VA: 0x23C8278
 	public static float GetVolume(string name) { }
 
-	// RVA: 0x1192FE0 Offset: 0x1192FE0 VA: 0x1192FE0
+	// RVA: 0x23C8338 Offset: 0x23C8338 VA: 0x23C8338
 	public static float GetVolume(int id) { }
 
-	// RVA: 0x1193080 Offset: 0x1193080 VA: 0x1193080
+	// RVA: 0x23C83D8 Offset: 0x23C83D8 VA: 0x23C83D8
 	public static void Mute(string name, bool mute) { }
 
-	// RVA: 0x1193144 Offset: 0x1193144 VA: 0x1193144
+	// RVA: 0x23C849C Offset: 0x23C849C VA: 0x23C849C
 	public static void Mute(int id, bool mute) { }
 
-	// RVA: 0x11931F8 Offset: 0x11931F8 VA: 0x11931F8
+	// RVA: 0x23C8550 Offset: 0x23C8550 VA: 0x23C8550
 	public static bool IsMuted(string name) { }
 
-	// RVA: 0x11932B4 Offset: 0x11932B4 VA: 0x11932B4
+	// RVA: 0x23C860C Offset: 0x23C860C VA: 0x23C860C
 	public static bool IsMuted(int id) { }
 
-	// RVA: 0x119335C Offset: 0x119335C VA: 0x119335C
+	// RVA: 0x23C86B4 Offset: 0x23C86B4 VA: 0x23C86B4
 	public static void Solo(string name, bool solo, float muteVolume) { }
 
-	// RVA: 0x1193430 Offset: 0x1193430 VA: 0x1193430
+	// RVA: 0x23C8788 Offset: 0x23C8788 VA: 0x23C8788
 	public static void Solo(int id, bool solo, float muteVolume) { }
 
-	// RVA: 0x11934F4 Offset: 0x11934F4 VA: 0x11934F4
+	// RVA: 0x23C884C Offset: 0x23C884C VA: 0x23C884C
 	public static bool IsSoloed(string name) { }
 
-	// RVA: 0x11935B0 Offset: 0x11935B0 VA: 0x11935B0
+	// RVA: 0x23C8908 Offset: 0x23C8908 VA: 0x23C8908
 	public static bool IsSoloed(int id) { }
 
-	// RVA: 0x1193658 Offset: 0x1193658 VA: 0x1193658
+	// RVA: 0x23C89B0 Offset: 0x23C89B0 VA: 0x23C89B0
 	public static void Pause(string name, bool pause) { }
 
-	// RVA: 0x119371C Offset: 0x119371C VA: 0x119371C
+	// RVA: 0x23C8A74 Offset: 0x23C8A74 VA: 0x23C8A74
 	public static void Pause(int id, bool pause) { }
 
-	// RVA: 0x11937D0 Offset: 0x11937D0 VA: 0x11937D0
+	// RVA: 0x23C8B28 Offset: 0x23C8B28 VA: 0x23C8B28
 	public static bool IsPaused(string name) { }
 
-	// RVA: 0x119388C Offset: 0x119388C VA: 0x119388C
+	// RVA: 0x23C8BE4 Offset: 0x23C8BE4 VA: 0x23C8BE4
 	public static bool IsPaused(int id) { }
 
-	// RVA: 0x1193934 Offset: 0x1193934 VA: 0x1193934
+	// RVA: 0x23C8C8C Offset: 0x23C8C8C VA: 0x23C8C8C
 	public static void SetAisacControl(string name, string controlName, float value) { }
 
-	[ObsoleteAttribute] // RVA: 0xC8F650 Offset: 0xC8F650 VA: 0xC8F650
-	// RVA: 0x1193A1C Offset: 0x1193A1C VA: 0x1193A1C
+	[ObsoleteAttribute] // RVA: 0xC23528 Offset: 0xC23528 VA: 0xC23528
+	// RVA: 0x23C8D74 Offset: 0x23C8D74 VA: 0x23C8D74
 	public static void SetAisac(string name, string controlName, float value) { }
 
-	// RVA: 0x1193A20 Offset: 0x1193A20 VA: 0x1193A20
+	// RVA: 0x23C8D78 Offset: 0x23C8D78 VA: 0x23C8D78
 	public static void SetAisacControl(int id, int controlId, float value) { }
 
-	[ObsoleteAttribute] // RVA: 0xC8F688 Offset: 0xC8F688 VA: 0xC8F688
-	// RVA: 0x1193AE0 Offset: 0x1193AE0 VA: 0x1193AE0
+	[ObsoleteAttribute] // RVA: 0xC23560 Offset: 0xC23560 VA: 0xC23560
+	// RVA: 0x23C8E38 Offset: 0x23C8E38 VA: 0x23C8E38
 	public static void SetAisac(int id, int controlId, float value) { }
 
-	// RVA: 0x1193AE4 Offset: 0x1193AE4 VA: 0x1193AE4
+	// RVA: 0x23C8E3C Offset: 0x23C8E3C VA: 0x23C8E3C
 	public static void SetReactParameter(string name, CriAtomExCategory.ReactParameter parameter) { }
 
-	// RVA: 0x1193C00 Offset: 0x1193C00 VA: 0x1193C00
+	// RVA: 0x23C8F58 Offset: 0x23C8F58 VA: 0x23C8F58
 	public static bool GetReactParameter(string name, out CriAtomExCategory.ReactParameter parameter) { }
 
-	// RVA: 0x1193D14 Offset: 0x1193D14 VA: 0x1193D14
+	// RVA: 0x23C906C Offset: 0x23C906C VA: 0x23C906C
 	public static bool GetAttachedAisacInfoById(uint id, int aisacAttachedIndex, out CriAtomEx.AisacInfo aisacInfo) { }
 
-	// RVA: 0x1193F9C Offset: 0x1193F9C VA: 0x1193F9C
+	// RVA: 0x23C92F4 Offset: 0x23C92F4 VA: 0x23C92F4
 	public static bool GetAttachedAisacInfoByName(string name, int aisacAttachedIndex, out CriAtomEx.AisacInfo aisacInfo) { }
 
-	// RVA: 0x1194238 Offset: 0x1194238 VA: 0x1194238
+	// RVA: 0x23C9590 Offset: 0x23C9590 VA: 0x23C9590
 	public static bool GetCurrentAisacControlValue(string categoryName, string aisacControlName, out float controlValue) { }
 
-	// RVA: 0x1194324 Offset: 0x1194324 VA: 0x1194324
+	// RVA: 0x23C967C Offset: 0x23C967C VA: 0x23C967C
 	public static CriAtomExCategory.ReactStatus GetReactStatus(string reactName) { }
 
-	// RVA: 0x1192DB4 Offset: 0x1192DB4 VA: 0x1192DB4
+	// RVA: 0x23C810C Offset: 0x23C810C VA: 0x23C810C
 	private static extern void criAtomExCategory_SetVolumeByName(string name, float volume) { }
 
-	// RVA: 0x1192F24 Offset: 0x1192F24 VA: 0x1192F24
+	// RVA: 0x23C827C Offset: 0x23C827C VA: 0x23C827C
 	private static extern float criAtomExCategory_GetVolumeByName(string name) { }
 
-	// RVA: 0x1192E74 Offset: 0x1192E74 VA: 0x1192E74
+	// RVA: 0x23C81CC Offset: 0x23C81CC VA: 0x23C81CC
 	private static extern void criAtomExCategory_SetVolumeById(int id, float volume) { }
 
-	// RVA: 0x1192FE4 Offset: 0x1192FE4 VA: 0x1192FE4
+	// RVA: 0x23C833C Offset: 0x23C833C VA: 0x23C833C
 	private static extern float criAtomExCategory_GetVolumeById(int id) { }
 
-	// RVA: 0x119314C Offset: 0x119314C VA: 0x119314C
+	// RVA: 0x23C84A4 Offset: 0x23C84A4 VA: 0x23C84A4
 	private static extern void criAtomExCategory_MuteById(int id, bool mute) { }
 
-	// RVA: 0x11932B8 Offset: 0x11932B8 VA: 0x11932B8
+	// RVA: 0x23C8610 Offset: 0x23C8610 VA: 0x23C8610
 	private static extern bool criAtomExCategory_IsMutedById(int id) { }
 
-	// RVA: 0x1193088 Offset: 0x1193088 VA: 0x1193088
+	// RVA: 0x23C83E0 Offset: 0x23C83E0 VA: 0x23C83E0
 	private static extern void criAtomExCategory_MuteByName(string name, bool mute) { }
 
-	// RVA: 0x11931FC Offset: 0x11931FC VA: 0x11931FC
+	// RVA: 0x23C8554 Offset: 0x23C8554 VA: 0x23C8554
 	private static extern bool criAtomExCategory_IsMutedByName(string name) { }
 
-	// RVA: 0x1193438 Offset: 0x1193438 VA: 0x1193438
+	// RVA: 0x23C8790 Offset: 0x23C8790 VA: 0x23C8790
 	private static extern void criAtomExCategory_SoloById(int id, bool solo, float volume) { }
 
-	// RVA: 0x11935B4 Offset: 0x11935B4 VA: 0x11935B4
+	// RVA: 0x23C890C Offset: 0x23C890C VA: 0x23C890C
 	private static extern bool criAtomExCategory_IsSoloedById(int id) { }
 
-	// RVA: 0x1193364 Offset: 0x1193364 VA: 0x1193364
+	// RVA: 0x23C86BC Offset: 0x23C86BC VA: 0x23C86BC
 	private static extern void criAtomExCategory_SoloByName(string name, bool solo, float volume) { }
 
-	// RVA: 0x11934F8 Offset: 0x11934F8 VA: 0x11934F8
+	// RVA: 0x23C8850 Offset: 0x23C8850 VA: 0x23C8850
 	private static extern bool criAtomExCategory_IsSoloedByName(string name) { }
 
-	// RVA: 0x1193724 Offset: 0x1193724 VA: 0x1193724
+	// RVA: 0x23C8A7C Offset: 0x23C8A7C VA: 0x23C8A7C
 	private static extern void criAtomExCategory_PauseById(int id, bool pause) { }
 
-	// RVA: 0x1193890 Offset: 0x1193890 VA: 0x1193890
+	// RVA: 0x23C8BE8 Offset: 0x23C8BE8 VA: 0x23C8BE8
 	private static extern bool criAtomExCategory_IsPausedById(int id) { }
 
-	// RVA: 0x1193660 Offset: 0x1193660 VA: 0x1193660
+	// RVA: 0x23C89B8 Offset: 0x23C89B8 VA: 0x23C89B8
 	private static extern void criAtomExCategory_PauseByName(string name, bool pause) { }
 
-	// RVA: 0x11937D4 Offset: 0x11937D4 VA: 0x11937D4
+	// RVA: 0x23C8B2C Offset: 0x23C8B2C VA: 0x23C8B2C
 	private static extern bool criAtomExCategory_IsPausedByName(string name) { }
 
-	// RVA: 0x1193A24 Offset: 0x1193A24 VA: 0x1193A24
+	// RVA: 0x23C8D7C Offset: 0x23C8D7C VA: 0x23C8D7C
 	private static extern void criAtomExCategory_SetAisacControlById(int id, ushort controlId, float value) { }
 
-	// RVA: 0x1193938 Offset: 0x1193938 VA: 0x1193938
+	// RVA: 0x23C8C90 Offset: 0x23C8C90 VA: 0x23C8C90
 	private static extern void criAtomExCategory_SetAisacControlByName(string name, string controlName, float value) { }
 
-	// RVA: 0x1193AE8 Offset: 0x1193AE8 VA: 0x1193AE8
+	// RVA: 0x23C8E40 Offset: 0x23C8E40 VA: 0x23C8E40
 	private static extern void criAtomExCategory_SetReactParameter(string react_name, ref CriAtomExCategory.ReactParameter parameter) { }
 
-	// RVA: 0x1193C04 Offset: 0x1193C04 VA: 0x1193C04
+	// RVA: 0x23C8F5C Offset: 0x23C8F5C VA: 0x23C8F5C
 	private static extern bool criAtomExCategory_GetReactParameter(string react_name, out CriAtomExCategory.ReactParameter parameter) { }
 
-	// RVA: 0x1193EE0 Offset: 0x1193EE0 VA: 0x1193EE0
+	// RVA: 0x23C9238 Offset: 0x23C9238 VA: 0x23C9238
 	private static extern bool criAtomExCategory_GetAttachedAisacInfoById(uint id, int aisacAttachedIndex, IntPtr aisacInfo) { }
 
-	// RVA: 0x1194168 Offset: 0x1194168 VA: 0x1194168
+	// RVA: 0x23C94C0 Offset: 0x23C94C0 VA: 0x23C94C0
 	private static extern bool criAtomExCategory_GetAttachedAisacInfoByName(string name, int aisacAttachedIndex, IntPtr aisacInfo) { }
 
-	// RVA: 0x119423C Offset: 0x119423C VA: 0x119423C
+	// RVA: 0x23C9594 Offset: 0x23C9594 VA: 0x23C9594
 	private static extern bool criAtomExCategory_GetCurrentAisacControlValueByName(string category_name, string aisac_control_name, out float control_value) { }
 
-	// RVA: 0x1194328 Offset: 0x1194328 VA: 0x1194328
+	// RVA: 0x23C9680 Offset: 0x23C9680 VA: 0x23C9680
 	private static extern CriAtomExCategory.ReactStatus criAtomExCategory_GetReactStatus(string react_name) { }
 }
 
@@ -478,10 +600,10 @@ public struct CriAtomExCategory.ReactAisacModulationParameter // TypeDefIndex: 3
 
 	// Methods
 
-	// RVA: 0xBBCB00 Offset: 0xBBCB00 VA: 0xBBCB00
+	// RVA: 0xD6A31C Offset: 0xD6A31C VA: 0xD6A31C
 	public bool get_enableDecrementAisacModulationKey() { }
 
-	// RVA: 0xBBCB10 Offset: 0xBBCB10 VA: 0xBBCB10
+	// RVA: 0xD6A32C Offset: 0xD6A32C VA: 0xD6A32C
 	public bool get_enableIncrementAisacModulationKey() { }
 }
 
@@ -519,14 +641,14 @@ public static class CriAtomExSequencer // TypeDefIndex: 3895
 {
 	// Methods
 
-	// RVA: 0x119A878 Offset: 0x119A878 VA: 0x119A878
+	// RVA: 0x23CFBD0 Offset: 0x23CFBD0 VA: 0x23CFBD0
 	public static void add_OnCallback(CriAtomExSequencer.EventCallback value) { }
 
-	// RVA: 0x119A978 Offset: 0x119A978 VA: 0x119A978
+	// RVA: 0x23CFCD0 Offset: 0x23CFCD0 VA: 0x23CFCD0
 	public static void remove_OnCallback(CriAtomExSequencer.EventCallback value) { }
 
-	[ObsoleteAttribute] // RVA: 0xC8F6C0 Offset: 0xC8F6C0 VA: 0xC8F6C0
-	// RVA: 0x11A069C Offset: 0x11A069C VA: 0x11A069C
+	[ObsoleteAttribute] // RVA: 0xC23598 Offset: 0xC23598 VA: 0xC23598
+	// RVA: 0x23D59F4 Offset: 0x23D59F4 VA: 0x23D59F4
 	public static void SetEventCallback(CriAtomExSequencer.EventCbFunc func, string separator = "\t") { }
 }
 
@@ -544,40 +666,40 @@ public struct CriAtomExSequencer.CriAtomExSequenceEventInfo // TypeDefIndex: 389
 }
 
 // Namespace: 
-[UnmanagedFunctionPointerAttribute] // RVA: 0xC8AFEC Offset: 0xC8AFEC VA: 0xC8AFEC
+[UnmanagedFunctionPointerAttribute] // RVA: 0xC1EEC4 Offset: 0xC1EEC4 VA: 0xC1EEC4
 public sealed class CriAtomExSequencer.EventCbFunc : MulticastDelegate // TypeDefIndex: 3897
 {
 	// Methods
 
-	// RVA: 0x11A07D0 Offset: 0x11A07D0 VA: 0x11A07D0
+	// RVA: 0x23D5B28 Offset: 0x23D5B28 VA: 0x23D5B28
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x11A07E0 Offset: 0x11A07E0 VA: 0x11A07E0 Slot: 11
+	// RVA: 0x23D5B38 Offset: 0x23D5B38 VA: 0x23D5B38 Slot: 11
 	public virtual void Invoke(string eventParamsString) { }
 
-	// RVA: 0x11A0B80 Offset: 0x11A0B80 VA: 0x11A0B80 Slot: 12
+	// RVA: 0x23D5ED8 Offset: 0x23D5ED8 VA: 0x23D5ED8 Slot: 12
 	public virtual IAsyncResult BeginInvoke(string eventParamsString, AsyncCallback callback, object object) { }
 
-	// RVA: 0x11A0BA4 Offset: 0x11A0BA4 VA: 0x11A0BA4 Slot: 13
+	// RVA: 0x23D5EFC Offset: 0x23D5EFC VA: 0x23D5EFC Slot: 13
 	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: 
-[UnmanagedFunctionPointerAttribute] // RVA: 0xC8B000 Offset: 0xC8B000 VA: 0xC8B000
+[UnmanagedFunctionPointerAttribute] // RVA: 0xC1EED8 Offset: 0xC1EED8 VA: 0xC1EED8
 public sealed class CriAtomExSequencer.EventCallback : MulticastDelegate // TypeDefIndex: 3898
 {
 	// Methods
 
-	// RVA: 0x119A868 Offset: 0x119A868 VA: 0x119A868
+	// RVA: 0x23CFBC0 Offset: 0x23CFBC0 VA: 0x23CFBC0
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x119FFC4 Offset: 0x119FFC4 VA: 0x119FFC4 Slot: 11
+	// RVA: 0x23D531C Offset: 0x23D531C VA: 0x23D531C Slot: 11
 	public virtual void Invoke(ref CriAtomExSequencer.CriAtomExSequenceEventInfo criAtomExSequenceInfo) { }
 
-	// RVA: 0x11A0714 Offset: 0x11A0714 VA: 0x11A0714 Slot: 12
+	// RVA: 0x23D5A6C Offset: 0x23D5A6C VA: 0x23D5A6C Slot: 12
 	public virtual IAsyncResult BeginInvoke(ref CriAtomExSequencer.CriAtomExSequenceEventInfo criAtomExSequenceInfo, AsyncCallback callback, object object) { }
 
-	// RVA: 0x11A07A8 Offset: 0x11A07A8 VA: 0x11A07A8 Slot: 13
+	// RVA: 0x23D5B00 Offset: 0x23D5B00 VA: 0x23D5B00 Slot: 13
 	public virtual void EndInvoke(ref CriAtomExSequencer.CriAtomExSequenceEventInfo criAtomExSequenceInfo, IAsyncResult result) { }
 }
 
@@ -586,14 +708,14 @@ public static class CriAtomExBeatSync // TypeDefIndex: 3899
 {
 	// Methods
 
-	// RVA: 0x1192980 Offset: 0x1192980 VA: 0x1192980
+	// RVA: 0x23C7CD8 Offset: 0x23C7CD8 VA: 0x23C7CD8
 	public static void add_OnCallback(CriAtomExBeatSync.CbFunc value) { }
 
-	// RVA: 0x11929E8 Offset: 0x11929E8 VA: 0x11929E8
+	// RVA: 0x23C7D40 Offset: 0x23C7D40 VA: 0x23C7D40
 	public static void remove_OnCallback(CriAtomExBeatSync.CbFunc value) { }
 
-	[ObsoleteAttribute] // RVA: 0xC8F6FC Offset: 0xC8F6FC VA: 0xC8F6FC
-	// RVA: 0x1192A50 Offset: 0x1192A50 VA: 0x1192A50
+	[ObsoleteAttribute] // RVA: 0xC235D4 Offset: 0xC235D4 VA: 0xC235D4
+	// RVA: 0x23C7DA8 Offset: 0x23C7DA8 VA: 0x23C7DA8
 	public static void SetCallback(CriAtomExBeatSync.CbFunc func) { }
 }
 
@@ -612,21 +734,21 @@ public struct CriAtomExBeatSync.Info // TypeDefIndex: 3900
 }
 
 // Namespace: 
-[UnmanagedFunctionPointerAttribute] // RVA: 0xC8B014 Offset: 0xC8B014 VA: 0xC8B014
+[UnmanagedFunctionPointerAttribute] // RVA: 0xC1EEEC Offset: 0xC1EEEC VA: 0xC1EEEC
 public sealed class CriAtomExBeatSync.CbFunc : MulticastDelegate // TypeDefIndex: 3901
 {
 	// Methods
 
-	// RVA: 0x1192AB8 Offset: 0x1192AB8 VA: 0x1192AB8
+	// RVA: 0x23C7E10 Offset: 0x23C7E10 VA: 0x23C7E10
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x1192AC8 Offset: 0x1192AC8 VA: 0x1192AC8 Slot: 11
+	// RVA: 0x23C7E20 Offset: 0x23C7E20 VA: 0x23C7E20 Slot: 11
 	public virtual void Invoke(ref CriAtomExBeatSync.Info info) { }
 
-	// RVA: 0x1192CF4 Offset: 0x1192CF4 VA: 0x1192CF4 Slot: 12
+	// RVA: 0x23C804C Offset: 0x23C804C VA: 0x23C804C Slot: 12
 	public virtual IAsyncResult BeginInvoke(ref CriAtomExBeatSync.Info info, AsyncCallback callback, object object) { }
 
-	// RVA: 0x1192D88 Offset: 0x1192D88 VA: 0x1192D88 Slot: 13
+	// RVA: 0x23C80E0 Offset: 0x23C80E0 VA: 0x23C80E0 Slot: 13
 	public virtual void EndInvoke(ref CriAtomExBeatSync.Info info, IAsyncResult result) { }
 }
 
@@ -635,122 +757,122 @@ public class CriAtomExAsr // TypeDefIndex: 3902
 {
 	// Methods
 
-	// RVA: 0x118FF58 Offset: 0x118FF58 VA: 0x118FF58
+	// RVA: 0x23C52B0 Offset: 0x23C52B0 VA: 0x23C52B0
 	public void .ctor() { }
 
-	// RVA: 0x118FF60 Offset: 0x118FF60 VA: 0x118FF60
+	// RVA: 0x23C52B8 Offset: 0x23C52B8 VA: 0x23C52B8
 	public static void AttachBusAnalyzer(string busName, int interval, int peakHoldTime) { }
 
-	// RVA: 0x1190040 Offset: 0x1190040 VA: 0x1190040
+	// RVA: 0x23C5398 Offset: 0x23C5398 VA: 0x23C5398
 	public static void AttachBusAnalyzer(int interval, int peakHoldTime) { }
 
-	// RVA: 0x1190124 Offset: 0x1190124 VA: 0x1190124
+	// RVA: 0x23C547C Offset: 0x23C547C VA: 0x23C547C
 	public static void DetachBusAnalyzer(string busName) { }
 
-	// RVA: 0x11901D4 Offset: 0x11901D4 VA: 0x11901D4
+	// RVA: 0x23C552C Offset: 0x23C552C VA: 0x23C552C
 	public static void DetachBusAnalyzer() { }
 
-	// RVA: 0x11902A0 Offset: 0x11902A0 VA: 0x11902A0
+	// RVA: 0x23C55F8 Offset: 0x23C55F8 VA: 0x23C55F8
 	public static void GetBusAnalyzerInfo(string busName, out CriAtomExAsr.BusAnalyzerInfo info) { }
 
-	[ObsoleteAttribute] // RVA: 0xC8F738 Offset: 0xC8F738 VA: 0xC8F738
-	// RVA: 0x1190778 Offset: 0x1190778 VA: 0x1190778
+	[ObsoleteAttribute] // RVA: 0xC23610 Offset: 0xC23610 VA: 0xC23610
+	// RVA: 0x23C5AD0 Offset: 0x23C5AD0 VA: 0x23C5AD0
 	public static void GetBusAnalyzerInfo(int busId, out CriAtomExAsr.BusAnalyzerInfo info) { }
 
-	// RVA: 0x11909B8 Offset: 0x11909B8 VA: 0x11909B8
+	// RVA: 0x23C5D10 Offset: 0x23C5D10 VA: 0x23C5D10
 	public static void SetBusVolume(string busName, float volume) { }
 
-	[ObsoleteAttribute] // RVA: 0xC8F770 Offset: 0xC8F770 VA: 0xC8F770
-	// RVA: 0x1190A78 Offset: 0x1190A78 VA: 0x1190A78
+	[ObsoleteAttribute] // RVA: 0xC23648 Offset: 0xC23648 VA: 0xC23648
+	// RVA: 0x23C5DD0 Offset: 0x23C5DD0 VA: 0x23C5DD0
 	public static void SetBusVolume(int busId, float volume) { }
 
-	// RVA: 0x1190B28 Offset: 0x1190B28 VA: 0x1190B28
+	// RVA: 0x23C5E80 Offset: 0x23C5E80 VA: 0x23C5E80
 	public static void SetBusSendLevel(string busName, string sendTo, float level) { }
 
-	[ObsoleteAttribute] // RVA: 0xC8F7A8 Offset: 0xC8F7A8 VA: 0xC8F7A8
-	// RVA: 0x1190C10 Offset: 0x1190C10 VA: 0x1190C10
+	[ObsoleteAttribute] // RVA: 0xC23680 Offset: 0xC23680 VA: 0xC23680
+	// RVA: 0x23C5F68 Offset: 0x23C5F68 VA: 0x23C5F68
 	public static void SetBusSendLevel(int busId, int sendTo, float level) { }
 
-	// RVA: 0x1190CD0 Offset: 0x1190CD0 VA: 0x1190CD0
+	// RVA: 0x23C6028 Offset: 0x23C6028 VA: 0x23C6028
 	public static void SetBusMatrix(string busName, int inputChannels, int outputChannels, float[] matrix) { }
 
-	[ObsoleteAttribute] // RVA: 0xC8F7E0 Offset: 0xC8F7E0 VA: 0xC8F7E0
-	// RVA: 0x1190DB0 Offset: 0x1190DB0 VA: 0x1190DB0
+	[ObsoleteAttribute] // RVA: 0xC236B8 Offset: 0xC236B8 VA: 0xC236B8
+	// RVA: 0x23C6108 Offset: 0x23C6108 VA: 0x23C6108
 	public static void SetBusMatrix(int busId, int inputChannels, int outputChannels, float[] matrix) { }
 
-	// RVA: 0x1190E80 Offset: 0x1190E80 VA: 0x1190E80
+	// RVA: 0x23C61D8 Offset: 0x23C61D8 VA: 0x23C61D8
 	public static void SetEffectBypass(string busName, string effectName, bool bypass) { }
 
-	// RVA: 0x1190F64 Offset: 0x1190F64 VA: 0x1190F64
+	// RVA: 0x23C62BC Offset: 0x23C62BC VA: 0x23C62BC
 	public static void SetEffectParameter(string busName, string effectName, uint parameterIndex, float parameterValue) { }
 
-	// RVA: 0x1191150 Offset: 0x1191150 VA: 0x1191150
+	// RVA: 0x23C64A8 Offset: 0x23C64A8 VA: 0x23C64A8
 	public static float GetEffectParameter(string busName, string effectName, uint parameterIndex) { }
 
-	// RVA: 0x1191240 Offset: 0x1191240 VA: 0x1191240
+	// RVA: 0x23C6598 Offset: 0x23C6598 VA: 0x23C6598
 	public static bool RegisterEffectInterface(IntPtr afx_interface) { }
 
-	// RVA: 0x11912E8 Offset: 0x11912E8 VA: 0x11912E8
+	// RVA: 0x23C6640 Offset: 0x23C6640 VA: 0x23C6640
 	public static void UnregisterEffectInterface(IntPtr afx_interface) { }
 
-	// RVA: 0x1191388 Offset: 0x1191388 VA: 0x1191388
+	// RVA: 0x23C66E0 Offset: 0x23C66E0 VA: 0x23C66E0
 	public static void GetBusVolume(string busName, out float volume) { }
 
-	// RVA: 0x118FF84 Offset: 0x118FF84 VA: 0x118FF84
+	// RVA: 0x23C52DC Offset: 0x23C52DC VA: 0x23C52DC
 	private static extern void criAtomExAsr_AttachBusAnalyzerByName(string busName, ref CriAtomExAsr.BusAnalyzerConfig config) { }
 
-	// RVA: 0x1190078 Offset: 0x1190078 VA: 0x1190078
+	// RVA: 0x23C53D0 Offset: 0x23C53D0 VA: 0x23C53D0
 	private static extern void criAtomExAsr_AttachBusAnalyzer(int busNo, ref CriAtomExAsr.BusAnalyzerConfig config) { }
 
-	// RVA: 0x1190128 Offset: 0x1190128 VA: 0x1190128
+	// RVA: 0x23C5480 Offset: 0x23C5480 VA: 0x23C5480
 	private static extern void criAtomExAsr_DetachBusAnalyzerByName(string busName) { }
 
-	// RVA: 0x1190204 Offset: 0x1190204 VA: 0x1190204
+	// RVA: 0x23C555C Offset: 0x23C555C VA: 0x23C555C
 	private static extern void criAtomExAsr_DetachBusAnalyzer(int busNo) { }
 
-	// RVA: 0x1190434 Offset: 0x1190434 VA: 0x1190434
+	// RVA: 0x23C578C Offset: 0x23C578C VA: 0x23C578C
 	private static extern void criAtomExAsr_GetBusAnalyzerInfoByName(string busName, IntPtr info) { }
 
-	// RVA: 0x119090C Offset: 0x119090C VA: 0x119090C
+	// RVA: 0x23C5C64 Offset: 0x23C5C64 VA: 0x23C5C64
 	private static extern void criAtomExAsr_GetBusAnalyzerInfo(int busNo, IntPtr info) { }
 
-	// RVA: 0x11909BC Offset: 0x11909BC VA: 0x11909BC
+	// RVA: 0x23C5D14 Offset: 0x23C5D14 VA: 0x23C5D14
 	private static extern void criAtomExAsr_SetBusVolumeByName(string busName, float volume) { }
 
-	// RVA: 0x1190A7C Offset: 0x1190A7C VA: 0x1190A7C
+	// RVA: 0x23C5DD4 Offset: 0x23C5DD4 VA: 0x23C5DD4
 	private static extern void criAtomExAsr_SetBusVolume(int busNo, float volume) { }
 
-	// RVA: 0x1190B2C Offset: 0x1190B2C VA: 0x1190B2C
+	// RVA: 0x23C5E84 Offset: 0x23C5E84 VA: 0x23C5E84
 	private static extern void criAtomExAsr_SetBusSendLevelByName(string busName, string sendtoName, float level) { }
 
-	// RVA: 0x1190C14 Offset: 0x1190C14 VA: 0x1190C14
+	// RVA: 0x23C5F6C Offset: 0x23C5F6C VA: 0x23C5F6C
 	private static extern void criAtomExAsr_SetBusSendLevel(int busNo, int sendtoNo, float level) { }
 
-	// RVA: 0x1190CD4 Offset: 0x1190CD4 VA: 0x1190CD4
+	// RVA: 0x23C602C Offset: 0x23C602C VA: 0x23C602C
 	private static extern void criAtomExAsr_SetBusMatrixByName(string busName, int inputChannels, int outputChannels, float[] matrix) { }
 
-	// RVA: 0x1190DB4 Offset: 0x1190DB4 VA: 0x1190DB4
+	// RVA: 0x23C610C Offset: 0x23C610C VA: 0x23C610C
 	private static extern void criAtomExAsr_SetBusMatrix(int busNo, int inputChannels, int outputChannels, float[] matrix) { }
 
-	// RVA: 0x1190E88 Offset: 0x1190E88 VA: 0x1190E88
+	// RVA: 0x23C61E0 Offset: 0x23C61E0 VA: 0x23C61E0
 	private static extern void criAtomExAsr_SetEffectBypass(string busName, string effectName, bool bypass) { }
 
-	// RVA: 0x119107C Offset: 0x119107C VA: 0x119107C
+	// RVA: 0x23C63D4 Offset: 0x23C63D4 VA: 0x23C63D4
 	private static extern void criAtomExAsr_UpdateEffectParameters(string busName, string effectName) { }
 
-	// RVA: 0x1190F90 Offset: 0x1190F90 VA: 0x1190F90
+	// RVA: 0x23C62E8 Offset: 0x23C62E8 VA: 0x23C62E8
 	private static extern void criAtomExAsr_SetEffectParameter(string busName, string effectName, uint parameterIndex, float parameterValue) { }
 
-	// RVA: 0x1191154 Offset: 0x1191154 VA: 0x1191154
+	// RVA: 0x23C64AC Offset: 0x23C64AC VA: 0x23C64AC
 	private static extern float criAtomExAsr_GetEffectParameter(string busName, string effectName, uint parameterIndex) { }
 
-	// RVA: 0x1191244 Offset: 0x1191244 VA: 0x1191244
+	// RVA: 0x23C659C Offset: 0x23C659C VA: 0x23C659C
 	private static extern bool criAtomExAsr_RegisterEffectInterface(IntPtr afx_interface) { }
 
-	// RVA: 0x11912EC Offset: 0x11912EC VA: 0x11912EC
+	// RVA: 0x23C6644 Offset: 0x23C6644 VA: 0x23C6644
 	private static extern void criAtomExAsr_UnregisterEffectInterface(IntPtr afx_interface) { }
 
-	// RVA: 0x119138C Offset: 0x119138C VA: 0x119138C
+	// RVA: 0x23C66E4 Offset: 0x23C66E4 VA: 0x23C66E4
 	private static extern void criAtomExAsr_GetBusVolumeByName(string busName, out float volume) { }
 }
 
@@ -773,7 +895,7 @@ public struct CriAtomExAsr.BusAnalyzerInfo // TypeDefIndex: 3904
 
 	// Methods
 
-	// RVA: 0xBBCA84 Offset: 0xBBCA84 VA: 0xBBCA84
+	// RVA: 0xD6A2A0 Offset: 0xD6A2A0 VA: 0xD6A2A0
 	public void .ctor(byte[] data) { }
 }
 
@@ -782,22 +904,22 @@ public static class CriAtomExLatencyEstimator // TypeDefIndex: 3905
 {
 	// Methods
 
-	// RVA: 0x119449C Offset: 0x119449C VA: 0x119449C
+	// RVA: 0x23C97F4 Offset: 0x23C97F4 VA: 0x23C97F4
 	public static void InitializeModule() { }
 
-	// RVA: 0x119452C Offset: 0x119452C VA: 0x119452C
+	// RVA: 0x23C9884 Offset: 0x23C9884 VA: 0x23C9884
 	public static void FinalizeModule() { }
 
-	// RVA: 0x11945BC Offset: 0x11945BC VA: 0x11945BC
+	// RVA: 0x23C9914 Offset: 0x23C9914 VA: 0x23C9914
 	public static CriAtomExLatencyEstimator.EstimatorInfo GetCurrentInfo() { }
 
-	// RVA: 0x11944A0 Offset: 0x11944A0 VA: 0x11944A0
+	// RVA: 0x23C97F8 Offset: 0x23C97F8 VA: 0x23C97F8
 	private static extern void criAtomLatencyEstimator_Initialize_ANDROID() { }
 
-	// RVA: 0x1194530 Offset: 0x1194530 VA: 0x1194530
+	// RVA: 0x23C9888 Offset: 0x23C9888 VA: 0x23C9888
 	private static extern void criAtomLatencyEstimator_Finalize_ANDROID() { }
 
-	// RVA: 0x11945C0 Offset: 0x11945C0 VA: 0x11945C0
+	// RVA: 0x23C9918 Offset: 0x23C9918 VA: 0x23C9918
 	private static extern CriAtomExLatencyEstimator.EstimatorInfo criAtomLatencyEstimator_GetCurrentInfo_ANDROID() { }
 }
 
@@ -831,170 +953,48 @@ public class CriAtomEx3dListener : CriDisposable // TypeDefIndex: 3908
 
 	// Methods
 
-	// RVA: 0x11F256C Offset: 0x11F256C VA: 0x11F256C
+	// RVA: 0x246CD4C Offset: 0x246CD4C VA: 0x246CD4C
 	public void .ctor() { }
 
-	// RVA: 0x11F26C0 Offset: 0x11F26C0 VA: 0x11F26C0 Slot: 5
+	// RVA: 0x246CEA0 Offset: 0x246CEA0 VA: 0x246CEA0 Slot: 5
 	public override void Dispose() { }
 
-	// RVA: 0x11F26C8 Offset: 0x11F26C8 VA: 0x11F26C8
+	// RVA: 0x246CEA8 Offset: 0x246CEA8 VA: 0x246CEA8
 	private void Dispose(bool disposing) { }
 
-	// RVA: 0x11F281C Offset: 0x11F281C VA: 0x11F281C
+	// RVA: 0x246CFFC Offset: 0x246CFFC VA: 0x246CFFC
 	public IntPtr get_nativeHandle() { }
 
-	// RVA: 0x11F2824 Offset: 0x11F2824 VA: 0x11F2824
+	// RVA: 0x246D004 Offset: 0x246D004 VA: 0x246D004
 	public void Update() { }
 
-	// RVA: 0x11F2924 Offset: 0x11F2924 VA: 0x11F2924
+	// RVA: 0x246D104 Offset: 0x246D104 VA: 0x246D104
 	public void ResetParameters() { }
 
-	// RVA: 0x11F2A24 Offset: 0x11F2A24 VA: 0x11F2A24
+	// RVA: 0x246D204 Offset: 0x246D204 VA: 0x246D204
 	public void SetPosition(float x, float y, float z) { }
 
-	// RVA: 0x11F2B64 Offset: 0x11F2B64 VA: 0x11F2B64
+	// RVA: 0x246D344 Offset: 0x246D344 VA: 0x246D344
 	public void SetVelocity(float x, float y, float z) { }
 
-	// RVA: 0x11F2CA4 Offset: 0x11F2CA4 VA: 0x11F2CA4
+	// RVA: 0x246D484 Offset: 0x246D484 VA: 0x246D484
 	public void SetOrientation(float fx, float fy, float fz, float ux, float uy, float uz) { }
 
-	[ObsoleteAttribute] // RVA: 0xC8F818 Offset: 0xC8F818 VA: 0xC8F818
-	// RVA: 0x11F2E14 Offset: 0x11F2E14 VA: 0x11F2E14
+	[ObsoleteAttribute] // RVA: 0xC236F0 Offset: 0xC236F0 VA: 0xC236F0
+	// RVA: 0x246D5F4 Offset: 0x246D5F4 VA: 0x246D5F4
 	public void SetDistanceFactor(float distanceFactor) { }
 
-	// RVA: 0x11F2F90 Offset: 0x11F2F90 VA: 0x11F2F90
+	// RVA: 0x246D770 Offset: 0x246D770 VA: 0x246D770
 	public void SetDopplerMultiplier(float dopplerMultiplier) { }
 
-	// RVA: 0x11F3050 Offset: 0x11F3050 VA: 0x11F3050
+	// RVA: 0x246D830 Offset: 0x246D830 VA: 0x246D830
 	public void SetFocusPoint(float x, float y, float z) { }
 
-	// RVA: 0x11F3190 Offset: 0x11F3190 VA: 0x11F3190
+	// RVA: 0x246D970 Offset: 0x246D970 VA: 0x246D970
 	public void SetDistanceFocusLevel(float distanceFocusLevel) { }
 
-	// RVA: 0x11F32B4 Offset: 0x11F32B4 VA: 0x11F32B4
+	// RVA: 0x246DA94 Offset: 0x246DA94 VA: 0x246DA94
 	public void SetDirectionFocusLevel(float directionFocusLevel) { }
 
-	// RVA: 0x11F33D8 Offset: 0x11F33D8 VA: 0x11F33D8
+	// RVA: 0x246DBB8 Offset: 0x246DBB8 VA: 0x246DBB8
 	public void Set3dRegion(CriAtomEx3dRegion region3d) { }
-
-	// RVA: 0x11F3510 Offset: 0x11F3510 VA: 0x11F3510 Slot: 1
-	protected override void Finalize() { }
-
-	// RVA: 0x11F260C Offset: 0x11F260C VA: 0x11F260C
-	private static extern IntPtr criAtomEx3dListener_Create(ref CriAtomEx3dListener.Config config, IntPtr work, int work_size) { }
-
-	// RVA: 0x11F2780 Offset: 0x11F2780 VA: 0x11F2780
-	private static extern void criAtomEx3dListener_Destroy(IntPtr ex_3d_listener) { }
-
-	// RVA: 0x11F2888 Offset: 0x11F2888 VA: 0x11F2888
-	private static extern void criAtomEx3dListener_Update(IntPtr ex_3d_listener) { }
-
-	// RVA: 0x11F2988 Offset: 0x11F2988 VA: 0x11F2988
-	private static extern void criAtomEx3dListener_ResetParameters(IntPtr ex_3d_listener) { }
-
-	// RVA: 0x11F2AB8 Offset: 0x11F2AB8 VA: 0x11F2AB8
-	private static extern void criAtomEx3dListener_SetPosition(IntPtr ex_3d_listener, ref CriAtomEx.NativeVector position) { }
-
-	// RVA: 0x11F2BF8 Offset: 0x11F2BF8 VA: 0x11F2BF8
-	private static extern void criAtomEx3dListener_SetVelocity(IntPtr ex_3d_listener, ref CriAtomEx.NativeVector velocity) { }
-
-	// RVA: 0x11F2D60 Offset: 0x11F2D60 VA: 0x11F2D60
-	private static extern void criAtomEx3dListener_SetOrientation(IntPtr ex_3d_listener, ref CriAtomEx.NativeVector front, ref CriAtomEx.NativeVector top) { }
-
-	// RVA: 0x11F3588 Offset: 0x11F3588 VA: 0x11F3588
-	private static extern void criAtomEx3dListener_SetDistanceFactor(IntPtr ex_3d_listener, float distance_factor) { }
-
-	// RVA: 0x11F2EE4 Offset: 0x11F2EE4 VA: 0x11F2EE4
-	private static extern void criAtomEx3dListener_SetDopplerMultiplier(IntPtr ex_3d_listener, float doppler_multiplier) { }
-
-	// RVA: 0x11F30E4 Offset: 0x11F30E4 VA: 0x11F30E4
-	private static extern void criAtomEx3dListener_SetFocusPoint(IntPtr ex_3d_listener, ref CriAtomEx.NativeVector focus_point) { }
-
-	// RVA: 0x11F3208 Offset: 0x11F3208 VA: 0x11F3208
-	private static extern void criAtomEx3dListener_SetDistanceFocusLevel(IntPtr ex_3d_listener, float distance_focus_level) { }
-
-	// RVA: 0x11F332C Offset: 0x11F332C VA: 0x11F332C
-	private static extern void criAtomEx3dListener_SetDirectionFocusLevel(IntPtr ex_3d_listener, float direction_focus_level) { }
-
-	// RVA: 0x11F3464 Offset: 0x11F3464 VA: 0x11F3464
-	private static extern void criAtomEx3dListener_Set3dRegionHn(IntPtr ex_3d_listener, IntPtr ex_3d_region) { }
-}
-
-// Namespace: 
-public struct CriAtomEx3dListener.Config // TypeDefIndex: 3909
-{
-	// Fields
-	public int reserved; // 0x0
-}
-
-// Namespace: 
-public class CriAtomEx3dSource : CriDisposable // TypeDefIndex: 3910
-{
-	// Fields
-	private uint currentRandomPositionListMaxLength; // 0x20
-	private IntPtr handle; // 0x28
-
-	// Properties
-	public IntPtr nativeHandle { get; }
-
-	// Methods
-
-	// RVA: 0x11F395C Offset: 0x11F395C VA: 0x11F395C
-	public void .ctor(bool enableVoicePriorityDecay = False, uint randomPositionListMaxLength = 0) { }
-
-	// RVA: 0x11F3B04 Offset: 0x11F3B04 VA: 0x11F3B04 Slot: 5
-	public override void Dispose() { }
-
-	// RVA: 0x11F3B0C Offset: 0x11F3B0C VA: 0x11F3B0C
-	private void Dispose(bool disposing) { }
-
-	// RVA: 0x11F3C60 Offset: 0x11F3C60 VA: 0x11F3C60
-	public IntPtr get_nativeHandle() { }
-
-	// RVA: 0x11F3C68 Offset: 0x11F3C68 VA: 0x11F3C68
-	public void Update() { }
-
-	// RVA: 0x11F3D0C Offset: 0x11F3D0C VA: 0x11F3D0C
-	public void ResetParameters() { }
-
-	// RVA: 0x11F3DB0 Offset: 0x11F3DB0 VA: 0x11F3DB0
-	public void SetPosition(float x, float y, float z) { }
-
-	// RVA: 0x11F3E88 Offset: 0x11F3E88 VA: 0x11F3E88
-	public void SetVelocity(float x, float y, float z) { }
-
-	// RVA: 0x11F3F60 Offset: 0x11F3F60 VA: 0x11F3F60
-	public void SetOrientation(Vector3 front, Vector3 top) { }
-
-	[ObsoleteAttribute] // RVA: 0xC8F850 Offset: 0xC8F850 VA: 0xC8F850
-	// RVA: 0x11F404C Offset: 0x11F404C VA: 0x11F404C
-	public void SetConeOrientation(float x, float y, float z) { }
-
-	// RVA: 0x11F4124 Offset: 0x11F4124 VA: 0x11F4124
-	public void SetConeParameter(float insideAngle, float outsideAngle, float outsideVolume) { }
-
-	// RVA: 0x11F41F0 Offset: 0x11F41F0 VA: 0x11F41F0
-	public void SetMinMaxDistance(float minDistance, float maxDistance) { }
-
-	// RVA: 0x11F42AC Offset: 0x11F42AC VA: 0x11F42AC
-	public void SetInteriorPanField(float sourceRadius, float interiorDistance) { }
-
-	// RVA: 0x11F4368 Offset: 0x11F4368 VA: 0x11F4368
-	public void SetDopplerFactor(float dopplerFactor) { }
-
-	// RVA: 0x11F441C Offset: 0x11F441C VA: 0x11F441C
-	public void SetVolume(float volume) { }
-
-	// RVA: 0x11F44D0 Offset: 0x11F44D0 VA: 0x11F44D0
-	public void SetMaxAngleAisacDelta(float maxDelta) { }
-
-	// RVA: 0x11F4584 Offset: 0x11F4584 VA: 0x11F4584
-	public void SetAttenuationDistanceSetting(bool flag) { }
-
-	// RVA: 0x11F463C Offset: 0x11F463C VA: 0x11F463C
-	public bool GetAttenuationDistanceSetting() { }
-
-	// RVA: 0x11F46E8 Offset: 0x11F46E8 VA: 0x11F46E8
-	public void SetRandomPositionConfig(Nullable<CriAtomEx.Randomize3dConfig> config) { }
-
-	// RVA: 0x11F4928 Offset: 0x11F4928 VA: 0x11F4928

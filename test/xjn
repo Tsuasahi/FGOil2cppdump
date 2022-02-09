@@ -1,36 +1,158 @@
-	[CompilerGeneratedAttribute] // RVA: 0xC8FA84 Offset: 0xC8FA84 VA: 0xC8FA84
-	// RVA: 0x11AB270 Offset: 0x11AB270 VA: 0x11AB270
+	// Fields
+	public int mode; // 0x0
+	public int windowSize; // 0x4
+	public int overlapTimes; // 0x8
+}
+
+// Namespace: 
+private struct CriAtomExVoicePool.ExPitchShifterConfig // TypeDefIndex: 3975
+{
+	// Fields
+	public int numDsp; // 0x0
+	public int maxChannels; // 0x4
+	public int maxSamplingRate; // 0x8
+	public CriAtomExVoicePool.PitchShifterConfig config; // 0xC
+}
+
+// Namespace: 
+private struct CriAtomExVoicePool.TimeStretchConfig // TypeDefIndex: 3976
+{
+	// Fields
+	public int reserved; // 0x0
+}
+
+// Namespace: 
+private struct CriAtomExVoicePool.ExTimeStretchConfig // TypeDefIndex: 3977
+{
+	// Fields
+	public int numDsp; // 0x0
+	public int maxChannels; // 0x4
+	public int maxSamplingRate; // 0x8
+	public CriAtomExVoicePool.TimeStretchConfig config; // 0xC
+}
+
+// Namespace: 
+public class CriAtomExStandardVoicePool : CriAtomExVoicePool // TypeDefIndex: 3978
+{
+	// Methods
+
+	// RVA: 0x23D652C Offset: 0x23D652C VA: 0x23D652C
+	public void .ctor(int numVoices, int maxChannels, int maxSamplingRate, bool streamingFlag, uint identifier = 0) { }
+
+	// RVA: 0x23D6668 Offset: 0x23D6668 VA: 0x23D6668
+	private static extern IntPtr criAtomExVoicePool_AllocateStandardVoicePool(ref CriAtomExVoicePool.VoicePoolConfig config, IntPtr work, int work_size) { }
+}
+
+// Namespace: 
+public class CriAtomExWaveVoicePool : CriAtomExVoicePool // TypeDefIndex: 3979
+{
+	// Methods
+
+	// RVA: 0x23D76D0 Offset: 0x23D76D0 VA: 0x23D76D0
+	public void .ctor(int numVoices, int maxChannels, int maxSamplingRate, bool streamingFlag, uint identifier = 0) { }
+
+	// RVA: 0x23D780C Offset: 0x23D780C VA: 0x23D780C
+	private static extern IntPtr criAtomExVoicePool_AllocateWaveVoicePool(ref CriAtomExVoicePool.VoicePoolConfig config, IntPtr work, int work_size) { }
+}
+
+// Namespace: 
+public class CriAtomExRawPcmVoicePool : CriAtomExVoicePool // TypeDefIndex: 3980
+{
+	// Methods
+
+	// RVA: 0x23D57C4 Offset: 0x23D57C4 VA: 0x23D57C4
+	public void .ctor(int numVoices, int maxChannels, int maxSamplingRate, CriAtomExRawPcmVoicePool.RawPcmFormat format, uint identifier = 0) { }
+
+	// RVA: 0x23D5940 Offset: 0x23D5940 VA: 0x23D5940
+	private static extern IntPtr criAtomExVoicePool_AllocateRawPcmVoicePool(ref CriAtomExRawPcmVoicePool.RawPcmVoicePoolConfig config, IntPtr work, int work_size) { }
+}
+
+// Namespace: 
+public enum CriAtomExRawPcmVoicePool.RawPcmFormat // TypeDefIndex: 3981
+{
+	// Fields
+	public int value__; // 0x0
+	public const CriAtomExRawPcmVoicePool.RawPcmFormat Sint16 = 0;
+	public const CriAtomExRawPcmVoicePool.RawPcmFormat Float32 = 1;
+}
+
+// Namespace: 
+protected struct CriAtomExRawPcmVoicePool.RawPcmPlayerConfig // TypeDefIndex: 3982
+{
+	// Fields
+	public CriAtomExRawPcmVoicePool.RawPcmFormat format; // 0x0
+	public int maxChannels; // 0x4
+	public int maxSamplingRate; // 0x8
+	public int soundRendererType; // 0xC
+	public int decodeLatency; // 0x10
+}
+
+// Namespace: 
+protected struct CriAtomExRawPcmVoicePool.RawPcmVoicePoolConfig // TypeDefIndex: 3983
+{
+	// Fields
+	public uint identifier; // 0x0
+	public int numVoices; // 0x4
+	public CriAtomExRawPcmVoicePool.RawPcmPlayerConfig playerConfig; // 0x8
+}
+
+// Namespace: 
+public class CriAudioReadStream // TypeDefIndex: 3984
+{
+	// Fields
+	private CriAudioReadStream.InternalDelegate internalDelegate; // 0x10
+	[CompilerGeneratedAttribute] // RVA: 0xC20E34 Offset: 0xC20E34 VA: 0xC20E34
+	[DebuggerBrowsableAttribute] // RVA: 0xC20E34 Offset: 0xC20E34 VA: 0xC20E34
+	private IntPtr <callbackFunction>k__BackingField; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xC20E70 Offset: 0xC20E70 VA: 0xC20E70
+	[DebuggerBrowsableAttribute] // RVA: 0xC20E70 Offset: 0xC20E70 VA: 0xC20E70
+	private IntPtr <callbackPointer>k__BackingField; // 0x20
+
+	// Properties
+	public IntPtr callbackFunction { get; set; }
+	public IntPtr callbackPointer { get; set; }
+
+	// Methods
+
+	// RVA: 0x2402094 Offset: 0x2402094 VA: 0x2402094
+	public void .ctor(IntPtr callbackFunction, IntPtr callbackPointer) { }
+
+	// RVA: 0x24020DC Offset: 0x24020DC VA: 0x24020DC
+	public void .ctor(CriAudioReadStream.Delegate callback, int numChannels, int bufferSize = 256) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC2395C Offset: 0xC2395C VA: 0xC2395C
+	// RVA: 0x24022F4 Offset: 0x24022F4 VA: 0x24022F4
 	public IntPtr get_callbackFunction() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FA94 Offset: 0xC8FA94 VA: 0xC8FA94
-	// RVA: 0x11AB048 Offset: 0x11AB048 VA: 0x11AB048
+	[CompilerGeneratedAttribute] // RVA: 0xC2396C Offset: 0xC2396C VA: 0xC2396C
+	// RVA: 0x24020CC Offset: 0x24020CC VA: 0x24020CC
 	private void set_callbackFunction(IntPtr value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FAA4 Offset: 0xC8FAA4 VA: 0xC8FAA4
-	// RVA: 0x11AB278 Offset: 0x11AB278 VA: 0x11AB278
+	[CompilerGeneratedAttribute] // RVA: 0xC2397C Offset: 0xC2397C VA: 0xC2397C
+	// RVA: 0x24022FC Offset: 0x24022FC VA: 0x24022FC
 	public IntPtr get_callbackPointer() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FAB4 Offset: 0xC8FAB4 VA: 0xC8FAB4
-	// RVA: 0x11AB050 Offset: 0x11AB050 VA: 0x11AB050
+	[CompilerGeneratedAttribute] // RVA: 0xC2398C Offset: 0xC2398C VA: 0xC2398C
+	// RVA: 0x24020D4 Offset: 0x24020D4 VA: 0x24020D4
 	private void set_callbackPointer(IntPtr value) { }
 }
 
 // Namespace: 
-[UnmanagedFunctionPointerAttribute] // RVA: 0xC8B074 Offset: 0xC8B074 VA: 0xC8B074
+[UnmanagedFunctionPointerAttribute] // RVA: 0xC1EF4C Offset: 0xC1EF4C VA: 0xC1EF4C
 private sealed class CriAudioReadStream.InternalDelegate : MulticastDelegate // TypeDefIndex: 3985
 {
 	// Methods
 
-	// RVA: 0x11AB260 Offset: 0x11AB260 VA: 0x11AB260
+	// RVA: 0x24022E4 Offset: 0x24022E4 VA: 0x24022E4
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x11AB878 Offset: 0x11AB878 VA: 0x11AB878 Slot: 11
+	// RVA: 0x24028FC Offset: 0x24028FC VA: 0x24028FC Slot: 11
 	public virtual uint Invoke(IntPtr cbobj, IntPtr data, uint numSamples) { }
 
-	// RVA: 0x11ABAE8 Offset: 0x11ABAE8 VA: 0x11ABAE8 Slot: 12
+	// RVA: 0x2402B6C Offset: 0x2402B6C VA: 0x2402B6C Slot: 12
 	public virtual IAsyncResult BeginInvoke(IntPtr cbobj, IntPtr data, uint numSamples, AsyncCallback callback, object object) { }
 
-	// RVA: 0x11ABBAC Offset: 0x11ABBAC VA: 0x11ABBAC Slot: 13
+	// RVA: 0x2402C30 Offset: 0x2402C30 VA: 0x2402C30 Slot: 13
 	public virtual uint EndInvoke(IAsyncResult result) { }
 }
 
@@ -39,21 +161,21 @@ public sealed class CriAudioReadStream.Delegate : MulticastDelegate // TypeDefIn
 {
 	// Methods
 
-	// RVA: 0x11AB790 Offset: 0x11AB790 VA: 0x11AB790
+	// RVA: 0x2402814 Offset: 0x2402814 VA: 0x2402814
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x11AB3CC Offset: 0x11AB3CC VA: 0x11AB3CC Slot: 11
+	// RVA: 0x2402450 Offset: 0x2402450 VA: 0x2402450 Slot: 11
 	public virtual uint Invoke(float[][] buffer, uint numSamples) { }
 
-	// RVA: 0x11AB7A0 Offset: 0x11AB7A0 VA: 0x11AB7A0 Slot: 12
+	// RVA: 0x2402824 Offset: 0x2402824 VA: 0x2402824 Slot: 12
 	public virtual IAsyncResult BeginInvoke(float[][] buffer, uint numSamples, AsyncCallback callback, object object) { }
 
-	// RVA: 0x11AB83C Offset: 0x11AB83C VA: 0x11AB83C Slot: 13
+	// RVA: 0x24028C0 Offset: 0x24028C0 VA: 0x24028C0 Slot: 13
 	public virtual uint EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC8C5F0 Offset: 0xC8C5F0 VA: 0xC8C5F0
+[CompilerGeneratedAttribute] // RVA: 0xC204C8 Offset: 0xC204C8 VA: 0xC204C8
 private sealed class CriAudioReadStream.<CriAudioReadStream>c__AnonStorey0 // TypeDefIndex: 3987
 {
 	// Fields
@@ -64,10 +186,10 @@ private sealed class CriAudioReadStream.<CriAudioReadStream>c__AnonStorey0 // Ty
 
 	// Methods
 
-	// RVA: 0x11AB258 Offset: 0x11AB258 VA: 0x11AB258
+	// RVA: 0x24022DC Offset: 0x24022DC VA: 0x24022DC
 	public void .ctor() { }
 
-	// RVA: 0x11AB280 Offset: 0x11AB280 VA: 0x11AB280
+	// RVA: 0x2402304 Offset: 0x2402304 VA: 0x2402304
 	internal uint <>m__0(IntPtr cbobj, IntPtr data, uint numSamples) { }
 }
 
@@ -76,11 +198,11 @@ public class CriAudioWriteStream // TypeDefIndex: 3988
 {
 	// Fields
 	private CriAudioWriteStream.InternalDelegate internalDelegate; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xC8CFD4 Offset: 0xC8CFD4 VA: 0xC8CFD4
-	[DebuggerBrowsableAttribute] // RVA: 0xC8CFD4 Offset: 0xC8CFD4 VA: 0xC8CFD4
+	[CompilerGeneratedAttribute] // RVA: 0xC20EAC Offset: 0xC20EAC VA: 0xC20EAC
+	[DebuggerBrowsableAttribute] // RVA: 0xC20EAC Offset: 0xC20EAC VA: 0xC20EAC
 	private IntPtr <callbackFunction>k__BackingField; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xC8D010 Offset: 0xC8D010 VA: 0xC8D010
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D010 Offset: 0xC8D010 VA: 0xC8D010
+	[CompilerGeneratedAttribute] // RVA: 0xC20EE8 Offset: 0xC20EE8 VA: 0xC20EE8
+	[DebuggerBrowsableAttribute] // RVA: 0xC20EE8 Offset: 0xC20EE8 VA: 0xC20EE8
 	private IntPtr <callbackPointer>k__BackingField; // 0x20
 
 	// Properties
@@ -89,45 +211,45 @@ public class CriAudioWriteStream // TypeDefIndex: 3988
 
 	// Methods
 
-	// RVA: 0x11ABBE8 Offset: 0x11ABBE8 VA: 0x11ABBE8
+	// RVA: 0x2402C6C Offset: 0x2402C6C VA: 0x2402C6C
 	public void .ctor(IntPtr callbackFunction, IntPtr callbackPointer) { }
 
-	// RVA: 0x11ABC30 Offset: 0x11ABC30 VA: 0x11ABC30
+	// RVA: 0x2402CB4 Offset: 0x2402CB4 VA: 0x2402CB4
 	public void .ctor(CriAudioWriteStream.Delegate callback, int numChannels, int bufferSize = 256) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FAC4 Offset: 0xC8FAC4 VA: 0xC8FAC4
-	// RVA: 0x11ABE74 Offset: 0x11ABE74 VA: 0x11ABE74
+	[CompilerGeneratedAttribute] // RVA: 0xC2399C Offset: 0xC2399C VA: 0xC2399C
+	// RVA: 0x2402EF8 Offset: 0x2402EF8 VA: 0x2402EF8
 	public IntPtr get_callbackFunction() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FAD4 Offset: 0xC8FAD4 VA: 0xC8FAD4
-	// RVA: 0x11ABC20 Offset: 0x11ABC20 VA: 0x11ABC20
+	[CompilerGeneratedAttribute] // RVA: 0xC239AC Offset: 0xC239AC VA: 0xC239AC
+	// RVA: 0x2402CA4 Offset: 0x2402CA4 VA: 0x2402CA4
 	private void set_callbackFunction(IntPtr value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FAE4 Offset: 0xC8FAE4 VA: 0xC8FAE4
-	// RVA: 0x11ABE7C Offset: 0x11ABE7C VA: 0x11ABE7C
+	[CompilerGeneratedAttribute] // RVA: 0xC239BC Offset: 0xC239BC VA: 0xC239BC
+	// RVA: 0x2402F00 Offset: 0x2402F00 VA: 0x2402F00
 	public IntPtr get_callbackPointer() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FAF4 Offset: 0xC8FAF4 VA: 0xC8FAF4
-	// RVA: 0x11ABC28 Offset: 0x11ABC28 VA: 0x11ABC28
+	[CompilerGeneratedAttribute] // RVA: 0xC239CC Offset: 0xC239CC VA: 0xC239CC
+	// RVA: 0x2402CAC Offset: 0x2402CAC VA: 0x2402CAC
 	private void set_callbackPointer(IntPtr value) { }
 }
 
 // Namespace: 
-[UnmanagedFunctionPointerAttribute] // RVA: 0xC8B088 Offset: 0xC8B088 VA: 0xC8B088
+[UnmanagedFunctionPointerAttribute] // RVA: 0xC1EF60 Offset: 0xC1EF60 VA: 0xC1EF60
 private sealed class CriAudioWriteStream.InternalDelegate : MulticastDelegate // TypeDefIndex: 3989
 {
 	// Methods
 
-	// RVA: 0x11ABE64 Offset: 0x11ABE64 VA: 0x11ABE64
+	// RVA: 0x2402EE8 Offset: 0x2402EE8 VA: 0x2402EE8
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x11AC474 Offset: 0x11AC474 VA: 0x11AC474 Slot: 11
+	// RVA: 0x24034F8 Offset: 0x24034F8 VA: 0x24034F8 Slot: 11
 	public virtual uint Invoke(IntPtr cbobj, IntPtr data, uint numSamples) { }
 
-	// RVA: 0x11AC6E4 Offset: 0x11AC6E4 VA: 0x11AC6E4 Slot: 12
+	// RVA: 0x2403768 Offset: 0x2403768 VA: 0x2403768 Slot: 12
 	public virtual IAsyncResult BeginInvoke(IntPtr cbobj, IntPtr data, uint numSamples, AsyncCallback callback, object object) { }
 
-	// RVA: 0x11AC7A8 Offset: 0x11AC7A8 VA: 0x11AC7A8 Slot: 13
+	// RVA: 0x240382C Offset: 0x240382C VA: 0x240382C Slot: 13
 	public virtual uint EndInvoke(IAsyncResult result) { }
 }
 
@@ -136,21 +258,21 @@ public sealed class CriAudioWriteStream.Delegate : MulticastDelegate // TypeDefI
 {
 	// Methods
 
-	// RVA: 0x11AC38C Offset: 0x11AC38C VA: 0x11AC38C
+	// RVA: 0x2403410 Offset: 0x2403410 VA: 0x2403410
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x11ABFC8 Offset: 0x11ABFC8 VA: 0x11ABFC8 Slot: 11
+	// RVA: 0x240304C Offset: 0x240304C VA: 0x240304C Slot: 11
 	public virtual uint Invoke(float[][] buffer, uint numSamples) { }
 
-	// RVA: 0x11AC39C Offset: 0x11AC39C VA: 0x11AC39C Slot: 12
+	// RVA: 0x2403420 Offset: 0x2403420 VA: 0x2403420 Slot: 12
 	public virtual IAsyncResult BeginInvoke(float[][] buffer, uint numSamples, AsyncCallback callback, object object) { }
 
-	// RVA: 0x11AC438 Offset: 0x11AC438 VA: 0x11AC438 Slot: 13
+	// RVA: 0x24034BC Offset: 0x24034BC VA: 0x24034BC Slot: 13
 	public virtual uint EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC8C600 Offset: 0xC8C600 VA: 0xC8C600
+[CompilerGeneratedAttribute] // RVA: 0xC204D8 Offset: 0xC204D8 VA: 0xC204D8
 private sealed class CriAudioWriteStream.<CriAudioWriteStream>c__AnonStorey0 // TypeDefIndex: 3991
 {
 	// Fields
@@ -161,10 +283,10 @@ private sealed class CriAudioWriteStream.<CriAudioWriteStream>c__AnonStorey0 // 
 
 	// Methods
 
-	// RVA: 0x11ABE5C Offset: 0x11ABE5C VA: 0x11ABE5C
+	// RVA: 0x2402EE0 Offset: 0x2402EE0 VA: 0x2402EE0
 	public void .ctor() { }
 
-	// RVA: 0x11ABE84 Offset: 0x11ABE84 VA: 0x11ABE84
+	// RVA: 0x2402F08 Offset: 0x2402F08 VA: 0x2402F08
 	internal uint <>m__0(IntPtr cbobj, IntPtr data, uint numSamples) { }
 }
 
@@ -178,70 +300,70 @@ public class CriFsLoader : CriDisposable // TypeDefIndex: 3992
 
 	// Methods
 
-	// RVA: 0x11B07A8 Offset: 0x11B07A8 VA: 0x11B07A8
+	// RVA: 0x240782C Offset: 0x240782C VA: 0x240782C
 	public void .ctor() { }
 
-	// RVA: 0x11B0B58 Offset: 0x11B0B58 VA: 0x11B0B58 Slot: 5
+	// RVA: 0x2407BDC Offset: 0x2407BDC VA: 0x2407BDC Slot: 5
 	public override void Dispose() { }
 
-	// RVA: 0x11B0B84 Offset: 0x11B0B84 VA: 0x11B0B84
+	// RVA: 0x2407C08 Offset: 0x2407C08 VA: 0x2407C08
 	private void Dispose(bool disposing) { }
 
-	// RVA: 0x11B093C Offset: 0x11B093C VA: 0x11B093C
+	// RVA: 0x24079C0 Offset: 0x24079C0 VA: 0x24079C0
 	public void Load(CriFsBinder binder, string path, long fileOffset, long loadSize, byte[] buffer) { }
 
-	// RVA: 0x11B0E0C Offset: 0x11B0E0C VA: 0x11B0E0C
+	// RVA: 0x2407E90 Offset: 0x2407E90 VA: 0x2407E90
 	public void LoadById(CriFsBinder binder, int id, long fileOffset, long loadSize, byte[] buffer) { }
 
-	// RVA: 0x11B0FB4 Offset: 0x11B0FB4 VA: 0x11B0FB4
+	// RVA: 0x2408038 Offset: 0x2408038 VA: 0x2408038
 	public void LoadWithoutDecompression(CriFsBinder binder, string path, long fileOffset, long loadSize, byte[] buffer) { }
 
-	// RVA: 0x11B1178 Offset: 0x11B1178 VA: 0x11B1178
+	// RVA: 0x24081FC Offset: 0x24081FC VA: 0x24081FC
 	public void LoadWithoutDecompressionById(CriFsBinder binder, int id, long fileOffset, long loadSize, byte[] buffer) { }
 
-	// RVA: 0x11B1320 Offset: 0x11B1320 VA: 0x11B1320
+	// RVA: 0x24083A4 Offset: 0x24083A4 VA: 0x24083A4
 	public void DecompressData(long srcSize, byte[] srcBuffer, long dstSize, byte[] dstBuffer) { }
 
-	// RVA: 0x11B042C Offset: 0x11B042C VA: 0x11B042C
+	// RVA: 0x24074B0 Offset: 0x24074B0 VA: 0x24074B0
 	public void Stop() { }
 
-	// RVA: 0x11B0A00 Offset: 0x11B0A00 VA: 0x11B0A00
+	// RVA: 0x2407A84 Offset: 0x2407A84 VA: 0x2407A84
 	public CriFsLoader.Status GetStatus() { }
 
-	// RVA: 0x11B08C4 Offset: 0x11B08C4 VA: 0x11B08C4
+	// RVA: 0x2407948 Offset: 0x2407948 VA: 0x2407948
 	public void SetReadUnitSize(int unit_size) { }
 
-	// RVA: 0x11B1678 Offset: 0x11B1678 VA: 0x11B1678 Slot: 1
+	// RVA: 0x24086FC Offset: 0x24086FC VA: 0x24086FC Slot: 1
 	protected override void Finalize() { }
 
-	// RVA: 0x11B0ABC Offset: 0x11B0ABC VA: 0x11B0ABC
+	// RVA: 0x2407B40 Offset: 0x2407B40 VA: 0x2407B40
 	private static extern int criFsLoader_Create(out IntPtr loader) { }
 
-	// RVA: 0x11B0C70 Offset: 0x11B0C70 VA: 0x11B0C70
+	// RVA: 0x2407CF4 Offset: 0x2407CF4 VA: 0x2407CF4
 	private static extern int criFsLoader_Destroy(IntPtr loader) { }
 
-	// RVA: 0x11B0D0C Offset: 0x11B0D0C VA: 0x11B0D0C
+	// RVA: 0x2407D90 Offset: 0x2407D90 VA: 0x2407D90
 	private static extern int criFsLoader_Load(IntPtr loader, IntPtr binder, string path, long offset, long load_size, IntPtr buffer, long buffer_size) { }
 
-	// RVA: 0x11B0ED0 Offset: 0x11B0ED0 VA: 0x11B0ED0
+	// RVA: 0x2407F54 Offset: 0x2407F54 VA: 0x2407F54
 	private static extern int criFsLoader_LoadById(IntPtr loader, IntPtr binder, int id, long offset, long load_size, IntPtr buffer, long buffer_size) { }
 
-	// RVA: 0x11B1484 Offset: 0x11B1484 VA: 0x11B1484
+	// RVA: 0x2408508 Offset: 0x2408508 VA: 0x2408508
 	private static extern int criFsLoader_Stop(IntPtr loader) { }
 
-	// RVA: 0x11B1520 Offset: 0x11B1520 VA: 0x11B1520
+	// RVA: 0x24085A4 Offset: 0x24085A4 VA: 0x24085A4
 	private static extern int criFsLoader_GetStatus(IntPtr loader, out CriFsLoader.Status status) { }
 
-	// RVA: 0x11B15CC Offset: 0x11B15CC VA: 0x11B15CC
+	// RVA: 0x2408650 Offset: 0x2408650 VA: 0x2408650
 	private static extern int criFsLoader_SetReadUnitSize(IntPtr loader, long unit_size) { }
 
-	// RVA: 0x11B1078 Offset: 0x11B1078 VA: 0x11B1078
+	// RVA: 0x24080FC Offset: 0x24080FC VA: 0x24080FC
 	private static extern int criFsLoader_LoadWithoutDecompression(IntPtr loader, IntPtr binder, string path, long offset, long load_size, IntPtr buffer, long buffer_size) { }
 
-	// RVA: 0x11B123C Offset: 0x11B123C VA: 0x11B123C
+	// RVA: 0x24082C0 Offset: 0x24082C0 VA: 0x24082C0
 	private static extern int criFsLoader_LoadWithoutDecompressionById(IntPtr loader, IntPtr binder, int id, long offset, long load_size, IntPtr buffer, long buffer_size) { }
 
-	// RVA: 0x11B13B8 Offset: 0x11B13B8 VA: 0x11B13B8
+	// RVA: 0x240843C Offset: 0x240843C VA: 0x240843C
 	private static extern int criFsLoader_DecompressData(IntPtr loader, IntPtr src, long src_size, IntPtr dst, long dst_size) { }
 }
 
@@ -266,52 +388,52 @@ public class CriFsInstaller : CriDisposable // TypeDefIndex: 3994
 
 	// Methods
 
-	// RVA: 0x11AF3BC Offset: 0x11AF3BC VA: 0x11AF3BC
+	// RVA: 0x2406440 Offset: 0x2406440 VA: 0x2406440
 	public void .ctor() { }
 
-	// RVA: 0x11AF9C8 Offset: 0x11AF9C8 VA: 0x11AF9C8 Slot: 5
+	// RVA: 0x2406A4C Offset: 0x2406A4C VA: 0x2406A4C Slot: 5
 	public override void Dispose() { }
 
-	// RVA: 0x11AF9F4 Offset: 0x11AF9F4 VA: 0x11AF9F4
+	// RVA: 0x2406A78 Offset: 0x2406A78 VA: 0x2406A78
 	private void Dispose(bool disposing) { }
 
-	// RVA: 0x11AF4DC Offset: 0x11AF4DC VA: 0x11AF4DC
+	// RVA: 0x2406560 Offset: 0x2406560 VA: 0x2406560
 	public void Copy(CriFsBinder binder, string srcPath, string dstPath, int installBufferSize) { }
 
-	// RVA: 0x11AF674 Offset: 0x11AF674 VA: 0x11AF674
+	// RVA: 0x24066F8 Offset: 0x24066F8 VA: 0x24066F8
 	public void Stop() { }
 
-	// RVA: 0x11AF824 Offset: 0x11AF824 VA: 0x11AF824
+	// RVA: 0x24068A8 Offset: 0x24068A8 VA: 0x24068A8
 	public CriFsInstaller.Status GetStatus() { }
 
-	// RVA: 0x11AF7B0 Offset: 0x11AF7B0 VA: 0x11AF7B0
+	// RVA: 0x2406834 Offset: 0x2406834 VA: 0x2406834
 	public float GetProgress() { }
 
-	// RVA: 0x11AFE40 Offset: 0x11AFE40 VA: 0x11AFE40
+	// RVA: 0x2406EC4 Offset: 0x2406EC4 VA: 0x2406EC4
 	public static void ExecuteMain() { }
 
-	// RVA: 0x11AFED0 Offset: 0x11AFED0 VA: 0x11AFED0 Slot: 1
+	// RVA: 0x2406F54 Offset: 0x2406F54 VA: 0x2406F54 Slot: 1
 	protected override void Finalize() { }
 
-	// RVA: 0x11AFE44 Offset: 0x11AFE44 VA: 0x11AFE44
+	// RVA: 0x2406EC8 Offset: 0x2406EC8 VA: 0x2406EC8
 	private static extern int criFsInstaller_ExecuteMain() { }
 
-	// RVA: 0x11AF91C Offset: 0x11AF91C VA: 0x11AF91C
+	// RVA: 0x24069A0 Offset: 0x24069A0 VA: 0x24069A0
 	private static extern int criFsInstaller_Create(out IntPtr installer, CriFsInstaller.CopyPolicy option) { }
 
-	// RVA: 0x11AFAA4 Offset: 0x11AFAA4 VA: 0x11AFAA4
+	// RVA: 0x2406B28 Offset: 0x2406B28 VA: 0x2406B28
 	private static extern int criFsInstaller_Destroy(IntPtr installer) { }
 
-	// RVA: 0x11AFB40 Offset: 0x11AFB40 VA: 0x11AFB40
+	// RVA: 0x2406BC4 Offset: 0x2406BC4 VA: 0x2406BC4
 	private static extern int criFsInstaller_Copy(IntPtr installer, IntPtr binder, string src_path, string dst_path, IntPtr buffer, long buffer_size) { }
 
-	// RVA: 0x11AFC4C Offset: 0x11AFC4C VA: 0x11AFC4C
+	// RVA: 0x2406CD0 Offset: 0x2406CD0 VA: 0x2406CD0
 	private static extern int criFsInstaller_Stop(IntPtr installer) { }
 
-	// RVA: 0x11AFCE8 Offset: 0x11AFCE8 VA: 0x11AFCE8
+	// RVA: 0x2406D6C Offset: 0x2406D6C VA: 0x2406D6C
 	private static extern int criFsInstaller_GetStatus(IntPtr installer, out CriFsInstaller.Status status) { }
 
-	// RVA: 0x11AFD94 Offset: 0x11AFD94 VA: 0x11AFD94
+	// RVA: 0x2406E18 Offset: 0x2406E18 VA: 0x2406E18
 	private static extern int criFsInstaller_GetProgress(IntPtr installer, out float progress) { }
 }
 
@@ -345,103 +467,103 @@ public class CriFsBinder : CriDisposable // TypeDefIndex: 3997
 
 	// Methods
 
-	// RVA: 0x11AD7A8 Offset: 0x11AD7A8 VA: 0x11AD7A8
+	// RVA: 0x240482C Offset: 0x240482C VA: 0x240482C
 	public void .ctor() { }
 
-	// RVA: 0x11AD9BC Offset: 0x11AD9BC VA: 0x11AD9BC Slot: 5
+	// RVA: 0x2404A40 Offset: 0x2404A40 VA: 0x2404A40 Slot: 5
 	public override void Dispose() { }
 
-	// RVA: 0x11AD9E8 Offset: 0x11AD9E8 VA: 0x11AD9E8
+	// RVA: 0x2404A6C Offset: 0x2404A6C VA: 0x2404A6C
 	private void Dispose(bool disposing) { }
 
-	// RVA: 0x11AD400 Offset: 0x11AD400 VA: 0x11AD400
+	// RVA: 0x2404484 Offset: 0x2404484 VA: 0x2404484
 	public uint BindCpk(CriFsBinder srcBinder, string path) { }
 
-	// RVA: 0x11AD4AC Offset: 0x11AD4AC VA: 0x11AD4AC
+	// RVA: 0x2404530 Offset: 0x2404530 VA: 0x2404530
 	public uint BindDirectory(CriFsBinder srcBinder, string path) { }
 
-	// RVA: 0x11AD550 Offset: 0x11AD550 VA: 0x11AD550
+	// RVA: 0x24045D4 Offset: 0x24045D4 VA: 0x24045D4
 	public uint BindFile(CriFsBinder srcBinder, string path) { }
 
-	// RVA: 0x11ADDFC Offset: 0x11ADDFC VA: 0x11ADDFC
+	// RVA: 0x2404E80 Offset: 0x2404E80 VA: 0x2404E80
 	public uint BindFileSection(CriFsBinder srcBinder, string path, ulong offset, int size, string sectionName) { }
 
-	// RVA: 0x11ADFF8 Offset: 0x11ADFF8 VA: 0x11ADFF8
+	// RVA: 0x240507C Offset: 0x240507C VA: 0x240507C
 	public static void Unbind(uint bindId) { }
 
-	// RVA: 0x11AD688 Offset: 0x11AD688 VA: 0x11AD688
+	// RVA: 0x240470C Offset: 0x240470C VA: 0x240470C
 	public static CriFsBinder.Status GetStatus(uint bindId) { }
 
-	// RVA: 0x11AE1B8 Offset: 0x11AE1B8 VA: 0x11AE1B8
+	// RVA: 0x240523C Offset: 0x240523C VA: 0x240523C
 	public long GetFileSize(string path) { }
 
-	// RVA: 0x11AE310 Offset: 0x11AE310 VA: 0x11AE310
+	// RVA: 0x2405394 Offset: 0x2405394 VA: 0x2405394
 	public long GetFileSize(int id) { }
 
-	// RVA: 0x11AE44C Offset: 0x11AE44C VA: 0x11AE44C
+	// RVA: 0x24054D0 Offset: 0x24054D0 VA: 0x24054D0
 	public bool GetContentsFileInfo(string path, out CriFsBinder.ContentsFileInfo info) { }
 
-	// RVA: 0x11AE918 Offset: 0x11AE918 VA: 0x11AE918
+	// RVA: 0x240599C Offset: 0x240599C VA: 0x240599C
 	public bool GetContentsFileInfo(int id, out CriFsBinder.ContentsFileInfo info) { }
 
-	// RVA: 0x11AEB80 Offset: 0x11AEB80 VA: 0x11AEB80
+	// RVA: 0x2405C04 Offset: 0x2405C04 VA: 0x2405C04
 	public static bool GetContentsFileInfoByIndex(uint bindId, int index, int numFiles, out CriFsBinder.ContentsFileInfo[] info) { }
 
-	// RVA: 0x11AEF6C Offset: 0x11AEF6C VA: 0x11AEF6C
+	// RVA: 0x2405FF0 Offset: 0x2405FF0 VA: 0x2405FF0
 	public static int GetNumContentsFiles(uint bindId) { }
 
-	// RVA: 0x11AF00C Offset: 0x11AF00C VA: 0x11AF00C
+	// RVA: 0x2406090 Offset: 0x2406090 VA: 0x2406090
 	public static void SetPriority(uint bindId, int priority) { }
 
-	// RVA: 0x11ADB0C Offset: 0x11ADB0C VA: 0x11ADB0C
+	// RVA: 0x2404B90 Offset: 0x2404B90 VA: 0x2404B90
 	public IntPtr get_nativeHandle() { }
 
-	// RVA: 0x11AF144 Offset: 0x11AF144 VA: 0x11AF144 Slot: 1
+	// RVA: 0x24061C8 Offset: 0x24061C8 VA: 0x24061C8 Slot: 1
 	protected override void Finalize() { }
 
-	// RVA: 0x11AD920 Offset: 0x11AD920 VA: 0x11AD920
+	// RVA: 0x24049A4 Offset: 0x24049A4 VA: 0x24049A4
 	private static extern uint criFsBinder_Create(out IntPtr binder) { }
 
-	// RVA: 0x11ADA70 Offset: 0x11ADA70 VA: 0x11ADA70
+	// RVA: 0x2404AF4 Offset: 0x2404AF4 VA: 0x2404AF4
 	private static extern uint criFsBinder_Destroy(IntPtr binder) { }
 
-	// RVA: 0x11ADB14 Offset: 0x11ADB14 VA: 0x11ADB14
+	// RVA: 0x2404B98 Offset: 0x2404B98 VA: 0x2404B98
 	private static extern uint criFsBinder_BindCpk(IntPtr binder, IntPtr srcBinder, string path, IntPtr work, int worksize, out uint bindId) { }
 
-	// RVA: 0x11ADC0C Offset: 0x11ADC0C VA: 0x11ADC0C
+	// RVA: 0x2404C90 Offset: 0x2404C90 VA: 0x2404C90
 	private static extern uint criFsBinder_BindDirectory(IntPtr binder, IntPtr srcBinder, string path, IntPtr work, int worksize, out uint bindId) { }
 
-	// RVA: 0x11ADD04 Offset: 0x11ADD04 VA: 0x11ADD04
+	// RVA: 0x2404D88 Offset: 0x2404D88 VA: 0x2404D88
 	private static extern uint criFsBinder_BindFile(IntPtr binder, IntPtr srcBinder, string path, IntPtr work, int worksize, out uint bindId) { }
 
-	// RVA: 0x11ADECC Offset: 0x11ADECC VA: 0x11ADECC
+	// RVA: 0x2404F50 Offset: 0x2404F50 VA: 0x2404F50
 	private static extern uint criFsBinder_BindFileSection(IntPtr binder, IntPtr srcBinder, string path, ulong offset, int size, string sectionName, IntPtr work, int worksize, out uint bindId) { }
 
-	// RVA: 0x11AE070 Offset: 0x11AE070 VA: 0x11AE070
+	// RVA: 0x24050F4 Offset: 0x24050F4 VA: 0x24050F4
 	private static extern int criFsBinder_Unbind(uint bindId) { }
 
-	// RVA: 0x11AE10C Offset: 0x11AE10C VA: 0x11AE10C
+	// RVA: 0x2405190 Offset: 0x2405190 VA: 0x2405190
 	private static extern int criFsBinder_GetStatus(uint bindId, out CriFsBinder.Status status) { }
 
-	// RVA: 0x11AE240 Offset: 0x11AE240 VA: 0x11AE240
+	// RVA: 0x24052C4 Offset: 0x24052C4 VA: 0x24052C4
 	private static extern int criFsBinder_GetFileSize(IntPtr binder, string path, out long size) { }
 
-	// RVA: 0x11AE398 Offset: 0x11AE398 VA: 0x11AE398
+	// RVA: 0x240541C Offset: 0x240541C VA: 0x240541C
 	private static extern int criFsBinder_GetFileSizeById(IntPtr binder, int id, out long size) { }
 
-	// RVA: 0x11AF098 Offset: 0x11AF098 VA: 0x11AF098
+	// RVA: 0x240611C Offset: 0x240611C VA: 0x240611C
 	private static extern int criFsBinder_SetPriority(uint bindId, int priority) { }
 
-	// RVA: 0x11AE600 Offset: 0x11AE600 VA: 0x11AE600
+	// RVA: 0x2405684 Offset: 0x2405684 VA: 0x2405684
 	private static extern int criFsBinder_GetContentsFileInfo(IntPtr binder, string path, IntPtr info) { }
 
-	// RVA: 0x11AEACC Offset: 0x11AEACC VA: 0x11AEACC
+	// RVA: 0x2405B50 Offset: 0x2405B50 VA: 0x2405B50
 	private static extern int criFsBinder_GetContentsFileInfoById(IntPtr binder, int id, IntPtr info) { }
 
-	// RVA: 0x11AEEA8 Offset: 0x11AEEA8 VA: 0x11AEEA8
+	// RVA: 0x2405F2C Offset: 0x2405F2C VA: 0x2405F2C
 	private static extern int criFsBinder_GetContentsFileInfoByIndex(uint id, int index, IntPtr info, int num) { }
 
-	// RVA: 0x11AEF70 Offset: 0x11AEF70 VA: 0x11AEF70
+	// RVA: 0x2405FF4 Offset: 0x2405FF4 VA: 0x2405FF4
 	private static extern int CRIWARE368F9D49(uint id) { }
 }
 
@@ -473,7 +595,7 @@ public struct CriFsBinder.ContentsFileInfo // TypeDefIndex: 3999
 
 	// Methods
 
-	// RVA: 0xBBD3F4 Offset: 0xBBD3F4 VA: 0xBBD3F4
+	// RVA: 0xD6AC10 Offset: 0xD6AC10 VA: 0xD6AC10
 	public void .ctor(byte[] data, int startIndex) { }
 }
 
@@ -481,17 +603,17 @@ public struct CriFsBinder.ContentsFileInfo // TypeDefIndex: 3999
 public class CriFsRequest : CriDisposable // TypeDefIndex: 4000
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xC8D04C Offset: 0xC8D04C VA: 0xC8D04C
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D04C Offset: 0xC8D04C VA: 0xC8D04C
+	[CompilerGeneratedAttribute] // RVA: 0xC20F24 Offset: 0xC20F24 VA: 0xC20F24
+	[DebuggerBrowsableAttribute] // RVA: 0xC20F24 Offset: 0xC20F24 VA: 0xC20F24
 	private CriFsRequest.DoneDelegate <doneDelegate>k__BackingField; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xC8D088 Offset: 0xC8D088 VA: 0xC8D088
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D088 Offset: 0xC8D088 VA: 0xC8D088
+	[CompilerGeneratedAttribute] // RVA: 0xC20F60 Offset: 0xC20F60 VA: 0xC20F60
+	[DebuggerBrowsableAttribute] // RVA: 0xC20F60 Offset: 0xC20F60 VA: 0xC20F60
 	private bool <isDone>k__BackingField; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xC8D0C4 Offset: 0xC8D0C4 VA: 0xC8D0C4
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D0C4 Offset: 0xC8D0C4 VA: 0xC8D0C4
+	[CompilerGeneratedAttribute] // RVA: 0xC20F9C Offset: 0xC20F9C VA: 0xC20F9C
+	[DebuggerBrowsableAttribute] // RVA: 0xC20F9C Offset: 0xC20F9C VA: 0xC20F9C
 	private string <error>k__BackingField; // 0x30
-	[CompilerGeneratedAttribute] // RVA: 0xC8D100 Offset: 0xC8D100 VA: 0xC8D100
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D100 Offset: 0xC8D100 VA: 0xC8D100
+	[CompilerGeneratedAttribute] // RVA: 0xC20FD8 Offset: 0xC20FD8 VA: 0xC20FD8
+	[DebuggerBrowsableAttribute] // RVA: 0xC20FD8 Offset: 0xC20FD8 VA: 0xC20FD8
 	private bool <isDisposed>k__BackingField; // 0x38
 
 	// Properties
@@ -502,64 +624,64 @@ public class CriFsRequest : CriDisposable // TypeDefIndex: 4000
 
 	// Methods
 
-	// RVA: 0x11AD3F4 Offset: 0x11AD3F4 VA: 0x11AD3F4
+	// RVA: 0x2404478 Offset: 0x2404478 VA: 0x2404478
 	public void .ctor() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FB04 Offset: 0xC8FB04 VA: 0xC8FB04
-	// RVA: 0x11B25E8 Offset: 0x11B25E8 VA: 0x11B25E8
+	[CompilerGeneratedAttribute] // RVA: 0xC239DC Offset: 0xC239DC VA: 0xC239DC
+	// RVA: 0x240966C Offset: 0x240966C VA: 0x240966C
 	public CriFsRequest.DoneDelegate get_doneDelegate() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FB14 Offset: 0xC8FB14 VA: 0xC8FB14
-	// RVA: 0x11AF3B4 Offset: 0x11AF3B4 VA: 0x11AF3B4
+	[CompilerGeneratedAttribute] // RVA: 0xC239EC Offset: 0xC239EC VA: 0xC239EC
+	// RVA: 0x2406438 Offset: 0x2406438 VA: 0x2406438
 	protected void set_doneDelegate(CriFsRequest.DoneDelegate value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FB24 Offset: 0xC8FB24 VA: 0xC8FB24
-	// RVA: 0x11AD680 Offset: 0x11AD680 VA: 0x11AD680
+	[CompilerGeneratedAttribute] // RVA: 0xC239FC Offset: 0xC239FC VA: 0xC239FC
+	// RVA: 0x2404704 Offset: 0x2404704 VA: 0x2404704
 	public bool get_isDone() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FB34 Offset: 0xC8FB34 VA: 0xC8FB34
-	// RVA: 0x11B25F0 Offset: 0x11B25F0 VA: 0x11B25F0
+	[CompilerGeneratedAttribute] // RVA: 0xC23A0C Offset: 0xC23A0C VA: 0xC23A0C
+	// RVA: 0x2409674 Offset: 0x2409674 VA: 0x2409674
 	private void set_isDone(bool value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FB44 Offset: 0xC8FB44 VA: 0xC8FB44
-	// RVA: 0x11B01C0 Offset: 0x11B01C0 VA: 0x11B01C0
+	[CompilerGeneratedAttribute] // RVA: 0xC23A1C Offset: 0xC23A1C VA: 0xC23A1C
+	// RVA: 0x2407244 Offset: 0x2407244 VA: 0x2407244
 	public string get_error() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FB54 Offset: 0xC8FB54 VA: 0xC8FB54
-	// RVA: 0x11AD718 Offset: 0x11AD718 VA: 0x11AD718
+	[CompilerGeneratedAttribute] // RVA: 0xC23A2C Offset: 0xC23A2C VA: 0xC23A2C
+	// RVA: 0x240479C Offset: 0x240479C VA: 0x240479C
 	protected void set_error(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FB64 Offset: 0xC8FB64 VA: 0xC8FB64
-	// RVA: 0x11B25FC Offset: 0x11B25FC VA: 0x11B25FC
+	[CompilerGeneratedAttribute] // RVA: 0xC23A3C Offset: 0xC23A3C VA: 0xC23A3C
+	// RVA: 0x2409680 Offset: 0x2409680 VA: 0x2409680
 	public bool get_isDisposed() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FB74 Offset: 0xC8FB74 VA: 0xC8FB74
-	// RVA: 0x11B2604 Offset: 0x11B2604 VA: 0x11B2604
+	[CompilerGeneratedAttribute] // RVA: 0xC23A4C Offset: 0xC23A4C VA: 0xC23A4C
+	// RVA: 0x2409688 Offset: 0x2409688 VA: 0x2409688
 	protected void set_isDisposed(bool value) { }
 
-	// RVA: 0x11B2610 Offset: 0x11B2610 VA: 0x11B2610 Slot: 5
+	// RVA: 0x2409694 Offset: 0x2409694 VA: 0x2409694 Slot: 5
 	public override void Dispose() { }
 
-	// RVA: 0x11B2664 Offset: 0x11B2664 VA: 0x11B2664 Slot: 6
+	// RVA: 0x24096E8 Offset: 0x24096E8 VA: 0x24096E8 Slot: 6
 	public virtual void Stop() { }
 
-	// RVA: 0x11B2668 Offset: 0x11B2668 VA: 0x11B2668
+	// RVA: 0x24096EC Offset: 0x24096EC VA: 0x24096EC
 	public YieldInstruction WaitForDone(MonoBehaviour mb) { }
 
-	// RVA: 0x11B2714 Offset: 0x11B2714 VA: 0x11B2714 Slot: 7
+	// RVA: 0x2409798 Offset: 0x2409798 VA: 0x2409798 Slot: 7
 	protected virtual void Dispose(bool disposing) { }
 
-	// RVA: 0x11B2718 Offset: 0x11B2718 VA: 0x11B2718 Slot: 8
+	// RVA: 0x240979C Offset: 0x240979C VA: 0x240979C Slot: 8
 	public virtual void Update() { }
 
-	// RVA: 0x11AD720 Offset: 0x11AD720 VA: 0x11AD720
+	// RVA: 0x24047A4 Offset: 0x24047A4 VA: 0x24047A4
 	protected void Done() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC8FB84 Offset: 0xC8FB84 VA: 0xC8FB84
-	// RVA: 0x11B26A4 Offset: 0x11B26A4 VA: 0x11B26A4
+	[DebuggerHiddenAttribute] // RVA: 0xC23A5C Offset: 0xC23A5C VA: 0xC23A5C
+	// RVA: 0x2409728 Offset: 0x2409728 VA: 0x2409728
 	private IEnumerator CheckDone() { }
 
-	// RVA: 0x11B2AC4 Offset: 0x11B2AC4 VA: 0x11B2AC4 Slot: 1
+	// RVA: 0x2409B48 Offset: 0x2409B48 VA: 0x2409B48 Slot: 1
 	protected override void Finalize() { }
 }
 
@@ -568,21 +690,21 @@ public sealed class CriFsRequest.DoneDelegate : MulticastDelegate // TypeDefInde
 {
 	// Methods
 
-	// RVA: 0x11B2C58 Offset: 0x11B2C58 VA: 0x11B2C58
+	// RVA: 0x2409CDC Offset: 0x2409CDC VA: 0x2409CDC
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x11B271C Offset: 0x11B271C VA: 0x11B271C Slot: 11
+	// RVA: 0x24097A0 Offset: 0x24097A0 VA: 0x24097A0 Slot: 11
 	public virtual void Invoke(CriFsRequest request) { }
 
-	// RVA: 0x11B2C68 Offset: 0x11B2C68 VA: 0x11B2C68 Slot: 12
+	// RVA: 0x2409CEC Offset: 0x2409CEC VA: 0x2409CEC Slot: 12
 	public virtual IAsyncResult BeginInvoke(CriFsRequest request, AsyncCallback callback, object object) { }
 
-	// RVA: 0x11B2C8C Offset: 0x11B2C8C VA: 0x11B2C8C Slot: 13
+	// RVA: 0x2409D10 Offset: 0x2409D10 VA: 0x2409D10 Slot: 13
 	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC8C610 Offset: 0xC8C610 VA: 0xC8C610
+[CompilerGeneratedAttribute] // RVA: 0xC204E8 Offset: 0xC204E8 VA: 0xC204E8
 private sealed class CriFsRequest.<CheckDone>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 4002
 {
 	// Fields
@@ -597,27 +719,27 @@ private sealed class CriFsRequest.<CheckDone>c__Iterator0 : IEnumerator, IDispos
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xC90958 Offset: 0xC90958 VA: 0xC90958
-	// RVA: 0x11B2ABC Offset: 0x11B2ABC VA: 0x11B2ABC
+	[DebuggerHiddenAttribute] // RVA: 0xC24830 Offset: 0xC24830 VA: 0xC24830
+	// RVA: 0x2409B40 Offset: 0x2409B40 VA: 0x2409B40
 	public void .ctor() { }
 
-	// RVA: 0x11B2B58 Offset: 0x11B2B58 VA: 0x11B2B58 Slot: 5
+	// RVA: 0x2409BDC Offset: 0x2409BDC VA: 0x2409BDC Slot: 5
 	public bool MoveNext() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC90968 Offset: 0xC90968 VA: 0xC90968
-	// RVA: 0x11B2BCC Offset: 0x11B2BCC VA: 0x11B2BCC Slot: 8
+	[DebuggerHiddenAttribute] // RVA: 0xC24840 Offset: 0xC24840 VA: 0xC24840
+	// RVA: 0x2409C50 Offset: 0x2409C50 VA: 0x2409C50 Slot: 8
 	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC90978 Offset: 0xC90978 VA: 0xC90978
-	// RVA: 0x11B2BD4 Offset: 0x11B2BD4 VA: 0x11B2BD4 Slot: 4
+	[DebuggerHiddenAttribute] // RVA: 0xC24850 Offset: 0xC24850 VA: 0xC24850
+	// RVA: 0x2409C58 Offset: 0x2409C58 VA: 0x2409C58 Slot: 4
 	private object System.Collections.IEnumerator.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC90988 Offset: 0xC90988 VA: 0xC90988
-	// RVA: 0x11B2BDC Offset: 0x11B2BDC VA: 0x11B2BDC Slot: 7
+	[DebuggerHiddenAttribute] // RVA: 0xC24860 Offset: 0xC24860 VA: 0xC24860
+	// RVA: 0x2409C60 Offset: 0x2409C60 VA: 0x2409C60 Slot: 7
 	public void Dispose() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC90998 Offset: 0xC90998 VA: 0xC90998
-	// RVA: 0x11B2BF0 Offset: 0x11B2BF0 VA: 0x11B2BF0 Slot: 6
+	[DebuggerHiddenAttribute] // RVA: 0xC24870 Offset: 0xC24870 VA: 0xC24870
+	// RVA: 0x2409C74 Offset: 0x2409C74 VA: 0x2409C74 Slot: 6
 	public void Reset() { }
 }
 
@@ -625,11 +747,11 @@ private sealed class CriFsRequest.<CheckDone>c__Iterator0 : IEnumerator, IDispos
 public class CriFsLoadFileRequest : CriFsRequest // TypeDefIndex: 4003
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xC8D13C Offset: 0xC8D13C VA: 0xC8D13C
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D13C Offset: 0xC8D13C VA: 0xC8D13C
+	[CompilerGeneratedAttribute] // RVA: 0xC21014 Offset: 0xC21014 VA: 0xC21014
+	[DebuggerBrowsableAttribute] // RVA: 0xC21014 Offset: 0xC21014 VA: 0xC21014
 	private string <path>k__BackingField; // 0x40
-	[CompilerGeneratedAttribute] // RVA: 0xC8D178 Offset: 0xC8D178 VA: 0xC8D178
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D178 Offset: 0xC8D178 VA: 0xC8D178
+	[CompilerGeneratedAttribute] // RVA: 0xC21050 Offset: 0xC21050 VA: 0xC21050
+	[DebuggerBrowsableAttribute] // RVA: 0xC21050 Offset: 0xC21050 VA: 0xC21050
 	private byte[] <bytes>k__BackingField; // 0x48
 	private CriFsLoadFileRequest.Phase phase; // 0x50
 	private CriFsBinder refBinder; // 0x58
@@ -645,41 +767,41 @@ public class CriFsLoadFileRequest : CriFsRequest // TypeDefIndex: 4003
 
 	// Methods
 
-	// RVA: 0x11B0250 Offset: 0x11B0250 VA: 0x11B0250
+	// RVA: 0x24072D4 Offset: 0x24072D4 VA: 0x24072D4
 	public void .ctor(CriFsBinder srcBinder, string path, CriFsRequest.DoneDelegate doneDelegate, int readUnitSize) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FB94 Offset: 0xC8FB94 VA: 0xC8FB94
-	// RVA: 0x11B0364 Offset: 0x11B0364 VA: 0x11B0364
+	[CompilerGeneratedAttribute] // RVA: 0xC23A6C Offset: 0xC23A6C VA: 0xC23A6C
+	// RVA: 0x24073E8 Offset: 0x24073E8 VA: 0x24073E8
 	public string get_path() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FBA4 Offset: 0xC8FBA4 VA: 0xC8FBA4
-	// RVA: 0x11B035C Offset: 0x11B035C VA: 0x11B035C
+	[CompilerGeneratedAttribute] // RVA: 0xC23A7C Offset: 0xC23A7C VA: 0xC23A7C
+	// RVA: 0x24073E0 Offset: 0x24073E0 VA: 0x24073E0
 	private void set_path(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FBB4 Offset: 0xC8FBB4 VA: 0xC8FBB4
-	// RVA: 0x11B01C8 Offset: 0x11B01C8 VA: 0x11B01C8
+	[CompilerGeneratedAttribute] // RVA: 0xC23A8C Offset: 0xC23A8C VA: 0xC23A8C
+	// RVA: 0x240724C Offset: 0x240724C VA: 0x240724C
 	public byte[] get_bytes() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FBC4 Offset: 0xC8FBC4 VA: 0xC8FBC4
-	// RVA: 0x11B036C Offset: 0x11B036C VA: 0x11B036C
+	[CompilerGeneratedAttribute] // RVA: 0xC23A9C Offset: 0xC23A9C VA: 0xC23A9C
+	// RVA: 0x24073F0 Offset: 0x24073F0 VA: 0x24073F0
 	private void set_bytes(byte[] value) { }
 
-	// RVA: 0x11B0374 Offset: 0x11B0374 VA: 0x11B0374 Slot: 7
+	// RVA: 0x24073F8 Offset: 0x24073F8 VA: 0x24073F8 Slot: 7
 	protected override void Dispose(bool disposing) { }
 
-	// RVA: 0x11B0410 Offset: 0x11B0410 VA: 0x11B0410 Slot: 6
+	// RVA: 0x2407494 Offset: 0x2407494 VA: 0x2407494 Slot: 6
 	public override void Stop() { }
 
-	// RVA: 0x11B0490 Offset: 0x11B0490 VA: 0x11B0490 Slot: 8
+	// RVA: 0x2407514 Offset: 0x2407514 VA: 0x2407514 Slot: 8
 	public override void Update() { }
 
-	// RVA: 0x11B04F0 Offset: 0x11B04F0 VA: 0x11B04F0
+	// RVA: 0x2407574 Offset: 0x2407574 VA: 0x2407574
 	private void UpdateBinder() { }
 
-	// RVA: 0x11B056C Offset: 0x11B056C VA: 0x11B056C
+	// RVA: 0x24075F0 Offset: 0x24075F0 VA: 0x24075F0
 	private void UpdateLoader() { }
 
-	// RVA: 0x11B06F4 Offset: 0x11B06F4 VA: 0x11B06F4
+	// RVA: 0x2407778 Offset: 0x2407778 VA: 0x2407778
 	private void OnError() { }
 }
 
@@ -699,11 +821,11 @@ private enum CriFsLoadFileRequest.Phase // TypeDefIndex: 4004
 public class CriFsLoadAssetBundleRequest : CriFsRequest // TypeDefIndex: 4005
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xC8D1B4 Offset: 0xC8D1B4 VA: 0xC8D1B4
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D1B4 Offset: 0xC8D1B4 VA: 0xC8D1B4
+	[CompilerGeneratedAttribute] // RVA: 0xC2108C Offset: 0xC2108C VA: 0xC2108C
+	[DebuggerBrowsableAttribute] // RVA: 0xC2108C Offset: 0xC2108C VA: 0xC2108C
 	private string <path>k__BackingField; // 0x40
-	[CompilerGeneratedAttribute] // RVA: 0xC8D1F0 Offset: 0xC8D1F0 VA: 0xC8D1F0
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D1F0 Offset: 0xC8D1F0 VA: 0xC8D1F0
+	[CompilerGeneratedAttribute] // RVA: 0xC210C8 Offset: 0xC210C8 VA: 0xC210C8
+	[DebuggerBrowsableAttribute] // RVA: 0xC210C8 Offset: 0xC210C8 VA: 0xC210C8
 	private AssetBundle <assetBundle>k__BackingField; // 0x48
 	private CriFsLoadFileRequest loadFileReq; // 0x50
 	private AssetBundleCreateRequest assetBundleReq; // 0x58
@@ -714,29 +836,29 @@ public class CriFsLoadAssetBundleRequest : CriFsRequest // TypeDefIndex: 4005
 
 	// Methods
 
-	// RVA: 0x11AFF48 Offset: 0x11AFF48 VA: 0x11AFF48
+	// RVA: 0x2406FCC Offset: 0x2406FCC VA: 0x2406FCC
 	public void .ctor(CriFsBinder binder, string path, int readUnitSize) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FBD4 Offset: 0xC8FBD4 VA: 0xC8FBD4
-	// RVA: 0x11B0088 Offset: 0x11B0088 VA: 0x11B0088
+	[CompilerGeneratedAttribute] // RVA: 0xC23AAC Offset: 0xC23AAC VA: 0xC23AAC
+	// RVA: 0x240710C Offset: 0x240710C VA: 0x240710C
 	public string get_path() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FBE4 Offset: 0xC8FBE4 VA: 0xC8FBE4
-	// RVA: 0x11AFFEC Offset: 0x11AFFEC VA: 0x11AFFEC
+	[CompilerGeneratedAttribute] // RVA: 0xC23ABC Offset: 0xC23ABC VA: 0xC23ABC
+	// RVA: 0x2407070 Offset: 0x2407070 VA: 0x2407070
 	private void set_path(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FBF4 Offset: 0xC8FBF4 VA: 0xC8FBF4
-	// RVA: 0x11B0090 Offset: 0x11B0090 VA: 0x11B0090
+	[CompilerGeneratedAttribute] // RVA: 0xC23ACC Offset: 0xC23ACC VA: 0xC23ACC
+	// RVA: 0x2407114 Offset: 0x2407114 VA: 0x2407114
 	public AssetBundle get_assetBundle() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FC04 Offset: 0xC8FC04 VA: 0xC8FC04
-	// RVA: 0x11B0098 Offset: 0x11B0098 VA: 0x11B0098
+	[CompilerGeneratedAttribute] // RVA: 0xC23ADC Offset: 0xC23ADC VA: 0xC23ADC
+	// RVA: 0x240711C Offset: 0x240711C VA: 0x240711C
 	private void set_assetBundle(AssetBundle value) { }
 
-	// RVA: 0x11B00A0 Offset: 0x11B00A0 VA: 0x11B00A0 Slot: 8
+	// RVA: 0x2407124 Offset: 0x2407124 VA: 0x2407124 Slot: 8
 	public override void Update() { }
 
-	// RVA: 0x11B01D0 Offset: 0x11B01D0 VA: 0x11B01D0 Slot: 7
+	// RVA: 0x2407254 Offset: 0x2407254 VA: 0x2407254 Slot: 7
 	protected override void Dispose(bool disposing) { }
 }
 
@@ -744,14 +866,14 @@ public class CriFsLoadAssetBundleRequest : CriFsRequest // TypeDefIndex: 4005
 public class CriFsInstallRequest : CriFsRequest // TypeDefIndex: 4006
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xC8D22C Offset: 0xC8D22C VA: 0xC8D22C
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D22C Offset: 0xC8D22C VA: 0xC8D22C
+	[CompilerGeneratedAttribute] // RVA: 0xC21104 Offset: 0xC21104 VA: 0xC21104
+	[DebuggerBrowsableAttribute] // RVA: 0xC21104 Offset: 0xC21104 VA: 0xC21104
 	private string <sourcePath>k__BackingField; // 0x40
-	[CompilerGeneratedAttribute] // RVA: 0xC8D268 Offset: 0xC8D268 VA: 0xC8D268
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D268 Offset: 0xC8D268 VA: 0xC8D268
+	[CompilerGeneratedAttribute] // RVA: 0xC21140 Offset: 0xC21140 VA: 0xC21140
+	[DebuggerBrowsableAttribute] // RVA: 0xC21140 Offset: 0xC21140 VA: 0xC21140
 	private string <destinationPath>k__BackingField; // 0x48
-	[CompilerGeneratedAttribute] // RVA: 0xC8D2A4 Offset: 0xC8D2A4 VA: 0xC8D2A4
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D2A4 Offset: 0xC8D2A4 VA: 0xC8D2A4
+	[CompilerGeneratedAttribute] // RVA: 0xC2117C Offset: 0xC2117C VA: 0xC2117C
+	[DebuggerBrowsableAttribute] // RVA: 0xC2117C Offset: 0xC2117C VA: 0xC2117C
 	private float <progress>k__BackingField; // 0x50
 
 	// Properties
@@ -761,31 +883,31 @@ public class CriFsInstallRequest : CriFsRequest // TypeDefIndex: 4006
 
 	// Methods
 
-	// RVA: 0x11AF298 Offset: 0x11AF298 VA: 0x11AF298
+	// RVA: 0x240631C Offset: 0x240631C VA: 0x240631C
 	public void .ctor() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FC14 Offset: 0xC8FC14 VA: 0xC8FC14
-	// RVA: 0x11AF29C Offset: 0x11AF29C VA: 0x11AF29C
+	[CompilerGeneratedAttribute] // RVA: 0xC23AEC Offset: 0xC23AEC VA: 0xC23AEC
+	// RVA: 0x2406320 Offset: 0x2406320 VA: 0x2406320
 	public string get_sourcePath() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FC24 Offset: 0xC8FC24 VA: 0xC8FC24
-	// RVA: 0x11AF2A4 Offset: 0x11AF2A4 VA: 0x11AF2A4
+	[CompilerGeneratedAttribute] // RVA: 0xC23AFC Offset: 0xC23AFC VA: 0xC23AFC
+	// RVA: 0x2406328 Offset: 0x2406328 VA: 0x2406328
 	protected void set_sourcePath(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FC34 Offset: 0xC8FC34 VA: 0xC8FC34
-	// RVA: 0x11AF2AC Offset: 0x11AF2AC VA: 0x11AF2AC
+	[CompilerGeneratedAttribute] // RVA: 0xC23B0C Offset: 0xC23B0C VA: 0xC23B0C
+	// RVA: 0x2406330 Offset: 0x2406330 VA: 0x2406330
 	public string get_destinationPath() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FC44 Offset: 0xC8FC44 VA: 0xC8FC44
-	// RVA: 0x11AF2B4 Offset: 0x11AF2B4 VA: 0x11AF2B4
+	[CompilerGeneratedAttribute] // RVA: 0xC23B1C Offset: 0xC23B1C VA: 0xC23B1C
+	// RVA: 0x2406338 Offset: 0x2406338 VA: 0x2406338
 	protected void set_destinationPath(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FC54 Offset: 0xC8FC54 VA: 0xC8FC54
-	// RVA: 0x11AF2BC Offset: 0x11AF2BC VA: 0x11AF2BC
+	[CompilerGeneratedAttribute] // RVA: 0xC23B2C Offset: 0xC23B2C VA: 0xC23B2C
+	// RVA: 0x2406340 Offset: 0x2406340 VA: 0x2406340
 	public float get_progress() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FC64 Offset: 0xC8FC64 VA: 0xC8FC64
-	// RVA: 0x11AF2C4 Offset: 0x11AF2C4 VA: 0x11AF2C4
+	[CompilerGeneratedAttribute] // RVA: 0xC23B3C Offset: 0xC23B3C VA: 0xC23B3C
+	// RVA: 0x2406348 Offset: 0x2406348 VA: 0x2406348
 	protected void set_progress(float value) { }
 }
 
@@ -797,16 +919,16 @@ public class CriFsInstallRequestLegacy : CriFsInstallRequest // TypeDefIndex: 40
 
 	// Methods
 
-	// RVA: 0x11AF2CC Offset: 0x11AF2CC VA: 0x11AF2CC
+	// RVA: 0x2406350 Offset: 0x2406350 VA: 0x2406350
 	public void .ctor(CriFsBinder srcBinder, string srcPath, string dstPath, CriFsRequest.DoneDelegate doneDelegate, int installBufferSize) { }
 
-	// RVA: 0x11AF664 Offset: 0x11AF664 VA: 0x11AF664 Slot: 6
+	// RVA: 0x24066E8 Offset: 0x24066E8 VA: 0x24066E8 Slot: 6
 	public override void Stop() { }
 
-	// RVA: 0x11AF6D8 Offset: 0x11AF6D8 VA: 0x11AF6D8 Slot: 8
+	// RVA: 0x240675C Offset: 0x240675C VA: 0x240675C Slot: 8
 	public override void Update() { }
 
-	// RVA: 0x11AF89C Offset: 0x11AF89C VA: 0x11AF89C Slot: 7
+	// RVA: 0x2406920 Offset: 0x2406920 VA: 0x2406920 Slot: 7
 	protected override void Dispose(bool disposing) { }
 }
 
@@ -820,19 +942,19 @@ public class CriFsWebInstallRequest : CriFsInstallRequest // TypeDefIndex: 4008
 
 	// Methods
 
-	// RVA: 0x11B3714 Offset: 0x11B3714 VA: 0x11B3714
+	// RVA: 0x240A798 Offset: 0x240A798 VA: 0x240A798
 	public void .ctor(string srcPath, string dstPath, CriFsRequest.DoneDelegate doneDelegate) { }
 
-	// RVA: 0x11B437C Offset: 0x11B437C VA: 0x11B437C Slot: 6
+	// RVA: 0x240B400 Offset: 0x240B400 VA: 0x240B400 Slot: 6
 	public override void Stop() { }
 
-	// RVA: 0x11B43F0 Offset: 0x11B43F0 VA: 0x11B43F0
+	// RVA: 0x240B474 Offset: 0x240B474 VA: 0x240B474
 	public bool GetCRC32(out uint ret_val) { }
 
-	// RVA: 0x11B4400 Offset: 0x11B4400 VA: 0x11B4400 Slot: 8
+	// RVA: 0x240B484 Offset: 0x240B484 VA: 0x240B484 Slot: 8
 	public override void Update() { }
 
-	// RVA: 0x11B4700 Offset: 0x11B4700 VA: 0x11B4700 Slot: 7
+	// RVA: 0x240B784 Offset: 0x240B784 VA: 0x240B784 Slot: 7
 	protected override void Dispose(bool disposing) { }
 }
 
@@ -840,11 +962,11 @@ public class CriFsWebInstallRequest : CriFsInstallRequest // TypeDefIndex: 4008
 public class CriFsBindRequest : CriFsRequest // TypeDefIndex: 4009
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xC8D2E0 Offset: 0xC8D2E0 VA: 0xC8D2E0
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D2E0 Offset: 0xC8D2E0 VA: 0xC8D2E0
+	[CompilerGeneratedAttribute] // RVA: 0xC211B8 Offset: 0xC211B8 VA: 0xC211B8
+	[DebuggerBrowsableAttribute] // RVA: 0xC211B8 Offset: 0xC211B8 VA: 0xC211B8
 	private string <path>k__BackingField; // 0x40
-	[CompilerGeneratedAttribute] // RVA: 0xC8D31C Offset: 0xC8D31C VA: 0xC8D31C
-	[DebuggerBrowsableAttribute] // RVA: 0xC8D31C Offset: 0xC8D31C VA: 0xC8D31C
+	[CompilerGeneratedAttribute] // RVA: 0xC211F4 Offset: 0xC211F4 VA: 0xC211F4
+	[DebuggerBrowsableAttribute] // RVA: 0xC211F4 Offset: 0xC211F4 VA: 0xC211F4
 	private uint <bindId>k__BackingField; // 0x48
 
 	// Properties
@@ -853,148 +975,26 @@ public class CriFsBindRequest : CriFsRequest // TypeDefIndex: 4009
 
 	// Methods
 
-	// RVA: 0x11AD2A8 Offset: 0x11AD2A8 VA: 0x11AD2A8
+	// RVA: 0x240432C Offset: 0x240432C VA: 0x240432C
 	public void .ctor(CriFsBindRequest.BindType type, CriFsBinder targetBinder, CriFsBinder srcBinder, string path) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FC74 Offset: 0xC8FC74 VA: 0xC8FC74
-	// RVA: 0x11AD5D8 Offset: 0x11AD5D8 VA: 0x11AD5D8
+	[CompilerGeneratedAttribute] // RVA: 0xC23B4C Offset: 0xC23B4C VA: 0xC23B4C
+	// RVA: 0x240465C Offset: 0x240465C VA: 0x240465C
 	public string get_path() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FC84 Offset: 0xC8FC84 VA: 0xC8FC84
-	// RVA: 0x11AD3F8 Offset: 0x11AD3F8 VA: 0x11AD3F8
+	[CompilerGeneratedAttribute] // RVA: 0xC23B5C Offset: 0xC23B5C VA: 0xC23B5C
+	// RVA: 0x240447C Offset: 0x240447C VA: 0x240447C
 	private void set_path(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FC94 Offset: 0xC8FC94 VA: 0xC8FC94
-	// RVA: 0x11AD5E0 Offset: 0x11AD5E0 VA: 0x11AD5E0
+	[CompilerGeneratedAttribute] // RVA: 0xC23B6C Offset: 0xC23B6C VA: 0xC23B6C
+	// RVA: 0x2404664 Offset: 0x2404664 VA: 0x2404664
 	public uint get_bindId() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC8FCA4 Offset: 0xC8FCA4 VA: 0xC8FCA4
-	// RVA: 0x11AD4A4 Offset: 0x11AD4A4 VA: 0x11AD4A4
+	[CompilerGeneratedAttribute] // RVA: 0xC23B7C Offset: 0xC23B7C VA: 0xC23B7C
+	// RVA: 0x2404528 Offset: 0x2404528 VA: 0x2404528
 	private void set_bindId(uint value) { }
 
-	// RVA: 0x11AD5E8 Offset: 0x11AD5E8 VA: 0x11AD5E8 Slot: 6
+	// RVA: 0x240466C Offset: 0x240466C VA: 0x240466C Slot: 6
 	public override void Stop() { }
 
-	// RVA: 0x11AD5EC Offset: 0x11AD5EC VA: 0x11AD5EC Slot: 8
-	public override void Update() { }
-
-	// RVA: 0x11AD744 Offset: 0x11AD744 VA: 0x11AD744 Slot: 7
-	protected override void Dispose(bool disposing) { }
-}
-
-// Namespace: 
-public enum CriFsBindRequest.BindType // TypeDefIndex: 4010
-{
-	// Fields
-	public int value__; // 0x0
-	public const CriFsBindRequest.BindType Cpk = 0;
-	public const CriFsBindRequest.BindType Directory = 1;
-	public const CriFsBindRequest.BindType File = 2;
-}
-
-// Namespace: 
-public static class CriFsUtility // TypeDefIndex: 4011
-{
-	// Fields
-	public const int DefaultReadUnitSize = 1048576;
-
-	// Methods
-
-	// RVA: 0x11B39B4 Offset: 0x11B39B4 VA: 0x11B39B4
-	public static CriFsLoadFileRequest LoadFile(string path, int readUnitSize = 1048576) { }
-
-	// RVA: 0x11B3A44 Offset: 0x11B3A44 VA: 0x11B3A44
-	public static CriFsLoadFileRequest LoadFile(string path, CriFsRequest.DoneDelegate doneDelegate, int readUnitSize = 1048576) { }
-
-	// RVA: 0x11AFFF4 Offset: 0x11AFFF4 VA: 0x11AFFF4
-	public static CriFsLoadFileRequest LoadFile(CriFsBinder binder, string path, int readUnitSize = 1048576) { }
-
-	// RVA: 0x11B3AD8 Offset: 0x11B3AD8 VA: 0x11B3AD8
-	public static CriFsLoadAssetBundleRequest LoadAssetBundle(string path, int readUnitSize = 1048576) { }
-
-	// RVA: 0x11B3AF0 Offset: 0x11B3AF0 VA: 0x11B3AF0
-	public static CriFsLoadAssetBundleRequest LoadAssetBundle(CriFsBinder binder, string path, int readUnitSize = 1048576) { }
-
-	// RVA: 0x11B3B80 Offset: 0x11B3B80 VA: 0x11B3B80
-	public static CriFsInstallRequest Install(string srcPath, string dstPath) { }
-
-	// RVA: 0x11B3C3C Offset: 0x11B3C3C VA: 0x11B3C3C
-	public static CriFsInstallRequest Install(string srcPath, string dstPath, CriFsRequest.DoneDelegate doneDeleagate) { }
-
-	// RVA: 0x11B3C5C Offset: 0x11B3C5C VA: 0x11B3C5C
-	public static CriFsInstallRequest Install(CriFsBinder srcBinder, string srcPath, string dstPath) { }
-
-	// RVA: 0x11B3B9C Offset: 0x11B3B9C VA: 0x11B3B9C
-	public static CriFsInstallRequest Install(CriFsBinder srcBinder, string srcPath, string dstPath, CriFsRequest.DoneDelegate doneDeleagate) { }
-
-	// RVA: 0x11B3CF0 Offset: 0x11B3CF0 VA: 0x11B3CF0
-	public static CriFsInstallRequest WebInstall(string srcPath, string dstPath, CriFsRequest.DoneDelegate doneDeleagate) { }
-
-	// RVA: 0x11B3D80 Offset: 0x11B3D80 VA: 0x11B3D80
-	public static CriFsBindRequest BindCpk(CriFsBinder targetBinder, string srcPath) { }
-
-	// RVA: 0x11B3D90 Offset: 0x11B3D90 VA: 0x11B3D90
-	public static CriFsBindRequest BindCpk(CriFsBinder targetBinder, CriFsBinder srcBinder, string srcPath) { }
-
-	// RVA: 0x11B3E20 Offset: 0x11B3E20 VA: 0x11B3E20
-	public static CriFsBindRequest BindDirectory(CriFsBinder targetBinder, string srcPath) { }
-
-	// RVA: 0x11B3EAC Offset: 0x11B3EAC VA: 0x11B3EAC
-	public static CriFsBindRequest BindDirectory(CriFsBinder targetBinder, CriFsBinder srcBinder, string srcPath) { }
-
-	// RVA: 0x11B3F3C Offset: 0x11B3F3C VA: 0x11B3F3C
-	public static CriFsBindRequest BindFile(CriFsBinder targetBinder, string srcPath) { }
-
-	// RVA: 0x11B3FC8 Offset: 0x11B3FC8 VA: 0x11B3FC8
-	public static CriFsBindRequest BindFile(CriFsBinder targetBinder, CriFsBinder srcBinder, string srcPath) { }
-
-	// RVA: 0x11B4058 Offset: 0x11B4058 VA: 0x11B4058
-	public static void SetUserAgentString(string userAgentString) { }
-
-	// RVA: 0x11B4114 Offset: 0x11B4114 VA: 0x11B4114
-	public static void SetProxyServer(string proxyPath, ushort proxyPort) { }
-
-	// RVA: 0x11B41E0 Offset: 0x11B41E0 VA: 0x11B41E0
-	public static void SetPathSeparator(string filter) { }
-
-	// RVA: 0x11B405C Offset: 0x11B405C VA: 0x11B405C
-	private static extern bool CRIWARE14C89F34(string userAgentString) { }
-
-	// RVA: 0x11B4118 Offset: 0x11B4118 VA: 0x11B4118
-	private static extern bool CRIWARE5123B195(string proxyPath, ushort proxyPort) { }
-
-	// RVA: 0x11B41E4 Offset: 0x11B41E4 VA: 0x11B41E4
-	private static extern bool CRIWARE6ACCF4D2(string filter) { }
-}
-
-// Namespace: 
-public static class CriFsPlugin // TypeDefIndex: 4012
-{
-	// Fields
-	private static int initializationCount; // 0x0
-	private static bool isConfigured; // 0x4
-	public static int defaultInstallBufferSize; // 0x8
-	public static int installBufferSize; // 0xC
-
-	// Properties
-	public static bool isInitialized { get; }
-
-	// Methods
-
-	// RVA: 0x11B16F0 Offset: 0x11B16F0 VA: 0x11B16F0
-	public static bool get_isInitialized() { }
-
-	// RVA: 0x11B1760 Offset: 0x11B1760 VA: 0x11B1760
-	public static void SetConfigParameters(int num_loaders, int num_binders, int num_installers, int argInstallBufferSize, int max_path, bool minimize_file_descriptor_usage, bool enable_crc_check) { }
-
-	// RVA: 0x11B1900 Offset: 0x11B1900 VA: 0x11B1900
-	public static void SetReadDeviceEnabled(int deviceId, bool enabled) { }
-
-	// RVA: 0x11B1A38 Offset: 0x11B1A38 VA: 0x11B1A38
-	public static void SetConfigAdditionalParameters_ANDROID(int device_read_bps) { }
-
-	// RVA: 0x11B1B38 Offset: 0x11B1B38 VA: 0x11B1B38
-	public static void SetMemoryFileSystemThreadPriorityExperimentalAndroid(int prio) { }
-
-	// RVA: 0x11B1C38 Offset: 0x11B1C38 VA: 0x11B1C38
-	public static void SetDataDecompressionThreadPriorityExperimentalAndroid(int prio) { }
+	// RVA: 0x2404670 Offset: 0x2404670 VA: 0x2404670 Slot: 8

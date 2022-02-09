@@ -1,25 +1,147 @@
-	// RVA: 0xE8B34C Offset: 0xE8B34C VA: 0xE8B34C Slot: 6
+	public virtual IAsyncResult BeginInvoke(int fingerIndex, Vector2 position, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1DF5F24 Offset: 0x1DF5F24 VA: 0x1DF5F24 Slot: 13
+	public virtual bool EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[DefaultMemberAttribute] // RVA: 0xC1F70C Offset: 0xC1F70C VA: 0xC1F70C
+public interface FingerGestures.IFingerList : IEnumerable<FingerGestures.Finger>, IEnumerable // TypeDefIndex: 4174
+{
+	// Properties
+	public abstract FingerGestures.Finger Item { get; }
+	public abstract int Count { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract FingerGestures.Finger get_Item(int index);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract int get_Count();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract Vector2 GetAverageStartPosition();
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract Vector2 GetAveragePosition();
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract Vector2 GetAveragePreviousPosition();
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract float GetAverageDistanceFromStart();
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract FingerGestures.Finger GetOldest();
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract bool AllMoving();
+
+	// RVA: -1 Offset: -1 Slot: 8
+	public abstract bool MovingInSameDirection(float tolerance);
+}
+
+// Namespace: 
+[DefaultMemberAttribute] // RVA: 0xC1F744 Offset: 0xC1F744 VA: 0xC1F744
+[Serializable]
+public class FingerGestures.FingerList : FingerGestures.IFingerList, IEnumerable<FingerGestures.Finger>, IEnumerable // TypeDefIndex: 4175
+{
+	// Fields
+	[SerializeField] // RVA: 0xC2265C Offset: 0xC2265C VA: 0xC2265C
+	private List<FingerGestures.Finger> list; // 0x10
+	private static FingerGestures.FingerList.FingerPropertyGetterDelegate<Vector2> delGetFingerStartPosition; // 0x0
+	private static FingerGestures.FingerList.FingerPropertyGetterDelegate<Vector2> delGetFingerPosition; // 0x8
+	private static FingerGestures.FingerList.FingerPropertyGetterDelegate<Vector2> delGetFingerPreviousPosition; // 0x10
+	private static FingerGestures.FingerList.FingerPropertyGetterDelegate<float> delGetFingerDistanceFromStart; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xC2266C Offset: 0xC2266C VA: 0xC2266C
+	private static FingerGestures.FingerList.FingerPropertyGetterDelegate<Vector2> <>f__mg$cache0; // 0x20
+	[CompilerGeneratedAttribute] // RVA: 0xC2267C Offset: 0xC2267C VA: 0xC2267C
+	private static FingerGestures.FingerList.FingerPropertyGetterDelegate<Vector2> <>f__mg$cache1; // 0x28
+	[CompilerGeneratedAttribute] // RVA: 0xC2268C Offset: 0xC2268C VA: 0xC2268C
+	private static FingerGestures.FingerList.FingerPropertyGetterDelegate<Vector2> <>f__mg$cache2; // 0x30
+	[CompilerGeneratedAttribute] // RVA: 0xC2269C Offset: 0xC2269C VA: 0xC2269C
+	private static FingerGestures.FingerList.FingerPropertyGetterDelegate<float> <>f__mg$cache3; // 0x38
+
+	// Properties
+	public FingerGestures.Finger Item { get; }
+	public int Count { get; }
+
+	// Methods
+
+	// RVA: 0x1DEF3AC Offset: 0x1DEF3AC VA: 0x1DEF3AC
+	public void .ctor() { }
+
+	// RVA: 0x1DF5230 Offset: 0x1DF5230 VA: 0x1DF5230
+	public void .ctor(List<FingerGestures.Finger> list) { }
+
+	// RVA: 0x1DEF9EC Offset: 0x1DEF9EC VA: 0x1DEF9EC Slot: 4
+	public FingerGestures.Finger get_Item(int index) { }
+
+	// RVA: 0x1DEFACC Offset: 0x1DEFACC VA: 0x1DEFACC Slot: 5
+	public int get_Count() { }
+
+	// RVA: 0x1DF525C Offset: 0x1DF525C VA: 0x1DF525C Slot: 13
+	public IEnumerator<FingerGestures.Finger> GetEnumerator() { }
+
+	// RVA: 0x1DF52F0 Offset: 0x1DF52F0 VA: 0x1DF52F0 Slot: 14
+	private IEnumerator System.Collections.IEnumerable.GetEnumerator() { }
+
+	// RVA: 0x1DEF8E0 Offset: 0x1DEF8E0 VA: 0x1DEF8E0
+	public void Add(FingerGestures.Finger touch) { }
+
+	// RVA: 0x1DEFA5C Offset: 0x1DEFA5C VA: 0x1DEFA5C
+	public bool Remove(FingerGestures.Finger touch) { }
+
+	// RVA: 0x1DF52F4 Offset: 0x1DF52F4 VA: 0x1DF52F4
+	public bool Contains(FingerGestures.Finger touch) { }
+
+	// RVA: 0x1DF5364 Offset: 0x1DF5364 VA: 0x1DF5364
+	public void AddRange(IEnumerable<FingerGestures.Finger> touches) { }
+
+	// RVA: 0x1DEF7B0 Offset: 0x1DEF7B0 VA: 0x1DEF7B0
+	public void Clear() { }
+
+	// RVA: 0x1DF53D4 Offset: 0x1DF53D4 VA: 0x1DF53D4
+	public Vector2 AverageVector(FingerGestures.FingerList.FingerPropertyGetterDelegate<Vector2> getProperty) { }
+
+	// RVA: 0x1DF5594 Offset: 0x1DF5594 VA: 0x1DF5594
+	public float AverageFloat(FingerGestures.FingerList.FingerPropertyGetterDelegate<float> getProperty) { }
+
+	// RVA: 0x1DF56B0 Offset: 0x1DF56B0 VA: 0x1DF56B0
+	private static Vector2 GetFingerStartPosition(FingerGestures.Finger finger) { }
+
+	// RVA: 0x1DF56D8 Offset: 0x1DF56D8 VA: 0x1DF56D8
+	private static Vector2 GetFingerPosition(FingerGestures.Finger finger) { }
+
+	// RVA: 0x1DF5700 Offset: 0x1DF5700 VA: 0x1DF5700
+	private static Vector2 GetFingerPreviousPosition(FingerGestures.Finger finger) { }
+
+	// RVA: 0x1DF5728 Offset: 0x1DF5728 VA: 0x1DF5728
+	private static float GetFingerDistanceFromStart(FingerGestures.Finger finger) { }
+
+	// RVA: 0x1DF5750 Offset: 0x1DF5750 VA: 0x1DF5750 Slot: 6
 	public Vector2 GetAverageStartPosition() { }
 
-	// RVA: 0xE85C9C Offset: 0xE85C9C VA: 0xE85C9C Slot: 7
+	// RVA: 0x1DF00A0 Offset: 0x1DF00A0 VA: 0x1DF00A0 Slot: 7
 	public Vector2 GetAveragePosition() { }
 
-	// RVA: 0xE8B3BC Offset: 0xE8B3BC VA: 0xE8B3BC Slot: 8
+	// RVA: 0x1DF57C0 Offset: 0x1DF57C0 VA: 0x1DF57C0 Slot: 8
 	public Vector2 GetAveragePreviousPosition() { }
 
-	// RVA: 0xE8B42C Offset: 0xE8B42C VA: 0xE8B42C Slot: 9
+	// RVA: 0x1DF5830 Offset: 0x1DF5830 VA: 0x1DF5830 Slot: 9
 	public float GetAverageDistanceFromStart() { }
 
-	// RVA: 0xE8B49C Offset: 0xE8B49C VA: 0xE8B49C Slot: 10
+	// RVA: 0x1DF58A0 Offset: 0x1DF58A0 VA: 0x1DF58A0 Slot: 10
 	public FingerGestures.Finger GetOldest() { }
 
-	// RVA: 0xE8B5D8 Offset: 0xE8B5D8 VA: 0xE8B5D8 Slot: 12
+	// RVA: 0x1DF59DC Offset: 0x1DF59DC VA: 0x1DF59DC Slot: 12
 	public bool MovingInSameDirection(float tolerance) { }
 
-	// RVA: 0xE8B7DC Offset: 0xE8B7DC VA: 0xE8B7DC Slot: 11
+	// RVA: 0x1DF5BE0 Offset: 0x1DF5BE0 VA: 0x1DF5BE0 Slot: 11
 	public bool AllMoving() { }
 
-	// RVA: 0xE8B8B8 Offset: 0xE8B8B8 VA: 0xE8B8B8
+	// RVA: 0x1DF5CBC Offset: 0x1DF5CBC VA: 0x1DF5CBC
 	private static void .cctor() { }
 }
 
@@ -32,13 +154,13 @@ public sealed class FingerGestures.FingerList.FingerPropertyGetterDelegate<T> : 
 	public void .ctor(object object, IntPtr method) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x252B68C Offset: 0x252B68C VA: 0x252B68C
+	|-RVA: 0x226B3FC Offset: 0x226B3FC VA: 0x226B3FC
 	|-FingerGestures.FingerList.FingerPropertyGetterDelegate<object>..ctor
 	|
-	|-RVA: 0x252BA70 Offset: 0x252BA70 VA: 0x252BA70
+	|-RVA: 0x226B7E0 Offset: 0x226B7E0 VA: 0x226B7E0
 	|-FingerGestures.FingerList.FingerPropertyGetterDelegate<float>..ctor
 	|
-	|-RVA: 0x252BE84 Offset: 0x252BE84 VA: 0x252BE84
+	|-RVA: 0x226BBF4 Offset: 0x226BBF4 VA: 0x226BBF4
 	|-FingerGestures.FingerList.FingerPropertyGetterDelegate<Vector2>..ctor
 	*/
 
@@ -46,13 +168,13 @@ public sealed class FingerGestures.FingerList.FingerPropertyGetterDelegate<T> : 
 	public virtual T Invoke(FingerGestures.Finger finger) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x252B69C Offset: 0x252B69C VA: 0x252B69C
+	|-RVA: 0x226B40C Offset: 0x226B40C VA: 0x226B40C
 	|-FingerGestures.FingerList.FingerPropertyGetterDelegate<object>.Invoke
 	|
-	|-RVA: 0x252BA80 Offset: 0x252BA80 VA: 0x252BA80
+	|-RVA: 0x226B7F0 Offset: 0x226B7F0 VA: 0x226B7F0
 	|-FingerGestures.FingerList.FingerPropertyGetterDelegate<float>.Invoke
 	|
-	|-RVA: 0x252BE94 Offset: 0x252BE94 VA: 0x252BE94
+	|-RVA: 0x226BC04 Offset: 0x226BC04 VA: 0x226BC04
 	|-FingerGestures.FingerList.FingerPropertyGetterDelegate<Vector2>.Invoke
 	*/
 
@@ -60,13 +182,13 @@ public sealed class FingerGestures.FingerList.FingerPropertyGetterDelegate<T> : 
 	public virtual IAsyncResult BeginInvoke(FingerGestures.Finger finger, AsyncCallback callback, object object) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x252BA40 Offset: 0x252BA40 VA: 0x252BA40
+	|-RVA: 0x226B7B0 Offset: 0x226B7B0 VA: 0x226B7B0
 	|-FingerGestures.FingerList.FingerPropertyGetterDelegate<object>.BeginInvoke
 	|
-	|-RVA: 0x252BE24 Offset: 0x252BE24 VA: 0x252BE24
+	|-RVA: 0x226BB94 Offset: 0x226BB94 VA: 0x226BB94
 	|-FingerGestures.FingerList.FingerPropertyGetterDelegate<float>.BeginInvoke
 	|
-	|-RVA: 0x252C240 Offset: 0x252C240 VA: 0x252C240
+	|-RVA: 0x226BFB0 Offset: 0x226BFB0 VA: 0x226BFB0
 	|-FingerGestures.FingerList.FingerPropertyGetterDelegate<Vector2>.BeginInvoke
 	*/
 
@@ -74,19 +196,19 @@ public sealed class FingerGestures.FingerList.FingerPropertyGetterDelegate<T> : 
 	public virtual T EndInvoke(IAsyncResult result) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x252BA64 Offset: 0x252BA64 VA: 0x252BA64
+	|-RVA: 0x226B7D4 Offset: 0x226B7D4 VA: 0x226B7D4
 	|-FingerGestures.FingerList.FingerPropertyGetterDelegate<object>.EndInvoke
 	|
-	|-RVA: 0x252BE48 Offset: 0x252BE48 VA: 0x252BE48
+	|-RVA: 0x226BBB8 Offset: 0x226BBB8 VA: 0x226BBB8
 	|-FingerGestures.FingerList.FingerPropertyGetterDelegate<float>.EndInvoke
 	|
-	|-RVA: 0x252C264 Offset: 0x252C264 VA: 0x252C264
+	|-RVA: 0x226BFD4 Offset: 0x226BFD4 VA: 0x226BFD4
 	|-FingerGestures.FingerList.FingerPropertyGetterDelegate<Vector2>.EndInvoke
 	*/
 }
 
 // Namespace: 
-[FlagsAttribute] // RVA: 0xC8B8A4 Offset: 0xC8B8A4 VA: 0xC8B8A4
+[FlagsAttribute] // RVA: 0xC1F77C Offset: 0xC1F77C VA: 0xC1F77C
 public enum FingerGestures.SwipeDirection // TypeDefIndex: 4177
 {
 	// Fields
@@ -120,45 +242,45 @@ public enum DistanceUnit // TypeDefIndex: 4178
 }
 
 // Namespace: 
-[ExtensionAttribute] // RVA: 0xC8B8B4 Offset: 0xC8B8B4 VA: 0xC8B8B4
+[ExtensionAttribute] // RVA: 0xC1F78C Offset: 0xC1F78C VA: 0xC1F78C
 public static class FingerGesturesExtensions // TypeDefIndex: 4179
 {
 	// Methods
 
-	[ExtensionAttribute] // RVA: 0xC90488 Offset: 0xC90488 VA: 0xC90488
-	// RVA: 0xE8BB5C Offset: 0xE8BB5C VA: 0xE8BB5C
+	[ExtensionAttribute] // RVA: 0xC24360 Offset: 0xC24360 VA: 0xC24360
+	// RVA: 0x1DF5F60 Offset: 0x1DF5F60 VA: 0x1DF5F60
 	public static string Abreviation(DistanceUnit unit) { }
 
-	[ExtensionAttribute] // RVA: 0xC90498 Offset: 0xC90498 VA: 0xC90498
-	// RVA: 0xE8BC40 Offset: 0xE8BC40 VA: 0xE8BC40
+	[ExtensionAttribute] // RVA: 0xC24370 Offset: 0xC24370 VA: 0xC24370
+	// RVA: 0x1DF6044 Offset: 0x1DF6044 VA: 0x1DF6044
 	public static float Convert(float value, DistanceUnit fromUnit, DistanceUnit toUnit) { }
 
-	[ExtensionAttribute] // RVA: 0xC904A8 Offset: 0xC904A8 VA: 0xC904A8
-	// RVA: 0xE8BCC4 Offset: 0xE8BCC4 VA: 0xE8BCC4
+	[ExtensionAttribute] // RVA: 0xC24380 Offset: 0xC24380 VA: 0xC24380
+	// RVA: 0x1DF60C8 Offset: 0x1DF60C8 VA: 0x1DF60C8
 	public static float In(float valueInPixels, DistanceUnit toUnit) { }
 
-	[ExtensionAttribute] // RVA: 0xC904B8 Offset: 0xC904B8 VA: 0xC904B8
-	// RVA: 0xE8BCD4 Offset: 0xE8BCD4 VA: 0xE8BCD4
+	[ExtensionAttribute] // RVA: 0xC24390 Offset: 0xC24390 VA: 0xC24390
+	// RVA: 0x1DF60D8 Offset: 0x1DF60D8 VA: 0x1DF60D8
 	public static float Centimeters(float valueInPixels) { }
 
-	[ExtensionAttribute] // RVA: 0xC904C8 Offset: 0xC904C8 VA: 0xC904C8
-	// RVA: 0xE8BCE0 Offset: 0xE8BCE0 VA: 0xE8BCE0
+	[ExtensionAttribute] // RVA: 0xC243A0 Offset: 0xC243A0 VA: 0xC243A0
+	// RVA: 0x1DF60E4 Offset: 0x1DF60E4 VA: 0x1DF60E4
 	public static float Inches(float valueInPixels) { }
 
-	[ExtensionAttribute] // RVA: 0xC904D8 Offset: 0xC904D8 VA: 0xC904D8
-	// RVA: 0xE8BCEC Offset: 0xE8BCEC VA: 0xE8BCEC
+	[ExtensionAttribute] // RVA: 0xC243B0 Offset: 0xC243B0 VA: 0xC243B0
+	// RVA: 0x1DF60F0 Offset: 0x1DF60F0 VA: 0x1DF60F0
 	public static Vector2 Convert(Vector2 v, DistanceUnit fromUnit, DistanceUnit toUnit) { }
 
-	[ExtensionAttribute] // RVA: 0xC904E8 Offset: 0xC904E8 VA: 0xC904E8
-	// RVA: 0xE8BD78 Offset: 0xE8BD78 VA: 0xE8BD78
+	[ExtensionAttribute] // RVA: 0xC243C0 Offset: 0xC243C0 VA: 0xC243C0
+	// RVA: 0x1DF617C Offset: 0x1DF617C VA: 0x1DF617C
 	public static Vector2 In(Vector2 vecInPixels, DistanceUnit toUnit) { }
 
-	[ExtensionAttribute] // RVA: 0xC904F8 Offset: 0xC904F8 VA: 0xC904F8
-	// RVA: 0xE8BD88 Offset: 0xE8BD88 VA: 0xE8BD88
+	[ExtensionAttribute] // RVA: 0xC243D0 Offset: 0xC243D0 VA: 0xC243D0
+	// RVA: 0x1DF618C Offset: 0x1DF618C VA: 0x1DF618C
 	public static Vector2 Centimeters(Vector2 vecInPixels) { }
 
-	[ExtensionAttribute] // RVA: 0xC90508 Offset: 0xC90508 VA: 0xC90508
-	// RVA: 0xE8BD94 Offset: 0xE8BD94 VA: 0xE8BD94
+	[ExtensionAttribute] // RVA: 0xC243E0 Offset: 0xC243E0 VA: 0xC243E0
+	// RVA: 0x1DF6198 Offset: 0x1DF6198 VA: 0x1DF6198
 	public static Vector2 Inches(Vector2 vecInPixels) { }
 }
 
@@ -176,21 +298,21 @@ public class DragGesture : ContinuousGesture // TypeDefIndex: 4180
 
 	// Methods
 
-	// RVA: 0xE8363C Offset: 0xE8363C VA: 0xE8363C
+	// RVA: 0x1DEDA40 Offset: 0x1DEDA40 VA: 0x1DEDA40
 	public void .ctor() { }
 
-	// RVA: 0xE836C8 Offset: 0xE836C8 VA: 0xE836C8
+	// RVA: 0x1DEDACC Offset: 0x1DEDACC VA: 0x1DEDACC
 	public Vector2 get_DeltaMove() { }
 
-	// RVA: 0xE836D0 Offset: 0xE836D0 VA: 0xE836D0
+	// RVA: 0x1DEDAD4 Offset: 0x1DEDAD4 VA: 0x1DEDAD4
 	internal void set_DeltaMove(Vector2 value) { }
 
-	// RVA: 0xE836D8 Offset: 0xE836D8 VA: 0xE836D8
+	// RVA: 0x1DEDADC Offset: 0x1DEDADC VA: 0x1DEDADC
 	public Vector2 get_TotalMove() { }
 }
 
 // Namespace: 
-[AddComponentMenu] // RVA: 0xC8B8C4 Offset: 0xC8B8C4 VA: 0xC8B8C4
+[AddComponentMenu] // RVA: 0xC1F79C Offset: 0xC1F79C VA: 0xC1F79C
 public class DragRecognizer : ContinuousGestureRecognizer<DragGesture> // TypeDefIndex: 4181
 {
 	// Fields
@@ -199,22 +321,22 @@ public class DragRecognizer : ContinuousGestureRecognizer<DragGesture> // TypeDe
 
 	// Methods
 
-	// RVA: 0xE83774 Offset: 0xE83774 VA: 0xE83774
+	// RVA: 0x1DEDB78 Offset: 0x1DEDB78 VA: 0x1DEDB78
 	public void .ctor() { }
 
-	// RVA: 0xE837CC Offset: 0xE837CC VA: 0xE837CC Slot: 8
+	// RVA: 0x1DEDBD0 Offset: 0x1DEDBD0 VA: 0x1DEDBD0 Slot: 8
 	public override string GetDefaultEventMessageName() { }
 
-	// RVA: 0xE83814 Offset: 0xE83814 VA: 0xE83814 Slot: 17
+	// RVA: 0x1DEDC18 Offset: 0x1DEDC18 VA: 0x1DEDC18 Slot: 17
 	protected override GameObject GetDefaultSelectionForSendMessage(DragGesture gesture) { }
 
-	// RVA: 0xE83848 Offset: 0xE83848 VA: 0xE83848 Slot: 14
+	// RVA: 0x1DEDC4C Offset: 0x1DEDC4C VA: 0x1DEDC4C Slot: 14
 	protected override bool CanBegin(DragGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0xE83A84 Offset: 0xE83A84 VA: 0xE83A84 Slot: 15
+	// RVA: 0x1DEDE88 Offset: 0x1DEDE88 VA: 0x1DEDE88 Slot: 15
 	protected override void OnBegin(DragGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0xE83CDC Offset: 0xE83CDC VA: 0xE83CDC Slot: 16
+	// RVA: 0x1DEE0E0 Offset: 0x1DEE0E0 VA: 0x1DEE0E0 Slot: 16
 	protected override GestureRecognitionState OnRecognize(DragGesture gesture, FingerGestures.IFingerList touches) { }
 }
 
@@ -224,12 +346,12 @@ public class LongPressGesture : DiscreteGesture // TypeDefIndex: 4182
 {
 	// Methods
 
-	// RVA: 0xE9089C Offset: 0xE9089C VA: 0xE9089C
+	// RVA: 0x1DFACA0 Offset: 0x1DFACA0 VA: 0x1DFACA0
 	public void .ctor() { }
 }
 
 // Namespace: 
-[AddComponentMenu] // RVA: 0xC8B8FC Offset: 0xC8B8FC VA: 0xC8B8FC
+[AddComponentMenu] // RVA: 0xC1F7D4 Offset: 0xC1F7D4 VA: 0xC1F7D4
 public class LongPressRecognizer : DiscreteGestureRecognizer<LongPressGesture> // TypeDefIndex: 4183
 {
 	// Fields
@@ -238,16 +360,16 @@ public class LongPressRecognizer : DiscreteGestureRecognizer<LongPressGesture> /
 
 	// Methods
 
-	// RVA: 0xE908A0 Offset: 0xE908A0 VA: 0xE908A0
+	// RVA: 0x1DFACA4 Offset: 0x1DFACA4 VA: 0x1DFACA4
 	public void .ctor() { }
 
-	// RVA: 0xE908FC Offset: 0xE908FC VA: 0xE908FC Slot: 8
+	// RVA: 0x1DFAD00 Offset: 0x1DFAD00 VA: 0x1DFAD00 Slot: 8
 	public override string GetDefaultEventMessageName() { }
 
-	// RVA: 0xE90944 Offset: 0xE90944 VA: 0xE90944 Slot: 15
+	// RVA: 0x1DFAD48 Offset: 0x1DFAD48 VA: 0x1DFAD48 Slot: 15
 	protected override void OnBegin(LongPressGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0xE90A58 Offset: 0xE90A58 VA: 0xE90A58 Slot: 16
+	// RVA: 0x1DFAE5C Offset: 0x1DFAE5C VA: 0x1DFAE5C Slot: 16
 	protected override GestureRecognitionState OnRecognize(LongPressGesture gesture, FingerGestures.IFingerList touches) { }
 }
 
@@ -264,24 +386,24 @@ public class PinchGesture : ContinuousGesture // TypeDefIndex: 4184
 
 	// Methods
 
-	// RVA: 0xE972B4 Offset: 0xE972B4 VA: 0xE972B4
+	// RVA: 0x1E016B8 Offset: 0x1E016B8 VA: 0x1E016B8
 	public void .ctor() { }
 
-	// RVA: 0xE8FB98 Offset: 0xE8FB98 VA: 0xE8FB98
+	// RVA: 0x1DF9F9C Offset: 0x1DF9F9C VA: 0x1DF9F9C
 	public float get_Delta() { }
 
-	// RVA: 0xE972BC Offset: 0xE972BC VA: 0xE972BC
+	// RVA: 0x1E016C0 Offset: 0x1E016C0 VA: 0x1E016C0
 	internal void set_Delta(float value) { }
 
-	// RVA: 0xE8FBA0 Offset: 0xE8FBA0 VA: 0xE8FBA0
+	// RVA: 0x1DF9FA4 Offset: 0x1DF9FA4 VA: 0x1DF9FA4
 	public float get_Gap() { }
 
-	// RVA: 0xE972C4 Offset: 0xE972C4 VA: 0xE972C4
+	// RVA: 0x1E016C8 Offset: 0x1E016C8 VA: 0x1E016C8
 	internal void set_Gap(float value) { }
 }
 
 // Namespace: 
-[AddComponentMenu] // RVA: 0xC8B934 Offset: 0xC8B934 VA: 0xC8B934
+[AddComponentMenu] // RVA: 0xC1F80C Offset: 0xC1F80C VA: 0xC1F80C
 public class PinchRecognizer : ContinuousGestureRecognizer<PinchGesture> // TypeDefIndex: 4185
 {
 	// Fields
@@ -294,37 +416,37 @@ public class PinchRecognizer : ContinuousGestureRecognizer<PinchGesture> // Type
 
 	// Methods
 
-	// RVA: 0xE972CC Offset: 0xE972CC VA: 0xE972CC
+	// RVA: 0x1E016D0 Offset: 0x1E016D0 VA: 0x1E016D0
 	public void .ctor() { }
 
-	// RVA: 0xE9732C Offset: 0xE9732C VA: 0xE9732C Slot: 8
+	// RVA: 0x1E01730 Offset: 0x1E01730 VA: 0x1E01730 Slot: 8
 	public override string GetDefaultEventMessageName() { }
 
-	// RVA: 0xE97374 Offset: 0xE97374 VA: 0xE97374 Slot: 4
+	// RVA: 0x1E01778 Offset: 0x1E01778 VA: 0x1E01778 Slot: 4
 	public override int get_RequiredFingerCount() { }
 
-	// RVA: 0xE9737C Offset: 0xE9737C VA: 0xE9737C Slot: 5
+	// RVA: 0x1E01780 Offset: 0x1E01780 VA: 0x1E01780 Slot: 5
 	public override void set_RequiredFingerCount(int value) { }
 
-	// RVA: 0xE97384 Offset: 0xE97384 VA: 0xE97384 Slot: 6
+	// RVA: 0x1E01788 Offset: 0x1E01788 VA: 0x1E01788 Slot: 6
 	public override bool get_SupportFingerClustering() { }
 
-	// RVA: 0xE9738C Offset: 0xE9738C VA: 0xE9738C Slot: 17
+	// RVA: 0x1E01790 Offset: 0x1E01790 VA: 0x1E01790 Slot: 17
 	protected override GameObject GetDefaultSelectionForSendMessage(PinchGesture gesture) { }
 
-	// RVA: 0xE973B8 Offset: 0xE973B8 VA: 0xE973B8 Slot: 7
+	// RVA: 0x1E017BC Offset: 0x1E017BC VA: 0x1E017BC Slot: 7
 	public override GestureResetMode GetDefaultResetMode() { }
 
-	// RVA: 0xE973C0 Offset: 0xE973C0 VA: 0xE973C0 Slot: 14
+	// RVA: 0x1E017C4 Offset: 0x1E017C4 VA: 0x1E017C4 Slot: 14
 	protected override bool CanBegin(PinchGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0xE976D0 Offset: 0xE976D0 VA: 0xE976D0 Slot: 15
+	// RVA: 0x1E01AD4 Offset: 0x1E01AD4 VA: 0x1E01AD4 Slot: 15
 	protected override void OnBegin(PinchGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0xE97948 Offset: 0xE97948 VA: 0xE97948 Slot: 16
+	// RVA: 0x1E01D4C Offset: 0x1E01D4C VA: 0x1E01D4C Slot: 16
 	protected override GestureRecognitionState OnRecognize(PinchGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0xE97648 Offset: 0xE97648 VA: 0xE97648
+	// RVA: 0x1E01A4C Offset: 0x1E01A4C VA: 0x1E01A4C
 	private bool FingersMovedInOppositeDirections(FingerGestures.Finger finger0, FingerGestures.Finger finger1) { }
 }
 
@@ -332,13 +454,13 @@ public class PinchRecognizer : ContinuousGestureRecognizer<PinchGesture> // Type
 public class PointCloudGestureTemplate : ScriptableObject // TypeDefIndex: 4186
 {
 	// Fields
-	[SerializeField] // RVA: 0xC8E7D4 Offset: 0xC8E7D4 VA: 0xC8E7D4
+	[SerializeField] // RVA: 0xC226AC Offset: 0xC226AC VA: 0xC226AC
 	private List<int> strokeIds; // 0x18
-	[SerializeField] // RVA: 0xC8E7E4 Offset: 0xC8E7E4 VA: 0xC8E7E4
+	[SerializeField] // RVA: 0xC226BC Offset: 0xC226BC VA: 0xC226BC
 	private List<Vector2> positions; // 0x20
-	[SerializeField] // RVA: 0xC8E7F4 Offset: 0xC8E7F4 VA: 0xC8E7F4
+	[SerializeField] // RVA: 0xC226CC Offset: 0xC226CC VA: 0xC226CC
 	private int strokeCount; // 0x28
-	[SerializeField] // RVA: 0xC8E804 Offset: 0xC8E804 VA: 0xC8E804
+	[SerializeField] // RVA: 0xC226DC Offset: 0xC226DC VA: 0xC226DC
 	private Vector2 size; // 0x2C
 
 	// Properties
@@ -350,49 +472,49 @@ public class PointCloudGestureTemplate : ScriptableObject // TypeDefIndex: 4186
 
 	// Methods
 
-	// RVA: 0xE97DCC Offset: 0xE97DCC VA: 0xE97DCC
+	// RVA: 0x1E021D0 Offset: 0x1E021D0 VA: 0x1E021D0
 	public void .ctor() { }
 
-	// RVA: 0xE97E40 Offset: 0xE97E40 VA: 0xE97E40
+	// RVA: 0x1E02244 Offset: 0x1E02244 VA: 0x1E02244
 	public Vector2 get_Size() { }
 
-	// RVA: 0xE97E48 Offset: 0xE97E48 VA: 0xE97E48
+	// RVA: 0x1E0224C Offset: 0x1E0224C VA: 0x1E0224C
 	public float get_Width() { }
 
-	// RVA: 0xE97E50 Offset: 0xE97E50 VA: 0xE97E50
+	// RVA: 0x1E02254 Offset: 0x1E02254 VA: 0x1E02254
 	public float get_Height() { }
 
-	// RVA: 0xE97E58 Offset: 0xE97E58 VA: 0xE97E58
+	// RVA: 0x1E0225C Offset: 0x1E0225C VA: 0x1E0225C
 	private void Awake() { }
 
-	// RVA: 0xE97EF8 Offset: 0xE97EF8 VA: 0xE97EF8
+	// RVA: 0x1E022FC Offset: 0x1E022FC VA: 0x1E022FC
 	public void BeginPoints() { }
 
-	// RVA: 0xE97FB0 Offset: 0xE97FB0 VA: 0xE97FB0
+	// RVA: 0x1E023B4 Offset: 0x1E023B4 VA: 0x1E023B4
 	public void AddPoint(int stroke, Vector2 p) { }
 
-	// RVA: 0xE9805C Offset: 0xE9805C VA: 0xE9805C
+	// RVA: 0x1E02460 Offset: 0x1E02460 VA: 0x1E02460
 	public void AddPoint(int stroke, float x, float y) { }
 
-	// RVA: 0xE980A4 Offset: 0xE980A4 VA: 0xE980A4
+	// RVA: 0x1E024A8 Offset: 0x1E024A8 VA: 0x1E024A8
 	public void EndPoints() { }
 
-	// RVA: 0xE984F0 Offset: 0xE984F0 VA: 0xE984F0
+	// RVA: 0x1E028F4 Offset: 0x1E028F4 VA: 0x1E028F4
 	public Vector2 GetPosition(int pointIndex) { }
 
-	// RVA: 0xE98560 Offset: 0xE98560 VA: 0xE98560
+	// RVA: 0x1E02964 Offset: 0x1E02964 VA: 0x1E02964
 	public int GetStrokeId(int pointIndex) { }
 
-	// RVA: 0xE985D0 Offset: 0xE985D0 VA: 0xE985D0
+	// RVA: 0x1E029D4 Offset: 0x1E029D4 VA: 0x1E029D4
 	public int get_PointCount() { }
 
-	// RVA: 0xE98630 Offset: 0xE98630 VA: 0xE98630
+	// RVA: 0x1E02A34 Offset: 0x1E02A34 VA: 0x1E02A34
 	public int get_StrokeCount() { }
 
-	// RVA: 0xE981F4 Offset: 0xE981F4 VA: 0xE981F4
+	// RVA: 0x1E025F8 Offset: 0x1E025F8 VA: 0x1E025F8
 	public void Normalize() { }
 
-	// RVA: 0xE984EC Offset: 0xE984EC VA: 0xE984EC
+	// RVA: 0x1E028F0 Offset: 0x1E028F0 VA: 0x1E028F0
 	private void MakeDirty() { }
 }
 
@@ -408,12 +530,12 @@ public class PointCloudGesture : DiscreteGesture // TypeDefIndex: 4187
 
 	// Methods
 
-	// RVA: 0xE97D38 Offset: 0xE97D38 VA: 0xE97D38
+	// RVA: 0x1E0213C Offset: 0x1E0213C VA: 0x1E0213C
 	public void .ctor() { }
 }
 
 // Namespace: 
-[AddComponentMenu] // RVA: 0xC8B96C Offset: 0xC8B96C VA: 0xC8B96C
+[AddComponentMenu] // RVA: 0xC1F844 Offset: 0xC1F844 VA: 0xC1F844
 public class PointCloudRegognizer : DiscreteGestureRecognizer<PointCloudGesture> // TypeDefIndex: 4188
 {
 	// Fields
@@ -430,49 +552,49 @@ public class PointCloudRegognizer : DiscreteGestureRecognizer<PointCloudGesture>
 
 	// Methods
 
-	// RVA: 0xE98638 Offset: 0xE98638 VA: 0xE98638
+	// RVA: 0x1E02A3C Offset: 0x1E02A3C VA: 0x1E02A3C
 	public void .ctor() { }
 
-	// RVA: 0xE98694 Offset: 0xE98694 VA: 0xE98694 Slot: 10
+	// RVA: 0x1E02A98 Offset: 0x1E02A98 VA: 0x1E02A98 Slot: 10
 	protected override void Awake() { }
 
-	// RVA: 0xE989D0 Offset: 0xE989D0 VA: 0xE989D0
+	// RVA: 0x1E02DD4 Offset: 0x1E02DD4 VA: 0x1E02DD4
 	private PointCloudRegognizer.NormalizedTemplate FindNormalizedTemplate(PointCloudGestureTemplate template) { }
 
-	// RVA: 0xE98AA0 Offset: 0xE98AA0 VA: 0xE98AA0
+	// RVA: 0x1E02EA4 Offset: 0x1E02EA4 VA: 0x1E02EA4
 	private List<PointCloudRegognizer.Point> Normalize(List<PointCloudRegognizer.Point> points) { }
 
-	// RVA: 0xE987FC Offset: 0xE987FC VA: 0xE987FC
+	// RVA: 0x1E02C00 Offset: 0x1E02C00 VA: 0x1E02C00
 	public bool AddTemplate(PointCloudGestureTemplate template) { }
 
-	// RVA: 0xE98B44 Offset: 0xE98B44 VA: 0xE98B44 Slot: 15
+	// RVA: 0x1E02F48 Offset: 0x1E02F48 VA: 0x1E02F48 Slot: 15
 	protected override void OnBegin(PointCloudGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0xE98D50 Offset: 0xE98D50 VA: 0xE98D50
+	// RVA: 0x1E03154 Offset: 0x1E03154 VA: 0x1E03154
 	private bool RecognizePointCloud(PointCloudGesture gesture) { }
 
-	// RVA: 0xE98FDC Offset: 0xE98FDC VA: 0xE98FDC
+	// RVA: 0x1E033E0 Offset: 0x1E033E0 VA: 0x1E033E0
 	private float GreedyCloudMatch(List<PointCloudRegognizer.Point> points, List<PointCloudRegognizer.Point> refPoints) { }
 
-	// RVA: 0xE991E4 Offset: 0xE991E4 VA: 0xE991E4
+	// RVA: 0x1E035E8 Offset: 0x1E035E8 VA: 0x1E035E8
 	private static float CloudDistance(List<PointCloudRegognizer.Point> points1, List<PointCloudRegognizer.Point> points2, int startIndex) { }
 
-	// RVA: 0xE9954C Offset: 0xE9954C VA: 0xE9954C
+	// RVA: 0x1E03950 Offset: 0x1E03950 VA: 0x1E03950
 	private static void ResetMatched(int count) { }
 
-	// RVA: 0xE99688 Offset: 0xE99688 VA: 0xE99688 Slot: 16
+	// RVA: 0x1E03A8C Offset: 0x1E03A8C VA: 0x1E03A8C Slot: 16
 	protected override GestureRecognitionState OnRecognize(PointCloudGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0xE99A24 Offset: 0xE99A24 VA: 0xE99A24 Slot: 8
+	// RVA: 0x1E03E28 Offset: 0x1E03E28 VA: 0x1E03E28 Slot: 8
 	public override string GetDefaultEventMessageName() { }
 
-	// RVA: 0xE99A6C Offset: 0xE99A6C VA: 0xE99A6C
+	// RVA: 0x1E03E70 Offset: 0x1E03E70 VA: 0x1E03E70
 	public void OnDrawGizmosSelected() { }
 
-	// RVA: 0xE99AF8 Offset: 0xE99AF8 VA: 0xE99AF8
+	// RVA: 0x1E03EFC Offset: 0x1E03EFC VA: 0x1E03EFC
 	private void DrawNormalizedPointCloud(List<PointCloudRegognizer.Point> points, float scale) { }
 
-	// RVA: 0xE99D54 Offset: 0xE99D54 VA: 0xE99D54
+	// RVA: 0x1E04158 Offset: 0x1E04158 VA: 0x1E04158
 	private static void .cctor() { }
 }
 
@@ -486,10 +608,10 @@ public struct PointCloudRegognizer.Point // TypeDefIndex: 4189
 
 	// Methods
 
-	// RVA: 0xBC0534 Offset: 0xBC0534 VA: 0xBC0534
+	// RVA: 0xD735A0 Offset: 0xD735A0 VA: 0xD735A0
 	public void .ctor(int strokeId, Vector2 pos) { }
 
-	// RVA: 0xBC0540 Offset: 0xBC0540 VA: 0xBC0540
+	// RVA: 0xD735AC Offset: 0xD735AC VA: 0xD735AC
 	public void .ctor(int strokeId, float x, float y) { }
 }
 
@@ -502,7 +624,7 @@ private class PointCloudRegognizer.NormalizedTemplate // TypeDefIndex: 4190
 
 	// Methods
 
-	// RVA: 0x12D00E8 Offset: 0x12D00E8 VA: 0x12D00E8
+	// RVA: 0x28F97E0 Offset: 0x28F97E0 VA: 0x28F97E0
 	public void .ctor() { }
 }
 
@@ -515,30 +637,30 @@ private class PointCloudRegognizer.GestureNormalizer // TypeDefIndex: 4191
 
 	// Methods
 
-	// RVA: 0x12CF56C Offset: 0x12CF56C VA: 0x12CF56C
+	// RVA: 0x28F8C64 Offset: 0x28F8C64 VA: 0x28F8C64
 	public void .ctor() { }
 
-	// RVA: 0x12CF600 Offset: 0x12CF600 VA: 0x12CF600
+	// RVA: 0x28F8CF8 Offset: 0x28F8CF8 VA: 0x28F8CF8
 	public List<PointCloudRegognizer.Point> Apply(List<PointCloudRegognizer.Point> inputPoints, int normalizedPointsCount) { }
 
-	// RVA: 0x12CF634 Offset: 0x12CF634 VA: 0x12CF634
+	// RVA: 0x28F8D2C Offset: 0x28F8D2C VA: 0x28F8D2C
 	private List<PointCloudRegognizer.Point> Resample(List<PointCloudRegognizer.Point> points, int normalizedPointsCount) { }
 
-	// RVA: 0x12CFDDC Offset: 0x12CFDDC VA: 0x12CFDDC
+	// RVA: 0x28F94D4 Offset: 0x28F94D4 VA: 0x28F94D4
 	private static float PathLength(List<PointCloudRegognizer.Point> points) { }
 
-	// RVA: 0x12CF9E8 Offset: 0x12CF9E8 VA: 0x12CF9E8
+	// RVA: 0x28F90E0 Offset: 0x28F90E0 VA: 0x28F90E0
 	private static void Scale(List<PointCloudRegognizer.Point> points) { }
 
-	// RVA: 0x12CFC8C Offset: 0x12CFC8C VA: 0x12CFC8C
+	// RVA: 0x28F9384 Offset: 0x28F9384 VA: 0x28F9384
 	private static void TranslateToOrigin(List<PointCloudRegognizer.Point> points) { }
 
-	// RVA: 0x12CFF68 Offset: 0x12CFF68 VA: 0x12CFF68
+	// RVA: 0x28F9660 Offset: 0x28F9660 VA: 0x28F9660
 	private static Vector2 Centroid(List<PointCloudRegognizer.Point> points) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC8C660 Offset: 0xC8C660 VA: 0xC8C660
+[CompilerGeneratedAttribute] // RVA: 0xC20538 Offset: 0xC20538 VA: 0xC20538
 private sealed class PointCloudRegognizer.<FindNormalizedTemplate>c__AnonStorey0 // TypeDefIndex: 4192
 {
 	// Fields
@@ -546,10 +668,10 @@ private sealed class PointCloudRegognizer.<FindNormalizedTemplate>c__AnonStorey0
 
 	// Methods
 
-	// RVA: 0x12CF4D8 Offset: 0x12CF4D8 VA: 0x12CF4D8
+	// RVA: 0x28F8BD0 Offset: 0x28F8BD0 VA: 0x28F8BD0
 	public void .ctor() { }
 
-	// RVA: 0x12CF4E0 Offset: 0x12CF4E0 VA: 0x12CF4E0
+	// RVA: 0x28F8BD8 Offset: 0x28F8BD8 VA: 0x28F8BD8
 	internal bool <>m__0(PointCloudRegognizer.NormalizedTemplate t) { }
 }
 
@@ -571,30 +693,30 @@ public class SwipeGesture : DiscreteGesture // TypeDefIndex: 4193
 
 	// Methods
 
-	// RVA: 0x12D24DC Offset: 0x12D24DC VA: 0x12D24DC
+	// RVA: 0x28FBBD4 Offset: 0x28FBBD4 VA: 0x28FBBD4
 	public void .ctor() { }
 
-	// RVA: 0x12D2550 Offset: 0x12D2550 VA: 0x12D2550
+	// RVA: 0x28FBC48 Offset: 0x28FBC48 VA: 0x28FBC48
 	public Vector2 get_Move() { }
 
-	// RVA: 0x12D2558 Offset: 0x12D2558 VA: 0x12D2558
+	// RVA: 0x28FBC50 Offset: 0x28FBC50 VA: 0x28FBC50
 	internal void set_Move(Vector2 value) { }
 
-	// RVA: 0x12D2560 Offset: 0x12D2560 VA: 0x12D2560
+	// RVA: 0x28FBC58 Offset: 0x28FBC58 VA: 0x28FBC58
 	public float get_Velocity() { }
 
-	// RVA: 0x12D2568 Offset: 0x12D2568 VA: 0x12D2568
+	// RVA: 0x28FBC60 Offset: 0x28FBC60 VA: 0x28FBC60
 	internal void set_Velocity(float value) { }
 
-	// RVA: 0x12D2570 Offset: 0x12D2570 VA: 0x12D2570
+	// RVA: 0x28FBC68 Offset: 0x28FBC68 VA: 0x28FBC68
 	public FingerGestures.SwipeDirection get_Direction() { }
 
-	// RVA: 0x12D2578 Offset: 0x12D2578 VA: 0x12D2578
+	// RVA: 0x28FBC70 Offset: 0x28FBC70 VA: 0x28FBC70
 	internal void set_Direction(FingerGestures.SwipeDirection value) { }
 }
 
 // Namespace: 
-[AddComponentMenu] // RVA: 0xC8B9A4 Offset: 0xC8B9A4 VA: 0xC8B9A4
+[AddComponentMenu] // RVA: 0xC1F87C Offset: 0xC1F87C VA: 0xC1F87C
 public class SwipeRecognizer : DiscreteGestureRecognizer<SwipeGesture> // TypeDefIndex: 4194
 {
 	// Fields
@@ -606,22 +728,22 @@ public class SwipeRecognizer : DiscreteGestureRecognizer<SwipeGesture> // TypeDe
 
 	// Methods
 
-	// RVA: 0x12D2580 Offset: 0x12D2580 VA: 0x12D2580
+	// RVA: 0x28FBC78 Offset: 0x28FBC78 VA: 0x28FBC78
 	public void .ctor() { }
 
-	// RVA: 0x12D25E8 Offset: 0x12D25E8 VA: 0x12D25E8 Slot: 8
+	// RVA: 0x28FBCE0 Offset: 0x28FBCE0 VA: 0x28FBCE0 Slot: 8
 	public override string GetDefaultEventMessageName() { }
 
-	// RVA: 0x12D2630 Offset: 0x12D2630 VA: 0x12D2630 Slot: 14
+	// RVA: 0x28FBD28 Offset: 0x28FBD28 VA: 0x28FBD28 Slot: 14
 	protected override bool CanBegin(SwipeGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0x12D2820 Offset: 0x12D2820 VA: 0x12D2820 Slot: 15
+	// RVA: 0x28FBF18 Offset: 0x28FBF18 VA: 0x28FBF18 Slot: 15
 	protected override void OnBegin(SwipeGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0x12D2A78 Offset: 0x12D2A78 VA: 0x12D2A78 Slot: 16
+	// RVA: 0x28FC170 Offset: 0x28FC170 VA: 0x28FC170 Slot: 16
 	protected override GestureRecognitionState OnRecognize(SwipeGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0x12D2F94 Offset: 0x12D2F94 VA: 0x12D2F94
+	// RVA: 0x28FC68C Offset: 0x28FC68C VA: 0x28FC68C
 	public bool IsValidDirection(FingerGestures.SwipeDirection dir) { }
 }
 
@@ -641,18 +763,18 @@ public class TapGesture : DiscreteGesture // TypeDefIndex: 4195
 
 	// Methods
 
-	// RVA: 0x12D8218 Offset: 0x12D8218 VA: 0x12D8218
+	// RVA: 0x2901910 Offset: 0x2901910 VA: 0x2901910
 	public void .ctor() { }
 
-	// RVA: 0x12D8220 Offset: 0x12D8220 VA: 0x12D8220
+	// RVA: 0x2901918 Offset: 0x2901918 VA: 0x2901918
 	public int get_Taps() { }
 
-	// RVA: 0x12D8228 Offset: 0x12D8228 VA: 0x12D8228
+	// RVA: 0x2901920 Offset: 0x2901920 VA: 0x2901920
 	internal void set_Taps(int value) { }
 }
 
 // Namespace: 
-[AddComponentMenu] // RVA: 0xC8B9DC Offset: 0xC8B9DC VA: 0xC8B9DC
+[AddComponentMenu] // RVA: 0xC1F8B4 Offset: 0xC1F8B4 VA: 0xC1F8B4
 public class TapRecognizer : DiscreteGestureRecognizer<TapGesture> // TypeDefIndex: 4196
 {
 	// Fields
@@ -667,34 +789,34 @@ public class TapRecognizer : DiscreteGestureRecognizer<TapGesture> // TypeDefInd
 
 	// Methods
 
-	// RVA: 0x12D8230 Offset: 0x12D8230 VA: 0x12D8230
+	// RVA: 0x2901928 Offset: 0x2901928 VA: 0x2901928
 	public void .ctor() { }
 
-	// RVA: 0x12D8294 Offset: 0x12D8294 VA: 0x12D8294
+	// RVA: 0x290198C Offset: 0x290198C VA: 0x290198C
 	private bool get_IsMultiTap() { }
 
-	// RVA: 0x12D82A4 Offset: 0x12D82A4 VA: 0x12D82A4
+	// RVA: 0x290199C Offset: 0x290199C VA: 0x290199C
 	private bool HasTimedOut(TapGesture gesture) { }
 
-	// RVA: 0x12D834C Offset: 0x12D834C VA: 0x12D834C Slot: 23
+	// RVA: 0x2901A44 Offset: 0x2901A44 VA: 0x2901A44 Slot: 23
 	protected override void Reset(TapGesture gesture) { }
 
-	// RVA: 0x12D83E8 Offset: 0x12D83E8 VA: 0x12D83E8 Slot: 6
+	// RVA: 0x2901AE0 Offset: 0x2901AE0 VA: 0x2901AE0 Slot: 6
 	public override bool get_SupportFingerClustering() { }
 
-	// RVA: 0x12D8404 Offset: 0x12D8404 VA: 0x12D8404
+	// RVA: 0x2901AFC Offset: 0x2901AFC VA: 0x2901AFC
 	private GestureRecognitionState RecognizeSingleTap(TapGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0x12D86D8 Offset: 0x12D86D8 VA: 0x12D86D8
+	// RVA: 0x2901DD0 Offset: 0x2901DD0 VA: 0x2901DD0
 	private GestureRecognitionState RecognizeMultiTap(TapGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0x12D8C04 Offset: 0x12D8C04 VA: 0x12D8C04 Slot: 8
+	// RVA: 0x29022FC Offset: 0x29022FC VA: 0x29022FC Slot: 8
 	public override string GetDefaultEventMessageName() { }
 
-	// RVA: 0x12D8C4C Offset: 0x12D8C4C VA: 0x12D8C4C Slot: 15
+	// RVA: 0x2902344 Offset: 0x2902344 VA: 0x2902344 Slot: 15
 	protected override void OnBegin(TapGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0x12D8DC4 Offset: 0x12D8DC4 VA: 0x12D8DC4 Slot: 16
+	// RVA: 0x29024BC Offset: 0x29024BC VA: 0x29024BC Slot: 16
 	protected override GestureRecognitionState OnRecognize(TapGesture gesture, FingerGestures.IFingerList touches) { }
 }
 
@@ -702,14 +824,14 @@ public class TapRecognizer : DiscreteGestureRecognizer<TapGesture> // TypeDefInd
 public class TwistGesture : ContinuousGesture // TypeDefIndex: 4197
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xC8E814 Offset: 0xC8E814 VA: 0xC8E814
-	[DebuggerBrowsableAttribute] // RVA: 0xC8E814 Offset: 0xC8E814 VA: 0xC8E814
+	[CompilerGeneratedAttribute] // RVA: 0xC226EC Offset: 0xC226EC VA: 0xC226EC
+	[DebuggerBrowsableAttribute] // RVA: 0xC226EC Offset: 0xC226EC VA: 0xC226EC
 	private float <DeltaRotation>k__BackingField; // 0xB4
-	[CompilerGeneratedAttribute] // RVA: 0xC8E850 Offset: 0xC8E850 VA: 0xC8E850
-	[DebuggerBrowsableAttribute] // RVA: 0xC8E850 Offset: 0xC8E850 VA: 0xC8E850
+	[CompilerGeneratedAttribute] // RVA: 0xC22728 Offset: 0xC22728 VA: 0xC22728
+	[DebuggerBrowsableAttribute] // RVA: 0xC22728 Offset: 0xC22728 VA: 0xC22728
 	private float <TotalRotation>k__BackingField; // 0xB8
-	[CompilerGeneratedAttribute] // RVA: 0xC8E88C Offset: 0xC8E88C VA: 0xC8E88C
-	[DebuggerBrowsableAttribute] // RVA: 0xC8E88C Offset: 0xC8E88C VA: 0xC8E88C
+	[CompilerGeneratedAttribute] // RVA: 0xC22764 Offset: 0xC22764 VA: 0xC22764
+	[DebuggerBrowsableAttribute] // RVA: 0xC22764 Offset: 0xC22764 VA: 0xC22764
 	private FingerGestures.Finger <Pivot>k__BackingField; // 0xC0
 
 	// Properties
@@ -719,31 +841,31 @@ public class TwistGesture : ContinuousGesture // TypeDefIndex: 4197
 
 	// Methods
 
-	// RVA: 0x12D8EA0 Offset: 0x12D8EA0 VA: 0x12D8EA0
+	// RVA: 0x2902598 Offset: 0x2902598 VA: 0x2902598
 	public void .ctor() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC90518 Offset: 0xC90518 VA: 0xC90518
-	// RVA: 0x12D8210 Offset: 0x12D8210 VA: 0x12D8210
+	[CompilerGeneratedAttribute] // RVA: 0xC243F0 Offset: 0xC243F0 VA: 0xC243F0
+	// RVA: 0x2901908 Offset: 0x2901908 VA: 0x2901908
 	public float get_DeltaRotation() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC90528 Offset: 0xC90528 VA: 0xC90528
-	// RVA: 0x12D8EA8 Offset: 0x12D8EA8 VA: 0x12D8EA8
+	[CompilerGeneratedAttribute] // RVA: 0xC24400 Offset: 0xC24400 VA: 0xC24400
+	// RVA: 0x29025A0 Offset: 0x29025A0 VA: 0x29025A0
 	internal void set_DeltaRotation(float value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC90538 Offset: 0xC90538 VA: 0xC90538
-	// RVA: 0x12D8EB0 Offset: 0x12D8EB0 VA: 0x12D8EB0
+	[CompilerGeneratedAttribute] // RVA: 0xC24410 Offset: 0xC24410 VA: 0xC24410
+	// RVA: 0x29025A8 Offset: 0x29025A8 VA: 0x29025A8
 	public float get_TotalRotation() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC90548 Offset: 0xC90548 VA: 0xC90548
-	// RVA: 0x12D8EB8 Offset: 0x12D8EB8 VA: 0x12D8EB8
+	[CompilerGeneratedAttribute] // RVA: 0xC24420 Offset: 0xC24420 VA: 0xC24420
+	// RVA: 0x29025B0 Offset: 0x29025B0 VA: 0x29025B0
 	internal void set_TotalRotation(float value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC90558 Offset: 0xC90558 VA: 0xC90558
-	// RVA: 0x12D8EC0 Offset: 0x12D8EC0 VA: 0x12D8EC0
+	[CompilerGeneratedAttribute] // RVA: 0xC24430 Offset: 0xC24430 VA: 0xC24430
+	// RVA: 0x29025B8 Offset: 0x29025B8 VA: 0x29025B8
 	public FingerGestures.Finger get_Pivot() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC90568 Offset: 0xC90568 VA: 0xC90568
-	// RVA: 0x12D8EC8 Offset: 0x12D8EC8 VA: 0x12D8EC8
+	[CompilerGeneratedAttribute] // RVA: 0xC24440 Offset: 0xC24440 VA: 0xC24440
+	// RVA: 0x29025C0 Offset: 0x29025C0 VA: 0x29025C0
 	internal void set_Pivot(FingerGestures.Finger value) { }
 }
 
@@ -757,7 +879,7 @@ public enum TwistMethod // TypeDefIndex: 4198
 }
 
 // Namespace: 
-[AddComponentMenu] // RVA: 0xC8BA14 Offset: 0xC8BA14 VA: 0xC8BA14
+[AddComponentMenu] // RVA: 0xC1F8EC Offset: 0xC1F8EC VA: 0xC1F8EC
 public class TwistRecognizer : ContinuousGestureRecognizer<TwistGesture> // TypeDefIndex: 4199
 {
 	// Fields
@@ -772,46 +894,46 @@ public class TwistRecognizer : ContinuousGestureRecognizer<TwistGesture> // Type
 
 	// Methods
 
-	// RVA: 0x12D8ED0 Offset: 0x12D8ED0 VA: 0x12D8ED0
+	// RVA: 0x29025C8 Offset: 0x29025C8 VA: 0x29025C8
 	public void .ctor() { }
 
-	// RVA: 0x12D8F38 Offset: 0x12D8F38 VA: 0x12D8F38 Slot: 8
+	// RVA: 0x2902630 Offset: 0x2902630 VA: 0x2902630 Slot: 8
 	public override string GetDefaultEventMessageName() { }
 
-	// RVA: 0x12D8F80 Offset: 0x12D8F80 VA: 0x12D8F80 Slot: 4
+	// RVA: 0x2902678 Offset: 0x2902678 VA: 0x2902678 Slot: 4
 	public override int get_RequiredFingerCount() { }
 
-	// RVA: 0x12D8F88 Offset: 0x12D8F88 VA: 0x12D8F88 Slot: 5
+	// RVA: 0x2902680 Offset: 0x2902680 VA: 0x2902680 Slot: 5
 	public override void set_RequiredFingerCount(int value) { }
 
-	// RVA: 0x12D8F90 Offset: 0x12D8F90 VA: 0x12D8F90 Slot: 6
+	// RVA: 0x2902688 Offset: 0x2902688 VA: 0x2902688 Slot: 6
 	public override bool get_SupportFingerClustering() { }
 
-	// RVA: 0x12D8F98 Offset: 0x12D8F98 VA: 0x12D8F98 Slot: 7
+	// RVA: 0x2902690 Offset: 0x2902690 VA: 0x2902690 Slot: 7
 	public override GestureResetMode GetDefaultResetMode() { }
 
-	// RVA: 0x12D8FA0 Offset: 0x12D8FA0 VA: 0x12D8FA0 Slot: 17
+	// RVA: 0x2902698 Offset: 0x2902698 VA: 0x2902698 Slot: 17
 	protected override GameObject GetDefaultSelectionForSendMessage(TwistGesture gesture) { }
 
-	// RVA: 0x12D8FD0 Offset: 0x12D8FD0 VA: 0x12D8FD0 Slot: 23
+	// RVA: 0x29026C8 Offset: 0x29026C8 VA: 0x29026C8 Slot: 23
 	protected override void Reset(TwistGesture gesture) { }
 
-	// RVA: 0x12D9044 Offset: 0x12D9044 VA: 0x12D9044
+	// RVA: 0x290273C Offset: 0x290273C VA: 0x290273C
 	private FingerGestures.Finger GetTwistPivot(FingerGestures.Finger finger0, FingerGestures.Finger finger1) { }
 
-	// RVA: 0x12D9114 Offset: 0x12D9114 VA: 0x12D9114 Slot: 14
+	// RVA: 0x290280C Offset: 0x290280C VA: 0x290280C Slot: 14
 	protected override bool CanBegin(TwistGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0x12D9598 Offset: 0x12D9598 VA: 0x12D9598 Slot: 15
+	// RVA: 0x2902C90 Offset: 0x2902C90 VA: 0x2902C90 Slot: 15
 	protected override void OnBegin(TwistGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0x12D98A4 Offset: 0x12D98A4 VA: 0x12D98A4 Slot: 16
+	// RVA: 0x2902F9C Offset: 0x2902F9C VA: 0x2902F9C Slot: 16
 	protected override GestureRecognitionState OnRecognize(TwistGesture gesture, FingerGestures.IFingerList touches) { }
 
-	// RVA: 0x12D937C Offset: 0x12D937C VA: 0x12D937C
+	// RVA: 0x2902A74 Offset: 0x2902A74 VA: 0x2902A74
 	private bool FingersMovedInOppositeDirections(FingerGestures.Finger finger0, FingerGestures.Finger finger1) { }
 
-	// RVA: 0x12D9408 Offset: 0x12D9408 VA: 0x12D9408
+	// RVA: 0x2902B00 Offset: 0x2902B00 VA: 0x2902B00
 	private static float SignedAngularGap(FingerGestures.Finger finger0, FingerGestures.Finger finger1, Vector2 refPos0, Vector2 refPos1) { }
 }
 
@@ -823,7 +945,7 @@ public abstract class FGInputProvider : MonoBehaviour // TypeDefIndex: 4200
 
 	// Methods
 
-	// RVA: 0xE84134 Offset: 0xE84134 VA: 0xE84134
+	// RVA: 0x1DEE538 Offset: 0x1DEE538 VA: 0x1DEE538
 	protected void .ctor() { }
 
 	// RVA: -1 Offset: -1 Slot: 4
@@ -863,138 +985,16 @@ public class FGMouseInputProvider : FGInputProvider // TypeDefIndex: 4201
 
 	// Methods
 
-	// RVA: 0xE8413C Offset: 0xE8413C VA: 0xE8413C
+	// RVA: 0x1DEE540 Offset: 0x1DEE540 VA: 0x1DEE540
 	public void .ctor() { }
 
-	// RVA: 0xE8428C Offset: 0xE8428C VA: 0xE8428C
+	// RVA: 0x1DEE690 Offset: 0x1DEE690 VA: 0x1DEE690
 	private void Start() { }
 
-	// RVA: 0xE84298 Offset: 0xE84298 VA: 0xE84298
+	// RVA: 0x1DEE69C Offset: 0x1DEE69C VA: 0x1DEE69C
 	private void Update() { }
 
-	// RVA: 0xE846A0 Offset: 0xE846A0 VA: 0xE846A0
+	// RVA: 0x1DEEAA4 Offset: 0x1DEEAA4 VA: 0x1DEEAA4
 	private void UpdatePinchEmulation() { }
 
-	// RVA: 0xE847C4 Offset: 0xE847C4 VA: 0xE847C4
-	private void UpdateTwistEmulation() { }
-
-	// RVA: 0xE848BC Offset: 0xE848BC VA: 0xE848BC Slot: 4
-	public override int get_MaxSimultaneousFingers() { }
-
-	// RVA: 0xE848C4 Offset: 0xE848C4 VA: 0xE848C4 Slot: 5
-	public override void GetInputState(int fingerIndex, out bool down, out Vector2 position) { }
-}
-
-// Namespace: 
-public class FGTouchInputProvider : FGInputProvider // TypeDefIndex: 4202
-{
-	// Fields
-	public int maxTouches; // 0x18
-	public bool fixAndroidTouchIdBug; // 0x1C
-	private int touchIdOffset; // 0x20
-	private Touch nullTouch; // 0x24
-	private int[] finger2touchMap; // 0x68
-
-	// Properties
-	public override int MaxSimultaneousFingers { get; }
-
-	// Methods
-
-	// RVA: 0xE84A00 Offset: 0xE84A00 VA: 0xE84A00
-	public void .ctor() { }
-
-	// RVA: 0xE84A44 Offset: 0xE84A44 VA: 0xE84A44
-	private void Start() { }
-
-	// RVA: 0xE84A9C Offset: 0xE84A9C VA: 0xE84A9C
-	private void Update() { }
-
-	// RVA: 0xE84AA0 Offset: 0xE84AA0 VA: 0xE84AA0
-	private void UpdateFingerTouchMap() { }
-
-	// RVA: 0xE84C8C Offset: 0xE84C8C VA: 0xE84C8C
-	private bool HasValidTouch(int fingerIndex) { }
-
-	// RVA: 0xE84CE8 Offset: 0xE84CE8 VA: 0xE84CE8
-	private Touch GetTouch(int fingerIndex) { }
-
-	// RVA: 0xE84DA0 Offset: 0xE84DA0 VA: 0xE84DA0 Slot: 4
-	public override int get_MaxSimultaneousFingers() { }
-
-	// RVA: 0xE84DA8 Offset: 0xE84DA8 VA: 0xE84DA8 Slot: 5
-	public override void GetInputState(int fingerIndex, out bool down, out Vector2 position) { }
-}
-
-// Namespace: 
-[AddComponentMenu] // RVA: 0xC8BA4C Offset: 0xC8BA4C VA: 0xC8BA4C
-[RequireComponent] // RVA: 0xC8BA4C Offset: 0xC8BA4C VA: 0xC8BA4C
-public class TBDragView : MonoBehaviour // TypeDefIndex: 4203
-{
-	// Fields
-	public bool allowUserInput; // 0x18
-	public float sensitivity; // 0x1C
-	public float dragAcceleration; // 0x20
-	public float dragDeceleration; // 0x24
-	public bool reverseControls; // 0x28
-	public float minPitchAngle; // 0x2C
-	public float maxPitchAngle; // 0x30
-	public float idealRotationSmoothingSpeed; // 0x34
-	private Transform cachedTransform; // 0x38
-	private Vector2 angularVelocity; // 0x40
-	private Quaternion idealRotation; // 0x48
-	private bool useAngularVelocity; // 0x58
-	private DragGesture dragGesture; // 0x60
-
-	// Properties
-	public bool Dragging { get; }
-	public Quaternion IdealRotation { get; set; }
-
-	// Methods
-
-	// RVA: 0x12D3CC4 Offset: 0x12D3CC4 VA: 0x12D3CC4
-	public void .ctor() { }
-
-	// RVA: 0x12D3D68 Offset: 0x12D3D68 VA: 0x12D3D68
-	private void Awake() { }
-
-	// RVA: 0x12D3D90 Offset: 0x12D3D90 VA: 0x12D3D90
-	private void Start() { }
-
-	// RVA: 0x12D3E6C Offset: 0x12D3E6C VA: 0x12D3E6C
-	public bool get_Dragging() { }
-
-	// RVA: 0x12D3E7C Offset: 0x12D3E7C VA: 0x12D3E7C
-	private void OnDrag(DragGesture gesture) { }
-
-	// RVA: 0x12D3EC0 Offset: 0x12D3EC0 VA: 0x12D3EC0
-	private void Update() { }
-
-	// RVA: 0x12D424C Offset: 0x12D424C VA: 0x12D424C
-	private static float NormalizePitch(float angle) { }
-
-	// RVA: 0x12D426C Offset: 0x12D426C VA: 0x12D426C
-	public Quaternion get_IdealRotation() { }
-
-	// RVA: 0x12D3E5C Offset: 0x12D3E5C VA: 0x12D3E5C
-	public void set_IdealRotation(Quaternion value) { }
-
-	// RVA: 0x12D4278 Offset: 0x12D4278 VA: 0x12D4278
-	public void LookAt(Vector3 pos) { }
-}
-
-// Namespace: 
-[AddComponentMenu] // RVA: 0xC8BAD4 Offset: 0xC8BAD4 VA: 0xC8BAD4
-[RequireComponent] // RVA: 0xC8BAD4 Offset: 0xC8BAD4 VA: 0xC8BAD4
-public class TBLookAtTap : MonoBehaviour // TypeDefIndex: 4204
-{
-	// Fields
-	private TBDragView dragView; // 0x18
-
-	// Methods
-
-	// RVA: 0x12D4688 Offset: 0x12D4688 VA: 0x12D4688
-	public void .ctor() { }
-
-	// RVA: 0x12D4690 Offset: 0x12D4690 VA: 0x12D4690
-	private void Awake() { }
-
+	// RVA: 0x1DEEBC8 Offset: 0x1DEEBC8 VA: 0x1DEEBC8

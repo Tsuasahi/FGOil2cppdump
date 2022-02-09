@@ -1,3 +1,816 @@
+	public ListViewManager Manager { get; }
+	public int Index { get; }
+
+	// Methods
+
+	// RVA: 0x17BF988 Offset: 0x17BF988 VA: 0x17BF988
+	public void .ctor() { }
+
+	// RVA: 0x17BBBC0 Offset: 0x17BBBC0 VA: 0x17BBBC0
+	public bool get_IsBusy() { }
+
+	// RVA: 0x17BF990 Offset: 0x17BF990 VA: 0x17BF990
+	public ListViewManager get_Manager() { }
+
+	// RVA: 0x17BF998 Offset: 0x17BF998 VA: 0x17BF998
+	public int get_Index() { }
+
+	// RVA: 0x17BF9B0 Offset: 0x17BF9B0 VA: 0x17BF9B0
+	protected void Awake() { }
+
+	// RVA: 0x17BB6DC Offset: 0x17BB6DC VA: 0x17BB6DC
+	public ListViewItem GetItem() { }
+
+	// RVA: 0x17B8598 Offset: 0x17B8598 VA: 0x17B8598
+	public void ReleaseItem() { }
+
+	// RVA: 0x17BFABC Offset: 0x17BFABC VA: 0x17BFABC Slot: 4
+	public virtual bool ClearItem() { }
+
+	// RVA: 0x17BFB78 Offset: 0x17BFB78 VA: 0x17BFB78 Slot: 5
+	public virtual void SetItem(ListViewItem item) { }
+
+	// RVA: 0x17BFC60 Offset: 0x17BFC60 VA: 0x17BFC60 Slot: 6
+	public virtual void SetItem(ListViewItem item, ListViewItemSeed seed) { }
+
+	// RVA: 0x17BFF08 Offset: 0x17BFF08 VA: 0x17BFF08
+	public void SetItemSeed(ListViewItem item, ListViewItemSeed seed) { }
+
+	// RVA: 0x17BB9F8 Offset: 0x17BB9F8 VA: 0x17BB9F8
+	public void SetManager(ListViewManager manager) { }
+
+	// RVA: 0x17C018C Offset: 0x17C018C VA: 0x17C018C Slot: 7
+	public virtual bool IsCanDrag() { }
+
+	// RVA: 0x17BBA00 Offset: 0x17BBA00 VA: 0x17BBA00
+	public void SetDragPrefab(GameObject prefab) { }
+
+	// RVA: 0x17C0194 Offset: 0x17C0194 VA: 0x17C0194
+	public GameObject GetDragRoot() { }
+
+	// RVA: 0x17C01C8 Offset: 0x17C01C8 VA: 0x17C01C8
+	public void DragMaskStart() { }
+
+	// RVA: 0x17C01F4 Offset: 0x17C01F4 VA: 0x17C01F4
+	public void DragMaskEnd() { }
+
+	// RVA: 0x17C0220 Offset: 0x17C0220 VA: 0x17C0220 Slot: 8
+	public virtual GameObject CreateDragObject() { }
+
+	// RVA: 0x17BFBB0 Offset: 0x17BFBB0 VA: 0x17BFBB0
+	public void SetVisible(bool isVisible) { }
+
+	// RVA: 0x17C06AC Offset: 0x17C06AC VA: 0x17C06AC Slot: 9
+	public virtual void SetInput(bool isInput) { }
+
+	// RVA: 0x17C07AC Offset: 0x17C07AC VA: 0x17C07AC Slot: 10
+	public virtual void Invalidation() { }
+
+	// RVA: 0x17BFA24 Offset: 0x17BFA24 VA: 0x17BFA24
+	public void SetBaseTransform() { }
+
+	// RVA: 0x17BBB54 Offset: 0x17BBB54 VA: 0x17BBB54
+	public void SetTransform(Vector3 position) { }
+
+	// RVA: 0x17BCE60 Offset: 0x17BCE60 VA: 0x17BCE60
+	public bool MoveCenter(bool isAnimation = True, bool restrictScrollViewRange = False, float forceShiftPosY = 0) { }
+
+	// RVA: 0x17BDB04 Offset: 0x17BDB04 VA: 0x17BDB04
+	public bool MoveTop(bool isAnimation = True, float offSet = 0) { }
+
+	// RVA: 0x17BE3BC Offset: 0x17BE3BC VA: 0x17BE3BC
+	public bool MoveBottom(bool isAnimation = True, float offSet = 0) { }
+
+	// RVA: 0x17C07E0 Offset: 0x17C07E0 VA: 0x17C07E0
+	protected void EndMoveCenter() { }
+
+	// RVA: 0x17C0828 Offset: 0x17C0828 VA: 0x17C0828
+	protected void OnDragStart() { }
+
+	// RVA: 0x17C0834 Offset: 0x17C0834 VA: 0x17C0834
+	protected void OnDragEnd() { }
+
+	// RVA: 0x17C083C Offset: 0x17C083C VA: 0x17C083C
+	public void OnClick() { }
+
+	// RVA: 0x17BF110 Offset: 0x17BF110 VA: 0x17BF110
+	public bool CleanItemExtra() { }
+
+	// RVA: 0x17C08B8 Offset: 0x17C08B8 VA: 0x17C08B8
+	private static void .cctor() { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC259C0 Offset: 0xC259C0 VA: 0xC259C0
+public class ListViewSort // TypeDefIndex: 7797
+{
+	// Fields
+	protected const string KIND_SAVE_KEY = "SortKind-";
+	protected const string ORDER_SAVE_KEY = "SortOrder-";
+	protected const string BONUS_KIND_SAVE_KEY = "BonusKind-";
+	protected const string BONUS_KINDID_SAVE_KEY = "BonusKindId-";
+	protected const string BONUS_KIND2_SAVE_KEY = "BonusKind2-";
+	protected const string BONUS_KIND2ID_SAVE_KEY = "BonusKind2Id-";
+	protected const string FILTER_SAVE_KEY = "SortFilter-";
+	protected const string FILTER2_SAVE_KEY = "SortFilter2-";
+	protected const string FILTER_LONG_SAVE_KEY = "SortFilterLongNew-";
+	protected const string PRESENT_BOX_FILTER_SAVE_KEY = "PresentBoxSortFilterNew-";
+	protected const string PRESENT_BOX_RARITY_FILTER_SAVE_KEY = "PresentBoxRaritySortFilterNew-";
+	protected const string SERVANT_EQUIP_EFFECT_FILTER = "SvtEquipEffectFilterNew-";
+	protected const string SMART_SORT_SAVE_KEY = "SmartSortOrder-";
+	protected const string CHOICE_SORT_SAVE_KEY = "ChoiceSortOrder-";
+	protected const string ICON_SCALE_SAVE_KEY = "IconSizeKind-";
+	protected const string EXP_UP_DISP_KIND_SAVE_KEY = "ExpUpDispKind-";
+	protected const string EXP_UP_DISP_TYPE_SAVE_KEY = "ExpUpDispType-";
+	protected const string SCROLL_BAR_VALUE_SAVE_KEY = "ScrollBarValue-";
+	protected int SVT_EQUIP_EFFECT_FILTER_DISABLE; // 0x10
+	protected int SVT_EQUIP_EFFECT_FILTER_ENABLE; // 0x14
+	protected readonly bool FILTER_DEFAULT_VALUE; // 0x18
+	protected bool isRequestLoad; // 0x19
+	protected bool isRequestSave; // 0x1A
+	protected ListViewManager manager; // 0x20
+	protected string saveKey; // 0x28
+	protected ListViewSort.SortKind defaultSortKind; // 0x30
+	protected bool isDefaultAscendingOrder; // 0x34
+	protected ListViewSort.SortKind sortKind; // 0x38
+	protected bool isAscendingOrder; // 0x3C
+	protected bool isBonusKind; // 0x3D
+	protected ListViewSort.BonusFilterKind bonusKind; // 0x40
+	protected int bonusKindId; // 0x44
+	protected ListViewSort.BonusFilterKind bonusKind2; // 0x48
+	protected int bonusKind2Id; // 0x4C
+	protected int filter2Kind; // 0x50
+	protected bool[] isFilterList; // 0x58
+	protected bool[] isPresentBoxFilterList; // 0x60
+	protected bool[] isPresentBoxRarityFilterList; // 0x68
+	protected Dictionary<int, int> isSvtEquipEffectFilterDic; // 0x70
+	protected ListViewSort.ListKind listViewKind; // 0x78
+	protected bool isSmartSort; // 0x7C
+	protected bool isChoiceSort; // 0x7D
+	protected int iconScaleKind; // 0x80
+	protected int expUpDispKind; // 0x84
+	protected int expUpDispType; // 0x88
+	protected float scrollBarValue; // 0x8C
+	private const int SMART_SORT_DEFAULT = 1;
+
+	// Properties
+	public bool IsWareHouseEquipList { get; }
+	public bool IsRequestLoad { get; }
+	public bool IsRequestSave { get; }
+	public ListViewSort.SortKind Kind { get; }
+	public bool IsAscendingOrder { get; }
+	public ListViewSort.ListKind ListViewKind { get; set; }
+	public bool IsBonusKind { get; }
+	public ListViewSort.BonusFilterKind BonusKind { get; }
+	public ListViewSort.BonusFilterKind BonusKind2 { get; }
+	public int Filter2Kind { get; }
+	public int BonusKindId { get; }
+	public int BonusKind2Id { get; }
+	public bool IsSmartSort { get; }
+	public bool IsChoiceSort { get; }
+
+	// Methods
+
+	// RVA: 0x17B74C8 Offset: 0x17B74C8 VA: 0x17B74C8
+	public void .ctor(ListViewSort.SortKind sortKind, bool isAscendingOrder = True) { }
+
+	// RVA: 0x17C0934 Offset: 0x17C0934 VA: 0x17C0934
+	public void .ctor(string saveKey, ListViewSort.SortKind sortKind, bool isAscendingOrder = True) { }
+
+	// RVA: 0x17C0A8C Offset: 0x17C0A8C VA: 0x17C0A8C
+	public void .ctor(ListViewSort o) { }
+
+	// RVA: 0x17C106C Offset: 0x17C106C VA: 0x17C106C
+	public bool get_IsWareHouseEquipList() { }
+
+	// RVA: 0x17C1110 Offset: 0x17C1110 VA: 0x17C1110 Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x17C1118 Offset: 0x17C1118 VA: 0x17C1118
+	public void InitLoad() { }
+
+	// RVA: 0x17C1180 Offset: 0x17C1180 VA: 0x17C1180
+	private void InitSvtEquipEffectFilterList(FunctionCategoryEntity.Flag flag) { }
+
+	// RVA: 0x17BAC68 Offset: 0x17BAC68 VA: 0x17BAC68
+	public void SetManager(ListViewManager manager) { }
+
+	// RVA: 0x17C1318 Offset: 0x17C1318 VA: 0x17C1318
+	public ListViewManager GetManager() { }
+
+	// RVA: 0x17C1320 Offset: 0x17C1320 VA: 0x17C1320
+	public bool get_IsRequestLoad() { }
+
+	// RVA: 0x17C1328 Offset: 0x17C1328 VA: 0x17C1328
+	public bool get_IsRequestSave() { }
+
+	// RVA: 0x17C1330 Offset: 0x17C1330 VA: 0x17C1330
+	public void DeleteContinueData() { }
+
+	// RVA: 0x17C1558 Offset: 0x17C1558 VA: 0x17C1558
+	public void Load() { }
+
+	// RVA: 0x17C1CA0 Offset: 0x17C1CA0 VA: 0x17C1CA0
+	private Dictionary<string, int> ConvertJsonToSvtEquipEffectFilterData(string json) { }
+
+	// RVA: 0x17C1BB0 Offset: 0x17C1BB0 VA: 0x17C1BB0
+	private long GetFilterListData() { }
+
+	// RVA: 0x17C1EF8 Offset: 0x17C1EF8 VA: 0x17C1EF8
+	private long GetLongValueFromPlayerPrefs(string key, long defaultValue = 0) { }
+
+	// RVA: 0x17C1F3C Offset: 0x17C1F3C VA: 0x17C1F3C
+	private bool IsChangeSaveData(long filterListData, int presentBoxfilterListData, int presentBoxfilterRarityListData) { }
+
+	// RVA: 0x17C2748 Offset: 0x17C2748 VA: 0x17C2748
+	public void Save() { }
+
+	// RVA: 0x17C2ED8 Offset: 0x17C2ED8 VA: 0x17C2ED8
+	public static void FirstLoginSave() { }
+
+	// RVA: 0x17C346C Offset: 0x17C346C VA: 0x17C346C
+	public static void SaveDefaultSmartSort() { }
+
+	// RVA: 0x17C2B8C Offset: 0x17C2B8C VA: 0x17C2B8C
+	private void SetFilterListData(long data) { }
+
+	// RVA: 0x17C3710 Offset: 0x17C3710 VA: 0x17C3710
+	private void SetLongValueToPlayerPrefs(string key, long value) { }
+
+	// RVA: 0x17C2480 Offset: 0x17C2480 VA: 0x17C2480
+	private bool IsChangeSvtEquipEffectFilter() { }
+
+	// RVA: 0x17C2C38 Offset: 0x17C2C38 VA: 0x17C2C38
+	private void SetSvtEquipEffectFilter() { }
+
+	// RVA: 0x17C0910 Offset: 0x17C0910 VA: 0x17C0910
+	public void Clear() { }
+
+	// RVA: 0x17C38A0 Offset: 0x17C38A0 VA: 0x17C38A0
+	public void ClearFilter() { }
+
+	// RVA: 0x17C395C Offset: 0x17C395C VA: 0x17C395C
+	private void SetAllNomalFilter(bool isEnable) { }
+
+	// RVA: 0x17C3B88 Offset: 0x17C3B88 VA: 0x17C3B88
+	public void ResetAllNormalFilter() { }
+
+	// RVA: 0x17C39C8 Offset: 0x17C39C8 VA: 0x17C39C8
+	public void SetAllSvtEquipEffectFilter(bool isEnable) { }
+
+	// RVA: 0x17C3C04 Offset: 0x17C3C04 VA: 0x17C3C04
+	public void ClassFilterOFF() { }
+
+	// RVA: 0x17C0B54 Offset: 0x17C0B54 VA: 0x17C0B54
+	public void Set(ListViewSort o) { }
+
+	// RVA: 0x17B87AC Offset: 0x17B87AC VA: 0x17B87AC
+	public ListViewSort.SortKind get_Kind() { }
+
+	// RVA: 0x17B87B4 Offset: 0x17B87B4 VA: 0x17B87B4
+	public bool get_IsAscendingOrder() { }
+
+	// RVA: 0x17C3DD0 Offset: 0x17C3DD0 VA: 0x17C3DD0
+	public ListViewSort.ListKind get_ListViewKind() { }
+
+	// RVA: 0x17C3DD8 Offset: 0x17C3DD8 VA: 0x17C3DD8
+	public void set_ListViewKind(ListViewSort.ListKind value) { }
+
+	// RVA: 0x17C3DE0 Offset: 0x17C3DE0 VA: 0x17C3DE0
+	public bool get_IsBonusKind() { }
+
+	// RVA: 0x17C3DE8 Offset: 0x17C3DE8 VA: 0x17C3DE8
+	public ListViewSort.BonusFilterKind get_BonusKind() { }
+
+	// RVA: 0x17C3DF0 Offset: 0x17C3DF0 VA: 0x17C3DF0
+	public ListViewSort.BonusFilterKind get_BonusKind2() { }
+
+	// RVA: 0x17C3DF8 Offset: 0x17C3DF8 VA: 0x17C3DF8
+	public int get_Filter2Kind() { }
+
+	// RVA: 0x17C3E00 Offset: 0x17C3E00 VA: 0x17C3E00
+	public int get_BonusKindId() { }
+
+	// RVA: 0x17C3E08 Offset: 0x17C3E08 VA: 0x17C3E08
+	public int get_BonusKind2Id() { }
+
+	// RVA: 0x17C3E10 Offset: 0x17C3E10 VA: 0x17C3E10
+	public bool get_IsSmartSort() { }
+
+	// RVA: 0x17C3E18 Offset: 0x17C3E18 VA: 0x17C3E18
+	public bool get_IsChoiceSort() { }
+
+	// RVA: 0x17C3E20 Offset: 0x17C3E20 VA: 0x17C3E20
+	public void SetKind(ListViewSort.SortKind kind) { }
+
+	// RVA: 0x17C3E28 Offset: 0x17C3E28 VA: 0x17C3E28
+	public void SetAscendingOrder(bool flag) { }
+
+	// RVA: 0x17C3E34 Offset: 0x17C3E34 VA: 0x17C3E34
+	public void SetIsBonusKind(bool flag) { }
+
+	// RVA: 0x17C3E40 Offset: 0x17C3E40 VA: 0x17C3E40
+	public void SetBonusKind(ListViewSort.BonusFilterKind kind) { }
+
+	// RVA: 0x17C3E48 Offset: 0x17C3E48 VA: 0x17C3E48
+	public void SetBonusKindId(int id) { }
+
+	// RVA: 0x17C3E50 Offset: 0x17C3E50 VA: 0x17C3E50
+	public void AlignBonusKind(int[] eventIdList, int[] servantFilterIdList, int campaignId = 0, int[] campaignServantIdList) { }
+
+	// RVA: 0x17C3F8C Offset: 0x17C3F8C VA: 0x17C3F8C
+	public void IncBonusKind(int[] eventIdList, int[] servantFilterIdList, int campaignId = 0, int[] campaignServantIdList) { }
+
+	// RVA: 0x17C4170 Offset: 0x17C4170 VA: 0x17C4170
+	public void SetBonusKind2(ListViewSort.BonusFilterKind kind) { }
+
+	// RVA: 0x17C4178 Offset: 0x17C4178 VA: 0x17C4178
+	public void SetBonusKind2Id(int id) { }
+
+	// RVA: 0x17C4180 Offset: 0x17C4180 VA: 0x17C4180
+	public void AlignBonusKind2(int[] eventIdList, int[] servantFilterIdList, int[] campaignIdList, List<int[]> campaignServantIdList, int[] finishEventIdList) { }
+
+	// RVA: 0x17C4428 Offset: 0x17C4428 VA: 0x17C4428
+	public void IncBonusKind2(int[] eventIdList, int[] servantFilterIdList, int[] campaignIdList, List<int[]> campaignServantIdList, int[] finishEventIdList) { }
+
+	// RVA: 0x17C472C Offset: 0x17C472C VA: 0x17C472C
+	private int GetCampainId(int[] campaignIdList, List<int[]> campaignServantIdList, int nextIndex) { }
+
+	// RVA: 0x17C48D4 Offset: 0x17C48D4 VA: 0x17C48D4
+	public void SetFilter2Kind(int kind) { }
+
+	// RVA: 0x17C48DC Offset: 0x17C48DC VA: 0x17C48DC
+	public bool GetFilter(ListViewSort.FilterKind kind) { }
+
+	// RVA: 0x17C4930 Offset: 0x17C4930 VA: 0x17C4930
+	public bool GetFilter(ListViewSort.PresentBoxCategoryFilterKind kind) { }
+
+	// RVA: 0x17C4984 Offset: 0x17C4984 VA: 0x17C4984
+	public bool GetFilter(ListViewSort.PresentBoxRarityFilterKind kind) { }
+
+	// RVA: 0x17C49D8 Offset: 0x17C49D8 VA: 0x17C49D8
+	public bool GetSvtEquipEffectFilter(int categoryId) { }
+
+	// RVA: 0x17C4A8C Offset: 0x17C4A8C VA: 0x17C4A8C
+	public int GetSvtEquipEffectFilterInt(int categoryId) { }
+
+	// RVA: 0x17C3D6C Offset: 0x17C3D6C VA: 0x17C3D6C
+	public void SetFilter(ListViewSort.FilterKind kind, bool isEnable) { }
+
+	// RVA: 0x17C4AC0 Offset: 0x17C4AC0 VA: 0x17C4AC0
+	public void SetFilter(ListViewSort.PresentBoxCategoryFilterKind kind, bool isEnable) { }
+
+	// RVA: 0x17C4B24 Offset: 0x17C4B24 VA: 0x17C4B24
+	public void SetFilter(ListViewSort.PresentBoxRarityFilterKind kind, bool isEnable) { }
+
+	// RVA: 0x17C3CBC Offset: 0x17C3CBC VA: 0x17C3CBC
+	public void SetFilters(ListViewSort.FilterKind[] kindList, bool isEnable) { }
+
+	// RVA: 0x17C4B88 Offset: 0x17C4B88 VA: 0x17C4B88
+	public void SetSvtEquipEffectFilter(int categoryId, bool isEnable) { }
+
+	// RVA: 0x17C4C50 Offset: 0x17C4C50 VA: 0x17C4C50
+	public void SwitchFilter(ListViewSort.FilterKind kind) { }
+
+	// RVA: 0x17C4CD0 Offset: 0x17C4CD0 VA: 0x17C4CD0
+	public void SwitchFilter(ListViewSort.PresentBoxCategoryFilterKind kind) { }
+
+	// RVA: 0x17C4D50 Offset: 0x17C4D50 VA: 0x17C4D50
+	public void SwitchFilter(ListViewSort.PresentBoxRarityFilterKind kind) { }
+
+	// RVA: 0x17C4DD0 Offset: 0x17C4DD0 VA: 0x17C4DD0
+	public void SwitchSvtEquipEffectFilter(int categoryId) { }
+
+	// RVA: 0x17C4EC0 Offset: 0x17C4EC0 VA: 0x17C4EC0
+	public bool CheckPresentBoxFilterAll() { }
+
+	// RVA: 0x17C4F38 Offset: 0x17C4F38 VA: 0x17C4F38
+	public bool UnCheckPresentBoxFilterAll() { }
+
+	// RVA: 0x17C4FB0 Offset: 0x17C4FB0 VA: 0x17C4FB0
+	public bool CheckPresentBoxRarityFilterAll() { }
+
+	// RVA: 0x17C5028 Offset: 0x17C5028 VA: 0x17C5028
+	public bool UnCheckPresentBoxRarityFilterAll() { }
+
+	// RVA: 0x17C50A0 Offset: 0x17C50A0 VA: 0x17C50A0
+	public bool CheckFilterDefaultAll() { }
+
+	// RVA: 0x17C374C Offset: 0x17C374C VA: 0x17C374C
+	public bool CheckSvtEquipEffectFilterDefaultAll() { }
+
+	// RVA: 0x17C514C Offset: 0x17C514C VA: 0x17C514C
+	public void SetIconScaleKind(ListViewSort.ScaleType scaleKind) { }
+
+	// RVA: 0x17C5154 Offset: 0x17C5154 VA: 0x17C5154
+	public void SetExpUpDispKind(ListViewSort.ExpUpDispKind dispKind) { }
+
+	// RVA: 0x17C515C Offset: 0x17C515C VA: 0x17C515C
+	public void SetExpUpDispType(ListViewSort.ExpUpDispType dispType) { }
+
+	// RVA: 0x17C5164 Offset: 0x17C5164 VA: 0x17C5164
+	public void SetScrollBarValue(float value) { }
+
+	// RVA: 0x17C516C Offset: 0x17C516C VA: 0x17C516C
+	public string GetSortKindText(ListViewSort.SortKind kind) { }
+
+	// RVA: 0x17B87A4 Offset: 0x17B87A4 VA: 0x17B87A4
+	public string GetSortKindButtonText() { }
+
+	// RVA: 0x17C57C0 Offset: 0x17C57C0 VA: 0x17C57C0
+	public string GetFilterKindText(ListViewSort.FilterKind kind) { }
+
+	// RVA: 0x17C5F2C Offset: 0x17C5F2C VA: 0x17C5F2C
+	public string GetPresentBoxFilterKindText(ListViewSort.PresentBoxCategoryFilterKind kind) { }
+
+	// RVA: 0x17C624C Offset: 0x17C624C VA: 0x17C624C
+	public string GetPresentBoxRarityFilterKindText(ListViewSort.PresentBoxRarityFilterKind kind) { }
+
+	// RVA: 0x17C63B4 Offset: 0x17C63B4 VA: 0x17C63B4
+	protected ListViewSort.BonusFilterKind GetBonusKind(ListViewSort.BonusFilterKind kind, int[] eventIdList, int[] servantFilterIdList, int campaignId, int[] campaignServantIdList) { }
+
+	// RVA: 0x17C6428 Offset: 0x17C6428 VA: 0x17C6428
+	protected ListViewSort.BonusFilterKind GetBonusKindIncKind(ListViewSort.BonusFilterKind kind, int[] eventIdList, int[] servantFilterIdList, int campaignId, int[] campaignServantIdList) { }
+
+	// RVA: 0x17C3EB0 Offset: 0x17C3EB0 VA: 0x17C3EB0
+	protected int GetBonusKindIndex(ListViewSort.BonusFilterKind kind, int id, int[] eventIdList, int[] servantFilterIdList, int campaignId, int[] campaignServantIdList) { }
+
+	// RVA: 0x17C64AC Offset: 0x17C64AC VA: 0x17C64AC
+	public string GetBonusKindText(ListViewSort.BonusFilterKind kind, int index) { }
+
+	// RVA: 0x17C6684 Offset: 0x17C6684 VA: 0x17C6684
+	public string GetBonusKindText(ListViewSort.BonusFilterKind kind, int id, int[] eventIdList, int[] servantFilterIdList, int campaignId = 0) { }
+
+	// RVA: 0x17C6B00 Offset: 0x17C6B00 VA: 0x17C6B00
+	public string GetBonusKindText(int[] eventIdList, int[] servantFilterIdList) { }
+
+	// RVA: 0x17C41F0 Offset: 0x17C41F0 VA: 0x17C41F0
+	protected int GetBonusKind2Index(ListViewSort.BonusFilterKind kind, int id, int[] eventIdList, int[] servantFilterIdList, int[] campaignIdList, List<int[]> campaignServantIdList, int[] finishEventIdList) { }
+
+	// RVA: 0x17C6B20 Offset: 0x17C6B20 VA: 0x17C6B20
+	public string GetBonusKind2Text(ListViewSort.BonusFilterKind kind, int id, int[] eventIdList, int[] servantFilterIdList, int[] campaginIdList, List<int[]> campaignServantIdList, int[] finishEventIdList) { }
+
+	// RVA: 0x17C7730 Offset: 0x17C7730 VA: 0x17C7730
+	public string GetBonusKind2Text(int[] eventIdList, int[] servantFilterIdList, int[] campaignIdList, List<int[]> campaignServantIdList, int[] finishEventIdList) { }
+
+	// RVA: 0x17C777C Offset: 0x17C777C VA: 0x17C777C
+	public string GetSvtFilter2Text(CombineServantListViewItem.Type type) { }
+
+	// RVA: 0x17C799C Offset: 0x17C799C VA: 0x17C799C
+	public string GetSvtEqFilter2Text(SvtEqCombineListViewItem.Type type) { }
+
+	// RVA: 0x17C7A90 Offset: 0x17C7A90 VA: 0x17C7A90
+	public string GetSvtOperationFilter2Text(ServantOperationListViewManager.Kind kind) { }
+
+	// RVA: 0x17C7B84 Offset: 0x17C7B84 VA: 0x17C7B84
+	public void SetSmartSort(bool isCheck) { }
+
+	// RVA: 0x17C7B90 Offset: 0x17C7B90 VA: 0x17C7B90
+	public void SetChoiceSort(bool isCheck) { }
+
+	// RVA: 0x17C7B9C Offset: 0x17C7B9C VA: 0x17C7B9C
+	public ListViewSort.ScaleType GetIconScaleKind() { }
+
+	// RVA: 0x17C7BA4 Offset: 0x17C7BA4 VA: 0x17C7BA4
+	public string GetScaleKindSpriteName(ListViewSort.ScaleType scaleKind) { }
+
+	// RVA: 0x17C7C28 Offset: 0x17C7C28 VA: 0x17C7C28
+	public ListViewSort.ExpUpDispKind GetExpUpDispKind() { }
+
+	// RVA: 0x17C7C30 Offset: 0x17C7C30 VA: 0x17C7C30
+	public ListViewSort.ExpUpDispType GetExpUpDispType() { }
+
+	// RVA: 0x17C7C38 Offset: 0x17C7C38 VA: 0x17C7C38
+	public float GetScrollBarValue() { }
+
+	// RVA: 0x17C7C40 Offset: 0x17C7C40 VA: 0x17C7C40
+	public void SetupSortLabelLayout(UILabel label) { }
+
+	// RVA: 0x17C7D40 Offset: 0x17C7D40 VA: 0x17C7D40
+	public bool IsUnSelectedAllTargetFilters(ListViewSort.FilterKind[] targetFilterKindList) { }
+
+	// RVA: 0x17C7DCC Offset: 0x17C7DCC VA: 0x17C7DCC
+	public bool IsMatchClassFilter(ServantEntity servantEntity) { }
+
+	// RVA: 0x17C7EA0 Offset: 0x17C7EA0 VA: 0x17C7EA0
+	public bool IsMatchNPTypeFilter(UserServantEntity userServantEntity) { }
+
+	// RVA: 0x17C7F44 Offset: 0x17C7F44 VA: 0x17C7F44
+	public bool IsMatchNPTypeFilter(BattleCommand.TYPE npType) { }
+
+	// RVA: 0x17C7F68 Offset: 0x17C7F68 VA: 0x17C7F68
+	public bool IsMatchNPEffectFilter(UserServantEntity userServantEntity) { }
+
+	// RVA: 0x17C80CC Offset: 0x17C80CC VA: 0x17C80CC
+	public bool IsMatchNPEffectFilter(TreasureDvcEntity tdEntity) { }
+
+	// RVA: 0x17C8110 Offset: 0x17C8110 VA: 0x17C8110
+	public bool IsMatchNPEffectFilter(TreasureDvcEntity.EffectFlag npEffectFlag) { }
+
+	// RVA: 0x17C8150 Offset: 0x17C8150 VA: 0x17C8150
+	public bool IsMatchServantTypeFilter(ServantEntity svtEntity) { }
+
+	// RVA: 0x17C81DC Offset: 0x17C81DC VA: 0x17C81DC
+	public bool IsMatchRarityFilter(Rarity.TYPE rarity) { }
+
+	// RVA: 0x17C81F8 Offset: 0x17C81F8 VA: 0x17C81F8
+	public bool IsMatchServantStatusFilter(UserServantEntity userServantEntity) { }
+}
+
+// Namespace: 
+public enum ListViewSort.ListKind // TypeDefIndex: 7798
+{
+	// Fields
+	public int value__; // 0x0
+	public const ListViewSort.ListKind SERVANT = 0;
+	public const ListViewSort.ListKind SERVANT_EQUIP = 1;
+	public const ListViewSort.ListKind SERVANT_COSTUME = 2;
+	public const ListViewSort.ListKind COMMAND_CODE = 3;
+	public const ListViewSort.ListKind PRESENT_BOX = 4;
+	public const ListViewSort.ListKind SERVANT_COIN = 5;
+}
+
+// Namespace: 
+public enum ListViewSort.SortKind // TypeDefIndex: 7799
+{
+	// Fields
+	public int value__; // 0x0
+	public const ListViewSort.SortKind PARTY = 0;
+	public const ListViewSort.SortKind CREATE = 1;
+	public const ListViewSort.SortKind RARITY = 2;
+	public const ListViewSort.SortKind LEVEL = 3;
+	public const ListViewSort.SortKind NP_LEVEL = 4;
+	public const ListViewSort.SortKind HP = 5;
+	public const ListViewSort.SortKind ATK = 6;
+	public const ListViewSort.SortKind COST = 7;
+	public const ListViewSort.SortKind CLASS = 8;
+	public const ListViewSort.SortKind LIMIT_COUNT = 9;
+	public const ListViewSort.SortKind FRIENDSHIP = 10;
+	public const ListViewSort.SortKind LOGIN_ACCESS = 11;
+	public const ListViewSort.SortKind USER_LEVEL = 12;
+	public const ListViewSort.SortKind ID = 13;
+	public const ListViewSort.SortKind AMOUNT = 14;
+	public const ListViewSort.SortKind HP_ADJUST = 15;
+	public const ListViewSort.SortKind ATK_ADJUST = 16;
+	public const ListViewSort.SortKind REGIST_DATE = 17;
+	public const ListViewSort.SortKind REQUEST_DATE = 18;
+	public const ListViewSort.SortKind COSUME = 19;
+	public const ListViewSort.SortKind HAVING_COSTUME = 20;
+	public const ListViewSort.SortKind NOT_HAVING_COSTUME = 21;
+	public const ListViewSort.SortKind NOT_HAVING_RELEASE_ITEM = 22;
+	public const ListViewSort.SortKind LIMIT_COUNT_2 = 23;
+	public const ListViewSort.SortKind EVENT_ORDER = 24;
+	public const ListViewSort.SortKind RECOVERY_FATIGUE = 25;
+	public const ListViewSort.SortKind SERVANT_NAME = 26;
+	public const ListViewSort.SortKind DISP_NO = 27;
+	public const ListViewSort.SortKind BUDDY_POINT = 28;
+}
+
+// Namespace: 
+public enum ListViewSort.FilterKind // TypeDefIndex: 7800
+{
+	// Fields
+	public int value__; // 0x0
+	public const ListViewSort.FilterKind CLASS_1_13 = 0;
+	public const ListViewSort.FilterKind CLASS_2_14 = 1;
+	public const ListViewSort.FilterKind CLASS_3_15 = 2;
+	public const ListViewSort.FilterKind CLASS_4_16 = 3;
+	public const ListViewSort.FilterKind CLASS_5_17 = 4;
+	public const ListViewSort.FilterKind CLASS_6_18 = 5;
+	public const ListViewSort.FilterKind CLASS_7_19 = 6;
+	public const ListViewSort.FilterKind CLASS_ETC = 7;
+	public const ListViewSort.FilterKind CLASS_EXP_UP = 8;
+	public const ListViewSort.FilterKind CLASS_STATUS_UP = 9;
+	public const ListViewSort.FilterKind COLLECTION_NOT_GET = 10;
+	public const ListViewSort.FilterKind COLLECTION_FIND = 11;
+	public const ListViewSort.FilterKind COLLECTION_GET = 12;
+	public const ListViewSort.FilterKind MISSION_CLEAR = 13;
+	public const ListViewSort.FilterKind MISSION_PROGRESS = 14;
+	public const ListViewSort.FilterKind MISSION_NOSTART = 15;
+	public const ListViewSort.FilterKind MISSION_COMPLETE = 16;
+	public const ListViewSort.FilterKind MISSION_END = 17;
+	public const ListViewSort.FilterKind BONUS_SERVANT = 18;
+	public const ListViewSort.FilterKind BONUS_EQUIP = 19;
+	public const ListViewSort.FilterKind BONUS_NONE = 20;
+	public const ListViewSort.FilterKind LV_NOTMAX = 21;
+	public const ListViewSort.FilterKind FIRST_HP = 22;
+	public const ListViewSort.FilterKind SECOND_HP = 23;
+	public const ListViewSort.FilterKind HPMAX = 24;
+	public const ListViewSort.FilterKind FIRST_ATK = 25;
+	public const ListViewSort.FilterKind SECOND_ATK = 26;
+	public const ListViewSort.FilterKind ATKMAX = 27;
+	public const ListViewSort.FilterKind SAME_CLASS = 28;
+	public const ListViewSort.FilterKind CAN_SELECT = 29;
+	public const ListViewSort.FilterKind EXIST_NOT_OPEN_COSTUME = 30;
+	public const ListViewSort.FilterKind NOT_HAVE_RELEASE_ITEM = 31;
+	public const ListViewSort.FilterKind COSTUME_NOT_OPEN = 32;
+	public const ListViewSort.FilterKind COSTUME_OPEN = 33;
+	public const ListViewSort.FilterKind RARITY_COMMON = 34;
+	public const ListViewSort.FilterKind RARITY_UNCOMMON = 35;
+	public const ListViewSort.FilterKind RARITY_RARE = 36;
+	public const ListViewSort.FilterKind RARITY_SRARE = 37;
+	public const ListViewSort.FilterKind RARITY_SSRARE = 38;
+	public const ListViewSort.FilterKind CHOICE_SELECT = 39;
+	public const ListViewSort.FilterKind BONUS_EQUIP_ALL = 40;
+	public const ListViewSort.FilterKind BONUS_INDIVIDUAL = 41;
+	public const ListViewSort.FilterKind NP_BUSTER = 42;
+	public const ListViewSort.FilterKind NP_ARTS = 43;
+	public const ListViewSort.FilterKind NP_QUICK = 44;
+	public const ListViewSort.FilterKind NP_ATTACK_ENEMY_ONE = 45;
+	public const ListViewSort.FilterKind NP_ATTACK_ENEMY_ALL = 46;
+	public const ListViewSort.FilterKind NP_SUPPORT = 47;
+	public const ListViewSort.FilterKind CLASS_SERVANT = 48;
+	public const ListViewSort.FilterKind COLLECTION_ENCOUNT = 49;
+	public const ListViewSort.FilterKind SUM = 50;
+}
+
+// Namespace: 
+public enum ListViewSort.FilterCategoryKind // TypeDefIndex: 7801
+{
+	// Fields
+	public int value__; // 0x0
+	public const ListViewSort.FilterCategoryKind CLASS = 0;
+	public const ListViewSort.FilterCategoryKind NP_TYPE = 1;
+	public const ListViewSort.FilterCategoryKind NP_EFFECT = 2;
+	public const ListViewSort.FilterCategoryKind SERVANT_TYPE = 3;
+	public const ListViewSort.FilterCategoryKind RARITY = 4;
+	public const ListViewSort.FilterCategoryKind COSTUME = 5;
+	public const ListViewSort.FilterCategoryKind COMBINE_COSTUME = 6;
+	public const ListViewSort.FilterCategoryKind OTHER = 7;
+	public const ListViewSort.FilterCategoryKind SERVANT_COMBINE_BASE = 8;
+	public const ListViewSort.FilterCategoryKind EXPLANATION = 9;
+	public const ListViewSort.FilterCategoryKind EXPLANATION_PRESENT_BOX = 10;
+	public const ListViewSort.FilterCategoryKind EQUIP_EFFECT = 998;
+	public const ListViewSort.FilterCategoryKind NONE = 999;
+}
+
+// Namespace: 
+public enum ListViewSort.PresentBoxCategoryFilterKind // TypeDefIndex: 7802
+{
+	// Fields
+	public int value__; // 0x0
+	public const ListViewSort.PresentBoxCategoryFilterKind SERVANT = 0;
+	public const ListViewSort.PresentBoxCategoryFilterKind SERVANT_COMBINE_MATERIAL = 1;
+	public const ListViewSort.PresentBoxCategoryFilterKind SERVANT_STATUS_UP = 2;
+	public const ListViewSort.PresentBoxCategoryFilterKind SERVANT_EQUIP = 3;
+	public const ListViewSort.PresentBoxCategoryFilterKind SERVANT_EQUIP_COMBINE_MATERIAL = 4;
+	public const ListViewSort.PresentBoxCategoryFilterKind COMMAND_CODE = 5;
+	public const ListViewSort.PresentBoxCategoryFilterKind ITEM_AP_RECOVER = 6;
+	public const ListViewSort.PresentBoxCategoryFilterKind ITEM_LV_UP = 7;
+	public const ListViewSort.PresentBoxCategoryFilterKind ITEM_GACHA_TICKET = 8;
+	public const ListViewSort.PresentBoxCategoryFilterKind ITEM_SELECT = 9;
+	public const ListViewSort.PresentBoxCategoryFilterKind ITEM_STONE = 10;
+	public const ListViewSort.PresentBoxCategoryFilterKind ITEM_MANA = 11;
+	public const ListViewSort.PresentBoxCategoryFilterKind ITEM_EVENT = 12;
+	public const ListViewSort.PresentBoxCategoryFilterKind IMPORTANT = 13;
+	public const ListViewSort.PresentBoxCategoryFilterKind OTHER = 14;
+	public const ListViewSort.PresentBoxCategoryFilterKind SUM = 15;
+}
+
+// Namespace: 
+public enum ListViewSort.PresentBoxRarityFilterKind // TypeDefIndex: 7803
+{
+	// Fields
+	public int value__; // 0x0
+	public const ListViewSort.PresentBoxRarityFilterKind CARD_RARITY_COMMON = 0;
+	public const ListViewSort.PresentBoxRarityFilterKind CARD_RARITY_UNCOMMON = 1;
+	public const ListViewSort.PresentBoxRarityFilterKind CARD_RARITY_RARE = 2;
+	public const ListViewSort.PresentBoxRarityFilterKind CARD_RARITY_SRARE = 3;
+	public const ListViewSort.PresentBoxRarityFilterKind CARD_RARITY_SSRARE = 4;
+	public const ListViewSort.PresentBoxRarityFilterKind SUM = 5;
+}
+
+// Namespace: 
+public enum ListViewSort.Filter2Type // TypeDefIndex: 7804
+{
+	// Fields
+	public int value__; // 0x0
+	public const ListViewSort.Filter2Type ALL = 0;
+	public const ListViewSort.Filter2Type FILTER1 = 1;
+	public const ListViewSort.Filter2Type FILTER2 = 2;
+	public const ListViewSort.Filter2Type FILTER3 = 3;
+}
+
+// Namespace: 
+public enum ListViewSort.BonusFilterKind // TypeDefIndex: 7805
+{
+	// Fields
+	public int value__; // 0x0
+	public const ListViewSort.BonusFilterKind ALL = 0;
+	public const ListViewSort.BonusFilterKind EVENT = 1;
+	public const ListViewSort.BonusFilterKind SERVANT = 2;
+	public const ListViewSort.BonusFilterKind CAMPAIGN = 3;
+	public const ListViewSort.BonusFilterKind CLOSE_EVENT = 4;
+	public const ListViewSort.BonusFilterKind FINISH_EVENT = 5;
+}
+
+// Namespace: 
+public enum ListViewSort.ScaleType // TypeDefIndex: 7806
+{
+	// Fields
+	public int value__; // 0x0
+	public const ListViewSort.ScaleType NONE = 0;
+	public const ListViewSort.ScaleType NORMAL = 1;
+	public const ListViewSort.ScaleType SMALL = 2;
+	public const ListViewSort.ScaleType EXTREMELY_SMALL = 3;
+}
+
+// Namespace: 
+public enum ListViewSort.ExpUpDispKind // TypeDefIndex: 7807
+{
+	// Fields
+	public int value__; // 0x0
+	public const ListViewSort.ExpUpDispKind USER = 0;
+	public const ListViewSort.ExpUpDispKind WARHOUSE = 1;
+	public const ListViewSort.ExpUpDispKind TOTAL = 2;
+	public const ListViewSort.ExpUpDispKind SUM = 3;
+}
+
+// Namespace: 
+public enum ListViewSort.ExpUpDispType // TypeDefIndex: 7808
+{
+	// Fields
+	public int value__; // 0x0
+	public const ListViewSort.ExpUpDispType EXP_UP = 0;
+	public const ListViewSort.ExpUpDispType ATK_UP = 1;
+	public const ListViewSort.ExpUpDispType HP_UP = 2;
+	public const ListViewSort.ExpUpDispType SUM = 3;
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC259F8 Offset: 0xC259F8 VA: 0xC259F8
+public class LookAtTarget : MonoBehaviour // TypeDefIndex: 7809
+{
+	// Fields
+	public int level; // 0x18
+	public Transform target; // 0x20
+	public float speed; // 0x28
+	private Transform mTrans; // 0x30
+
+	// Methods
+
+	// RVA: 0x2B9D870 Offset: 0x2B9D870 VA: 0x2B9D870
+	public void .ctor() { }
+
+	// RVA: 0x2B9D880 Offset: 0x2B9D880 VA: 0x2B9D880
+	private void Start() { }
+
+	// RVA: 0x2B9D8A8 Offset: 0x2B9D8A8 VA: 0x2B9D8A8
+	private void LateUpdate() { }
+}
+
+// Namespace: 
+public class MainMenuBarButton : MonoBehaviour // TypeDefIndex: 7810
+{
+	// Fields
+	protected MainMenuBarButton.Mode mode; // 0x18
+
+	// Methods
+
+	// RVA: 0x2BA6F8C Offset: 0x2BA6F8C VA: 0x2BA6F8C
+	public void .ctor() { }
+
+	// RVA: 0x2BA2FA4 Offset: 0x2BA2FA4 VA: 0x2BA2FA4
+	public void SetMode(MainMenuBarButton.Mode mode) { }
+
+	// RVA: 0x2BA6248 Offset: 0x2BA6248 VA: 0x2BA6248
+	public bool IsEnabled() { }
+}
+
+// Namespace: 
+public enum MainMenuBarButton.Kind // TypeDefIndex: 7811
+{
+	// Fields
+	public int value__; // 0x0
+	public const MainMenuBarButton.Kind TERMINAL = 0;
+	public const MainMenuBarButton.Kind FORMATION = 1;
+	public const MainMenuBarButton.Kind SUMMON = 2;
+	public const MainMenuBarButton.Kind COMBINE = 3;
+	public const MainMenuBarButton.Kind SHOP = 4;
+	public const MainMenuBarButton.Kind FRIEND = 5;
+	public const MainMenuBarButton.Kind MYROOM = 6;
+	public const MainMenuBarButton.Kind LATEST_SCENARIO = 7;
+	public const MainMenuBarButton.Kind SIZEOF = 8;
+}
+
+// Namespace: 
+public enum MainMenuBarButton.Mode // TypeDefIndex: 7812
+{
+	// Fields
+	public int value__; // 0x0
+	public const MainMenuBarButton.Mode NONE = 0;
+	public const MainMenuBarButton.Mode DISABLE = 1;
+	public const MainMenuBarButton.Mode ENABLE = 2;
+	public const MainMenuBarButton.Mode SELECT = 3;
+}
+
+// Namespace: 
+public class NGUIFader : MonoBehaviour // TypeDefIndex: 7813
+{
+	// Fields
+	public float duration; // 0x18
+	public Color color; // 0x1C
+	private bool isFading; // 0x2C
 	private float offsetTime; // 0x30
 	private float durTime; // 0x34
 	private bool isFadeIn; // 0x38
@@ -6,52 +819,52 @@
 
 	// Methods
 
-	// RVA: 0x1FED120 Offset: 0x1FED120 VA: 0x1FED120
+	// RVA: 0x18E3BC8 Offset: 0x18E3BC8 VA: 0x18E3BC8
 	public void .ctor() { }
 
-	// RVA: 0x1FED15C Offset: 0x1FED15C VA: 0x1FED15C
+	// RVA: 0x18E3C04 Offset: 0x18E3C04 VA: 0x18E3C04
 	private void Start() { }
 
-	// RVA: 0x1FED160 Offset: 0x1FED160 VA: 0x1FED160
+	// RVA: 0x18E3C08 Offset: 0x18E3C08 VA: 0x18E3C08
 	private void setup() { }
 
-	// RVA: 0x1FED234 Offset: 0x1FED234 VA: 0x1FED234
+	// RVA: 0x18E3CDC Offset: 0x18E3CDC VA: 0x18E3CDC
 	public void setColor(Color col) { }
 
-	// RVA: 0x1FED2A4 Offset: 0x1FED2A4 VA: 0x1FED2A4
+	// RVA: 0x18E3D4C Offset: 0x18E3D4C VA: 0x18E3D4C
 	public bool isFaded() { }
 
-	// RVA: 0x1FED2D0 Offset: 0x1FED2D0 VA: 0x1FED2D0
+	// RVA: 0x18E3D78 Offset: 0x18E3D78 VA: 0x18E3D78
 	public void FadeStart(Color col, float dur, bool isIn, NGUIFader.OnFinished callback, bool noSetColor = False) { }
 
-	// RVA: 0x1FED610 Offset: 0x1FED610 VA: 0x1FED610
+	// RVA: 0x18E40B8 Offset: 0x18E40B8 VA: 0x18E40B8
 	public void updateColor(float deltaTime) { }
 
-	// RVA: 0x1FED6E8 Offset: 0x1FED6E8 VA: 0x1FED6E8
+	// RVA: 0x18E4190 Offset: 0x18E4190 VA: 0x18E4190
 	private void Update() { }
 }
 
 // Namespace: 
-public sealed class NGUIFader.OnFinished : MulticastDelegate // TypeDefIndex: 7795
+public sealed class NGUIFader.OnFinished : MulticastDelegate // TypeDefIndex: 7814
 {
 	// Methods
 
-	// RVA: 0x1FED710 Offset: 0x1FED710 VA: 0x1FED710
+	// RVA: 0x18E41B8 Offset: 0x18E41B8 VA: 0x18E41B8
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x1FED410 Offset: 0x1FED410 VA: 0x1FED410 Slot: 11
+	// RVA: 0x18E3EB8 Offset: 0x18E3EB8 VA: 0x18E3EB8 Slot: 11
 	public virtual void Invoke() { }
 
-	// RVA: 0x1FED720 Offset: 0x1FED720 VA: 0x1FED720 Slot: 12
+	// RVA: 0x18E41C8 Offset: 0x18E41C8 VA: 0x18E41C8 Slot: 12
 	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
 
-	// RVA: 0x1FED754 Offset: 0x1FED754 VA: 0x1FED754 Slot: 13
+	// RVA: 0x18E41FC Offset: 0x18E41FC VA: 0x18E41FC Slot: 13
 	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: 
-[AddComponentMenu] // RVA: 0xC91B58 Offset: 0xC91B58 VA: 0xC91B58
-public class TweenRendererColor : UITweener // TypeDefIndex: 7796
+[AddComponentMenu] // RVA: 0xC25A30 Offset: 0xC25A30 VA: 0xC25A30
+public class TweenRendererColor : UITweener // TypeDefIndex: 7815
 {
 	// Fields
 	public Color from; // 0x78
@@ -60,108 +873,108 @@ public class TweenRendererColor : UITweener // TypeDefIndex: 7796
 	private UITweenRenderer mTweenRenderer; // 0xA0
 
 	// Properties
-	[ObsoleteAttribute] // RVA: 0xD4BC44 Offset: 0xD4BC44 VA: 0xD4BC44
+	[ObsoleteAttribute] // RVA: 0xCDE9F0 Offset: 0xCDE9F0 VA: 0xCDE9F0
 	public Color color { get; set; }
 	public Color value { get; set; }
 
 	// Methods
 
-	// RVA: 0x1E1DACC Offset: 0x1E1DACC VA: 0x1E1DACC
+	// RVA: 0x189D0F0 Offset: 0x189D0F0 VA: 0x189D0F0
 	public void .ctor() { }
 
-	// RVA: 0x1E1DB10 Offset: 0x1E1DB10 VA: 0x1E1DB10
+	// RVA: 0x189D134 Offset: 0x189D134 VA: 0x189D134
 	private void Cache() { }
 
-	// RVA: 0x1E1DB70 Offset: 0x1E1DB70 VA: 0x1E1DB70
+	// RVA: 0x189D194 Offset: 0x189D194 VA: 0x189D194
 	public Color get_color() { }
 
-	// RVA: 0x1E1DC2C Offset: 0x1E1DC2C VA: 0x1E1DC2C
+	// RVA: 0x189D250 Offset: 0x189D250 VA: 0x189D250
 	public void set_color(Color value) { }
 
-	// RVA: 0x1E1DB74 Offset: 0x1E1DB74 VA: 0x1E1DB74
+	// RVA: 0x189D198 Offset: 0x189D198 VA: 0x189D198
 	public Color get_value() { }
 
-	// RVA: 0x1E1DC30 Offset: 0x1E1DC30 VA: 0x1E1DC30
+	// RVA: 0x189D254 Offset: 0x189D254 VA: 0x189D254
 	public void set_value(Color value) { }
 
-	// RVA: 0x1E1DD1C Offset: 0x1E1DD1C VA: 0x1E1DD1C Slot: 5
+	// RVA: 0x189D340 Offset: 0x189D340 VA: 0x189D340 Slot: 5
 	protected override void OnUpdate(float factor, bool isFinished) { }
 
-	// RVA: 0x1E1DD64 Offset: 0x1E1DD64 VA: 0x1E1DD64
+	// RVA: 0x189D388 Offset: 0x189D388 VA: 0x189D388
 	public static TweenRendererColor Begin(GameObject go, float duration, Color color) { }
 
-	[ContextMenu] // RVA: 0xD38394 Offset: 0xD38394 VA: 0xD38394
-	// RVA: 0x1E1DE94 Offset: 0x1E1DE94 VA: 0x1E1DE94 Slot: 6
+	[ContextMenu] // RVA: 0xCCAD20 Offset: 0xCCAD20 VA: 0xCCAD20
+	// RVA: 0x189D4B8 Offset: 0x189D4B8 VA: 0x189D4B8 Slot: 6
 	public override void SetStartToCurrentValue() { }
 
-	[ContextMenu] // RVA: 0xD383CC Offset: 0xD383CC VA: 0xD383CC
-	// RVA: 0x1E1DEBC Offset: 0x1E1DEBC VA: 0x1E1DEBC Slot: 7
+	[ContextMenu] // RVA: 0xCCAD58 Offset: 0xCCAD58 VA: 0xCCAD58
+	// RVA: 0x189D4E0 Offset: 0x189D4E0 VA: 0x189D4E0 Slot: 7
 	public override void SetEndToCurrentValue() { }
 
-	[ContextMenu] // RVA: 0xD38404 Offset: 0xD38404 VA: 0xD38404
-	// RVA: 0x1E1DEE4 Offset: 0x1E1DEE4 VA: 0x1E1DEE4
+	[ContextMenu] // RVA: 0xCCAD90 Offset: 0xCCAD90 VA: 0xCCAD90
+	// RVA: 0x189D508 Offset: 0x189D508 VA: 0x189D508
 	private void SetCurrentValueToStart() { }
 
-	[ContextMenu] // RVA: 0xD3843C Offset: 0xD3843C VA: 0xD3843C
-	// RVA: 0x1E1DEF0 Offset: 0x1E1DEF0 VA: 0x1E1DEF0
+	[ContextMenu] // RVA: 0xCCADC8 Offset: 0xCCADC8 VA: 0xCCADC8
+	// RVA: 0x189D514 Offset: 0x189D514 VA: 0x189D514
 	private void SetCurrentValueToEnd() { }
 }
 
 // Namespace: 
-[AddComponentMenu] // RVA: 0xC91B90 Offset: 0xC91B90 VA: 0xC91B90
-public class TweenRenderVolume : UITweener // TypeDefIndex: 7797
+[AddComponentMenu] // RVA: 0xC25A68 Offset: 0xC25A68 VA: 0xC25A68
+public class TweenRenderVolume : UITweener // TypeDefIndex: 7816
 {
 	// Fields
-	[RangeAttribute] // RVA: 0xCC34A8 Offset: 0xCC34A8 VA: 0xCC34A8
+	[RangeAttribute] // RVA: 0xC57610 Offset: 0xC57610 VA: 0xC57610
 	public float from; // 0x78
-	[RangeAttribute] // RVA: 0xCC34C0 Offset: 0xCC34C0 VA: 0xCC34C0
+	[RangeAttribute] // RVA: 0xC57628 Offset: 0xC57628 VA: 0xC57628
 	public float to; // 0x7C
 	private bool mCached; // 0x80
 	private UITweenRenderer mTweenRenderer; // 0x88
 
 	// Properties
-	[ObsoleteAttribute] // RVA: 0xD4BC7C Offset: 0xD4BC7C VA: 0xD4BC7C
+	[ObsoleteAttribute] // RVA: 0xCDEA28 Offset: 0xCDEA28 VA: 0xCDEA28
 	public float volume { get; set; }
 	public float value { get; set; }
 
 	// Methods
 
-	// RVA: 0x1E1D7C0 Offset: 0x1E1D7C0 VA: 0x1E1D7C0
+	// RVA: 0x189CDE4 Offset: 0x189CDE4 VA: 0x189CDE4
 	public void .ctor() { }
 
-	// RVA: 0x1E1D7D0 Offset: 0x1E1D7D0 VA: 0x1E1D7D0
+	// RVA: 0x189CDF4 Offset: 0x189CDF4 VA: 0x189CDF4
 	private void Cache() { }
 
-	// RVA: 0x1E1D830 Offset: 0x1E1D830 VA: 0x1E1D830
+	// RVA: 0x189CE54 Offset: 0x189CE54 VA: 0x189CE54
 	public float get_volume() { }
 
-	// RVA: 0x1E1D8EC Offset: 0x1E1D8EC VA: 0x1E1D8EC
+	// RVA: 0x189CF10 Offset: 0x189CF10 VA: 0x189CF10
 	public void set_volume(float value) { }
 
-	// RVA: 0x1E1D834 Offset: 0x1E1D834 VA: 0x1E1D834
+	// RVA: 0x189CE58 Offset: 0x189CE58 VA: 0x189CE58
 	public float get_value() { }
 
-	// RVA: 0x1E1D8F0 Offset: 0x1E1D8F0 VA: 0x1E1D8F0
+	// RVA: 0x189CF14 Offset: 0x189CF14 VA: 0x189CF14
 	public void set_value(float value) { }
 
-	// RVA: 0x1E1D9B8 Offset: 0x1E1D9B8 VA: 0x1E1D9B8 Slot: 5
+	// RVA: 0x189CFDC Offset: 0x189CFDC VA: 0x189CFDC Slot: 5
 	protected override void OnUpdate(float factor, bool isFinished) { }
 
-	// RVA: 0x1E1D9D4 Offset: 0x1E1D9D4 VA: 0x1E1D9D4
+	// RVA: 0x189CFF8 Offset: 0x189CFF8 VA: 0x189CFF8
 	public static TweenRenderVolume Begin(GameObject go, float duration, float targetVolume) { }
 
-	// RVA: 0x1E1DA84 Offset: 0x1E1DA84 VA: 0x1E1DA84 Slot: 6
+	// RVA: 0x189D0A8 Offset: 0x189D0A8 VA: 0x189D0A8 Slot: 6
 	public override void SetStartToCurrentValue() { }
 
-	// RVA: 0x1E1DAA8 Offset: 0x1E1DAA8 VA: 0x1E1DAA8 Slot: 7
+	// RVA: 0x189D0CC Offset: 0x189D0CC VA: 0x189D0CC Slot: 7
 	public override void SetEndToCurrentValue() { }
 }
 
 // Namespace: 
-public class UIAlphaMaskTexture : UIAlphaMaskTextureRender // TypeDefIndex: 7798
+public class UIAlphaMaskTexture : UIAlphaMaskTextureRender // TypeDefIndex: 7817
 {
 	// Fields
-	[SerializeField] // RVA: 0xCC34D8 Offset: 0xCC34D8 VA: 0xCC34D8
+	[SerializeField] // RVA: 0xC57640 Offset: 0xC57640 VA: 0xC57640
 	private UITexture texture; // 0x188
 	protected AssetData assetData; // 0x190
 	protected Action callback; // 0x198
@@ -170,831 +983,18 @@ public class UIAlphaMaskTexture : UIAlphaMaskTextureRender // TypeDefIndex: 7798
 
 	// Methods
 
-	// RVA: 0x249FA08 Offset: 0x249FA08 VA: 0x249FA08
+	// RVA: 0x212AB70 Offset: 0x212AB70 VA: 0x212AB70
 	public void .ctor() { }
 
-	// RVA: 0x249FA18 Offset: 0x249FA18 VA: 0x249FA18
+	// RVA: 0x212AB80 Offset: 0x212AB80 VA: 0x212AB80
 	public void SetAlphaMaskTexture(string loadName, Action callback) { }
 
-	// RVA: 0x249FA1C Offset: 0x249FA1C VA: 0x249FA1C
+	// RVA: 0x212AB84 Offset: 0x212AB84 VA: 0x212AB84
 	protected void StartLoadAsset(string loadName, Action callback) { }
 
-	// RVA: 0x249FB10 Offset: 0x249FB10 VA: 0x249FB10
+	// RVA: 0x212AC78 Offset: 0x212AC78 VA: 0x212AC78
 	private void EndLoadAsset(AssetData asset) { }
 
-	// RVA: 0x249FB54 Offset: 0x249FB54 VA: 0x249FB54
+	// RVA: 0x212ACBC Offset: 0x212ACBC VA: 0x212ACBC
 	protected void SetTexture() { }
 
-	// RVA: 0x249FE44 Offset: 0x249FE44 VA: 0x249FE44
-	public void SetActive(bool isActive) { }
-
-	// RVA: 0x249FF5C Offset: 0x249FF5C VA: 0x249FF5C
-	public void SetOffsetDirect(Vector3 offset) { }
-
-	// RVA: 0x249FFB8 Offset: 0x249FFB8 VA: 0x249FFB8
-	private void OnDestroy() { }
-
-	// RVA: 0x249FFBC Offset: 0x249FFBC VA: 0x249FFBC
-	protected void Release() { }
-
-	// RVA: 0x24A0080 Offset: 0x24A0080 VA: 0x24A0080
-	private void DestroyMaterial() { }
-
-	// RVA: 0x24A01DC Offset: 0x24A01DC VA: 0x24A01DC
-	public void SetSizeDirect(int width, int height) { }
-}
-
-// Namespace: 
-public class UIAlphaMaskTextureRender : UITweenRenderer // TypeDefIndex: 7799
-{
-	// Methods
-
-	// RVA: 0x249FA10 Offset: 0x249FA10 VA: 0x249FA10
-	public void .ctor() { }
-
-	// RVA: 0x249FCFC Offset: 0x249FCFC VA: 0x249FCFC
-	protected Texture2D GetTexture(AssetData assetData) { }
-
-	// RVA: 0x249FD88 Offset: 0x249FD88 VA: 0x249FD88
-	protected Texture2D GetAlphaTexture(AssetData assetData) { }
-}
-
-// Namespace: 
-public class UICharaGraphRender : UITweenRenderer // TypeDefIndex: 7800
-{
-	// Fields
-	protected static readonly int MAIN_SIZE_X; // 0x0
-	protected static readonly int MAIN_SIZE_Y; // 0x4
-	protected static readonly int SERVANT_BODY_SIZE_X; // 0x8
-	protected static readonly int SERVANT_BODY_SIZE_Y; // 0xC
-	protected static readonly int SERVANT_EQUIP_BODY_SIZE_X; // 0x10
-	protected static readonly int SERVANT_EQUIP_BODY_SIZE_Y; // 0x14
-	protected static readonly float SERVANT_BODY_U; // 0x18
-	protected static readonly float SERVANT_BODY_V; // 0x1C
-	protected static readonly float SERVANT_BODY_W; // 0x20
-	protected static readonly float SERVANT_BODY_H; // 0x24
-	protected static readonly float SERVANT_EQUIP_BODY_U; // 0x28
-	protected static readonly float SERVANT_EQUIP_BODY_V; // 0x2C
-	protected static readonly float SERVANT_EQUIP_BODY_W; // 0x30
-	protected static readonly float SERVANT_EQUIP_BODY_H; // 0x34
-	protected static readonly ReadOnlyCollection<Rect> servantBodyRectTable; // 0x38
-	protected static readonly Rect servantEquipBodyRect; // 0x40
-	protected static readonly float SERVANT_NAME_UV_DIFF_Y; // 0x50
-	protected static readonly int MAX_SERVANT_NAME_UV_DIFF_COUNT; // 0x54
-	protected static readonly int[] SERVANT_NAME_TARGET_LIMIT_COUNT; // 0x58
-	protected static readonly string[] bodyTextureNameTable; // 0x60
-	private static readonly string[] baseFrameList; // 0x68
-	protected static Dictionary<int, string[]> baseFrameTable; // 0x70
-	private static readonly string[] commandCodeBaseFrameList; // 0x78
-	[SerializeField] // RVA: 0xCC34E8 Offset: 0xCC34E8 VA: 0xCC34E8
-	protected UICharaGraphRender.Kind baseKind; // 0x184
-	protected int svtId; // 0x188
-	protected int imageSvtId; // 0x18C
-	protected int limitCount; // 0x190
-	protected int imageLimitCount; // 0x194
-	protected int exceedCount; // 0x198
-	protected int lv; // 0x19C
-	protected int commandCodeId; // 0x1A0
-	protected SvtType.Type svtType; // 0x1A4
-	protected int classId; // 0x1A8
-	protected string frameName; // 0x1B0
-	protected int exceedType; // 0x1B8
-	protected int atk; // 0x1BC
-	protected int hp; // 0x1C0
-	protected int adjustAtk; // 0x1C4
-	protected int adjustHp; // 0x1C8
-	protected bool isNameTrue; // 0x1CC
-	private bool isEventJoinNameExist; // 0x1CD
-	protected UICharaGraphRender.RealNameCheck realNameCheck; // 0x1D0
-	protected int rarity; // 0x1D4
-	protected int frameType; // 0x1D8
-	protected int textureImageLimitCount; // 0x1DC
-	protected UICharaGraphRender.SaintGraphType saintGraphType; // 0x1E0
-
-	// Methods
-
-	// RVA: 0x2079F20 Offset: 0x2079F20 VA: 0x2079F20
-	public void .ctor() { }
-
-	// RVA: 0x2079F28 Offset: 0x2079F28 VA: 0x2079F28
-	public static string GetAssetName(int svtId, int imageLimitCount) { }
-
-	// RVA: 0x207A158 Offset: 0x207A158 VA: 0x207A158
-	public static string GetAssetName(int imageSvtId) { }
-
-	// RVA: 0x207A328 Offset: 0x207A328 VA: 0x207A328
-	public static string GetCommandAssetName(int commandCodeId) { }
-
-	// RVA: 0x207A3FC Offset: 0x207A3FC VA: 0x207A3FC
-	public static string GetExCharaGraphAssetName(int svtId) { }
-
-	// RVA: 0x207A5D4 Offset: 0x207A5D4 VA: 0x207A5D4
-	public UICharaGraphRender.Kind GetBaseKind() { }
-
-	// RVA: 0x207A5DC Offset: 0x207A5DC VA: 0x207A5DC
-	public void SetCharacter(int svtId, int limitCount, int exceedCount, bool isOwn, int lv, UICharaGraphRender.RealNameCheck changeNameType = 0, UICharaGraphRender.SaintGraphType saintGraphType = 0) { }
-
-	// RVA: 0x207AC2C Offset: 0x207AC2C VA: 0x207AC2C
-	public void SetCharacter(int svtId, int limitCount, int imageLimitCount, int exceedCount, int lv, UICharaGraphRender.RealNameCheck changeNameType = 0, UICharaGraphRender.SaintGraphType saintGraphType = 0) { }
-
-	// RVA: 0x207A718 Offset: 0x207A718 VA: 0x207A718
-	protected void SetCharacter(UICharaGraphRender.RealNameCheck changeNameType = 0, UICharaGraphRender.SaintGraphType saintGraphType = 0) { }
-
-	// RVA: 0x207AD98 Offset: 0x207AD98 VA: 0x207AD98
-	public void SetCommand(int commandCodeId) { }
-
-	// RVA: 0x207AEDC Offset: 0x207AEDC VA: 0x207AEDC
-	protected void SetAtk(int atk, int adjustAtk = 0) { }
-
-	// RVA: 0x207AEF0 Offset: 0x207AEF0 VA: 0x207AEF0
-	protected void SetHp(int hp, int adjustHp = 0) { }
-
-	// RVA: 0x207AF04 Offset: 0x207AF04 VA: 0x207AF04
-	public Vector2 GetBodySize() { }
-
-	// RVA: 0x207AFBC Offset: 0x207AFBC VA: 0x207AFBC
-	public Rect GetBodyUvRect() { }
-
-	// RVA: 0x207B080 Offset: 0x207B080 VA: 0x207B080
-	public Texture2D GetBodyTexture(AssetData data) { }
-
-	// RVA: 0x207B358 Offset: 0x207B358 VA: 0x207B358
-	private int GetNameTargetLimitCount() { }
-
-	// RVA: 0x207B44C Offset: 0x207B44C VA: 0x207B44C
-	public Texture2D GetNameTexture(AssetData data) { }
-
-	// RVA: 0x207B58C Offset: 0x207B58C VA: 0x207B58C
-	private Texture2D GetTrueNameTexture(AssetData data) { }
-
-	// RVA: 0x207B7A4 Offset: 0x207B7A4 VA: 0x207B7A4
-	public Rect GetNameUvRect(Rect defaultValue) { }
-
-	// RVA: 0x207BA3C Offset: 0x207BA3C VA: 0x207BA3C
-	public Texture2D GetName2Texture(AssetData data) { }
-
-	// RVA: 0x207BA54 Offset: 0x207BA54 VA: 0x207BA54
-	public string GetRaritySprite() { }
-
-	// RVA: 0x207BAFC Offset: 0x207BAFC VA: 0x207BAFC
-	public string GetClassSprite() { }
-
-	// RVA: 0x207BC4C Offset: 0x207BC4C VA: 0x207BC4C
-	public void SetAlpha(float alpha) { }
-
-	// RVA: 0x207BC90 Offset: 0x207BC90 VA: 0x207BC90
-	public void MoveAlpha(float duration, float alpha) { }
-
-	// RVA: 0x207BD44 Offset: 0x207BD44 VA: 0x207BD44
-	public void MoveAlpha(float duration, float alpha, GameObject callbackObject, string callbackFunc) { }
-
-	// RVA: 0x207BF18 Offset: 0x207BF18 VA: 0x207BF18
-	public void SetLayer(int layer) { }
-
-	// RVA: 0x207BF90 Offset: 0x207BF90 VA: 0x207BF90
-	protected void SetLayer(Transform tf, int layer) { }
-
-	// RVA: 0x207C290 Offset: 0x207C290 VA: 0x207C290
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public enum UICharaGraphRender.Kind // TypeDefIndex: 7801
-{
-	// Fields
-	public int value__; // 0x0
-	public const UICharaGraphRender.Kind NONE = -1;
-	public const UICharaGraphRender.Kind SERVANT = 0;
-	public const UICharaGraphRender.Kind SERVANT_EQUIP = 1;
-	public const UICharaGraphRender.Kind COMMAND_CODE = 2;
-}
-
-// Namespace: 
-public enum UICharaGraphRender.RealNameCheck // TypeDefIndex: 7802
-{
-	// Fields
-	public int value__; // 0x0
-	public const UICharaGraphRender.RealNameCheck DO_CHECK = 0;
-	public const UICharaGraphRender.RealNameCheck NOT_REAL = 1;
-	public const UICharaGraphRender.RealNameCheck REAL_NAME = 2;
-	public const UICharaGraphRender.RealNameCheck RELEASE_PRESENTATION = 3;
-}
-
-// Namespace: 
-public enum UICharaGraphRender.SaintGraphType // TypeDefIndex: 7803
-{
-	// Fields
-	public int value__; // 0x0
-	public const UICharaGraphRender.SaintGraphType NORMAL = 0;
-	public const UICharaGraphRender.SaintGraphType NPC_FOLLOWER_SERVANT_EQUIP = 1;
-}
-
-// Namespace: 
-public class UICharaGraphTexture : UICharaGraphRender // TypeDefIndex: 7804
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC34F8 Offset: 0xCC34F8 VA: 0xCC34F8
-	protected UISprite baseSprite; // 0x1E8
-	[SerializeField] // RVA: 0xCC3508 Offset: 0xCC3508 VA: 0xCC3508
-	protected UITexture bodyTexture; // 0x1F0
-	[SerializeField] // RVA: 0xCC3518 Offset: 0xCC3518 VA: 0xCC3518
-	protected GameObject spriteBase; // 0x1F8
-	[SerializeField] // RVA: 0xCC3528 Offset: 0xCC3528 VA: 0xCC3528
-	protected UISprite frameLeftSprite; // 0x200
-	[SerializeField] // RVA: 0xCC3538 Offset: 0xCC3538 VA: 0xCC3538
-	protected UISprite frameRightSprite; // 0x208
-	[SerializeField] // RVA: 0xCC3548 Offset: 0xCC3548 VA: 0xCC3548
-	protected UISprite frameTopSprite; // 0x210
-	[SerializeField] // RVA: 0xCC3558 Offset: 0xCC3558 VA: 0xCC3558
-	protected UISprite frameBottomSprite; // 0x218
-	[SerializeField] // RVA: 0xCC3568 Offset: 0xCC3568 VA: 0xCC3568
-	protected UISprite raritySprite; // 0x220
-	[SerializeField] // RVA: 0xCC3578 Offset: 0xCC3578 VA: 0xCC3578
-	protected UISprite classSprite; // 0x228
-	[SerializeField] // RVA: 0xCC3588 Offset: 0xCC3588 VA: 0xCC3588
-	protected UITexture nameTexture; // 0x230
-	[SerializeField] // RVA: 0xCC3598 Offset: 0xCC3598 VA: 0xCC3598
-	protected UITexture name2Texture; // 0x238
-	[SerializeField] // RVA: 0xCC35A8 Offset: 0xCC35A8 VA: 0xCC35A8
-	protected UILabel attackLabel; // 0x240
-	[SerializeField] // RVA: 0xCC35B8 Offset: 0xCC35B8 VA: 0xCC35B8
-	protected UILabel hpLabel; // 0x248
-	[SerializeField] // RVA: 0xCC35C8 Offset: 0xCC35C8 VA: 0xCC35C8
-	protected UISprite equipHpSprite; // 0x250
-	[SerializeField] // RVA: 0xCC35D8 Offset: 0xCC35D8 VA: 0xCC35D8
-	protected UISprite equipAtkSprite; // 0x258
-	[SerializeField] // RVA: 0xCC35E8 Offset: 0xCC35E8 VA: 0xCC35E8
-	protected UISprite materialTdSprite; // 0x260
-	protected AssetData assetMain; // 0x268
-	protected string loadName; // 0x270
-	protected Action callbackFunc; // 0x278
-
-	// Properties
-	public bool IsLoad { get; }
-
-	// Methods
-
-	// RVA: 0x207D220 Offset: 0x207D220 VA: 0x207D220
-	public void .ctor() { }
-
-	// RVA: 0x207D288 Offset: 0x207D288 VA: 0x207D288 Slot: 39
-	public override void SetTweenColor(Color c) { }
-
-	// RVA: 0x207D2F4 Offset: 0x207D2F4 VA: 0x207D2F4
-	public bool get_IsLoad() { }
-
-	// RVA: 0x207D304 Offset: 0x207D304 VA: 0x207D304
-	public void Destroy() { }
-
-	// RVA: 0x207D308 Offset: 0x207D308 VA: 0x207D308
-	protected void OnDestroy() { }
-
-	// RVA: 0x207D4AC Offset: 0x207D4AC VA: 0x207D4AC
-	public void SetActive(bool isActive) { }
-
-	// RVA: 0x207D30C Offset: 0x207D30C VA: 0x207D30C
-	public void ReleaseCharacter() { }
-
-	// RVA: 0x207D4FC Offset: 0x207D4FC VA: 0x207D4FC
-	public void SetCharacter(int svtId, int limitCount, int exceedCount, bool isOwn, Action callbackFunc, UICharaGraphRender.RealNameCheck changeNameType = 0) { }
-
-	// RVA: 0x207D8C4 Offset: 0x207D8C4 VA: 0x207D8C4
-	public void SetCharacter(UserServantEntity userSvtEntity, Action callbackFunc) { }
-
-	// RVA: 0x207D9D4 Offset: 0x207D9D4 VA: 0x207D9D4
-	public void SetCharacter(UserServantEntity userSvtEntity, int imageLimitCount, Action callbackFunc, UICharaGraphRender.RealNameCheck changeNameType = 0) { }
-
-	// RVA: 0x207DAF4 Offset: 0x207DAF4 VA: 0x207DAF4
-	public void SetCharacter(UserServantCollectionEntity userSvtCollectionEntity, Action callbackFunc) { }
-
-	// RVA: 0x207DC0C Offset: 0x207DC0C VA: 0x207DC0C
-	public void SetCharacter(UserServantCollectionEntity userSvtCollectionEntity, int imageLimitCount, Action callbackFunc) { }
-
-	// RVA: 0x207DD28 Offset: 0x207DD28 VA: 0x207DD28
-	public void SetCharacter(ServantLeaderInfo servantLeaderInfo, Action callbackFunc) { }
-
-	// RVA: 0x207DE08 Offset: 0x207DE08 VA: 0x207DE08
-	public void SetCharacter(ServantLeaderInfo servantLeaderInfo, int imageLimitCount, Action callbackFunc) { }
-
-	// RVA: 0x207DF00 Offset: 0x207DF00 VA: 0x207DF00
-	public void SetCharacter(EquipTargetInfo equipTargetInfo, bool isNpcFollowerServantEquip, Action callbackFunc) { }
-
-	// RVA: 0x207DFD4 Offset: 0x207DFD4 VA: 0x207DFD4
-	public void SetCharacter(EquipTargetInfo equipTargetInfo, int imageLimitCount, bool isNpcFollowerServantEquip, Action callbackFunc) { }
-
-	// RVA: 0x207E0DC Offset: 0x207E0DC VA: 0x207E0DC
-	public void SetCommand(UserCommandCodeEntity userCommandCodeEntity, Action callbackFunc) { }
-
-	// RVA: 0x207E180 Offset: 0x207E180 VA: 0x207E180
-	public void SetCommand(UserCommandCodeCollectionEntity userCommandCodeCollectionEntity, Action callbackFunc) { }
-
-	// RVA: 0x207E224 Offset: 0x207E224 VA: 0x207E224
-	public void SetCommand(CommandCodeEntity commandCodeEntity, Action callbackFunc) { }
-
-	// RVA: 0x207E2C8 Offset: 0x207E2C8 VA: 0x207E2C8
-	public void SetCommand(int commandCodeId, Action callbackFunc) { }
-
-	// RVA: 0x207D630 Offset: 0x207D630 VA: 0x207D630
-	protected void LoadCharacter(Action callbackFunc) { }
-
-	// RVA: 0x207E2F4 Offset: 0x207E2F4 VA: 0x207E2F4
-	protected void SetBeforeFrame() { }
-
-	// RVA: 0x207E358 Offset: 0x207E358 VA: 0x207E358
-	protected void SetFrame() { }
-
-	// RVA: 0x207F354 Offset: 0x207F354 VA: 0x207F354
-	protected void EndLoadAsset(AssetData assetMain) { }
-
-	// RVA: 0x207EED0 Offset: 0x207EED0 VA: 0x207EED0
-	protected void SetTexture() { }
-
-	// RVA: 0x207F444 Offset: 0x207F444 VA: 0x207F444
-	public void SetExCharaGraph(int svtId, int imageLimitCount) { }
-
-	// RVA: 0x207F578 Offset: 0x207F578 VA: 0x207F578
-	public void SetDepth(int d) { }
-
-	// RVA: 0x207F78C Offset: 0x207F78C VA: 0x207F78C
-	public void ExecuteNameCrossFade(float duration) { }
-
-	// RVA: 0x207F880 Offset: 0x207F880 VA: 0x207F880
-	public void ExecuteSpriteFadeoutForce() { }
-
-	// RVA: 0x207FA08 Offset: 0x207FA08 VA: 0x207FA08
-	public void ExecuteSpriteFadeout(float duration) { }
-
-	// RVA: 0x207FAD8 Offset: 0x207FAD8 VA: 0x207FAD8
-	public void ExecuteSpriteFadein(float duration) { }
-
-	// RVA: 0x207F2BC Offset: 0x207F2BC VA: 0x207F2BC
-	private void InitSprite(UISprite sprite) { }
-}
-
-// Namespace: 
-[AddComponentMenu] // RVA: 0xC91BC8 Offset: 0xC91BC8 VA: 0xC91BC8
-public class UICommonButton : UICommonButtonColor // TypeDefIndex: 7805
-{
-	// Fields
-	public static UICommonButton current; // 0x0
-	public static readonly bool dragHighlight; // 0x8
-	public bool isPassive; // 0x38
-	public List<EventDelegate> onClick; // 0x40
-
-	// Properties
-	public override bool isEnabled { get; set; }
-
-	// Methods
-
-	// RVA: 0x207FBA8 Offset: 0x207FBA8 VA: 0x207FBA8
-	public void .ctor() { }
-
-	// RVA: 0x207FCD4 Offset: 0x207FCD4 VA: 0x207FCD4 Slot: 4
-	public override bool get_isEnabled() { }
-
-	// RVA: 0x207FD10 Offset: 0x207FD10 VA: 0x207FD10 Slot: 5
-	public override void set_isEnabled(bool value) { }
-
-	// RVA: 0x207FD74 Offset: 0x207FD74 VA: 0x207FD74
-	public void SetEnable(bool value) { }
-
-	// RVA: 0x207FDBC Offset: 0x207FDBC VA: 0x207FDBC Slot: 6
-	protected override void OnInit() { }
-
-	// RVA: 0x207FE8C Offset: 0x207FE8C VA: 0x207FE8C Slot: 7
-	protected override void OnEnable() { }
-
-	// RVA: 0x2080028 Offset: 0x2080028 VA: 0x2080028 Slot: 9
-	protected override void OnHover(bool isOver) { }
-
-	// RVA: 0x2080260 Offset: 0x2080260 VA: 0x2080260 Slot: 15
-	protected virtual void OnPress(bool isPressed) { }
-
-	// RVA: 0x20804B4 Offset: 0x20804B4 VA: 0x20804B4 Slot: 11
-	protected override void OnDragOver() { }
-
-	// RVA: 0x2080664 Offset: 0x2080664 VA: 0x2080664 Slot: 12
-	protected override void OnDragOut() { }
-
-	// RVA: 0x2080814 Offset: 0x2080814 VA: 0x2080814 Slot: 16
-	protected virtual void OnClick() { }
-
-	// RVA: 0x20809B4 Offset: 0x20809B4 VA: 0x20809B4 Slot: 14
-	public override void SetState(UICommonButtonColor.State state, bool immediate) { }
-
-	// RVA: 0x2080A3C Offset: 0x2080A3C VA: 0x2080A3C
-	public void SetColliderEnable(bool isEnable, bool immediate = True) { }
-
-	// RVA: 0x2080B94 Offset: 0x2080B94 VA: 0x2080B94
-	public void SetButtonEnable(bool isEnable, bool immediate = True) { }
-
-	// RVA: 0x2080D10 Offset: 0x2080D10 VA: 0x2080D10
-	public void SetButtonEnableWithCollider(bool isEnable) { }
-
-	// RVA: 0x2080E4C Offset: 0x2080E4C VA: 0x2080E4C
-	public void SetButtonEnableAndKeepState(bool isEnable, bool immediate = False) { }
-
-	// RVA: 0x2080FBC Offset: 0x2080FBC VA: 0x2080FBC
-	private static void .cctor() { }
-}
-
-// Namespace: 
-[ExecuteInEditMode] // RVA: 0xC91C00 Offset: 0xC91C00 VA: 0xC91C00
-[AddComponentMenu] // RVA: 0xC91C00 Offset: 0xC91C00 VA: 0xC91C00
-public class UICommonButtonColor : UIWidgetContainer // TypeDefIndex: 7806
-{
-	// Fields
-	public GameObject[] tweenTargets; // 0x18
-	public static readonly Color normal; // 0x0
-	public static readonly Color hover; // 0x10
-	public static readonly Color pressed; // 0x20
-	public static readonly Color disabledColor; // 0x30
-	public static readonly float duration; // 0x40
-	protected bool mInitDone; // 0x20
-	protected UICommonButtonColor.State mState; // 0x24
-	private Color specifyDisabledColor; // 0x28
-
-	// Properties
-	public UICommonButtonColor.State state { get; set; }
-	public virtual bool isEnabled { get; set; }
-	public float alpha { get; }
-
-	// Methods
-
-	// RVA: 0x207FC34 Offset: 0x207FC34 VA: 0x207FC34
-	public void .ctor() { }
-
-	// RVA: 0x2080FC0 Offset: 0x2080FC0 VA: 0x2080FC0
-	public UICommonButtonColor.State get_state() { }
-
-	// RVA: 0x2080FC8 Offset: 0x2080FC8 VA: 0x2080FC8
-	public void set_state(UICommonButtonColor.State value) { }
-
-	// RVA: 0x2080FDC Offset: 0x2080FDC VA: 0x2080FDC Slot: 4
-	public virtual bool get_isEnabled() { }
-
-	// RVA: 0x2080FE4 Offset: 0x2080FE4 VA: 0x2080FE4 Slot: 5
-	public virtual void set_isEnabled(bool value) { }
-
-	// RVA: 0x20800BC Offset: 0x20800BC VA: 0x20800BC
-	public float get_alpha() { }
-
-	// RVA: 0x2080FF0 Offset: 0x2080FF0 VA: 0x2080FF0
-	private void Start() { }
-
-	// RVA: 0x207FDC0 Offset: 0x207FDC0 VA: 0x207FDC0 Slot: 6
-	protected virtual void OnInit() { }
-
-	// RVA: 0x208105C Offset: 0x208105C VA: 0x208105C Slot: 7
-	protected virtual void OnEnable() { }
-
-	// RVA: 0x2081254 Offset: 0x2081254 VA: 0x2081254 Slot: 8
-	protected virtual void OnDisable() { }
-
-	// RVA: 0x2081494 Offset: 0x2081494 VA: 0x2081494 Slot: 9
-	protected virtual void OnHover(bool isOver) { }
-
-	// RVA: 0x208150C Offset: 0x208150C VA: 0x208150C Slot: 10
-	protected virtual void OnPress(bool isPressed) { }
-
-	// RVA: 0x20805F4 Offset: 0x20805F4 VA: 0x20805F4 Slot: 11
-	protected virtual void OnDragOver() { }
-
-	// RVA: 0x20807A4 Offset: 0x20807A4 VA: 0x20807A4 Slot: 12
-	protected virtual void OnDragOut() { }
-
-	// RVA: 0x2081744 Offset: 0x2081744 VA: 0x2081744 Slot: 13
-	protected virtual void OnSelect(bool isSelected) { }
-
-	// RVA: 0x20809BC Offset: 0x20809BC VA: 0x20809BC Slot: 14
-	public virtual void SetState(UICommonButtonColor.State state, bool instant) { }
-
-	// RVA: 0x2081838 Offset: 0x2081838 VA: 0x2081838
-	public void UpdateColor(bool instant) { }
-
-	// RVA: 0x2081CC0 Offset: 0x2081CC0 VA: 0x2081CC0
-	public void SetSpecifyDisabledColor(Color specifyDisabledColor) { }
-
-	// RVA: 0x2081CCC Offset: 0x2081CCC VA: 0x2081CCC
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public enum UICommonButtonColor.State // TypeDefIndex: 7807
-{
-	// Fields
-	public int value__; // 0x0
-	public const UICommonButtonColor.State Normal = 0;
-	public const UICommonButtonColor.State Hover = 1;
-	public const UICommonButtonColor.State Pressed = 2;
-	public const UICommonButtonColor.State Disabled = 3;
-}
-
-// Namespace: 
-public class UICrossNarrowLabel : UILabel // TypeDefIndex: 7808
-{
-	// Fields
-	protected bool isInit; // 0x294
-	protected int baseWidth; // 0x298
-
-	// Methods
-
-	// RVA: 0x2082340 Offset: 0x2082340 VA: 0x2082340
-	public void .ctor() { }
-
-	// RVA: 0x20823A8 Offset: 0x20823A8 VA: 0x20823A8
-	public void SetCrossNarrowText(string text) { }
-}
-
-// Namespace: 
-[AddComponentMenu] // RVA: 0xC91C4C Offset: 0xC91C4C VA: 0xC91C4C
-public class UIDragDropListViewBackMask : MonoBehaviour // TypeDefIndex: 7809
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC35F8 Offset: 0xCC35F8 VA: 0xCC35F8
-	protected GameObject maskObject; // 0x18
-	private bool isMultiTouch; // 0x20
-	private bool oldMultiTouchEnabled; // 0x21
-
-	// Methods
-
-	// RVA: 0x20846F4 Offset: 0x20846F4 VA: 0x20846F4
-	public void .ctor() { }
-
-	// RVA: 0x20846FC Offset: 0x20846FC VA: 0x20846FC
-	public void DragStart() { }
-
-	// RVA: 0x2084800 Offset: 0x2084800 VA: 0x2084800
-	public void DragStart(EventDelegate.Callback call) { }
-
-	// RVA: 0x208495C Offset: 0x208495C VA: 0x208495C
-	public void DragEnd() { }
-
-	// RVA: 0x2084A60 Offset: 0x2084A60 VA: 0x2084A60
-	public void DragEnd(EventDelegate.Callback call) { }
-
-	// RVA: 0x2084BC8 Offset: 0x2084BC8 VA: 0x2084BC8
-	public void DragStartMultiTouch(EventDelegate.Callback click, EventDelegate.Callback drag) { }
-
-	// RVA: 0x2084DD4 Offset: 0x2084DD4 VA: 0x2084DD4
-	public void DragEndMultiTouch(EventDelegate.Callback click, EventDelegate.Callback drag) { }
-}
-
-// Namespace: 
-[AddComponentMenu] // RVA: 0xC91C84 Offset: 0xC91C84 VA: 0xC91C84
-public class UIDragDropListViewItem : MonoBehaviour // TypeDefIndex: 7810
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC3608 Offset: 0xCC3608 VA: 0xCC3608
-	protected UITouchPress touchPress; // 0x18
-	public UIDragDropListViewItem.Restriction restriction; // 0x20
-	protected Transform mTrans; // 0x28
-	protected Transform mParent; // 0x30
-	protected Collider mCollider; // 0x38
-	protected UIRoot mRoot; // 0x40
-	protected int mTouchID; // 0x48
-	protected float mPressTime; // 0x4C
-	protected ListViewObject mListViewObject; // 0x50
-	protected UIDragScrollView mDragScrollView; // 0x58
-	protected Vector3 mTarget; // 0x60
-	protected GameObject dragObject; // 0x70
-
-	// Methods
-
-	// RVA: 0x2084FE4 Offset: 0x2084FE4 VA: 0x2084FE4
-	public void .ctor() { }
-
-	// RVA: 0x2084FF4 Offset: 0x2084FF4 VA: 0x2084FF4 Slot: 4
-	protected virtual void Start() { }
-
-	// RVA: 0x2085000 Offset: 0x2085000 VA: 0x2085000 Slot: 5
-	public virtual void SetBaseTransform() { }
-
-	// RVA: 0x2085098 Offset: 0x2085098 VA: 0x2085098
-	public void SetEnable(bool flag) { }
-
-	// RVA: 0x2085198 Offset: 0x2085198 VA: 0x2085198
-	public void PressReset() { }
-
-	// RVA: 0x20851A4 Offset: 0x20851A4 VA: 0x20851A4
-	protected void OnPress(bool isPressed) { }
-
-	// RVA: 0x20851D8 Offset: 0x20851D8 VA: 0x20851D8
-	protected void OnDragStart() { }
-
-	// RVA: 0x2085398 Offset: 0x2085398 VA: 0x2085398
-	protected void DragStart() { }
-
-	// RVA: 0x2085488 Offset: 0x2085488 VA: 0x2085488
-	protected void OnDrag(Vector2 delta) { }
-
-	// RVA: 0x20855E8 Offset: 0x20855E8 VA: 0x20855E8
-	protected void OnDragEnd() { }
-
-	// RVA: 0x20856B4 Offset: 0x20856B4 VA: 0x20856B4 Slot: 6
-	protected virtual void OnDragDropStart() { }
-
-	// RVA: 0x2085848 Offset: 0x2085848 VA: 0x2085848 Slot: 7
-	protected virtual void OnDragDropMove(Vector3 delta) { }
-
-	// RVA: 0x20859A8 Offset: 0x20859A8 VA: 0x20859A8 Slot: 8
-	protected virtual void OnDragDropRelease(GameObject surface) { }
-}
-
-// Namespace: 
-public enum UIDragDropListViewItem.Restriction // TypeDefIndex: 7811
-{
-	// Fields
-	public int value__; // 0x0
-	public const UIDragDropListViewItem.Restriction None = 0;
-	public const UIDragDropListViewItem.Restriction Horizontal = 1;
-	public const UIDragDropListViewItem.Restriction Vertical = 2;
-	public const UIDragDropListViewItem.Restriction PressAndHold = 3;
-	public const UIDragDropListViewItem.Restriction Press = 4;
-}
-
-// Namespace: 
-public class UIDragDropListViewSurface : MonoBehaviour // TypeDefIndex: 7812
-{
-	// Methods
-
-	// RVA: 0x2085B7C Offset: 0x2085B7C VA: 0x2085B7C
-	public void .ctor() { }
-
-	// RVA: 0x2085B84 Offset: 0x2085B84 VA: 0x2085B84
-	public void DragStart() { }
-
-	// RVA: 0x2085BF0 Offset: 0x2085BF0 VA: 0x2085BF0
-	public void DragEnd() { }
-}
-
-// Namespace: 
-public class UIEquipGraphM : UIEquipGraphRender // TypeDefIndex: 7813
-{
-	// Fields
-	protected AssetData[] assetDataList; // 0x1F0
-	protected string[] loadNameList; // 0x1F8
-	protected Action callbackFunc; // 0x200
-
-	// Properties
-	public bool IsLoad { get; }
-
-	// Methods
-
-	// RVA: 0x208D5D8 Offset: 0x208D5D8 VA: 0x208D5D8
-	public void .ctor() { }
-
-	// RVA: 0x208D6AC Offset: 0x208D6AC VA: 0x208D6AC
-	public bool get_IsLoad() { }
-
-	// RVA: 0x208D6BC Offset: 0x208D6BC VA: 0x208D6BC
-	public void Destroy() { }
-
-	// RVA: 0x208D778 Offset: 0x208D778 VA: 0x208D778
-	protected void OnDestroy() { }
-
-	// RVA: 0x208D6C0 Offset: 0x208D6C0 VA: 0x208D6C0
-	public void ReleaseCharacter() { }
-
-	// RVA: 0x208D9CC Offset: 0x208D9CC VA: 0x208D9CC
-	public void SetCharacter(string imageName, Face.Type faceType, Action callbackFunc) { }
-
-	// RVA: 0x208DEA4 Offset: 0x208DEA4 VA: 0x208DEA4
-	protected void EndLoadAsset() { }
-
-	// RVA: 0x208DFC8 Offset: 0x208DFC8 VA: 0x208DFC8
-	protected void SetTexture() { }
-
-	// RVA: 0x208DDC4 Offset: 0x208DDC4 VA: 0x208DDC4
-	protected void SetTextureStatus() { }
-
-	// RVA: 0x208EA48 Offset: 0x208EA48 VA: 0x208EA48
-	public void SetDispOffset() { }
-}
-
-// Namespace: 
-public class UIEquipGraphRender : UITweenRenderer // TypeDefIndex: 7814
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC3618 Offset: 0xCC3618 VA: 0xCC3618
-	protected MeshFilter bodyFilter; // 0x188
-	[SerializeField] // RVA: 0xCC3628 Offset: 0xCC3628 VA: 0xCC3628
-	protected MeshRenderer bodyRenderer; // 0x190
-	public static readonly int MAIN_SIZE_X; // 0x0
-	public static readonly int MAIN_SIZE_Y; // 0x4
-	public static readonly int BODY_SIZE_X; // 0x8
-	public static readonly int BODY_SIZE_Y; // 0xC
-	public static readonly int LEFT_X; // 0x10
-	public static readonly int RIGHT_X; // 0x14
-	public static readonly int TOP_Y; // 0x18
-	public static readonly int BOTTOM_Y; // 0x1C
-	public static readonly float BODY_U; // 0x20
-	public static readonly float BODY_V; // 0x24
-	public static readonly float BODY_W; // 0x28
-	public static readonly float BODY_H; // 0x2C
-	protected bool isShadow; // 0x198
-	protected bool isTalkMask; // 0x199
-	protected string filterName; // 0x1A0
-	protected Color filterColor; // 0x1A8
-	protected Vector2 figureOffset; // 0x1B8
-	protected Vector2 dispOffset; // 0x1C0
-	protected Vector2 dispTop; // 0x1C8
-	protected Texture2D[] textureList; // 0x1D0
-	protected bool isBusyMoveAlpha; // 0x1D8
-	protected GameObject moveAlphaCallbackObject; // 0x1E0
-	protected string moveAlphaCallbackFunc; // 0x1E8
-
-	// Methods
-
-	// RVA: 0x208D63C Offset: 0x208D63C VA: 0x208D63C
-	public void .ctor() { }
-
-	// RVA: 0x208DC74 Offset: 0x208DC74 VA: 0x208DC74
-	public static string[] GetAssetNameList(string imageName) { }
-
-	// RVA: 0x208EB20 Offset: 0x208EB20 VA: 0x208EB20
-	public bool IsBusyMoveAlpha() { }
-
-	// RVA: 0x208EB28 Offset: 0x208EB28 VA: 0x208EB28
-	public Vector2 GetCenterOffset() { }
-
-	// RVA: 0x208EBC4 Offset: 0x208EBC4 VA: 0x208EBC4
-	public static Vector2 GetCharacterOffset() { }
-
-	// RVA: 0x208EBF8 Offset: 0x208EBF8 VA: 0x208EBF8
-	public static Vector2 GetCharacterOffsetMyroom() { }
-
-	// RVA: 0x208EC2C Offset: 0x208EC2C VA: 0x208EC2C Slot: 39
-	public override void SetTweenColor(Color c) { }
-
-	// RVA: 0x208ED40 Offset: 0x208ED40 VA: 0x208ED40
-	public Vector2 GetBodySize() { }
-
-	// RVA: 0x208EDC4 Offset: 0x208EDC4 VA: 0x208EDC4
-	public void SetActive(bool isActive) { }
-
-	// RVA: 0x208D77C Offset: 0x208D77C VA: 0x208D77C
-	public void ReleaseCharacter() { }
-
-	// RVA: 0x208EE14 Offset: 0x208EE14 VA: 0x208EE14
-	public void SetCharacter(int svtId, Face.Type faceType, Texture2D[] textureList) { }
-
-	// RVA: 0x208E138 Offset: 0x208E138 VA: 0x208E138
-	protected void SetCharacterRender() { }
-
-	// RVA: 0x208EFD0 Offset: 0x208EFD0 VA: 0x208EFD0
-	public void SetSharder(string shaderName) { }
-
-	// RVA: 0x208F0B4 Offset: 0x208F0B4 VA: 0x208F0B4
-	public void RecoverSharder() { }
-
-	// RVA: 0x208F18C Offset: 0x208F18C VA: 0x208F18C
-	public void SetWipeTexture(Texture texture) { }
-
-	// RVA: 0x208F3D0 Offset: 0x208F3D0 VA: 0x208F3D0
-	public void SetFilter(string filterName, Color filterColor) { }
-
-	// RVA: 0x208EE20 Offset: 0x208EE20 VA: 0x208EE20
-	public void SetBaseColor() { }
-
-	// RVA: 0x208F428 Offset: 0x208F428 VA: 0x208F428
-	public void SetShadow(bool isShadow) { }
-
-	// RVA: 0x208F434 Offset: 0x208F434 VA: 0x208F434
-	public void SetTalkMask(bool isMask) { }
-
-	// RVA: 0x208F440 Offset: 0x208F440 VA: 0x208F440
-	public void SetAlpha(float alpha) { }
-
-	// RVA: 0x208EEF8 Offset: 0x208EEF8 VA: 0x208EEF8
-	public void SetFilterColor(Color c) { }
-
-	// RVA: 0x208F484 Offset: 0x208F484 VA: 0x208F484
-	public void SetGradation(float g) { }
-
-	// RVA: 0x208F568 Offset: 0x208F568 VA: 0x208F568
-	public void SetVolume(float v) { }
-
-	// RVA: 0x208F64C Offset: 0x208F64C VA: 0x208F64C
-	public void SetDepth(float d) { }
-
-	// RVA: 0x208F6D4 Offset: 0x208F6D4 VA: 0x208F6D4
-	public void MoveAlpha(float duration, float alpha, GameObject callbackObject, string callbackFunc) { }
-
-	// RVA: 0x208F990 Offset: 0x208F990 VA: 0x208F990
-	public void MoveAlphaSpeed(float speed, float alpha, GameObject callbackObject, string callbackFunc) { }
-
-	// RVA: 0x208F8D8 Offset: 0x208F8D8 VA: 0x208F8D8
-	protected void EndMoveAlpha() { }
-
-	// RVA: 0x208FBA8 Offset: 0x208FBA8 VA: 0x208FBA8
-	public void SetLayer(int layer) { }
-
-	// RVA: 0x208FC20 Offset: 0x208FC20 VA: 0x208FC20
-	protected void SetLayer(Transform tf, int layer) { }
-
-	// RVA: 0x208FF20 Offset: 0x208FF20 VA: 0x208FF20
-	public void SetMaskInteraction(SpriteMaskInteraction maskInteraction) { }
-
-	// RVA: 0x208FFC0 Offset: 0x208FFC0 VA: 0x208FFC0
-	public void SetSortingOrder(int order) { }

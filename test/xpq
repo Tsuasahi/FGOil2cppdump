@@ -1,4 +1,820 @@
-	[DebuggerBrowsableAttribute] // RVA: 0xCC9DDC Offset: 0xCC9DDC VA: 0xCC9DDC
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28508 Offset: 0xC28508 VA: 0xC28508
+public class ShowAll : FsmStateAction // TypeDefIndex: 8081
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC5CBFC Offset: 0xC5CBFC VA: 0xC5CBFC
+	public FsmGameObject actObject; // 0x50
+	[TooltipAttribute] // RVA: 0xC5CC0C Offset: 0xC5CC0C VA: 0xC5CC0C
+	public FsmFloat time; // 0x58
+	private BattlePerformance perf; // 0x60
+	private int[] funcIndexList; // 0x68
+	private int index; // 0x70
+	private float timer; // 0x74
+	protected float basetimer; // 0x78
+	private float waitTime; // 0x7C
+	private float noEffectTimer; // 0x80
+
+	// Methods
+
+	// RVA: 0x1B965BC Offset: 0x1B965BC VA: 0x1B965BC
+	public void .ctor() { }
+
+	// RVA: 0x1B965C4 Offset: 0x1B965C4 VA: 0x1B965C4 Slot: 62
+	protected virtual float GetBaseInterval() { }
+
+	// RVA: 0x1B96624 Offset: 0x1B96624 VA: 0x1B96624 Slot: 34
+	public override void OnUpdate() { }
+
+	// RVA: 0x1B9678C Offset: 0x1B9678C VA: 0x1B9678C Slot: 63
+	public virtual float showData(int funcIndex, BattlePerformance performance) { }
+
+	// RVA: 0x1B968B8 Offset: 0x1B968B8 VA: 0x1B968B8 Slot: 64
+	protected virtual int[] getFunctionList(BattlePerformance performance) { }
+
+	// RVA: 0x1B9690C Offset: 0x1B9690C VA: 0x1B9690C Slot: 65
+	protected virtual bool IsDerivedPerformancesFinished(bool isMainEffectPerforming = False) { }
+
+	// RVA: 0x1B969F8 Offset: 0x1B969F8 VA: 0x1B969F8 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+public class ShowAllEx : ShowAll // TypeDefIndex: 8082
+{
+	// Fields
+	private int displayFuncNum; // 0x84
+
+	// Methods
+
+	// RVA: 0x1B96C78 Offset: 0x1B96C78 VA: 0x1B96C78
+	public void .ctor() { }
+
+	// RVA: 0x1B96C88 Offset: 0x1B96C88 VA: 0x1B96C88 Slot: 64
+	protected override int[] getFunctionList(BattlePerformance performance) { }
+
+	// RVA: 0x1B96CF0 Offset: 0x1B96CF0 VA: 0x1B96CF0 Slot: 62
+	protected override float GetBaseInterval() { }
+
+	// RVA: 0x1B96D94 Offset: 0x1B96D94 VA: 0x1B96D94 Slot: 63
+	public override float showData(int funcIndex, BattlePerformance performance) { }
+
+	// RVA: 0x1B96DD0 Offset: 0x1B96DD0 VA: 0x1B96DD0
+	protected float ShowMultiDamageFunc(int funcIndex, BattlePerformance performance, float nextInterval) { }
+
+	// RVA: 0x1B970B4 Offset: 0x1B970B4 VA: 0x1B970B4
+	private void ShowDamageFunc(ShowAllEx.DamageFuncArgument arg) { }
+
+	// RVA: 0x1B96F58 Offset: 0x1B96F58 VA: 0x1B96F58
+	private BattleActionData.DamageData[] GetDamageDataArrayDistinctIndex(int funcIndex, BattlePerformance performance) { }
+
+	// RVA: 0x1B97204 Offset: 0x1B97204 VA: 0x1B97204
+	private void GetDamageEffectIdAndNode(BattleActionData.DamageData damageData, int damageIndex, out int effectId, out string nodeName) { }
+}
+
+// Namespace: 
+public struct ShowAllEx.DamageFuncArgument // TypeDefIndex: 8083
+{
+	// Fields
+	public BattlePerformance perf; // 0x0
+	public BattleActionData.DamageData damage; // 0x8
+	public int damageIndex; // 0x10
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28540 Offset: 0xC28540 VA: 0xC28540
+public class ShowBattleEffect : FsmStateAction // TypeDefIndex: 8084
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC5CC44 Offset: 0xC5CC44 VA: 0xC5CC44
+	public FsmGameObject actObject; // 0x50
+	public FsmGameObject targetObject; // 0x58
+	public FsmInt effectId; // 0x60
+	public FsmString attachNodename; // 0x68
+	public FsmVector3 position; // 0x70
+	public FsmBool sideflip; // 0x78
+	public FsmBool isXFlip; // 0x80
+	public FsmBool isZFlip; // 0x88
+	public FsmBool isParent; // 0x90
+	public FsmBool isAbsScale; // 0x98
+	public FsmBool isWait; // 0xA0
+	public FsmGameObject storeObject; // 0xA8
+	public FsmBool skipIfNonPositiveEffectId; // 0xB0
+	private GameObject effectObject; // 0xB8
+
+	// Methods
+
+	// RVA: 0x1B972C0 Offset: 0x1B972C0 VA: 0x1B972C0
+	public void .ctor() { }
+
+	// RVA: 0x1B97334 Offset: 0x1B97334 VA: 0x1B97334 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1B97D68 Offset: 0x1B97D68 VA: 0x1B97D68 Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28578 Offset: 0xC28578 VA: 0xC28578
+public class ShowBattleEffectA : FsmStateAction // TypeDefIndex: 8085
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC5CC54 Offset: 0xC5CC54 VA: 0xC5CC54
+	public FsmGameObject actObject; // 0x50
+	public FsmGameObject targetObject; // 0x58
+	public FsmInt effectId; // 0x60
+	public FsmString attachNodename; // 0x68
+	public FsmVector3 position; // 0x70
+	public FsmBool sideflip; // 0x78
+	public FsmBool isXFlip; // 0x80
+	public FsmBool isZFlip2018; // 0x88
+	public FsmBool isParent; // 0x90
+	public FsmBool isAbsScale; // 0x98
+	public FsmGameObject storeObject; // 0xA0
+	public FsmBool skipIfNonPositiveEffectId; // 0xA8
+	public bool isEffectServant; // 0xB0
+
+	// Methods
+
+	// RVA: 0x1B97DF4 Offset: 0x1B97DF4 VA: 0x1B97DF4
+	public void .ctor() { }
+
+	// RVA: 0x1B97E58 Offset: 0x1B97E58 VA: 0x1B97E58 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC285B0 Offset: 0xC285B0 VA: 0xC285B0
+public class ShowBattleEffectCallServant : ShowBattleEffect // TypeDefIndex: 8086
+{
+	// Methods
+
+	// RVA: 0x1B996C0 Offset: 0x1B996C0 VA: 0x1B996C0
+	public void .ctor() { }
+
+	// RVA: 0x1B996C4 Offset: 0x1B996C4 VA: 0x1B996C4 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1B9993C Offset: 0x1B9993C VA: 0x1B9993C Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC430F4 Offset: 0xC430F4 VA: 0xC430F4
+private sealed class ShowBattleEffectCallServant.<OnEnter>c__AnonStorey0 // TypeDefIndex: 8087
+{
+	// Fields
+	internal BattleActorControl actor; // 0x10
+
+	// Methods
+
+	// RVA: 0x1B99934 Offset: 0x1B99934 VA: 0x1B99934
+	public void .ctor() { }
+
+	// RVA: 0x1B99940 Offset: 0x1B99940 VA: 0x1B99940
+	internal bool <>m__0(BattleActionData.SummonServant x) { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC285E8 Offset: 0xC285E8 VA: 0xC285E8
+public class ShowBattleEffectEx : FsmStateAction // TypeDefIndex: 8088
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC5CC64 Offset: 0xC5CC64 VA: 0xC5CC64
+	public FsmGameObject actObject; // 0x50
+	public FsmGameObject targetObject; // 0x58
+	public FsmInt effectId; // 0x60
+	public FsmString attachNodename; // 0x68
+	public FsmVector3 position; // 0x70
+	public FsmBool sideflip; // 0x78
+	public FsmBool isParent; // 0x80
+	public FsmBool isWait; // 0x88
+	public FsmGameObject storeObject; // 0x90
+	public FsmBool skipIfNonPositiveEffectId; // 0x98
+	public bool isEffectServant; // 0xA0
+	private GameObject effectObject; // 0xA8
+
+	// Methods
+
+	// RVA: 0x1B9998C Offset: 0x1B9998C VA: 0x1B9998C
+	public void .ctor() { }
+
+	// RVA: 0x1B999D0 Offset: 0x1B999D0 VA: 0x1B999D0 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1B9A364 Offset: 0x1B9A364 VA: 0x1B9A364 Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28620 Offset: 0xC28620 VA: 0xC28620
+public class ShowBattleEffectWithSetRotation : FsmStateAction // TypeDefIndex: 8089
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC5CC74 Offset: 0xC5CC74 VA: 0xC5CC74
+	public FsmGameObject actObject; // 0x50
+	public FsmGameObject targetObject; // 0x58
+	public FsmInt effectId; // 0x60
+	public FsmString attachNodename; // 0x68
+	public FsmVector3 position; // 0x70
+	public FsmBool sideflip; // 0x78
+	public FsmBool xRotFlip; // 0x80
+	public FsmBool sideflip2018; // 0x88
+	public FsmBool isXFlip; // 0x90
+	public FsmBool isZFlip; // 0x98
+	public FsmBool isParent; // 0xA0
+	public FsmGameObject storeObject; // 0xA8
+	public FsmBool skipIfNonPositiveEffectId; // 0xB0
+	public FsmFloat xAngle; // 0xB8
+	public FsmFloat yAngle; // 0xC0
+	public FsmFloat zAngle; // 0xC8
+	public Space space; // 0xD0
+	private GameObject effectObject; // 0xD8
+
+	// Methods
+
+	// RVA: 0x1B9A3F0 Offset: 0x1B9A3F0 VA: 0x1B9A3F0
+	public void .ctor() { }
+
+	// RVA: 0x1B9A444 Offset: 0x1B9A444 VA: 0x1B9A444 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1B9A534 Offset: 0x1B9A534 VA: 0x1B9A534 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1B9B214 Offset: 0x1B9B214 VA: 0x1B9B214 Slot: 34
+	public override void OnUpdate() { }
+
+	// RVA: 0x1B9B098 Offset: 0x1B9B098 VA: 0x1B9B098
+	private void DoSetRotation(Transform transform) { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28658 Offset: 0xC28658 VA: 0xC28658
+public class ShowBattleUIEffect : FsmStateAction // TypeDefIndex: 8090
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC5CC84 Offset: 0xC5CC84 VA: 0xC5CC84
+	public FsmGameObject PerformanceObject; // 0x50
+	public FsmInt effectId; // 0x58
+	public FsmBool isWait; // 0x60
+	private GameObject effectObject; // 0x68
+
+	// Methods
+
+	// RVA: 0x1B9B2A0 Offset: 0x1B9B2A0 VA: 0x1B9B2A0
+	public void .ctor() { }
+
+	// RVA: 0x1B9B2D4 Offset: 0x1B9B2D4 VA: 0x1B9B2D4 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1B9B458 Offset: 0x1B9B458 VA: 0x1B9B458 Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28690 Offset: 0xC28690 VA: 0xC28690
+public class ShowBuff : FsmStateAction // TypeDefIndex: 8091
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC5CC94 Offset: 0xC5CC94 VA: 0xC5CC94
+	public FsmGameObject actObject; // 0x50
+	public FsmInt functionIndex; // 0x58
+	private BattlePerformance perf; // 0x60
+
+	// Methods
+
+	// RVA: 0x1B9B4E4 Offset: 0x1B9B4E4 VA: 0x1B9B4E4
+	public void .ctor() { }
+
+	// RVA: 0x1B9B518 Offset: 0x1B9B518 VA: 0x1B9B518 Slot: 34
+	public override void OnUpdate() { }
+
+	// RVA: 0x1B9B5D4 Offset: 0x1B9B5D4 VA: 0x1B9B5D4 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC286C8 Offset: 0xC286C8 VA: 0xC286C8
+public class ShowDamage : FsmStateAction // TypeDefIndex: 8092
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC5CCA4 Offset: 0xC5CCA4 VA: 0xC5CCA4
+	public FsmGameObject actObject; // 0x50
+	public FsmInt nomalEffectId; // 0x58
+	public FsmInt criticalEffectId; // 0x60
+	public FsmString attachNodename; // 0x68
+	public FsmInt functionIndex; // 0x70
+	public FsmInt startValue; // 0x78
+	public FsmInt countValue; // 0x80
+
+	// Methods
+
+	// RVA: 0x1B9B980 Offset: 0x1B9B980 VA: 0x1B9B980
+	public void .ctor() { }
+
+	// RVA: 0x1B9B9D4 Offset: 0x1B9B9D4 VA: 0x1B9B9D4 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28700 Offset: 0xC28700 VA: 0xC28700
+public class ShowDamageMultiple : ShowDamage // TypeDefIndex: 8093
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC5CCB4 Offset: 0xC5CCB4 VA: 0xC5CCB4
+	public FsmInt[] changeMultipleEffectId; // 0x88
+	public FsmInt[] changeMultipleCriticalEffectId; // 0x90
+
+	// Methods
+
+	// RVA: 0x1B9BC6C Offset: 0x1B9BC6C VA: 0x1B9BC6C
+	public void .ctor() { }
+
+	// RVA: 0x1B9BCD8 Offset: 0x1B9BCD8 VA: 0x1B9BCD8 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28738 Offset: 0xC28738 VA: 0xC28738
+public class ShowDefenceTargetAddBuffEffect : FsmStateAction // TypeDefIndex: 8094
+{
+	// Fields
+	public FsmGameObject actObject; // 0x50
+	public FsmInt functionIndex; // 0x58
+	public ShowDefenceTargetAddBuffEffect.AddType addType; // 0x60
+	public FsmEvent finishEvent; // 0x68
+	public float whiteOutWaitTIme; // 0x70
+
+	// Methods
+
+	// RVA: 0x1B9C14C Offset: 0x1B9C14C VA: 0x1B9C14C
+	public void .ctor() { }
+
+	// RVA: 0x1B9C15C Offset: 0x1B9C15C VA: 0x1B9C15C Slot: 32
+	public override void OnEnter() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCAF48 Offset: 0xCCAF48 VA: 0xCCAF48
+	// RVA: 0x1B9C2A0 Offset: 0x1B9C2A0 VA: 0x1B9C2A0
+	private void <OnEnter>m__0() { }
+}
+
+// Namespace: 
+public enum ShowDefenceTargetAddBuffEffect.AddType // TypeDefIndex: 8095
+{
+	// Fields
+	public int value__; // 0x0
+	public const ShowDefenceTargetAddBuffEffect.AddType NoblePhantasm = 0;
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28770 Offset: 0xC28770 VA: 0xC28770
+public class ShowDefenceTargetDamage : FsmStateAction // TypeDefIndex: 8096
+{
+	// Fields
+	public FsmGameObject actObject; // 0x50
+	public FsmBool defenceTargetNoDamage; // 0x58
+	public string damageSe; // 0x60
+
+	// Methods
+
+	// RVA: 0x1B9C2F8 Offset: 0x1B9C2F8 VA: 0x1B9C2F8
+	public void .ctor() { }
+
+	// RVA: 0x1B9C350 Offset: 0x1B9C350 VA: 0x1B9C350 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC287A8 Offset: 0xC287A8 VA: 0xC287A8
+public class ShowDefenceTargetGuardEffect : FsmStateAction // TypeDefIndex: 8097
+{
+	// Fields
+	public FsmGameObject actObject; // 0x50
+	public FsmBool defenceTargetNoDamage; // 0x58
+
+	// Methods
+
+	// RVA: 0x1B9C440 Offset: 0x1B9C440 VA: 0x1B9C440
+	public void .ctor() { }
+
+	// RVA: 0x1B9C448 Offset: 0x1B9C448 VA: 0x1B9C448 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC287E0 Offset: 0xC287E0 VA: 0xC287E0
+public class ShowHeal : FsmStateAction // TypeDefIndex: 8098
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC5CCC4 Offset: 0xC5CCC4 VA: 0xC5CCC4
+	public FsmGameObject actObject; // 0x50
+	public FsmInt functionIndex; // 0x58
+
+	// Methods
+
+	// RVA: 0x1B9C544 Offset: 0x1B9C544 VA: 0x1B9C544
+	public void .ctor() { }
+
+	// RVA: 0x1B9C578 Offset: 0x1B9C578 VA: 0x1B9C578 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28818 Offset: 0xC28818 VA: 0xC28818
+public class ShowSkillEffect : FsmStateAction // TypeDefIndex: 8099
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC5CCD4 Offset: 0xC5CCD4 VA: 0xC5CCD4
+	public FsmGameObject actObject; // 0x50
+	public FsmGameObject targetObject; // 0x58
+	public FsmInt effectIndex; // 0x60
+	public FsmString attachNodename; // 0x68
+	public FsmVector3 position; // 0x70
+	public FsmBool sideflip; // 0x78
+	public FsmBool isParent; // 0x80
+	public FsmBool isWait; // 0x88
+	public FsmGameObject storeObject; // 0x90
+	private GameObject effectObject; // 0x98
+
+	// Methods
+
+	// RVA: 0x1B9C6F8 Offset: 0x1B9C6F8 VA: 0x1B9C6F8
+	public void .ctor() { }
+
+	// RVA: 0x1B9C74C Offset: 0x1B9C74C VA: 0x1B9C74C Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1B9CD08 Offset: 0x1B9CD08 VA: 0x1B9CD08 Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: 
+public class StateLog : SingletonMonoBehaviour<StateLog> // TypeDefIndex: 8100
+{
+	// Methods
+
+	// RVA: 0x179F7A4 Offset: 0x179F7A4 VA: 0x179F7A4
+	public void .ctor() { }
+}
+
+// Namespace: 
+public struct StateLog.FSMHistory // TypeDefIndex: 8101
+{
+	// Fields
+	public string fsmName; // 0x0
+	public List<string> history; // 0x8
+}
+
+// Namespace: 
+public enum StateLog.LogType // TypeDefIndex: 8102
+{
+	// Fields
+	public int value__; // 0x0
+	public const StateLog.LogType ALL = 0;
+	public const StateLog.LogType SHORT = 1;
+	public const StateLog.LogType NOW = 2;
+	public const StateLog.LogType STOP = 3;
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28850 Offset: 0xC28850 VA: 0xC28850
+[TooltipAttribute] // RVA: 0xC28850 Offset: 0xC28850 VA: 0xC28850
+public class StopBgm : FsmStateAction // TypeDefIndex: 8103
+{
+	// Methods
+
+	// RVA: 0x1B9FA48 Offset: 0x1B9FA48 VA: 0x1B9FA48
+	public void .ctor() { }
+
+	// RVA: 0x1B9FA50 Offset: 0x1B9FA50 VA: 0x1B9FA50 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC288A0 Offset: 0xC288A0 VA: 0xC288A0
+public class StopSe : FsmStateAction // TypeDefIndex: 8104
+{
+	// Fields
+	[TooltipAttribute] // RVA: 0xC5CCE4 Offset: 0xC5CCE4 VA: 0xC5CCE4
+	public float fadeoutTime; // 0x4C
+	[TooltipAttribute] // RVA: 0xC5CD1C Offset: 0xC5CD1C VA: 0xC5CD1C
+	public FsmString targetSeName; // 0x50
+
+	// Methods
+
+	// RVA: 0x1B9FAD4 Offset: 0x1B9FAD4 VA: 0x1B9FAD4
+	public void .ctor() { }
+
+	// RVA: 0x1B9FADC Offset: 0x1B9FADC VA: 0x1B9FADC Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC288D8 Offset: 0xC288D8 VA: 0xC288D8
+public class TransitionScene : FsmStateAction // TypeDefIndex: 8105
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC5CD54 Offset: 0xC5CD54 VA: 0xC5CD54
+	public SceneList.Type SceneType; // 0x4C
+
+	// Methods
+
+	// RVA: 0x1BFBD80 Offset: 0x1BFBD80 VA: 0x1BFBD80
+	public void .ctor() { }
+
+	// RVA: 0x1BFBD88 Offset: 0x1BFBD88 VA: 0x1BFBD88 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28910 Offset: 0xC28910 VA: 0xC28910
+[TooltipAttribute] // RVA: 0xC28910 Offset: 0xC28910 VA: 0xC28910
+public class TutorialCheckFlag : FsmStateAction // TypeDefIndex: 8106
+{
+	// Fields
+	[TooltipAttribute] // RVA: 0xC5CD64 Offset: 0xC5CD64 VA: 0xC5CD64
+	public FsmString flagName; // 0x50
+
+	// Methods
+
+	// RVA: 0x1BFD988 Offset: 0x1BFD988 VA: 0x1BFD988
+	public void .ctor() { }
+
+	// RVA: 0x1BFD990 Offset: 0x1BFD990 VA: 0x1BFD990 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1BFD994 Offset: 0x1BFD994 VA: 0x1BFD994 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28960 Offset: 0xC28960 VA: 0xC28960
+[TooltipAttribute] // RVA: 0xC28960 Offset: 0xC28960 VA: 0xC28960
+public class TutorialCheckProgressFlag : FsmStateAction // TypeDefIndex: 8107
+{
+	// Fields
+	[TooltipAttribute] // RVA: 0xC5CD9C Offset: 0xC5CD9C VA: 0xC5CD9C
+	public FsmInt cmpData; // 0x50
+
+	// Methods
+
+	// RVA: 0x1BFDA74 Offset: 0x1BFDA74 VA: 0x1BFDA74
+	public void .ctor() { }
+
+	// RVA: 0x1BFDA7C Offset: 0x1BFDA7C VA: 0x1BFDA7C Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1BFDA80 Offset: 0x1BFDA80 VA: 0x1BFDA80 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC289B0 Offset: 0xC289B0 VA: 0xC289B0
+[TooltipAttribute] // RVA: 0xC289B0 Offset: 0xC289B0 VA: 0xC289B0
+public class TutorialRequestFlag : FsmStateAction // TypeDefIndex: 8108
+{
+	// Fields
+	[TooltipAttribute] // RVA: 0xC5CDD4 Offset: 0xC5CDD4 VA: 0xC5CDD4
+	public FsmString flagName; // 0x50
+
+	// Methods
+
+	// RVA: 0x1BFDBA8 Offset: 0x1BFDBA8 VA: 0x1BFDBA8
+	public void .ctor() { }
+
+	// RVA: 0x1BFDBB0 Offset: 0x1BFDBB0 VA: 0x1BFDBB0 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1BFDBB4 Offset: 0x1BFDBB4 VA: 0x1BFDBB4 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1BFDCCC Offset: 0x1BFDCCC VA: 0x1BFDCCC
+	protected void EndRequest(string result) { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28A00 Offset: 0xC28A00 VA: 0xC28A00
+[TooltipAttribute] // RVA: 0xC28A00 Offset: 0xC28A00 VA: 0xC28A00
+public class TutorialSetFlag : FsmStateAction // TypeDefIndex: 8109
+{
+	// Fields
+	[TooltipAttribute] // RVA: 0xC5CE0C Offset: 0xC5CE0C VA: 0xC5CE0C
+	public FsmString flagName; // 0x50
+
+	// Methods
+
+	// RVA: 0x1BFDDA4 Offset: 0x1BFDDA4 VA: 0x1BFDDA4
+	public void .ctor() { }
+
+	// RVA: 0x1BFDDAC Offset: 0x1BFDDAC VA: 0x1BFDDAC Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1BFDDB0 Offset: 0x1BFDDB0 VA: 0x1BFDDB0 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28A50 Offset: 0xC28A50 VA: 0xC28A50
+[TooltipAttribute] // RVA: 0xC28A50 Offset: 0xC28A50 VA: 0xC28A50
+public class TutorialSetProgressFlag : FsmStateAction // TypeDefIndex: 8110
+{
+	// Fields
+	[TooltipAttribute] // RVA: 0xC5CE44 Offset: 0xC5CE44 VA: 0xC5CE44
+	public FsmInt flagData; // 0x50
+
+	// Methods
+
+	// RVA: 0x1BFDE48 Offset: 0x1BFDE48 VA: 0x1BFDE48
+	public void .ctor() { }
+
+	// RVA: 0x1BFDE50 Offset: 0x1BFDE50 VA: 0x1BFDE50 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1BFDE54 Offset: 0x1BFDE54 VA: 0x1BFDE54 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC28AA0 Offset: 0xC28AA0 VA: 0xC28AA0
+public class TweenColorEx : FsmStateAction // TypeDefIndex: 8111
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xC5CE7C Offset: 0xC5CE7C VA: 0xC5CE7C
+	public FsmGameObject gameObject; // 0x50
+	public FsmColor endcolor; // 0x58
+	public FsmFloat time; // 0x60
+
+	// Methods
+
+	// RVA: 0x1BFDEEC Offset: 0x1BFDEEC VA: 0x1BFDEEC
+	public void .ctor() { }
+
+	// RVA: 0x1BFDF38 Offset: 0x1BFDF38 VA: 0x1BFDF38 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1BFDF3C Offset: 0x1BFDF3C VA: 0x1BFDF3C Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC28AD8 Offset: 0xC28AD8 VA: 0xC28AD8
+[USequencerEventAttribute] // RVA: 0xC28AD8 Offset: 0xC28AD8 VA: 0xC28AD8
+public class USFGOUpdateChrAnimEvent : USEventBase // TypeDefIndex: 8112
+{
+	// Fields
+	private Animation anim; // 0x30
+	public string animationName; // 0x38
+	public float playbackSpeed; // 0x40
+	public string startEvent; // 0x48
+	public string stopEvent; // 0x50
+	public float startTime; // 0x58
+	public float stopTime; // 0x5C
+
+	// Methods
+
+	// RVA: 0x1850A88 Offset: 0x1850A88 VA: 0x1850A88
+	public void .ctor() { }
+
+	// RVA: 0x1850B20 Offset: 0x1850B20 VA: 0x1850B20 Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1851528 Offset: 0x1851528 VA: 0x1851528 Slot: 5
+	public override void ProcessEvent(float deltaTime) { }
+
+	// RVA: 0x185152C Offset: 0x185152C VA: 0x185152C Slot: 8
+	public override void StopEvent() { }
+}
+
+// Namespace: 
+public class FGOSequenceManager : SingletonMonoBehaviour<FGOSequenceManager> // TypeDefIndex: 8113
+{
+	// Fields
+	public Camera mainCamera; // 0x18
+	public Camera effectCamera; // 0x20
+	public Camera cutInCamera; // 0x28
+	public Transform bgRoot; // 0x30
+	public Transform allEffectRoot; // 0x38
+	public GameObject standardCutIn; // 0x40
+	public GameObject cameraPos; // 0x48
+	public GameObject fieldPos; // 0x50
+	public GameObject faderObject; // 0x58
+	public bool isEditorMode; // 0x60
+	private GameObject oldBg; // 0x68
+	protected bool isInitialized; // 0x70
+	private GameObject[] uniqueFieldPosArray; // 0x78
+
+	// Methods
+
+	// RVA: 0x10B45F8 Offset: 0x10B45F8 VA: 0x10B45F8
+	public void .ctor() { }
+
+	// RVA: 0x10B4648 Offset: 0x10B4648 VA: 0x10B4648
+	private void Awake() { }
+
+	// RVA: 0x10B4698 Offset: 0x10B4698 VA: 0x10B4698
+	private void setup() { }
+
+	// RVA: 0x10B48B4 Offset: 0x10B48B4 VA: 0x10B48B4
+	public void SetupSound() { }
+
+	// RVA: 0x10B4934 Offset: 0x10B4934 VA: 0x10B4934
+	private void Start() { }
+
+	// RVA: 0x10B4938 Offset: 0x10B4938 VA: 0x10B4938
+	public void InitNoblePhantasm() { }
+
+	// RVA: 0x10B49E4 Offset: 0x10B49E4 VA: 0x10B49E4
+	public Transform getCameraTransform(string name) { }
+
+	// RVA: 0x10B4A94 Offset: 0x10B4A94 VA: 0x10B4A94
+	public Transform getCharacterPosition(string name) { }
+
+	// RVA: 0x10B4CA4 Offset: 0x10B4CA4 VA: 0x10B4CA4
+	public void ChangeBg(string name, string bgType, bool parentCamera, Vector3 pos, Vector3 rot, Action callback) { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC28B38 Offset: 0xC28B38 VA: 0xC28B38
+[USequencerEventAttribute] // RVA: 0xC28B38 Offset: 0xC28B38 VA: 0xC28B38
+public class USFGOActorAxisRotation : USEventBase // TypeDefIndex: 8114
+{
+	// Fields
+	[SerializeField] // RVA: 0xC5CE8C Offset: 0xC5CE8C VA: 0xC5CE8C
+	private List<USFGOActorAxisRotation.AxisData> axisDataList; // 0x30
+	[SerializeField] // RVA: 0xC5CE9C Offset: 0xC5CE9C VA: 0xC5CE9C
+	private float lowerLimitPosY; // 0x38
+	[SerializeField] // RVA: 0xC5CEAC Offset: 0xC5CEAC VA: 0xC5CEAC
+	private float lowerAcceptableRangeY; // 0x3C
+	private int currentIndex; // 0x40
+	private Transform charactorObj; // 0x48
+	private GameObject middleObj; // 0x50
+	private Vector3 saveCharactorScale; // 0x58
+	[CompilerGeneratedAttribute] // RVA: 0xC5CEBC Offset: 0xC5CEBC VA: 0xC5CEBC
+	private static Action<USFGOActorAxisRotation.AxisData> <>f__am$cache0; // 0x0
+
+	// Methods
+
+	// RVA: 0x1400358 Offset: 0x1400358 VA: 0x1400358
+	public void .ctor() { }
+
+	// RVA: 0x14003C8 Offset: 0x14003C8 VA: 0x14003C8 Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x140069C Offset: 0x140069C VA: 0x140069C
+	private void ChangeAxisRotation() { }
+
+	// RVA: 0x1400B50 Offset: 0x1400B50 VA: 0x1400B50
+	private int GetLimitCount() { }
+
+	// RVA: 0x1400C64 Offset: 0x1400C64 VA: 0x1400C64
+	private Transform GetTargetNode(USFGOActorAxisRotation.AxisData axisData, int value) { }
+
+	// RVA: 0x1400CD4 Offset: 0x1400CD4 VA: 0x1400CD4
+	private USFGOActorAxisRotation.BaseNodeSearchData[] MakeNodeSearchArray(USFGOActorAxisRotation.AxisData axisData) { }
+
+	// RVA: 0x1401084 Offset: 0x1401084 VA: 0x1401084
+	private USFGOActorAxisRotation.BaseNodeSearchData MakeNodeSearchData(string baseName, string appendName = "") { }
+
+	// RVA: 0x1400E70 Offset: 0x1400E70 VA: 0x1400E70
+	private void SaveNodeSearchData(string targetNodeName, USFGOActorAxisRotation.BaseNodeSearchData[] searchArray) { }
+
+	// RVA: 0x1400FD8 Offset: 0x1400FD8 VA: 0x1400FD8
+	private Transform GetMatchCondNode(USFGOActorAxisRotation.BaseNodeSearchData[] searchArray, int value) { }
+
+	// RVA: 0x140131C Offset: 0x140131C VA: 0x140131C Slot: 9
+	public override void EndEvent() { }
+
+	// RVA: 0x140150C Offset: 0x140150C VA: 0x140150C
+	private void ResetAxis(int index) { }
+
+	// RVA: 0x1401840 Offset: 0x1401840 VA: 0x1401840 Slot: 10
+	public override void UndoEvent() { }
+
+	// RVA: 0x140184C Offset: 0x140184C VA: 0x140184C Slot: 8
+	public override void StopEvent() { }
+
+	// RVA: 0x1401858 Offset: 0x1401858 VA: 0x1401858 Slot: 5
+	public override void ProcessEvent(float runningTime) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCAF58 Offset: 0xCCAF58 VA: 0xCCAF58
+	// RVA: 0x1401994 Offset: 0x1401994 VA: 0x1401994
+	private static void <FireEvent>m__0(USFGOActorAxisRotation.AxisData axis) { }
+}
+
+// Namespace: 
+private class USFGOActorAxisRotation.NodeSearchDetailData // TypeDefIndex: 8115
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xC5CECC Offset: 0xC5CECC VA: 0xC5CECC
+	[DebuggerBrowsableAttribute] // RVA: 0xC5CECC Offset: 0xC5CECC VA: 0xC5CECC
+	private string <NodeName>k__BackingField; // 0x10
+	[CompilerGeneratedAttribute] // RVA: 0xC5CF08 Offset: 0xC5CF08 VA: 0xC5CF08
+	[DebuggerBrowsableAttribute] // RVA: 0xC5CF08 Offset: 0xC5CF08 VA: 0xC5CF08
+	private float <Priority>k__BackingField; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xC5CF44 Offset: 0xC5CF44 VA: 0xC5CF44
+	[DebuggerBrowsableAttribute] // RVA: 0xC5CF44 Offset: 0xC5CF44 VA: 0xC5CF44
 	private Transform <Node>k__BackingField; // 0x20
 
 	// Properties
@@ -8,69 +824,69 @@
 
 	// Methods
 
-	// RVA: 0x1942FB4 Offset: 0x1942FB4 VA: 0x1942FB4
+	// RVA: 0x1401A98 Offset: 0x1401A98 VA: 0x1401A98
 	public void .ctor(Transform target) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD385DC Offset: 0xD385DC VA: 0xD385DC
-	// RVA: 0x1942FE4 Offset: 0x1942FE4 VA: 0x1942FE4
+	[CompilerGeneratedAttribute] // RVA: 0xCCAF68 Offset: 0xCCAF68 VA: 0xCCAF68
+	// RVA: 0x1401AC8 Offset: 0x1401AC8 VA: 0x1401AC8
 	public string get_NodeName() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD385EC Offset: 0xD385EC VA: 0xD385EC
-	// RVA: 0x19435AC Offset: 0x19435AC VA: 0x19435AC
+	[CompilerGeneratedAttribute] // RVA: 0xCCAF78 Offset: 0xCCAF78 VA: 0xCCAF78
+	// RVA: 0x1402090 Offset: 0x1402090 VA: 0x1402090
 	private void set_NodeName(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD385FC Offset: 0xD385FC VA: 0xD385FC
-	// RVA: 0x19435B4 Offset: 0x19435B4 VA: 0x19435B4
+	[CompilerGeneratedAttribute] // RVA: 0xCCAF88 Offset: 0xCCAF88 VA: 0xCCAF88
+	// RVA: 0x1402098 Offset: 0x1402098 VA: 0x1402098
 	public float get_Priority() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3860C Offset: 0xD3860C VA: 0xD3860C
-	// RVA: 0x19435BC Offset: 0x19435BC VA: 0x19435BC
+	[CompilerGeneratedAttribute] // RVA: 0xCCAF98 Offset: 0xCCAF98 VA: 0xCCAF98
+	// RVA: 0x14020A0 Offset: 0x14020A0 VA: 0x14020A0
 	private void set_Priority(float value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3861C Offset: 0xD3861C VA: 0xD3861C
-	// RVA: 0x1942830 Offset: 0x1942830 VA: 0x1942830
+	[CompilerGeneratedAttribute] // RVA: 0xCCAFA8 Offset: 0xCCAFA8 VA: 0xCCAFA8
+	// RVA: 0x1401314 Offset: 0x1401314 VA: 0x1401314
 	public Transform get_Node() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3862C Offset: 0xD3862C VA: 0xD3862C
-	// RVA: 0x19435C4 Offset: 0x19435C4 VA: 0x19435C4
+	[CompilerGeneratedAttribute] // RVA: 0xCCAFB8 Offset: 0xCCAFB8 VA: 0xCCAFB8
+	// RVA: 0x14020A8 Offset: 0x14020A8 VA: 0x14020A8
 	private void set_Node(Transform value) { }
 
-	// RVA: 0x1943470 Offset: 0x1943470 VA: 0x1943470
+	// RVA: 0x1401F54 Offset: 0x1401F54 VA: 0x1401F54
 	protected void InitDetailData(Transform target) { }
 
-	// RVA: 0x19433C8 Offset: 0x19433C8 VA: 0x19433C8
+	// RVA: 0x1401EAC Offset: 0x1401EAC VA: 0x1401EAC
 	public bool IsMatch(string nodeName) { }
 
-	// RVA: 0x19431E8 Offset: 0x19431E8 VA: 0x19431E8
+	// RVA: 0x1401CCC Offset: 0x1401CCC VA: 0x1401CCC
 	public bool IsMatchValue(string baseKey, string value) { }
 
-	// RVA: 0x1943140 Offset: 0x1943140 VA: 0x1943140
+	// RVA: 0x1401C24 Offset: 0x1401C24 VA: 0x1401C24
 	public void UpdateCheckPriority(USFGOActorAxisRotation.NodeSearchDetailData target) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF1C0 Offset: 0xCAF1C0 VA: 0xCAF1C0
-private sealed class USFGOActorAxisRotation.NodeSearchDetailData.<IsMatchValue>c__AnonStorey0 // TypeDefIndex: 8097
+[CompilerGeneratedAttribute] // RVA: 0xC43104 Offset: 0xC43104 VA: 0xC43104
+private sealed class USFGOActorAxisRotation.NodeSearchDetailData.<IsMatchValue>c__AnonStorey0 // TypeDefIndex: 8116
 {
 	// Fields
 	internal string value; // 0x10
 
 	// Methods
 
-	// RVA: 0x19435CC Offset: 0x19435CC VA: 0x19435CC
+	// RVA: 0x14020B0 Offset: 0x14020B0 VA: 0x14020B0
 	public void .ctor() { }
 
-	// RVA: 0x19435D4 Offset: 0x19435D4 VA: 0x19435D4
+	// RVA: 0x14020B8 Offset: 0x14020B8 VA: 0x14020B8
 	internal bool <>m__0(string x) { }
 }
 
 // Namespace: 
-private abstract class USFGOActorAxisRotation.BaseNodeSearchData // TypeDefIndex: 8098
+private abstract class USFGOActorAxisRotation.BaseNodeSearchData // TypeDefIndex: 8117
 {
 	// Fields
 	protected string searchName; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xCC9E18 Offset: 0xCC9E18 VA: 0xCC9E18
-	[DebuggerBrowsableAttribute] // RVA: 0xCC9E18 Offset: 0xCC9E18 VA: 0xCC9E18
+	[CompilerGeneratedAttribute] // RVA: 0xC5CF80 Offset: 0xC5CF80 VA: 0xC5CF80
+	[DebuggerBrowsableAttribute] // RVA: 0xC5CF80 Offset: 0xC5CF80 VA: 0xC5CF80
 	private List<USFGOActorAxisRotation.NodeSearchDetailData> <DetailList>k__BackingField; // 0x18
 
 	// Properties
@@ -78,36 +894,36 @@ private abstract class USFGOActorAxisRotation.BaseNodeSearchData // TypeDefIndex
 
 	// Methods
 
-	// RVA: 0x1942EF0 Offset: 0x1942EF0 VA: 0x1942EF0
+	// RVA: 0x14019D4 Offset: 0x14019D4 VA: 0x14019D4
 	public void .ctor() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3863C Offset: 0xD3863C VA: 0xD3863C
-	// RVA: 0x1942F9C Offset: 0x1942F9C VA: 0x1942F9C
+	[CompilerGeneratedAttribute] // RVA: 0xCCAFC8 Offset: 0xCCAFC8 VA: 0xCCAFC8
+	// RVA: 0x1401A80 Offset: 0x1401A80 VA: 0x1401A80
 	public List<USFGOActorAxisRotation.NodeSearchDetailData> get_DetailList() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3864C Offset: 0xD3864C VA: 0xD3864C
-	// RVA: 0x1942F94 Offset: 0x1942F94 VA: 0x1942F94
+	[CompilerGeneratedAttribute] // RVA: 0xCCAFD8 Offset: 0xCCAFD8 VA: 0xCCAFD8
+	// RVA: 0x1401A78 Offset: 0x1401A78 VA: 0x1401A78
 	private void set_DetailList(List<USFGOActorAxisRotation.NodeSearchDetailData> value) { }
 
 	// RVA: -1 Offset: -1 Slot: 4
 	protected abstract bool CheckSearchName(string name);
 
-	// RVA: 0x1942FA4 Offset: 0x1942FA4 VA: 0x1942FA4 Slot: 5
+	// RVA: 0x1401A88 Offset: 0x1401A88 VA: 0x1401A88 Slot: 5
 	public virtual void Init(string name) { }
 
-	// RVA: 0x1942748 Offset: 0x1942748 VA: 0x1942748
+	// RVA: 0x140122C Offset: 0x140122C VA: 0x140122C
 	public USFGOActorAxisRotation.NodeSearchDetailData GetMatchNodeData(string condValue) { }
 
-	// RVA: 0x1942698 Offset: 0x1942698 VA: 0x1942698
+	// RVA: 0x140117C Offset: 0x140117C VA: 0x140117C
 	public void UpdateSearchData(Transform target) { }
 
-	// RVA: 0x1942FEC Offset: 0x1942FEC VA: 0x1942FEC
+	// RVA: 0x1401AD0 Offset: 0x1401AD0 VA: 0x1401AD0
 	protected void UpdateCheckDetailData(USFGOActorAxisRotation.NodeSearchDetailData checkData) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF1D0 Offset: 0xCAF1D0 VA: 0xCAF1D0
-private sealed class USFGOActorAxisRotation.BaseNodeSearchData.<GetMatchNodeData>c__AnonStorey0 // TypeDefIndex: 8099
+[CompilerGeneratedAttribute] // RVA: 0xC43114 Offset: 0xC43114 VA: 0xC43114
+private sealed class USFGOActorAxisRotation.BaseNodeSearchData.<GetMatchNodeData>c__AnonStorey0 // TypeDefIndex: 8118
 {
 	// Fields
 	internal string condValue; // 0x10
@@ -115,886 +931,70 @@ private sealed class USFGOActorAxisRotation.BaseNodeSearchData.<GetMatchNodeData
 
 	// Methods
 
-	// RVA: 0x1942FAC Offset: 0x1942FAC VA: 0x1942FAC
+	// RVA: 0x1401A90 Offset: 0x1401A90 VA: 0x1401A90
 	public void .ctor() { }
 
-	// RVA: 0x1943190 Offset: 0x1943190 VA: 0x1943190
+	// RVA: 0x1401C74 Offset: 0x1401C74 VA: 0x1401C74
 	internal bool <>m__0(USFGOActorAxisRotation.NodeSearchDetailData x) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF1E0 Offset: 0xCAF1E0 VA: 0xCAF1E0
-private sealed class USFGOActorAxisRotation.BaseNodeSearchData.<UpdateCheckDetailData>c__AnonStorey1 // TypeDefIndex: 8100
+[CompilerGeneratedAttribute] // RVA: 0xC43124 Offset: 0xC43124 VA: 0xC43124
+private sealed class USFGOActorAxisRotation.BaseNodeSearchData.<UpdateCheckDetailData>c__AnonStorey1 // TypeDefIndex: 8119
 {
 	// Fields
 	internal USFGOActorAxisRotation.NodeSearchDetailData checkData; // 0x10
 
 	// Methods
 
-	// RVA: 0x1943138 Offset: 0x1943138 VA: 0x1943138
+	// RVA: 0x1401C1C Offset: 0x1401C1C VA: 0x1401C1C
 	public void .ctor() { }
 
-	// RVA: 0x1943384 Offset: 0x1943384 VA: 0x1943384
+	// RVA: 0x1401E68 Offset: 0x1401E68 VA: 0x1401E68
 	internal bool <>m__0(USFGOActorAxisRotation.NodeSearchDetailData x) { }
 }
 
 // Namespace: 
-private class USFGOActorAxisRotation.ContainsNodeSearchData : USFGOActorAxisRotation.BaseNodeSearchData // TypeDefIndex: 8101
+private class USFGOActorAxisRotation.ContainsNodeSearchData : USFGOActorAxisRotation.BaseNodeSearchData // TypeDefIndex: 8120
 {
 	// Methods
 
-	// RVA: 0x1942694 Offset: 0x1942694 VA: 0x1942694
+	// RVA: 0x1401178 Offset: 0x1401178 VA: 0x1401178
 	public void .ctor() { }
 
-	// RVA: 0x1943400 Offset: 0x1943400 VA: 0x1943400 Slot: 4
+	// RVA: 0x1401EE4 Offset: 0x1401EE4 VA: 0x1401EE4 Slot: 4
 	protected override bool CheckSearchName(string name) { }
 }
 
 // Namespace: 
-private class USFGOActorAxisRotation.EqualsNodeSearchData : USFGOActorAxisRotation.BaseNodeSearchData // TypeDefIndex: 8102
+private class USFGOActorAxisRotation.EqualsNodeSearchData : USFGOActorAxisRotation.BaseNodeSearchData // TypeDefIndex: 8121
 {
 	// Methods
 
-	// RVA: 0x1942690 Offset: 0x1942690 VA: 0x1942690
+	// RVA: 0x1401174 Offset: 0x1401174 VA: 0x1401174
 	public void .ctor() { }
 
-	// RVA: 0x1943438 Offset: 0x1943438 VA: 0x1943438 Slot: 4
+	// RVA: 0x1401F1C Offset: 0x1401F1C VA: 0x1401F1C Slot: 4
 	protected override bool CheckSearchName(string name) { }
 }
 
 // Namespace: 
 [Serializable]
-public class USFGOActorAxisRotation.AxisData // TypeDefIndex: 8103
+public class USFGOActorAxisRotation.AxisData // TypeDefIndex: 8122
 {
 	// Fields
-	[TooltipAttribute] // RVA: 0xCC9E54 Offset: 0xCC9E54 VA: 0xCC9E54
+	[TooltipAttribute] // RVA: 0xC5CFBC Offset: 0xC5CFBC VA: 0xC5CFBC
 	public string targetNodeName; // 0x10
-	[TooltipAttribute] // RVA: 0xCC9E8C Offset: 0xCC9E8C VA: 0xCC9E8C
+	[TooltipAttribute] // RVA: 0xC5CFF4 Offset: 0xC5CFF4 VA: 0xC5CFF4
 	public float startTime; // 0x18
 	public bool isAdjustLowPosY; // 0x1C
-	[CompilerGeneratedAttribute] // RVA: 0xCC9EC4 Offset: 0xCC9EC4 VA: 0xCC9EC4
-	[DebuggerBrowsableAttribute] // RVA: 0xCC9EC4 Offset: 0xCC9EC4 VA: 0xCC9EC4
+	[CompilerGeneratedAttribute] // RVA: 0xC5D02C Offset: 0xC5D02C VA: 0xC5D02C
+	[DebuggerBrowsableAttribute] // RVA: 0xC5D02C Offset: 0xC5D02C VA: 0xC5D02C
 	private Vector3 <saveDiff>k__BackingField; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xCC9F00 Offset: 0xCC9F00 VA: 0xCC9F00
-	[DebuggerBrowsableAttribute] // RVA: 0xCC9F00 Offset: 0xCC9F00 VA: 0xCC9F00
+	[CompilerGeneratedAttribute] // RVA: 0xC5D068 Offset: 0xC5D068 VA: 0xC5D068
+	[DebuggerBrowsableAttribute] // RVA: 0xC5D068 Offset: 0xC5D068 VA: 0xC5D068
 	private bool <isChanged>k__BackingField; // 0x2C
-	[TooltipAttribute] // RVA: 0xCC9F3C Offset: 0xCC9F3C VA: 0xCC9F3C
+	[TooltipAttribute] // RVA: 0xC5D0A4 Offset: 0xC5D0A4 VA: 0xC5D0A4
 	public string[] appendNames; // 0x30
 
 	// Properties
-	public Vector3 saveDiff { get; set; }
-	public bool isChanged { get; set; }
-
-	// Methods
-
-	// RVA: 0x1942EE8 Offset: 0x1942EE8 VA: 0x1942EE8
-	public void .ctor() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3865C Offset: 0xD3865C VA: 0xD3865C
-	// RVA: 0x1942D50 Offset: 0x1942D50 VA: 0x1942D50
-	public Vector3 get_saveDiff() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3866C Offset: 0xD3866C VA: 0xD3866C
-	// RVA: 0x19421D8 Offset: 0x19421D8 VA: 0x19421D8
-	public void set_saveDiff(Vector3 value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3867C Offset: 0xD3867C VA: 0xD3867C
-	// RVA: 0x1942D48 Offset: 0x1942D48 VA: 0x1942D48
-	public bool get_isChanged() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3868C Offset: 0xD3868C VA: 0xD3868C
-	// RVA: 0x19421E4 Offset: 0x19421E4 VA: 0x19421E4
-	public void set_isChanged(bool value) { }
-
-	// RVA: 0x1942EDC Offset: 0x1942EDC VA: 0x1942EDC
-	public void Init() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC94CC0 Offset: 0xC94CC0 VA: 0xC94CC0
-[USequencerEventAttribute] // RVA: 0xC94CC0 Offset: 0xC94CC0 VA: 0xC94CC0
-public class USFGOActorBattleActionEvent : USEventBase // TypeDefIndex: 8104
-{
-	// Fields
-	public int startValue; // 0x30
-	public int countValue; // 0x34
-	public USFGOActorBattleActionEvent.ActionType actionType; // 0x38
-	public bool isRandomDamagePosition; // 0x3C
-	public bool isNoDamageMotion; // 0x3D
-	public Vector3 damageNumberOffset; // 0x40
-	public Vector3 popupOffset; // 0x4C
-	public int effectId; // 0x58
-	public int criticalEffectId; // 0x5C
-	public int functionIndex; // 0x60
-	public string attachNodeName; // 0x68
-
-	// Methods
-
-	// RVA: 0x194360C Offset: 0x194360C VA: 0x194360C
-	public void .ctor() { }
-
-	// RVA: 0x19436EC Offset: 0x19436EC VA: 0x19436EC Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1943CDC Offset: 0x1943CDC VA: 0x1943CDC Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1943CE0 Offset: 0x1943CE0 VA: 0x1943CE0 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1943CEC Offset: 0x1943CEC VA: 0x1943CEC Slot: 10
-	public override void UndoEvent() { }
-
-	// RVA: 0x1943D68 Offset: 0x1943D68 VA: 0x1943D68
-	public void AddHasAllEffectIds(ref List<int> effectIdList) { }
-}
-
-// Namespace: 
-public enum USFGOActorBattleActionEvent.ActionType // TypeDefIndex: 8105
-{
-	// Fields
-	public int value__; // 0x0
-	public const USFGOActorBattleActionEvent.ActionType Damage = 0;
-	public const USFGOActorBattleActionEvent.ActionType BuffDebuff = 1;
-	public const USFGOActorBattleActionEvent.ActionType Heal = 2;
-	public const USFGOActorBattleActionEvent.ActionType DamageVoice = 3;
-	public const USFGOActorBattleActionEvent.ActionType SilentDead = 4;
-	public const USFGOActorBattleActionEvent.ActionType SelfDead = 5;
-	public const USFGOActorBattleActionEvent.ActionType MoveToSubMember = 6;
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC94D20 Offset: 0xC94D20 VA: 0xC94D20
-[USequencerEventAttribute] // RVA: 0xC94D20 Offset: 0xC94D20 VA: 0xC94D20
-public class USFGOActorBattleActionEventConditional : USFGOActorBattleActionEvent // TypeDefIndex: 8106
-{
-	// Fields
-	public USFGOActorBattleActionEventConditional.OverwriteParamCondition[] conditions; // 0x70
-
-	// Methods
-
-	// RVA: 0x1943EC8 Offset: 0x1943EC8 VA: 0x1943EC8
-	public void .ctor() { }
-
-	// RVA: 0x1943F24 Offset: 0x1943F24 VA: 0x1943F24 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1943FAC Offset: 0x1943FAC VA: 0x1943FAC
-	protected bool IsExecutable(int treasureDeviceId) { }
-}
-
-// Namespace: 
-[Serializable]
-public class USFGOActorBattleActionEventConditional.OverwriteParamCondition // TypeDefIndex: 8107
-{
-	// Fields
-	public int[] treasureDeviceIds; // 0x10
-	public bool isExecute; // 0x18
-	public int funcIndex; // 0x1C
-
-	// Methods
-
-	// RVA: 0x19441DC Offset: 0x19441DC VA: 0x19441DC
-	public void .ctor() { }
-
-	// RVA: 0x1944118 Offset: 0x1944118 VA: 0x1944118
-	public bool IsTarget(int treasureDeviceId) { }
-
-	// RVA: 0x19440AC Offset: 0x19440AC VA: 0x19440AC
-	public void Overwrite(USFGOActorBattleActionEventConditional targetEvent) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF1F0 Offset: 0xCAF1F0 VA: 0xCAF1F0
-private sealed class USFGOActorBattleActionEventConditional.OverwriteParamCondition.<IsTarget>c__AnonStorey0 // TypeDefIndex: 8108
-{
-	// Fields
-	internal int treasureDeviceId; // 0x10
-
-	// Methods
-
-	// RVA: 0x194423C Offset: 0x194423C VA: 0x194423C
-	public void .ctor() { }
-
-	// RVA: 0x1944244 Offset: 0x1944244 VA: 0x1944244
-	internal bool <>m__0(int id) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF200 Offset: 0xCAF200 VA: 0xCAF200
-private sealed class USFGOActorBattleActionEventConditional.<IsExecutable>c__AnonStorey0 // TypeDefIndex: 8109
-{
-	// Fields
-	internal int treasureDeviceId; // 0x10
-
-	// Methods
-
-	// RVA: 0x19440A4 Offset: 0x19440A4 VA: 0x19440A4
-	public void .ctor() { }
-
-	// RVA: 0x19440E4 Offset: 0x19440E4 VA: 0x19440E4
-	internal bool <>m__0(USFGOActorBattleActionEventConditional.OverwriteParamCondition x) { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC94D80 Offset: 0xC94D80 VA: 0xC94D80
-[USequencerEventAttribute] // RVA: 0xC94D80 Offset: 0xC94D80 VA: 0xC94D80
-public class USFGOActorChangePosition : USEventBase // TypeDefIndex: 8110
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC9F74 Offset: 0xCC9F74 VA: 0xCC9F74
-	private USFGOActorChangePosition.PosChangeTargetType targetType; // 0x30
-	[SerializeField] // RVA: 0xCC9F84 Offset: 0xCC9F84 VA: 0xCC9F84
-	[TooltipAttribute] // RVA: 0xCC9F84 Offset: 0xCC9F84 VA: 0xCC9F84
-	private USFGOActorChangePosition.PosSetType[] fieldActorOrders; // 0x38
-
-	// Properties
-	private BattlePerformance Performance { get; }
-
-	// Methods
-
-	// RVA: 0x1944260 Offset: 0x1944260 VA: 0x1944260
-	public void .ctor() { }
-
-	// RVA: 0x1944318 Offset: 0x1944318 VA: 0x1944318
-	private BattlePerformance get_Performance() { }
-
-	// RVA: 0x1944378 Offset: 0x1944378 VA: 0x1944378 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x19446DC Offset: 0x19446DC VA: 0x19446DC
-	private BattleActorControl GetPosChangeTargetActor() { }
-
-	// RVA: 0x1944848 Offset: 0x1944848 VA: 0x1944848
-	private USFGOActorChangePosition.PosSetType[] GetCurFieldActorOrders(bool isEnemy, int uniqueId) { }
-
-	// RVA: 0x19447B4 Offset: 0x19447B4 VA: 0x19447B4
-	private string GetPosPrefix(bool isEnemy) { }
-
-	// RVA: 0x1944A1C Offset: 0x1944A1C VA: 0x1944A1C Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-}
-
-// Namespace: 
-public enum USFGOActorChangePosition.PosChangeTargetType // TypeDefIndex: 8111
-{
-	// Fields
-	public int value__; // 0x0
-	public const USFGOActorChangePosition.PosChangeTargetType ACTOR = 1;
-}
-
-// Namespace: 
-public enum USFGOActorChangePosition.PosSetType // TypeDefIndex: 8112
-{
-	// Fields
-	public int value__; // 0x0
-	public const USFGOActorChangePosition.PosSetType TARGET = 0;
-	public const USFGOActorChangePosition.PosSetType TARGET_OTHER_FRONT = 1;
-	public const USFGOActorChangePosition.PosSetType TARGET_OTHER_BACK = 2;
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC94DE0 Offset: 0xC94DE0 VA: 0xC94DE0
-[USequencerEventAttribute] // RVA: 0xC94DE0 Offset: 0xC94DE0 VA: 0xC94DE0
-public class USFGOActorDeadEffectEvent : USEventBase // TypeDefIndex: 8113
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC9FD0 Offset: 0xCC9FD0 VA: 0xCC9FD0
-	private float deadDeleteTime; // 0x30
-	private const float defaultHeight = 3.5;
-
-	// Methods
-
-	// RVA: 0x1944A20 Offset: 0x1944A20 VA: 0x1944A20
-	public void .ctor() { }
-
-	// RVA: 0x1944A30 Offset: 0x1944A30 VA: 0x1944A30 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1944FD0 Offset: 0x1944FD0 VA: 0x1944FD0 Slot: 5
-	public override void ProcessEvent(float runningTime) { }
-
-	// RVA: 0x1944FD4 Offset: 0x1944FD4 VA: 0x1944FD4
-	private void updateDeadEffect(float val) { }
-
-	// RVA: 0x194546C Offset: 0x194546C VA: 0x194546C
-	private void OnFinishDead() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC94E40 Offset: 0xC94E40 VA: 0xC94E40
-[USequencerEventAttribute] // RVA: 0xC94E40 Offset: 0xC94E40 VA: 0xC94E40
-public class USFGOActorTimeScale : USEventBase // TypeDefIndex: 8114
-{
-	// Fields
-	public float actorTimeScale; // 0x30
-	private float prevTimeScale; // 0x34
-	private bool isSafe; // 0x38
-	private BattleFBXComponent selfFBX; // 0x40
-
-	// Methods
-
-	// RVA: 0x194575C Offset: 0x194575C VA: 0x194575C
-	public void .ctor() { }
-
-	// RVA: 0x194576C Offset: 0x194576C VA: 0x194576C Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x19458EC Offset: 0x19458EC VA: 0x19458EC Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x19458F0 Offset: 0x19458F0 VA: 0x19458F0 Slot: 9
-	public override void EndEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC94EA0 Offset: 0xC94EA0 VA: 0xC94EA0
-[USequencerEventAttribute] // RVA: 0xC94EA0 Offset: 0xC94EA0 VA: 0xC94EA0
-public class USFGOActorUpdateScale : USEventBase // TypeDefIndex: 8115
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC9FE0 Offset: 0xCC9FE0 VA: 0xCC9FE0
-	[TooltipAttribute] // RVA: 0xCC9FE0 Offset: 0xCC9FE0 VA: 0xCC9FE0
-	private USFGOActorUpdateScale.UpdateType type; // 0x30
-	[SerializeField] // RVA: 0xCCA02C Offset: 0xCCA02C VA: 0xCCA02C
-	private float value; // 0x34
-
-	// Methods
-
-	// RVA: 0x194593C Offset: 0x194593C VA: 0x194593C
-	public void .ctor() { }
-
-	// RVA: 0x194594C Offset: 0x194594C VA: 0x194594C Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1945AF8 Offset: 0x1945AF8 VA: 0x1945AF8
-	public Vector3 GetScaleByUpdateType(BattleActorControl actor, Vector3 defScale) { }
-
-	// RVA: 0x1945C18 Offset: 0x1945C18 VA: 0x1945C18 Slot: 5
-	public override void ProcessEvent(float runningTime) { }
-}
-
-// Namespace: 
-public enum USFGOActorUpdateScale.UpdateType // TypeDefIndex: 8116
-{
-	// Fields
-	public int value__; // 0x0
-	public const USFGOActorUpdateScale.UpdateType RATIO = 0;
-	public const USFGOActorUpdateScale.UpdateType OVERWRITE = 1;
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC94F00 Offset: 0xC94F00 VA: 0xC94F00
-[USequencerEventAttribute] // RVA: 0xC94F00 Offset: 0xC94F00 VA: 0xC94F00
-[USequencerEventHideDurationAttribute] // RVA: 0xC94F00 Offset: 0xC94F00 VA: 0xC94F00
-public class USFGOAmbientFadeEvent : USEventBase // TypeDefIndex: 8117
-{
-	// Fields
-	public UILayer uiLayer; // 0x30
-	public AnimationCurve fadeCurve; // 0x38
-	public Color fadeColorFrom; // 0x40
-	public Color fadeColorTo; // 0x50
-	private float currentCurveSampleTime; // 0x60
-
-	// Methods
-
-	// RVA: 0x1945C1C Offset: 0x1945C1C VA: 0x1945C1C
-	public void .ctor() { }
-
-	// RVA: 0x1945E08 Offset: 0x1945E08 VA: 0x1945E08 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1945E0C Offset: 0x1945E0C VA: 0x1945E0C Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1945FF4 Offset: 0x1945FF4 VA: 0x1945FF4 Slot: 9
-	public override void EndEvent() { }
-
-	// RVA: 0x194618C Offset: 0x194618C VA: 0x194618C Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1946198 Offset: 0x1946198 VA: 0x1946198 Slot: 10
-	public override void UndoEvent() { }
-
-	// RVA: 0x19461A0 Offset: 0x19461A0 VA: 0x19461A0
-	private void Update() { }
-
-	// RVA: 0x19462A0 Offset: 0x19462A0 VA: 0x19462A0
-	private void OnEnable() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC94F70 Offset: 0xC94F70 VA: 0xC94F70
-[USequencerEventAttribute] // RVA: 0xC94F70 Offset: 0xC94F70 VA: 0xC94F70
-public class USFGOAnimationCameraEvent : USEventBase // TypeDefIndex: 8118
-{
-	// Fields
-	public GameObject animCamLoc; // 0x30
-	public Camera camera; // 0x38
-	public string cutNumName; // 0x40
-	private AnimationClip animationClip; // 0x48
-	public WrapMode wrapMode; // 0x50
-	public bool isOpponent; // 0x54
-	public float playbackSpeed; // 0x58
-	private Transform originalParent; // 0x60
-	private Transform cameraRoot; // 0x68
-	private Transform cameraAim; // 0x70
-
-	// Methods
-
-	// RVA: 0x19462A4 Offset: 0x19462A4 VA: 0x19462A4
-	public void .ctor() { }
-
-	// RVA: 0x1946304 Offset: 0x1946304 VA: 0x1946304
-	public void Update() { }
-
-	// RVA: 0x19463B4 Offset: 0x19463B4 VA: 0x19463B4 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1946C14 Offset: 0x1946C14 VA: 0x1946C14 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x19474B8 Offset: 0x19474B8 VA: 0x19474B8 Slot: 9
-	public override void EndEvent() { }
-
-	// RVA: 0x19474C4 Offset: 0x19474C4 VA: 0x19474C4 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x19475C8 Offset: 0x19475C8 VA: 0x19475C8 Slot: 10
-	public override void UndoEvent() { }
-}
-
-// Namespace: WellFired
-public enum FGOTarget // TypeDefIndex: 8119
-{
-	// Fields
-	public int value__; // 0x0
-	public const FGOTarget ActorObject = 0;
-	public const FGOTarget EnemyObject = 1;
-	public const FGOTarget Zero = 2;
-	public const FGOTarget Camera = 3;
-	public const FGOTarget Actor1 = 4;
-	public const FGOTarget Actor2 = 5;
-	public const FGOTarget Actor3 = 6;
-	public const FGOTarget Actor4 = 7;
-	public const FGOTarget Actor5 = 8;
-	public const FGOTarget Actor6 = 9;
-	public const FGOTarget Node = 10;
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC94FD0 Offset: 0xC94FD0 VA: 0xC94FD0
-[USequencerEventAttribute] // RVA: 0xC94FD0 Offset: 0xC94FD0 VA: 0xC94FD0
-public class USFGOAttachToParentEvent : USEventBase // TypeDefIndex: 8120
-{
-	// Fields
-	public FGOTarget target; // 0x30
-	public Transform parentObject; // 0x38
-	public string parentObjectName; // 0x40
-	public string nodeName; // 0x48
-	public bool flipEffect; // 0x50
-	public bool autoDetach; // 0x51
-	[TooltipAttribute] // RVA: 0xCCA03C Offset: 0xCCA03C VA: 0xCCA03C
-	public bool inActor; // 0x52
-	public Vector3 tposition; // 0x54
-	public Vector3 trotation; // 0x60
-	public Vector3 tscale; // 0x6C
-	private Transform originalParent; // 0x78
-	private Vector3 org_tposition; // 0x80
-	private Vector3 org_trotation; // 0x8C
-	private Vector3 org_tscale; // 0x98
-	private bool isDirty; // 0xA4
-	private GameObject dummyNode; // 0xA8
-
-	// Methods
-
-	// RVA: 0x1947680 Offset: 0x1947680 VA: 0x1947680
-	public void .ctor() { }
-
-	// RVA: 0x1947784 Offset: 0x1947784 VA: 0x1947784
-	public void SetupTarget(BattlePerformance performance, GameObject actor, List<GameObject> createdObjects) { }
-
-	// RVA: 0x1947DEC Offset: 0x1947DEC VA: 0x1947DEC
-	private Transform searchTransform(string searchName, List<GameObject> createdObjects) { }
-
-	// RVA: 0x1948194 Offset: 0x1948194 VA: 0x1948194 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1948910 Offset: 0x1948910 VA: 0x1948910 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1948914 Offset: 0x1948914 VA: 0x1948914 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1948920 Offset: 0x1948920 VA: 0x1948920 Slot: 10
-	public override void UndoEvent() { }
-
-	// RVA: 0x1948BAC Offset: 0x1948BAC VA: 0x1948BAC Slot: 9
-	public override void EndEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95030 Offset: 0xC95030 VA: 0xC95030
-[USequencerEventAttribute] // RVA: 0xC95030 Offset: 0xC95030 VA: 0xC95030
-[USequencerEventHideDurationAttribute] // RVA: 0xC95030 Offset: 0xC95030 VA: 0xC95030
-public class USFGOCameraEffectEvent : USEventBase // TypeDefIndex: 8121
-{
-	// Fields
-	public USFGOCameraEffectEvent.CameraEffectType effectType; // 0x30
-	public float effectValue; // 0x34
-	public bool isEnabled; // 0x38
-	public bool oldEnabled; // 0x39
-	public bool isAffectedCutInCamera; // 0x3A
-
-	// Methods
-
-	// RVA: 0x1948BC4 Offset: 0x1948BC4 VA: 0x1948BC4
-	public void .ctor() { }
-
-	// RVA: 0x1948BE0 Offset: 0x1948BE0 VA: 0x1948BE0 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1948C7C Offset: 0x1948C7C VA: 0x1948C7C
-	private void setComponentEnabled(bool flg, bool saveOld) { }
-
-	// RVA: 0x1949124 Offset: 0x1949124 VA: 0x1949124 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1949130 Offset: 0x1949130 VA: 0x1949130 Slot: 10
-	public override void UndoEvent() { }
-
-	// RVA: 0x194913C Offset: 0x194913C VA: 0x194913C Slot: 5
-	public override void ProcessEvent(float runningTime) { }
-}
-
-// Namespace: 
-public enum USFGOCameraEffectEvent.CameraEffectType // TypeDefIndex: 8122
-{
-	// Fields
-	public int value__; // 0x0
-	public const USFGOCameraEffectEvent.CameraEffectType Bloom = 0;
-	public const USFGOCameraEffectEvent.CameraEffectType MotionBlur = 1;
-	public const USFGOCameraEffectEvent.CameraEffectType Vignet = 2;
-	public const USFGOCameraEffectEvent.CameraEffectType Grayscale = 3;
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC950A0 Offset: 0xC950A0 VA: 0xC950A0
-[USequencerEventAttribute] // RVA: 0xC950A0 Offset: 0xC950A0 VA: 0xC950A0
-public class USFGOCameraFlipEvent : USEventBase // TypeDefIndex: 8123
-{
-	// Fields
-	[SerializeField] // RVA: 0xCCA074 Offset: 0xCCA074 VA: 0xCCA074
-	private bool cameraFlip; // 0x30
-	[SerializeField] // RVA: 0xCCA084 Offset: 0xCCA084 VA: 0xCCA084
-	[TooltipAttribute] // RVA: 0xCCA084 Offset: 0xCCA084 VA: 0xCCA084
-	private bool restoreFlip; // 0x31
-	private bool preCameraFlip; // 0x32
-
-	// Methods
-
-	// RVA: 0x1949140 Offset: 0x1949140 VA: 0x1949140
-	public void .ctor() { }
-
-	// RVA: 0x1949148 Offset: 0x1949148 VA: 0x1949148 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x19491C4 Offset: 0x19491C4 VA: 0x19491C4 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x19491C8 Offset: 0x19491C8 VA: 0x19491C8 Slot: 9
-	public override void EndEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95100 Offset: 0xC95100 VA: 0xC95100
-[USequencerEventAttribute] // RVA: 0xC95100 Offset: 0xC95100 VA: 0xC95100
-public class USFGOCameraSettingsEvent : USEventBase // TypeDefIndex: 8124
-{
-	// Fields
-	public float farClipPlane; // 0x30
-	private float orgFarClipPlane; // 0x34
-	public float nearClipPlane; // 0x38
-	private float orgNearClipPlane; // 0x3C
-	private bool isDirtyOrg; // 0x40
-	public bool isAffectedEffectCamera; // 0x41
-	private float orgEffectCameraFarClipPlane; // 0x44
-	private float orgEffectCameraNearClipPlane; // 0x48
-	private bool isDirtyOrgEffectCamera; // 0x4C
-
-	// Methods
-
-	// RVA: 0x1949240 Offset: 0x1949240 VA: 0x1949240
-	public void .ctor() { }
-
-	// RVA: 0x194925C Offset: 0x194925C VA: 0x194925C
-	private void setting(Camera camera, bool restore = False, bool isDefaultCamera = True) { }
-
-	// RVA: 0x19493E0 Offset: 0x19493E0 VA: 0x19493E0 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x19494EC Offset: 0x19494EC VA: 0x19494EC Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x19494F0 Offset: 0x19494F0 VA: 0x19494F0 Slot: 9
-	public override void EndEvent() { }
-
-	// RVA: 0x19494FC Offset: 0x19494FC VA: 0x19494FC Slot: 10
-	public override void UndoEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95160 Offset: 0xC95160 VA: 0xC95160
-[USequencerEventAttribute] // RVA: 0xC95160 Offset: 0xC95160 VA: 0xC95160
-public class USFGOChangeBgEvent : USEventBase // TypeDefIndex: 8125
-{
-	// Fields
-	public bool parentCamera; // 0x30
-	public bool aheadLoad; // 0x31
-	public string bgName; // 0x38
-	public string bgType; // 0x40
-	public string oldBgName; // 0x48
-	public string oldBgType; // 0x50
-	public Vector3 localPos; // 0x58
-	public Vector3 localEulerAng; // 0x64
-
-	// Methods
-
-	// RVA: 0x1949610 Offset: 0x1949610 VA: 0x1949610
-	public void .ctor() { }
-
-	// RVA: 0x19496F0 Offset: 0x19496F0 VA: 0x19496F0 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x194984C Offset: 0x194984C VA: 0x194984C
-	private void OnBgChanged() { }
-
-	// RVA: 0x19498B8 Offset: 0x19498B8 VA: 0x19498B8 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x19498BC Offset: 0x19498BC VA: 0x19498BC Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x19498C8 Offset: 0x19498C8 VA: 0x19498C8 Slot: 10
-	public override void UndoEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC951C0 Offset: 0xC951C0 VA: 0xC951C0
-[USequencerEventAttribute] // RVA: 0xC951C0 Offset: 0xC951C0 VA: 0xC951C0
-public class USFGOChangeLimitCount2Event : USEventBase // TypeDefIndex: 8126
-{
-	// Fields
-	public int[] limitCountList; // 0x30
-
-	// Methods
-
-	// RVA: 0x1F584BC Offset: 0x1F584BC VA: 0x1F584BC
-	public void .ctor() { }
-
-	// RVA: 0x1F58534 Offset: 0x1F58534 VA: 0x1F58534 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1F58750 Offset: 0x1F58750 VA: 0x1F58750 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1F58754 Offset: 0x1F58754 VA: 0x1F58754 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1F58760 Offset: 0x1F58760 VA: 0x1F58760 Slot: 10
-	public override void UndoEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95220 Offset: 0xC95220 VA: 0xC95220
-[USequencerEventAttribute] // RVA: 0xC95220 Offset: 0xC95220 VA: 0xC95220
-public class USFGOChangeLimitCountEvent : USEventBase // TypeDefIndex: 8127
-{
-	// Fields
-	public int limitCount; // 0x30
-
-	// Methods
-
-	// RVA: 0x1F58764 Offset: 0x1F58764 VA: 0x1F58764
-	public void .ctor() { }
-
-	// RVA: 0x1F5876C Offset: 0x1F5876C VA: 0x1F5876C Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1F58940 Offset: 0x1F58940 VA: 0x1F58940 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1F58944 Offset: 0x1F58944 VA: 0x1F58944 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1F58950 Offset: 0x1F58950 VA: 0x1F58950 Slot: 10
-	public override void UndoEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95280 Offset: 0xC95280 VA: 0xC95280
-[USequencerEventAttribute] // RVA: 0xC95280 Offset: 0xC95280 VA: 0xC95280
-[USequencerEventHideDurationAttribute] // RVA: 0xC95280 Offset: 0xC95280 VA: 0xC95280
-public class USFGOChangeShaderProperty : USEventBase // TypeDefIndex: 8128
-{
-	// Fields
-	[SerializeField] // RVA: 0xCCA0D0 Offset: 0xCCA0D0 VA: 0xCCA0D0
-	private USFGOChangeShaderProperty.PropertyType type; // 0x30
-	[SerializeField] // RVA: 0xCCA0E0 Offset: 0xCCA0E0 VA: 0xCCA0E0
-	[TooltipAttribute] // RVA: 0xCCA0E0 Offset: 0xCCA0E0 VA: 0xCCA0E0
-	private string targetMeshWord; // 0x38
-	[SerializeField] // RVA: 0xCCA12C Offset: 0xCCA12C VA: 0xCCA12C
-	[TooltipAttribute] // RVA: 0xCCA12C Offset: 0xCCA12C VA: 0xCCA12C
-	private string propertyName; // 0x40
-	[SerializeField] // RVA: 0xCCA178 Offset: 0xCCA178 VA: 0xCCA178
-	[TooltipAttribute] // RVA: 0xCCA178 Offset: 0xCCA178 VA: 0xCCA178
-	private AnimationCurve valueCurve; // 0x48
-	private Renderer targetMesh; // 0x50
-	private float currentCurveSampleTime; // 0x58
-
-	// Methods
-
-	// RVA: 0x1F58954 Offset: 0x1F58954 VA: 0x1F58954
-	public void .ctor() { }
-
-	// RVA: 0x1F5895C Offset: 0x1F5895C VA: 0x1F5895C Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1F58BC8 Offset: 0x1F58BC8 VA: 0x1F58BC8 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1F58E7C Offset: 0x1F58E7C VA: 0x1F58E7C Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1F58C9C Offset: 0x1F58C9C VA: 0x1F58C9C
-	private float GetMaxValue() { }
-
-	// RVA: 0x1F58E88 Offset: 0x1F58E88 VA: 0x1F58E88 Slot: 9
-	public override void EndEvent() { }
-
-	// RVA: 0x1F58CC4 Offset: 0x1F58CC4 VA: 0x1F58CC4
-	private void SetProperty(float value) { }
-}
-
-// Namespace: 
-public enum USFGOChangeShaderProperty.PropertyType // TypeDefIndex: 8129
-{
-	// Fields
-	public int value__; // 0x0
-	public const USFGOChangeShaderProperty.PropertyType Float = 0;
-	public const USFGOChangeShaderProperty.PropertyType Int = 1;
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC952F0 Offset: 0xC952F0 VA: 0xC952F0
-[USequencerEventAttribute] // RVA: 0xC952F0 Offset: 0xC952F0 VA: 0xC952F0
-public class USFGOCheckPlayerTypeFlip : USFGOObjectFlip // TypeDefIndex: 8130
-{
-	// Fields
-	[SerializeField] // RVA: 0xCCA1C4 Offset: 0xCCA1C4 VA: 0xCCA1C4
-	[TooltipAttribute] // RVA: 0xCCA1C4 Offset: 0xCCA1C4 VA: 0xCCA1C4
-	private USFGOCheckPlayerTypeFlip.FGOFlipPlayerType execPlayerType; // 0x58
-	[SerializeField] // RVA: 0xCCA210 Offset: 0xCCA210 VA: 0xCCA210
-	[TooltipAttribute] // RVA: 0xCCA210 Offset: 0xCCA210 VA: 0xCCA210
-	private bool isTreasureExecSide; // 0x5C
-
-	// Methods
-
-	// RVA: 0x1F58FE0 Offset: 0x1F58FE0 VA: 0x1F58FE0
-	public void .ctor() { }
-
-	// RVA: 0x1F58FF8 Offset: 0x1F58FF8 VA: 0x1F58FF8 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1F59150 Offset: 0x1F59150 VA: 0x1F59150
-	private bool IsAblePlayerType(bool isEnemy) { }
-}
-
-// Namespace: 
-public enum USFGOCheckPlayerTypeFlip.FGOFlipPlayerType // TypeDefIndex: 8131
-{
-	// Fields
-	public int value__; // 0x0
-	public const USFGOCheckPlayerTypeFlip.FGOFlipPlayerType None = 0;
-	public const USFGOCheckPlayerTypeFlip.FGOFlipPlayerType Player = 1;
-	public const USFGOCheckPlayerTypeFlip.FGOFlipPlayerType Enemy = 2;
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95350 Offset: 0xC95350 VA: 0xC95350
-[USequencerEventAttribute] // RVA: 0xC95350 Offset: 0xC95350 VA: 0xC95350
-[USequencerEventHideDurationAttribute] // RVA: 0xC95350 Offset: 0xC95350 VA: 0xC95350
-public class USFGOChrAlphaChangeEvent : USEventBase // TypeDefIndex: 8132
-{
-	// Fields
-	[TooltipAttribute] // RVA: 0xCCA25C Offset: 0xCCA25C VA: 0xCCA25C
-	public AnimationCurve alphaCurve; // 0x30
-	private float currentCurveSampleTime; // 0x38
-	public USFGOChrAlphaChangeEvent.ChangeTarget target; // 0x3C
-	private List<Renderer> faderRenderers; // 0x40
-	[TooltipAttribute] // RVA: 0xCCA294 Offset: 0xCCA294 VA: 0xCCA294
-	public string otherHierarchyPath; // 0x48
-
-	// Methods
-
-	// RVA: 0x1F592CC Offset: 0x1F592CC VA: 0x1F592CC
-	public void .ctor() { }
-
-	// RVA: 0x1F594AC Offset: 0x1F594AC VA: 0x1F594AC Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1F59E38 Offset: 0x1F59E38 VA: 0x1F59E38
-	private void SetMaterialAlpha(float alpha) { }
-
-	// RVA: 0x1F5A078 Offset: 0x1F5A078 VA: 0x1F5A078 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1F5A20C Offset: 0x1F5A20C VA: 0x1F5A20C Slot: 9
-	public override void EndEvent() { }
-
-	// RVA: 0x1F5A344 Offset: 0x1F5A344 VA: 0x1F5A344 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1F5A350 Offset: 0x1F5A350 VA: 0x1F5A350 Slot: 10
-	public override void UndoEvent() { }
-
-	// RVA: 0x1F5A394 Offset: 0x1F5A394 VA: 0x1F5A394
-	private void Update() { }
-}
-
-// Namespace: 
-public enum USFGOChrAlphaChangeEvent.ChangeTarget // TypeDefIndex: 8133
-{
-	// Fields
-	public int value__; // 0x0
-	public const USFGOChrAlphaChangeEvent.ChangeTarget Actor = 0;
-	public const USFGOChrAlphaChangeEvent.ChangeTarget PlayerSide = 1;
-	public const USFGOChrAlphaChangeEvent.ChangeTarget EnemySide = 2;
-	public const USFGOChrAlphaChangeEvent.ChangeTarget All = 3;
-	public const USFGOChrAlphaChangeEvent.ChangeTarget Other = 4;
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC953C0 Offset: 0xC953C0 VA: 0xC953C0
-[USequencerEventAttribute] // RVA: 0xC953C0 Offset: 0xC953C0 VA: 0xC953C0
-[USequencerEventHideDurationAttribute] // RVA: 0xC953C0 Offset: 0xC953C0 VA: 0xC953C0
-public class USFGOChrBulrEvent : USEventBase // TypeDefIndex: 8134
-{
-	// Fields
-	public USFGOChrBulrEvent.MODE actionMode; // 0x30
-	public bool inputValidValue; // 0x34
-	public int inputLagValue; // 0x38
-
-	// Methods
-
-	// RVA: 0x1F5A494 Offset: 0x1F5A494 VA: 0x1F5A494
-	public void .ctor() { }
-
-	// RVA: 0x1F5A4AC Offset: 0x1F5A4AC VA: 0x1F5A4AC Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1F5A688 Offset: 0x1F5A688 VA: 0x1F5A688 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-}
-
-// Namespace: 

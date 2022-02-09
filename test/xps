@@ -1,146 +1,962 @@
+{
+	// Fields
+	public int value__; // 0x0
+	public const USFGOChrShadowColorSetEvent.ChangeTarget Actor = 0;
+	public const USFGOChrShadowColorSetEvent.ChangeTarget PlayerSide = 1;
+	public const USFGOChrShadowColorSetEvent.ChangeTarget EnemySide = 2;
+	public const USFGOChrShadowColorSetEvent.ChangeTarget All = 3;
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC294B8 Offset: 0xC294B8 VA: 0xC294B8
+[USequencerEventAttribute] // RVA: 0xC294B8 Offset: 0xC294B8 VA: 0xC294B8
+[USequencerEventHideDurationAttribute] // RVA: 0xC294B8 Offset: 0xC294B8 VA: 0xC294B8
+public class USFGOChrToggleBillboardEvent : USEventBase // TypeDefIndex: 8162
+{
+	// Fields
+	public bool isEnabled; // 0x30
+	public bool enableRotationZ; // 0x31
+
 	// Methods
 
-	// RVA: 0x1F6D120 Offset: 0x1F6D120 VA: 0x1F6D120
+	// RVA: 0x1A59D08 Offset: 0x1A59D08 VA: 0x1A59D08
 	public void .ctor() { }
 
-	// RVA: 0x1F6D1B0 Offset: 0x1F6D1B0 VA: 0x1F6D1B0 Slot: 4
+	// RVA: 0x1A59D10 Offset: 0x1A59D10 VA: 0x1A59D10 Slot: 4
 	public override void FireEvent() { }
 
-	// RVA: 0x1F6D1D4 Offset: 0x1F6D1D4 VA: 0x1F6D1D4
-	private void setupPlayAudio() { }
+	// RVA: 0x1A59E58 Offset: 0x1A59E58 VA: 0x1A59E58
+	private void DisableCoreBillborad() { }
 
-	// RVA: 0x1F6D82C Offset: 0x1F6D82C VA: 0x1F6D82C Slot: 8
+	// RVA: 0x1A5A17C Offset: 0x1A5A17C VA: 0x1A5A17C Slot: 5
+	public override void ProcessEvent(float deltaTime) { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC29528 Offset: 0xC29528 VA: 0xC29528
+[USequencerEventAttribute] // RVA: 0xC29528 Offset: 0xC29528 VA: 0xC29528
+[USequencerEventHideDurationAttribute] // RVA: 0xC29528 Offset: 0xC29528 VA: 0xC29528
+public class USFGOContrastEffectEvent : USEventBase // TypeDefIndex: 8163
+{
+	// Fields
+	[SerializeField] // RVA: 0xC5D46C Offset: 0xC5D46C VA: 0xC5D46C
+	private AnimationCurve saturationCurve; // 0x30
+	[SerializeField] // RVA: 0xC5D47C Offset: 0xC5D47C VA: 0xC5D47C
+	private AnimationCurve contrastCurve; // 0x38
+	[SerializeField] // RVA: 0xC5D48C Offset: 0xC5D48C VA: 0xC5D48C
+	private float maxValue; // 0x40
+	private float currentCurveSampleTime; // 0x44
+
+	// Methods
+
+	// RVA: 0x1A5A180 Offset: 0x1A5A180 VA: 0x1A5A180
+	public void .ctor() { }
+
+	// RVA: 0x1A5A38C Offset: 0x1A5A38C VA: 0x1A5A38C Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A5A390 Offset: 0x1A5A390 VA: 0x1A5A390
+	protected void SetSaturation(float saturation, float contrast) { }
+
+	// RVA: 0x1A5A590 Offset: 0x1A5A590 VA: 0x1A5A590 Slot: 5
+	public override void ProcessEvent(float deltaTime) { }
+
+	// RVA: 0x1A5A68C Offset: 0x1A5A68C VA: 0x1A5A68C Slot: 9
+	public override void EndEvent() { }
+
+	// RVA: 0x1A5A80C Offset: 0x1A5A80C VA: 0x1A5A80C Slot: 8
 	public override void StopEvent() { }
 
-	// RVA: 0x1F6D838 Offset: 0x1F6D838 VA: 0x1F6D838 Slot: 10
+	// RVA: 0x1A5A818 Offset: 0x1A5A818 VA: 0x1A5A818 Slot: 10
 	public override void UndoEvent() { }
 
-	// RVA: 0x1F6D8F0 Offset: 0x1F6D8F0 VA: 0x1F6D8F0 Slot: 16
+	// RVA: 0x1A5A820 Offset: 0x1A5A820 VA: 0x1A5A820
+	private void Update() { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC29598 Offset: 0xC29598 VA: 0xC29598
+[USequencerEventAttribute] // RVA: 0xC29598 Offset: 0xC29598 VA: 0xC29598
+public class USFGOCreateEffectEvent : USEventBase // TypeDefIndex: 8164
+{
+	// Fields
+	public USFGOCreateEffectEvent.EffectCategory category; // 0x30
+	public string groupId; // 0x38
+	public string effectName; // 0x40
+	public int functionIndex; // 0x48
+	public USFGOCreateEffectEvent.EffectTarget target; // 0x4C
+	public Vector3 offsetPosition; // 0x50
+	public Vector3 offsetRotation; // 0x5C
+	public bool sideflip; // 0x68
+	public bool isParent; // 0x69
+	private List<GameObject> effectObjs; // 0x70
+	private List<Animation> animations; // 0x78
+	private List<SimpleAnimation> simpleAnimations; // 0x80
+	private List<ParticleSystem> particles; // 0x88
+	private List<UVScroll> uvScrolls; // 0x90
+	private List<changeVColor> changeVColors; // 0x98
+	[CompilerGeneratedAttribute] // RVA: 0xC5D49C Offset: 0xC5D49C VA: 0xC5D49C
+	private static Predicate<GameObject> <>f__am$cache0; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC5D4AC Offset: 0xC5D4AC VA: 0xC5D4AC
+	private static Predicate<GameObject> <>f__am$cache1; // 0x8
+
+	// Methods
+
+	// RVA: 0x1A5A920 Offset: 0x1A5A920 VA: 0x1A5A920
+	public void .ctor() { }
+
+	// RVA: 0x1A5A9B0 Offset: 0x1A5A9B0 VA: 0x1A5A9B0
+	private string GetEffectAssetPath() { }
+
+	// RVA: 0x1A5AAC8 Offset: 0x1A5AAC8 VA: 0x1A5AAC8
+	private bool IsResource() { }
+
+	// RVA: 0x1A5AAD8 Offset: 0x1A5AAD8 VA: 0x1A5AAD8
+	private string GetEffectAssetFileName() { }
+
+	// RVA: 0x1A5AB68 Offset: 0x1A5AB68 VA: 0x1A5AB68
+	private void destroyEffectObjs() { }
+
+	// RVA: 0x1A5AD84 Offset: 0x1A5AD84 VA: 0x1A5AD84
+	public static List<GameObject> getTargets(USFGOCreateEffectEvent.EffectTarget target, int functionIndex = -1) { }
+
+	// RVA: 0x1A5B704 Offset: 0x1A5B704 VA: 0x1A5B704
+	private void AddAnimationElements(GameObject obj) { }
+
+	// RVA: 0x1A5B940 Offset: 0x1A5B940 VA: 0x1A5B940
+	private bool IsEnemy(GameObject tgt) { }
+
+	// RVA: 0x1A5BAE0 Offset: 0x1A5BAE0 VA: 0x1A5BAE0 Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A5C518 Offset: 0x1A5C518 VA: 0x1A5C518
+	private void PlayAllEffects() { }
+
+	// RVA: 0x1A5CEA8 Offset: 0x1A5CEA8 VA: 0x1A5CEA8
+	private void UpdateAllEffects(float deltaTime) { }
+
+	// RVA: 0x1A5D80C Offset: 0x1A5D80C VA: 0x1A5D80C Slot: 5
+	public override void ProcessEvent(float deltaTime) { }
+
+	// RVA: 0x1A5D810 Offset: 0x1A5D810 VA: 0x1A5D810 Slot: 8
+	public override void StopEvent() { }
+
+	// RVA: 0x1A5D81C Offset: 0x1A5D81C VA: 0x1A5D81C Slot: 9
+	public override void EndEvent() { }
+
+	// RVA: 0x1A5D828 Offset: 0x1A5D828 VA: 0x1A5D828 Slot: 10
+	public override void UndoEvent() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCB028 Offset: 0xCCB028 VA: 0xCCB028
+	// RVA: 0x1A5D82C Offset: 0x1A5D82C VA: 0x1A5D82C
+	private static bool <getTargets>m__0(GameObject x) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCB038 Offset: 0xCCB038 VA: 0xCCB038
+	// RVA: 0x1A5D898 Offset: 0x1A5D898 VA: 0x1A5D898
+	private static bool <getTargets>m__1(GameObject x) { }
+}
+
+// Namespace: 
+public enum USFGOCreateEffectEvent.EffectCategory // TypeDefIndex: 8165
+{
+	// Fields
+	public int value__; // 0x0
+	public const USFGOCreateEffectEvent.EffectCategory ServantNoblePhantasm = 0;
+	public const USFGOCreateEffectEvent.EffectCategory Servant = 1;
+	public const USFGOCreateEffectEvent.EffectCategory Weapon = 2;
+	public const USFGOCreateEffectEvent.EffectCategory Common = 3;
+}
+
+// Namespace: 
+public enum USFGOCreateEffectEvent.EffectTarget // TypeDefIndex: 8166
+{
+	// Fields
+	public int value__; // 0x0
+	public const USFGOCreateEffectEvent.EffectTarget Actor = 0;
+	public const USFGOCreateEffectEvent.EffectTarget Target = 1;
+	public const USFGOCreateEffectEvent.EffectTarget DamageTagets = 2;
+	public const USFGOCreateEffectEvent.EffectTarget BuffTargets = 3;
+	public const USFGOCreateEffectEvent.EffectTarget DebuffTargets = 4;
+	public const USFGOCreateEffectEvent.EffectTarget PlayerParty = 5;
+	public const USFGOCreateEffectEvent.EffectTarget EnemyParty = 6;
+	public const USFGOCreateEffectEvent.EffectTarget All = 7;
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC295F8 Offset: 0xC295F8 VA: 0xC295F8
+[USequencerEventAttribute] // RVA: 0xC295F8 Offset: 0xC295F8 VA: 0xC295F8
+[USequencerEventHideDurationAttribute] // RVA: 0xC295F8 Offset: 0xC295F8 VA: 0xC295F8
+public class USFGODetachEvent : USEventBase // TypeDefIndex: 8167
+{
+	// Methods
+
+	// RVA: 0x1A5D904 Offset: 0x1A5D904 VA: 0x1A5D904
+	public void .ctor() { }
+
+	// RVA: 0x1A5D90C Offset: 0x1A5D90C VA: 0x1A5D90C Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A5D9DC Offset: 0x1A5D9DC VA: 0x1A5D9DC Slot: 5
+	public override void ProcessEvent(float deltaTime) { }
+}
+
+// Namespace: WellFired
+public class USFGOEventBase : USEventBase // TypeDefIndex: 8168
+{
+	// Fields
+	public bool isFiexedUpdate; // 0x30
+	protected float prevDeltaTime; // 0x34
+
+	// Methods
+
+	// RVA: 0x1A5D9E0 Offset: 0x1A5D9E0 VA: 0x1A5D9E0
+	public void .ctor() { }
+
+	[ConditionalAttribute] // RVA: 0xCCB048 Offset: 0xCCB048 VA: 0xCCB048
+	// RVA: 0x1A5D9F0 Offset: 0x1A5D9F0 VA: 0x1A5D9F0
+	protected void addFireLog(float t) { }
+
+	[ConditionalAttribute] // RVA: 0xCCB080 Offset: 0xCCB080 VA: 0xCCB080
+	// RVA: 0x1A5D9F4 Offset: 0x1A5D9F4 VA: 0x1A5D9F4
+	protected void clearFireLog() { }
+
+	// RVA: 0x1A5D9F8 Offset: 0x1A5D9F8 VA: 0x1A5D9F8
+	protected bool checkFire(float deltaTime) { }
+
+	// RVA: 0x1A5DA50 Offset: 0x1A5DA50 VA: 0x1A5DA50 Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A5DA5C Offset: 0x1A5DA5C VA: 0x1A5DA5C Slot: 5
+	public override void ProcessEvent(float deltaTime) { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC29668 Offset: 0xC29668 VA: 0xC29668
+[USequencerEventAttribute] // RVA: 0xC29668 Offset: 0xC29668 VA: 0xC29668
+[USequencerEventHideDurationAttribute] // RVA: 0xC29668 Offset: 0xC29668 VA: 0xC29668
+public class USFGOFadeEvent : USEventBase // TypeDefIndex: 8169
+{
+	// Fields
+	public UILayer uiLayer; // 0x30
+	public AnimationCurve fadeCurve; // 0x38
+	public Color fadeColour; // 0x40
+	private float currentCurveSampleTime; // 0x50
+	public GameObject faderObject; // 0x58
+
+	// Methods
+
+	// RVA: 0x1A5DA60 Offset: 0x1A5DA60 VA: 0x1A5DA60
+	public void .ctor() { }
+
+	// RVA: 0x1A5DC3C Offset: 0x1A5DC3C VA: 0x1A5DC3C Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A5DD38 Offset: 0x1A5DD38 VA: 0x1A5DD38 Slot: 5
+	public override void ProcessEvent(float deltaTime) { }
+
+	// RVA: 0x1A5DF44 Offset: 0x1A5DF44 VA: 0x1A5DF44 Slot: 9
+	public override void EndEvent() { }
+
+	// RVA: 0x1A5E100 Offset: 0x1A5E100 VA: 0x1A5E100 Slot: 8
+	public override void StopEvent() { }
+
+	// RVA: 0x1A5E10C Offset: 0x1A5E10C VA: 0x1A5E10C Slot: 10
+	public override void UndoEvent() { }
+
+	// RVA: 0x1A5E1D8 Offset: 0x1A5E1D8 VA: 0x1A5E1D8
+	private void Update() { }
+
+	// RVA: 0x1A5E2D8 Offset: 0x1A5E2D8 VA: 0x1A5E2D8
+	private void OnEnable() { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC296D8 Offset: 0xC296D8 VA: 0xC296D8
+[USequencerEventAttribute] // RVA: 0xC296D8 Offset: 0xC296D8 VA: 0xC296D8
+public class USFGOGCcollect : USEventBase // TypeDefIndex: 8170
+{
+	// Methods
+
+	// RVA: 0x1A5E3D8 Offset: 0x1A5E3D8 VA: 0x1A5E3D8
+	public void .ctor() { }
+
+	// RVA: 0x1A5E3E0 Offset: 0x1A5E3E0 VA: 0x1A5E3E0 Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A5E3E8 Offset: 0x1A5E3E8 VA: 0x1A5E3E8 Slot: 5
+	public override void ProcessEvent(float deltaTime) { }
+
+	// RVA: 0x1A5E3EC Offset: 0x1A5E3EC VA: 0x1A5E3EC Slot: 8
+	public override void StopEvent() { }
+
+	// RVA: 0x1A5E3F8 Offset: 0x1A5E3F8 VA: 0x1A5E3F8 Slot: 10
+	public override void UndoEvent() { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC29738 Offset: 0xC29738 VA: 0xC29738
+[USequencerEventAttribute] // RVA: 0xC29738 Offset: 0xC29738 VA: 0xC29738
+[USequencerEventHideDurationAttribute] // RVA: 0xC29738 Offset: 0xC29738 VA: 0xC29738
+public class USFGOGrayscaleEffectEvent : USEventBase // TypeDefIndex: 8171
+{
+	// Fields
+	public AnimationCurve fadeCurve; // 0x30
+	private float currentCurveSampleTime; // 0x38
+	public bool isAffectedCutInCamera; // 0x3C
+
+	// Methods
+
+	// RVA: 0x1A5E3FC Offset: 0x1A5E3FC VA: 0x1A5E3FC
+	public void .ctor() { }
+
+	// RVA: 0x1A5E538 Offset: 0x1A5E538 VA: 0x1A5E538 Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A5E53C Offset: 0x1A5E53C VA: 0x1A5E53C
+	protected void SetSaturation(float saturation) { }
+
+	// RVA: 0x1A5E724 Offset: 0x1A5E724 VA: 0x1A5E724 Slot: 5
+	public override void ProcessEvent(float deltaTime) { }
+
+	// RVA: 0x1A5E7D8 Offset: 0x1A5E7D8 VA: 0x1A5E7D8 Slot: 9
+	public override void EndEvent() { }
+
+	// RVA: 0x1A5E910 Offset: 0x1A5E910 VA: 0x1A5E910 Slot: 8
+	public override void StopEvent() { }
+
+	// RVA: 0x1A5E91C Offset: 0x1A5E91C VA: 0x1A5E91C Slot: 10
+	public override void UndoEvent() { }
+
+	// RVA: 0x1A5E924 Offset: 0x1A5E924 VA: 0x1A5E924
+	private void Update() { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC297A8 Offset: 0xC297A8 VA: 0xC297A8
+[USequencerEventAttribute] // RVA: 0xC297A8 Offset: 0xC297A8 VA: 0xC297A8
+public class USFGOInitNoblePhantasm : USEventBase // TypeDefIndex: 8172
+{
+	// Methods
+
+	// RVA: 0x1A5EA24 Offset: 0x1A5EA24 VA: 0x1A5EA24
+	public void .ctor() { }
+
+	// RVA: 0x1A5EA2C Offset: 0x1A5EA2C VA: 0x1A5EA2C
+	public void Update() { }
+
+	// RVA: 0x1A5EA38 Offset: 0x1A5EA38 VA: 0x1A5EA38 Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A5EAFC Offset: 0x1A5EAFC VA: 0x1A5EAFC Slot: 5
+	public override void ProcessEvent(float deltaTime) { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC29808 Offset: 0xC29808 VA: 0xC29808
+[USequencerEventAttribute] // RVA: 0xC29808 Offset: 0xC29808 VA: 0xC29808
+public class USFGOMirrorObject : USEventBase // TypeDefIndex: 8173
+{
+	// Fields
+	[SerializeField] // RVA: 0xC5D4BC Offset: 0xC5D4BC VA: 0xC5D4BC
+	private int textureWidth; // 0x30
+	[SerializeField] // RVA: 0xC5D4CC Offset: 0xC5D4CC VA: 0xC5D4CC
+	private int textureHeight; // 0x34
+	[SerializeField] // RVA: 0xC5D4DC Offset: 0xC5D4DC VA: 0xC5D4DC
+	private int textureDepth; // 0x38
+	[SerializeField] // RVA: 0xC5D4EC Offset: 0xC5D4EC VA: 0xC5D4EC
+	private TextureDimension textureDimension; // 0x3C
+	[SerializeField] // RVA: 0xC5D4FC Offset: 0xC5D4FC VA: 0xC5D4FC
+	private RenderTextureFormat textureFormat; // 0x40
+	[SerializeField] // RVA: 0xC5D50C Offset: 0xC5D50C VA: 0xC5D50C
+	private FilterMode textureFilterMode; // 0x44
+	[SerializeField] // RVA: 0xC5D51C Offset: 0xC5D51C VA: 0xC5D51C
+	private bool useBoundsCamera; // 0x48
+	[SerializeField] // RVA: 0xC5D52C Offset: 0xC5D52C VA: 0xC5D52C
+	private Vector3 cameraPosition; // 0x4C
+	[SerializeField] // RVA: 0xC5D53C Offset: 0xC5D53C VA: 0xC5D53C
+	private Vector3 cameraRotation; // 0x58
+	[SerializeField] // RVA: 0xC5D54C Offset: 0xC5D54C VA: 0xC5D54C
+	private float cameraMargin; // 0x64
+	[SerializeField] // RVA: 0xC5D55C Offset: 0xC5D55C VA: 0xC5D55C
+	private CameraClearFlags cameraClearFlags; // 0x68
+	[SerializeField] // RVA: 0xC5D56C Offset: 0xC5D56C VA: 0xC5D56C
+	private Color cameraBackgroundColor; // 0x6C
+	[SerializeField] // RVA: 0xC5D57C Offset: 0xC5D57C VA: 0xC5D57C
+	private float cameraFieldOfView; // 0x7C
+	[SerializeField] // RVA: 0xC5D58C Offset: 0xC5D58C VA: 0xC5D58C
+	private float cameraNearClipPlane; // 0x80
+	[SerializeField] // RVA: 0xC5D59C Offset: 0xC5D59C VA: 0xC5D59C
+	private float cameraFarClipPlane; // 0x84
+	[SerializeField] // RVA: 0xC5D5AC Offset: 0xC5D5AC VA: 0xC5D5AC
+	private float cameraDepth; // 0x88
+	[SerializeField] // RVA: 0xC5D5BC Offset: 0xC5D5BC VA: 0xC5D5BC
+	private RenderingPath cameraRenderingPath; // 0x8C
+	[SerializeField] // RVA: 0xC5D5CC Offset: 0xC5D5CC VA: 0xC5D5CC
+	private bool cameraAllowHDR; // 0x90
+	[SerializeField] // RVA: 0xC5D5DC Offset: 0xC5D5DC VA: 0xC5D5DC
+	private bool cameraAllowMSAA; // 0x91
+	[SerializeField] // RVA: 0xC5D5EC Offset: 0xC5D5EC VA: 0xC5D5EC
+	private bool cameraAllowDynamicResolution; // 0x92
+	[SerializeField] // RVA: 0xC5D5FC Offset: 0xC5D5FC VA: 0xC5D5FC
+	private bool cameraUseOcclusionCulling; // 0x93
+	[SerializeField] // RVA: 0xC5D60C Offset: 0xC5D60C VA: 0xC5D60C
+	private List<string> targetActorObjectPaths; // 0x98
+	[SerializeField] // RVA: 0xC5D61C Offset: 0xC5D61C VA: 0xC5D61C
+	private Vector3 targetActorPosition; // 0xA0
+	[SerializeField] // RVA: 0xC5D62C Offset: 0xC5D62C VA: 0xC5D62C
+	private Vector3 targetActorRotation; // 0xAC
+	[SerializeField] // RVA: 0xC5D63C Offset: 0xC5D63C VA: 0xC5D63C
+	private string targetMaterialName; // 0xB8
+	[SerializeField] // RVA: 0xC5D64C Offset: 0xC5D64C VA: 0xC5D64C
+	private string targetTextureName; // 0xC0
+	[SerializeField] // RVA: 0xC5D65C Offset: 0xC5D65C VA: 0xC5D65C
+	private int changeLayer; // 0xC8
+	private RenderTexture renderTexture; // 0xD0
+	private Dictionary<GameObject, int> changeLayerObjects; // 0xD8
+	private Dictionary<Material, Texture> changeTextureMaterials; // 0xE0
+	private GameObject tmp_parent_obj; // 0xE8
+	private Camera tmp_camera; // 0xF0
+	private GameObject chrObj; // 0xF8
+	private bool orgChrObjActiveSelf; // 0x100
+	private SkinnedMeshRenderer boundsRenderer; // 0x108
+	private bool boundsRendererOrgUpdateWhenOffscreens; // 0x110
+
+	// Methods
+
+	// RVA: 0x1A5EB00 Offset: 0x1A5EB00 VA: 0x1A5EB00
+	public void .ctor() { }
+
+	// RVA: 0x1A5EBBC Offset: 0x1A5EBBC VA: 0x1A5EBBC Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A60278 Offset: 0x1A60278 VA: 0x1A60278 Slot: 5
+	public override void ProcessEvent(float runningTime) { }
+
+	// RVA: 0x1A6027C Offset: 0x1A6027C VA: 0x1A6027C Slot: 8
+	public override void StopEvent() { }
+
+	// RVA: 0x1A60288 Offset: 0x1A60288 VA: 0x1A60288 Slot: 10
+	public override void UndoEvent() { }
+
+	// RVA: 0x1A60294 Offset: 0x1A60294 VA: 0x1A60294 Slot: 9
+	public override void EndEvent() { }
+
+	// RVA: 0x1A5FE90 Offset: 0x1A5FE90 VA: 0x1A5FE90
+	private void setupBoundsCamera(GameObject chrObj) { }
+
+	// RVA: 0x1A5FD3C Offset: 0x1A5FD3C VA: 0x1A5FD3C
+	private GameObject getChr(GameObject gameObject) { }
+
+	// RVA: 0x1A5FCA0 Offset: 0x1A5FCA0 VA: 0x1A5FCA0
+	private GameObject getActor() { }
+
+	// RVA: 0x1A609F8 Offset: 0x1A609F8 VA: 0x1A609F8
+	private SkinnedMeshRenderer getChrBodyRenderer(GameObject chr) { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC29868 Offset: 0xC29868 VA: 0xC29868
+[USequencerEventAttribute] // RVA: 0xC29868 Offset: 0xC29868 VA: 0xC29868
+public class USFGOObjectFlip : USEventBase // TypeDefIndex: 8174
+{
+	// Fields
+	[SerializeField] // RVA: 0xC5D66C Offset: 0xC5D66C VA: 0xC5D66C
+	[TooltipAttribute] // RVA: 0xC5D66C Offset: 0xC5D66C VA: 0xC5D66C
+	private USFGOObjectFlip.FGOFlipTarget rotationTarget; // 0x30
+	[SerializeField] // RVA: 0xC5D6B8 Offset: 0xC5D6B8 VA: 0xC5D6B8
+	[TooltipAttribute] // RVA: 0xC5D6B8 Offset: 0xC5D6B8 VA: 0xC5D6B8
+	private USFGOObjectFlip.FGOFlipTarget scaleTarget; // 0x34
+	private Quaternion saveRotation; // 0x38
+	private Vector3 saveScale; // 0x48
+	private bool isFlipped; // 0x54
+
+	// Methods
+
+	// RVA: 0x1A5425C Offset: 0x1A5425C VA: 0x1A5425C
+	public void .ctor() { }
+
+	// RVA: 0x1A543E8 Offset: 0x1A543E8 VA: 0x1A543E8 Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A60E80 Offset: 0x1A60E80 VA: 0x1A60E80 Slot: 5
+	public override void ProcessEvent(float runningTime) { }
+
+	// RVA: 0x1A60E84 Offset: 0x1A60E84 VA: 0x1A60E84 Slot: 10
+	public override void UndoEvent() { }
+
+	// RVA: 0x1A60E90 Offset: 0x1A60E90 VA: 0x1A60E90 Slot: 9
+	public override void EndEvent() { }
+
+	// RVA: 0x1A60FE0 Offset: 0x1A60FE0 VA: 0x1A60FE0 Slot: 16
+	protected virtual void FlippedTransform(Transform tr) { }
+
+	// RVA: 0x1A611C0 Offset: 0x1A611C0 VA: 0x1A611C0
+	protected Vector3 FlippedVector3(float x, float y, float z, USFGOObjectFlip.FGOFlipTarget target) { }
+
+	// RVA: 0x1A61198 Offset: 0x1A61198 VA: 0x1A61198
+	protected Vector3 FlippedVector3(Vector3 vec3, USFGOObjectFlip.FGOFlipTarget target) { }
+
+	// RVA: 0x1A610E8 Offset: 0x1A610E8 VA: 0x1A610E8
+	protected Quaternion FlippedQuaternion(Quaternion qua, USFGOObjectFlip.FGOFlipTarget target) { }
+}
+
+// Namespace: 
+public enum USFGOObjectFlip.FGOFlipTarget // TypeDefIndex: 8175
+{
+	// Fields
+	public int value__; // 0x0
+	public const USFGOObjectFlip.FGOFlipTarget None = 0;
+	public const USFGOObjectFlip.FGOFlipTarget X = 1;
+	public const USFGOObjectFlip.FGOFlipTarget Y = 2;
+	public const USFGOObjectFlip.FGOFlipTarget Z = 4;
+	public const USFGOObjectFlip.FGOFlipTarget X_Y = 3;
+	public const USFGOObjectFlip.FGOFlipTarget X_Z = 5;
+	public const USFGOObjectFlip.FGOFlipTarget Y_Z = 6;
+	public const USFGOObjectFlip.FGOFlipTarget X_Y_Z = 7;
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC298C8 Offset: 0xC298C8 VA: 0xC298C8
+[USequencerEventAttribute] // RVA: 0xC298C8 Offset: 0xC298C8 VA: 0xC298C8
+public class USFGOObjectRotation : USEventBase // TypeDefIndex: 8176
+{
+	// Fields
+	[SerializeField] // RVA: 0xC5D704 Offset: 0xC5D704 VA: 0xC5D704
+	private Vector3 beforeEuler; // 0x30
+	[SerializeField] // RVA: 0xC5D714 Offset: 0xC5D714 VA: 0xC5D714
+	private Vector3 afterEuler; // 0x3C
+	[SerializeField] // RVA: 0xC5D724 Offset: 0xC5D724 VA: 0xC5D724
+	[TooltipAttribute] // RVA: 0xC5D724 Offset: 0xC5D724 VA: 0xC5D724
+	private AnimationCurve raitoCurve; // 0x48
+	private Quaternion saveRotation; // 0x50
+	private Vector3 mathBeforeEuler; // 0x60
+	private Vector3 mathAfterEuler; // 0x6C
+
+	// Methods
+
+	// RVA: 0x1A611E8 Offset: 0x1A611E8 VA: 0x1A611E8
+	public void .ctor() { }
+
+	// RVA: 0x1A6131C Offset: 0x1A6131C VA: 0x1A6131C Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A61490 Offset: 0x1A61490 VA: 0x1A61490 Slot: 5
+	public override void ProcessEvent(float runningTime) { }
+
+	// RVA: 0x1A616B0 Offset: 0x1A616B0 VA: 0x1A616B0 Slot: 10
+	public override void UndoEvent() { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC29928 Offset: 0xC29928 VA: 0xC29928
+[USequencerEventAttribute] // RVA: 0xC29928 Offset: 0xC29928 VA: 0xC29928
+[USequencerEventHideDurationAttribute] // RVA: 0xC29928 Offset: 0xC29928 VA: 0xC29928
+public class USFGOPlayAnimationEvent : USEventBase // TypeDefIndex: 8177
+{
+	// Fields
+	public string AnimationName; // 0x30
+	public bool AddLevelNumber; // 0x38
+	public bool AddBattleSide; // 0x39
+	public bool Force30Fps; // 0x3A
+	public bool UseChildAnimation; // 0x3B
+	protected Animation[] animations; // 0x40
+	protected SimpleAnimation[] simpleAnimations; // 0x48
+	protected ParticleSystem[] particles; // 0x50
+	protected UVScroll[] uvScrolls; // 0x58
+	protected changeVColor[] changeVColors; // 0x60
+	protected bool originalActive; // 0x68
+	protected BattleActorControl actor; // 0x70
+	protected readonly string BattleSidePlayer; // 0x78
+	protected readonly string BattleSideEnemy; // 0x80
+
+	// Methods
+
+	// RVA: 0x1A617A8 Offset: 0x1A617A8 VA: 0x1A617A8
+	public void .ctor() { }
+
+	// RVA: 0x1A61848 Offset: 0x1A61848 VA: 0x1A61848 Slot: 16
+	protected virtual string GetAnimationName(string defaultName) { }
+
+	// RVA: 0x1A61C10 Offset: 0x1A61C10 VA: 0x1A61C10 Slot: 17
+	protected virtual void InitializeObject() { }
+
+	// RVA: 0x1A61E10 Offset: 0x1A61E10 VA: 0x1A61E10 Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A62860 Offset: 0x1A62860 VA: 0x1A62860 Slot: 5
+	public override void ProcessEvent(float deltaTime) { }
+
+	// RVA: 0x1A62FB8 Offset: 0x1A62FB8 VA: 0x1A62FB8 Slot: 8
+	public override void StopEvent() { }
+
+	// RVA: 0x1A63160 Offset: 0x1A63160 VA: 0x1A63160 Slot: 10
+	public override void UndoEvent() { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC29998 Offset: 0xC29998 VA: 0xC29998
+[USequencerEventAttribute] // RVA: 0xC29998 Offset: 0xC29998 VA: 0xC29998
+[USequencerEventHideDurationAttribute] // RVA: 0xC29998 Offset: 0xC29998 VA: 0xC29998
+public class USFGOPlayAnimationEventEx : USFGOPlayAnimationEvent // TypeDefIndex: 8178
+{
+	// Fields
+	public string nonTargetName; // 0x88
+
+	// Methods
+
+	// RVA: 0x1A632AC Offset: 0x1A632AC VA: 0x1A632AC
+	public void .ctor() { }
+
+	// RVA: 0x1A632B0 Offset: 0x1A632B0 VA: 0x1A632B0 Slot: 17
+	protected override void InitializeObject() { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC29A08 Offset: 0xC29A08 VA: 0xC29A08
+[USequencerEventAttribute] // RVA: 0xC29A08 Offset: 0xC29A08 VA: 0xC29A08
+public class USFGOPlayAnimationEventWithSpecifiedTime : USEventBase // TypeDefIndex: 8179
+{
+	// Fields
+	public string AnimationName; // 0x30
+	public bool AddLevelNumber; // 0x38
+	public bool AddBattleSide; // 0x39
+	public bool Force30Fps; // 0x3A
+	public bool UseChildAnimation; // 0x3B
+	public bool Looping; // 0x3C
+	public float startTime; // 0x40
+	public float stopTime; // 0x44
+	protected Animation[] animations; // 0x48
+	protected SimpleAnimation[] simpleAnimations; // 0x50
+	protected ParticleSystem[] particles; // 0x58
+	protected float previousRunningTime; // 0x60
+	protected UVScroll[] uvScrolls; // 0x68
+	protected changeVColor[] changeVColors; // 0x70
+	protected bool originalActive; // 0x78
+	protected float originalDuration; // 0x7C
+	protected WrapMode[] originalAnimationWrapModes; // 0x80
+	protected bool[] originalParticleLoopings; // 0x88
+	protected BattleActorControl actor; // 0x90
+	protected readonly string BattleSidePlayer; // 0x98
+	protected readonly string BattleSideEnemy; // 0xA0
+
+	// Methods
+
+	// RVA: 0x1A63648 Offset: 0x1A63648 VA: 0x1A63648
+	public void .ctor() { }
+
+	// RVA: 0x1A636E8 Offset: 0x1A636E8 VA: 0x1A636E8 Slot: 16
+	protected virtual string GetAnimationName(string defaultName) { }
+
+	// RVA: 0x1A63AB0 Offset: 0x1A63AB0 VA: 0x1A63AB0 Slot: 17
+	protected virtual void InitializeObject() { }
+
+	// RVA: 0x1A63CE0 Offset: 0x1A63CE0 VA: 0x1A63CE0 Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A64AE8 Offset: 0x1A64AE8 VA: 0x1A64AE8 Slot: 5
+	public override void ProcessEvent(float runningTime) { }
+
+	// RVA: 0x1A652F0 Offset: 0x1A652F0 VA: 0x1A652F0 Slot: 8
+	public override void StopEvent() { }
+
+	// RVA: 0x1A6556C Offset: 0x1A6556C VA: 0x1A6556C Slot: 10
+	public override void UndoEvent() { }
+
+	// RVA: 0x1A65674 Offset: 0x1A65674 VA: 0x1A65674 Slot: 9
+	public override void EndEvent() { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC29A68 Offset: 0xC29A68 VA: 0xC29A68
+[USequencerEventAttribute] // RVA: 0xC29A68 Offset: 0xC29A68 VA: 0xC29A68
+[USequencerEventHideDurationAttribute] // RVA: 0xC29A68 Offset: 0xC29A68 VA: 0xC29A68
+public class USFGOPlayAudioEvent : USEventBase // TypeDefIndex: 8180
+{
+	// Fields
+	private static readonly int REPLACE_PRECISION; // 0x0
+	public USFGOPlayAudioEvent.AudioCategory category; // 0x30
+	public USFGOPlayAudioEvent.AudioType audioType; // 0x34
+	public string groupId; // 0x38
+	public string soundId; // 0x40
+	public bool NotPlayHighspeed; // 0x48
+	public bool NotPlayNomalspeed; // 0x49
+	protected static SePlayer PrevSound; // 0x8
+	public AudioClip audioClip; // 0x50
+	public bool loop; // 0x58
+	private bool wasPlaying; // 0x59
+	[TooltipAttribute] // RVA: 0xC5D770 Offset: 0xC5D770 VA: 0xC5D770
+	public bool disableServantChange; // 0x5A
+	public int[] doNotPlayLimitCounts; // 0x60
+
+	// Properties
+	private bool IsPlayable { get; }
+	private bool IsReplaceable { get; }
+
+	// Methods
+
+	// RVA: 0x1A65B08 Offset: 0x1A65B08 VA: 0x1A65B08
+	public void .ctor() { }
+
+	// RVA: 0x1A65B10 Offset: 0x1A65B10 VA: 0x1A65B10
+	private bool get_IsPlayable() { }
+
+	// RVA: 0x1A65D18 Offset: 0x1A65D18 VA: 0x1A65D18
+	public void Update() { }
+
+	// RVA: 0x1A65DC0 Offset: 0x1A65DC0 VA: 0x1A65DC0
+	private bool get_IsReplaceable() { }
+
+	// RVA: 0x1A65EDC Offset: 0x1A65EDC VA: 0x1A65EDC
+	private void ReplaceGroupId() { }
+
+	// RVA: 0x1A65FD4 Offset: 0x1A65FD4 VA: 0x1A65FD4
+	private void ReplaceSoundId() { }
+
+	// RVA: 0x1A66648 Offset: 0x1A66648 VA: 0x1A66648
+	private bool CheckReplacableNobleVoice() { }
+
+	// RVA: 0x1A66DAC Offset: 0x1A66DAC VA: 0x1A66DAC
+	protected string GetAudioAssetPath() { }
+
+	// RVA: 0x1A66ED4 Offset: 0x1A66ED4 VA: 0x1A66ED4
+	protected string GetAudioAssetFileName() { }
+
+	// RVA: 0x1A66F64 Offset: 0x1A66F64 VA: 0x1A66F64 Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A67300 Offset: 0x1A67300 VA: 0x1A67300
+	protected void audioPlay(string assetPath, string assetFile) { }
+
+	// RVA: 0x1A67C7C Offset: 0x1A67C7C VA: 0x1A67C7C Slot: 5
+	public override void ProcessEvent(float deltaTime) { }
+
+	// RVA: 0x1A67E9C Offset: 0x1A67E9C VA: 0x1A67E9C Slot: 11
+	public override void ManuallySetTime(float deltaTime) { }
+
+	// RVA: 0x1A67F74 Offset: 0x1A67F74 VA: 0x1A67F74 Slot: 7
+	public override void ResumeEvent() { }
+
+	// RVA: 0x1A680AC Offset: 0x1A680AC VA: 0x1A680AC Slot: 6
+	public override void PauseEvent() { }
+
+	// RVA: 0x1A681CC Offset: 0x1A681CC VA: 0x1A681CC Slot: 8
+	public override void StopEvent() { }
+
+	// RVA: 0x1A681D8 Offset: 0x1A681D8 VA: 0x1A681D8 Slot: 9
+	public override void EndEvent() { }
+
+	// RVA: 0x1A681E4 Offset: 0x1A681E4 VA: 0x1A681E4 Slot: 10
+	public override void UndoEvent() { }
+
+	// RVA: 0x1A682F0 Offset: 0x1A682F0 VA: 0x1A682F0 Slot: 16
+	public virtual bool FixSyncGroupRandomAudioPlayIndex(string syncGroupName) { }
+
+	// RVA: 0x1A682F8 Offset: 0x1A682F8 VA: 0x1A682F8
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public enum USFGOPlayAudioEvent.AudioCategory // TypeDefIndex: 8181
+{
+	// Fields
+	public int value__; // 0x0
+	public const USFGOPlayAudioEvent.AudioCategory ServantNoblePhantasm = 0;
+	public const USFGOPlayAudioEvent.AudioCategory ServantBattle = 1;
+	public const USFGOPlayAudioEvent.AudioCategory ServantNormal = 2;
+	public const USFGOPlayAudioEvent.AudioCategory Common = 3;
+	public const USFGOPlayAudioEvent.AudioCategory BattleCommon = 4;
+	public const USFGOPlayAudioEvent.AudioCategory Weapon = 5;
+}
+
+// Namespace: 
+public enum USFGOPlayAudioEvent.AudioType // TypeDefIndex: 8182
+{
+	// Fields
+	public int value__; // 0x0
+	public const USFGOPlayAudioEvent.AudioType Auto = 0;
+	public const USFGOPlayAudioEvent.AudioType SE = 1;
+	public const USFGOPlayAudioEvent.AudioType Voice = 2;
+	public const USFGOPlayAudioEvent.AudioType VoiceNotStop = 3;
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC43154 Offset: 0xC43154 VA: 0xC43154
+private sealed class USFGOPlayAudioEvent.<FireEvent>c__AnonStorey0 // TypeDefIndex: 8183
+{
+	// Fields
+	internal string assetPath; // 0x10
+	internal string assetFile; // 0x18
+	internal USFGOPlayAudioEvent $this; // 0x20
+
+	// Methods
+
+	// RVA: 0x1A672F8 Offset: 0x1A672F8 VA: 0x1A672F8
+	public void .ctor() { }
+
+	// RVA: 0x1A6834C Offset: 0x1A6834C VA: 0x1A6834C
+	internal void <>m__0() { }
+}
+
+// Namespace: WellFired
+[USequencerFriendlyNameAttribute] // RVA: 0xC29AD8 Offset: 0xC29AD8 VA: 0xC29AD8
+[USequencerEventAttribute] // RVA: 0xC29AD8 Offset: 0xC29AD8 VA: 0xC29AD8
+[USequencerEventHideDurationAttribute] // RVA: 0xC29AD8 Offset: 0xC29AD8 VA: 0xC29AD8
+public class USFGOPlayAudioEventConditional : USFGOPlayAudioEvent // TypeDefIndex: 8184
+{
+	// Fields
+	[SpaceAttribute] // RVA: 0xC5D7A8 Offset: 0xC5D7A8 VA: 0xC5D7A8
+	[SerializeField] // RVA: 0xC5D7A8 Offset: 0xC5D7A8 VA: 0xC5D7A8
+	[TooltipAttribute] // RVA: 0xC5D7A8 Offset: 0xC5D7A8 VA: 0xC5D7A8
+	private string syncPlayGroup; // 0x68
+	[SerializeField] // RVA: 0xC5D808 Offset: 0xC5D808 VA: 0xC5D808
+	private List<USFGOPlayAudioEventConditional.AudioData> audioDataList; // 0x70
+	[SerializeField] // RVA: 0xC5D818 Offset: 0xC5D818 VA: 0xC5D818
+	[TooltipAttribute] // RVA: 0xC5D818 Offset: 0xC5D818 VA: 0xC5D818
+	private bool registPlayedFlag; // 0x78
+
+	// Methods
+
+	// RVA: 0x1A6838C Offset: 0x1A6838C VA: 0x1A6838C
+	public void .ctor() { }
+
+	// RVA: 0x1A6841C Offset: 0x1A6841C VA: 0x1A6841C Slot: 4
+	public override void FireEvent() { }
+
+	// RVA: 0x1A68440 Offset: 0x1A68440 VA: 0x1A68440
+	private void setupPlayAudio() { }
+
+	// RVA: 0x1A68A98 Offset: 0x1A68A98 VA: 0x1A68A98 Slot: 8
+	public override void StopEvent() { }
+
+	// RVA: 0x1A68AA4 Offset: 0x1A68AA4 VA: 0x1A68AA4 Slot: 10
+	public override void UndoEvent() { }
+
+	// RVA: 0x1A68B5C Offset: 0x1A68B5C VA: 0x1A68B5C Slot: 16
 	public override bool FixSyncGroupRandomAudioPlayIndex(string syncGroupName) { }
 }
 
 // Namespace: 
 [Serializable]
-public class USFGOPlayAudioEventConditional.AudioData // TypeDefIndex: 8166
+public class USFGOPlayAudioEventConditional.AudioData // TypeDefIndex: 8185
 {
 	// Fields
-	[TooltipAttribute] // RVA: 0xCCA6FC Offset: 0xCCA6FC VA: 0xCCA6FC
+	[TooltipAttribute] // RVA: 0xC5D864 Offset: 0xC5D864 VA: 0xC5D864
 	public string soundId; // 0x10
-	[TooltipAttribute] // RVA: 0xCCA734 Offset: 0xCCA734 VA: 0xCCA734
+	[TooltipAttribute] // RVA: 0xC5D89C Offset: 0xC5D89C VA: 0xC5D89C
 	public AudioClip playAudioClip; // 0x18
-	[TooltipAttribute] // RVA: 0xCCA76C Offset: 0xCCA76C VA: 0xCCA76C
+	[TooltipAttribute] // RVA: 0xC5D8D4 Offset: 0xC5D8D4 VA: 0xC5D8D4
 	public int weight; // 0x20
-	[TooltipAttribute] // RVA: 0xCCA7A4 Offset: 0xCCA7A4 VA: 0xCCA7A4
+	[TooltipAttribute] // RVA: 0xC5D90C Offset: 0xC5D90C VA: 0xC5D90C
 	public bool nonPlayIfEnemy; // 0x24
 
 	// Methods
 
-	// RVA: 0x1F6D930 Offset: 0x1F6D930 VA: 0x1F6D930
+	// RVA: 0x1A68B9C Offset: 0x1A68B9C VA: 0x1A68B9C
 	public void .ctor() { }
 }
 
 // Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95C70 Offset: 0xC95C70 VA: 0xC95C70
-[USequencerEventAttribute] // RVA: 0xC95C70 Offset: 0xC95C70 VA: 0xC95C70
-[USequencerEventHideDurationAttribute] // RVA: 0xC95C70 Offset: 0xC95C70 VA: 0xC95C70
-public class USFGOPlayAudioEventMissFunction : USFGOPlayAudioEvent // TypeDefIndex: 8167
+[USequencerFriendlyNameAttribute] // RVA: 0xC29B48 Offset: 0xC29B48 VA: 0xC29B48
+[USequencerEventAttribute] // RVA: 0xC29B48 Offset: 0xC29B48 VA: 0xC29B48
+[USequencerEventHideDurationAttribute] // RVA: 0xC29B48 Offset: 0xC29B48 VA: 0xC29B48
+public class USFGOPlayAudioEventMissFunction : USFGOPlayAudioEvent // TypeDefIndex: 8186
 {
 	// Fields
 	public string missFuncList; // 0x68
 
 	// Methods
 
-	// RVA: 0x1F6D940 Offset: 0x1F6D940 VA: 0x1F6D940
+	// RVA: 0x1A68BAC Offset: 0x1A68BAC VA: 0x1A68BAC
 	public void .ctor() { }
 
-	// RVA: 0x1F6D9A8 Offset: 0x1F6D9A8 VA: 0x1F6D9A8 Slot: 4
+	// RVA: 0x1A68C14 Offset: 0x1A68C14 VA: 0x1A68C14 Slot: 4
 	public override void FireEvent() { }
 }
 
 // Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95CE0 Offset: 0xC95CE0 VA: 0xC95CE0
-[USequencerEventAttribute] // RVA: 0xC95CE0 Offset: 0xC95CE0 VA: 0xC95CE0
-[USequencerEventHideDurationAttribute] // RVA: 0xC95CE0 Offset: 0xC95CE0 VA: 0xC95CE0
-public class USFGOPlayAudioEventRandom : USFGOPlayAudioEvent // TypeDefIndex: 8168
+[USequencerFriendlyNameAttribute] // RVA: 0xC29BB8 Offset: 0xC29BB8 VA: 0xC29BB8
+[USequencerEventAttribute] // RVA: 0xC29BB8 Offset: 0xC29BB8 VA: 0xC29BB8
+[USequencerEventHideDurationAttribute] // RVA: 0xC29BB8 Offset: 0xC29BB8 VA: 0xC29BB8
+public class USFGOPlayAudioEventRandom : USFGOPlayAudioEvent // TypeDefIndex: 8187
 {
 	// Fields
-	[SpaceAttribute] // RVA: 0xCCA7DC Offset: 0xCCA7DC VA: 0xCCA7DC
-	[TooltipAttribute] // RVA: 0xCCA7DC Offset: 0xCCA7DC VA: 0xCCA7DC
+	[SpaceAttribute] // RVA: 0xC5D944 Offset: 0xC5D944 VA: 0xC5D944
+	[TooltipAttribute] // RVA: 0xC5D944 Offset: 0xC5D944 VA: 0xC5D944
 	public string syncPlayGroup; // 0x68
-	[TooltipAttribute] // RVA: 0xCCA82C Offset: 0xCCA82C VA: 0xCCA82C
+	[TooltipAttribute] // RVA: 0xC5D994 Offset: 0xC5D994 VA: 0xC5D994
 	public List<USFGOPlayAudioEventRandom.AudioData> playAudioDataList; // 0x70
-	[TooltipAttribute] // RVA: 0xCCA864 Offset: 0xCCA864 VA: 0xCCA864
+	[TooltipAttribute] // RVA: 0xC5D9CC Offset: 0xC5D9CC VA: 0xC5D9CC
 	public bool registPlayedFlag; // 0x78
 
 	// Methods
 
-	// RVA: 0x1F6DD88 Offset: 0x1F6DD88 VA: 0x1F6DD88
+	// RVA: 0x1A68FF4 Offset: 0x1A68FF4 VA: 0x1A68FF4
 	public void .ctor() { }
 
-	// RVA: 0x1F6DE48 Offset: 0x1F6DE48 VA: 0x1F6DE48 Slot: 4
+	// RVA: 0x1A690B4 Offset: 0x1A690B4 VA: 0x1A690B4 Slot: 4
 	public override void FireEvent() { }
 
-	// RVA: 0x1F6DE6C Offset: 0x1F6DE6C VA: 0x1F6DE6C
+	// RVA: 0x1A690D8 Offset: 0x1A690D8 VA: 0x1A690D8
 	protected void setupPlayAudio() { }
 
-	// RVA: 0x1F6E324 Offset: 0x1F6E324 VA: 0x1F6E324 Slot: 8
+	// RVA: 0x1A69590 Offset: 0x1A69590 VA: 0x1A69590 Slot: 8
 	public override void StopEvent() { }
 
-	// RVA: 0x1F6E330 Offset: 0x1F6E330 VA: 0x1F6E330 Slot: 10
+	// RVA: 0x1A6959C Offset: 0x1A6959C VA: 0x1A6959C Slot: 10
 	public override void UndoEvent() { }
 
-	// RVA: 0x1F6E3E8 Offset: 0x1F6E3E8 VA: 0x1F6E3E8 Slot: 16
+	// RVA: 0x1A69654 Offset: 0x1A69654 VA: 0x1A69654 Slot: 16
 	public override bool FixSyncGroupRandomAudioPlayIndex(string syncGroupName) { }
 }
 
 // Namespace: 
 [Serializable]
-public class USFGOPlayAudioEventRandom.AudioData // TypeDefIndex: 8169
+public class USFGOPlayAudioEventRandom.AudioData // TypeDefIndex: 8188
 {
 	// Fields
-	[SerializeField] // RVA: 0xCCA89C Offset: 0xCCA89C VA: 0xCCA89C
-	[TooltipAttribute] // RVA: 0xCCA89C Offset: 0xCCA89C VA: 0xCCA89C
+	[SerializeField] // RVA: 0xC5DA04 Offset: 0xC5DA04 VA: 0xC5DA04
+	[TooltipAttribute] // RVA: 0xC5DA04 Offset: 0xC5DA04 VA: 0xC5DA04
 	public string playSoundId; // 0x10
-	[SerializeField] // RVA: 0xCCA8E8 Offset: 0xCCA8E8 VA: 0xCCA8E8
-	[TooltipAttribute] // RVA: 0xCCA8E8 Offset: 0xCCA8E8 VA: 0xCCA8E8
+	[SerializeField] // RVA: 0xC5DA50 Offset: 0xC5DA50 VA: 0xC5DA50
+	[TooltipAttribute] // RVA: 0xC5DA50 Offset: 0xC5DA50 VA: 0xC5DA50
 	public AudioClip playAudioClip; // 0x18
-	[TooltipAttribute] // RVA: 0xCCA934 Offset: 0xCCA934 VA: 0xCCA934
+	[TooltipAttribute] // RVA: 0xC5DA9C Offset: 0xC5DA9C VA: 0xC5DA9C
 	public int weight; // 0x20
 
 	// Methods
 
-	// RVA: 0x1F6E428 Offset: 0x1F6E428 VA: 0x1F6E428
+	// RVA: 0x1A69694 Offset: 0x1A69694 VA: 0x1A69694
 	public void .ctor() { }
 }
 
 // Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95D50 Offset: 0xC95D50 VA: 0xC95D50
-[USequencerEventAttribute] // RVA: 0xC95D50 Offset: 0xC95D50 VA: 0xC95D50
-[USequencerEventHideDurationAttribute] // RVA: 0xC95D50 Offset: 0xC95D50 VA: 0xC95D50
-public class USFGOPlayAudioEventRandomMissFunction : USFGOPlayAudioEventRandom // TypeDefIndex: 8170
+[USequencerFriendlyNameAttribute] // RVA: 0xC29C28 Offset: 0xC29C28 VA: 0xC29C28
+[USequencerEventAttribute] // RVA: 0xC29C28 Offset: 0xC29C28 VA: 0xC29C28
+[USequencerEventHideDurationAttribute] // RVA: 0xC29C28 Offset: 0xC29C28 VA: 0xC29C28
+public class USFGOPlayAudioEventRandomMissFunction : USFGOPlayAudioEventRandom // TypeDefIndex: 8189
 {
 	// Fields
-	[SpaceAttribute] // RVA: 0xCCA96C Offset: 0xCCA96C VA: 0xCCA96C
-	[SerializeField] // RVA: 0xCCA96C Offset: 0xCCA96C VA: 0xCCA96C
+	[SpaceAttribute] // RVA: 0xC5DAD4 Offset: 0xC5DAD4 VA: 0xC5DAD4
+	[SerializeField] // RVA: 0xC5DAD4 Offset: 0xC5DAD4 VA: 0xC5DAD4
 	private string missFuncList; // 0x80
 
 	// Methods
 
-	// RVA: 0x1F6E4A8 Offset: 0x1F6E4A8 VA: 0x1F6E4A8
+	// RVA: 0x1A69714 Offset: 0x1A69714 VA: 0x1A69714
 	public void .ctor() { }
 
-	// RVA: 0x1F6E4AC Offset: 0x1F6E4AC VA: 0x1F6E4AC Slot: 4
+	// RVA: 0x1A69718 Offset: 0x1A69718 VA: 0x1A69718 Slot: 4
 	public override void FireEvent() { }
 
-	// RVA: 0x1F6E4E8 Offset: 0x1F6E4E8 VA: 0x1F6E4E8
+	// RVA: 0x1A69754 Offset: 0x1A69754 VA: 0x1A69754
 	private bool CheckMissFunction() { }
 }
 
 // Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95DC0 Offset: 0xC95DC0 VA: 0xC95DC0
-[USequencerEventAttribute] // RVA: 0xC95DC0 Offset: 0xC95DC0 VA: 0xC95DC0
-[USequencerEventHideDurationAttribute] // RVA: 0xC95DC0 Offset: 0xC95DC0 VA: 0xC95DC0
-public class USFGOPlayBgmEvent : USEventBase // TypeDefIndex: 8171
+[USequencerFriendlyNameAttribute] // RVA: 0xC29C98 Offset: 0xC29C98 VA: 0xC29C98
+[USequencerEventAttribute] // RVA: 0xC29C98 Offset: 0xC29C98 VA: 0xC29C98
+[USequencerEventHideDurationAttribute] // RVA: 0xC29C98 Offset: 0xC29C98 VA: 0xC29C98
+public class USFGOPlayBgmEvent : USEventBase // TypeDefIndex: 8190
 {
 	// Fields
 	public float volume; // 0x30
@@ -149,852 +965,36 @@ public class USFGOPlayBgmEvent : USEventBase // TypeDefIndex: 8171
 
 	// Methods
 
-	// RVA: 0x1F6E860 Offset: 0x1F6E860 VA: 0x1F6E860
+	// RVA: 0x1A69ACC Offset: 0x1A69ACC VA: 0x1A69ACC
 	public void .ctor() { }
 
-	// RVA: 0x1F6E870 Offset: 0x1F6E870 VA: 0x1F6E870 Slot: 4
+	// RVA: 0x1A69ADC Offset: 0x1A69ADC VA: 0x1A69ADC Slot: 4
 	public override void FireEvent() { }
 
-	// RVA: 0x1F6E9A4 Offset: 0x1F6E9A4 VA: 0x1F6E9A4 Slot: 5
+	// RVA: 0x1A69C10 Offset: 0x1A69C10 VA: 0x1A69C10 Slot: 5
 	public override void ProcessEvent(float deltaTime) { }
 
-	// RVA: 0x1F6E9A8 Offset: 0x1F6E9A8 VA: 0x1F6E9A8 Slot: 7
+	// RVA: 0x1A69C14 Offset: 0x1A69C14 VA: 0x1A69C14 Slot: 7
 	public override void ResumeEvent() { }
 
-	// RVA: 0x1F6E9AC Offset: 0x1F6E9AC VA: 0x1F6E9AC Slot: 6
+	// RVA: 0x1A69C18 Offset: 0x1A69C18 VA: 0x1A69C18 Slot: 6
 	public override void PauseEvent() { }
 
-	// RVA: 0x1F6E9B0 Offset: 0x1F6E9B0 VA: 0x1F6E9B0 Slot: 8
+	// RVA: 0x1A69C1C Offset: 0x1A69C1C VA: 0x1A69C1C Slot: 8
 	public override void StopEvent() { }
 
-	// RVA: 0x1F6E9BC Offset: 0x1F6E9BC VA: 0x1F6E9BC Slot: 9
+	// RVA: 0x1A69C28 Offset: 0x1A69C28 VA: 0x1A69C28 Slot: 9
 	public override void EndEvent() { }
 
-	// RVA: 0x1F6E9C8 Offset: 0x1F6E9C8 VA: 0x1F6E9C8 Slot: 10
+	// RVA: 0x1A69C34 Offset: 0x1A69C34 VA: 0x1A69C34 Slot: 10
 	public override void UndoEvent() { }
 }
 
 // Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95E30 Offset: 0xC95E30 VA: 0xC95E30
-[USequencerEventAttribute] // RVA: 0xC95E30 Offset: 0xC95E30 VA: 0xC95E30
-[USequencerEventHideDurationAttribute] // RVA: 0xC95E30 Offset: 0xC95E30 VA: 0xC95E30
-public class USFGOPlayBgmEventConditional : USFGOPlayBgmEvent // TypeDefIndex: 8172
+[USequencerFriendlyNameAttribute] // RVA: 0xC29D08 Offset: 0xC29D08 VA: 0xC29D08
+[USequencerEventAttribute] // RVA: 0xC29D08 Offset: 0xC29D08 VA: 0xC29D08
+[USequencerEventHideDurationAttribute] // RVA: 0xC29D08 Offset: 0xC29D08 VA: 0xC29D08
+public class USFGOPlayBgmEventConditional : USFGOPlayBgmEvent // TypeDefIndex: 8191
 {
 	// Fields
 	public USFGOPlayBgmEventConditional.MultiCondBGM[] anyMultiConditions; // 0x40
-
-	// Methods
-
-	// RVA: 0x1F6E9CC Offset: 0x1F6E9CC VA: 0x1F6E9CC
-	public void .ctor() { }
-
-	// RVA: 0x1F6EA34 Offset: 0x1F6EA34 VA: 0x1F6EA34 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1F6EA74 Offset: 0x1F6EA74 VA: 0x1F6EA74 Slot: 16
-	protected virtual bool IsEnableConditions() { }
-
-	// RVA: 0x1F6EB88 Offset: 0x1F6EB88 VA: 0x1F6EB88 Slot: 17
-	protected virtual bool IsEnableCondition(USFGOPlayBgmEventConditional.CondBGM cond) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3872C Offset: 0xD3872C VA: 0xD3872C
-	// RVA: 0x1F6EC38 Offset: 0x1F6EC38 VA: 0x1F6EC38
-	private bool <IsEnableConditions>m__0(USFGOPlayBgmEventConditional.CondBGM x) { }
-}
-
-// Namespace: 
-[Serializable]
-public class USFGOPlayBgmEventConditional.CondBGM // TypeDefIndex: 8173
-{
-	// Fields
-	public CondType.Kind condType; // 0x10
-	public int targetId; // 0x14
-	public long condValue; // 0x18
-
-	// Methods
-
-	// RVA: 0x1F6EC60 Offset: 0x1F6EC60 VA: 0x1F6EC60
-	public void .ctor() { }
-}
-
-// Namespace: 
-[Serializable]
-public class USFGOPlayBgmEventConditional.MultiCondBGM // TypeDefIndex: 8174
-{
-	// Fields
-	public USFGOPlayBgmEventConditional.CondBGM[] conditions; // 0x10
-
-	// Methods
-
-	// RVA: 0x1F6EC68 Offset: 0x1F6EC68 VA: 0x1F6EC68
-	public void .ctor() { }
-}
-
-// Namespace: WellFired
-public abstract class USFGOPlayCutInBase : USEventBase // TypeDefIndex: 8175
-{
-	// Fields
-	public int svtId; // 0x30
-	public int limitCount; // 0x34
-	public Face.Type faceType; // 0x38
-	public CutInType cutInType; // 0x3C
-	public bool parentCamera; // 0x40
-	public bool isFadeDuringCutIn; // 0x41
-	private GameObject myCutIn; // 0x48
-	private bool useAssetBundle; // 0x50
-	private Animation[] animations; // 0x58
-	private SimpleAnimation[] simpleAnimations; // 0x60
-	private ParticleSystem[] particles; // 0x68
-	private UVScroll[] uvScrolls; // 0x70
-	private changeVColor[] changeVColors; // 0x78
-	private bool originalActive; // 0x80
-	private bool AnimStarted; // 0x81
-	protected UIStandFigureM myStandFigure; // 0x88
-
-	// Methods
-
-	// RVA: 0x1F6ECC8 Offset: 0x1F6ECC8 VA: 0x1F6ECC8
-	protected void .ctor() { }
-
-	// RVA: 0x1F6ECD8 Offset: 0x1F6ECD8 VA: 0x1F6ECD8
-	public void Update() { }
-
-	// RVA: 0x1F6F2A4 Offset: 0x1F6F2A4 VA: 0x1F6F2A4 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1F6FF40 Offset: 0x1F6FF40 VA: 0x1F6FF40 Slot: 16
-	protected virtual UIStandFigureM GetTargetSvtStandFigure(int svtId, int limitImgCnt, Face.Type faceType) { }
-
-	// RVA: 0x1F6FFC0 Offset: 0x1F6FFC0 VA: 0x1F6FFC0 Slot: 17
-	protected virtual void SetFigure(int svtId, int limCnt, GameObject cutIn, GameObject parentObj, UIStandFigureM figure, Face.Type fType) { }
-
-	// RVA: 0x1F7031C Offset: 0x1F7031C VA: 0x1F7031C
-	protected void onAssetLoad() { }
-
-	// RVA: 0x1F70768 Offset: 0x1F70768 VA: 0x1F70768 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1F70E50 Offset: 0x1F70E50 VA: 0x1F70E50 Slot: 9
-	public override void EndEvent() { }
-
-	// RVA: 0x1F70E54 Offset: 0x1F70E54 VA: 0x1F70E54 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1F70FFC Offset: 0x1F70FFC VA: 0x1F70FFC Slot: 10
-	public override void UndoEvent() { }
-
-	// RVA: 0x1F71140 Offset: 0x1F71140 VA: 0x1F71140
-	protected void DisposeMyStandFigure() { }
-
-	// RVA: 0x1F711D4 Offset: 0x1F711D4 VA: 0x1F711D4
-	protected void DestroyMyCutIn() { }
-
-	// RVA: 0x1F7127C Offset: 0x1F7127C VA: 0x1F7127C
-	protected void ReleaseAsset(int svtId, int limitCount) { }
-
-	// RVA: 0x1F71394 Offset: 0x1F71394 VA: 0x1F71394 Slot: 18
-	protected virtual void OnDestroy() { }
-
-	// RVA: 0x1F713C4 Offset: 0x1F713C4 VA: 0x1F713C4 Slot: 19
-	public virtual void InitPreLoadStandFigureData(BattleSequenceManager battleSeqManager, GameObject seqObj) { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95EA0 Offset: 0xC95EA0 VA: 0xC95EA0
-[USequencerEventAttribute] // RVA: 0xC95EA0 Offset: 0xC95EA0 VA: 0xC95EA0
-public class USFGOPlayCutInEvent : USEventBase // TypeDefIndex: 8176
-{
-	// Fields
-	public GameObject cutInObject; // 0x30
-	public string cutInName; // 0x38
-	public float playbackSpeed; // 0x40
-	private Animation[] animations; // 0x48
-	private SimpleAnimation[] simpleAnimations; // 0x50
-	private ParticleSystem[] particles; // 0x58
-	private UVScroll[] uvScrolls; // 0x60
-	private changeVColor[] changeVColors; // 0x68
-	private bool originalActive; // 0x70
-
-	// Methods
-
-	// RVA: 0x1F713C8 Offset: 0x1F713C8 VA: 0x1F713C8
-	public void .ctor() { }
-
-	// RVA: 0x1F713D8 Offset: 0x1F713D8 VA: 0x1F713D8
-	public void Update() { }
-
-	// RVA: 0x1F7174C Offset: 0x1F7174C VA: 0x1F7174C Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1F71B44 Offset: 0x1F71B44 VA: 0x1F71B44 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1F721A8 Offset: 0x1F721A8 VA: 0x1F721A8 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1F72350 Offset: 0x1F72350 VA: 0x1F72350 Slot: 10
-	public override void UndoEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95F00 Offset: 0xC95F00 VA: 0xC95F00
-[USequencerEventAttribute] // RVA: 0xC95F00 Offset: 0xC95F00 VA: 0xC95F00
-[USequencerEventHideDurationAttribute] // RVA: 0xC95F00 Offset: 0xC95F00 VA: 0xC95F00
-public class USFGOPlayEffectEvent : USEventBase // TypeDefIndex: 8177
-{
-	// Fields
-	private Animation[] animations; // 0x30
-	private SimpleAnimation[] simpleAnimations; // 0x38
-	private bool originalActive; // 0x40
-
-	// Methods
-
-	// RVA: 0x1F72484 Offset: 0x1F72484 VA: 0x1F72484
-	public void .ctor() { }
-
-	// RVA: 0x1F7248C Offset: 0x1F7248C VA: 0x1F7248C
-	public void Update() { }
-
-	// RVA: 0x1F7252C Offset: 0x1F7252C VA: 0x1F7252C
-	private float getMostLongDuration() { }
-
-	// RVA: 0x1F72828 Offset: 0x1F72828 VA: 0x1F72828
-	protected string GetEffectAudio(string name) { }
-
-	// RVA: 0x1F728A0 Offset: 0x1F728A0 VA: 0x1F728A0 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1F73168 Offset: 0x1F73168 VA: 0x1F73168 Slot: 5
-	public override void ProcessEvent(float runningTime) { }
-
-	// RVA: 0x1F73688 Offset: 0x1F73688 VA: 0x1F73688 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1F73830 Offset: 0x1F73830 VA: 0x1F73830 Slot: 10
-	public override void UndoEvent() { }
-
-	// RVA: 0x1F738EC Offset: 0x1F738EC VA: 0x1F738EC Slot: 9
-	public override void EndEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95F70 Offset: 0xC95F70 VA: 0xC95F70
-[USequencerEventAttribute] // RVA: 0xC95F70 Offset: 0xC95F70 VA: 0xC95F70
-[USequencerEventHideDurationAttribute] // RVA: 0xC95F70 Offset: 0xC95F70 VA: 0xC95F70
-public class USFGOPlayStandardCutInEvent : USEventBase // TypeDefIndex: 8178
-{
-	// Fields
-	public int svtId; // 0x30
-	public int limitCount; // 0x34
-	public Face.Type faceType; // 0x38
-	public CutInType cutInType; // 0x3C
-	public bool parentCamera; // 0x40
-	private GameObject myCutIn; // 0x48
-	private bool useAssetBundle; // 0x50
-	private Animation[] animations; // 0x58
-	private SimpleAnimation[] simpleAnimations; // 0x60
-	private ParticleSystem[] particles; // 0x68
-	private UVScroll[] uvScrolls; // 0x70
-	private changeVColor[] changeVColors; // 0x78
-	private bool originalActive; // 0x80
-	private bool AnimStarted; // 0x81
-	private UIStandFigureM myStandFigure; // 0x88
-
-	// Methods
-
-	// RVA: 0x1F738F0 Offset: 0x1F738F0 VA: 0x1F738F0
-	public void .ctor() { }
-
-	// RVA: 0x1F73900 Offset: 0x1F73900 VA: 0x1F73900
-	public void Update() { }
-
-	// RVA: 0x1F73ECC Offset: 0x1F73ECC VA: 0x1F73ECC Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1F74DD0 Offset: 0x1F74DD0 VA: 0x1F74DD0
-	private void onAssetLoad() { }
-
-	// RVA: 0x1F7521C Offset: 0x1F7521C VA: 0x1F7521C Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1F758F0 Offset: 0x1F758F0 VA: 0x1F758F0 Slot: 9
-	public override void EndEvent() { }
-
-	// RVA: 0x1F758F4 Offset: 0x1F758F4 VA: 0x1F758F4 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1F75A9C Offset: 0x1F75A9C VA: 0x1F75A9C Slot: 10
-	public override void UndoEvent() { }
-
-	// RVA: 0x1F75BE0 Offset: 0x1F75BE0 VA: 0x1F75BE0
-	protected void OnDestroy() { }
-
-	// RVA: 0x1F74DA8 Offset: 0x1F74DA8 VA: 0x1F74DA8
-	private bool HasFGOStandFigureMColorCutIn() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC95FE0 Offset: 0xC95FE0 VA: 0xC95FE0
-[USequencerEventAttribute] // RVA: 0xC95FE0 Offset: 0xC95FE0 VA: 0xC95FE0
-[USequencerEventHideDurationAttribute] // RVA: 0xC95FE0 Offset: 0xC95FE0 VA: 0xC95FE0
-public class USFGOPlayStandardCutInLimitCount : USFGOPlayCutInBase // TypeDefIndex: 8179
-{
-	// Fields
-	public USFGOPlayStandardCutInLimitCount.OverwriteCutIn[] overwriteArray; // 0x90
-	private USFGOPlayStandardCutInLimitCount.OverwriteStandFigure fixFigure; // 0x98
-	private GameObject defStandardCutIn; // 0xA0
-
-	// Methods
-
-	// RVA: 0x1DC956C Offset: 0x1DC956C VA: 0x1DC956C
-	public void .ctor() { }
-
-	// RVA: 0x1DC95CC Offset: 0x1DC95CC VA: 0x1DC95CC Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1DC963C Offset: 0x1DC963C VA: 0x1DC963C
-	private USFGOPlayStandardCutInLimitCount.OverwriteStandFigure GetOverwriteStandFigure(int limitCount) { }
-
-	// RVA: 0x1DC981C Offset: 0x1DC981C VA: 0x1DC981C
-	public USFGOPlayStandardCutInLimitCount.OverwriteStandFigure GetStandFigureData(int svtId, int limCnt, Face.Type fType) { }
-
-	// RVA: 0x1DC9A90 Offset: 0x1DC9A90 VA: 0x1DC9A90 Slot: 17
-	protected override void SetFigure(int svtId, int limCnt, GameObject cutIn, GameObject parentObj, UIStandFigureM figure, Face.Type fType) { }
-
-	// RVA: 0x1DC9B78 Offset: 0x1DC9B78 VA: 0x1DC9B78 Slot: 18
-	protected override void OnDestroy() { }
-
-	// RVA: 0x1DC9C60 Offset: 0x1DC9C60 VA: 0x1DC9C60 Slot: 16
-	protected override UIStandFigureM GetTargetSvtStandFigure(int svtId, int limitImgCnt, Face.Type faceType) { }
-
-	// RVA: 0x1DC9D58 Offset: 0x1DC9D58 VA: 0x1DC9D58 Slot: 19
-	public override void InitPreLoadStandFigureData(BattleSequenceManager battleSeqManager, GameObject seqObj) { }
-}
-
-// Namespace: 
-[Serializable]
-public class USFGOPlayStandardCutInLimitCount.OverwriteCutIn // TypeDefIndex: 8180
-{
-	// Fields
-	public int limitCount; // 0x10
-	public USFGOPlayStandardCutInLimitCount.OverwriteStandFigure[] figureArray; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xCCA9A8 Offset: 0xCCA9A8 VA: 0xCCA9A8
-	private static Func<USFGOPlayStandardCutInLimitCount.OverwriteStandFigure, int> <>f__am$cache0; // 0x0
-
-	// Methods
-
-	// RVA: 0x1DC9E70 Offset: 0x1DC9E70 VA: 0x1DC9E70
-	public void .ctor() { }
-
-	// RVA: 0x1DC9720 Offset: 0x1DC9720 VA: 0x1DC9720
-	public USFGOPlayStandardCutInLimitCount.OverwriteStandFigure GetRandomStandFigure() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3873C Offset: 0xD3873C VA: 0xD3873C
-	// RVA: 0x1DC9ED0 Offset: 0x1DC9ED0 VA: 0x1DC9ED0
-	private static int <GetRandomStandFigure>m__0(USFGOPlayStandardCutInLimitCount.OverwriteStandFigure x) { }
-}
-
-// Namespace: 
-[Serializable]
-public class USFGOPlayStandardCutInLimitCount.OverwriteStandFigure // TypeDefIndex: 8181
-{
-	// Fields
-	public static readonly int NOT_OVERWRITE_VAL; // 0x0
-	public int weight; // 0x10
-	public int svtId; // 0x14
-	public int imageLimitCount; // 0x18
-	public Face.Type faceType; // 0x1C
-
-	// Methods
-
-	// RVA: 0x1DC9908 Offset: 0x1DC9908 VA: 0x1DC9908
-	public void .ctor() { }
-
-	// RVA: 0x1DC9998 Offset: 0x1DC9998 VA: 0x1DC9998
-	public void Overwrite(USFGOPlayStandardCutInLimitCount.OverwriteStandFigure from) { }
-
-	// RVA: -1 Offset: -1
-	private void OverwriteValue<T>(ref T targetVal, T fromVal, T notOverwriteVal) { }
-	/* GenericInstMethod :
-	|
-	|-RVA: 0x218BD98 Offset: 0x218BD98 VA: 0x218BD98
-	|-USFGOPlayStandardCutInLimitCount.OverwriteStandFigure.OverwriteValue<Face.Type>
-	|
-	|-RVA: 0x218BE64 Offset: 0x218BE64 VA: 0x218BE64
-	|-USFGOPlayStandardCutInLimitCount.OverwriteStandFigure.OverwriteValue<int>
-	|
-	|-RVA: 0x218BECC Offset: 0x218BECC VA: 0x218BECC
-	|-USFGOPlayStandardCutInLimitCount.OverwriteStandFigure.OverwriteValue<object>
-	*/
-
-	// RVA: 0x1DC9EF8 Offset: 0x1DC9EF8 VA: 0x1DC9EF8
-	private static void .cctor() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF220 Offset: 0xCAF220 VA: 0xCAF220
-private sealed class USFGOPlayStandardCutInLimitCount.<GetOverwriteStandFigure>c__AnonStorey0 // TypeDefIndex: 8182
-{
-	// Fields
-	internal int limitCount; // 0x10
-
-	// Methods
-
-	// RVA: 0x1DC9718 Offset: 0x1DC9718 VA: 0x1DC9718
-	public void .ctor() { }
-
-	// RVA: 0x1DC9E34 Offset: 0x1DC9E34 VA: 0x1DC9E34
-	internal bool <>m__0(USFGOPlayStandardCutInLimitCount.OverwriteCutIn x) { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC96050 Offset: 0xC96050 VA: 0xC96050
-[USequencerEventAttribute] // RVA: 0xC96050 Offset: 0xC96050 VA: 0xC96050
-[USequencerEventHideDurationAttribute] // RVA: 0xC96050 Offset: 0xC96050 VA: 0xC96050
-public class USFGOPlayStandardCutInRandom : USFGOPlayCutInBase // TypeDefIndex: 8183
-{
-	// Fields
-	public List<USFGOPlayStandardCutInRandom.CutInData> cutInDataList; // 0x90
-	[TooltipAttribute] // RVA: 0xCCA9B8 Offset: 0xCCA9B8 VA: 0xCCA9B8
-	public bool isSyncVoice; // 0x98
-	[TooltipAttribute] // RVA: 0xCCA9F0 Offset: 0xCCA9F0 VA: 0xCCA9F0
-	public string syncPlayGroup; // 0xA0
-	private Face.Type fixFaceType; // 0xA8
-	private int fixSvtId; // 0xAC
-	private int fixLimitCount; // 0xB0
-	private bool isFirstSetUp; // 0xB4
-
-	// Methods
-
-	// RVA: 0x1DC9F4C Offset: 0x1DC9F4C VA: 0x1DC9F4C
-	public void .ctor() { }
-
-	// RVA: 0x1DC9FC4 Offset: 0x1DC9FC4 VA: 0x1DC9FC4
-	protected void SetUpCutIn() { }
-
-	// RVA: 0x1DCA40C Offset: 0x1DCA40C VA: 0x1DCA40C Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1DCA440 Offset: 0x1DCA440 VA: 0x1DCA440 Slot: 17
-	protected override void SetFigure(int svtId, int limCnt, GameObject cutIn, GameObject parentObj, UIStandFigureM figure, Face.Type fType) { }
-
-	// RVA: 0x1DCA4A8 Offset: 0x1DCA4A8 VA: 0x1DCA4A8 Slot: 18
-	protected override void OnDestroy() { }
-
-	// RVA: 0x1DCA4E4 Offset: 0x1DCA4E4 VA: 0x1DCA4E4 Slot: 16
-	protected override UIStandFigureM GetTargetSvtStandFigure(int svtId, int limitImgCnt, Face.Type faceType) { }
-
-	// RVA: 0x1DCA578 Offset: 0x1DCA578 VA: 0x1DCA578 Slot: 19
-	public override void InitPreLoadStandFigureData(BattleSequenceManager battleSeqManager, GameObject seqObj) { }
-}
-
-// Namespace: 
-[Serializable]
-public struct USFGOPlayStandardCutInRandom.CutInData // TypeDefIndex: 8184
-{
-	// Fields
-	public Face.Type type; // 0x0
-	public int weight; // 0x4
-	public int svtId; // 0x8
-	public int limitCount; // 0xC
-	public bool isSingleOperationLimitCount; // 0x10
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC960C0 Offset: 0xC960C0 VA: 0xC960C0
-[USequencerEventAttribute] // RVA: 0xC960C0 Offset: 0xC960C0 VA: 0xC960C0
-public class USFGOPlayTargetAnimationEvent : USEventBase // TypeDefIndex: 8185
-{
-	// Fields
-	public string animationName; // 0x30
-	public WrapMode wrapMode; // 0x38
-	public USFGOCreateEffectEvent.EffectTarget target; // 0x3C
-	protected List<GameObject> Targets; // 0x40
-	public float playbackSpeed; // 0x48
-	public string startEvent; // 0x50
-	public string stopEvent; // 0x58
-	public float startTime; // 0x60
-	public float stopTime; // 0x64
-
-	// Methods
-
-	// RVA: 0x1DCA690 Offset: 0x1DCA690 VA: 0x1DCA690
-	public void .ctor() { }
-
-	// RVA: 0x1DCA72C Offset: 0x1DCA72C VA: 0x1DCA72C Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1DCAD08 Offset: 0x1DCAD08 VA: 0x1DCAD08 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1DCB5A0 Offset: 0x1DCB5A0 VA: 0x1DCB5A0 Slot: 8
-	public override void StopEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC96120 Offset: 0xC96120 VA: 0xC96120
-[USequencerEventAttribute] // RVA: 0xC96120 Offset: 0xC96120 VA: 0xC96120
-public class USFGOReplaceTimeScale : USEventBase // TypeDefIndex: 8186
-{
-	// Fields
-	[TooltipAttribute] // RVA: 0xCCAA28 Offset: 0xCCAA28 VA: 0xCCAA28
-	[HeaderAttribute] // RVA: 0xCCAA28 Offset: 0xCCAA28 VA: 0xCCAA28
-	public float targetTimeScale; // 0x30
-	private float saveTimeScale; // 0x34
-	private bool isChanging; // 0x38
-
-	// Methods
-
-	// RVA: 0x1DCB5A4 Offset: 0x1DCB5A4 VA: 0x1DCB5A4
-	public void .ctor() { }
-
-	// RVA: 0x1DCB5B8 Offset: 0x1DCB5B8 VA: 0x1DCB5B8 Slot: 5
-	public override void ProcessEvent(float runningTime) { }
-
-	// RVA: 0x1DCB5BC Offset: 0x1DCB5BC VA: 0x1DCB5BC Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1DCB5FC Offset: 0x1DCB5FC VA: 0x1DCB5FC
-	private void OnDestroy() { }
-
-	// RVA: 0x1DCB608 Offset: 0x1DCB608 VA: 0x1DCB608 Slot: 9
-	public override void EndEvent() { }
-
-	// RVA: 0x1DCB63C Offset: 0x1DCB63C VA: 0x1DCB63C Slot: 10
-	public override void UndoEvent() { }
-
-	// RVA: 0x1DCB648 Offset: 0x1DCB648 VA: 0x1DCB648 Slot: 8
-	public override void StopEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC96180 Offset: 0xC96180 VA: 0xC96180
-[USequencerEventAttribute] // RVA: 0xC96180 Offset: 0xC96180 VA: 0xC96180
-[USequencerEventHideDurationAttribute] // RVA: 0xC96180 Offset: 0xC96180 VA: 0xC96180
-public class USFGOReserveFlipEvent : USEventBase // TypeDefIndex: 8187
-{
-	// Fields
-	public string NodeName; // 0x30
-	public Vector2 PlayerTiling; // 0x38
-	public Vector2 PlayerOffset; // 0x40
-	public Vector2 EnemyTiling; // 0x48
-	public Vector2 EnemyOffset; // 0x50
-	private Vector2 OrigTiling; // 0x58
-	private Vector2 OrigOffset; // 0x60
-
-	// Methods
-
-	// RVA: 0x1DCB654 Offset: 0x1DCB654 VA: 0x1DCB654
-	public void .ctor() { }
-
-	// RVA: 0x1DCB65C Offset: 0x1DCB65C VA: 0x1DCB65C
-	protected bool IsEnemy() { }
-
-	// RVA: 0x1DCB720 Offset: 0x1DCB720 VA: 0x1DCB720 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1DCB970 Offset: 0x1DCB970 VA: 0x1DCB970 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1DCB974 Offset: 0x1DCB974 VA: 0x1DCB974 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1DCB980 Offset: 0x1DCB980 VA: 0x1DCB980 Slot: 10
-	public override void UndoEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC961F0 Offset: 0xC961F0 VA: 0xC961F0
-[USequencerEventAttribute] // RVA: 0xC961F0 Offset: 0xC961F0 VA: 0xC961F0
-public class USFGOResetCharacterPositionEvent : USEventBase // TypeDefIndex: 8188
-{
-	// Fields
-	private const string posPlayerPrefix = "Player";
-	private const string posEnemyPrefix = "Enemy";
-	public USFGOResetCharacterPositionEvent.CharacterPosition positionInfo; // 0x30
-
-	// Methods
-
-	// RVA: 0x1DCBB34 Offset: 0x1DCBB34 VA: 0x1DCBB34
-	public void .ctor() { }
-
-	// RVA: 0x1DCBB3C Offset: 0x1DCBB3C VA: 0x1DCBB3C Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1DCC6A8 Offset: 0x1DCC6A8 VA: 0x1DCC6A8 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1DCC6AC Offset: 0x1DCC6AC VA: 0x1DCC6AC Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1DCC6B8 Offset: 0x1DCC6B8 VA: 0x1DCC6B8 Slot: 10
-	public override void UndoEvent() { }
-}
-
-// Namespace: 
-public enum USFGOResetCharacterPositionEvent.CharacterPosition // TypeDefIndex: 8189
-{
-	// Fields
-	public int value__; // 0x0
-	public const USFGOResetCharacterPositionEvent.CharacterPosition ResetAll = 0;
-	public const USFGOResetCharacterPositionEvent.CharacterPosition ResetPlayers = 1;
-	public const USFGOResetCharacterPositionEvent.CharacterPosition ResetEnemies = 2;
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC96250 Offset: 0xC96250 VA: 0xC96250
-[USequencerEventAttribute] // RVA: 0xC96250 Offset: 0xC96250 VA: 0xC96250
-[USequencerEventHideDurationAttribute] // RVA: 0xC96250 Offset: 0xC96250 VA: 0xC96250
-public class USFGOSaturationEffect : USEventBase // TypeDefIndex: 8190
-{
-	// Fields
-	[SerializeField] // RVA: 0xCCAA88 Offset: 0xCCAA88 VA: 0xCCAA88
-	private AnimationCurve saturationCurve; // 0x30
-	[SerializeField] // RVA: 0xCCAA98 Offset: 0xCCAA98 VA: 0xCCAA98
-	private float maxValue; // 0x38
-	private float currentCurveSampleTime; // 0x3C
-
-	// Methods
-
-	// RVA: 0x1DCC7D4 Offset: 0x1DCC7D4 VA: 0x1DCC7D4
-	public void .ctor() { }
-
-	// RVA: 0x1DCC910 Offset: 0x1DCC910 VA: 0x1DCC910 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1DCC914 Offset: 0x1DCC914 VA: 0x1DCC914
-	protected void SetSaturation(float saturation) { }
-
-	// RVA: 0x1DCCAE8 Offset: 0x1DCCAE8 VA: 0x1DCCAE8 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1DCCB98 Offset: 0x1DCCB98 VA: 0x1DCCB98 Slot: 9
-	public override void EndEvent() { }
-
-	// RVA: 0x1DCCCCC Offset: 0x1DCCCCC VA: 0x1DCCCCC Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1DCCCD8 Offset: 0x1DCCCD8 VA: 0x1DCCCD8 Slot: 10
-	public override void UndoEvent() { }
-
-	// RVA: 0x1DCCCE0 Offset: 0x1DCCCE0 VA: 0x1DCCCE0
-	private void Update() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC962C0 Offset: 0xC962C0 VA: 0xC962C0
-[USequencerEventAttribute] // RVA: 0xC962C0 Offset: 0xC962C0 VA: 0xC962C0
-public class USFGOSetCameraEvent : USEventBase // TypeDefIndex: 8191
-{
-	// Fields
-	public Camera camera; // 0x30
-	public Transform cameraRoot; // 0x38
-	public CameraPosition camPosition; // 0x40
-	private Transform originalParent; // 0x48
-	private Vector3 previousPosition; // 0x50
-	private Vector3 previousScale; // 0x5C
-	private Quaternion previousRotation; // 0x68
-	private Transform CameraTarget; // 0x78
-
-	// Methods
-
-	// RVA: 0x1DCCDE0 Offset: 0x1DCCDE0 VA: 0x1DCCDE0
-	public void .ctor() { }
-
-	// RVA: 0x1DCCDE8 Offset: 0x1DCCDE8 VA: 0x1DCCDE8
-	public void Update() { }
-
-	// RVA: 0x1DCCDF4 Offset: 0x1DCCDF4 VA: 0x1DCCDF4 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1DCD170 Offset: 0x1DCD170 VA: 0x1DCD170 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1DCD370 Offset: 0x1DCD370 VA: 0x1DCD370 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1DCD37C Offset: 0x1DCD37C VA: 0x1DCD37C Slot: 10
-	public override void UndoEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC96320 Offset: 0xC96320 VA: 0xC96320
-[USequencerEventAttribute] // RVA: 0xC96320 Offset: 0xC96320 VA: 0xC96320
-public class USFGOSetCharacterPositionEvent : USEventBase // TypeDefIndex: 8192
-{
-	// Fields
-	public Vector3 positionA; // 0x30
-	public Vector3 positionB; // 0x3C
-	public Vector3 positionC; // 0x48
-	public Vector3 positionD; // 0x54
-	public Vector3 positionE; // 0x60
-	public bool useSpacePosition; // 0x6C
-	private List<Vector3> oldPositions; // 0x70
-	private List<bool> oldActives; // 0x78
-
-	// Methods
-
-	// RVA: 0x1DCD534 Offset: 0x1DCD534 VA: 0x1DCD534
-	public void .ctor() { }
-
-	// RVA: 0x1DCD5CC Offset: 0x1DCD5CC VA: 0x1DCD5CC Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1DCDA48 Offset: 0x1DCDA48 VA: 0x1DCDA48
-	private GameObject[] GetTargetsActor() { }
-
-	// RVA: 0x1DCD5D0 Offset: 0x1DCD5D0 VA: 0x1DCD5D0
-	private void SetPosition() { }
-
-	// RVA: 0x1DCDB0C Offset: 0x1DCDB0C VA: 0x1DCDB0C
-	private void ResetPosition() { }
-
-	// RVA: 0x1DCDECC Offset: 0x1DCDECC VA: 0x1DCDECC Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1DCDED0 Offset: 0x1DCDED0 VA: 0x1DCDED0 Slot: 9
-	public override void EndEvent() { }
-
-	// RVA: 0x1DCDED4 Offset: 0x1DCDED4 VA: 0x1DCDED4 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1DCDEE0 Offset: 0x1DCDEE0 VA: 0x1DCDEE0 Slot: 10
-	public override void UndoEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC96380 Offset: 0xC96380 VA: 0xC96380
-[USequencerEventAttribute] // RVA: 0xC96380 Offset: 0xC96380 VA: 0xC96380
-[USequencerEventHideDurationAttribute] // RVA: 0xC96380 Offset: 0xC96380 VA: 0xC96380
-public class USFGOSetModelEvolutionEvent : USEventBase // TypeDefIndex: 8193
-{
-	// Fields
-	public static readonly string levelMarker; // 0x0
-	private static readonly string prefabMarker; // 0x8
-	private static readonly string chrnodeMarker; // 0x10
-	private static readonly string sideflipMarker; // 0x18
-	private static readonly string enItemMarker; // 0x20
-	private static readonly string enWeaponMarker; // 0x28
-	[TooltipAttribute] // RVA: 0xCCAAA8 Offset: 0xCCAAA8 VA: 0xCCAAA8
-	public int setEvolutionLevel; // 0x30
-	[CompilerGeneratedAttribute] // RVA: 0xCCAAE0 Offset: 0xCCAAE0 VA: 0xCCAAE0
-	private static Func<Transform, bool> <>f__am$cache0; // 0x30
-	[CompilerGeneratedAttribute] // RVA: 0xCCAAF0 Offset: 0xCCAAF0 VA: 0xCCAAF0
-	private static Func<Transform, bool> <>f__am$cache1; // 0x38
-
-	// Methods
-
-	// RVA: 0x1DCDEE4 Offset: 0x1DCDEE4 VA: 0x1DCDEE4
-	public void .ctor() { }
-
-	// RVA: 0x1DCDEF4 Offset: 0x1DCDEF4 VA: 0x1DCDEF4 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1DCF010 Offset: 0x1DCF010 VA: 0x1DCF010 Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1DCE114 Offset: 0x1DCE114 VA: 0x1DCE114
-	private void setupModel(BattleActorControl bac, GameObject go, int limitImageCount) { }
-
-	// RVA: 0x1DCF014 Offset: 0x1DCF014 VA: 0x1DCF014
-	private static void .cctor() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3874C Offset: 0xD3874C VA: 0xD3874C
-	// RVA: 0x1DCF0D8 Offset: 0x1DCF0D8 VA: 0x1DCF0D8
-	private static bool <setupModel>m__0(Transform p) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3875C Offset: 0xD3875C VA: 0xD3875C
-	// RVA: 0x1DCF22C Offset: 0x1DCF22C VA: 0x1DCF22C
-	private static bool <setupModel>m__1(Transform p) { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC963F0 Offset: 0xC963F0 VA: 0xC963F0
-[USequencerEventAttribute] // RVA: 0xC963F0 Offset: 0xC963F0 VA: 0xC963F0
-public class USFGOShakeCameraEvent : USFGOEventBase // TypeDefIndex: 8194
-{
-	// Fields
-	public float verticalShakeSize; // 0x38
-	public float horizontalShakeSize; // 0x3C
-	public bool isRelative; // 0x40
-	private Transform target; // 0x48
-	private Vector3 targetPosition; // 0x50
-	private int frameCount; // 0x5C
-
-	// Methods
-
-	// RVA: 0x1DCF2E8 Offset: 0x1DCF2E8 VA: 0x1DCF2E8
-	public void .ctor() { }
-
-	// RVA: 0x1DCF2F8 Offset: 0x1DCF2F8 VA: 0x1DCF2F8 Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1DCF3EC Offset: 0x1DCF3EC VA: 0x1DCF3EC Slot: 5
-	public override void ProcessEvent(float deltaTime) { }
-
-	// RVA: 0x1DCF638 Offset: 0x1DCF638 VA: 0x1DCF638 Slot: 9
-	public override void EndEvent() { }
-
-	// RVA: 0x1DCF644 Offset: 0x1DCF644 VA: 0x1DCF644 Slot: 8
-	public override void StopEvent() { }
-
-	// RVA: 0x1DCF650 Offset: 0x1DCF650 VA: 0x1DCF650 Slot: 10
-	public override void UndoEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC96450 Offset: 0xC96450 VA: 0xC96450
-[USequencerEventAttribute] // RVA: 0xC96450 Offset: 0xC96450 VA: 0xC96450
-[USequencerEventHideDurationAttribute] // RVA: 0xC96450 Offset: 0xC96450 VA: 0xC96450
-public class USFGOSwitchNodesWhenMiss : USFGOEventBase // TypeDefIndex: 8195
-{
-	// Fields
-	public string functionlist; // 0x38
-	public bool switchingFlg; // 0x40
-	public bool noBuffFlg; // 0x41
-
-	// Methods
-
-	// RVA: 0x1DCF768 Offset: 0x1DCF768 VA: 0x1DCF768
-	public void .ctor() { }
-
-	// RVA: 0x1DCF770 Offset: 0x1DCF770 VA: 0x1DCF770 Slot: 4
-	public override void FireEvent() { }
-}
-
-// Namespace: WellFired
-[USequencerFriendlyNameAttribute] // RVA: 0xC964C0 Offset: 0xC964C0 VA: 0xC964C0
-[USequencerEventAttribute] // RVA: 0xC964C0 Offset: 0xC964C0 VA: 0xC964C0
-public class USFGOTargetEffectSwitchEvent : USEventBase // TypeDefIndex: 8196
-{
-	// Fields
-	[SerializeField] // RVA: 0xCCAB00 Offset: 0xCCAB00 VA: 0xCCAB00
-	private USFGOTargetEffectSwitchEvent.EffectSwitch effectSwitch; // 0x30
-	[SerializeField] // RVA: 0xCCAB10 Offset: 0xCCAB10 VA: 0xCCAB10
-	private USFGOTargetEffectSwitchEvent.SwitchType switchType; // 0x34
-
-	// Methods
-
-	// RVA: 0x1DCFC14 Offset: 0x1DCFC14 VA: 0x1DCFC14
-	public void .ctor() { }
-
-	// RVA: 0x1DCFC1C Offset: 0x1DCFC1C VA: 0x1DCFC1C Slot: 4
-	public override void FireEvent() { }
-
-	// RVA: 0x1DD0084 Offset: 0x1DD0084 VA: 0x1DD0084
-	private void ParticleSetActive(List<ParticleSystem> particleList, bool active) { }
-
-	// RVA: 0x1DD0214 Offset: 0x1DD0214 VA: 0x1DD0214
-	private void ParticleSwitch(List<ParticleSystem> particleList, bool particlePlay) { }
-
-	// RVA: 0x1DD0428 Offset: 0x1DD0428 VA: 0x1DD0428 Slot: 5
-	public override void ProcessEvent(float runningTime) { }
-}
-
-// Namespace: 
-public enum USFGOTargetEffectSwitchEvent.EffectSwitch // TypeDefIndex: 8197
-{
-	// Fields
-	public int value__; // 0x0
-	public const USFGOTargetEffectSwitchEvent.EffectSwitch Off = 0;
-	public const USFGOTargetEffectSwitchEvent.EffectSwitch On = 1;

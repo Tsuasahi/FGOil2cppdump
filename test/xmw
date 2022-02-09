@@ -1,9 +1,185 @@
+	public const BuffList.ACTION AVOID_INSTANTDEATH = 47;
+	public const BuffList.ACTION RESIST_INSTANTDEATH = 48;
+	public const BuffList.ACTION NONRESIST_INSTANTDEATH = 49;
+	public const BuffList.ACTION REGAIN_NP_USED_NOBLE = 50;
+	public const BuffList.ACTION FUNCTION_DEAD = 51;
+	public const BuffList.ACTION MAXHP_RATE = 52;
+	public const BuffList.ACTION MAXHP_VALUE = 53;
+	public const BuffList.ACTION FUNCTION_WAVESTART = 54;
+	public const BuffList.ACTION FUNCTION_SELFTURNEND = 55;
+	public const BuffList.ACTION GIVE_GAIN_HP = 56;
+	public const BuffList.ACTION FUNCTION_COMMANDATTACK = 57;
+	public const BuffList.ACTION FUNCTION_DEADATTACK = 58;
+	public const BuffList.ACTION FUNCTION_ENTRY = 59;
+	public const BuffList.ACTION CHAGETD = 60;
+	public const BuffList.ACTION GRANT_SUBSTATE = 61;
+	public const BuffList.ACTION TOLERANCE_SUBSTATE = 62;
+	public const BuffList.ACTION GRANT_INSTANTDEATH = 63;
+	public const BuffList.ACTION FUNCTION_DAMAGE = 64;
+	public const BuffList.ACTION FUNCTION_REFLECTION = 65;
+	public const BuffList.ACTION MULTIATTACK = 66;
+	public const BuffList.ACTION GIVE_NP = 67;
+	public const BuffList.ACTION RESISTANCE_DELAY_NPTURN = 68;
+	public const BuffList.ACTION PIERCE_DEFENCE = 69;
+	public const BuffList.ACTION GUTS_HP = 70;
+	public const BuffList.ACTION FUNCGAIN_NP = 71;
+	public const BuffList.ACTION FUNC_HP_REDUCE = 72;
+	public const BuffList.ACTION FUNCTION_NPATTACK = 73;
+	public const BuffList.ACTION FIX_COMMANDCARD = 74;
+	public const BuffList.ACTION DONOT_GAINNP = 75;
+	public const BuffList.ACTION FIELD_INDIVIDUALITY = 76;
+	public const BuffList.ACTION DONOT_ACT_COMMANDTYPE = 77;
+	public const BuffList.ACTION DAMAGE_EVENT_POINT = 78;
+	public const BuffList.ACTION DAMAGE_SPECIAL = 79;
+	public const BuffList.ACTION FUNCTION_ATTACK = 80;
+	public const BuffList.ACTION FUNCTION_COMMANDCODEATTACK = 81;
+	public const BuffList.ACTION DONOT_NOBLE_COND_MISMATCH = 82;
+	public const BuffList.ACTION DONOT_SELECT_COMMANDCARD = 83;
+	public const BuffList.ACTION DONOT_REPLACE = 84;
+	public const BuffList.ACTION SHORTEN_USER_EQUIP_SKILL = 85;
+	public const BuffList.ACTION TD_TYPE_CHANGE = 86;
+	public const BuffList.ACTION OVERWRITE_CLASS_RELATION = 87;
+	public const BuffList.ACTION FUNCTION_COMMANDATTACK_BEFORE = 88;
+	public const BuffList.ACTION FUNCTION_GUTS = 89;
+	public const BuffList.ACTION CRITICAL_RATE_DAMAGE_TAKEN = 90;
+	public const BuffList.ACTION CRITICAL_STAR_DAMAGE_TAKEN = 91;
+	public const BuffList.ACTION SKILL_RANK_CHANGE = 92;
+	public const BuffList.ACTION AVOIDANCE_INDIVIDUALITY = 93;
+	public const BuffList.ACTION CHANGE_COMMAND_CARD_TYPE = 94;
+	public const BuffList.ACTION SPECIAL_INVINCIBLE = 95;
+	public const BuffList.ACTION PREVENT_DEATH_BY_DAMAGE = 96;
+	public const BuffList.ACTION FUNCTION_COMMANDCODEATTACK_AFTER = 97;
+	public const BuffList.ACTION FUNCTION_ATTACK_BEFORE = 98;
+	public const BuffList.ACTION DONOT_SKILL_SELECT = 99;
+	public const BuffList.ACTION BUFF_RATE = 100;
+	public const BuffList.ACTION COUNTER_FUNCTION = 101;
+}
+
+// Namespace: 
+public enum BuffList.INVOKE_COND_TYPE // TypeDefIndex: 6083
+{
+	// Fields
+	public int value__; // 0x0
+	public const BuffList.INVOKE_COND_TYPE INDIVIDUALITY = 0;
+	public const BuffList.INVOKE_COND_TYPE BUFF_TYPE = 1;
+}
+
+// Namespace: 
+public class BuffList.BaseInvokeCond // TypeDefIndex: 6084
+{
+	// Fields
+	protected const string BUFF_TYPE_COND_KEY_FORMAT = "Check{0}BuffTypes";
+	[CompilerGeneratedAttribute] // RVA: 0xC532E8 Offset: 0xC532E8 VA: 0xC532E8
+	[DebuggerBrowsableAttribute] // RVA: 0xC532E8 Offset: 0xC532E8 VA: 0xC532E8
+	private BattleServantData <SvtData>k__BackingField; // 0x10
+	protected Dictionary<BuffList.INVOKE_COND_TYPE, int[]> dicCacheSelfValue; // 0x18
+	protected string targetSideStr; // 0x20
+
+	// Properties
+	public BattleServantData SvtData { get; set; }
+	protected string BuffTypeCondKeyName { get; }
+
+	// Methods
+
+	// RVA: 0x14DAAA4 Offset: 0x14DAAA4 VA: 0x14DAAA4
+	public void .ctor(bool isSelfSide) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCC8974 Offset: 0xCC8974 VA: 0xCC8974
+	// RVA: 0x14DAB74 Offset: 0x14DAB74 VA: 0x14DAB74
+	private void set_SvtData(BattleServantData value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCC8984 Offset: 0xCC8984 VA: 0xCC8984
+	// RVA: 0x14DAB7C Offset: 0x14DAB7C VA: 0x14DAB7C
+	public BattleServantData get_SvtData() { }
+
+	// RVA: 0x14DAB84 Offset: 0x14DAB84 VA: 0x14DAB84
+	protected string get_BuffTypeCondKeyName() { }
+
+	// RVA: 0x14DABFC Offset: 0x14DABFC VA: 0x14DABFC Slot: 4
+	public virtual void Init(BattleServantData svtData) { }
+
+	// RVA: 0x14DAC6C Offset: 0x14DAC6C VA: 0x14DAC6C Slot: 5
+	public virtual bool CheckInvokeCond(BattleBuffData buffData, BuffEntity buffEnt, int[] selfIndivValues, int[] condIndivValues) { }
+
+	// RVA: 0x14DAD38 Offset: 0x14DAD38 VA: 0x14DAD38 Slot: 6
+	protected virtual bool CheckBuffTypeCond(BattleBuffData buffData, BuffEntity buffEnt, int[] condValues) { }
+}
+
+// Namespace: 
+public class BuffList.ActInfo // TypeDefIndex: 6085
+{
+	// Fields
+	public BuffList.LIMIT limit; // 0x10
+	public BuffList.TYPE[] plusTypes; // 0x18
+	public BuffList.TYPE[] minusTypes; // 0x20
+	public int baseParam; // 0x28
+	public int baseValue; // 0x2C
+	public bool isRec; // 0x30
+	public BuffList.ACTION plusAction; // 0x34
+	[CompilerGeneratedAttribute] // RVA: 0xC53324 Offset: 0xC53324 VA: 0xC53324
+	[DebuggerBrowsableAttribute] // RVA: 0xC53324 Offset: 0xC53324 VA: 0xC53324
+	private BuffList.BaseInvokeCond <OpponentInvokeCond>k__BackingField; // 0x38
+	public BattleData battleData; // 0x40
+
+	// Properties
+	public BuffList.BaseInvokeCond OpponentInvokeCond { get; set; }
+
+	// Methods
+
+	// RVA: 0x14DA990 Offset: 0x14DA990 VA: 0x14DA990
+	public void .ctor(BuffList.LIMIT inLimit, BuffList.TYPE[] inPlus, BuffList.TYPE[] inMinus) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCC8994 Offset: 0xCC8994 VA: 0xCC8994
+	// RVA: 0x14DAA24 Offset: 0x14DAA24 VA: 0x14DAA24
+	private void set_OpponentInvokeCond(BuffList.BaseInvokeCond value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCC89A4 Offset: 0xCC89A4 VA: 0xCC89A4
+	// RVA: 0x14D5154 Offset: 0x14D5154 VA: 0x14D5154
+	public BuffList.BaseInvokeCond get_OpponentInvokeCond() { }
+
+	// RVA: 0x14DAA08 Offset: 0x14DAA08 VA: 0x14DAA08
+	public BuffList.ActInfo setBaseParam(int inBaseParam) { }
+
+	// RVA: 0x14DAA00 Offset: 0x14DAA00 VA: 0x14DAA00
+	public BuffList.ActInfo setBaseValue(int inBaseValue) { }
+
+	// RVA: 0x14DAA10 Offset: 0x14DAA10 VA: 0x14DAA10
+	public BuffList.ActInfo setRec(bool flg) { }
+
+	// RVA: 0x14DAA2C Offset: 0x14DAA2C VA: 0x14DAA2C
+	public bool isUpperLimit() { }
+
+	// RVA: 0x14DAA38 Offset: 0x14DAA38 VA: 0x14DAA38
+	public bool isLowerLimit() { }
+
+	// RVA: 0x14DAA1C Offset: 0x14DAA1C VA: 0x14DAA1C
+	public BuffList.ActInfo setPlusAction(BuffList.ACTION targetAction) { }
+
+	// RVA: 0x14DAA44 Offset: 0x14DAA44 VA: 0x14DAA44 Slot: 4
+	protected virtual BuffList.BaseInvokeCond MakeInvokeCond(bool isSelfSide) { }
+}
+
+// Namespace: 
+public enum BuffList.CONDITIONS // TypeDefIndex: 6086
+{
+	// Fields
+	public int value__; // 0x0
+	public const BuffList.CONDITIONS HP_HIGHER = 0;
+	public const BuffList.CONDITIONS HP_LOWER = 1;
+	public const BuffList.CONDITIONS INDIVIDUALITIE = 2;
+}
+
+// Namespace: 
+public enum BuffList.CHANGEVALUE // TypeDefIndex: 6087
+{
+	// Fields
+	public int value__; // 0x0
 	public const BuffList.CHANGEVALUE RATIO_HP_HIGH = 0;
 	public const BuffList.CHANGEVALUE RATIO_HP_LOW = 1;
 }
 
 // Namespace: 
-public enum BuffList.ProgressTurnCond // TypeDefIndex: 6091
+public enum BuffList.ProgressTurnCond // TypeDefIndex: 6088
 {
 	// Fields
 	public int value__; // 0x0
@@ -13,7 +189,7 @@ public enum BuffList.ProgressTurnCond // TypeDefIndex: 6091
 }
 
 // Namespace: 
-public class CacheFolderName // TypeDefIndex: 6092
+public class CacheFolderName // TypeDefIndex: 6089
 {
 	// Fields
 	private static Dictionary<CacheFolderName.FOLDER_NAME, string> folderList; // 0x0
@@ -21,24 +197,24 @@ public class CacheFolderName // TypeDefIndex: 6092
 
 	// Methods
 
-	// RVA: 0x19263C0 Offset: 0x19263C0 VA: 0x19263C0
+	// RVA: 0x14E2FB8 Offset: 0x14E2FB8 VA: 0x14E2FB8
 	public void .ctor() { }
 
-	// RVA: 0x19263C8 Offset: 0x19263C8 VA: 0x19263C8
+	// RVA: 0x14E2FC0 Offset: 0x14E2FC0 VA: 0x14E2FC0
 	public static string getFolderName(CacheFolderName.FOLDER_NAME name) { }
 
-	// RVA: 0x19264DC Offset: 0x19264DC VA: 0x19264DC
+	// RVA: 0x14E30D4 Offset: 0x14E30D4 VA: 0x14E30D4
 	public static string getFolderNameNotConverted(CacheFolderName.FOLDER_NAME name) { }
 
-	// RVA: 0x19265F0 Offset: 0x19265F0 VA: 0x19265F0
+	// RVA: 0x14E31E8 Offset: 0x14E31E8 VA: 0x14E31E8
 	public static string convertFolderName(string name) { }
 
-	// RVA: 0x1926934 Offset: 0x1926934 VA: 0x1926934
+	// RVA: 0x14E352C Offset: 0x14E352C VA: 0x14E352C
 	private static void .cctor() { }
 }
 
 // Namespace: 
-public enum CacheFolderName.FOLDER_NAME // TypeDefIndex: 6093
+public enum CacheFolderName.FOLDER_NAME // TypeDefIndex: 6090
 {
 	// Fields
 	public int value__; // 0x0
@@ -48,7 +224,7 @@ public enum CacheFolderName.FOLDER_NAME // TypeDefIndex: 6093
 }
 
 // Namespace: 
-public enum CameraPosition // TypeDefIndex: 6094
+public enum CameraPosition // TypeDefIndex: 6091
 {
 	// Fields
 	public int value__; // 0x0
@@ -60,27 +236,27 @@ public enum CameraPosition // TypeDefIndex: 6094
 }
 
 // Namespace: 
-[ExtensionAttribute] // RVA: 0xC9136C Offset: 0xC9136C VA: 0xC9136C
-internal static class CameraPositionExt // TypeDefIndex: 6095
+[ExtensionAttribute] // RVA: 0xC25244 Offset: 0xC25244 VA: 0xC25244
+internal static class CameraPositionExt // TypeDefIndex: 6092
 {
 	// Methods
 
-	[ExtensionAttribute] // RVA: 0xD36078 Offset: 0xD36078 VA: 0xD36078
-	// RVA: 0x19270AC Offset: 0x19270AC VA: 0x19270AC
+	[ExtensionAttribute] // RVA: 0xCC89B4 Offset: 0xCC89B4 VA: 0xCC89B4
+	// RVA: 0x14E3CA4 Offset: 0x14E3CA4 VA: 0x14E3CA4
 	public static string DisplayName(CameraPosition camPos) { }
 }
 
 // Namespace: 
-public class CollectionStatus // TypeDefIndex: 6096
+public class CollectionStatus // TypeDefIndex: 6093
 {
 	// Methods
 
-	// RVA: 0x1571468 Offset: 0x1571468 VA: 0x1571468
+	// RVA: 0x1309F50 Offset: 0x1309F50 VA: 0x1309F50
 	public void .ctor() { }
 }
 
 // Namespace: 
-public enum CollectionStatus.Kind // TypeDefIndex: 6097
+public enum CollectionStatus.Kind // TypeDefIndex: 6094
 {
 	// Fields
 	public int value__; // 0x0
@@ -95,22 +271,22 @@ public enum CollectionStatus.Kind // TypeDefIndex: 6097
 }
 
 // Namespace: 
-public class CombineAdjustTarget // TypeDefIndex: 6098
+public class CombineAdjustTarget // TypeDefIndex: 6095
 {
 	// Fields
 	public const int FIXED_VAL = 1000;
 
 	// Methods
 
-	// RVA: 0x15718E0 Offset: 0x15718E0 VA: 0x15718E0
+	// RVA: 0x130A3C8 Offset: 0x130A3C8 VA: 0x130A3C8
 	public void .ctor() { }
 
-	// RVA: 0x15718E8 Offset: 0x15718E8 VA: 0x15718E8
+	// RVA: 0x130A3D0 Offset: 0x130A3D0 VA: 0x130A3D0
 	public static bool isTerminalExposable(CombineAdjustTarget.TYPE type) { }
 }
 
 // Namespace: 
-public enum CombineAdjustTarget.TYPE // TypeDefIndex: 6099
+public enum CombineAdjustTarget.TYPE // TypeDefIndex: 6096
 {
 	// Fields
 	public int value__; // 0x0
@@ -147,7 +323,7 @@ public enum CombineAdjustTarget.TYPE // TypeDefIndex: 6099
 }
 
 // Namespace: 
-public class CondType // TypeDefIndex: 6100
+public class CondType // TypeDefIndex: 6097
 {
 	// Fields
 	private static readonly int EVENT_POINT_DEVIDER; // 0x0
@@ -157,524 +333,524 @@ public class CondType // TypeDefIndex: 6100
 	private static UserQuestMaster uQuestMst; // 0x10
 	private static readonly Dictionary<int, string> cachedServantEquipIdStrDic; // 0x18
 	private static long lastUserId; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xCBF248 Offset: 0xCBF248 VA: 0xCBF248
+	[CompilerGeneratedAttribute] // RVA: 0xC53360 Offset: 0xC53360 VA: 0xC53360
 	private static CondType.CountDelegate <>f__mg$cache0; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xCBF258 Offset: 0xCBF258 VA: 0xCBF258
+	[CompilerGeneratedAttribute] // RVA: 0xC53370 Offset: 0xC53370 VA: 0xC53370
 	private static CondType.CountDelegate <>f__mg$cache1; // 0x30
-	[CompilerGeneratedAttribute] // RVA: 0xCBF268 Offset: 0xCBF268 VA: 0xCBF268
+	[CompilerGeneratedAttribute] // RVA: 0xC53380 Offset: 0xC53380 VA: 0xC53380
 	private static CondType.CountDelegate <>f__mg$cache2; // 0x38
-	[CompilerGeneratedAttribute] // RVA: 0xCBF278 Offset: 0xCBF278 VA: 0xCBF278
+	[CompilerGeneratedAttribute] // RVA: 0xC53390 Offset: 0xC53390 VA: 0xC53390
 	private static CondType.CountDelegate <>f__mg$cache3; // 0x40
-	[CompilerGeneratedAttribute] // RVA: 0xCBF288 Offset: 0xCBF288 VA: 0xCBF288
+	[CompilerGeneratedAttribute] // RVA: 0xC533A0 Offset: 0xC533A0 VA: 0xC533A0
 	private static Comparison<WarEntity> <>f__am$cache0; // 0x48
-	[CompilerGeneratedAttribute] // RVA: 0xCBF298 Offset: 0xCBF298 VA: 0xCBF298
+	[CompilerGeneratedAttribute] // RVA: 0xC533B0 Offset: 0xC533B0 VA: 0xC533B0
 	private static Predicate<WarEntity> <>f__am$cache1; // 0x50
 
 	// Methods
 
-	// RVA: 0x1832B30 Offset: 0x1832B30 VA: 0x1832B30
+	// RVA: 0x163A80C Offset: 0x163A80C VA: 0x163A80C
 	public void .ctor() { }
 
-	// RVA: 0x1832B38 Offset: 0x1832B38 VA: 0x1832B38
+	// RVA: 0x163A814 Offset: 0x163A814 VA: 0x163A814
 	private static UserQuestMaster GetUserQuestMaster() { }
 
-	// RVA: 0x1832C2C Offset: 0x1832C2C VA: 0x1832C2C
+	// RVA: 0x163A908 Offset: 0x163A908 VA: 0x163A908
 	public static bool IsOpen(CondType.Kind condType, int targetId, long condValue) { }
 
-	// RVA: 0x183968C Offset: 0x183968C VA: 0x183968C
+	// RVA: 0x1641368 Offset: 0x1641368 VA: 0x1641368
 	private static bool checkRaidTimeLimitOver(int targetId, int condValue) { }
 
-	// RVA: 0x183983C Offset: 0x183983C VA: 0x183983C
+	// RVA: 0x1641518 Offset: 0x1641518 VA: 0x1641518
 	private static bool TimeLimitRaidDead(int eventId, int targetId) { }
 
-	// RVA: 0x1839A78 Offset: 0x1839A78 VA: 0x1839A78
+	// RVA: 0x1641754 Offset: 0x1641754 VA: 0x1641754
 	private static bool RaidBattleProgressAbove(int questId, float rate) { }
 
-	// RVA: 0x1836130 Offset: 0x1836130 VA: 0x1836130
+	// RVA: 0x163DE0C Offset: 0x163DE0C VA: 0x163DE0C
 	private static bool checkCondTypeRaidAlive(int targetId, int condValue, bool alive) { }
 
-	// RVA: 0x1836360 Offset: 0x1836360 VA: 0x1836360
+	// RVA: 0x163E03C Offset: 0x163E03C VA: 0x163E03C
 	private static bool checkCondTypeRaidGroupAlive(int targetId, int condValue, bool alive) { }
 
-	// RVA: 0x183AB9C Offset: 0x183AB9C VA: 0x183AB9C
+	// RVA: 0x1642878 Offset: 0x1642878 VA: 0x1642878
 	private static int GetRaidGroupDeadCount(int targetId, long condValue) { }
 
-	// RVA: 0x183ADA4 Offset: 0x183ADA4 VA: 0x183ADA4
+	// RVA: 0x1642A80 Offset: 0x1642A80 VA: 0x1642A80
 	private static int GetItemGetCount(int targetId) { }
 
-	// RVA: 0x18360B4 Offset: 0x18360B4 VA: 0x18360B4
+	// RVA: 0x163DD90 Offset: 0x163DD90 VA: 0x163DD90
 	private static bool IsItemGet(int targetId, int condValue) { }
 
-	// RVA: 0x183AF18 Offset: 0x183AF18 VA: 0x183AF18
+	// RVA: 0x1642BF4 Offset: 0x1642BF4 VA: 0x1642BF4
 	public static bool IsOpenWithSumOfProgressCount(CondType.Kind condType, int[] targetIds, int targetNum) { }
 
-	// RVA: 0x183BBA4 Offset: 0x183BBA4 VA: 0x183BBA4
+	// RVA: 0x1643880 Offset: 0x1643880 VA: 0x1643880
 	private static CondType.Kind GetNegativeSideCond(CondType.Kind cond) { }
 
-	// RVA: 0x183BC3C Offset: 0x183BC3C VA: 0x183BC3C
+	// RVA: 0x1643918 Offset: 0x1643918 VA: 0x1643918
 	public static bool IsOpen(CondType.Kind condType, int[] condValues, int condNum) { }
 
-	// RVA: 0x183C148 Offset: 0x183C148 VA: 0x183C148
+	// RVA: 0x1643E24 Offset: 0x1643E24 VA: 0x1643E24
 	public static bool IsOpenForUsrSvt(CondType.Kind condType, int condValue, long userSvtId) { }
 
-	// RVA: 0x183D16C Offset: 0x183D16C VA: 0x183D16C
+	// RVA: 0x1644E48 Offset: 0x1644E48 VA: 0x1644E48
 	public static bool IsOpen(CondType.Kind condType, int condValue, long userId, int svtId) { }
 
-	// RVA: 0x183D8CC Offset: 0x183D8CC VA: 0x183D8CC
+	// RVA: 0x16455A8 Offset: 0x16455A8 VA: 0x16455A8
 	public static string OpenConditionText(CondType.Kind condType, int condValue, string textType = "") { }
 
-	// RVA: 0x183E578 Offset: 0x183E578 VA: 0x183E578
+	// RVA: 0x1646254 Offset: 0x1646254 VA: 0x1646254
 	public static long GetProgressNum(CondType.Kind condType, int targetId, long condValue, int eventId) { }
 
-	// RVA: 0x1840CB8 Offset: 0x1840CB8 VA: 0x1840CB8
+	// RVA: 0x1648994 Offset: 0x1648994 VA: 0x1648994
 	public static long GetProgressNumByTargetIds(CondType.Kind condType, int[] targetIds) { }
 
-	// RVA: 0x1840EA0 Offset: 0x1840EA0 VA: 0x1840EA0
+	// RVA: 0x1648B7C Offset: 0x1648B7C VA: 0x1648B7C
 	public static bool IsConst(CondType.Kind condType) { }
 
-	// RVA: 0x183C5FC Offset: 0x183C5FC VA: 0x183C5FC
+	// RVA: 0x16442D8 Offset: 0x16442D8 VA: 0x16442D8
 	public static bool IsQuestClear(long userId, int condQuestId, int beforeClearQuestId = -1, bool isCheckResetFlag = False) { }
 
-	// RVA: 0x1834AFC Offset: 0x1834AFC VA: 0x1834AFC
+	// RVA: 0x163C7D8 Offset: 0x163C7D8 VA: 0x163C7D8
 	public static bool IsQuestClear(int condQuestId, int beforeClearQuestId = -1, bool isCheckResetFlag = False) { }
 
-	// RVA: 0x183DBD0 Offset: 0x183DBD0 VA: 0x183DBD0
+	// RVA: 0x16458AC Offset: 0x16458AC VA: 0x16458AC
 	public static string OpenConditionTextQuestClear(int condQuestId, string textType = "") { }
 
-	// RVA: 0x183595C Offset: 0x183595C VA: 0x183595C
+	// RVA: 0x163D638 Offset: 0x163D638 VA: 0x163D638
 	public static bool IsQuestPhaseClear(long userId, int condQuestId, int condQuestPhase, int beforeClearQuestId = -1, bool isCheckResetFlag = False) { }
 
-	// RVA: 0x1840EAC Offset: 0x1840EAC VA: 0x1840EAC
+	// RVA: 0x1648B88 Offset: 0x1648B88 VA: 0x1648B88
 	public static bool IsQuestPhaseClear(int condQuestId, int condQuestPhase, int beforeClearQuestId = -1, bool isCheckResetFlag = False) { }
 
-	// RVA: 0x183F030 Offset: 0x183F030 VA: 0x183F030
+	// RVA: 0x1646D0C Offset: 0x1646D0C VA: 0x1646D0C
 	private static int GetQuestClearPhaseCount(long userId, int targetId, int beforeClearQuestId = -1, bool isCheckResetFlag = False) { }
 
-	// RVA: 0x1840F6C Offset: 0x1840F6C VA: 0x1840F6C
+	// RVA: 0x1648C48 Offset: 0x1648C48 VA: 0x1648C48
 	public static string OpenConditionTextQuestPhaseClear(int condQuestId, int condQuestPhase, string textType = "", bool getWarName = False) { }
 
-	// RVA: 0x1841214 Offset: 0x1841214 VA: 0x1841214
+	// RVA: 0x1648EF0 Offset: 0x1648EF0 VA: 0x1648EF0
 	public static bool IsQuestEnable(int openQuestid, int closeQuestid) { }
 
-	// RVA: 0x183C6EC Offset: 0x183C6EC VA: 0x183C6EC
+	// RVA: 0x16443C8 Offset: 0x16443C8 VA: 0x16443C8
 	public static bool IsServantLevel(long userSvtId, int condLv) { }
 
-	// RVA: 0x1834BAC Offset: 0x1834BAC VA: 0x1834BAC
+	// RVA: 0x163C888 Offset: 0x163C888 VA: 0x163C888
 	public static bool IsServantLevel(int svtId, int condLv) { }
 
-	// RVA: 0x183D464 Offset: 0x183D464 VA: 0x183D464
+	// RVA: 0x1645140 Offset: 0x1645140 VA: 0x1645140
 	public static bool IsServantLevel(long userId, int svtId, int condLv) { }
 
-	// RVA: 0x183DD1C Offset: 0x183DD1C VA: 0x183DD1C
+	// RVA: 0x16459F8 Offset: 0x16459F8 VA: 0x16459F8
 	public static string OpenConditionTextServantLevel(int condLv, string textType = "") { }
 
-	// RVA: 0x183C890 Offset: 0x183C890 VA: 0x183C890
+	// RVA: 0x164456C Offset: 0x164456C VA: 0x164456C
 	public static bool IsServantLimit(long userSvtId, int condLimitCount, CondType.CheckType checkType = 1) { }
 
-	// RVA: 0x183CF80 Offset: 0x183CF80 VA: 0x183CF80
+	// RVA: 0x1644C5C Offset: 0x1644C5C VA: 0x1644C5C
 	public static bool IsServantLimitImage(long userSvtId, int condLimitCount, CondType.CheckType checkType = 1) { }
 
-	// RVA: 0x1834C54 Offset: 0x1834C54 VA: 0x1834C54
+	// RVA: 0x163C930 Offset: 0x163C930 VA: 0x163C930
 	public static bool IsServantLimit(int svtId, int condLimitCount, CondType.CheckType checkType) { }
 
-	// RVA: 0x183D518 Offset: 0x183D518 VA: 0x183D518
+	// RVA: 0x16451F4 Offset: 0x16451F4 VA: 0x16451F4
 	public static bool IsServantLimit(long userId, int svtId, int condLimitCount, CondType.CheckType checkType = 1) { }
 
-	// RVA: 0x183DE00 Offset: 0x183DE00 VA: 0x183DE00
+	// RVA: 0x1645ADC Offset: 0x1645ADC VA: 0x1645ADC
 	public static string OpenConditionTextServantLimit(int condLimitCount, string textType = "") { }
 
-	// RVA: 0x1834D04 Offset: 0x1834D04 VA: 0x1834D04
+	// RVA: 0x163C9E0 Offset: 0x163C9E0 VA: 0x163C9E0
 	public static bool IsServantGet(int condSvtId) { }
 
-	// RVA: 0x183CAA4 Offset: 0x183CAA4 VA: 0x183CAA4
+	// RVA: 0x1644780 Offset: 0x1644780 VA: 0x1644780
 	public static bool IsServantGet(long userId, int condSvtId) { }
 
-	// RVA: 0x184139C Offset: 0x184139C VA: 0x184139C
+	// RVA: 0x1649078 Offset: 0x1649078 VA: 0x1649078
 	public static bool IsServantGet(long userSvtId) { }
 
-	// RVA: 0x18358CC Offset: 0x18358CC VA: 0x18358CC
+	// RVA: 0x163D5A8 Offset: 0x163D5A8 VA: 0x163D5A8
 	public static bool IsServantHaving(int svtId) { }
 
-	// RVA: 0x183EFA0 Offset: 0x183EFA0 VA: 0x183EFA0
+	// RVA: 0x1646C7C Offset: 0x1646C7C VA: 0x1646C7C
 	private static int GetServantHavingCount(int targetId) { }
 
-	// RVA: 0x183DEE4 Offset: 0x183DEE4 VA: 0x183DEE4
+	// RVA: 0x1645BC0 Offset: 0x1645BC0 VA: 0x1645BC0
 	public static string OpenConditionTextServantGet(int condSvtId, string textType = "") { }
 
-	// RVA: 0x1834D9C Offset: 0x1834D9C VA: 0x1834D9C
+	// RVA: 0x163CA78 Offset: 0x163CA78 VA: 0x163CA78
 	public static bool IsServantFriendship(int svtId, int condFriendshipRank, bool isAbove) { }
 
-	// RVA: 0x183D61C Offset: 0x183D61C VA: 0x183D61C
+	// RVA: 0x16452F8 Offset: 0x16452F8 VA: 0x16452F8
 	public static bool IsServantFriendship(long userId, int svtId, int condFriendshipRank, bool isAbove = True) { }
 
-	// RVA: 0x183CB54 Offset: 0x183CB54 VA: 0x183CB54
+	// RVA: 0x1644830 Offset: 0x1644830 VA: 0x1644830
 	public static bool IsServantFriendship(long userSvtId, int condFriendshipRank) { }
 
-	// RVA: 0x183E020 Offset: 0x183E020 VA: 0x183E020
+	// RVA: 0x1645CFC Offset: 0x1645CFC VA: 0x1645CFC
 	public static string OpenConditionTextServantFriendship(int condFriendshipRank, string textType = "") { }
 
-	// RVA: 0x1834E4C Offset: 0x1834E4C VA: 0x1834E4C
+	// RVA: 0x163CB28 Offset: 0x163CB28 VA: 0x163CB28
 	public static bool IsServantGroup(int condGroup) { }
 
-	// RVA: 0x183CE10 Offset: 0x183CE10 VA: 0x183CE10
+	// RVA: 0x1644AEC Offset: 0x1644AEC VA: 0x1644AEC
 	public static bool IsServantGroup(long userId, int condGroup) { }
 
-	// RVA: 0x183E104 Offset: 0x183E104 VA: 0x183E104
+	// RVA: 0x1645DE0 Offset: 0x1645DE0 VA: 0x1645DE0
 	public static string OpenConditionTextServantGroup(int condGroup, string textType = "") { }
 
-	// RVA: 0x1834EE4 Offset: 0x1834EE4 VA: 0x1834EE4
+	// RVA: 0x163CBC0 Offset: 0x163CBC0 VA: 0x163CBC0
 	public static bool IsEvent(int condId) { }
 
-	// RVA: 0x183E1E8 Offset: 0x183E1E8 VA: 0x183E1E8
+	// RVA: 0x1645EC4 Offset: 0x1645EC4 VA: 0x1645EC4
 	public static string OpenConditionTextEvent(int condId, string textType = "") { }
 
-	// RVA: 0x1834F8C Offset: 0x1834F8C VA: 0x1834F8C
+	// RVA: 0x163CC68 Offset: 0x163CC68 VA: 0x163CC68
 	public static bool IsPurchaseQpShop(int condId) { }
 
-	// RVA: 0x183D764 Offset: 0x183D764 VA: 0x183D764
+	// RVA: 0x1645440 Offset: 0x1645440 VA: 0x1645440
 	public static bool IsPurchaseQpShop(long userId, int condId) { }
 
-	// RVA: 0x183E320 Offset: 0x183E320 VA: 0x183E320
+	// RVA: 0x1645FFC Offset: 0x1645FFC VA: 0x1645FFC
 	public static string OpenConditionTextPurchaseQpShop(int condId, string textType = "") { }
 
-	// RVA: 0x1835030 Offset: 0x1835030 VA: 0x1835030
+	// RVA: 0x163CD0C Offset: 0x163CD0C VA: 0x163CD0C
 	public static bool IsPurchaseStoneShop(int condId) { }
 
-	// RVA: 0x183D818 Offset: 0x183D818 VA: 0x183D818
+	// RVA: 0x16454F4 Offset: 0x16454F4 VA: 0x16454F4
 	public static bool IsPurchaseStoneShop(long userId, int condId) { }
 
-	// RVA: 0x18354C0 Offset: 0x18354C0 VA: 0x18354C0
+	// RVA: 0x163D19C Offset: 0x163D19C VA: 0x163D19C
 	public static bool IsPurchaseShop(int targetId, int condValue = 1) { }
 
-	// RVA: 0x183EE34 Offset: 0x183EE34 VA: 0x183EE34
+	// RVA: 0x1646B10 Offset: 0x1646B10 VA: 0x1646B10
 	private static int GetPurchaseShopCount(int targetId) { }
 
-	// RVA: 0x183E44C Offset: 0x183E44C VA: 0x183E44C
+	// RVA: 0x1646128 Offset: 0x1646128 VA: 0x1646128
 	public static string OpenConditionTextPurchaseStoneShop(int condId, string textType = "") { }
 
-	// RVA: 0x18350D4 Offset: 0x18350D4 VA: 0x18350D4
+	// RVA: 0x163CDB0 Offset: 0x163CDB0 VA: 0x163CDB0
 	public static bool IsMissionCondDetail(int condId, int condVal) { }
 
-	// RVA: 0x1835224 Offset: 0x1835224 VA: 0x1835224
+	// RVA: 0x163CF00 Offset: 0x163CF00 VA: 0x163CF00
 	public static bool IsMissionClear(int condId) { }
 
-	// RVA: 0x18415F4 Offset: 0x18415F4 VA: 0x18415F4
+	// RVA: 0x16492D0 Offset: 0x16492D0 VA: 0x16492D0
 	public static bool IsMissionClearOnly(int condId) { }
 
-	// RVA: 0x1835308 Offset: 0x1835308 VA: 0x1835308
+	// RVA: 0x163CFE4 Offset: 0x163CFE4 VA: 0x163CFE4
 	public static bool IsMissionAchive(int condId) { }
 
-	// RVA: 0x183FA80 Offset: 0x183FA80 VA: 0x183FA80
+	// RVA: 0x164775C Offset: 0x164775C VA: 0x164775C
 	public static int GetNumMissionCondDetail(int condId, int condVal) { }
 
-	// RVA: 0x183F478 Offset: 0x183F478 VA: 0x183F478
+	// RVA: 0x1647154 Offset: 0x1647154 VA: 0x1647154
 	public static int GetQuestClearCount(int targetId) { }
 
-	// RVA: 0x183FBF8 Offset: 0x183FBF8 VA: 0x183FBF8
+	// RVA: 0x16478D4 Offset: 0x16478D4 VA: 0x16478D4
 	public static int GetMIssionClearNum(int condId) { }
 
-	// RVA: 0x183FD7C Offset: 0x183FD7C VA: 0x183FD7C
+	// RVA: 0x1647A58 Offset: 0x1647A58 VA: 0x1647A58
 	public static int GetMissionAchiveNum(int condId) { }
 
-	// RVA: 0x183F8F8 Offset: 0x183F8F8 VA: 0x183F8F8
+	// RVA: 0x16475D4 Offset: 0x16475D4 VA: 0x16475D4
 	public static int GetSvtGetNum(int condId) { }
 
-	// RVA: 0x183F814 Offset: 0x183F814 VA: 0x183F814
+	// RVA: 0x16474F0 Offset: 0x16474F0 VA: 0x16474F0
 	public static int GetSvtLimitCnt(int condId, int condVal) { }
 
-	// RVA: 0x183F730 Offset: 0x183F730 VA: 0x183F730
+	// RVA: 0x164740C Offset: 0x164740C VA: 0x164740C
 	public static int GetSvtLv(int condId, int condVal) { }
 
-	// RVA: 0x183F964 Offset: 0x183F964 VA: 0x183F964
+	// RVA: 0x1647640 Offset: 0x1647640 VA: 0x1647640
 	public static int GetSvtFriendShip(int condId, int condVal) { }
 
-	// RVA: 0x18353E8 Offset: 0x18353E8 VA: 0x18353E8
+	// RVA: 0x163D0C4 Offset: 0x163D0C4 VA: 0x163D0C4
 	public static bool IsQuestClearNum(int condId, int condVal) { }
 
-	// RVA: 0x183FF00 Offset: 0x183FF00 VA: 0x183FF00
+	// RVA: 0x1647BDC Offset: 0x1647BDC VA: 0x1647BDC
 	public static int GetQuestClearNum(int condId, int condVal) { }
 
-	// RVA: 0x1835544 Offset: 0x1835544 VA: 0x1835544
+	// RVA: 0x163D220 Offset: 0x163D220 VA: 0x163D220
 	public static bool IsNotQuestGroupClear(int questId, int groupId, int condVal, out int[] sameGroupQuestIds, bool isCheckResetFlag = False) { }
 
-	// RVA: 0x18416D4 Offset: 0x18416D4 VA: 0x18416D4
+	// RVA: 0x16493B0 Offset: 0x16493B0 VA: 0x16493B0
 	public static bool IsNotQuestGroupClear(int targetId, int condValue) { }
 
-	// RVA: 0x183EAF0 Offset: 0x183EAF0 VA: 0x183EAF0
+	// RVA: 0x16467CC Offset: 0x16467CC VA: 0x16467CC
 	private static int GetNotQuestGoupClearCount(int questId, int groupId, out int[] sameGroupQuestIds, bool isCheckResetFlag = False) { }
 
-	// RVA: 0x18355E8 Offset: 0x18355E8 VA: 0x18355E8
+	// RVA: 0x163D2C4 Offset: 0x163D2C4 VA: 0x163D2C4
 	public static bool IsQuestGroupClear(int questId, int groupId, int condVal, bool isCheckResetFlag = False) { }
 
-	// RVA: 0x183ECE8 Offset: 0x183ECE8 VA: 0x183ECE8
+	// RVA: 0x16469C4 Offset: 0x16469C4 VA: 0x16469C4
 	private static int GetQuestGroupClearCount(int questId, int groupId, bool isCheckResetFlag = False) { }
 
-	// RVA: 0x1840168 Offset: 0x1840168 VA: 0x1840168
+	// RVA: 0x1647E44 Offset: 0x1647E44 VA: 0x1647E44
 	public static long GetOpenTime() { }
 
-	// RVA: 0x184186C Offset: 0x184186C VA: 0x184186C
+	// RVA: 0x1649548 Offset: 0x1649548 VA: 0x1649548
 	public static int GetNumIsOpenByDate(long condVal) { }
 
-	// RVA: 0x18401C8 Offset: 0x18401C8 VA: 0x18401C8
+	// RVA: 0x1647EA4 Offset: 0x1647EA4 VA: 0x1647EA4
 	public static long GetRaidDamage(int condId, long condVal) { }
 
-	// RVA: 0x18402F0 Offset: 0x18402F0 VA: 0x18402F0
+	// RVA: 0x1647FCC Offset: 0x1647FCC VA: 0x1647FCC
 	public static int GetQuestChallengeNum(int condId, int condVal) { }
 
-	// RVA: 0x1840558 Offset: 0x1840558 VA: 0x1840558
+	// RVA: 0x1648234 Offset: 0x1648234 VA: 0x1648234
 	public static long GetSuperBossDamage(int condId, long condVal) { }
 
-	// RVA: 0x1840680 Offset: 0x1840680 VA: 0x1840680
+	// RVA: 0x164835C Offset: 0x164835C VA: 0x164835C
 	public static long GetSuperBossDamageAll(int condId, long condVal) { }
 
-	// RVA: 0x1835754 Offset: 0x1835754 VA: 0x1835754
+	// RVA: 0x163D430 Offset: 0x163D430 VA: 0x163D430
 	public static bool IsNotEventShopPurchase(int targetId) { }
 
-	// RVA: 0x1835684 Offset: 0x1835684 VA: 0x1835684
+	// RVA: 0x163D360 Offset: 0x163D360 VA: 0x163D360
 	public static bool IsNotServantGet(int servantId) { }
 
-	// RVA: 0x183BD5C Offset: 0x183BD5C VA: 0x183BD5C
+	// RVA: 0x1643A38 Offset: 0x1643A38 VA: 0x1643A38
 	public static bool IsNotShopPurchase(int[] values) { }
 
-	// RVA: 0x183BE94 Offset: 0x183BE94 VA: 0x183BE94
+	// RVA: 0x1643B70 Offset: 0x1643B70 VA: 0x1643B70
 	public static bool IsShopPurchase(int[] values, int num) { }
 
-	// RVA: 0x1835A30 Offset: 0x1835A30 VA: 0x1835A30
+	// RVA: 0x163D70C Offset: 0x163D70C VA: 0x163D70C
 	public static bool IsEventPointGroupWin(int evGroupId, int condVal) { }
 
-	// RVA: 0x1835B04 Offset: 0x1835B04 VA: 0x1835B04
+	// RVA: 0x163D7E0 Offset: 0x163D7E0 VA: 0x163D7E0
 	public static bool IsEventNormaPointClear(int evGroupId, long condVal) { }
 
-	// RVA: 0x1835BE0 Offset: 0x1835BE0 VA: 0x1835BE0
+	// RVA: 0x163D8BC Offset: 0x163D8BC VA: 0x163D8BC
 	public static bool IsQuestAvailable(int questId) { }
 
-	// RVA: 0x1835D7C Offset: 0x1835D7C VA: 0x1835D7C
+	// RVA: 0x163DA58 Offset: 0x163DA58 VA: 0x163DA58
 	public static bool IsQuestGroupAvailable(int groupId, int questCount) { }
 
-	// RVA: 0x18366F4 Offset: 0x18366F4 VA: 0x18366F4
+	// RVA: 0x163E3D0 Offset: 0x163E3D0 VA: 0x163E3D0
 	public static bool IsQuestResettable(int targetId) { }
 
-	// RVA: 0x1836574 Offset: 0x1836574 VA: 0x1836574
+	// RVA: 0x163E250 Offset: 0x163E250 VA: 0x163E250
 	public static bool IsCostumeGet(int svtId, int costumeId) { }
 
-	// RVA: 0x18368CC Offset: 0x18368CC VA: 0x18368CC
+	// RVA: 0x163E5A8 Offset: 0x163E5A8 VA: 0x163E5A8
 	public static bool IsServantGetBeforeEventEnd(int svtId, int eventId) { }
 
-	// RVA: 0x1836B20 Offset: 0x1836B20 VA: 0x1836B20
+	// RVA: 0x163E7FC Offset: 0x163E7FC VA: 0x163E7FC
 	public static bool IsVoicePlayFlag(int svtId, int num) { }
 
-	// RVA: 0x1836CA0 Offset: 0x1836CA0 VA: 0x1836CA0
+	// RVA: 0x163E97C Offset: 0x163E97C VA: 0x163E97C
 	public static bool IsEventEnd(int eventId) { }
 
-	// RVA: 0x1836DF0 Offset: 0x1836DF0 VA: 0x1836DF0
+	// RVA: 0x163EACC Offset: 0x163EACC VA: 0x163EACC
 	public static bool IsEventGroupPointRatioInTerm(int eventTerm, int rate) { }
 
-	// RVA: 0x1836EC4 Offset: 0x1836EC4 VA: 0x1836EC4
+	// RVA: 0x163EBA0 Offset: 0x163EBA0 VA: 0x163EBA0
 	public static bool IsEventGroupRankInTerm(int eventTerm, int rank) { }
 
-	// RVA: 0x1836FDC Offset: 0x1836FDC VA: 0x1836FDC
+	// RVA: 0x163ECB8 Offset: 0x163ECB8 VA: 0x163ECB8
 	public static bool IsNotEventRaceQuestOrNotAllGroupGoal(int questGroupId, int eventTerm) { }
 
-	// RVA: 0x1837A94 Offset: 0x1837A94 VA: 0x1837A94
+	// RVA: 0x163F770 Offset: 0x163F770 VA: 0x163F770
 	public static bool IsNotEventRaceQuestOrNotTargetRankGoal(int questGroupId, int eventTerm) { }
 
-	// RVA: 0x18370FC Offset: 0x18370FC VA: 0x18370FC
+	// RVA: 0x163EDD8 Offset: 0x163EDD8 VA: 0x163EDD8
 	public static bool IsEventRaceGroupTotalWin(int eventId, int groupId) { }
 
-	// RVA: 0x1837274 Offset: 0x1837274 VA: 0x1837274
+	// RVA: 0x163EF50 Offset: 0x163EF50 VA: 0x163EF50
 	public static bool IsEventScriptFlagChecked(int eventId, int flagId) { }
 
-	// RVA: 0x18418DC Offset: 0x18418DC VA: 0x18418DC
+	// RVA: 0x16495B8 Offset: 0x16495B8 VA: 0x16495B8
 	public static bool IsEventRaceGoalScriptPlayed(int eventId, int termId, int groupId) { }
 
-	// RVA: 0x1841A58 Offset: 0x1841A58 VA: 0x1841A58
+	// RVA: 0x1649734 Offset: 0x1649734 VA: 0x1649734
 	public static bool IsEventRaceRankedScriptPlayed(int eventId, int termId, int rank) { }
 
-	// RVA: 0x1835EC0 Offset: 0x1835EC0 VA: 0x1835EC0
+	// RVA: 0x163DB9C Offset: 0x163DB9C VA: 0x163DB9C
 	public static bool IsReleaseCostume(int svtId, int costumeId) { }
 
-	// RVA: 0x183C000 Offset: 0x183C000 VA: 0x183C000
+	// RVA: 0x1643CDC Offset: 0x1643CDC VA: 0x1643CDC
 	public static bool IsQuestNotClearAndCond(int[] condQuestId) { }
 
-	// RVA: 0x18373F8 Offset: 0x18373F8 VA: 0x18373F8
+	// RVA: 0x163F0D4 Offset: 0x163F0D4 VA: 0x163F0D4
 	public static bool IsSvtRecoverd(int eventId, int condNum) { }
 
-	// RVA: 0x183762C Offset: 0x183762C VA: 0x183762C
+	// RVA: 0x163F308 Offset: 0x163F308 VA: 0x163F308
 	private static bool IsShopReleased(int targetId) { }
 
-	// RVA: 0x183F1DC Offset: 0x183F1DC VA: 0x183F1DC
+	// RVA: 0x1646EB8 Offset: 0x1646EB8 VA: 0x1646EB8
 	private static int GetShopReleasedCount(int targetId) { }
 
-	// RVA: 0x18377CC Offset: 0x18377CC VA: 0x18377CC
+	// RVA: 0x163F4A8 Offset: 0x163F4A8 VA: 0x163F4A8
 	public static bool IsEventPoint(int eventId, long evPoint) { }
 
-	// RVA: 0x18377F8 Offset: 0x18377F8 VA: 0x18377F8
+	// RVA: 0x163F4D4 Offset: 0x163F4D4 VA: 0x163F4D4
 	public static bool IsVoicePlayCount(int eventId, int playCount) { }
 
-	// RVA: 0x1837A24 Offset: 0x1837A24 VA: 0x1837A24
+	// RVA: 0x163F700 Offset: 0x163F700 VA: 0x163F700
 	public static bool IsArrivalDate(long time) { }
 
-	// RVA: 0x1837C0C Offset: 0x1837C0C VA: 0x1837C0C
+	// RVA: 0x163F8E8 Offset: 0x163F8E8 VA: 0x163F8E8
 	public static bool IsPlayerGenderType(int genderType) { }
 
-	// RVA: 0x1837C48 Offset: 0x1837C48 VA: 0x1837C48
+	// RVA: 0x163F924 Offset: 0x163F924 VA: 0x163F924
 	public static bool IsShopGroupLimit(int condValue, int limitNum) { }
 
-	// RVA: 0x1837E94 Offset: 0x1837E94 VA: 0x1837E94
+	// RVA: 0x163FB70 Offset: 0x163FB70 VA: 0x163FB70
 	public static bool IsEventStatus(int eventId, long flagId) { }
 
-	// RVA: 0x183807C Offset: 0x183807C VA: 0x183807C
+	// RVA: 0x163FD58 Offset: 0x163FD58 VA: 0x163FD58
 	public static bool IsServantHavingLimitMax(int svtId, int condNum) { }
 
-	// RVA: 0x183F3EC Offset: 0x183F3EC VA: 0x183F3EC
+	// RVA: 0x16470C8 Offset: 0x16470C8 VA: 0x16470C8
 	public static int GetServantHavingLimitMaxCount(int targetId) { }
 
-	// RVA: 0x18407FC Offset: 0x18407FC VA: 0x18407FC
+	// RVA: 0x16484D8 Offset: 0x16484D8 VA: 0x16484D8
 	public static long GetEventTotalPoint(int eventId) { }
 
-	// RVA: 0x1838118 Offset: 0x1838118 VA: 0x1838118
+	// RVA: 0x163FDF4 Offset: 0x163FDF4 VA: 0x163FDF4
 	public static bool IsSvtEquipFriendShipHaving() { }
 
-	// RVA: 0x18408CC Offset: 0x18408CC VA: 0x18408CC
+	// RVA: 0x16485A8 Offset: 0x16485A8 VA: 0x16485A8
 	public static int GetSvtEquipFriendShip() { }
 
-	// RVA: 0x1841B48 Offset: 0x1841B48 VA: 0x1841B48
+	// RVA: 0x1649824 Offset: 0x1649824 VA: 0x1649824
 	public static bool IsSvtEquipFriendShipStorageHaving() { }
 
-	// RVA: 0x18381A8 Offset: 0x18381A8 VA: 0x18381A8
+	// RVA: 0x163FE84 Offset: 0x163FE84 VA: 0x163FE84
 	public static bool IsDownloadedMovie(int questId, int phase) { }
 
-	// RVA: 0x18382E8 Offset: 0x18382E8 VA: 0x18382E8
+	// RVA: 0x163FFC4 Offset: 0x163FFC4 VA: 0x163FFC4
 	public static bool IsEnableQuestByMultipleDate(int questDateRangeId) { }
 
-	// RVA: 0x1841BD8 Offset: 0x1841BD8 VA: 0x1841BD8
+	// RVA: 0x16498B4 Offset: 0x16498B4 VA: 0x16498B4
 	public static bool IsLimitCountCondType(CondType.Kind condType) { }
 
-	// RVA: 0x183849C Offset: 0x183849C VA: 0x183849C
+	// RVA: 0x1640178 Offset: 0x1640178 VA: 0x1640178
 	public static bool IsPlayedNotMeetsScript(int notMeetsScriptId) { }
 
-	// RVA: 0x183853C Offset: 0x183853C VA: 0x183853C
+	// RVA: 0x1640218 Offset: 0x1640218 VA: 0x1640218
 	public static bool IsCommandCodeGet(int commandCodeId) { }
 
-	// RVA: 0x1841BFC Offset: 0x1841BFC VA: 0x1841BFC
+	// RVA: 0x16498D8 Offset: 0x16498D8 VA: 0x16498D8
 	public static bool IsCommandCodeGet(long userId, int commandCodeId) { }
 
-	// RVA: 0x18385D4 Offset: 0x18385D4 VA: 0x18385D4
+	// RVA: 0x16402B0 Offset: 0x16402B0 VA: 0x16402B0
 	public static bool IsNotCommandCodeGet(int commandCodeId) { }
 
-	// RVA: 0x18386A4 Offset: 0x18386A4 VA: 0x18386A4
+	// RVA: 0x1640380 Offset: 0x1640380 VA: 0x1640380
 	public static bool IsAllUserBoxGachaCount(int boxgachaId, long count) { }
 
-	// RVA: 0x1838748 Offset: 0x1838748 VA: 0x1838748
+	// RVA: 0x1640424 Offset: 0x1640424 VA: 0x1640424
 	public static bool IsTotalTdLvCond(CondType.Kind condType, int svtId, int limitCount) { }
 
-	// RVA: 0x183882C Offset: 0x183882C VA: 0x183882C
+	// RVA: 0x1640508 Offset: 0x1640508 VA: 0x1640508
 	public static bool IsCommonRelease(int releaseId) { }
 
-	// RVA: 0x18388BC Offset: 0x18388BC VA: 0x18388BC
+	// RVA: 0x1640598 Offset: 0x1640598 VA: 0x1640598
 	public static bool IsUserEventStatus(int eventId, EventStatus.Type flag) { }
 
-	// RVA: 0x1838A4C Offset: 0x1838A4C VA: 0x1838A4C
+	// RVA: 0x1640728 Offset: 0x1640728 VA: 0x1640728
 	public static bool IsUserQuestStatus(int questId, UserQuestEntity.StatusKind flag) { }
 
-	// RVA: 0x1838BDC Offset: 0x1838BDC VA: 0x1838BDC
+	// RVA: 0x16408B8 Offset: 0x16408B8 VA: 0x16408B8
 	public static bool IsBoardGameTokenHaving(int tokenId) { }
 
-	// RVA: 0x1838C68 Offset: 0x1838C68 VA: 0x1838C68
+	// RVA: 0x1640944 Offset: 0x1640944 VA: 0x1640944
 	public static bool IsBoardGameTokenGroupHaving(int gameFlagVal, int kindNum) { }
 
-	// RVA: 0x1838D04 Offset: 0x1838D04 VA: 0x1838D04
+	// RVA: 0x16409E0 Offset: 0x16409E0 VA: 0x16409E0
 	public static bool IsBoardGameTokenGetNum(int tokenId, long value) { }
 
-	// RVA: 0x1840950 Offset: 0x1840950 VA: 0x1840950
+	// RVA: 0x164862C Offset: 0x164862C VA: 0x164862C
 	public static int GetBoardGameTokenGetNum(int tokenId) { }
 
-	// RVA: 0x1838D84 Offset: 0x1838D84 VA: 0x1838D84
+	// RVA: 0x1640A60 Offset: 0x1640A60 VA: 0x1640A60
 	public static bool IsBattleLineReusltCount(int groupId, int val, bool isWin = True) { }
 
-	// RVA: 0x1838F60 Offset: 0x1838F60 VA: 0x1838F60
+	// RVA: 0x1640C3C Offset: 0x1640C3C VA: 0x1640C3C
 	public static bool IsBattleLineReusltConsecutiveCount(int groupId, int val, bool isWin = True, bool isBelow = False) { }
 
-	// RVA: 0x183916C Offset: 0x183916C VA: 0x183916C
+	// RVA: 0x1640E48 Offset: 0x1640E48 VA: 0x1640E48
 	public static bool IsBattleGroupReusltCount(int groupId, int val, bool isWin = True) { }
 
-	// RVA: 0x1839348 Offset: 0x1839348 VA: 0x1839348
+	// RVA: 0x1641024 Offset: 0x1641024 VA: 0x1641024
 	public static bool IsWarClear(int condWarId) { }
 
-	// RVA: 0x183B758 Offset: 0x183B758 VA: 0x183B758
+	// RVA: 0x1643434 Offset: 0x1643434 VA: 0x1643434
 	public static bool IsServantLimitClassNum(int[] targetIds, int targetNum) { }
 
-	// RVA: 0x1839414 Offset: 0x1839414 VA: 0x1839414
+	// RVA: 0x16410F0 Offset: 0x16410F0 VA: 0x16410F0
 	public static int CountServantLimitClassNum(int targetId) { }
 
-	// RVA: 0x183B928 Offset: 0x183B928 VA: 0x183B928
+	// RVA: 0x1643604 Offset: 0x1643604 VA: 0x1643604
 	public static int CountTargetParamMatchFunction(int[] targetParam, CondType.CountDelegate func) { }
 
-	// RVA: 0x1841D34 Offset: 0x1841D34 VA: 0x1841D34
+	// RVA: 0x1649A10 Offset: 0x1649A10 VA: 0x1649A10
 	public static int CountServantLevelClassNum(int classId, int level) { }
 
-	// RVA: 0x1841F94 Offset: 0x1841F94 VA: 0x1841F94
+	// RVA: 0x1649C70 Offset: 0x1649C70 VA: 0x1649C70
 	public static int CountServantLevelIdNum(int sarvantId, int level) { }
 
-	// RVA: 0x183B840 Offset: 0x183B840 VA: 0x183B840
+	// RVA: 0x164351C Offset: 0x164351C VA: 0x164351C
 	public static bool IsEquipRarityLevelNum(int[] targetIds, int targetNum) { }
 
-	// RVA: 0x1839BC8 Offset: 0x1839BC8 VA: 0x1839BC8
+	// RVA: 0x16418A4 Offset: 0x16418A4 VA: 0x16418A4
 	public static int CountEquipRarityLevelNum(int targetId) { }
 
-	// RVA: 0x1840A70 Offset: 0x1840A70 VA: 0x1840A70
+	// RVA: 0x164874C Offset: 0x164874C VA: 0x164874C
 	public static int LatestMainScenarioWarClear() { }
 
-	// RVA: 0x183A0BC Offset: 0x183A0BC VA: 0x183A0BC
+	// RVA: 0x1641D98 Offset: 0x1641D98 VA: 0x1641D98
 	public static bool UserEventMapValueContains(int mapId, long target) { }
 
-	// RVA: 0x183A264 Offset: 0x183A264 VA: 0x183A264
+	// RVA: 0x1641F40 Offset: 0x1641F40 VA: 0x1641F40
 	public static bool IsUserShopStatus(int shopId, UserShopFlag.FlagKind flagKind) { }
 
-	// RVA: 0x18420A4 Offset: 0x18420A4 VA: 0x18420A4
+	// RVA: 0x1649D80 Offset: 0x1649D80 VA: 0x1649D80
 	public static bool IsMultiTargetParamCond(CondType.Kind condType) { }
 
-	// RVA: 0x183A3F4 Offset: 0x183A3F4 VA: 0x183A3F4
+	// RVA: 0x16420D0 Offset: 0x16420D0 VA: 0x16420D0
 	public static bool IsResetBirthDay() { }
 
-	// RVA: 0x183A454 Offset: 0x183A454 VA: 0x183A454
+	// RVA: 0x1642130 Offset: 0x1642130 VA: 0x1642130
 	public static bool IsEventTypeStartTimeToEndDate(int eventType, int overWriteTime) { }
 
-	// RVA: 0x183A82C Offset: 0x183A82C VA: 0x183A82C
+	// RVA: 0x1642508 Offset: 0x1642508 VA: 0x1642508
 	public static bool IsBoxGachaGiftReplaced(int gachaId, int giftId) { }
 
-	// RVA: 0x18383B0 Offset: 0x18383B0 VA: 0x18383B0
+	// RVA: 0x164008C Offset: 0x164008C VA: 0x164008C
 	public static bool IsRouteSelect(int questId, int routeId) { }
 
-	// RVA: 0x18420C0 Offset: 0x18420C0 VA: 0x18420C0
+	// RVA: 0x1649D9C Offset: 0x1649D9C VA: 0x1649D9C
 	public static bool IsRouteSelect(IList<int> questIds, IList<int> routeIds, int count, CondType.CheckType checkType) { }
 
-	// RVA: 0x183AA68 Offset: 0x183AA68 VA: 0x183AA68
+	// RVA: 0x1642744 Offset: 0x1642744 VA: 0x1642744
 	public static bool IsStartRandomMission(int missionId) { }
 
-	// RVA: 0x183AB08 Offset: 0x183AB08 VA: 0x183AB08
+	// RVA: 0x16427E4 Offset: 0x16427E4 VA: 0x16427E4
 	public static int GetRandomMissionClearNum(int missionId) { }
 
-	// RVA: 0x183BAA8 Offset: 0x183BAA8 VA: 0x183BAA8
+	// RVA: 0x1643784 Offset: 0x1643784 VA: 0x1643784
 	public static int CountRandomMissionClearNum(int[] missionIds) { }
 
-	// RVA: 0x183A9BC Offset: 0x183A9BC VA: 0x183A9BC
+	// RVA: 0x1642698 Offset: 0x1642698 VA: 0x1642698
 	public static bool IsLimitedPeriodVoiceChangeTypeOn(int targetId) { }
 
-	// RVA: 0x18427A8 Offset: 0x18427A8 VA: 0x18427A8
+	// RVA: 0x164A484 Offset: 0x164A484 VA: 0x164A484
 	private static void .cctor() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD36088 Offset: 0xD36088 VA: 0xD36088
-	// RVA: 0x184285C Offset: 0x184285C VA: 0x184285C
+	[CompilerGeneratedAttribute] // RVA: 0xCC89C4 Offset: 0xCC89C4 VA: 0xCC89C4
+	// RVA: 0x164A538 Offset: 0x164A538 VA: 0x164A538
 	private static int <LatestMainScenarioWarClear>m__0(WarEntity a, WarEntity b) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD36098 Offset: 0xD36098 VA: 0xD36098
-	// RVA: 0x18428A0 Offset: 0x18428A0 VA: 0x18428A0
+	[CompilerGeneratedAttribute] // RVA: 0xCC89D4 Offset: 0xCC89D4 VA: 0xCC89D4
+	// RVA: 0x164A57C Offset: 0x164A57C VA: 0x164A57C
 	private static bool <LatestMainScenarioWarClear>m__1(WarEntity ent) { }
 }
 
 // Namespace: 
-public enum CondType.Kind // TypeDefIndex: 6101
+public enum CondType.Kind // TypeDefIndex: 6098
 {
 	// Fields
 	public int value__; // 0x0
@@ -822,179 +998,3 @@ public enum CondType.Kind // TypeDefIndex: 6101
 	public const CondType.Kind SVT_EQUIP_RARITY_LEVEL_NUM = 141;
 	public const CondType.Kind LATEST_MAIN_SCENARIO_WAR_CLEAR = 142;
 	public const CondType.Kind EVENT_MAP_VALUE_CONTAINS = 143;
-	public const CondType.Kind RESET_BIRTH_DAY = 144;
-	public const CondType.Kind SHOP_FLAG_ON = 145;
-	public const CondType.Kind SHOP_FLAG_OFF = 146;
-	public const CondType.Kind PURCHASE_VALID_SHOP_GROUP = 147;
-	public const CondType.Kind SVT_LEVEL_CLASS_NUM = 148;
-	public const CondType.Kind SVT_LEVEL_ID_NUM = 149;
-	public const CondType.Kind LIMIT_COUNT_IMAGE_EQUAL = 150;
-	public const CondType.Kind LIMIT_COUNT_IMAGE_ABOVE = 151;
-	public const CondType.Kind LIMIT_COUNT_IMAGE_BELOW = 152;
-	public const CondType.Kind EVENT_TYPE_START_TIME_TO_END_DATE = 153;
-	public const CondType.Kind EXIST_BOX_GACHA_SCRIPT_REPLACE_GIFT_ID = 154;
-	public const CondType.Kind NOT_EXIST_BOX_GACHA_SCRIPT_REPLACE_GIFT_ID = 155;
-	public const CondType.Kind LIMITED_PERIOD_VOICE_CHANGE_TYPE_ON = 156;
-	public const CondType.Kind START_RANDOM_MISSION = 157;
-	public const CondType.Kind RANDOM_MISSION_CLEAR_NUM = 158;
-	public const CondType.Kind PROGRESS_VALUE_EQUAL = 159;
-	public const CondType.Kind PROGRESS_VALUE_ABOVE = 160;
-	public const CondType.Kind PROGRESS_VALUE_BELOW = 161;
-	public const CondType.Kind RANDOM_MISSION_TOTAL_CLEAR_NUM = 162;
-}
-
-// Namespace: 
-public sealed class CondType.CountDelegate : MulticastDelegate // TypeDefIndex: 6102
-{
-	// Methods
-
-	// RVA: 0x19687D0 Offset: 0x19687D0 VA: 0x19687D0
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x19687E0 Offset: 0x19687E0 VA: 0x19687E0 Slot: 11
-	public virtual int Invoke(int id, int level) { }
-
-	// RVA: 0x1968A28 Offset: 0x1968A28 VA: 0x1968A28 Slot: 12
-	public virtual IAsyncResult BeginInvoke(int id, int level, AsyncCallback callback, object object) { }
-
-	// RVA: 0x1968AC8 Offset: 0x1968AC8 VA: 0x1968AC8 Slot: 13
-	public virtual int EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-public enum CondType.CheckType // TypeDefIndex: 6103
-{
-	// Fields
-	public int value__; // 0x0
-	public const CondType.CheckType EQUAL = 0;
-	public const CondType.CheckType ABOVE = 1;
-	public const CondType.CheckType BELOW = 2;
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAE6A0 Offset: 0xCAE6A0 VA: 0xCAE6A0
-private sealed class CondType.<IsEventRaceGoalScriptPlayed>c__AnonStorey0 // TypeDefIndex: 6104
-{
-	// Fields
-	internal int groupId; // 0x10
-
-	// Methods
-
-	// RVA: 0x19687B8 Offset: 0x19687B8 VA: 0x19687B8
-	public void .ctor() { }
-
-	// RVA: 0x19687C0 Offset: 0x19687C0 VA: 0x19687C0
-	internal bool <>m__0(int x) { }
-}
-
-// Namespace: 
-public enum ConnectMarkFadeInLagType // TypeDefIndex: 6105
-{
-	// Fields
-	public int value__; // 0x0
-	public const ConnectMarkFadeInLagType IMMEDIATE = 0;
-	public const ConnectMarkFadeInLagType DEFAULT = 1;
-}
-
-// Namespace: 
-public class CostumeListType // TypeDefIndex: 6106
-{
-	// Methods
-
-	// RVA: 0x1977E3C Offset: 0x1977E3C VA: 0x1977E3C
-	public void .ctor() { }
-}
-
-// Namespace: 
-public enum CostumeListType.FlagKind // TypeDefIndex: 6107
-{
-	// Fields
-	public int value__; // 0x0
-	public const CostumeListType.FlagKind OUT_OF_COSTUME_TIME = 1;
-	public const CostumeListType.FlagKind CLOSED_HIDE_COSTUME_BANNER = 2;
-	public const CostumeListType.FlagKind HIDE_COSTUME_SCENE = 3;
-	public const CostumeListType.FlagKind NOT_RELEASE_COSTUME_HIDE = 4;
-	public const CostumeListType.FlagKind NOT_GET_OPEN_RIGHT_SECRET = 5;
-	public const CostumeListType.FlagKind NOT_GET_OPEN_RIGHT_HIDE = 6;
-	public const CostumeListType.FlagKind CHANGE_FIGURE_ONLY = 7;
-}
-
-// Namespace: 
-public enum CostumeListType.Flag // TypeDefIndex: 6108
-{
-	// Fields
-	public int value__; // 0x0
-	public const CostumeListType.Flag OUT_OF_COSTUME_TIME = 2;
-	public const CostumeListType.Flag CLOSED_HIDE_COSTUME_BANNER = 4;
-	public const CostumeListType.Flag HIDE_COSTUME_SCENE = 8;
-	public const CostumeListType.Flag NOT_RELEASE_COSTUME_HIDE = 16;
-	public const CostumeListType.Flag NOT_GET_OPEN_RIGHT_SECRET = 32;
-	public const CostumeListType.Flag NOT_GET_OPEN_RIGHT_HIDE = 64;
-	public const CostumeListType.Flag CHANGE_FIGURE_ONLY = 128;
-}
-
-// Namespace: 
-public class CostumeReleaseType // TypeDefIndex: 6109
-{
-	// Methods
-
-	// RVA: 0x197B2E4 Offset: 0x197B2E4 VA: 0x197B2E4
-	public void .ctor() { }
-}
-
-// Namespace: 
-public enum CostumeReleaseType.Kind // TypeDefIndex: 6110
-{
-	// Fields
-	public int value__; // 0x0
-	public const CostumeReleaseType.Kind COSTUME_RELEASE = 1;
-	public const CostumeReleaseType.Kind COSTUME_CHANGE = 2;
-}
-
-// Namespace: 
-public enum CuriousFuncEffectTiming // TypeDefIndex: 6111
-{
-	// Fields
-	public int value__; // 0x0
-	public const CuriousFuncEffectTiming BEFORE_CURIOUS_FUNC = 0;
-	public const CuriousFuncEffectTiming JUST_CURIOUS_FUNC = 1;
-	public const CuriousFuncEffectTiming AFTER_CURIOUS_FUNC = 2;
-}
-
-// Namespace: 
-public enum CutInType // TypeDefIndex: 6112
-{
-	// Fields
-	public int value__; // 0x0
-	public const CutInType CutIn1 = 0;
-	public const CutInType CutIn2 = 1;
-	public const CutInType CutIn3 = 2;
-	public const CutInType CutIn4 = 3;
-	public const CutInType CutIn5 = 4;
-	public const CutInType CutIn6 = 5;
-	public const CutInType CutIn7 = 6;
-	public const CutInType CutIn8 = 7;
-	public const CutInType CutIn9 = 8;
-	public const CutInType CutIn10 = 9;
-	public const CutInType CutIn11 = 10;
-	public const CutInType CutIn12 = 11;
-	public const CutInType CutIn13 = 12;
-	public const CutInType CutIn14 = 13;
-	public const CutInType CutIn15 = 14;
-	public const CutInType CutIn16 = 15;
-	public const CutInType CutIn17 = 16;
-	public const CutInType CutIn18 = 17;
-	public const CutInType CutIn19 = 18;
-	public const CutInType CutIn20 = 19;
-	public const CutInType CutIn21 = 20;
-	public const CutInType CutIn22 = 21;
-	public const CutInType CutIn23 = 22;
-	public const CutInType CutIn24 = 23;
-	public const CutInType CutIn25 = 24;
-	public const CutInType CutIn26 = 25;
-	public const CutInType CutIn27 = 26;
-	public const CutInType CutIn28 = 27;
-	public const CutInType CutIn29 = 28;
-	public const CutInType CutIn30 = 29;
-}
-

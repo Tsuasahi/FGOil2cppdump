@@ -1,190 +1,625 @@
-	private int height; // 0x184
-	[SerializeField] // RVA: 0xCDC318 Offset: 0xCDC318 VA: 0xCDC318
-	private float scrollWait; // 0x188
-	[SerializeField] // RVA: 0xCDC328 Offset: 0xCDC328 VA: 0xCDC328
-	private float itemDispWaitTime; // 0x18C
-	[SerializeField] // RVA: 0xCDC338 Offset: 0xCDC338 VA: 0xCDC338
-	private float itemDispTime; // 0x190
-	[SerializeField] // RVA: 0xCDC348 Offset: 0xCDC348 VA: 0xCDC348
-	private int maxItemDrawNum; // 0x194
-	[SerializeField] // RVA: 0xCDC358 Offset: 0xCDC358 VA: 0xCDC358
-	private BoxCollider skipCollider; // 0x198
-	private static readonly string EVENT_POINT_BG_TITLE_NAME; // 0x0
-	private static readonly string EVENT_POINT_REWARD_AT; // 0x8
-	private TreasureBoxDialogComponent.DialogType dialogType; // 0x1A0
-	private List<GameObject> fallEffectObjList; // 0x1A8
-	private List<GameObject> resultItemObjList; // 0x1B0
-	private List<GameObject> resultIconHideObjList; // 0x1B8
-	private GameObject dispObj; // 0x1C0
-	private int playCnt; // 0x1C8
-	private int maxPlayCnt; // 0x1CC
-	private bool isSkip; // 0x1D0
-	private bool canSkip; // 0x1D1
-	private bool isShowPossessionNum; // 0x1D2
+	[SerializeField] // RVA: 0xC6F0E8 Offset: 0xC6F0E8 VA: 0xC6F0E8
+	private UICommonButton bonusFilterKindButton; // 0x1C0
+	[SerializeField] // RVA: 0xC6F0F8 Offset: 0xC6F0F8 VA: 0xC6F0F8
+	private UILabel bonusFilterKindLabel; // 0x1C8
+	private int[] bonusEventIdList; // 0x1D0
+	[SerializeField] // RVA: 0xC6F108 Offset: 0xC6F108 VA: 0xC6F108
+	private GameObject fatigueRecoveryConfirmationDialogPrefab; // 0x1D8
+	private FatigueRecoveryConfirmationDialog fatigueRecoveryConfirmationDialog; // 0x1E0
+	public static readonly string SORT_SAVE_KEY; // 0x0
+	private UserServantEntity targetInUserServantEntity; // 0x1E8
+	private UserServantEntity targetOutUserServantEntity; // 0x1F0
+	private long statusShowUserSvtId; // 0x1F8
+	private int eventId; // 0x200
+	public EventServantRecoveryFatigueItem targetRecoveryFatigueItem; // 0x208
+	private long updateTime; // 0x210
+	protected EventServantFatigueListViewManager.InitMode initMode; // 0x218
+	protected EventServantFatigueListViewManager.ModeKind modeKind; // 0x21C
+	protected ListViewSort.ScaleType scaleType; // 0x220
+	[CompilerGeneratedAttribute] // RVA: 0xC6F118 Offset: 0xC6F118 VA: 0xC6F118
+	[DebuggerBrowsableAttribute] // RVA: 0xC6F118 Offset: 0xC6F118 VA: 0xC6F118
+	private EventServantFatigueListViewManager.CallbackFunc Callback; // 0x228
+	[CompilerGeneratedAttribute] // RVA: 0xC6F154 Offset: 0xC6F154 VA: 0xC6F154
+	[DebuggerBrowsableAttribute] // RVA: 0xC6F154 Offset: 0xC6F154 VA: 0xC6F154
+	private Action CallbackFunc2; // 0x230
+	protected int callbackCount; // 0x238
+	protected EventServantFatigueListViewManager.RequestCallbackFunc requestCallback; // 0x240
+	private Action<bool, UserServantEntity> selectAfterCallback; // 0x248
+	protected static ListViewSort servantSortStatus; // 0x8
 
 	// Properties
-	protected override GameObject closeBtnObject { get; }
+	public List<EventServantFatigueListViewObject> ObjectList { get; }
+	public List<EventServantFatigueListViewObject> ClippingObjectList { get; }
+	public EventServantFatigueListViewManager.ModeKind ListModeKind { get; }
 
 	// Methods
 
-	// RVA: 0x1E0A394 Offset: 0x1E0A394 VA: 0x1E0A394
+	// RVA: 0x16E24F4 Offset: 0x16E24F4 VA: 0x16E24F4
 	public void .ctor() { }
 
-	// RVA: 0x1E0A474 Offset: 0x1E0A474 VA: 0x1E0A474
-	public void Init() { }
+	// RVA: 0x16E2504 Offset: 0x16E2504 VA: 0x16E2504
+	protected void add_Callback(EventServantFatigueListViewManager.CallbackFunc value) { }
 
-	// RVA: 0x1E0A4BC Offset: 0x1E0A4BC VA: 0x1E0A4BC
-	public void Open(int[] giftIds, BattleDropItem[] pointRewards, TreasureBoxDialogComponent.DialogType type, TreasureBoxEntity treasureBoxEnt, Action closeCallback, string eventItemName) { }
+	// RVA: 0x16E25F4 Offset: 0x16E25F4 VA: 0x16E25F4
+	protected void remove_Callback(EventServantFatigueListViewManager.CallbackFunc value) { }
 
-	// RVA: 0x1E0BBDC Offset: 0x1E0BBDC VA: 0x1E0BBDC
-	public void OnClickCloseButton() { }
+	// RVA: 0x16E26E4 Offset: 0x16E26E4 VA: 0x16E26E4
+	protected void add_CallbackFunc2(Action value) { }
 
-	// RVA: 0x1E0BC94 Offset: 0x1E0BC94 VA: 0x1E0BC94
-	public void Close(Action callback) { }
+	// RVA: 0x16E27D4 Offset: 0x16E27D4 VA: 0x16E27D4
+	protected void remove_CallbackFunc2(Action value) { }
 
-	// RVA: 0x1E0B5D8 Offset: 0x1E0B5D8 VA: 0x1E0B5D8
-	public void SetResultData(int[] resultIds, int treasureIconId, Action callBack) { }
+	// RVA: 0x16E28C4 Offset: 0x16E28C4 VA: 0x16E28C4
+	public static void DeleteContinueData() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD3D9C4 Offset: 0xD3D9C4 VA: 0xD3D9C4
-	// RVA: 0x1E0BE9C Offset: 0x1E0BE9C VA: 0x1E0BE9C
-	private IEnumerator StartDisp() { }
+	// RVA: 0x16E2940 Offset: 0x16E2940 VA: 0x16E2940
+	public static void InitLoad() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD3D9D4 Offset: 0xD3D9D4 VA: 0xD3D9D4
-	// RVA: 0x1E0BF14 Offset: 0x1E0BF14 VA: 0x1E0BF14
-	private IEnumerator StartRewardAction(TreasureBoxDialogComponent.RewardAction rewardAction) { }
+	// RVA: 0x16E29BC Offset: 0x16E29BC VA: 0x16E29BC
+	public List<EventServantFatigueListViewObject> get_ObjectList() { }
 
-	// RVA: 0x1E0BFB0 Offset: 0x1E0BFB0 VA: 0x1E0BFB0
-	public void SetListData(int[] giftIds, BattleDropItem[] pointRewards) { }
+	// RVA: 0x16E2B30 Offset: 0x16E2B30 VA: 0x16E2B30
+	public List<EventServantFatigueListViewObject> get_ClippingObjectList() { }
 
-	// RVA: 0x1E0C15C Offset: 0x1E0C15C VA: 0x1E0C15C
-	private void SetIcon(GiftEntity gift, BattleDropItem pointRewards) { }
+	// RVA: 0x16E2D2C Offset: 0x16E2D2C VA: 0x16E2D2C
+	private void Update() { }
 
-	// RVA: 0x1E0B364 Offset: 0x1E0B364 VA: 0x1E0B364
-	private void SetNextItemLabel(long userEventPoint, EventRewardEntity eventRewardEnt) { }
+	// RVA: 0x16E2E08 Offset: 0x16E2E08 VA: 0x16E2E08
+	private void UpdateDisp() { }
 
-	// RVA: 0x1E0C47C Offset: 0x1E0C47C VA: 0x1E0C47C
-	private void EndClose() { }
+	// RVA: 0x16D48B0 Offset: 0x16D48B0 VA: 0x16D48B0
+	public void CreateList(int eventId, EventServantRecoveryFatigueItem targetItem, Action<bool, UserServantEntity> afterCallback) { }
 
-	// RVA: 0x1E0C4B8 Offset: 0x1E0C4B8 VA: 0x1E0C4B8
-	public void ClickSkip() { }
+	// RVA: 0x16E35BC Offset: 0x16E35BC VA: 0x16E35BC
+	protected void RefreshListDisp() { }
 
-	// RVA: 0x1E0C604 Offset: 0x1E0C604 VA: 0x1E0C604
-	public void OnClickSwitchShowMode() { }
+	// RVA: 0x16E3224 Offset: 0x16E3224 VA: 0x16E3224
+	private void SetStatusKind(EventServantFatigueListViewManager.ModeKind modeKind) { }
 
-	// RVA: 0x1E0BD1C Offset: 0x1E0BD1C VA: 0x1E0BD1C
-	private void SetPossession(ItemIconComponent item, int objectId) { }
+	// RVA: 0x16E36F0 Offset: 0x16E36F0 VA: 0x16E36F0
+	private void SetHeaderMsg() { }
 
-	// RVA: 0x1E0C7AC Offset: 0x1E0C7AC VA: 0x1E0C7AC Slot: 4
-	protected override GameObject get_closeBtnObject() { }
+	// RVA: 0x16E3840 Offset: 0x16E3840 VA: 0x16E3840
+	public void ModifyItem(long usrSvtId) { }
 
-	// RVA: 0x1E0C84C Offset: 0x1E0C84C VA: 0x1E0C84C
+	// RVA: 0x16E3B80 Offset: 0x16E3B80 VA: 0x16E3B80
+	public void ModifyLockItem(long usrSvtId, bool isInit, bool isIconSizeChange = False) { }
+
+	// RVA: 0x16E3F58 Offset: 0x16E3F58 VA: 0x16E3F58
+	public void ModifyList(bool isIconSizeChange = False) { }
+
+	// RVA: 0x16D5330 Offset: 0x16D5330 VA: 0x16D5330
+	public void DestroyList() { }
+
+	// RVA: 0x16E424C Offset: 0x16E424C VA: 0x16E424C
+	public EventServantFatigueListViewItem GetItem(int index) { }
+
+	// RVA: 0x16E42F4 Offset: 0x16E42F4 VA: 0x16E42F4 Slot: 4
+	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
+
+	// RVA: 0x16E442C Offset: 0x16E442C VA: 0x16E442C
+	public void SetMode(EventServantFatigueListViewManager.InitMode mode, EventServantFatigueListViewManager.CallbackFunc callback) { }
+
+	// RVA: 0x16D5034 Offset: 0x16D5034 VA: 0x16D5034
+	public void SetMode(EventServantFatigueListViewManager.InitMode mode, Action callback) { }
+
+	// RVA: 0x16E4434 Offset: 0x16E4434 VA: 0x16E4434
+	public void SetMode(EventServantFatigueListViewManager.InitMode mode) { }
+
+	// RVA: 0x16E44A8 Offset: 0x16E44A8 VA: 0x16E44A8
+	protected void RequestListObject(EventServantFatigueListViewObject.InitMode mode, float delay = 0) { }
+
+	// RVA: 0x16E46E0 Offset: 0x16E46E0 VA: 0x16E46E0
+	protected void OnMoveEnd() { }
+
+	// RVA: 0x16E47AC Offset: 0x16E47AC VA: 0x16E47AC
+	protected void OnClickListView(ListViewObject obj) { }
+
+	// RVA: 0x16E47B0 Offset: 0x16E47B0 VA: 0x16E47B0
+	protected void OnClickSelectObject(ListViewObject obj) { }
+
+	// RVA: 0x16E55D0 Offset: 0x16E55D0 VA: 0x16E55D0
+	private bool IsMatchIndividuality() { }
+
+	// RVA: 0x16E5830 Offset: 0x16E5830 VA: 0x16E5830
+	private string GetIndividualityName(string[] array) { }
+
+	// RVA: 0x16E50B8 Offset: 0x16E50B8 VA: 0x16E50B8
+	private void GetInRecoveryTime(long recoveryFatigueTime, out string beforeTime, out string afterTime, bool isMatch) { }
+
+	// RVA: 0x16E5318 Offset: 0x16E5318 VA: 0x16E5318
+	private void GetOutRecoveryTime(long recoveryFatigueTime, out string beforeTime, out string afterTime, bool isMatch) { }
+
+	// RVA: 0x16E59AC Offset: 0x16E59AC VA: 0x16E59AC
+	private void CloseRecovertFatigueDialog(bool isDecide) { }
+
+	// RVA: 0x16E5CD8 Offset: 0x16E5CD8 VA: 0x16E5CD8
+	private void CallbackRecoverySyncRequest(string result) { }
+
+	// RVA: 0x16E5D9C Offset: 0x16E5D9C VA: 0x16E5D9C
+	protected void OnLongPushListView(ListViewObject obj) { }
+
+	// RVA: 0x16E5F48 Offset: 0x16E5F48 VA: 0x16E5F48
+	protected void EndShowServant(bool isDecide) { }
+
+	// RVA: 0x16E13F0 Offset: 0x16E13F0 VA: 0x16E13F0
+	public long GetAmountSortValue(int svtId) { }
+
+	// RVA: 0x16E5FD0 Offset: 0x16E5FD0 VA: 0x16E5FD0
+	public void OnClickFilterKind() { }
+
+	// RVA: 0x16E60C4 Offset: 0x16E60C4 VA: 0x16E60C4
+	public void EndSelectFilterKind(bool isDecide) { }
+
+	// RVA: 0x16E3044 Offset: 0x16E3044 VA: 0x16E3044
+	private void SetUpBonusFilterButton(EventUpValSetupInfo setupInfo) { }
+
+	// RVA: 0x16E615C Offset: 0x16E615C VA: 0x16E615C
+	public void OnClickBonusFilterKind() { }
+
+	// RVA: 0x16E3528 Offset: 0x16E3528 VA: 0x16E3528
+	private void SetFilterButtonImage() { }
+
+	// RVA: 0x16E6230 Offset: 0x16E6230 VA: 0x16E6230
+	public void OnClickSortButton() { }
+
+	// RVA: 0x16E6328 Offset: 0x16E6328 VA: 0x16E6328
+	public void EndSelectSortKind(bool isDecide) { }
+
+	// RVA: 0x16E63B8 Offset: 0x16E63B8 VA: 0x16E63B8
+	public void OnClickSortAscendingOrder() { }
+
+	// RVA: 0x16E64A8 Offset: 0x16E64A8 VA: 0x16E64A8 Slot: 5
+	protected override void SetSortButtonImage() { }
+
+	// RVA: 0x16E67F4 Offset: 0x16E67F4 VA: 0x16E67F4
+	private bool GetSwapLockList(out long[] lockList, out long[] unlockList) { }
+
+	// RVA: 0x16E6ADC Offset: 0x16E6ADC VA: 0x16E6ADC
+	private bool GetSwapChoiceList(out long[] choiceList, out long[] unchoiceList) { }
+
+	// RVA: 0x16E6DB0 Offset: 0x16E6DB0 VA: 0x16E6DB0
+	public void OnClickNormalStatus() { }
+
+	// RVA: 0x16E7050 Offset: 0x16E7050 VA: 0x16E7050
+	public void OnClickCollectLock() { }
+
+	// RVA: 0x16E7144 Offset: 0x16E7144 VA: 0x16E7144
+	public void OnClickChoiceTab() { }
+
+	// RVA: 0x16E7238 Offset: 0x16E7238 VA: 0x16E7238
+	public void OnClickPushTab() { }
+
+	// RVA: 0x16E6E74 Offset: 0x16E6E74 VA: 0x16E6E74
+	private void StatusRequest(EventServantFatigueListViewManager.RequestCallbackFunc callback) { }
+
+	// RVA: 0x16E757C Offset: 0x16E757C VA: 0x16E757C
+	private void EndClickTabStatus(bool isRequest) { }
+
+	// RVA: 0x16E75B4 Offset: 0x16E75B4 VA: 0x16E75B4
+	private void EndClickTabLock(bool isRequest) { }
+
+	// RVA: 0x16E75F4 Offset: 0x16E75F4 VA: 0x16E75F4
+	private void EndClickTabChoice(bool isRequest) { }
+
+	// RVA: 0x16E7634 Offset: 0x16E7634 VA: 0x16E7634
+	private void EndClickTabPush(bool isRequest) { }
+
+	// RVA: 0x16E7674 Offset: 0x16E7674 VA: 0x16E7674
+	private void EndStatusSync(string result) { }
+
+	// RVA: 0x16D5304 Offset: 0x16D5304 VA: 0x16D5304
+	public void InitBackListView() { }
+
+	// RVA: 0x16E7694 Offset: 0x16E7694 VA: 0x16E7694
+	public EventServantFatigueListViewManager.ModeKind get_ListModeKind() { }
+
+	// RVA: 0x16E769C Offset: 0x16E769C VA: 0x16E769C
+	public void OnClickBack() { }
+
+	// RVA: 0x16E7734 Offset: 0x16E7734 VA: 0x16E7734
+	public void OnClickScaleChange() { }
+
+	// RVA: 0x16E7888 Offset: 0x16E7888 VA: 0x16E7888
+	private void OnClickSelectPush(ListViewObject obj) { }
+
+	// RVA: 0x16E8048 Offset: 0x16E8048 VA: 0x16E8048
+	private void PushRequest(EventServantFatigueListViewItem selectItem) { }
+
+	// RVA: 0x16E83F0 Offset: 0x16E83F0 VA: 0x16E83F0
+	private void EndPushRequest(string result) { }
+
+	// RVA: 0x16E841C Offset: 0x16E841C VA: 0x16E841C
 	private static void .cctor() { }
 }
 
 // Namespace: 
-public enum TreasureBoxDialogComponent.DialogType // TypeDefIndex: 9897
+public enum EventServantFatigueListViewManager.InitMode // TypeDefIndex: 9897
 {
 	// Fields
 	public int value__; // 0x0
-	public const TreasureBoxDialogComponent.DialogType TreasureBoxLineupDialog = 0;
-	public const TreasureBoxDialogComponent.DialogType GetTreasureBoxItemDialog = 1;
-	public const TreasureBoxDialogComponent.DialogType GetEventPointRewardDialog = 2;
+	public const EventServantFatigueListViewManager.InitMode NONE = 0;
+	public const EventServantFatigueListViewManager.InitMode VALID = 1;
+	public const EventServantFatigueListViewManager.InitMode INPUT = 2;
+	public const EventServantFatigueListViewManager.InitMode MODIFY = 3;
 }
 
 // Namespace: 
-private class TreasureBoxDialogComponent.RewardAction // TypeDefIndex: 9898
+public enum EventServantFatigueListViewManager.ResultKind // TypeDefIndex: 9898
 {
 	// Fields
-	public int index; // 0x10
-	public int playCnt; // 0x14
-	public bool isEnd; // 0x18
-	public Coroutine coroutine; // 0x20
-
-	// Methods
-
-	// RVA: 0x1E0D33C Offset: 0x1E0D33C VA: 0x1E0D33C
-	public void .ctor() { }
+	public int value__; // 0x0
+	public const EventServantFatigueListViewManager.ResultKind NONE = 0;
+	public const EventServantFatigueListViewManager.ResultKind SERVANT_STATUS = 1;
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCB0CD0 Offset: 0xCB0CD0 VA: 0xCB0CD0
-private sealed class TreasureBoxDialogComponent.<Open>c__AnonStorey2 // TypeDefIndex: 9899
+public enum EventServantFatigueListViewManager.ModeKind // TypeDefIndex: 9899
 {
 	// Fields
-	internal int[] giftIds; // 0x10
-	internal BattleDropItem[] pointRewards; // 0x18
-	internal TreasureBoxDialogComponent $this; // 0x20
+	public int value__; // 0x0
+	public const EventServantFatigueListViewManager.ModeKind NORMAL = 0;
+	public const EventServantFatigueListViewManager.ModeKind LOCK = 1;
+	public const EventServantFatigueListViewManager.ModeKind CHOICE = 2;
+	public const EventServantFatigueListViewManager.ModeKind PUSH = 3;
+}
+
+// Namespace: 
+public sealed class EventServantFatigueListViewManager.CallbackFunc : MulticastDelegate // TypeDefIndex: 9900
+{
+	// Methods
+
+	// RVA: 0x16E85BC Offset: 0x16E85BC VA: 0x16E85BC
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x16E85CC Offset: 0x16E85CC VA: 0x16E85CC Slot: 11
+	public virtual void Invoke(EventServantFatigueListViewManager.ResultKind kind, int index) { }
+
+	// RVA: 0x16E8810 Offset: 0x16E8810 VA: 0x16E8810 Slot: 12
+	public virtual IAsyncResult BeginInvoke(EventServantFatigueListViewManager.ResultKind kind, int index, AsyncCallback callback, object object) { }
+
+	// RVA: 0x16E88B8 Offset: 0x16E88B8 VA: 0x16E88B8 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public sealed class EventServantFatigueListViewManager.RequestCallbackFunc : MulticastDelegate // TypeDefIndex: 9901
+{
+	// Methods
+
+	// RVA: 0x16E6E64 Offset: 0x16E6E64 VA: 0x16E6E64
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x16E7350 Offset: 0x16E7350 VA: 0x16E7350 Slot: 11
+	public virtual void Invoke(bool isRequest) { }
+
+	// RVA: 0x16E88C4 Offset: 0x16E88C4 VA: 0x16E88C4 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool isRequest, AsyncCallback callback, object object) { }
+
+	// RVA: 0x16E8954 Offset: 0x16E8954 VA: 0x16E8954 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC44BC4 Offset: 0xC44BC4 VA: 0xC44BC4
+private sealed class EventServantFatigueListViewManager.<OnClickSelectPush>c__AnonStorey0 // TypeDefIndex: 9902
+{
+	// Fields
+	internal EventServantFatigueListViewItem selectItem; // 0x10
+	internal EventServantFatigueListViewManager $this; // 0x18
 
 	// Methods
 
-	// RVA: 0x1E0B35C Offset: 0x1E0B35C VA: 0x1E0B35C
+	// RVA: 0x16E8040 Offset: 0x16E8040 VA: 0x16E8040
 	public void .ctor() { }
 
-	// RVA: 0x1E0C8C0 Offset: 0x1E0C8C0 VA: 0x1E0C8C0
-	internal void <>m__0() { }
+	// RVA: 0x16E84C0 Offset: 0x16E84C0 VA: 0x16E84C0
+	internal void <>m__0(bool isDecide) { }
 
-	// RVA: 0x1E0C954 Offset: 0x1E0C954 VA: 0x1E0C954
+	// RVA: 0x16E858C Offset: 0x16E858C VA: 0x16E858C
 	internal void <>m__1() { }
-
-	// RVA: 0x1E0C9EC Offset: 0x1E0C9EC VA: 0x1E0C9EC
-	internal void <>m__2() { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCB0CE0 Offset: 0xCB0CE0 VA: 0xCB0CE0
-private sealed class TreasureBoxDialogComponent.<StartDisp>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 9900
+public class EventServantFatigueListViewObject : ListViewObject // TypeDefIndex: 9903
 {
 	// Fields
-	internal List<TreasureBoxDialogComponent.RewardAction> <listRewardAction>__1; // 0x10
-	internal int <columnLimit>__2; // 0x18
-	internal int <line>__2; // 0x1C
-	internal float <moving>__2; // 0x20
-	internal float <move>__2; // 0x24
-	internal List.Enumerator<GameObject> $locvar0; // 0x28
-	internal TreasureBoxDialogComponent $this; // 0x40
-	internal object $current; // 0x48
-	internal bool $disposing; // 0x50
-	internal int $PC; // 0x54
+	protected EventServantFatigueListViewObject.State state; // 0x6C
+	[CompilerGeneratedAttribute] // RVA: 0xC6F190 Offset: 0xC6F190 VA: 0xC6F190
+	[DebuggerBrowsableAttribute] // RVA: 0xC6F190 Offset: 0xC6F190 VA: 0xC6F190
+	private Action CallbackFunc; // 0x70
+	protected EventServantFatigueListViewItemDraw itemDraw; // 0x78
+	protected EventServantFatigueListViewItemDraw.DispMode dispMode; // 0x80
+
+	// Methods
+
+	// RVA: 0x16E8960 Offset: 0x16E8960 VA: 0x16E8960
+	public void .ctor() { }
+
+	// RVA: 0x16E89C8 Offset: 0x16E89C8 VA: 0x16E89C8
+	protected void add_CallbackFunc(Action value) { }
+
+	// RVA: 0x16E8AB4 Offset: 0x16E8AB4 VA: 0x16E8AB4
+	protected void remove_CallbackFunc(Action value) { }
+
+	// RVA: 0x16E8BA0 Offset: 0x16E8BA0 VA: 0x16E8BA0
+	protected void Awake() { }
+
+	// RVA: 0x16E8C14 Offset: 0x16E8C14 VA: 0x16E8C14
+	private void Start() { }
+
+	// RVA: 0x16E2CA8 Offset: 0x16E2CA8 VA: 0x16E2CA8
+	public EventServantFatigueListViewItem GetItem() { }
+
+	// RVA: 0x16E8C28 Offset: 0x16E8C28 VA: 0x16E8C28 Slot: 6
+	public override void SetItem(ListViewItem item, ListViewItemSeed seed) { }
+
+	// RVA: 0x16E8C58 Offset: 0x16E8C58 VA: 0x16E8C58 Slot: 5
+	public override void SetItem(ListViewItem item) { }
+
+	// RVA: 0x16E8C50 Offset: 0x16E8C50 VA: 0x16E8C50
+	protected void InitItem() { }
+
+	// RVA: 0x16E8C80 Offset: 0x16E8C80 VA: 0x16E8C80
+	public void Init(EventServantFatigueListViewObject.InitMode initMode, Action callbackFunc, float delay, Vector3 position) { }
+
+	// RVA: 0x16E8F74 Offset: 0x16E8F74 VA: 0x16E8F74
+	public void Init(EventServantFatigueListViewObject.InitMode initMode, Action callbackFunc, float delay) { }
+
+	// RVA: 0x16E465C Offset: 0x16E465C VA: 0x16E465C
+	public void Init(EventServantFatigueListViewObject.InitMode initMode, Action callbackFunc) { }
+
+	// RVA: 0x16E43AC Offset: 0x16E43AC VA: 0x16E43AC
+	public void Init(EventServantFatigueListViewObject.InitMode initMode) { }
+
+	// RVA: 0x16E8E64 Offset: 0x16E8E64 VA: 0x16E8E64
+	protected void SetupDisp() { }
+
+	// RVA: 0x16E2F58 Offset: 0x16E2F58 VA: 0x16E2F58
+	public void UpdateDisp() { }
+
+	// RVA: 0x16E8FF8 Offset: 0x16E8FF8 VA: 0x16E8FF8 Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0x16E90C8 Offset: 0x16E90C8 VA: 0x16E90C8
+	public void OnClickSelect() { }
+
+	// RVA: 0x16E9314 Offset: 0x16E9314 VA: 0x16E9314
+	public void OnLongPush() { }
+}
+
+// Namespace: 
+public enum EventServantFatigueListViewObject.InitMode // TypeDefIndex: 9904
+{
+	// Fields
+	public int value__; // 0x0
+	public const EventServantFatigueListViewObject.InitMode INVISIBLE = 0;
+	public const EventServantFatigueListViewObject.InitMode INVALID = 1;
+	public const EventServantFatigueListViewObject.InitMode VALID = 2;
+	public const EventServantFatigueListViewObject.InitMode INPUT = 3;
+	public const EventServantFatigueListViewObject.InitMode MODIFY = 4;
+}
+
+// Namespace: 
+public enum EventServantFatigueListViewObject.State // TypeDefIndex: 9905
+{
+	// Fields
+	public int value__; // 0x0
+	public const EventServantFatigueListViewObject.State INIT = 0;
+	public const EventServantFatigueListViewObject.State IDLE = 1;
+	public const EventServantFatigueListViewObject.State MOVE = 2;
+	public const EventServantFatigueListViewObject.State INPUT = 3;
+}
+
+// Namespace: 
+public class EventServantRecoveryFatigueItem : MonoBehaviour // TypeDefIndex: 9906
+{
+	// Fields
+	protected static readonly string EMPTY_BG_NAME; // 0x0
+	private static readonly string OPEN_CLIP_NAME; // 0x8
+	[SerializeField] // RVA: 0xC6F1CC Offset: 0xC6F1CC VA: 0xC6F1CC
+	protected UICommonButton baseButton; // 0x18
+	[SerializeField] // RVA: 0xC6F1DC Offset: 0xC6F1DC VA: 0xC6F1DC
+	protected ServantFaceIconComponent servantFaceIcon; // 0x20
+	[SerializeField] // RVA: 0xC6F1EC Offset: 0xC6F1EC VA: 0xC6F1EC
+	protected UISprite emptySprite; // 0x28
+	[SerializeField] // RVA: 0xC6F1FC Offset: 0xC6F1FC VA: 0xC6F1FC
+	protected UILabel fatigueRecoveryTimeLabel; // 0x30
+	[SerializeField] // RVA: 0xC6F20C Offset: 0xC6F20C VA: 0xC6F20C
+	private GameObject nameSprite; // 0x38
+	[SerializeField] // RVA: 0xC6F21C Offset: 0xC6F21C VA: 0xC6F21C
+	private GameObject frameSprite; // 0x40
+	[SerializeField] // RVA: 0xC6F22C Offset: 0xC6F22C VA: 0xC6F22C
+	private SimpleAnimation simpleAnimation; // 0x48
+	[SerializeField] // RVA: 0xC6F23C Offset: 0xC6F23C VA: 0xC6F23C
+	private Animation animation; // 0x50
+	private UserServantEntity userServantEntity; // 0x58
+	private int index; // 0x60
+	private long fatigueTime; // 0x68
+	private bool isFatigueRecover; // 0x70
+	private Action<int> clickCallback; // 0x78
+	private long updateTime; // 0x80
+	private EventFatigueRecoveryEntity eventFatigueRecoveryEnt; // 0x88
 
 	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
+	public UserServantEntity UserServantEntity { get; }
+	public int Index { get; }
+	public long FatigueTime { get; }
+	public string Name { get; }
+	public int[] Individuality { get; }
+	public string[] IndividualityName { get; }
+	public int Idx { get; }
+	public int RecoveryRate { get; }
+	public int IndividualityRate { get; }
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xD497F4 Offset: 0xD497F4 VA: 0xD497F4
-	// RVA: 0x1E0BF0C Offset: 0x1E0BF0C VA: 0x1E0BF0C
+	// RVA: 0x16EA524 Offset: 0x16EA524 VA: 0x16EA524
 	public void .ctor() { }
 
-	// RVA: 0x1E0CA50 Offset: 0x1E0CA50 VA: 0x1E0CA50 Slot: 5
-	public bool MoveNext() { }
+	// RVA: 0x16EA534 Offset: 0x16EA534 VA: 0x16EA534
+	private void Update() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD49804 Offset: 0xD49804 VA: 0xD49804
-	// RVA: 0x1E0D344 Offset: 0x1E0D344 VA: 0x1E0D344 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+	// RVA: 0x16EA748 Offset: 0x16EA748 VA: 0x16EA748
+	public void Init() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD49814 Offset: 0xD49814 VA: 0xD49814
-	// RVA: 0x1E0D34C Offset: 0x1E0D34C VA: 0x1E0D34C Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
+	// RVA: 0x16EA998 Offset: 0x16EA998 VA: 0x16EA998
+	public void SetServantInfo(UserServantEntity userServantEntity, int eventId, int index, Action<int> callback) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD49824 Offset: 0xD49824 VA: 0xD49824
-	// RVA: 0x1E0D354 Offset: 0x1E0D354 VA: 0x1E0D354 Slot: 7
-	public void Dispose() { }
+	// RVA: 0x16EA5CC Offset: 0x16EA5CC VA: 0x16EA5CC
+	private void UpdateDisp() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD49834 Offset: 0xD49834 VA: 0xD49834
-	// RVA: 0x1E0D368 Offset: 0x1E0D368 VA: 0x1E0D368 Slot: 6
-	public void Reset() { }
+	// RVA: 0x16EAFE0 Offset: 0x16EAFE0 VA: 0x16EAFE0
+	public void OnClickItem() { }
+
+	// RVA: 0x16E321C Offset: 0x16E321C VA: 0x16E321C
+	public UserServantEntity get_UserServantEntity() { }
+
+	// RVA: 0x16EB088 Offset: 0x16EB088 VA: 0x16EB088
+	public int get_Index() { }
+
+	// RVA: 0x16EB090 Offset: 0x16EB090 VA: 0x16EB090
+	public long get_FatigueTime() { }
+
+	// RVA: 0x16E52EC Offset: 0x16E52EC VA: 0x16E52EC
+	public string get_Name() { }
+
+	// RVA: 0x16E1844 Offset: 0x16E1844 VA: 0x16E1844
+	public int[] get_Individuality() { }
+
+	// RVA: 0x16EB098 Offset: 0x16EB098 VA: 0x16EB098
+	public string[] get_IndividualityName() { }
+
+	// RVA: 0x16E5CAC Offset: 0x16E5CAC VA: 0x16E5CAC
+	public int get_Idx() { }
+
+	// RVA: 0x16E5994 Offset: 0x16E5994 VA: 0x16E5994
+	public int get_RecoveryRate() { }
+
+	// RVA: 0x16E597C Offset: 0x16E597C VA: 0x16E597C
+	public int get_IndividualityRate() { }
+
+	// RVA: 0x16EB0C4 Offset: 0x16EB0C4 VA: 0x16EB0C4
+	public bool IsAnimation() { }
+
+	// RVA: 0x16EB180 Offset: 0x16EB180 VA: 0x16EB180
+	public void SetAnimationPlay(int no) { }
+
+	// RVA: 0x16EB518 Offset: 0x16EB518 VA: 0x16EB518
+	private static void .cctor() { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCB0CF0 Offset: 0xCB0CF0 VA: 0xCB0CF0
-private sealed class TreasureBoxDialogComponent.<StartRewardAction>c__Iterator1 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 9901
+public class EventServantRecoveryFatigueManager : MonoBehaviour // TypeDefIndex: 9907
 {
 	// Fields
-	internal int <i>__1; // 0x10
-	internal TreasureBoxDialogComponent.RewardAction rewardAction; // 0x18
-	internal GameObject <fallEffectObj>__0; // 0x20
-	internal TreasureBoxDialogComponent $this; // 0x28
+	protected const string BTN_ON = "btn_on";
+	protected const string BTN_OFF = "btn_off";
+	protected static readonly string BG_FILE; // 0x0
+	private static readonly int defaultEventId; // 0x8
+	protected static readonly EventServantRecoveryFatigueManager.EffectSet[] effectSet; // 0x10
+	[SerializeField] // RVA: 0xC6F24C Offset: 0xC6F24C VA: 0xC6F24C
+	protected ExUITexture bgTexture; // 0x18
+	[SerializeField] // RVA: 0xC6F25C Offset: 0xC6F25C VA: 0xC6F25C
+	protected List<EventServantRecoveryFatigueItem> servantItemList; // 0x20
+	[SerializeField] // RVA: 0xC6F26C Offset: 0xC6F26C VA: 0xC6F26C
+	[HeaderAttribute] // RVA: 0xC6F26C Offset: 0xC6F26C VA: 0xC6F26C
+	private string settingSe; // 0x28
+	public GameObject fatigueNotice; // 0x30
+	public UIButton fatigueNoticeBtn; // 0x38
+	private bool isFatigueNotice; // 0x40
+	protected static AssetData assetData; // 0x18
+	[SerializeField] // RVA: 0xC6F2B8 Offset: 0xC6F2B8 VA: 0xC6F2B8
+	[HeaderAttribute] // RVA: 0xC6F2B8 Offset: 0xC6F2B8 VA: 0xC6F2B8
+	private float openEffectTime; // 0x44
+	[SerializeField] // RVA: 0xC6F304 Offset: 0xC6F304 VA: 0xC6F304
+	[HeaderAttribute] // RVA: 0xC6F304 Offset: 0xC6F304 VA: 0xC6F304
+	private float endEffectTime; // 0x48
+	private GameObject maskPanel; // 0x50
+	private int maskCount; // 0x58
+	private Action endOpenEffectCallback; // 0x60
+	[CompilerGeneratedAttribute] // RVA: 0xC6F350 Offset: 0xC6F350 VA: 0xC6F350
+	private static AssetLoader.LoadEndDataHandler <>f__am$cache0; // 0x20
+
+	// Methods
+
+	// RVA: 0x16EB58C Offset: 0x16EB58C VA: 0x16EB58C
+	public void .ctor() { }
+
+	// RVA: 0x16D7238 Offset: 0x16D7238 VA: 0x16D7238
+	public string GetSettingSe() { }
+
+	// RVA: 0x16EB5F0 Offset: 0x16EB5F0 VA: 0x16EB5F0
+	public void Init() { }
+
+	// RVA: 0x16D5374 Offset: 0x16D5374 VA: 0x16D5374
+	public void SetServantRecoveryFatigue(int eventId, Action<int> onClick, Action endCallback) { }
+
+	// RVA: 0x16EBB18 Offset: 0x16EBB18 VA: 0x16EBB18
+	public void SetMaskPanel(GameObject maskPanel) { }
+
+	// RVA: 0x16EBB20 Offset: 0x16EBB20 VA: 0x16EBB20
+	public EventServantRecoveryFatigueItem GetItem(int index) { }
+
+	// RVA: 0x16EBBFC Offset: 0x16EBBFC VA: 0x16EBBFC
+	public void ModifyItem(UserServantEntity userServantEntity, int eventId, int index) { }
+
+	// RVA: 0x16EB6BC Offset: 0x16EB6BC VA: 0x16EB6BC
+	public void SetRecoveryBg(int eventId) { }
+
+	// RVA: 0x16EB8BC Offset: 0x16EB8BC VA: 0x16EB8BC
+	public void SetPreRecoveryBg(int eventId) { }
+
+	// RVA: 0x16EB840 Offset: 0x16EB840 VA: 0x16EB840
+	private void setNoticeValue() { }
+
+	// RVA: 0x16EBF30 Offset: 0x16EBF30 VA: 0x16EBF30
+	public void OnNoticeChangeBtn() { }
+
+	// RVA: 0x16EBD0C Offset: 0x16EBD0C VA: 0x16EBD0C
+	private void loadAssetData(int eventId) { }
+
+	// RVA: 0x16EC020 Offset: 0x16EC020 VA: 0x16EC020
+	public bool IsMask() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD04D0 Offset: 0xCD04D0 VA: 0xCD04D0
+	// RVA: 0x16EBA3C Offset: 0x16EBA3C VA: 0x16EBA3C
+	public IEnumerator SetOpenEffect(EventServantRecoveryFatigueItem item, int eventId, int num, Action<int> onClick) { }
+
+	// RVA: 0x16EC038 Offset: 0x16EC038 VA: 0x16EC038
+	private bool IsFade() { }
+
+	// RVA: 0x16EC0CC Offset: 0x16EC0CC VA: 0x16EC0CC
+	public static GameObject getEffect(int eventId, int num, Transform parentTr) { }
+
+	// RVA: 0x16EC344 Offset: 0x16EC344 VA: 0x16EC344
+	private static void .cctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCD04E0 Offset: 0xCD04E0 VA: 0xCD04E0
+	// RVA: 0x16EC7BC Offset: 0x16EC7BC VA: 0x16EC7BC
+	private static void <loadAssetData>m__0(AssetData data) { }
+}
+
+// Namespace: 
+protected struct EventServantRecoveryFatigueManager.EffectSet // TypeDefIndex: 9908
+{
+	// Fields
+	public int eventId; // 0x0
+	public int num; // 0x4
+	public Vector3 pos; // 0x8
+	public string fileName; // 0x18
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC44BD4 Offset: 0xC44BD4 VA: 0xC44BD4
+private sealed class EventServantRecoveryFatigueManager.<SetOpenEffect>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 9909
+{
+	// Fields
+	internal EventServantRecoveryFatigueItem item; // 0x10
+	internal int num; // 0x18
+	internal int eventId; // 0x1C
+	internal Action<int> onClick; // 0x20
+	internal EventServantRecoveryFatigueManager $this; // 0x28
 	internal object $current; // 0x30
 	internal bool $disposing; // 0x38
 	internal int $PC; // 0x3C
@@ -195,806 +630,371 @@ private sealed class TreasureBoxDialogComponent.<StartRewardAction>c__Iterator1 
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xD49844 Offset: 0xD49844 VA: 0xD49844
-	// RVA: 0x1E0BFA8 Offset: 0x1E0BFA8 VA: 0x1E0BFA8
+	[DebuggerHiddenAttribute] // RVA: 0xCDC530 Offset: 0xCDC530 VA: 0xCDC530
+	// RVA: 0x16EC030 Offset: 0x16EC030 VA: 0x16EC030
 	public void .ctor() { }
 
-	// RVA: 0x1E0D3D0 Offset: 0x1E0D3D0 VA: 0x1E0D3D0 Slot: 5
+	// RVA: 0x16EC82C Offset: 0x16EC82C VA: 0x16EC82C Slot: 5
 	public bool MoveNext() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD49854 Offset: 0xD49854 VA: 0xD49854
-	// RVA: 0x1E0D82C Offset: 0x1E0D82C VA: 0x1E0D82C Slot: 8
+	[DebuggerHiddenAttribute] // RVA: 0xCDC540 Offset: 0xCDC540 VA: 0xCDC540
+	// RVA: 0x16ECC50 Offset: 0x16ECC50 VA: 0x16ECC50 Slot: 8
 	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD49864 Offset: 0xD49864 VA: 0xD49864
-	// RVA: 0x1E0D834 Offset: 0x1E0D834 VA: 0x1E0D834 Slot: 4
+	[DebuggerHiddenAttribute] // RVA: 0xCDC550 Offset: 0xCDC550 VA: 0xCDC550
+	// RVA: 0x16ECC58 Offset: 0x16ECC58 VA: 0x16ECC58 Slot: 4
 	private object System.Collections.IEnumerator.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD49874 Offset: 0xD49874 VA: 0xD49874
-	// RVA: 0x1E0D83C Offset: 0x1E0D83C VA: 0x1E0D83C Slot: 7
+	[DebuggerHiddenAttribute] // RVA: 0xCDC560 Offset: 0xCDC560 VA: 0xCDC560
+	// RVA: 0x16ECC60 Offset: 0x16ECC60 VA: 0x16ECC60 Slot: 7
 	public void Dispose() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xD49884 Offset: 0xD49884 VA: 0xD49884
-	// RVA: 0x1E0D850 Offset: 0x1E0D850 VA: 0x1E0D850 Slot: 6
+	[DebuggerHiddenAttribute] // RVA: 0xCDC570 Offset: 0xCDC570 VA: 0xCDC570
+	// RVA: 0x16ECC74 Offset: 0x16ECC74 VA: 0x16ECC74 Slot: 6
 	public void Reset() { }
+
+	// RVA: 0x16ECCDC Offset: 0x16ECCDC VA: 0x16ECCDC
+	internal bool <>m__0() { }
 }
 
 // Namespace: 
-public class FollowerQuestInfomationDraw : MonoBehaviour // TypeDefIndex: 9902
+public class EventTowerListViewItem : ListViewItem // TypeDefIndex: 9910
 {
 	// Fields
-	[SerializeField] // RVA: 0xCDC368 Offset: 0xCDC368 VA: 0xCDC368
-	protected UIPanel infomationPanel; // 0x18
-	[SerializeField] // RVA: 0xCDC378 Offset: 0xCDC378 VA: 0xCDC378
-	protected GameObject trendInfoBase; // 0x20
-	[SerializeField] // RVA: 0xCDC388 Offset: 0xCDC388 VA: 0xCDC388
-	protected GameObject levelInfoBase; // 0x28
-	[SerializeField] // RVA: 0xCDC398 Offset: 0xCDC398 VA: 0xCDC398
-	protected Transform levelInfoTrans; // 0x30
-	[SerializeField] // RVA: 0xCDC3A8 Offset: 0xCDC3A8 VA: 0xCDC3A8
-	protected UILabel levelInfoLabel; // 0x38
-	[SerializeField] // RVA: 0xCDC3B8 Offset: 0xCDC3B8 VA: 0xCDC3B8
-	protected GameObject classInfoBase; // 0x40
-	[SerializeField] // RVA: 0xCDC3C8 Offset: 0xCDC3C8 VA: 0xCDC3C8
-	protected ServantClassIconComponent[] classIconList; // 0x48
-	[SerializeField] // RVA: 0xCDC3D8 Offset: 0xCDC3D8 VA: 0xCDC3D8
-	protected Transform restrictionMessageBase; // 0x50
-	[SerializeField] // RVA: 0xCDC3E8 Offset: 0xCDC3E8 VA: 0xCDC3E8
-	protected UILabel restrictionMessageLabel; // 0x58
-	protected QuestRestrictionInfo questRestrictionInfo; // 0x60
-	protected bool isDispTrend; // 0x68
-	protected int dispNum; // 0x6C
-	protected IEnumerator dispCRW; // 0x70
-	protected bool isClick; // 0x78
-	protected int baseMessageWidth; // 0x7C
-
-	// Methods
-
-	// RVA: 0x19075A4 Offset: 0x19075A4 VA: 0x19075A4
-	public void .ctor() { }
-
-	// RVA: 0x19075B4 Offset: 0x19075B4 VA: 0x19075B4
-	protected void Awake() { }
-
-	// RVA: 0x190760C Offset: 0x190760C VA: 0x190760C
-	public void SetInfomation(QuestRestrictionInfo questRestrictionInfo) { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD3D9E4 Offset: 0xD3D9E4 VA: 0xD3D9E4
-	// RVA: 0x1907C18 Offset: 0x1907C18 VA: 0x1907C18
-	private IEnumerator DispTotalDropItemCR() { }
-
-	// RVA: 0x1907C88 Offset: 0x1907C88 VA: 0x1907C88
-	protected void StopTotalDropItemtweenAlpha() { }
-
-	// RVA: 0x1907730 Offset: 0x1907730 VA: 0x1907730
-	protected bool SetTrendDisp() { }
-
-	// RVA: 0x1907D68 Offset: 0x1907D68 VA: 0x1907D68
-	protected bool SetRestrictionDisp(RestrictionEntity restrictionEntity) { }
-
-	// RVA: 0x1907F88 Offset: 0x1907F88 VA: 0x1907F88
-	public void OnClick() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCB0D00 Offset: 0xCB0D00 VA: 0xCB0D00
-private sealed class FollowerQuestInfomationDraw.<DispTotalDropItemCR>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 9903
-{
-	// Fields
-	internal RestrictionEntity[] <restrictionEntityList>__0; // 0x10
-	internal int <restrictionCount>__0; // 0x18
-	internal TweenAlpha <ta>__1; // 0x20
-	internal WaitForEndOfFrame <wait>__2; // 0x28
-	internal float <startTime>__3; // 0x30
-	internal float <nowTime>__4; // 0x34
-	internal WaitForEndOfFrame <wait>__5; // 0x38
-	internal FollowerQuestInfomationDraw $this; // 0x40
-	internal object $current; // 0x48
-	internal bool $disposing; // 0x50
-	internal int $PC; // 0x54
+	private bool isClearFloor; // 0x70
+	private bool isOpenFloor; // 0x71
+	private string rewardName; // 0x78
+	private string rewardNum; // 0x80
+	private EventTowerRewardEntity itemInfo; // 0x88
+	private GiftEntity clearReward; // 0x90
+	private ItemEntity itemEntity; // 0x98
+	private ServantEntity servantEntity; // 0xA0
+	private ServantCostumeEntity servantCostumeEntity; // 0xA8
 
 	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
+	public bool IsFloorClear { get; }
+	public int BannerId { get; }
+	public string BoardMessage { get; }
+	public int IconId { get; }
+	public ItemEntity ItemEntity { get; }
+	public ServantEntity ServantEntity { get; }
+	public ServantCostumeEntity ServantCostumeEntity { get; }
+	public Gift.Type GiftType { get; }
+	public int RewardNum { get; }
+	public int RewardObjectId { get; }
+	public int EventId { get; }
+	public string RewardName { get; }
+	public string RewardDispNum { get; }
+	public bool IsOpenFloor { get; }
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xD49894 Offset: 0xD49894 VA: 0xD49894
-	// RVA: 0x1907F80 Offset: 0x1907F80 VA: 0x1907F80
-	public void .ctor() { }
+	// RVA: 0x109FAF8 Offset: 0x109FAF8 VA: 0x109FAF8
+	public void .ctor(EventTowerRewardEntity targetEntity, bool isClearFloor, bool isOpenFloor) { }
 
-	// RVA: 0x190800C Offset: 0x190800C VA: 0x190800C Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD498A4 Offset: 0xD498A4 VA: 0xD498A4
-	// RVA: 0x190878C Offset: 0x190878C VA: 0x190878C Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD498B4 Offset: 0xD498B4 VA: 0xD498B4
-	// RVA: 0x1908794 Offset: 0x1908794 VA: 0x1908794 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD498C4 Offset: 0xD498C4 VA: 0xD498C4
-	// RVA: 0x190879C Offset: 0x190879C VA: 0x190879C Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD498D4 Offset: 0xD498D4 VA: 0xD498D4
-	// RVA: 0x19087B0 Offset: 0x19087B0 VA: 0x19087B0 Slot: 6
-	public void Reset() { }
-}
-
-// Namespace: 
-public class FollowerRootComponent : SceneRootComponent // TypeDefIndex: 9904
-{
-	// Fields
-	private static readonly int LIST_UPDATE_MESSAGE_FONT_SIZE; // 0x0
-	protected static UIAtlas partyOrganizationAtlasCache; // 0x8
-	[SerializeField] // RVA: 0xCDC3F8 Offset: 0xCDC3F8 VA: 0xCDC3F8
-	protected UIAtlas partyOrganizationAtlas; // 0x38
-	[SerializeField] // RVA: 0xCDC408 Offset: 0xCDC408 VA: 0xCDC408
-	protected UISkinSprite backSkinSprite; // 0x40
-	[SerializeField] // RVA: 0xCDC418 Offset: 0xCDC418 VA: 0xCDC418
-	protected FollowerQuestInfomationDraw followerQuestInfomationDraw; // 0x48
-	[SerializeField] // RVA: 0xCDC428 Offset: 0xCDC428 VA: 0xCDC428
-	protected FollowerSelectItemListViewManager operationItemListViewManager; // 0x50
-	[SerializeField] // RVA: 0xCDC438 Offset: 0xCDC438 VA: 0xCDC438
-	protected UILabel infomationLabel; // 0x58
-	[SerializeField] // RVA: 0xCDC448 Offset: 0xCDC448 VA: 0xCDC448
-	protected GameObject refreshButtonBase; // 0x60
-	[SerializeField] // RVA: 0xCDC458 Offset: 0xCDC458 VA: 0xCDC458
-	protected TitleInfoControl titleInfo; // 0x68
-	[SerializeField] // RVA: 0xCDC468 Offset: 0xCDC468 VA: 0xCDC468
-	protected GameObject tutorialMaskBase; // 0x70
-	[SerializeField] // RVA: 0xCDC478 Offset: 0xCDC478 VA: 0xCDC478
-	protected GameObject tutorialMaskBase2; // 0x78
-	[SerializeField] // RVA: 0xCDC488 Offset: 0xCDC488 VA: 0xCDC488
-	protected CommonConfirmDialog commonConfirmDialog; // 0x80
-	protected BattleSetupInfo battleSetupInfo; // 0x88
-	protected int friendPointUpVal; // 0x90
-	protected int friendPointUpMaxVal; // 0x94
-	protected EventCampaignEntity[] friendPointCampaignEntityList; // 0x98
-	protected static readonly int RETURN_TERMINAL_MESSAGE_FONT_SIZE; // 0x10
-	protected static readonly int RETURN_TERMINAL_MESSAGE_POSITION_Y; // 0x14
-	protected static readonly int RETURN_TERMINAL_MESSAGE_SPACING_Y; // 0x18
-	protected FollowerRootComponent.TutorialMode tutorialMode; // 0xA0
-	protected FollowerRootComponent.TutorialState tutorialState; // 0xA4
-	protected FollowerRootComponent.State state; // 0xA8
-	protected int selectItemNum; // 0xAC
-	protected string selectFriendCode; // 0xB0
-	protected Vector3 openScroll; // 0xB8
-	protected Vector2 openOffset; // 0xC4
-	[CompilerGeneratedAttribute] // RVA: 0xCDC498 Offset: 0xCDC498 VA: 0xCDC498
-	private static Action <>f__am$cache0; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xCDC4A8 Offset: 0xCDC4A8 VA: 0xCDC4A8
-	private static Action <>f__am$cache1; // 0x28
-
-	// Methods
-
-	// RVA: 0x1908818 Offset: 0x1908818 VA: 0x1908818
-	public void .ctor() { }
-
-	// RVA: 0x1908820 Offset: 0x1908820 VA: 0x1908820
-	public static bool SetFollowerBase(UISprite sprite, string spriteName) { }
-
-	// RVA: 0x19088CC Offset: 0x19088CC VA: 0x19088CC Slot: 4
-	public override void beginInitialize() { }
-
-	// RVA: 0x1908940 Offset: 0x1908940 VA: 0x1908940 Slot: 5
-	public override void beginStartUp(object data) { }
-
-	// RVA: 0x190925C Offset: 0x190925C VA: 0x190925C
-	private void PlayBGM() { }
-
-	// RVA: 0x190A06C Offset: 0x190A06C VA: 0x190A06C
-	protected void EndLoadCommonBg() { }
-
-	// RVA: 0x190A138 Offset: 0x190A138 VA: 0x190A138
-	protected void EndLoadOutGameAtlas() { }
-
-	// RVA: 0x190A1D0 Offset: 0x190A1D0 VA: 0x190A1D0
-	protected void EndLoadEventAtlas() { }
-
-	// RVA: 0x190A210 Offset: 0x190A210 VA: 0x190A210 Slot: 9
-	public override void beginResume(object data) { }
-
-	// RVA: 0x190AF48 Offset: 0x190AF48 VA: 0x190AF48 Slot: 7
-	public override void beginFinish() { }
-
-	// RVA: 0x190B070 Offset: 0x190B070 VA: 0x190B070
-	public void RequestFollowerList() { }
-
-	// RVA: 0x190B1A0 Offset: 0x190B1A0 VA: 0x190B1A0
-	protected void CallbackFollowerList(string result) { }
-
-	// RVA: 0x190B204 Offset: 0x190B204 VA: 0x190B204
-	public void Init() { }
-
-	// RVA: 0x19095CC Offset: 0x19095CC VA: 0x19095CC
-	private void UpdateDeckInfomation() { }
-
-	// RVA: 0x190B67C Offset: 0x190B67C VA: 0x190B67C
-	public void Quit() { }
-
-	// RVA: 0x190B6F0 Offset: 0x190B6F0 VA: 0x190B6F0
-	public void SelectShowServant(FollowerSelectItemListViewItem item) { }
-
-	// RVA: 0x190B7F0 Offset: 0x190B7F0 VA: 0x190B7F0
-	protected void EndShowServant(bool isDecide) { }
-
-	// RVA: 0x190B8E8 Offset: 0x190B8E8 VA: 0x190B8E8
-	protected void EndCloseShowServant() { }
-
-	// RVA: 0x190B97C Offset: 0x190B97C VA: 0x190B97C
-	public void SelectShowServantEquip(EquipTargetInfo equipInfo, ServantStatusDialog.Kind statusKind) { }
-
-	// RVA: 0x190BA68 Offset: 0x190BA68 VA: 0x190BA68
-	protected void EndShowServantEquip(bool isDecide) { }
-
-	// RVA: 0x190BB60 Offset: 0x190BB60 VA: 0x190BB60
-	protected void EndCloseShowServantEquip() { }
-
-	// RVA: 0x1909150 Offset: 0x1909150 VA: 0x1909150
-	public bool ReturnQuestMenu() { }
-
-	// RVA: 0x190AB48 Offset: 0x190AB48 VA: 0x190AB48
-	public bool ReturnBattleSetupMenu() { }
-
-	// RVA: 0x1909478 Offset: 0x1909478 VA: 0x1909478
-	public bool StartBattleSetupMenu() { }
-
-	// RVA: 0x190AAD4 Offset: 0x190AAD4 VA: 0x190AAD4
-	private void setBattleSetupFollowType(Follower.Type type) { }
-
-	// RVA: 0x190BBF4 Offset: 0x190BBF4 VA: 0x190BBF4
-	public bool StartSupportInfoMenu() { }
-
-	// RVA: 0x190AC30 Offset: 0x190AC30 VA: 0x190AC30
-	private void OnMoveEnd() { }
-
-	// RVA: 0x190BF00 Offset: 0x190BF00 VA: 0x190BF00
-	public void OnSelectFollowerItem(FollowerSelectItemListViewManager.ResultKind kind, int n) { }
-
-	// RVA: 0x190D0EC Offset: 0x190D0EC VA: 0x190D0EC
-	protected void EndRefreshConfirm(bool isDecide) { }
-
-	// RVA: 0x190D298 Offset: 0x190D298 VA: 0x190D298
-	protected void CallbackRefresh(string result) { }
-
-	// RVA: 0x190D444 Offset: 0x190D444 VA: 0x190D444
-	protected void EndRefreshRest() { }
-
-	// RVA: 0x190D4D8 Offset: 0x190D4D8 VA: 0x190D4D8
-	protected void EndCloseTutorialArrow() { }
-
-	// RVA: 0x190D564 Offset: 0x190D564 VA: 0x190D564
-	public void OnClickBack() { }
-
-	// RVA: 0x190DB30 Offset: 0x190DB30 VA: 0x190DB30
-	private void QuestHintDialogResetTemporarilyId() { }
-
-	// RVA: 0x190DB90 Offset: 0x190DB90 VA: 0x190DB90
-	protected void EndTutorialFollowerGuideNotification1() { }
-
-	// RVA: 0x190DC4C Offset: 0x190DC4C VA: 0x190DC4C
-	protected void EndTutorialFollowerGuideNotification2() { }
-
-	// RVA: 0x190DDFC Offset: 0x190DDFC VA: 0x190DDFC
-	protected void EndOpenTutorialArrow() { }
-
-	// RVA: 0x190DE98 Offset: 0x190DE98 VA: 0x190DE98
-	protected void EndTutorialFollowerCommonGuide() { }
-
-	// RVA: 0x190DF34 Offset: 0x190DF34 VA: 0x190DF34
-	public BattleSetupInfo GetBattleSetupInfo() { }
-
-	// RVA: 0x190DF3C Offset: 0x190DF3C VA: 0x190DF3C
-	private static void .cctor() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3D9F4 Offset: 0xD3D9F4 VA: 0xD3D9F4
-	// RVA: 0x190DFB8 Offset: 0x190DFB8 VA: 0x190DFB8
-	private static void <Init>m__0() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3DA04 Offset: 0xD3DA04 VA: 0xD3DA04
-	// RVA: 0x190E050 Offset: 0x190E050 VA: 0x190E050
-	private static void <OnSelectFollowerItem>m__1() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3DA14 Offset: 0xD3DA14 VA: 0xD3DA14
-	// RVA: 0x190E0E8 Offset: 0x190E0E8 VA: 0x190E0E8
-	private void <OnClickBack>m__2(bool isDecide) { }
-}
-
-// Namespace: 
-protected enum FollowerRootComponent.TutorialMode // TypeDefIndex: 9905
-{
-	// Fields
-	public int value__; // 0x0
-	public const FollowerRootComponent.TutorialMode NONE = 0;
-	public const FollowerRootComponent.TutorialMode SELECT_NONE = 1;
-	public const FollowerRootComponent.TutorialMode FRIEND = 2;
-	public const FollowerRootComponent.TutorialMode NPC = 3;
-	public const FollowerRootComponent.TutorialMode MY_SVT_OR_NPC = 4;
-}
-
-// Namespace: 
-protected enum FollowerRootComponent.TutorialState // TypeDefIndex: 9906
-{
-	// Fields
-	public int value__; // 0x0
-	public const FollowerRootComponent.TutorialState NONE = 0;
-	public const FollowerRootComponent.TutorialState INIT = 1;
-	public const FollowerRootComponent.TutorialState SELECT = 2;
-}
-
-// Namespace: 
-protected enum FollowerRootComponent.State // TypeDefIndex: 9907
-{
-	// Fields
-	public int value__; // 0x0
-	public const FollowerRootComponent.State INIT = 0;
-	public const FollowerRootComponent.State INIT_TOP = 1;
-	public const FollowerRootComponent.State INIT_SHOW_FOLLOWER = 2;
-	public const FollowerRootComponent.State INPUT_SHOW_FOLLOWER = 3;
-	public const FollowerRootComponent.State QUIT_SHOW_FOLLOWER = 4;
-	public const FollowerRootComponent.State BATTLE_SETUP_SCENE = 5;
-	public const FollowerRootComponent.State SUPPORT_SHOW_SCENE = 6;
-}
-
-// Namespace: 
-public class FollowerSelectItemListViewItem : ListViewItem // TypeDefIndex: 9908
-{
-	// Fields
-	protected FollowerInfo followerInfo; // 0x70
-	protected int followerClassId; // 0x78
-	protected int followerIndex; // 0x7C
-	protected ServantEntity servantEntity; // 0x80
-	protected IconLabelInfo iconLabelInfo1; // 0x88
-	protected IconLabelInfo iconLabelInfo2; // 0x90
-	protected EventUpValSetupInfo setupInfo; // 0x98
-	protected QuestRestrictionInfo questRestrictionInfo; // 0xA0
-	protected bool isNpc; // 0xA8
-	protected int friendPointUpVal; // 0xAC
-	protected int friendPointUpMaxVal; // 0xB0
-	protected EventCampaignEntity[] friendPointCampaignEntityList; // 0xB8
-	protected EventCampaignEntity friendPointCampaignEntity; // 0xC0
-	protected bool isBonusFilterEnable; // 0xC8
-	protected bool isServantBonusFilterEnable; // 0xC9
-	protected bool isServantEquipBonusFilterEnable; // 0xCA
-	protected bool isQuestRestriction; // 0xCB
-	protected bool isUniqueSvtRestriction; // 0xCC
-	protected bool isMessageDisp; // 0xCD
-	protected bool isLockUser; // 0xCE
-	protected bool isServantEventUpVal; // 0xCF
-	protected bool isEquipEventUpVal; // 0xD0
-	protected bool isEventUpVal; // 0xD1
-	protected EventUpValInfo eventUpValInfo; // 0xD8
-	protected EventMargeItemUpValInfo[] eventUpValItemList; // 0xE0
-	protected bool isRecommended; // 0xE8
-	private int classIndex; // 0xEC
-	private int supportDeckId; // 0xF0
-	private int deckPriority; // 0xF4
-	[CompilerGeneratedAttribute] // RVA: 0xCDC4B8 Offset: 0xCDC4B8 VA: 0xCDC4B8
-	[DebuggerBrowsableAttribute] // RVA: 0xCDC4B8 Offset: 0xCDC4B8 VA: 0xCDC4B8
-	private bool <isRecommendedUser>k__BackingField; // 0xF8
-
-	// Properties
-	public bool isRecommendedUser { get; set; }
-	private FollowerInfo.ReturnSupportServantType DisplayServantType { get; }
-	public int SelectClassId { get; }
-	public int FollowerIndex { get; }
-	public FollowerInfo FollowerData { get; }
-	public int SvtId { get; }
-	public ServantLeaderInfo ServantLeader { get; }
-	public EquipTargetInfo EquipInfo { get; }
-	public Follower.Type FollowerType { get; }
-	public bool IsNpc { get; }
-	public long FollowerId { get; }
-	public string PlayerNameText { get; }
-	public int PlayerLevel { get; }
-	public long LoginTime { get; }
-	public string SvtNameText { get; }
-	public IconLabelInfo IconInfo1 { get; }
-	public IconLabelInfo IconInfo2 { get; }
-	public bool IsRecommended { get; }
-	public bool IsEventUpVal { get; }
-	public EventMargeItemUpValInfo[] EventUpValItemList { get; }
-	public bool IsQuestRestriction { get; }
-	public bool IsUniqueSvtRestriction { get; }
-	public bool IsMessageDisp { get; }
-	public bool IsLockUser { get; }
-	public QuestRestrictionInfo QuestRestrictionInfo { get; }
-	public int SupportDeckId { get; }
-
-	// Methods
-
-	// RVA: 0x1CA856C Offset: 0x1CA856C VA: 0x1CA856C
-	public void .ctor(int index, int index2, FollowerInfo followerInfo, int followerClassId, int friendPointUpVal, int friendPointUpMaxVal, EventCampaignEntity[] friendPointCampaignEntityList, bool isBonusFilterEnable, bool isServantBonusFilterEnable, bool isServantEquipBonusFilterEnable, bool isRecommended, EventUpValSetupInfo setupInfo, QuestRestrictionInfo questRestrictionInfo, bool isRecommendedUser = False, int supportDeckId = 0, int deckPriority = 0) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3DA24 Offset: 0xD3DA24 VA: 0xD3DA24
-	// RVA: 0x1CA8E10 Offset: 0x1CA8E10 VA: 0x1CA8E10
-	public bool get_isRecommendedUser() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3DA34 Offset: 0xD3DA34 VA: 0xD3DA34
-	// RVA: 0x1CA86E0 Offset: 0x1CA86E0 VA: 0x1CA86E0
-	private void set_isRecommendedUser(bool value) { }
-
-	// RVA: 0x1CA8E18 Offset: 0x1CA8E18 VA: 0x1CA8E18
-	private FollowerInfo.ReturnSupportServantType get_DisplayServantType() { }
-
-	// RVA: 0x1CA8E34 Offset: 0x1CA8E34 VA: 0x1CA8E34
-	public void SetClassId(int followerClassId) { }
-
-	// RVA: 0x1CA86EC Offset: 0x1CA86EC VA: 0x1CA86EC
-	protected void AnalyzeEntity(int followerClassId) { }
-
-	// RVA: 0x1CA900C Offset: 0x1CA900C VA: 0x1CA900C
-	public void Modify(int friendPointUpVal, int friendPointUpMaxVal) { }
-
-	// RVA: 0x1CA90F0 Offset: 0x1CA90F0 VA: 0x1CA90F0 Slot: 1
-	protected override void Finalize() { }
-
-	// RVA: 0x1CA90F8 Offset: 0x1CA90F8 VA: 0x1CA90F8
-	private bool ChkWholeFilter(ListViewSort sort) { }
-
-	// RVA: 0x1CA91B8 Offset: 0x1CA91B8 VA: 0x1CA91B8 Slot: 4
+	// RVA: 0x109FE94 Offset: 0x109FE94 VA: 0x109FE94 Slot: 4
 	public override bool SetSortValue(ListViewSort sort) { }
 
-	// RVA: 0x1CA9EFC Offset: 0x1CA9EFC VA: 0x1CA9EFC
-	public int get_SelectClassId() { }
+	// RVA: 0x109FEFC Offset: 0x109FEFC VA: 0x109FEFC
+	public bool get_IsFloorClear() { }
 
-	// RVA: 0x1CA9F14 Offset: 0x1CA9F14 VA: 0x1CA9F14
-	public int get_FollowerIndex() { }
+	// RVA: 0x109FF04 Offset: 0x109FF04 VA: 0x109FF04
+	public int get_BannerId() { }
 
-	// RVA: 0x1CA9F1C Offset: 0x1CA9F1C VA: 0x1CA9F1C
-	public FollowerInfo get_FollowerData() { }
+	// RVA: 0x109FF30 Offset: 0x109FF30 VA: 0x109FF30
+	public string get_BoardMessage() { }
 
-	// RVA: 0x1CA9F24 Offset: 0x1CA9F24 VA: 0x1CA9F24
-	public int get_SvtId() { }
+	// RVA: 0x10A0038 Offset: 0x10A0038 VA: 0x10A0038
+	public int get_IconId() { }
 
-	// RVA: 0x1CA8FAC Offset: 0x1CA8FAC VA: 0x1CA8FAC
-	public ServantLeaderInfo get_ServantLeader() { }
+	// RVA: 0x10A0064 Offset: 0x10A0064 VA: 0x10A0064
+	public ItemEntity get_ItemEntity() { }
 
-	// RVA: 0x1CA9E3C Offset: 0x1CA9E3C VA: 0x1CA9E3C
-	public EquipTargetInfo get_EquipInfo() { }
+	// RVA: 0x10A006C Offset: 0x10A006C VA: 0x10A006C
+	public ServantEntity get_ServantEntity() { }
 
-	// RVA: 0x1CA9F84 Offset: 0x1CA9F84 VA: 0x1CA9F84
-	public Follower.Type get_FollowerType() { }
+	// RVA: 0x10A0074 Offset: 0x10A0074 VA: 0x10A0074
+	public ServantCostumeEntity get_ServantCostumeEntity() { }
 
-	// RVA: 0x1CA9F98 Offset: 0x1CA9F98 VA: 0x1CA9F98
-	public bool get_IsNpc() { }
+	// RVA: 0x10A007C Offset: 0x10A007C VA: 0x10A007C
+	public Gift.Type get_GiftType() { }
 
-	// RVA: 0x1CA9FA0 Offset: 0x1CA9FA0 VA: 0x1CA9FA0
-	public long get_FollowerId() { }
+	// RVA: 0x10A00A8 Offset: 0x10A00A8 VA: 0x10A00A8
+	public int get_RewardNum() { }
 
-	// RVA: 0x1CA9FB8 Offset: 0x1CA9FB8 VA: 0x1CA9FB8
-	public string get_PlayerNameText() { }
+	// RVA: 0x10A00FC Offset: 0x10A00FC VA: 0x10A00FC
+	public int get_RewardObjectId() { }
 
-	// RVA: 0x1CAA014 Offset: 0x1CAA014 VA: 0x1CAA014
-	public int get_PlayerLevel() { }
+	// RVA: 0x10A0128 Offset: 0x10A0128 VA: 0x10A0128
+	public int get_EventId() { }
 
-	// RVA: 0x1CAA02C Offset: 0x1CAA02C VA: 0x1CAA02C
-	public long get_LoginTime() { }
+	// RVA: 0x10A0154 Offset: 0x10A0154 VA: 0x10A0154
+	public string get_RewardName() { }
 
-	// RVA: 0x1CAA040 Offset: 0x1CAA040 VA: 0x1CAA040
-	public string get_SvtNameText() { }
+	// RVA: 0x10A015C Offset: 0x10A015C VA: 0x10A015C
+	public string get_RewardDispNum() { }
 
-	// RVA: 0x1CAA168 Offset: 0x1CAA168 VA: 0x1CAA168
-	public IconLabelInfo get_IconInfo1() { }
-
-	// RVA: 0x1CAA170 Offset: 0x1CAA170 VA: 0x1CAA170
-	public IconLabelInfo get_IconInfo2() { }
-
-	// RVA: 0x1CAA178 Offset: 0x1CAA178 VA: 0x1CAA178
-	public bool get_IsRecommended() { }
-
-	// RVA: 0x1CAA180 Offset: 0x1CAA180 VA: 0x1CAA180
-	public bool GetSkillInfo(out SkillInfo[] skillInfoList) { }
-
-	// RVA: 0x1CAA25C Offset: 0x1CAA25C VA: 0x1CAA25C
-	public bool GetNpInfo(out TreasureDvcInfo tdInfo) { }
-
-	// RVA: 0x1CAA318 Offset: 0x1CAA318 VA: 0x1CAA318
-	public int GetTreasureDeviceLevelIcon() { }
-
-	// RVA: 0x1CAA378 Offset: 0x1CAA378 VA: 0x1CAA378
-	public int GetFriendPointUpVal() { }
-
-	// RVA: 0x1CA8E38 Offset: 0x1CA8E38 VA: 0x1CA8E38
-	protected EventCampaignEntity GetEnableFriendPointCampaign() { }
-
-	// RVA: 0x1CAA468 Offset: 0x1CAA468 VA: 0x1CAA468
-	public bool IsFriendPointCampaign() { }
-
-	// RVA: 0x1CAA478 Offset: 0x1CAA478 VA: 0x1CAA478
-	public int GetFriendPointCampaignValue() { }
-
-	// RVA: 0x1CAA48C Offset: 0x1CAA48C VA: 0x1CAA48C
-	public string GetFriendPointCampaignName() { }
-
-	// RVA: 0x1CAA5C0 Offset: 0x1CAA5C0 VA: 0x1CAA5C0
-	public bool get_IsEventUpVal() { }
-
-	// RVA: 0x1CAA5C8 Offset: 0x1CAA5C8 VA: 0x1CAA5C8
-	public EventMargeItemUpValInfo[] get_EventUpValItemList() { }
-
-	// RVA: 0x1CAA5D0 Offset: 0x1CAA5D0 VA: 0x1CAA5D0
-	public bool get_IsQuestRestriction() { }
-
-	// RVA: 0x1CAA5D8 Offset: 0x1CAA5D8 VA: 0x1CAA5D8
-	public bool get_IsUniqueSvtRestriction() { }
-
-	// RVA: 0x1CAA5E0 Offset: 0x1CAA5E0 VA: 0x1CAA5E0
-	public bool get_IsMessageDisp() { }
-
-	// RVA: 0x1CAA5E8 Offset: 0x1CAA5E8 VA: 0x1CAA5E8
-	public bool get_IsLockUser() { }
-
-	// RVA: 0x1CAA5F0 Offset: 0x1CAA5F0 VA: 0x1CAA5F0
-	public QuestRestrictionInfo get_QuestRestrictionInfo() { }
-
-	// RVA: 0x1CAA5F8 Offset: 0x1CAA5F8 VA: 0x1CAA5F8
-	public bool GetAppendSkillInfo(out SkillInfo[] skillInfoList, bool isNpc) { }
-
-	// RVA: 0x1CAA6DC Offset: 0x1CAA6DC VA: 0x1CAA6DC
-	public int get_SupportDeckId() { }
-
-	// RVA: 0x1CAA6E4 Offset: 0x1CAA6E4 VA: 0x1CAA6E4
-	public void SetIndex(int index) { }
+	// RVA: 0x10A0164 Offset: 0x10A0164 VA: 0x10A0164
+	public bool get_IsOpenFloor() { }
 }
 
 // Namespace: 
-public class FollowerSelectItemListViewItemDraw : MonoBehaviour // TypeDefIndex: 9909
+public class EventTowerListViewItemDraw : MonoBehaviour // TypeDefIndex: 9911
 {
 	// Fields
-	private static readonly Color CAMPAIGN_TOP_COLOR; // 0x0
-	private static readonly Color CAMPAIGN_BOT_COLOR; // 0x10
-	[SerializeField] // RVA: 0xCDC4F4 Offset: 0xCDC4F4 VA: 0xCDC4F4
-	protected UISprite rangeSprite; // 0x18
-	[SerializeField] // RVA: 0xCDC504 Offset: 0xCDC504 VA: 0xCDC504
-	protected UISprite baseSprite; // 0x20
-	[SerializeField] // RVA: 0xCDC514 Offset: 0xCDC514 VA: 0xCDC514
-	protected UICommonButton baseButton; // 0x28
-	[SerializeField] // RVA: 0xCDC524 Offset: 0xCDC524 VA: 0xCDC524
-	protected ServantFaceIconComponent servantFaceIcon; // 0x30
-	[SerializeField] // RVA: 0xCDC534 Offset: 0xCDC534 VA: 0xCDC534
-	protected UILabel playerNameLabel; // 0x38
-	[SerializeField] // RVA: 0xCDC544 Offset: 0xCDC544 VA: 0xCDC544
-	protected UIIconLabel playerLevelIconLabel; // 0x40
-	[SerializeField] // RVA: 0xCDC554 Offset: 0xCDC554 VA: 0xCDC554
-	protected UIRangeLabel svtNameRangeLabel; // 0x48
-	[SerializeField] // RVA: 0xCDC564 Offset: 0xCDC564 VA: 0xCDC564
-	protected UIRangeLabel svtNpRangeLabel; // 0x50
-	[SerializeField] // RVA: 0xCDC574 Offset: 0xCDC574 VA: 0xCDC574
-	protected ServantNpCommandCardComponent svtNpCommandCard; // 0x58
-	[SerializeField] // RVA: 0xCDC584 Offset: 0xCDC584 VA: 0xCDC584
-	protected UISprite loginTitleSprite; // 0x60
-	[SerializeField] // RVA: 0xCDC594 Offset: 0xCDC594 VA: 0xCDC594
-	protected UILabel loginDataLabel; // 0x68
-	[SerializeField] // RVA: 0xCDC5A4 Offset: 0xCDC5A4 VA: 0xCDC5A4
-	protected UIIconLabel friendPointIconLabel; // 0x70
-	[SerializeField] // RVA: 0xCDC5B4 Offset: 0xCDC5B4 VA: 0xCDC5B4
-	protected UILabel friendPointData2Label; // 0x78
-	[SerializeField] // RVA: 0xCDC5C4 Offset: 0xCDC5C4 VA: 0xCDC5C4
-	protected UILabel campaignLabel; // 0x80
-	[SerializeField] // RVA: 0xCDC5D4 Offset: 0xCDC5D4 VA: 0xCDC5D4
-	protected UISprite typeTextSprite; // 0x88
-	[SerializeField] // RVA: 0xCDC5E4 Offset: 0xCDC5E4 VA: 0xCDC5E4
-	protected EventUpValIconComponent eventUpValIcon; // 0x90
-	[SerializeField] // RVA: 0xCDC5F4 Offset: 0xCDC5F4 VA: 0xCDC5F4
-	protected GameObject[] skillBaseList; // 0x98
-	[SerializeField] // RVA: 0xCDC604 Offset: 0xCDC604 VA: 0xCDC604
-	protected SkillIconComponent[] skillIconList; // 0xA0
-	[SerializeField] // RVA: 0xCDC614 Offset: 0xCDC614 VA: 0xCDC614
-	protected UIIconLabel[] skillLevelIconLabelList; // 0xA8
-	[SerializeField] // RVA: 0xCDC624 Offset: 0xCDC624 VA: 0xCDC624
-	protected UICommonButton[] skillButtonList; // 0xB0
-	[SerializeField] // RVA: 0xCDC634 Offset: 0xCDC634 VA: 0xCDC634
-	protected UISprite skillIconSprite; // 0xB8
-	[SerializeField] // RVA: 0xCDC644 Offset: 0xCDC644 VA: 0xCDC644
-	protected UISprite skillTitleSprite; // 0xC0
-	[SerializeField] // RVA: 0xCDC654 Offset: 0xCDC654 VA: 0xCDC654
-	protected GameObject[] appendSkillBaseList; // 0xC8
-	[SerializeField] // RVA: 0xCDC664 Offset: 0xCDC664 VA: 0xCDC664
-	protected SkillIconComponent[] appendSkillIconList; // 0xD0
-	[SerializeField] // RVA: 0xCDC674 Offset: 0xCDC674 VA: 0xCDC674
-	protected UIIconLabel[] appendSkillLevelIconLabelList; // 0xD8
-	[SerializeField] // RVA: 0xCDC684 Offset: 0xCDC684 VA: 0xCDC684
-	protected UICommonButton[] appendSkillButtonList; // 0xE0
-	[SerializeField] // RVA: 0xCDC694 Offset: 0xCDC694 VA: 0xCDC694
-	protected UISprite appendSkillIconSprite; // 0xE8
-	[SerializeField] // RVA: 0xCDC6A4 Offset: 0xCDC6A4 VA: 0xCDC6A4
-	protected UISprite appendSkillTitleSprite; // 0xF0
-	[SerializeField] // RVA: 0xCDC6B4 Offset: 0xCDC6B4 VA: 0xCDC6B4
-	protected ServantCommandCardListComponent svtCommandCardList; // 0xF8
-	[SerializeField] // RVA: 0xCDC6C4 Offset: 0xCDC6C4 VA: 0xCDC6C4
-	protected UICommonButton supportInfoButton; // 0x100
-	[SerializeField] // RVA: 0xCDC6D4 Offset: 0xCDC6D4 VA: 0xCDC6D4
-	protected UISprite maskSprite; // 0x108
-	[SerializeField] // RVA: 0xCDC6E4 Offset: 0xCDC6E4 VA: 0xCDC6E4
-	protected UILabel maskMessageLabel; // 0x110
-	[SerializeField] // RVA: 0xCDC6F4 Offset: 0xCDC6F4 VA: 0xCDC6F4
-	protected GameObject warningBase; // 0x118
-	[SerializeField] // RVA: 0xCDC704 Offset: 0xCDC704 VA: 0xCDC704
-	protected FlashingIconComponent warningIcon; // 0x120
-	[SerializeField] // RVA: 0xCDC714 Offset: 0xCDC714 VA: 0xCDC714
-	protected UILabel warningMessageLabel; // 0x128
-	[SerializeField] // RVA: 0xCDC724 Offset: 0xCDC724 VA: 0xCDC724
-	protected UILabel messageLabel; // 0x130
-	[SerializeField] // RVA: 0xCDC734 Offset: 0xCDC734 VA: 0xCDC734
-	protected GameObject playerProfileObj; // 0x138
-	[SerializeField] // RVA: 0xCDC744 Offset: 0xCDC744 VA: 0xCDC744
-	protected GameObject svtProfileObj; // 0x140
-	[SerializeField] // RVA: 0xCDC754 Offset: 0xCDC754 VA: 0xCDC754
-	protected UISprite svtProfileBackSpr; // 0x148
-	[SerializeField] // RVA: 0xCDC764 Offset: 0xCDC764 VA: 0xCDC764
-	protected UserGradeComponent gradeIcon; // 0x150
-	[SerializeField] // RVA: 0xCDC774 Offset: 0xCDC774 VA: 0xCDC774
-	private UISprite recommendedIcon; // 0x158
-	[SerializeField] // RVA: 0xCDC784 Offset: 0xCDC784 VA: 0xCDC784
-	private UILabel recommendedIconText; // 0x160
-	[SerializeField] // RVA: 0xCDC794 Offset: 0xCDC794 VA: 0xCDC794
-	private UISprite lockMarkSprite; // 0x168
-	[SerializeField] // RVA: 0xCDC7A4 Offset: 0xCDC7A4 VA: 0xCDC7A4
-	private UISprite pushSprite; // 0x170
-	[SerializeField] // RVA: 0xCDC7B4 Offset: 0xCDC7B4 VA: 0xCDC7B4
-	protected ServantClassCompatibilityIconComponent classCompatibilityIcon; // 0x178
-	[SerializeField] // RVA: 0xCDC7C4 Offset: 0xCDC7C4 VA: 0xCDC7C4
-	protected GameObject numberOfUsabletimes; // 0x180
-	[SerializeField] // RVA: 0xCDC7D4 Offset: 0xCDC7D4 VA: 0xCDC7D4
-	protected UISprite numberOfUsabletimesSprite; // 0x188
-	[SerializeField] // RVA: 0xCDC7E4 Offset: 0xCDC7E4 VA: 0xCDC7E4
-	protected UILabel numberOfUsabletimesLabel; // 0x190
-	[SerializeField] // RVA: 0xCDC7F4 Offset: 0xCDC7F4 VA: 0xCDC7F4
-	protected UILabel numberOfUsabletimesPrefixLabel; // 0x198
-	[SerializeField] // RVA: 0xCDC804 Offset: 0xCDC804 VA: 0xCDC804
-	protected UILabel numberOfUsabletimesSuffixLabel; // 0x1A0
-	[SerializeField] // RVA: 0xCDC814 Offset: 0xCDC814 VA: 0xCDC814
-	protected UISprite friendChocolateSprite; // 0x1A8
-	[SerializeField] // RVA: 0xCDC824 Offset: 0xCDC824 VA: 0xCDC824
-	private GameObject recommendedUser; // 0x1B0
-	[SerializeField] // RVA: 0xCDC834 Offset: 0xCDC834 VA: 0xCDC834
-	protected SwitchUIWidgetComponent switchSkillInfo; // 0x1B8
-	[SerializeField] // RVA: 0xCDC844 Offset: 0xCDC844 VA: 0xCDC844
-	protected UIWidget skillInfoUiWidget; // 0x1C0
-	[SerializeField] // RVA: 0xCDC854 Offset: 0xCDC854 VA: 0xCDC854
-	protected UIWidget appendSkillInfoUiWidget; // 0x1C8
-	private List<UIWidget> switchSkillUIList; // 0x1D0
-	private FollowerSelectItemListViewManager.DisplaySkill displaySkill; // 0x1D8
-	protected SkillInfo[] skillInfoList; // 0x1E0
-	protected SkillInfo[] appendSkillInfoList; // 0x1E8
-	protected int warningMessageWidth; // 0x1F0
+	protected static readonly string BANNER_NAME; // 0x0
+	protected static readonly string REWARD_GET_NAME; // 0x8
+	[SerializeField] // RVA: 0xC6F360 Offset: 0xC6F360 VA: 0xC6F360
+	protected UISprite baseSprite; // 0x18
+	[SerializeField] // RVA: 0xC6F370 Offset: 0xC6F370 VA: 0xC6F370
+	protected UICommonButton baseButton; // 0x20
+	[SerializeField] // RVA: 0xC6F380 Offset: 0xC6F380 VA: 0xC6F380
+	protected ItemIconComponent itemIcon; // 0x28
+	[SerializeField] // RVA: 0xC6F390 Offset: 0xC6F390 VA: 0xC6F390
+	protected UILabel rewardName; // 0x30
+	[SerializeField] // RVA: 0xC6F3A0 Offset: 0xC6F3A0 VA: 0xC6F3A0
+	protected UILabel rewardNum; // 0x38
+	[SerializeField] // RVA: 0xC6F3B0 Offset: 0xC6F3B0 VA: 0xC6F3B0
+	protected UILabel rewardCondMessage; // 0x40
+	[SerializeField] // RVA: 0xC6F3C0 Offset: 0xC6F3C0 VA: 0xC6F3C0
+	protected GameObject rewardGetInfo; // 0x48
+	[SerializeField] // RVA: 0xC6F3D0 Offset: 0xC6F3D0 VA: 0xC6F3D0
+	protected UISprite rewardGetSprite; // 0x50
+	[SerializeField] // RVA: 0xC6F3E0 Offset: 0xC6F3E0 VA: 0xC6F3E0
+	protected UISprite maskSprite; // 0x58
 
 	// Methods
 
-	// RVA: 0x1CAA6EC Offset: 0x1CAA6EC VA: 0x1CAA6EC
+	// RVA: 0x10A016C Offset: 0x10A016C VA: 0x10A016C
 	public void .ctor() { }
 
-	// RVA: 0x1CAA814 Offset: 0x1CAA814 VA: 0x1CAA814
-	protected void Awake() { }
+	// RVA: 0x10A0174 Offset: 0x10A0174 VA: 0x10A0174
+	public void SetItem(EventTowerListViewItem item, EventTowerListViewItemDraw.DispMode mode) { }
 
-	// RVA: 0x1CAA8FC Offset: 0x1CAA8FC VA: 0x1CAA8FC
-	public void SetItem(FollowerSelectItemListViewItem item, FollowerSelectItemListViewItemDraw.DispMode mode, FollowerSelectItemListViewManager.DisplaySkill displaySkill) { }
+	// RVA: 0x10A06E0 Offset: 0x10A06E0 VA: 0x10A06E0
+	public void SetInput(EventTowerListViewItem item) { }
 
-	// RVA: 0x1CAE330 Offset: 0x1CAE330 VA: 0x1CAE330
-	private void setupMessageUI(FollowerSelectItemListViewItem item) { }
-
-	// RVA: 0x1CAE690 Offset: 0x1CAE690 VA: 0x1CAE690
-	private void SetupLockUI(FollowerSelectItemListViewItem item) { }
-
-	// RVA: 0x1CAE768 Offset: 0x1CAE768 VA: 0x1CAE768
-	public void SetInput(FollowerSelectItemListViewItem item, bool isInput, bool isTutorial) { }
-
-	// RVA: 0x1CAEA5C Offset: 0x1CAEA5C VA: 0x1CAEA5C
-	public void ChangeDisplaySkill(FollowerSelectItemListViewManager.DisplaySkill displaySkill, FollowerSelectItemListViewItem item) { }
-
-	// RVA: 0x1CAEDCC Offset: 0x1CAEDCC VA: 0x1CAEDCC
+	// RVA: 0x10A06E4 Offset: 0x10A06E4 VA: 0x10A06E4
 	private static void .cctor() { }
 }
 
 // Namespace: 
-public enum FollowerSelectItemListViewItemDraw.DispMode // TypeDefIndex: 9910
+public enum EventTowerListViewItemDraw.DispMode // TypeDefIndex: 9912
 {
 	// Fields
 	public int value__; // 0x0
-	public const FollowerSelectItemListViewItemDraw.DispMode INVISIBLE = 0;
-	public const FollowerSelectItemListViewItemDraw.DispMode INVALID = 1;
-	public const FollowerSelectItemListViewItemDraw.DispMode VALID = 2;
-	public const FollowerSelectItemListViewItemDraw.DispMode INPUT = 3;
-	public const FollowerSelectItemListViewItemDraw.DispMode TUTORIAL_INPUT = 4;
+	public const EventTowerListViewItemDraw.DispMode INVISIBLE = 0;
+	public const EventTowerListViewItemDraw.DispMode INVALID = 1;
+	public const EventTowerListViewItemDraw.DispMode VALID = 2;
+	public const EventTowerListViewItemDraw.DispMode INPUT = 3;
 }
 
 // Namespace: 
-public class FollowerSelectItemListViewManager : ListViewManager // TypeDefIndex: 9911
+public class EventTowerListViewManager : ListViewManager // TypeDefIndex: 9913
 {
 	// Fields
-	[SerializeField] // RVA: 0xCDC864 Offset: 0xCDC864 VA: 0xCDC864
-	protected ClassButtonControlComponent classButtonControl; // 0x138
-	[SerializeField] // RVA: 0xCDC874 Offset: 0xCDC874 VA: 0xCDC874
-	protected FollowerSelectItemListViewObject tutorialListViewObject; // 0x140
-	[SerializeField] // RVA: 0xCDC884 Offset: 0xCDC884 VA: 0xCDC884
-	protected UISprite sortExplanationSprite; // 0x148
-	[SerializeField] // RVA: 0xCDC894 Offset: 0xCDC894 VA: 0xCDC894
-	protected CondensedScaleLabel sortCondensedScalLabel; // 0x150
-	[SerializeField] // RVA: 0xCDC8A4 Offset: 0xCDC8A4 VA: 0xCDC8A4
-	protected UICommonButton bonusFilterKindButton; // 0x158
-	[SerializeField] // RVA: 0xCDC8B4 Offset: 0xCDC8B4 VA: 0xCDC8B4
-	protected UILabel bonusFilterKindLabel; // 0x160
-	[SerializeField] // RVA: 0xCDC8C4 Offset: 0xCDC8C4 VA: 0xCDC8C4
-	protected UISprite bonusFilterSprite; // 0x168
-	[SerializeField] // RVA: 0xCDC8D4 Offset: 0xCDC8D4 VA: 0xCDC8D4
-	private UISprite refreshButtonSprite; // 0x170
-	[SerializeField] // RVA: 0xCDC8E4 Offset: 0xCDC8E4 VA: 0xCDC8E4
-	private UISprite refreshTitleSprite; // 0x178
-	[SerializeField] // RVA: 0xCDC8F4 Offset: 0xCDC8F4 VA: 0xCDC8F4
-	private GameObject refreshButtonObject; // 0x180
-	[SerializeField] // RVA: 0xCDC904 Offset: 0xCDC904 VA: 0xCDC904
-	private GameObject refreshTitleObject; // 0x188
-	[SerializeField] // RVA: 0xCDC914 Offset: 0xCDC914 VA: 0xCDC914
-	private UILabel refreshRemainLabel; // 0x190
-	[SerializeField] // RVA: 0xCDC924 Offset: 0xCDC924 VA: 0xCDC924
-	protected UICommonButton changeSkillButton; // 0x198
-	[SerializeField] // RVA: 0xCDC934 Offset: 0xCDC934 VA: 0xCDC934
-	protected UISprite changeSkillButtonSprite; // 0x1A0
-	protected const string SORT_SAVE_KEY = "FollowerSelect";
-	protected const string CLASS_ID_SAVE_KEY = "FollowerSelectClass";
-	protected static ListViewSort supportSortInfo; // 0x0
-	protected static int followerClassId; // 0x8
-	private static int lastSelectedQuestId; // 0xC
-	private static int lastSelectedQuestPhase; // 0x10
-	private static readonly Color REFRESH_DARK_COLOR; // 0x14
-	protected FollowerSelectItemListViewManager.InitMode initMode; // 0x1A8
-	protected FollowerSelectItemListViewManager.DisplaySkill displaySkill; // 0x1AC
-	[CompilerGeneratedAttribute] // RVA: 0xCDC944 Offset: 0xCDC944 VA: 0xCDC944
-	[DebuggerBrowsableAttribute] // RVA: 0xCDC944 Offset: 0xCDC944 VA: 0xCDC944
-	private FollowerSelectItemListViewManager.CallbackFunc callbackFunc; // 0x1B0
-	[CompilerGeneratedAttribute] // RVA: 0xCDC980 Offset: 0xCDC980 VA: 0xCDC980
-	[DebuggerBrowsableAttribute] // RVA: 0xCDC980 Offset: 0xCDC980 VA: 0xCDC980
-	private Action callbackFunc2; // 0x1B8
-	protected int callbackCount; // 0x1C0
-	protected int questId; // 0x1C4
-	protected int questPhase; // 0x1C8
-	protected EventUpValSetupInfo setupInfo; // 0x1D0
-	protected QuestRestrictionInfo questRestrictionInfo; // 0x1D8
-	protected bool isBonusFilterEnable; // 0x1E0
-	protected bool isServantBonusFilterEnable; // 0x1E1
-	protected bool isServantEquipBonusFilterEnable; // 0x1E2
-	protected int bonusFilterEventId; // 0x1E4
-	private List<ListViewItem> mixItemList; // 0x1E8
-	private List<ListViewItem> originalItemList; // 0x1F0
-	private bool isRefreshClear; // 0x1F8
-	private long refreshCheckTime; // 0x200
+	protected EventTowerListViewManager.InitMode initMode; // 0x138
+	[CompilerGeneratedAttribute] // RVA: 0xC6F3F0 Offset: 0xC6F3F0 VA: 0xC6F3F0
+	[DebuggerBrowsableAttribute] // RVA: 0xC6F3F0 Offset: 0xC6F3F0 VA: 0xC6F3F0
+	private Action CallbackFunc; // 0x140
+	protected int callbackCount; // 0x148
+	protected float listInDelay; // 0x14C
 
 	// Properties
-	public List<FollowerSelectItemListViewObject> ObjectList { get; }
-	public List<FollowerSelectItemListViewObject> ClippingObjectList { get; }
+	public List<EventTowerListViewObject> ObjectList { get; }
+	public List<EventTowerListViewObject> ClippingObjectList { get; }
 
 	// Methods
 
-	// RVA: 0x1CAEE98 Offset: 0x1CAEE98 VA: 0x1CAEE98
+	// RVA: 0x10A0758 Offset: 0x10A0758 VA: 0x10A0758
 	public void .ctor() { }
 
-	// RVA: 0x1CAEEA0 Offset: 0x1CAEEA0 VA: 0x1CAEEA0
-	protected void add_callbackFunc(FollowerSelectItemListViewManager.CallbackFunc value) { }
+	// RVA: 0x10A0760 Offset: 0x10A0760 VA: 0x10A0760
+	protected void add_CallbackFunc(Action value) { }
 
-	// RVA: 0x1CAEF90 Offset: 0x1CAEF90 VA: 0x1CAEF90
-	protected void remove_callbackFunc(FollowerSelectItemListViewManager.CallbackFunc value) { }
+	// RVA: 0x10A0850 Offset: 0x10A0850 VA: 0x10A0850
+	protected void remove_CallbackFunc(Action value) { }
 
-	// RVA: 0x1CAF080 Offset: 0x1CAF080 VA: 0x1CAF080
-	protected void add_callbackFunc2(Action value) { }
+	// RVA: 0x10A0940 Offset: 0x10A0940 VA: 0x10A0940
+	private void Update() { }
 
-	// RVA: 0x1CAF170 Offset: 0x1CAF170 VA: 0x1CAF170
-	protected void remove_callbackFunc2(Action value) { }
+	// RVA: 0x10A0948 Offset: 0x10A0948 VA: 0x10A0948
+	public List<EventTowerListViewObject> get_ObjectList() { }
 
-	// RVA: 0x1CAF260 Offset: 0x1CAF260 VA: 0x1CAF260
-	public static void DeleteContinueData() { }
+	// RVA: 0x10A0ABC Offset: 0x10A0ABC VA: 0x10A0ABC
+	public List<EventTowerListViewObject> get_ClippingObjectList() { }
 
-	// RVA: 0x1CAF2F0 Offset: 0x1CAF2F0 VA: 0x1CAF2F0
-	public static void InitLoad() { }
+	// RVA: 0x10A0CF4 Offset: 0x10A0CF4 VA: 0x10A0CF4
+	public void CreateList(int eventId, int nowTowerId, long nowFloor, bool isNextOpen, EventTowerRewardEntity[] towerRewardList) { }
 
-	// RVA: 0x1CAF36C Offset: 0x1CAF36C VA: 0x1CAF36C
-	public List<FollowerSelectItemListViewObject> get_ObjectList() { }
+	// RVA: 0x10A0E88 Offset: 0x10A0E88 VA: 0x10A0E88
+	public void CreateList(int eventId, int firstTowerId) { }
 
-	// RVA: 0x1CAF538 Offset: 0x1CAF538 VA: 0x1CAF538
-	public List<FollowerSelectItemListViewObject> get_ClippingObjectList() { }
+	// RVA: 0x10A123C Offset: 0x10A123C VA: 0x10A123C
+	public void SetNextFloorInfo() { }
 
-	// RVA: 0x1CAF818 Offset: 0x1CAF818 VA: 0x1CAF818
-	protected void SetBonusFilterFlag(EventUpValSetupInfo setupInfo) { }
+	// RVA: 0x10A1358 Offset: 0x10A1358 VA: 0x10A1358
+	public EventTowerListViewItem GetItem(int index) { }
+
+	// RVA: 0x10A1400 Offset: 0x10A1400 VA: 0x10A1400 Slot: 4
+	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
+
+	// RVA: 0x10A153C Offset: 0x10A153C VA: 0x10A153C
+	public void SetMode(EventTowerListViewManager.InitMode mode, Action callback) { }
+
+	// RVA: 0x10A1698 Offset: 0x10A1698 VA: 0x10A1698
+	public void SetMode(EventTowerListViewManager.InitMode mode, float delay, Action callback) { }
+
+	// RVA: 0x10A1544 Offset: 0x10A1544 VA: 0x10A1544
+	public void SetMode(EventTowerListViewManager.InitMode mode) { }
+
+	// RVA: 0x10A16A4 Offset: 0x10A16A4 VA: 0x10A16A4
+	protected void RequestListObject(EventTowerListViewObject.InitMode mode, float delay = 0) { }
+
+	// RVA: 0x10A18E0 Offset: 0x10A18E0 VA: 0x10A18E0
+	protected void RequestInto() { }
+
+	// RVA: 0x10A1B34 Offset: 0x10A1B34 VA: 0x10A1B34
+	protected void OnMoveEnd() { }
+
+	// RVA: 0x10A1C80 Offset: 0x10A1C80 VA: 0x10A1C80
+	protected void OnClickListView(ListViewObject obj) { }
+
+	// RVA: 0x10A1FB0 Offset: 0x10A1FB0 VA: 0x10A1FB0
+	public void closeItemDetail(bool isDecide) { }
+
+	// RVA: 0x10A203C Offset: 0x10A203C VA: 0x10A203C
+	private void closeSvtDetail(bool isDecide) { }
+}
+
+// Namespace: 
+public enum EventTowerListViewManager.InitMode // TypeDefIndex: 9914
+{
+	// Fields
+	public int value__; // 0x0
+	public const EventTowerListViewManager.InitMode NONE = 0;
+	public const EventTowerListViewManager.InitMode INTO = 1;
+	public const EventTowerListViewManager.InitMode VALID = 2;
+	public const EventTowerListViewManager.InitMode INPUT = 3;
+	public const EventTowerListViewManager.InitMode ENTER = 4;
+	public const EventTowerListViewManager.InitMode EXIT = 5;
+	public const EventTowerListViewManager.InitMode MODIFY = 6;
+}
+
+// Namespace: 
+public class EventTowerListViewObject : ListViewObject // TypeDefIndex: 9915
+{
+	// Fields
+	protected EventTowerListViewObject.State state; // 0x6C
+	protected EventTowerListViewItemDraw.DispMode dispMode; // 0x70
+	[CompilerGeneratedAttribute] // RVA: 0xC6F42C Offset: 0xC6F42C VA: 0xC6F42C
+	[DebuggerBrowsableAttribute] // RVA: 0xC6F42C Offset: 0xC6F42C VA: 0xC6F42C
+	private Action CallbackFunc; // 0x78
+	protected EventTowerListViewItemDraw itemDraw; // 0x80
+	protected GameObject dragObject; // 0x88
+
+	// Methods
+
+	// RVA: 0x10A20A0 Offset: 0x10A20A0 VA: 0x10A20A0
+	public void .ctor() { }
+
+	// RVA: 0x10A2108 Offset: 0x10A2108 VA: 0x10A2108
+	protected void add_CallbackFunc(Action value) { }
+
+	// RVA: 0x10A21F4 Offset: 0x10A21F4 VA: 0x10A21F4
+	protected void remove_CallbackFunc(Action value) { }
+
+	// RVA: 0x10A22E0 Offset: 0x10A22E0 VA: 0x10A22E0
+	protected void Awake() { }
+
+	// RVA: 0x10A2354 Offset: 0x10A2354 VA: 0x10A2354
+	private void Update() { }
+
+	// RVA: 0x10A0C70 Offset: 0x10A0C70 VA: 0x10A0C70
+	public EventTowerListViewItem GetItem() { }
+
+	// RVA: 0x10A23D8 Offset: 0x10A23D8 VA: 0x10A23D8 Slot: 6
+	public override void SetItem(ListViewItem item, ListViewItemSeed seed) { }
+
+	// RVA: 0x10A23EC Offset: 0x10A23EC VA: 0x10A23EC Slot: 5
+	public override void SetItem(ListViewItem item) { }
+
+	// RVA: 0x10A23E4 Offset: 0x10A23E4 VA: 0x10A23E4
+	protected void InitItem() { }
+
+	// RVA: 0x10A23F8 Offset: 0x10A23F8 VA: 0x10A23F8 Slot: 9
+	public override void SetInput(bool isInput) { }
+
+	// RVA: 0x10A24A8 Offset: 0x10A24A8 VA: 0x10A24A8
+	public void Init(EventTowerListViewObject.InitMode initMode, Action callbackFunc, float delay, Vector3 position) { }
+
+	// RVA: 0x10A1AA0 Offset: 0x10A1AA0 VA: 0x10A1AA0
+	public void Init(EventTowerListViewObject.InitMode initMode, Action callbackFunc, float delay) { }
+
+	// RVA: 0x10A1858 Offset: 0x10A1858 VA: 0x10A1858
+	public void Init(EventTowerListViewObject.InitMode initMode, Action callbackFunc) { }
+
+	// RVA: 0x10A14B8 Offset: 0x10A14B8 VA: 0x10A14B8
+	public void Init(EventTowerListViewObject.InitMode initMode) { }
+
+	// RVA: 0x10A2814 Offset: 0x10A2814 VA: 0x10A2814
+	protected void SetupDisp() { }
+
+	// RVA: 0x10A26AC Offset: 0x10A26AC VA: 0x10A26AC
+	private void EventIntoStart(float delay) { }
+
+	// RVA: 0x10A2974 Offset: 0x10A2974 VA: 0x10A2974
+	private void EventIntoMove() { }
+
+	// RVA: 0x10A2B14 Offset: 0x10A2B14 VA: 0x10A2B14
+	private void EventIntoMove2() { }
+
+	// RVA: 0x10A2C04 Offset: 0x10A2C04 VA: 0x10A2C04
+	private void EventExitStart(float delay) { }
+
+	// RVA: 0x10A2D50 Offset: 0x10A2D50 VA: 0x10A2D50
+	private void EventExitMove() { }
+
+	// RVA: 0x10A2FD4 Offset: 0x10A2FD4 VA: 0x10A2FD4
+	private void EventExitMove2() { }
+
+	// RVA: 0x10A2BDC Offset: 0x10A2BDC VA: 0x10A2BDC
+	protected void EventMoveEnd() { }
+
+	// RVA: 0x10A3070 Offset: 0x10A3070 VA: 0x10A3070
+	public void OnClickSelect() { }
+}
+
+// Namespace: 
+public enum EventTowerListViewObject.InitMode // TypeDefIndex: 9916
+{
+	// Fields
+	public int value__; // 0x0
+	public const EventTowerListViewObject.InitMode INVISIBLE = 0;
+	public const EventTowerListViewObject.InitMode INVALID = 1;
+	public const EventTowerListViewObject.InitMode VALID = 2;
+	public const EventTowerListViewObject.InitMode INPUT = 3;
+	public const EventTowerListViewObject.InitMode INTO = 4;
+}
+
+// Namespace: 
+protected enum EventTowerListViewObject.State // TypeDefIndex: 9917
+{
+	// Fields
+	public int value__; // 0x0
+	public const EventTowerListViewObject.State INIT = 0;
+	public const EventTowerListViewObject.State IDLE = 1;
+	public const EventTowerListViewObject.State MOVE = 2;
+	public const EventTowerListViewObject.State INPUT = 3;
+}
+
+// Namespace: 
+public class EventTreasureBoxManager : MonoBehaviour // TypeDefIndex: 9918
+{
+	// Fields
+	[SerializeField] // RVA: 0xC6F468 Offset: 0xC6F468 VA: 0xC6F468
+	private ShopCurrencyInfoController currencyInfoController; // 0x18
+	[SerializeField] // RVA: 0xC6F478 Offset: 0xC6F478 VA: 0xC6F478
+	private EventTreasureBoxPanelComponent[] treasureBoxList; // 0x20
+	private int eventId; // 0x28
+

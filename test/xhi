@@ -1,5 +1,127 @@
+
+	// RVA: 0x256F370 Offset: 0x256F370 VA: 0x256F370 Slot: 9
+	public bool TrySend(Guid messageId, byte[] data) { }
+
+	// RVA: 0x256F4D8 Offset: 0x256F4D8 VA: 0x256F4D8
+	public bool BlockUntilRecvMsg(Guid messageId, int timeout) { }
+
+	// RVA: 0x256F700 Offset: 0x256F700 VA: 0x256F700 Slot: 10
+	public void DisconnectAll() { }
+
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE58A0 Offset: 0xBE58A0 VA: 0xBE58A0
+	// RVA: 0x256F7B4 Offset: 0x256F7B4 VA: 0x256F7B4
+	private static void MessageCallbackInternal(IntPtr data, ulong size, ulong guid, string messageId) { }
+
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE58B0 Offset: 0xBE58B0 VA: 0xBE58B0
+	// RVA: 0x256FD28 Offset: 0x256FD28 VA: 0x256FD28
+	private static void ConnectedCallbackInternal(int playerId) { }
+
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE58C0 Offset: 0xBE58C0 VA: 0xBE58C0
+	// RVA: 0x256FDE4 Offset: 0x256FDE4 VA: 0x256FDE4
+	private static void DisconnectedCallback(int playerId) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xBDB9AC Offset: 0xBDB9AC VA: 0xBDB9AC
+private sealed class PlayerConnection.<Register>c__AnonStorey0 // TypeDefIndex: 2525
+{
 	// Fields
-	[SerializeField] // RVA: 0xC49AE4 Offset: 0xC49AE4 VA: 0xC49AE4
+	internal Guid messageId; // 0x10
+
+	// Methods
+
+	// RVA: 0x256EB60 Offset: 0x256EB60 VA: 0x256EB60
+	public void .ctor() { }
+
+	// RVA: 0x256FEAC Offset: 0x256FEAC VA: 0x256FEAC
+	internal bool <>m__0(PlayerEditorConnectionEvents.MessageTypeSubscribers x) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xBDB9BC Offset: 0xBDB9BC VA: 0xBDB9BC
+private sealed class PlayerConnection.<Unregister>c__AnonStorey1 // TypeDefIndex: 2526
+{
+	// Fields
+	internal Guid messageId; // 0x10
+
+	// Methods
+
+	// RVA: 0x256EEA0 Offset: 0x256EEA0 VA: 0x256EEA0
+	public void .ctor() { }
+
+	// RVA: 0x256FF94 Offset: 0x256FF94 VA: 0x256FF94
+	internal bool <>m__0(PlayerEditorConnectionEvents.MessageTypeSubscribers x) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xBDB9CC Offset: 0xBDB9CC VA: 0xBDB9CC
+private sealed class PlayerConnection.<BlockUntilRecvMsg>c__AnonStorey2 // TypeDefIndex: 2527
+{
+	// Fields
+	internal bool msgReceived; // 0x10
+
+	// Methods
+
+	// RVA: 0x256F6F8 Offset: 0x256F6F8 VA: 0x256F6F8
+	public void .ctor() { }
+
+	// RVA: 0x256FEA0 Offset: 0x256FEA0 VA: 0x256FEA0
+	internal void <>m__0(MessageEventArgs args) { }
+}
+
+// Namespace: UnityEngine.Networking.PlayerConnection
+[Serializable]
+internal class PlayerEditorConnectionEvents // TypeDefIndex: 2528
+{
+	// Fields
+	[SerializeField] // RVA: 0xBDD98C Offset: 0xBDD98C VA: 0xBDD98C
+	public List<PlayerEditorConnectionEvents.MessageTypeSubscribers> messageTypeSubscribers; // 0x10
+	[SerializeField] // RVA: 0xBDD99C Offset: 0xBDD99C VA: 0xBDD99C
+	public PlayerEditorConnectionEvents.ConnectionChangeEvent connectionEvent; // 0x18
+	[SerializeField] // RVA: 0xBDD9AC Offset: 0xBDD9AC VA: 0xBDD9AC
+	public PlayerEditorConnectionEvents.ConnectionChangeEvent disconnectionEvent; // 0x20
+
+	// Methods
+
+	// RVA: 0x256E408 Offset: 0x256E408 VA: 0x256E408
+	public void .ctor() { }
+
+	// RVA: 0x256F8E0 Offset: 0x256F8E0 VA: 0x256F8E0
+	public void InvokeMessageIdSubscribers(Guid messageId, byte[] data, int playerId) { }
+
+	// RVA: 0x256EB68 Offset: 0x256EB68 VA: 0x256EB68
+	public UnityEvent<MessageEventArgs> AddAndCreate(Guid messageId) { }
+
+	// RVA: 0x256EEA8 Offset: 0x256EEA8 VA: 0x256EEA8
+	public void UnregisterManagedCallback(Guid messageId, UnityAction<MessageEventArgs> callback) { }
+}
+
+// Namespace: 
+[Serializable]
+public class PlayerEditorConnectionEvents.MessageEvent : UnityEvent<MessageEventArgs> // TypeDefIndex: 2529
+{
+	// Methods
+
+	// RVA: 0x257014C Offset: 0x257014C VA: 0x257014C
+	public void .ctor() { }
+}
+
+// Namespace: 
+[Serializable]
+public class PlayerEditorConnectionEvents.ConnectionChangeEvent : UnityEvent<int> // TypeDefIndex: 2530
+{
+	// Methods
+
+	// RVA: 0x257004C Offset: 0x257004C VA: 0x257004C
+	public void .ctor() { }
+}
+
+// Namespace: 
+[Serializable]
+public class PlayerEditorConnectionEvents.MessageTypeSubscribers // TypeDefIndex: 2531
+{
+	// Fields
+	[SerializeField] // RVA: 0xBDD9BC Offset: 0xBDD9BC VA: 0xBDD9BC
 	private string m_messageTypeId; // 0x10
 	public int subscriberCount; // 0x18
 	public PlayerEditorConnectionEvents.MessageEvent messageCallback; // 0x20
@@ -9,18 +131,18 @@
 
 	// Methods
 
-	// RVA: 0x26B5650 Offset: 0x26B5650 VA: 0x26B5650
+	// RVA: 0x25700AC Offset: 0x25700AC VA: 0x25700AC
 	public void .ctor() { }
 
-	// RVA: 0x26B5508 Offset: 0x26B5508 VA: 0x26B5508
+	// RVA: 0x256FF64 Offset: 0x256FF64 VA: 0x256FF64
 	public Guid get_MessageTypeId() { }
 
-	// RVA: 0x26B56B8 Offset: 0x26B56B8 VA: 0x26B56B8
+	// RVA: 0x2570114 Offset: 0x2570114 VA: 0x2570114
 	public void set_MessageTypeId(Guid value) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC47B04 Offset: 0xC47B04 VA: 0xC47B04
+[CompilerGeneratedAttribute] // RVA: 0xBDB9DC Offset: 0xBDB9DC VA: 0xBDB9DC
 private sealed class PlayerEditorConnectionEvents.<InvokeMessageIdSubscribers>c__AnonStorey0 // TypeDefIndex: 2532
 {
 	// Fields
@@ -28,15 +150,15 @@ private sealed class PlayerEditorConnectionEvents.<InvokeMessageIdSubscribers>c_
 
 	// Methods
 
-	// RVA: 0x26B5640 Offset: 0x26B5640 VA: 0x26B5640
+	// RVA: 0x257009C Offset: 0x257009C VA: 0x257009C
 	public void .ctor() { }
 
-	// RVA: 0x26B5800 Offset: 0x26B5800 VA: 0x26B5800
+	// RVA: 0x257025C Offset: 0x257025C VA: 0x257025C
 	internal bool <>m__0(PlayerEditorConnectionEvents.MessageTypeSubscribers x) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC47B14 Offset: 0xC47B14 VA: 0xC47B14
+[CompilerGeneratedAttribute] // RVA: 0xBDB9EC Offset: 0xBDB9EC VA: 0xBDB9EC
 private sealed class PlayerEditorConnectionEvents.<AddAndCreate>c__AnonStorey1 // TypeDefIndex: 2533
 {
 	// Fields
@@ -44,15 +166,15 @@ private sealed class PlayerEditorConnectionEvents.<AddAndCreate>c__AnonStorey1 /
 
 	// Methods
 
-	// RVA: 0x26B5648 Offset: 0x26B5648 VA: 0x26B5648
+	// RVA: 0x25700A4 Offset: 0x25700A4 VA: 0x25700A4
 	public void .ctor() { }
 
-	// RVA: 0x26B5748 Offset: 0x26B5748 VA: 0x26B5748
+	// RVA: 0x25701A4 Offset: 0x25701A4 VA: 0x25701A4
 	internal bool <>m__0(PlayerEditorConnectionEvents.MessageTypeSubscribers x) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC47B24 Offset: 0xC47B24 VA: 0xC47B24
+[CompilerGeneratedAttribute] // RVA: 0xBDB9FC Offset: 0xBDB9FC VA: 0xBDB9FC
 private sealed class PlayerEditorConnectionEvents.<UnregisterManagedCallback>c__AnonStorey2 // TypeDefIndex: 2534
 {
 	// Fields
@@ -60,10 +182,10 @@ private sealed class PlayerEditorConnectionEvents.<UnregisterManagedCallback>c__
 
 	// Methods
 
-	// RVA: 0x26B5740 Offset: 0x26B5740 VA: 0x26B5740
+	// RVA: 0x257019C Offset: 0x257019C VA: 0x257019C
 	public void .ctor() { }
 
-	// RVA: 0x26B58B8 Offset: 0x26B58B8 VA: 0x26B58B8
+	// RVA: 0x2570314 Offset: 0x2570314 VA: 0x2570314
 	internal bool <>m__0(PlayerEditorConnectionEvents.MessageTypeSubscribers x) { }
 }
 
@@ -99,8 +221,8 @@ public static class RenderPipelineManager // TypeDefIndex: 2537
 {
 	// Fields
 	private static IRenderPipelineAsset s_CurrentPipelineAsset; // 0x0
-	[DebuggerBrowsableAttribute] // RVA: 0xC49AF4 Offset: 0xC49AF4 VA: 0xC49AF4
-	[CompilerGeneratedAttribute] // RVA: 0xC49AF4 Offset: 0xC49AF4 VA: 0xC49AF4
+	[DebuggerBrowsableAttribute] // RVA: 0xBDD9CC Offset: 0xBDD9CC VA: 0xBDD9CC
+	[CompilerGeneratedAttribute] // RVA: 0xBDD9CC Offset: 0xBDD9CC VA: 0xBDD9CC
 	private static IRenderPipeline <currentPipeline>k__BackingField; // 0x8
 
 	// Properties
@@ -108,23 +230,23 @@ public static class RenderPipelineManager // TypeDefIndex: 2537
 
 	// Methods
 
-	[CompilerGeneratedAttribute] // RVA: 0xC519F8 Offset: 0xC519F8 VA: 0xC519F8
-	// RVA: 0x264F31C Offset: 0x264F31C VA: 0x264F31C
+	[CompilerGeneratedAttribute] // RVA: 0xBE58D0 Offset: 0xBE58D0 VA: 0xBE58D0
+	// RVA: 0x24CBF8C Offset: 0x24CBF8C VA: 0x24CBF8C
 	public static IRenderPipeline get_currentPipeline() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC51A08 Offset: 0xC51A08 VA: 0xC51A08
-	// RVA: 0x264F36C Offset: 0x264F36C VA: 0x264F36C
+	[CompilerGeneratedAttribute] // RVA: 0xBE58E0 Offset: 0xBE58E0 VA: 0xBE58E0
+	// RVA: 0x24CBFDC Offset: 0x24CBFDC VA: 0x24CBFDC
 	private static void set_currentPipeline(IRenderPipeline value) { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC51A18 Offset: 0xC51A18 VA: 0xC51A18
-	// RVA: 0x264F3C0 Offset: 0x264F3C0 VA: 0x264F3C0
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE58F0 Offset: 0xBE58F0 VA: 0xBE58F0
+	// RVA: 0x24CC030 Offset: 0x24CC030 VA: 0x24CC030
 	internal static void CleanupRenderPipeline() { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC51A28 Offset: 0xC51A28 VA: 0xC51A28
-	// RVA: 0x264F5B0 Offset: 0x264F5B0 VA: 0x264F5B0
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE5900 Offset: 0xBE5900 VA: 0xBE5900
+	// RVA: 0x24CC220 Offset: 0x24CC220 VA: 0x24CC220
 	private static void DoRenderLoop_Internal(IRenderPipelineAsset pipe, Camera[] cameras, IntPtr loopPtr) { }
 
-	// RVA: 0x264F6C4 Offset: 0x264F6C4 VA: 0x264F6C4
+	// RVA: 0x24CC334 Offset: 0x24CC334 VA: 0x24CC334
 	private static void PrepareRenderPipeline(IRenderPipelineAsset pipe) { }
 }
 
@@ -133,44 +255,44 @@ public class SupportedRenderingFeatures // TypeDefIndex: 2538
 {
 	// Fields
 	private static SupportedRenderingFeatures s_Active; // 0x0
-	[DebuggerBrowsableAttribute] // RVA: 0xC49B30 Offset: 0xC49B30 VA: 0xC49B30
-	[CompilerGeneratedAttribute] // RVA: 0xC49B30 Offset: 0xC49B30 VA: 0xC49B30
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDA08 Offset: 0xBDDA08 VA: 0xBDDA08
+	[CompilerGeneratedAttribute] // RVA: 0xBDDA08 Offset: 0xBDDA08 VA: 0xBDDA08
 	private SupportedRenderingFeatures.ReflectionProbeSupportFlags <reflectionProbeSupportFlags>k__BackingField; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xC49B6C Offset: 0xC49B6C VA: 0xC49B6C
-	[DebuggerBrowsableAttribute] // RVA: 0xC49B6C Offset: 0xC49B6C VA: 0xC49B6C
+	[CompilerGeneratedAttribute] // RVA: 0xBDDA44 Offset: 0xBDDA44 VA: 0xBDDA44
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDA44 Offset: 0xBDDA44 VA: 0xBDDA44
 	private SupportedRenderingFeatures.LightmapMixedBakeMode <defaultMixedLightingMode>k__BackingField; // 0x14
-	[CompilerGeneratedAttribute] // RVA: 0xC49BA8 Offset: 0xC49BA8 VA: 0xC49BA8
-	[DebuggerBrowsableAttribute] // RVA: 0xC49BA8 Offset: 0xC49BA8 VA: 0xC49BA8
+	[CompilerGeneratedAttribute] // RVA: 0xBDDA80 Offset: 0xBDDA80 VA: 0xBDDA80
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDA80 Offset: 0xBDDA80 VA: 0xBDDA80
 	private SupportedRenderingFeatures.LightmapMixedBakeMode <supportedMixedLightingModes>k__BackingField; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xC49BE4 Offset: 0xC49BE4 VA: 0xC49BE4
-	[DebuggerBrowsableAttribute] // RVA: 0xC49BE4 Offset: 0xC49BE4 VA: 0xC49BE4
+	[CompilerGeneratedAttribute] // RVA: 0xBDDABC Offset: 0xBDDABC VA: 0xBDDABC
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDABC Offset: 0xBDDABC VA: 0xBDDABC
 	private LightmapBakeType <supportedLightmapBakeTypes>k__BackingField; // 0x1C
-	[CompilerGeneratedAttribute] // RVA: 0xC49C20 Offset: 0xC49C20 VA: 0xC49C20
-	[DebuggerBrowsableAttribute] // RVA: 0xC49C20 Offset: 0xC49C20 VA: 0xC49C20
+	[CompilerGeneratedAttribute] // RVA: 0xBDDAF8 Offset: 0xBDDAF8 VA: 0xBDDAF8
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDAF8 Offset: 0xBDDAF8 VA: 0xBDDAF8
 	private LightmapsMode <supportedLightmapsModes>k__BackingField; // 0x20
-	[DebuggerBrowsableAttribute] // RVA: 0xC49C5C Offset: 0xC49C5C VA: 0xC49C5C
-	[CompilerGeneratedAttribute] // RVA: 0xC49C5C Offset: 0xC49C5C VA: 0xC49C5C
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDB34 Offset: 0xBDDB34 VA: 0xBDDB34
+	[CompilerGeneratedAttribute] // RVA: 0xBDDB34 Offset: 0xBDDB34 VA: 0xBDDB34
 	private bool <rendererSupportsLightProbeProxyVolumes>k__BackingField; // 0x24
-	[CompilerGeneratedAttribute] // RVA: 0xC49C98 Offset: 0xC49C98 VA: 0xC49C98
-	[DebuggerBrowsableAttribute] // RVA: 0xC49C98 Offset: 0xC49C98 VA: 0xC49C98
+	[CompilerGeneratedAttribute] // RVA: 0xBDDB70 Offset: 0xBDDB70 VA: 0xBDDB70
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDB70 Offset: 0xBDDB70 VA: 0xBDDB70
 	private bool <rendererSupportsMotionVectors>k__BackingField; // 0x25
-	[CompilerGeneratedAttribute] // RVA: 0xC49CD4 Offset: 0xC49CD4 VA: 0xC49CD4
-	[DebuggerBrowsableAttribute] // RVA: 0xC49CD4 Offset: 0xC49CD4 VA: 0xC49CD4
+	[CompilerGeneratedAttribute] // RVA: 0xBDDBAC Offset: 0xBDDBAC VA: 0xBDDBAC
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDBAC Offset: 0xBDDBAC VA: 0xBDDBAC
 	private bool <rendererSupportsReceiveShadows>k__BackingField; // 0x26
-	[DebuggerBrowsableAttribute] // RVA: 0xC49D10 Offset: 0xC49D10 VA: 0xC49D10
-	[CompilerGeneratedAttribute] // RVA: 0xC49D10 Offset: 0xC49D10 VA: 0xC49D10
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDBE8 Offset: 0xBDDBE8 VA: 0xBDDBE8
+	[CompilerGeneratedAttribute] // RVA: 0xBDDBE8 Offset: 0xBDDBE8 VA: 0xBDDBE8
 	private bool <rendererSupportsReflectionProbes>k__BackingField; // 0x27
-	[DebuggerBrowsableAttribute] // RVA: 0xC49D4C Offset: 0xC49D4C VA: 0xC49D4C
-	[CompilerGeneratedAttribute] // RVA: 0xC49D4C Offset: 0xC49D4C VA: 0xC49D4C
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDC24 Offset: 0xBDDC24 VA: 0xBDDC24
+	[CompilerGeneratedAttribute] // RVA: 0xBDDC24 Offset: 0xBDDC24 VA: 0xBDDC24
 	private bool <rendererSupportsRendererPriority>k__BackingField; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xC49D88 Offset: 0xC49D88 VA: 0xC49D88
-	[DebuggerBrowsableAttribute] // RVA: 0xC49D88 Offset: 0xC49D88 VA: 0xC49D88
+	[CompilerGeneratedAttribute] // RVA: 0xBDDC60 Offset: 0xBDDC60 VA: 0xBDDC60
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDC60 Offset: 0xBDDC60 VA: 0xBDDC60
 	private bool <rendererOverridesEnvironmentLighting>k__BackingField; // 0x29
-	[CompilerGeneratedAttribute] // RVA: 0xC49DC4 Offset: 0xC49DC4 VA: 0xC49DC4
-	[DebuggerBrowsableAttribute] // RVA: 0xC49DC4 Offset: 0xC49DC4 VA: 0xC49DC4
+	[CompilerGeneratedAttribute] // RVA: 0xBDDC9C Offset: 0xBDDC9C VA: 0xBDDC9C
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDC9C Offset: 0xBDDC9C VA: 0xBDDC9C
 	private bool <rendererOverridesFog>k__BackingField; // 0x2A
-	[DebuggerBrowsableAttribute] // RVA: 0xC49E00 Offset: 0xC49E00 VA: 0xC49E00
-	[CompilerGeneratedAttribute] // RVA: 0xC49E00 Offset: 0xC49E00 VA: 0xC49E00
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDCD8 Offset: 0xBDDCD8 VA: 0xBDDCD8
+	[CompilerGeneratedAttribute] // RVA: 0xBDDCD8 Offset: 0xBDDCD8 VA: 0xBDDCD8
 	private bool <rendererOverridesOtherLightingSettings>k__BackingField; // 0x2B
 
 	// Properties
@@ -182,59 +304,59 @@ public class SupportedRenderingFeatures // TypeDefIndex: 2538
 
 	// Methods
 
-	// RVA: 0x264F51C Offset: 0x264F51C VA: 0x264F51C
+	// RVA: 0x24CC18C Offset: 0x24CC18C VA: 0x24CC18C
 	public void .ctor() { }
 
-	// RVA: 0x264FC6C Offset: 0x264FC6C VA: 0x264FC6C
+	// RVA: 0x24CC8DC Offset: 0x24CC8DC VA: 0x24CC8DC
 	public static SupportedRenderingFeatures get_active() { }
 
-	// RVA: 0x264F544 Offset: 0x264F544 VA: 0x264F544
+	// RVA: 0x24CC1B4 Offset: 0x24CC1B4 VA: 0x24CC1B4
 	public static void set_active(SupportedRenderingFeatures value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC51A38 Offset: 0xC51A38 VA: 0xC51A38
-	// RVA: 0x264FD50 Offset: 0x264FD50 VA: 0x264FD50
+	[CompilerGeneratedAttribute] // RVA: 0xBE5910 Offset: 0xBE5910 VA: 0xBE5910
+	// RVA: 0x24CC9C0 Offset: 0x24CC9C0 VA: 0x24CC9C0
 	public SupportedRenderingFeatures.LightmapMixedBakeMode get_defaultMixedLightingMode() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC51A48 Offset: 0xC51A48 VA: 0xC51A48
-	// RVA: 0x264FD58 Offset: 0x264FD58 VA: 0x264FD58
+	[CompilerGeneratedAttribute] // RVA: 0xBE5920 Offset: 0xBE5920 VA: 0xBE5920
+	// RVA: 0x24CC9C8 Offset: 0x24CC9C8 VA: 0x24CC9C8
 	public SupportedRenderingFeatures.LightmapMixedBakeMode get_supportedMixedLightingModes() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC51A58 Offset: 0xC51A58 VA: 0xC51A58
-	// RVA: 0x264FD60 Offset: 0x264FD60 VA: 0x264FD60
+	[CompilerGeneratedAttribute] // RVA: 0xBE5930 Offset: 0xBE5930 VA: 0xBE5930
+	// RVA: 0x24CC9D0 Offset: 0x24CC9D0 VA: 0x24CC9D0
 	public LightmapBakeType get_supportedLightmapBakeTypes() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC51A68 Offset: 0xC51A68 VA: 0xC51A68
-	// RVA: 0x264FD68 Offset: 0x264FD68 VA: 0x264FD68
+	[CompilerGeneratedAttribute] // RVA: 0xBE5940 Offset: 0xBE5940 VA: 0xBE5940
+	// RVA: 0x24CC9D8 Offset: 0x24CC9D8 VA: 0x24CC9D8
 	public LightmapsMode get_supportedLightmapsModes() { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC51A78 Offset: 0xC51A78 VA: 0xC51A78
-	// RVA: 0x264FD70 Offset: 0x264FD70 VA: 0x264FD70
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE5950 Offset: 0xBE5950 VA: 0xBE5950
+	// RVA: 0x24CC9E0 Offset: 0x24CC9E0 VA: 0x24CC9E0
 	internal static void FallbackMixedLightingModeByRef(IntPtr fallbackModePtr) { }
 
-	// RVA: 0x264FF00 Offset: 0x264FF00 VA: 0x264FF00
+	// RVA: 0x24CCB70 Offset: 0x24CCB70 VA: 0x24CCB70
 	internal static bool IsMixedLightingModeSupported(MixedLightingMode mixedMode) { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC51A88 Offset: 0xC51A88 VA: 0xC51A88
-	// RVA: 0x264FF90 Offset: 0x264FF90 VA: 0x264FF90
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE5960 Offset: 0xBE5960 VA: 0xBE5960
+	// RVA: 0x24CCC00 Offset: 0x24CCC00 VA: 0x24CCC00
 	internal static void IsMixedLightingModeSupportedByRef(MixedLightingMode mixedMode, IntPtr isSupportedPtr) { }
 
-	// RVA: 0x26500D4 Offset: 0x26500D4 VA: 0x26500D4
+	// RVA: 0x24CCD44 Offset: 0x24CCD44 VA: 0x24CCD44
 	internal static bool IsLightmapBakeTypeSupported(LightmapBakeType bakeType) { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC51A98 Offset: 0xC51A98 VA: 0xC51A98
-	// RVA: 0x2650164 Offset: 0x2650164 VA: 0x2650164
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE5970 Offset: 0xBE5970 VA: 0xBE5970
+	// RVA: 0x24CCDD4 Offset: 0x24CCDD4 VA: 0x24CCDD4
 	internal static void IsLightmapBakeTypeSupportedByRef(LightmapBakeType bakeType, IntPtr isSupportedPtr) { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC51AA8 Offset: 0xC51AA8 VA: 0xC51AA8
-	// RVA: 0x265026C Offset: 0x265026C VA: 0x265026C
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE5980 Offset: 0xBE5980 VA: 0xBE5980
+	// RVA: 0x24CCEDC Offset: 0x24CCEDC VA: 0x24CCEDC
 	internal static void IsLightmapsModeSupportedByRef(LightmapsMode mode, IntPtr isSupportedPtr) { }
 
-	// RVA: 0x265030C Offset: 0x265030C VA: 0x265030C
+	// RVA: 0x24CCF7C Offset: 0x24CCF7C VA: 0x24CCF7C
 	private static void .cctor() { }
 }
 
 // Namespace: 
-[FlagsAttribute] // RVA: 0xC47B34 Offset: 0xC47B34 VA: 0xC47B34
+[FlagsAttribute] // RVA: 0xBDBA0C Offset: 0xBDBA0C VA: 0xBDBA0C
 public enum SupportedRenderingFeatures.ReflectionProbeSupportFlags // TypeDefIndex: 2539
 {
 	// Fields
@@ -244,7 +366,7 @@ public enum SupportedRenderingFeatures.ReflectionProbeSupportFlags // TypeDefInd
 }
 
 // Namespace: 
-[FlagsAttribute] // RVA: 0xC47B44 Offset: 0xC47B44 VA: 0xC47B44
+[FlagsAttribute] // RVA: 0xBDBA1C Offset: 0xBDBA1C VA: 0xBDBA1C
 public enum SupportedRenderingFeatures.LightmapMixedBakeMode // TypeDefIndex: 2540
 {
 	// Fields
@@ -256,12 +378,12 @@ public enum SupportedRenderingFeatures.LightmapMixedBakeMode // TypeDefIndex: 25
 }
 
 // Namespace: UnityEngine.SceneManagement
-[NativeHeaderAttribute] // RVA: 0xC47B54 Offset: 0xC47B54 VA: 0xC47B54
+[NativeHeaderAttribute] // RVA: 0xBDBA2C Offset: 0xBDBA2C VA: 0xBDBA2C
 [Serializable]
 public struct Scene // TypeDefIndex: 2541
 {
 	// Fields
-	[SerializeField] // RVA: 0xC49E3C Offset: 0xC49E3C VA: 0xC49E3C
+	[SerializeField] // RVA: 0xBDDD14 Offset: 0xBDDD14 VA: 0xBDDD14
 	private int m_Handle; // 0x0
 
 	// Properties
@@ -275,92 +397,92 @@ public struct Scene // TypeDefIndex: 2541
 
 	// Methods
 
-	[StaticAccessorAttribute] // RVA: 0xC51AB8 Offset: 0xC51AB8 VA: 0xC51AB8
-	// RVA: 0x10328B0 Offset: 0x10328B0 VA: 0x10328B0
+	[StaticAccessorAttribute] // RVA: 0xBE5990 Offset: 0xBE5990 VA: 0xBE5990
+	// RVA: 0x2165C88 Offset: 0x2165C88 VA: 0x2165C88
 	private static bool IsValidInternal(int sceneHandle) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51AF4 Offset: 0xC51AF4 VA: 0xC51AF4
-	// RVA: 0x103291C Offset: 0x103291C VA: 0x103291C
+	[StaticAccessorAttribute] // RVA: 0xBE59CC Offset: 0xBE59CC VA: 0xBE59CC
+	// RVA: 0x2165CF4 Offset: 0x2165CF4 VA: 0x2165CF4
 	private static string GetPathInternal(int sceneHandle) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51B30 Offset: 0xC51B30 VA: 0xC51B30
-	// RVA: 0x1032988 Offset: 0x1032988 VA: 0x1032988
+	[StaticAccessorAttribute] // RVA: 0xBE5A08 Offset: 0xBE5A08 VA: 0xBE5A08
+	// RVA: 0x2165D60 Offset: 0x2165D60 VA: 0x2165D60
 	private static string GetNameInternal(int sceneHandle) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51B6C Offset: 0xC51B6C VA: 0xC51B6C
-	// RVA: 0x10329F4 Offset: 0x10329F4 VA: 0x10329F4
+	[StaticAccessorAttribute] // RVA: 0xBE5A44 Offset: 0xBE5A44 VA: 0xBE5A44
+	// RVA: 0x2165DCC Offset: 0x2165DCC VA: 0x2165DCC
 	private static bool GetIsLoadedInternal(int sceneHandle) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51BA8 Offset: 0xC51BA8 VA: 0xC51BA8
-	// RVA: 0x1032A60 Offset: 0x1032A60 VA: 0x1032A60
+	[StaticAccessorAttribute] // RVA: 0xBE5A80 Offset: 0xBE5A80 VA: 0xBE5A80
+	// RVA: 0x2165E38 Offset: 0x2165E38 VA: 0x2165E38
 	private static bool GetIsDirtyInternal(int sceneHandle) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51BE4 Offset: 0xC51BE4 VA: 0xC51BE4
-	// RVA: 0x1032ACC Offset: 0x1032ACC VA: 0x1032ACC
+	[StaticAccessorAttribute] // RVA: 0xBE5ABC Offset: 0xBE5ABC VA: 0xBE5ABC
+	// RVA: 0x2165EA4 Offset: 0x2165EA4 VA: 0x2165EA4
 	private static int GetBuildIndexInternal(int sceneHandle) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51C20 Offset: 0xC51C20 VA: 0xC51C20
-	// RVA: 0x1032B38 Offset: 0x1032B38 VA: 0x1032B38
+	[StaticAccessorAttribute] // RVA: 0xBE5AF8 Offset: 0xBE5AF8 VA: 0xBE5AF8
+	// RVA: 0x2165F10 Offset: 0x2165F10 VA: 0x2165F10
 	private static int GetRootCountInternal(int sceneHandle) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51C5C Offset: 0xC51C5C VA: 0xC51C5C
-	// RVA: 0x1032BA4 Offset: 0x1032BA4 VA: 0x1032BA4
+	[StaticAccessorAttribute] // RVA: 0xBE5B34 Offset: 0xBE5B34 VA: 0xBE5B34
+	// RVA: 0x2165F7C Offset: 0x2165F7C VA: 0x2165F7C
 	private static void GetRootGameObjectsInternal(int sceneHandle, object resultRootList) { }
 
-	// RVA: 0xBBA24C Offset: 0xBBA24C VA: 0xBBA24C
+	// RVA: 0xD667E8 Offset: 0xD667E8 VA: 0xD667E8
 	public int get_handle() { }
 
-	// RVA: 0xBBA254 Offset: 0xBBA254 VA: 0xBBA254
+	// RVA: 0xD667F0 Offset: 0xD667F0 VA: 0xD667F0
 	public bool IsValid() { }
 
-	// RVA: 0xBBA25C Offset: 0xBBA25C VA: 0xBBA25C
+	// RVA: 0xD667F8 Offset: 0xD667F8 VA: 0xD667F8
 	public string get_path() { }
 
-	// RVA: 0xBBA264 Offset: 0xBBA264 VA: 0xBBA264
+	// RVA: 0xD66800 Offset: 0xD66800 VA: 0xD66800
 	public string get_name() { }
 
-	// RVA: 0xBBA26C Offset: 0xBBA26C VA: 0xBBA26C
+	// RVA: 0xD66808 Offset: 0xD66808 VA: 0xD66808
 	public bool get_isLoaded() { }
 
-	// RVA: 0xBBA274 Offset: 0xBBA274 VA: 0xBBA274
+	// RVA: 0xD66810 Offset: 0xD66810 VA: 0xD66810
 	public int get_buildIndex() { }
 
-	// RVA: 0xBBA27C Offset: 0xBBA27C VA: 0xBBA27C
+	// RVA: 0xD66818 Offset: 0xD66818 VA: 0xD66818
 	public bool get_isDirty() { }
 
-	// RVA: 0xBBA284 Offset: 0xBBA284 VA: 0xBBA284
+	// RVA: 0xD66820 Offset: 0xD66820 VA: 0xD66820
 	public int get_rootCount() { }
 
-	// RVA: 0xBBA28C Offset: 0xBBA28C VA: 0xBBA28C
+	// RVA: 0xD66828 Offset: 0xD66828 VA: 0xD66828
 	public GameObject[] GetRootGameObjects() { }
 
-	// RVA: 0xBBA294 Offset: 0xBBA294 VA: 0xBBA294
+	// RVA: 0xD66830 Offset: 0xD66830 VA: 0xD66830
 	public void GetRootGameObjects(List<GameObject> rootGameObjects) { }
 
-	// RVA: 0x1032E7C Offset: 0x1032E7C VA: 0x1032E7C
+	// RVA: 0x2166254 Offset: 0x2166254 VA: 0x2166254
 	public static bool op_Equality(Scene lhs, Scene rhs) { }
 
-	// RVA: 0xBBA29C Offset: 0xBBA29C VA: 0xBBA29C Slot: 2
+	// RVA: 0xD66838 Offset: 0xD66838 VA: 0xD66838 Slot: 2
 	public override int GetHashCode() { }
 
-	// RVA: 0xBBA2A4 Offset: 0xBBA2A4 VA: 0xBBA2A4 Slot: 0
+	// RVA: 0xD66840 Offset: 0xD66840 VA: 0xD66840 Slot: 0
 	public override bool Equals(object other) { }
 }
 
 // Namespace: UnityEngine.SceneManagement
-[RequiredByNativeCodeAttribute] // RVA: 0xC47B8C Offset: 0xC47B8C VA: 0xC47B8C
-[NativeHeaderAttribute] // RVA: 0xC47B8C Offset: 0xC47B8C VA: 0xC47B8C
+[RequiredByNativeCodeAttribute] // RVA: 0xBDBA64 Offset: 0xBDBA64 VA: 0xBDBA64
+[NativeHeaderAttribute] // RVA: 0xBDBA64 Offset: 0xBDBA64 VA: 0xBDBA64
 public class SceneManager // TypeDefIndex: 2542
 {
 	// Fields
-	[DebuggerBrowsableAttribute] // RVA: 0xC49E4C Offset: 0xC49E4C VA: 0xC49E4C
-	[CompilerGeneratedAttribute] // RVA: 0xC49E4C Offset: 0xC49E4C VA: 0xC49E4C
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDD24 Offset: 0xBDDD24 VA: 0xBDDD24
+	[CompilerGeneratedAttribute] // RVA: 0xBDDD24 Offset: 0xBDDD24 VA: 0xBDDD24
 	private static UnityAction<Scene, LoadSceneMode> sceneLoaded; // 0x0
-	[DebuggerBrowsableAttribute] // RVA: 0xC49E88 Offset: 0xC49E88 VA: 0xC49E88
-	[CompilerGeneratedAttribute] // RVA: 0xC49E88 Offset: 0xC49E88 VA: 0xC49E88
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDD60 Offset: 0xBDDD60 VA: 0xBDDD60
+	[CompilerGeneratedAttribute] // RVA: 0xBDDD60 Offset: 0xBDDD60 VA: 0xBDDD60
 	private static UnityAction<Scene> sceneUnloaded; // 0x8
-	[DebuggerBrowsableAttribute] // RVA: 0xC49EC4 Offset: 0xC49EC4 VA: 0xC49EC4
-	[CompilerGeneratedAttribute] // RVA: 0xC49EC4 Offset: 0xC49EC4 VA: 0xC49EC4
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDD9C Offset: 0xBDDD9C VA: 0xBDDD9C
+	[CompilerGeneratedAttribute] // RVA: 0xBDDD9C Offset: 0xBDDD9C VA: 0xBDDD9C
 	private static UnityAction<Scene, Scene> activeSceneChanged; // 0x10
 
 	// Properties
@@ -369,187 +491,187 @@ public class SceneManager // TypeDefIndex: 2542
 
 	// Methods
 
-	[StaticAccessorAttribute] // RVA: 0xC51C98 Offset: 0xC51C98 VA: 0xC51C98
-	[NativeHeaderAttribute] // RVA: 0xC51C98 Offset: 0xC51C98 VA: 0xC51C98
-	[NativeMethodAttribute] // RVA: 0xC51C98 Offset: 0xC51C98 VA: 0xC51C98
-	// RVA: 0x1032F18 Offset: 0x1032F18 VA: 0x1032F18
+	[StaticAccessorAttribute] // RVA: 0xBE5B70 Offset: 0xBE5B70 VA: 0xBE5B70
+	[NativeHeaderAttribute] // RVA: 0xBE5B70 Offset: 0xBE5B70 VA: 0xBE5B70
+	[NativeMethodAttribute] // RVA: 0xBE5B70 Offset: 0xBE5B70 VA: 0xBE5B70
+	// RVA: 0x21662F0 Offset: 0x21662F0 VA: 0x21662F0
 	public static int get_sceneCount() { }
 
-	[NativeMethodAttribute] // RVA: 0xC51D20 Offset: 0xC51D20 VA: 0xC51D20
-	[StaticAccessorAttribute] // RVA: 0xC51D20 Offset: 0xC51D20 VA: 0xC51D20
-	// RVA: 0x1032F70 Offset: 0x1032F70 VA: 0x1032F70
+	[NativeMethodAttribute] // RVA: 0xBE5BF8 Offset: 0xBE5BF8 VA: 0xBE5BF8
+	[StaticAccessorAttribute] // RVA: 0xBE5BF8 Offset: 0xBE5BF8 VA: 0xBE5BF8
+	// RVA: 0x2166348 Offset: 0x2166348 VA: 0x2166348
 	public static int get_sceneCountInBuildSettings() { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51D84 Offset: 0xC51D84 VA: 0xC51D84
-	// RVA: 0x1032FC8 Offset: 0x1032FC8 VA: 0x1032FC8
+	[StaticAccessorAttribute] // RVA: 0xBE5C5C Offset: 0xBE5C5C VA: 0xBE5C5C
+	// RVA: 0x21663A0 Offset: 0x21663A0 VA: 0x21663A0
 	public static Scene GetActiveScene() { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51DC0 Offset: 0xC51DC0 VA: 0xC51DC0
-	[NativeThrowsAttribute] // RVA: 0xC51DC0 Offset: 0xC51DC0 VA: 0xC51DC0
-	// RVA: 0x103305C Offset: 0x103305C VA: 0x103305C
+	[StaticAccessorAttribute] // RVA: 0xBE5C98 Offset: 0xBE5C98 VA: 0xBE5C98
+	[NativeThrowsAttribute] // RVA: 0xBE5C98 Offset: 0xBE5C98 VA: 0xBE5C98
+	// RVA: 0x2166434 Offset: 0x2166434 VA: 0x2166434
 	public static bool SetActiveScene(Scene scene) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51E10 Offset: 0xC51E10 VA: 0xC51E10
-	// RVA: 0x10330F0 Offset: 0x10330F0 VA: 0x10330F0
+	[StaticAccessorAttribute] // RVA: 0xBE5CE8 Offset: 0xBE5CE8 VA: 0xBE5CE8
+	// RVA: 0x21664C8 Offset: 0x21664C8 VA: 0x21664C8
 	public static Scene GetSceneByPath(string scenePath) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51E4C Offset: 0xC51E4C VA: 0xC51E4C
-	// RVA: 0x103318C Offset: 0x103318C VA: 0x103318C
+	[StaticAccessorAttribute] // RVA: 0xBE5D24 Offset: 0xBE5D24 VA: 0xBE5D24
+	// RVA: 0x2166564 Offset: 0x2166564 VA: 0x2166564
 	public static Scene GetSceneByName(string name) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51E88 Offset: 0xC51E88 VA: 0xC51E88
-	[NativeThrowsAttribute] // RVA: 0xC51E88 Offset: 0xC51E88 VA: 0xC51E88
-	// RVA: 0x1033228 Offset: 0x1033228 VA: 0x1033228
+	[StaticAccessorAttribute] // RVA: 0xBE5D60 Offset: 0xBE5D60 VA: 0xBE5D60
+	[NativeThrowsAttribute] // RVA: 0xBE5D60 Offset: 0xBE5D60 VA: 0xBE5D60
+	// RVA: 0x2166600 Offset: 0x2166600 VA: 0x2166600
 	public static Scene GetSceneAt(int index) { }
 
-	[NativeThrowsAttribute] // RVA: 0xC51ED8 Offset: 0xC51ED8 VA: 0xC51ED8
-	[StaticAccessorAttribute] // RVA: 0xC51ED8 Offset: 0xC51ED8 VA: 0xC51ED8
-	// RVA: 0x10332C4 Offset: 0x10332C4 VA: 0x10332C4
+	[NativeThrowsAttribute] // RVA: 0xBE5DB0 Offset: 0xBE5DB0 VA: 0xBE5DB0
+	[StaticAccessorAttribute] // RVA: 0xBE5DB0 Offset: 0xBE5DB0 VA: 0xBE5DB0
+	// RVA: 0x216669C Offset: 0x216669C VA: 0x216669C
 	public static Scene CreateScene(string sceneName, CreateSceneParameters parameters) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51F28 Offset: 0xC51F28 VA: 0xC51F28
-	[NativeThrowsAttribute] // RVA: 0xC51F28 Offset: 0xC51F28 VA: 0xC51F28
-	// RVA: 0x1033378 Offset: 0x1033378 VA: 0x1033378
+	[StaticAccessorAttribute] // RVA: 0xBE5E00 Offset: 0xBE5E00 VA: 0xBE5E00
+	[NativeThrowsAttribute] // RVA: 0xBE5E00 Offset: 0xBE5E00 VA: 0xBE5E00
+	// RVA: 0x2166750 Offset: 0x2166750 VA: 0x2166750
 	private static bool UnloadSceneInternal(Scene scene, UnloadSceneOptions options) { }
 
-	[NativeThrowsAttribute] // RVA: 0xC51F78 Offset: 0xC51F78 VA: 0xC51F78
-	[StaticAccessorAttribute] // RVA: 0xC51F78 Offset: 0xC51F78 VA: 0xC51F78
-	// RVA: 0x1033414 Offset: 0x1033414 VA: 0x1033414
+	[NativeThrowsAttribute] // RVA: 0xBE5E50 Offset: 0xBE5E50 VA: 0xBE5E50
+	[StaticAccessorAttribute] // RVA: 0xBE5E50 Offset: 0xBE5E50 VA: 0xBE5E50
+	// RVA: 0x21667EC Offset: 0x21667EC VA: 0x21667EC
 	private static AsyncOperation UnloadSceneAsyncInternal(Scene scene, UnloadSceneOptions options) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC51FC8 Offset: 0xC51FC8 VA: 0xC51FC8
-	[NativeThrowsAttribute] // RVA: 0xC51FC8 Offset: 0xC51FC8 VA: 0xC51FC8
-	// RVA: 0x10334AC Offset: 0x10334AC VA: 0x10334AC
+	[StaticAccessorAttribute] // RVA: 0xBE5EA0 Offset: 0xBE5EA0 VA: 0xBE5EA0
+	[NativeThrowsAttribute] // RVA: 0xBE5EA0 Offset: 0xBE5EA0 VA: 0xBE5EA0
+	// RVA: 0x2166884 Offset: 0x2166884 VA: 0x2166884
 	private static AsyncOperation LoadSceneAsyncNameIndexInternal(string sceneName, int sceneBuildIndex, LoadSceneParameters parameters, bool mustCompleteNextFrame) { }
 
-	[NativeThrowsAttribute] // RVA: 0xC52018 Offset: 0xC52018 VA: 0xC52018
-	[StaticAccessorAttribute] // RVA: 0xC52018 Offset: 0xC52018 VA: 0xC52018
-	// RVA: 0x1033560 Offset: 0x1033560 VA: 0x1033560
+	[NativeThrowsAttribute] // RVA: 0xBE5EF0 Offset: 0xBE5EF0 VA: 0xBE5EF0
+	[StaticAccessorAttribute] // RVA: 0xBE5EF0 Offset: 0xBE5EF0 VA: 0xBE5EF0
+	// RVA: 0x2166938 Offset: 0x2166938 VA: 0x2166938
 	private static AsyncOperation UnloadSceneNameIndexInternal(string sceneName, int sceneBuildIndex, bool immediately, UnloadSceneOptions options, out bool outSuccess) { }
 
-	[NativeThrowsAttribute] // RVA: 0xC52068 Offset: 0xC52068 VA: 0xC52068
-	[StaticAccessorAttribute] // RVA: 0xC52068 Offset: 0xC52068 VA: 0xC52068
-	// RVA: 0x10335FC Offset: 0x10335FC VA: 0x10335FC
+	[NativeThrowsAttribute] // RVA: 0xBE5F40 Offset: 0xBE5F40 VA: 0xBE5F40
+	[StaticAccessorAttribute] // RVA: 0xBE5F40 Offset: 0xBE5F40 VA: 0xBE5F40
+	// RVA: 0x21669D4 Offset: 0x21669D4 VA: 0x21669D4
 	public static void MergeScenes(Scene sourceScene, Scene destinationScene) { }
 
-	[StaticAccessorAttribute] // RVA: 0xC520B8 Offset: 0xC520B8 VA: 0xC520B8
-	[NativeThrowsAttribute] // RVA: 0xC520B8 Offset: 0xC520B8 VA: 0xC520B8
-	// RVA: 0x103369C Offset: 0x103369C VA: 0x103369C
+	[StaticAccessorAttribute] // RVA: 0xBE5F90 Offset: 0xBE5F90 VA: 0xBE5F90
+	[NativeThrowsAttribute] // RVA: 0xBE5F90 Offset: 0xBE5F90 VA: 0xBE5F90
+	// RVA: 0x2166A74 Offset: 0x2166A74 VA: 0x2166A74
 	public static void MoveGameObjectToScene(GameObject go, Scene scene) { }
 
-	// RVA: 0x1033734 Offset: 0x1033734 VA: 0x1033734
+	// RVA: 0x2166B0C Offset: 0x2166B0C VA: 0x2166B0C
 	public static void add_sceneLoaded(UnityAction<Scene, LoadSceneMode> value) { }
 
-	// RVA: 0x1033834 Offset: 0x1033834 VA: 0x1033834
+	// RVA: 0x2166C0C Offset: 0x2166C0C VA: 0x2166C0C
 	public static void remove_sceneLoaded(UnityAction<Scene, LoadSceneMode> value) { }
 
-	// RVA: 0x1033934 Offset: 0x1033934 VA: 0x1033934
+	// RVA: 0x2166D0C Offset: 0x2166D0C VA: 0x2166D0C
 	public static void add_sceneUnloaded(UnityAction<Scene> value) { }
 
-	// RVA: 0x1033A34 Offset: 0x1033A34 VA: 0x1033A34
+	// RVA: 0x2166E0C Offset: 0x2166E0C VA: 0x2166E0C
 	public static void remove_sceneUnloaded(UnityAction<Scene> value) { }
 
-	// RVA: 0x1033B34 Offset: 0x1033B34 VA: 0x1033B34
+	// RVA: 0x2166F0C Offset: 0x2166F0C VA: 0x2166F0C
 	public static void add_activeSceneChanged(UnityAction<Scene, Scene> value) { }
 
-	// RVA: 0x1033C34 Offset: 0x1033C34 VA: 0x1033C34
+	// RVA: 0x216700C Offset: 0x216700C VA: 0x216700C
 	public static void remove_activeSceneChanged(UnityAction<Scene, Scene> value) { }
 
-	// RVA: 0x1033D34 Offset: 0x1033D34 VA: 0x1033D34
+	// RVA: 0x216710C Offset: 0x216710C VA: 0x216710C
 	public static Scene CreateScene(string sceneName) { }
 
-	// RVA: 0x1033D64 Offset: 0x1033D64 VA: 0x1033D64
+	// RVA: 0x216713C Offset: 0x216713C VA: 0x216713C
 	public static void LoadScene(string sceneName, LoadSceneMode mode) { }
 
-	// RVA: 0x1033D6C Offset: 0x1033D6C VA: 0x1033D6C
+	// RVA: 0x2167144 Offset: 0x2167144 VA: 0x2167144
 	public static Scene LoadScene(string sceneName, LoadSceneParameters parameters) { }
 
-	// RVA: 0x1033DB0 Offset: 0x1033DB0 VA: 0x1033DB0
+	// RVA: 0x2167188 Offset: 0x2167188 VA: 0x2167188
 	public static void LoadScene(int sceneBuildIndex, LoadSceneMode mode) { }
 
-	// RVA: 0x1033DB8 Offset: 0x1033DB8 VA: 0x1033DB8
+	// RVA: 0x2167190 Offset: 0x2167190 VA: 0x2167190
 	public static Scene LoadScene(int sceneBuildIndex, LoadSceneParameters parameters) { }
 
-	// RVA: 0x1033E04 Offset: 0x1033E04 VA: 0x1033E04
+	// RVA: 0x21671DC Offset: 0x21671DC VA: 0x21671DC
 	public static AsyncOperation LoadSceneAsync(int sceneBuildIndex, LoadSceneMode mode) { }
 
-	// RVA: 0x1033E3C Offset: 0x1033E3C VA: 0x1033E3C
+	// RVA: 0x2167214 Offset: 0x2167214 VA: 0x2167214
 	public static AsyncOperation LoadSceneAsync(int sceneBuildIndex, LoadSceneParameters parameters) { }
 
-	// RVA: 0x1033E70 Offset: 0x1033E70 VA: 0x1033E70
+	// RVA: 0x2167248 Offset: 0x2167248 VA: 0x2167248
 	public static AsyncOperation LoadSceneAsync(string sceneName, LoadSceneMode mode) { }
 
-	[ExcludeFromDocsAttribute] // RVA: 0xC52108 Offset: 0xC52108 VA: 0xC52108
-	// RVA: 0x1033ECC Offset: 0x1033ECC VA: 0x1033ECC
+	[ExcludeFromDocsAttribute] // RVA: 0xBE5FE0 Offset: 0xBE5FE0 VA: 0xBE5FE0
+	// RVA: 0x21672A4 Offset: 0x21672A4 VA: 0x21672A4
 	public static AsyncOperation LoadSceneAsync(string sceneName) { }
 
-	// RVA: 0x1033EA0 Offset: 0x1033EA0 VA: 0x1033EA0
+	// RVA: 0x2167278 Offset: 0x2167278 VA: 0x2167278
 	public static AsyncOperation LoadSceneAsync(string sceneName, LoadSceneParameters parameters) { }
 
-	[ObsoleteAttribute] // RVA: 0xC52118 Offset: 0xC52118 VA: 0xC52118
-	// RVA: 0x1033EF8 Offset: 0x1033EF8 VA: 0x1033EF8
+	[ObsoleteAttribute] // RVA: 0xBE5FF0 Offset: 0xBE5FF0 VA: 0xBE5FF0
+	// RVA: 0x21672D0 Offset: 0x21672D0 VA: 0x21672D0
 	public static bool UnloadScene(Scene scene) { }
 
-	[ObsoleteAttribute] // RVA: 0xC52150 Offset: 0xC52150 VA: 0xC52150
-	// RVA: 0x1033F24 Offset: 0x1033F24 VA: 0x1033F24
+	[ObsoleteAttribute] // RVA: 0xBE6028 Offset: 0xBE6028 VA: 0xBE6028
+	// RVA: 0x21672FC Offset: 0x21672FC VA: 0x21672FC
 	public static bool UnloadScene(int sceneBuildIndex) { }
 
-	[ObsoleteAttribute] // RVA: 0xC52188 Offset: 0xC52188 VA: 0xC52188
-	// RVA: 0x1033F94 Offset: 0x1033F94 VA: 0x1033F94
+	[ObsoleteAttribute] // RVA: 0xBE6060 Offset: 0xBE6060 VA: 0xBE6060
+	// RVA: 0x216736C Offset: 0x216736C VA: 0x216736C
 	public static bool UnloadScene(string sceneName) { }
 
-	// RVA: 0x1033FC8 Offset: 0x1033FC8 VA: 0x1033FC8
+	// RVA: 0x21673A0 Offset: 0x21673A0 VA: 0x21673A0
 	public static AsyncOperation UnloadSceneAsync(int sceneBuildIndex) { }
 
-	// RVA: 0x1034034 Offset: 0x1034034 VA: 0x1034034
+	// RVA: 0x216740C Offset: 0x216740C VA: 0x216740C
 	public static AsyncOperation UnloadSceneAsync(string sceneName) { }
 
-	// RVA: 0x1034064 Offset: 0x1034064 VA: 0x1034064
+	// RVA: 0x216743C Offset: 0x216743C VA: 0x216743C
 	public static AsyncOperation UnloadSceneAsync(Scene scene) { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC521C0 Offset: 0xC521C0 VA: 0xC521C0
-	// RVA: 0x103408C Offset: 0x103408C VA: 0x103408C
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE6098 Offset: 0xBE6098 VA: 0xBE6098
+	// RVA: 0x2167464 Offset: 0x2167464 VA: 0x2167464
 	private static void Internal_SceneLoaded(Scene scene, LoadSceneMode mode) { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC521D0 Offset: 0xC521D0 VA: 0xC521D0
-	// RVA: 0x1034114 Offset: 0x1034114 VA: 0x1034114
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE60A8 Offset: 0xBE60A8 VA: 0xBE60A8
+	// RVA: 0x21674EC Offset: 0x21674EC VA: 0x21674EC
 	private static void Internal_SceneUnloaded(Scene scene) { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC521E0 Offset: 0xC521E0 VA: 0xC521E0
-	// RVA: 0x1034188 Offset: 0x1034188 VA: 0x1034188
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE60B8 Offset: 0xBE60B8 VA: 0xBE60B8
+	// RVA: 0x2167560 Offset: 0x2167560 VA: 0x2167560
 	private static void Internal_ActiveSceneChanged(Scene previousActiveScene, Scene newActiveScene) { }
 
-	// RVA: 0x1032FF0 Offset: 0x1032FF0 VA: 0x1032FF0
+	// RVA: 0x21663C8 Offset: 0x21663C8 VA: 0x21663C8
 	private static void GetActiveScene_Injected(out Scene ret) { }
 
-	// RVA: 0x1033084 Offset: 0x1033084 VA: 0x1033084
+	// RVA: 0x216645C Offset: 0x216645C VA: 0x216645C
 	private static bool SetActiveScene_Injected(ref Scene scene) { }
 
-	// RVA: 0x1033118 Offset: 0x1033118 VA: 0x1033118
+	// RVA: 0x21664F0 Offset: 0x21664F0 VA: 0x21664F0
 	private static void GetSceneByPath_Injected(string scenePath, out Scene ret) { }
 
-	// RVA: 0x10331B4 Offset: 0x10331B4 VA: 0x10331B4
+	// RVA: 0x216658C Offset: 0x216658C VA: 0x216658C
 	private static void GetSceneByName_Injected(string name, out Scene ret) { }
 
-	// RVA: 0x1033250 Offset: 0x1033250 VA: 0x1033250
+	// RVA: 0x2166628 Offset: 0x2166628 VA: 0x2166628
 	private static void GetSceneAt_Injected(int index, out Scene ret) { }
 
-	// RVA: 0x10332F4 Offset: 0x10332F4 VA: 0x10332F4
+	// RVA: 0x21666CC Offset: 0x21666CC VA: 0x21666CC
 	private static void CreateScene_Injected(string sceneName, ref CreateSceneParameters parameters, out Scene ret) { }
 
-	// RVA: 0x10333A0 Offset: 0x10333A0 VA: 0x10333A0
+	// RVA: 0x2166778 Offset: 0x2166778 VA: 0x2166778
 	private static bool UnloadSceneInternal_Injected(ref Scene scene, UnloadSceneOptions options) { }
 
-	// RVA: 0x1033438 Offset: 0x1033438 VA: 0x1033438
+	// RVA: 0x2166810 Offset: 0x2166810 VA: 0x2166810
 	private static AsyncOperation UnloadSceneAsyncInternal_Injected(ref Scene scene, UnloadSceneOptions options) { }
 
-	// RVA: 0x10334D4 Offset: 0x10334D4 VA: 0x10334D4
+	// RVA: 0x21668AC Offset: 0x21668AC VA: 0x21668AC
 	private static AsyncOperation LoadSceneAsyncNameIndexInternal_Injected(string sceneName, int sceneBuildIndex, ref LoadSceneParameters parameters, bool mustCompleteNextFrame) { }
 
-	// RVA: 0x1033628 Offset: 0x1033628 VA: 0x1033628
+	// RVA: 0x2166A00 Offset: 0x2166A00 VA: 0x2166A00
 	private static void MergeScenes_Injected(ref Scene sourceScene, ref Scene destinationScene) { }
 
-	// RVA: 0x10336C0 Offset: 0x10336C0 VA: 0x10336C0
+	// RVA: 0x2166A98 Offset: 0x2166A98 VA: 0x2166A98
 	private static void MoveGameObjectToScene_Injected(GameObject go, ref Scene scene) { }
 }
 
@@ -563,7 +685,7 @@ public enum LoadSceneMode // TypeDefIndex: 2543
 }
 
 // Namespace: UnityEngine.SceneManagement
-[FlagsAttribute] // RVA: 0xC47BD8 Offset: 0xC47BD8 VA: 0xC47BD8
+[FlagsAttribute] // RVA: 0xBDBAB0 Offset: 0xBDBAB0 VA: 0xBDBAB0
 public enum LocalPhysicsMode // TypeDefIndex: 2544
 {
 	// Fields
@@ -578,14 +700,14 @@ public enum LocalPhysicsMode // TypeDefIndex: 2544
 public struct LoadSceneParameters // TypeDefIndex: 2545
 {
 	// Fields
-	[SerializeField] // RVA: 0xC49F00 Offset: 0xC49F00 VA: 0xC49F00
+	[SerializeField] // RVA: 0xBDDDD8 Offset: 0xBDDDD8 VA: 0xBDDDD8
 	private LoadSceneMode m_LoadSceneMode; // 0x0
-	[SerializeField] // RVA: 0xC49F10 Offset: 0xC49F10 VA: 0xC49F10
+	[SerializeField] // RVA: 0xBDDDE8 Offset: 0xBDDDE8 VA: 0xBDDDE8
 	private LocalPhysicsMode m_LocalPhysicsMode; // 0x4
 
 	// Methods
 
-	// RVA: 0xBBA244 Offset: 0xBBA244 VA: 0xBBA244
+	// RVA: 0xD667E0 Offset: 0xD667E0 VA: 0xD667E0
 	public void .ctor(LoadSceneMode mode) { }
 }
 
@@ -594,17 +716,17 @@ public struct LoadSceneParameters // TypeDefIndex: 2545
 public struct CreateSceneParameters // TypeDefIndex: 2546
 {
 	// Fields
-	[SerializeField] // RVA: 0xC49F20 Offset: 0xC49F20 VA: 0xC49F20
+	[SerializeField] // RVA: 0xBDDDF8 Offset: 0xBDDDF8 VA: 0xBDDDF8
 	private LocalPhysicsMode m_LocalPhysicsMode; // 0x0
 
 	// Methods
 
-	// RVA: 0xBBA23C Offset: 0xBBA23C VA: 0xBBA23C
+	// RVA: 0xD667D8 Offset: 0xD667D8 VA: 0xD667D8
 	public void .ctor(LocalPhysicsMode physicsMode) { }
 }
 
 // Namespace: UnityEngine.SceneManagement
-[FlagsAttribute] // RVA: 0xC47BE8 Offset: 0xC47BE8 VA: 0xC47BE8
+[FlagsAttribute] // RVA: 0xBDBAC0 Offset: 0xBDBAC0 VA: 0xBDBAC0
 public enum UnloadSceneOptions // TypeDefIndex: 2547
 {
 	// Fields
@@ -614,36 +736,36 @@ public enum UnloadSceneOptions // TypeDefIndex: 2547
 }
 
 // Namespace: UnityEngine
-[AttributeUsageAttribute] // RVA: 0xC47BF8 Offset: 0xC47BF8 VA: 0xC47BF8
-[RequiredByNativeCodeAttribute] // RVA: 0xC47BF8 Offset: 0xC47BF8 VA: 0xC47BF8
+[AttributeUsageAttribute] // RVA: 0xBDBAD0 Offset: 0xBDBAD0 VA: 0xBDBAD0
+[RequiredByNativeCodeAttribute] // RVA: 0xBDBAD0 Offset: 0xBDBAD0 VA: 0xBDBAD0
 internal sealed class ExtensionOfNativeClassAttribute : Attribute // TypeDefIndex: 2548
 {
 	// Methods
 
-	// RVA: 0x2650390 Offset: 0x2650390 VA: 0x2650390
+	// RVA: 0x24CD000 Offset: 0x24CD000 VA: 0x24CD000
 	public void .ctor() { }
 }
 
 // Namespace: UnityEngine.Scripting
-[AttributeUsageAttribute] // RVA: 0xC47C48 Offset: 0xC47C48 VA: 0xC47C48
+[AttributeUsageAttribute] // RVA: 0xBDBB20 Offset: 0xBDBB20 VA: 0xBDBB20
 public class PreserveAttribute : Attribute // TypeDefIndex: 2549
 {
 	// Methods
 
-	// RVA: 0x1032864 Offset: 0x1032864 VA: 0x1032864
+	// RVA: 0x2165C3C Offset: 0x2165C3C VA: 0x2165C3C
 	public void .ctor() { }
 }
 
 // Namespace: UnityEngine.Scripting.APIUpdating
-[AttributeUsageAttribute] // RVA: 0xC47C84 Offset: 0xC47C84 VA: 0xC47C84
+[AttributeUsageAttribute] // RVA: 0xBDBB5C Offset: 0xBDBB5C VA: 0xBDBB5C
 public class MovedFromAttribute : Attribute // TypeDefIndex: 2550
 {
 	// Fields
-	[DebuggerBrowsableAttribute] // RVA: 0xC49F30 Offset: 0xC49F30 VA: 0xC49F30
-	[CompilerGeneratedAttribute] // RVA: 0xC49F30 Offset: 0xC49F30 VA: 0xC49F30
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDE08 Offset: 0xBDDE08 VA: 0xBDDE08
+	[CompilerGeneratedAttribute] // RVA: 0xBDDE08 Offset: 0xBDDE08 VA: 0xBDDE08
 	private string <Namespace>k__BackingField; // 0x10
-	[DebuggerBrowsableAttribute] // RVA: 0xC49F6C Offset: 0xC49F6C VA: 0xC49F6C
-	[CompilerGeneratedAttribute] // RVA: 0xC49F6C Offset: 0xC49F6C VA: 0xC49F6C
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDE44 Offset: 0xBDDE44 VA: 0xBDDE44
+	[CompilerGeneratedAttribute] // RVA: 0xBDDE44 Offset: 0xBDDE44 VA: 0xBDDE44
 	private bool <IsInDifferentAssembly>k__BackingField; // 0x18
 
 	// Properties
@@ -652,24 +774,24 @@ public class MovedFromAttribute : Attribute // TypeDefIndex: 2550
 
 	// Methods
 
-	// RVA: 0x10348F8 Offset: 0x10348F8 VA: 0x10348F8
+	// RVA: 0x2167CD0 Offset: 0x2167CD0 VA: 0x2167CD0
 	public void .ctor(string sourceNamespace) { }
 
-	// RVA: 0x1034928 Offset: 0x1034928 VA: 0x1034928
+	// RVA: 0x2167D00 Offset: 0x2167D00 VA: 0x2167D00
 	public void .ctor(string sourceNamespace, bool isInDifferentAssembly) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC521F0 Offset: 0xC521F0 VA: 0xC521F0
-	// RVA: 0x1034968 Offset: 0x1034968 VA: 0x1034968
+	[CompilerGeneratedAttribute] // RVA: 0xBE60C8 Offset: 0xBE60C8 VA: 0xBE60C8
+	// RVA: 0x2167D40 Offset: 0x2167D40 VA: 0x2167D40
 	private void set_Namespace(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC52200 Offset: 0xC52200 VA: 0xC52200
-	// RVA: 0x1034970 Offset: 0x1034970 VA: 0x1034970
+	[CompilerGeneratedAttribute] // RVA: 0xBE60D8 Offset: 0xBE60D8 VA: 0xBE60D8
+	// RVA: 0x2167D48 Offset: 0x2167D48 VA: 0x2167D48
 	private void set_IsInDifferentAssembly(bool value) { }
 }
 
 // Namespace: UnityEngine.Serialization
-[AttributeUsageAttribute] // RVA: 0xC47C98 Offset: 0xC47C98 VA: 0xC47C98
-[RequiredByNativeCodeAttribute] // RVA: 0xC47C98 Offset: 0xC47C98 VA: 0xC47C98
+[AttributeUsageAttribute] // RVA: 0xBDBB70 Offset: 0xBDBB70 VA: 0xBDBB70
+[RequiredByNativeCodeAttribute] // RVA: 0xBDBB70 Offset: 0xBDBB70 VA: 0xBDBB70
 public class FormerlySerializedAsAttribute : Attribute // TypeDefIndex: 2551
 {
 	// Fields
@@ -677,7 +799,7 @@ public class FormerlySerializedAsAttribute : Attribute // TypeDefIndex: 2551
 
 	// Methods
 
-	// RVA: 0x1036238 Offset: 0x1036238 VA: 0x1036238
+	// RVA: 0x2169610 Offset: 0x2169610 VA: 0x2169610
 	public void .ctor(string oldName) { }
 }
 
@@ -693,7 +815,7 @@ public enum TypeInferenceRules // TypeDefIndex: 2552
 }
 
 // Namespace: UnityEngineInternal
-[AttributeUsageAttribute] // RVA: 0xC47CF8 Offset: 0xC47CF8 VA: 0xC47CF8
+[AttributeUsageAttribute] // RVA: 0xBDBBD0 Offset: 0xBDBBD0 VA: 0xBDBBD0
 [Serializable]
 public class TypeInferenceRuleAttribute : Attribute // TypeDefIndex: 2553
 {
@@ -702,13 +824,13 @@ public class TypeInferenceRuleAttribute : Attribute // TypeDefIndex: 2553
 
 	// Methods
 
-	// RVA: 0x138839C Offset: 0x138839C VA: 0x138839C
+	// RVA: 0x2B9928C Offset: 0x2B9928C VA: 0x2B9928C
 	public void .ctor(TypeInferenceRules rule) { }
 
-	// RVA: 0x1388448 Offset: 0x1388448 VA: 0x1388448
+	// RVA: 0x2B99338 Offset: 0x2B99338 VA: 0x2B99338
 	public void .ctor(string rule) { }
 
-	// RVA: 0x1388474 Offset: 0x1388474 VA: 0x1388474 Slot: 3
+	// RVA: 0x2B99364 Offset: 0x2B99364 VA: 0x2B99364 Slot: 3
 	public override string ToString() { }
 }
 
@@ -717,22 +839,22 @@ public class GenericStack : Stack // TypeDefIndex: 2554
 {
 	// Methods
 
-	// RVA: 0x1388294 Offset: 0x1388294 VA: 0x1388294
+	// RVA: 0x2B99184 Offset: 0x2B99184 VA: 0x2B99184
 	public void .ctor() { }
 }
 
 // Namespace: UnityEngineInternal
-[ExtensionAttribute] // RVA: 0xC47D0C Offset: 0xC47D0C VA: 0xC47D0C
+[ExtensionAttribute] // RVA: 0xBDBBE4 Offset: 0xBDBBE4 VA: 0xBDBBE4
 internal static class NetFxCoreExtensions // TypeDefIndex: 2555
 {
 	// Methods
 
-	[ExtensionAttribute] // RVA: 0xC52210 Offset: 0xC52210 VA: 0xC52210
-	// RVA: 0x1388350 Offset: 0x1388350 VA: 0x1388350
+	[ExtensionAttribute] // RVA: 0xBE60E8 Offset: 0xBE60E8 VA: 0xBE60E8
+	// RVA: 0x2B99240 Offset: 0x2B99240 VA: 0x2B99240
 	public static Delegate CreateDelegate(MethodInfo self, Type delegateType, object target) { }
 
-	[ExtensionAttribute] // RVA: 0xC52220 Offset: 0xC52220 VA: 0xC52220
-	// RVA: 0x1388368 Offset: 0x1388368 VA: 0x1388368
+	[ExtensionAttribute] // RVA: 0xBE60F8 Offset: 0xBE60F8 VA: 0xBE60F8
+	// RVA: 0x2B99258 Offset: 0x2B99258 VA: 0x2B99258
 	public static MethodInfo GetMethodInfo(Delegate self) { }
 }
 
@@ -746,102 +868,102 @@ public class MetaData // TypeDefIndex: 2556
 
 	// Methods
 
-	// RVA: 0x26BAE00 Offset: 0x26BAE00 VA: 0x26BAE00
+	// RVA: 0x257585C Offset: 0x257585C VA: 0x257585C
 	public void .ctor() { }
 }
 
 // Namespace: UnityEngine.Profiling.Memory.Experimental
-[NativeHeaderAttribute] // RVA: 0xC47D1C Offset: 0xC47D1C VA: 0xC47D1C
+[NativeHeaderAttribute] // RVA: 0xBDBBF4 Offset: 0xBDBBF4 VA: 0xBDBBF4
 public sealed class MemoryProfiler // TypeDefIndex: 2557
 {
 	// Fields
-	[DebuggerBrowsableAttribute] // RVA: 0xC49FA8 Offset: 0xC49FA8 VA: 0xC49FA8
-	[CompilerGeneratedAttribute] // RVA: 0xC49FA8 Offset: 0xC49FA8 VA: 0xC49FA8
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDE80 Offset: 0xBDDE80 VA: 0xBDDE80
+	[CompilerGeneratedAttribute] // RVA: 0xBDDE80 Offset: 0xBDDE80 VA: 0xBDDE80
 	private static Action<string, bool> snapshotFinished; // 0x0
-	[DebuggerBrowsableAttribute] // RVA: 0xC49FE4 Offset: 0xC49FE4 VA: 0xC49FE4
-	[CompilerGeneratedAttribute] // RVA: 0xC49FE4 Offset: 0xC49FE4 VA: 0xC49FE4
+	[DebuggerBrowsableAttribute] // RVA: 0xBDDEBC Offset: 0xBDDEBC VA: 0xBDDEBC
+	[CompilerGeneratedAttribute] // RVA: 0xBDDEBC Offset: 0xBDDEBC VA: 0xBDDEBC
 	private static Action<MetaData> createMetaData; // 0x8
 
 	// Methods
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC52230 Offset: 0xC52230 VA: 0xC52230
-	// RVA: 0x26BAA10 Offset: 0x26BAA10 VA: 0x26BAA10
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE6108 Offset: 0xBE6108 VA: 0xBE6108
+	// RVA: 0x257546C Offset: 0x257546C VA: 0x257546C
 	private static byte[] PrepareMetadata() { }
 
-	// RVA: 0x26BAE08 Offset: 0x26BAE08 VA: 0x26BAE08
+	// RVA: 0x2575864 Offset: 0x2575864 VA: 0x2575864
 	internal static int WriteIntToByteArray(byte[] array, int offset, int value) { }
 
-	// RVA: 0x26BAF08 Offset: 0x26BAF08 VA: 0x26BAF08
+	// RVA: 0x2575964 Offset: 0x2575964 VA: 0x2575964
 	internal static int WriteStringToByteArray(byte[] array, int offset, string value) { }
 
-	[RequiredByNativeCodeAttribute] // RVA: 0xC52240 Offset: 0xC52240 VA: 0xC52240
-	// RVA: 0x26BB004 Offset: 0x26BB004 VA: 0x26BB004
+	[RequiredByNativeCodeAttribute] // RVA: 0xBE6118 Offset: 0xBE6118 VA: 0xBE6118
+	// RVA: 0x2575A60 Offset: 0x2575A60 VA: 0x2575A60
 	private static void FinalizeSnapshot(string path, bool result) { }
 }
 
 // Namespace: UnityEngine.Profiling
-[NativeHeaderAttribute] // RVA: 0xC47D54 Offset: 0xC47D54 VA: 0xC47D54
-[MovedFromAttribute] // RVA: 0xC47D54 Offset: 0xC47D54 VA: 0xC47D54
-[NativeHeaderAttribute] // RVA: 0xC47D54 Offset: 0xC47D54 VA: 0xC47D54
-[NativeHeaderAttribute] // RVA: 0xC47D54 Offset: 0xC47D54 VA: 0xC47D54
-[NativeHeaderAttribute] // RVA: 0xC47D54 Offset: 0xC47D54 VA: 0xC47D54
-[NativeHeaderAttribute] // RVA: 0xC47D54 Offset: 0xC47D54 VA: 0xC47D54
-[UsedByNativeCodeAttribute] // RVA: 0xC47D54 Offset: 0xC47D54 VA: 0xC47D54
+[NativeHeaderAttribute] // RVA: 0xBDBC2C Offset: 0xBDBC2C VA: 0xBDBC2C
+[MovedFromAttribute] // RVA: 0xBDBC2C Offset: 0xBDBC2C VA: 0xBDBC2C
+[NativeHeaderAttribute] // RVA: 0xBDBC2C Offset: 0xBDBC2C VA: 0xBDBC2C
+[NativeHeaderAttribute] // RVA: 0xBDBC2C Offset: 0xBDBC2C VA: 0xBDBC2C
+[NativeHeaderAttribute] // RVA: 0xBDBC2C Offset: 0xBDBC2C VA: 0xBDBC2C
+[NativeHeaderAttribute] // RVA: 0xBDBC2C Offset: 0xBDBC2C VA: 0xBDBC2C
+[UsedByNativeCodeAttribute] // RVA: 0xBDBC2C Offset: 0xBDBC2C VA: 0xBDBC2C
 public sealed class Profiler // TypeDefIndex: 2558
 {
 	// Properties
-	[ObsoleteAttribute] // RVA: 0xC54830 Offset: 0xC54830 VA: 0xC54830
+	[ObsoleteAttribute] // RVA: 0xBE8708 Offset: 0xBE8708 VA: 0xBE8708
 	public static uint usedHeapSize { get; }
 	public static long usedHeapSizeLong { get; }
 
 	// Methods
 
-	// RVA: 0x26BB090 Offset: 0x26BB090 VA: 0x26BB090
+	// RVA: 0x2575AEC Offset: 0x2575AEC VA: 0x2575AEC
 	public static uint get_usedHeapSize() { }
 
-	[NativeMethodAttribute] // RVA: 0xC52250 Offset: 0xC52250 VA: 0xC52250
-	// RVA: 0x26BB0A4 Offset: 0x26BB0A4 VA: 0x26BB0A4
+	[NativeMethodAttribute] // RVA: 0xBE6128 Offset: 0xBE6128 VA: 0xBE6128
+	// RVA: 0x2575B00 Offset: 0x2575B00 VA: 0x2575B00
 	public static long get_usedHeapSizeLong() { }
 
-	[ObsoleteAttribute] // RVA: 0xC522A4 Offset: 0xC522A4 VA: 0xC522A4
-	// RVA: 0x26BB0FC Offset: 0x26BB0FC VA: 0x26BB0FC
+	[ObsoleteAttribute] // RVA: 0xBE617C Offset: 0xBE617C VA: 0xBE617C
+	// RVA: 0x2575B58 Offset: 0x2575B58 VA: 0x2575B58
 	public static uint GetMonoHeapSize() { }
 
-	[NativeMethodAttribute] // RVA: 0xC522DC Offset: 0xC522DC VA: 0xC522DC
-	// RVA: 0x26BB110 Offset: 0x26BB110 VA: 0x26BB110
+	[NativeMethodAttribute] // RVA: 0xBE61B4 Offset: 0xBE61B4 VA: 0xBE61B4
+	// RVA: 0x2575B6C Offset: 0x2575B6C VA: 0x2575B6C
 	public static long GetMonoHeapSizeLong() { }
 
-	[ObsoleteAttribute] // RVA: 0xC52330 Offset: 0xC52330 VA: 0xC52330
-	// RVA: 0x26BB168 Offset: 0x26BB168 VA: 0x26BB168
+	[ObsoleteAttribute] // RVA: 0xBE6208 Offset: 0xBE6208 VA: 0xBE6208
+	// RVA: 0x2575BC4 Offset: 0x2575BC4 VA: 0x2575BC4
 	public static uint GetMonoUsedSize() { }
 
-	[NativeMethodAttribute] // RVA: 0xC52368 Offset: 0xC52368 VA: 0xC52368
-	// RVA: 0x26BB17C Offset: 0x26BB17C VA: 0x26BB17C
+	[NativeMethodAttribute] // RVA: 0xBE6240 Offset: 0xBE6240 VA: 0xBE6240
+	// RVA: 0x2575BD8 Offset: 0x2575BD8 VA: 0x2575BD8
 	public static long GetMonoUsedSizeLong() { }
 
-	[ObsoleteAttribute] // RVA: 0xC523BC Offset: 0xC523BC VA: 0xC523BC
-	// RVA: 0x26BB1D4 Offset: 0x26BB1D4 VA: 0x26BB1D4
+	[ObsoleteAttribute] // RVA: 0xBE6294 Offset: 0xBE6294 VA: 0xBE6294
+	// RVA: 0x2575C30 Offset: 0x2575C30 VA: 0x2575C30
 	public static uint GetTotalAllocatedMemory() { }
 
-	[NativeConditionalAttribute] // RVA: 0xC523F4 Offset: 0xC523F4 VA: 0xC523F4
-	[NativeMethodAttribute] // RVA: 0xC523F4 Offset: 0xC523F4 VA: 0xC523F4
-	[StaticAccessorAttribute] // RVA: 0xC523F4 Offset: 0xC523F4 VA: 0xC523F4
-	// RVA: 0x26BB1E8 Offset: 0x26BB1E8 VA: 0x26BB1E8
+	[NativeConditionalAttribute] // RVA: 0xBE62CC Offset: 0xBE62CC VA: 0xBE62CC
+	[NativeMethodAttribute] // RVA: 0xBE62CC Offset: 0xBE62CC VA: 0xBE62CC
+	[StaticAccessorAttribute] // RVA: 0xBE62CC Offset: 0xBE62CC VA: 0xBE62CC
+	// RVA: 0x2575C44 Offset: 0x2575C44 VA: 0x2575C44
 	public static long GetTotalAllocatedMemoryLong() { }
 
-	[ObsoleteAttribute] // RVA: 0xC52488 Offset: 0xC52488 VA: 0xC52488
-	// RVA: 0x26BB240 Offset: 0x26BB240 VA: 0x26BB240
+	[ObsoleteAttribute] // RVA: 0xBE6360 Offset: 0xBE6360 VA: 0xBE6360
+	// RVA: 0x2575C9C Offset: 0x2575C9C VA: 0x2575C9C
 	public static uint GetTotalReservedMemory() { }
 
-	[NativeMethodAttribute] // RVA: 0xC524C0 Offset: 0xC524C0 VA: 0xC524C0
-	[StaticAccessorAttribute] // RVA: 0xC524C0 Offset: 0xC524C0 VA: 0xC524C0
-	[NativeConditionalAttribute] // RVA: 0xC524C0 Offset: 0xC524C0 VA: 0xC524C0
-	// RVA: 0x26BB254 Offset: 0x26BB254 VA: 0x26BB254
+	[NativeMethodAttribute] // RVA: 0xBE6398 Offset: 0xBE6398 VA: 0xBE6398
+	[StaticAccessorAttribute] // RVA: 0xBE6398 Offset: 0xBE6398 VA: 0xBE6398
+	[NativeConditionalAttribute] // RVA: 0xBE6398 Offset: 0xBE6398 VA: 0xBE6398
+	// RVA: 0x2575CB0 Offset: 0x2575CB0 VA: 0x2575CB0
 	public static long GetTotalReservedMemoryLong() { }
 }
 
 // Namespace: UnityEngine
-[FlagsAttribute] // RVA: 0xC47E54 Offset: 0xC47E54 VA: 0xC47E54
+[FlagsAttribute] // RVA: 0xBDBD2C Offset: 0xBDBD2C VA: 0xBDBD2C
 public enum DrivenTransformProperties // TypeDefIndex: 2559
 {
 	// Fields
@@ -876,125 +998,3 @@ public enum DrivenTransformProperties // TypeDefIndex: 2559
 // Namespace: UnityEngine
 public struct DrivenRectTransformTracker // TypeDefIndex: 2560
 {
-	// Methods
-
-	// RVA: 0xDD24C8 Offset: 0xDD24C8 VA: 0xDD24C8
-	public void Add(Object driver, RectTransform rectTransform, DrivenTransformProperties drivenProperties) { }
-
-	// RVA: 0xDD24CC Offset: 0xDD24CC VA: 0xDD24CC
-	public void Clear() { }
-}
-
-// Namespace: UnityEngine
-[NativeHeaderAttribute] // RVA: 0xC47E64 Offset: 0xC47E64 VA: 0xC47E64
-[NativeClassAttribute] // RVA: 0xC47E64 Offset: 0xC47E64 VA: 0xC47E64
-public sealed class RectTransform : Transform // TypeDefIndex: 2561
-{
-	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xC4A020 Offset: 0xC4A020 VA: 0xC4A020
-	[DebuggerBrowsableAttribute] // RVA: 0xC4A020 Offset: 0xC4A020 VA: 0xC4A020
-	private static RectTransform.ReapplyDrivenProperties reapplyDrivenProperties; // 0x0
-
-	// Properties
-	public Rect rect { get; }
-	public Vector2 anchorMin { get; set; }
-	public Vector2 anchorMax { get; set; }
-	public Vector2 anchoredPosition { get; set; }
-	public Vector2 sizeDelta { get; set; }
-	public Vector2 pivot { get; set; }
-	public Vector2 offsetMin { get; set; }
-	public Vector2 offsetMax { get; set; }
-
-	// Methods
-
-	// RVA: 0x26BE774 Offset: 0x26BE774 VA: 0x26BE774
-	public static void add_reapplyDrivenProperties(RectTransform.ReapplyDrivenProperties value) { }
-
-	// RVA: 0x26BE874 Offset: 0x26BE874 VA: 0x26BE874
-	public static void remove_reapplyDrivenProperties(RectTransform.ReapplyDrivenProperties value) { }
-
-	// RVA: 0x26BE974 Offset: 0x26BE974 VA: 0x26BE974
-	public Rect get_rect() { }
-
-	// RVA: 0x26BEA14 Offset: 0x26BEA14 VA: 0x26BEA14
-	public Vector2 get_anchorMin() { }
-
-	// RVA: 0x26BEAB0 Offset: 0x26BEAB0 VA: 0x26BEAB0
-	public void set_anchorMin(Vector2 value) { }
-
-	// RVA: 0x26BEB48 Offset: 0x26BEB48 VA: 0x26BEB48
-	public Vector2 get_anchorMax() { }
-
-	// RVA: 0x26BEBE4 Offset: 0x26BEBE4 VA: 0x26BEBE4
-	public void set_anchorMax(Vector2 value) { }
-
-	// RVA: 0x26BEC7C Offset: 0x26BEC7C VA: 0x26BEC7C
-	public Vector2 get_anchoredPosition() { }
-
-	// RVA: 0x26BED18 Offset: 0x26BED18 VA: 0x26BED18
-	public void set_anchoredPosition(Vector2 value) { }
-
-	// RVA: 0x26BEDB0 Offset: 0x26BEDB0 VA: 0x26BEDB0
-	public Vector2 get_sizeDelta() { }
-
-	// RVA: 0x26BEE4C Offset: 0x26BEE4C VA: 0x26BEE4C
-	public void set_sizeDelta(Vector2 value) { }
-
-	// RVA: 0x26BEEE4 Offset: 0x26BEEE4 VA: 0x26BEEE4
-	public Vector2 get_pivot() { }
-
-	// RVA: 0x26BEF80 Offset: 0x26BEF80 VA: 0x26BEF80
-	public void set_pivot(Vector2 value) { }
-
-	// RVA: 0x26BF018 Offset: 0x26BF018 VA: 0x26BF018
-	public Vector2 get_offsetMin() { }
-
-	// RVA: 0x26BF104 Offset: 0x26BF104 VA: 0x26BF104
-	public void set_offsetMin(Vector2 value) { }
-
-	// RVA: 0x26BF2DC Offset: 0x26BF2DC VA: 0x26BF2DC
-	public Vector2 get_offsetMax() { }
-
-	// RVA: 0x26BF3E8 Offset: 0x26BF3E8 VA: 0x26BF3E8
-	public void set_offsetMax(Vector2 value) { }
-
-	// RVA: 0x26BF5B8 Offset: 0x26BF5B8 VA: 0x26BF5B8
-	public void GetLocalCorners(Vector3[] fourCornersArray) { }
-
-	// RVA: 0x26BF7C4 Offset: 0x26BF7C4 VA: 0x26BF7C4
-	public void GetWorldCorners(Vector3[] fourCornersArray) { }
-
-	// RVA: 0x26BF930 Offset: 0x26BF930 VA: 0x26BF930
-	public void SetInsetAndSizeFromParentEdge(RectTransform.Edge edge, float inset, float size) { }
-
-	// RVA: 0x26BFAF4 Offset: 0x26BFAF4 VA: 0x26BFAF4
-	public void SetSizeWithCurrentAnchors(RectTransform.Axis axis, float size) { }
-
-	[RequiredByNativeCodeAttribute] // RVA: 0xC52554 Offset: 0xC52554 VA: 0xC52554
-	// RVA: 0x26BFCF4 Offset: 0x26BFCF4 VA: 0x26BFCF4
-	internal static void SendReapplyDrivenProperties(RectTransform driven) { }
-
-	// RVA: 0x26BFBE8 Offset: 0x26BFBE8 VA: 0x26BFBE8
-	private Vector2 GetParentSize() { }
-
-	// RVA: 0x26BE9A0 Offset: 0x26BE9A0 VA: 0x26BE9A0
-	private void get_rect_Injected(out Rect ret) { }
-
-	// RVA: 0x26BEA3C Offset: 0x26BEA3C VA: 0x26BEA3C
-	private void get_anchorMin_Injected(out Vector2 ret) { }
-
-	// RVA: 0x26BEAD4 Offset: 0x26BEAD4 VA: 0x26BEAD4
-	private void set_anchorMin_Injected(ref Vector2 value) { }
-
-	// RVA: 0x26BEB70 Offset: 0x26BEB70 VA: 0x26BEB70
-	private void get_anchorMax_Injected(out Vector2 ret) { }
-
-	// RVA: 0x26BEC08 Offset: 0x26BEC08 VA: 0x26BEC08
-	private void set_anchorMax_Injected(ref Vector2 value) { }
-
-	// RVA: 0x26BECA4 Offset: 0x26BECA4 VA: 0x26BECA4
-	private void get_anchoredPosition_Injected(out Vector2 ret) { }
-
-	// RVA: 0x26BED3C Offset: 0x26BED3C VA: 0x26BED3C
-	private void set_anchoredPosition_Injected(ref Vector2 value) { }
-

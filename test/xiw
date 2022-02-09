@@ -1,16 +1,138 @@
+	// RVA: 0x1DAAA14 Offset: 0x1DAAA14 VA: 0x1DAAA14 Slot: 11
+	public override void FinishTransaction(ProductDefinition product, string transactionId) { }
+
+	// RVA: 0x1DAA44C Offset: 0x1DAA44C VA: 0x1DAA44C Slot: 12
+	public void OnSetupFailed(string reason) { }
+
+	// RVA: 0x1DBB190 Offset: 0x1DBB190 VA: 0x1DBB190 Slot: 18
+	public virtual void OnProductsRetrieved(string json) { }
+
+	// RVA: 0x1DAA900 Offset: 0x1DAA900 VA: 0x1DAA900 Slot: 19
+	public virtual void OnPurchaseSucceeded(string id, string receipt, string transactionID) { }
+
+	// RVA: 0x1DBB2A8 Offset: 0x1DBB2A8 VA: 0x1DBB2A8
+	protected void SendPurchaseSucceededEvent(string id, string receipt, string transactionID) { }
+
+	// RVA: 0x1DAA59C Offset: 0x1DAA59C VA: 0x1DAA59C Slot: 15
+	public void OnPurchaseFailed(string json) { }
+
+	// RVA: 0x1DB141C Offset: 0x1DB141C VA: 0x1DB141C
+	public void OnPurchaseFailed(PurchaseFailureDescription failure, string json) { }
+
+	// RVA: 0x1DBB2AC Offset: 0x1DBB2AC VA: 0x1DBB2AC
+	protected void SendPurchaseFailedEvent(PurchaseFailureDescription failure, string json) { }
+
+	// RVA: 0x1DBB2B0 Offset: 0x1DBB2B0 VA: 0x1DBB2B0
+	private StoreSpecificPurchaseErrorCode ParseStoreSpecificPurchaseErrorCode(string json) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class NativeStoreProvider : INativeStoreProvider // TypeDefIndex: 3519
+{
+	// Methods
+
+	// RVA: 0x1DBD9B0 Offset: 0x1DBD9B0 VA: 0x1DBD9B0 Slot: 4
+	public INativeStore GetAndroidStore(IUnityCallback callback, AppStore store, IPurchasingBinder binder, IUtil util) { }
+
+	// RVA: 0x1DBDB5C Offset: 0x1DBDB5C VA: 0x1DBDB5C
+	private INativeStore GetAndroidStoreHelper(IUnityCallback callback, AppStore store, IPurchasingBinder binder, IUtil util) { }
+
+	// RVA: 0x1DBE544 Offset: 0x1DBE544 VA: 0x1DBE544 Slot: 5
+	public INativeAppleStore GetStorekit(IUnityCallback callback) { }
+
+	// RVA: 0x1DBE5E0 Offset: 0x1DBE5E0 VA: 0x1DBE5E0 Slot: 6
+	public INativeFacebookStore GetFacebookStore() { }
+
+	// RVA: 0x1DBE63C Offset: 0x1DBE63C VA: 0x1DBE63C
+	public void .ctor() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+public class CloudCatalogImpl // TypeDefIndex: 3520
+{
+	// Fields
+	private IAsyncWebUtil m_AsyncUtil; // 0x10
+	private string m_CacheFileName; // 0x18
+	private ILogger m_Logger; // 0x20
+	private string m_CatalogURL; // 0x28
+	private string m_StoreName; // 0x30
+	private const int kMaxRetryDelayInSeconds = 300;
+	private const string kCatalogURL = "https://catalog.iap.cloud.unity3d.com";
 
 	// Methods
 
-	// RVA: 0x22B6A04 Offset: 0x22B6A04 VA: 0x22B6A04
-	private static void .cctor() { }
+	// RVA: 0x1DAB814 Offset: 0x1DAB814 VA: 0x1DAB814
+	public static CloudCatalogImpl CreateInstance(string storeName) { }
 
-	// RVA: 0x22B6A68 Offset: 0x22B6A68 VA: 0x22B6A68
+	// RVA: 0x1DABBAC Offset: 0x1DABBAC VA: 0x1DABBAC
+	internal void .ctor(IAsyncWebUtil util, string cacheFile, ILogger logger, string catalogURL, string storeName) { }
+
+	// RVA: 0x1DABC00 Offset: 0x1DABC00 VA: 0x1DABC00
+	public void FetchProducts(Action<HashSet<ProductDefinition>> callback) { }
+
+	// RVA: 0x1DABC08 Offset: 0x1DABC08 VA: 0x1DABC08
+	internal void FetchProducts(Action<HashSet<ProductDefinition>> callback, int delayInSeconds) { }
+
+	// RVA: 0x1DABE28 Offset: 0x1DABE28 VA: 0x1DABE28
+	internal static HashSet<ProductDefinition> ParseProductsFromJSON(string json, string storeName) { }
+
+	// RVA: 0x1DAC5F8 Offset: 0x1DAC5F8 VA: 0x1DAC5F8
+	internal static string CamelCaseToSnakeCase(string s) { }
+
+	// RVA: 0x1DAC790 Offset: 0x1DAC790 VA: 0x1DAC790
+	private void TryPersistCatalog(string response) { }
+
+	// RVA: 0x1DAC8F8 Offset: 0x1DAC8F8 VA: 0x1DAC8F8
+	private HashSet<ProductDefinition> TryLoadCachedCatalog() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC1ADA0 Offset: 0xC1ADA0 VA: 0xC1ADA0
+private sealed class CloudCatalogImpl.<>c__DisplayClass10_0 // TypeDefIndex: 3521
+{
+	// Fields
+	public CloudCatalogImpl <>4__this; // 0x10
+	public Action<HashSet<ProductDefinition>> callback; // 0x18
+	public int delayInSeconds; // 0x20
+	public Action <>9__2; // 0x28
+
+	// Methods
+
+	// RVA: 0x1DABE20 Offset: 0x1DABE20 VA: 0x1DABE20
 	public void .ctor() { }
 
-	// RVA: 0x22B6A70 Offset: 0x22B6A70 VA: 0x22B6A70
+	// RVA: 0x1DACCB0 Offset: 0x1DACCB0 VA: 0x1DACCB0
+	internal void <FetchProducts>b__0(string response) { }
+
+	// RVA: 0x1DACFFC Offset: 0x1DACFFC VA: 0x1DACFFC
+	internal void <FetchProducts>b__1(string error) { }
+
+	// RVA: 0x1DAD24C Offset: 0x1DAD24C VA: 0x1DAD24C
+	internal void <FetchProducts>b__2() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC1ADB0 Offset: 0xC1ADB0 VA: 0xC1ADB0
+[Serializable]
+private sealed class CloudCatalogImpl.<>c // TypeDefIndex: 3522
+{
+	// Fields
+	public static readonly CloudCatalogImpl.<>c <>9; // 0x0
+	public static Func<char, int, string> <>9__12_0; // 0x8
+	public static Func<string, string, string> <>9__12_1; // 0x10
+
+	// Methods
+
+	// RVA: 0x1DACA98 Offset: 0x1DACA98 VA: 0x1DACA98
+	private static void .cctor() { }
+
+	// RVA: 0x1DACAFC Offset: 0x1DACAFC VA: 0x1DACAFC
+	public void .ctor() { }
+
+	// RVA: 0x1DACB04 Offset: 0x1DACB04 VA: 0x1DACB04
 	internal string <CamelCaseToSnakeCase>b__12_0(char a, int b) { }
 
-	// RVA: 0x22B6BA4 Offset: 0x22B6BA4 VA: 0x22B6BA4
+	// RVA: 0x1DACC38 Offset: 0x1DACC38 VA: 0x1DACC38
 	internal string <CamelCaseToSnakeCase>b__12_1(string a, string b) { }
 }
 
@@ -26,7 +148,7 @@ internal class FakeManagedStoreConfig : IManagedStoreConfig, IStoreConfiguration
 
 	// Methods
 
-	// RVA: 0x22B92B0 Offset: 0x22B92B0 VA: 0x22B92B0
+	// RVA: 0x1DAF344 Offset: 0x1DAF344 VA: 0x1DAF344
 	public void .ctor() { }
 }
 
@@ -35,7 +157,7 @@ internal class FakeManagedStoreExtensions : IManagedStoreExtensions, IStoreExten
 {
 	// Methods
 
-	// RVA: 0x22B92C4 Offset: 0x22B92C4 VA: 0x22B92C4
+	// RVA: 0x1DAF358 Offset: 0x1DAF358 VA: 0x1DAF358
 	public void .ctor() { }
 }
 
@@ -60,10 +182,10 @@ internal class StoreCatalogImpl // TypeDefIndex: 3527
 
 	// Methods
 
-	// RVA: 0x1305A94 Offset: 0x1305A94 VA: 0x1305A94
+	// RVA: 0x2AF86F8 Offset: 0x2AF86F8 VA: 0x2AF86F8
 	public static StoreCatalogImpl CreateInstance(string storeName, string baseUrl, IAsyncWebUtil webUtil, ILogger logger, IUtil util, JSONStore baseStore) { }
 
-	// RVA: 0x1305CC4 Offset: 0x1305CC4 VA: 0x1305CC4
+	// RVA: 0x2AF8928 Offset: 0x2AF8928 VA: 0x2AF8928
 	internal void .ctor(IAsyncWebUtil util, ILogger logger, string catalogURL, string storeName, FileReference fileReference) { }
 }
 
@@ -78,13 +200,13 @@ internal class AdsIPC // TypeDefIndex: 3528
 
 	// Methods
 
-	// RVA: 0x22B1CC8 Offset: 0x22B1CC8 VA: 0x22B1CC8
+	// RVA: 0x1DA7D5C Offset: 0x1DA7D5C VA: 0x1DA7D5C
 	internal static bool InitAdsIPC(IUtil util) { }
 
-	// RVA: 0x22B1F38 Offset: 0x22B1F38 VA: 0x22B1F38
+	// RVA: 0x1DA7FCC Offset: 0x1DA7FCC VA: 0x1DA7FCC
 	internal static bool VerifyMethodExists() { }
 
-	// RVA: 0x22B20E0 Offset: 0x22B20E0 VA: 0x22B20E0
+	// RVA: 0x1DA8174 Offset: 0x1DA8174 VA: 0x1DA8174
 	private static void .cctor() { }
 }
 
@@ -101,46 +223,46 @@ internal class EventQueue // TypeDefIndex: 3529
 
 	// Methods
 
-	// RVA: 0x22B71F8 Offset: 0x22B71F8 VA: 0x22B71F8
+	// RVA: 0x1DAD28C Offset: 0x1DAD28C VA: 0x1DAD28C
 	private void .ctor(IUtil util, IAsyncWebUtil webUtil) { }
 
-	// RVA: 0x22B7B90 Offset: 0x22B7B90 VA: 0x22B7B90
+	// RVA: 0x1DADC24 Offset: 0x1DADC24 VA: 0x1DADC24
 	public static EventQueue Instance(IUtil util, IAsyncWebUtil webUtil) { }
 
-	// RVA: 0x22B7C24 Offset: 0x22B7C24 VA: 0x22B7C24
+	// RVA: 0x1DADCB8 Offset: 0x1DADCB8 VA: 0x1DADCB8
 	internal void SetAdsUrl(string url) { }
 
-	// RVA: 0x22B7C2C Offset: 0x22B7C2C VA: 0x22B7C2C
+	// RVA: 0x1DADCC0 Offset: 0x1DADCC0 VA: 0x1DADCC0
 	internal void SetIapUrl(string url) { }
 }
 
 // Namespace: UnityEngine.Purchasing
-[AddComponentMenu] // RVA: 0xC86EE8 Offset: 0xC86EE8 VA: 0xC86EE8
+[AddComponentMenu] // RVA: 0xC1ADC0 Offset: 0xC1ADC0 VA: 0xC1ADC0
 internal class AsyncWebUtil : MonoBehaviour, IAsyncWebUtil // TypeDefIndex: 3530
 {
 	// Methods
 
-	// RVA: 0x22B4DB8 Offset: 0x22B4DB8 VA: 0x22B4DB8 Slot: 4
+	// RVA: 0x1DAAE4C Offset: 0x1DAAE4C VA: 0x1DAAE4C Slot: 4
 	public void Get(string url, Action<string> responseHandler, Action<string> errorHandler, int maxTimeoutInSeconds = 5) { }
 
-	// RVA: 0x22B4F40 Offset: 0x22B4F40 VA: 0x22B4F40 Slot: 6
+	// RVA: 0x1DAAFD4 Offset: 0x1DAAFD4 VA: 0x1DAAFD4 Slot: 6
 	public void Post(string url, string body, Action<string> responseHandler, Action<string> errorHandler, int maxTimeoutInSeconds = 5) { }
 
-	// RVA: 0x22B4E5C Offset: 0x22B4E5C VA: 0x22B4E5C
+	// RVA: 0x1DAAEF0 Offset: 0x1DAAEF0 VA: 0x1DAAEF0
 	private IEnumerator Process(WWW request, Action<string> responseHandler, Action<string> errorHandler, int maxTimeoutInSeconds) { }
 
-	// RVA: 0x22B5070 Offset: 0x22B5070 VA: 0x22B5070 Slot: 5
+	// RVA: 0x1DAB104 Offset: 0x1DAB104 VA: 0x1DAB104 Slot: 5
 	public void Schedule(Action a, int delayInSeconds) { }
 
-	// RVA: 0x22B509C Offset: 0x22B509C VA: 0x22B509C
+	// RVA: 0x1DAB130 Offset: 0x1DAB130 VA: 0x1DAB130
 	private IEnumerator DoInvoke(Action a, int delayInSeconds) { }
 
-	// RVA: 0x22B5178 Offset: 0x22B5178 VA: 0x22B5178
+	// RVA: 0x1DAB20C Offset: 0x1DAB20C VA: 0x1DAB20C
 	public void .ctor() { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC86F20 Offset: 0xC86F20 VA: 0xC86F20
+[CompilerGeneratedAttribute] // RVA: 0xC1ADF8 Offset: 0xC1ADF8 VA: 0xC1ADF8
 private sealed class AsyncWebUtil.<Process>d__2 : IEnumerator<object>, IEnumerator, IDisposable // TypeDefIndex: 3531
 {
 	// Fields
@@ -160,32 +282,32 @@ private sealed class AsyncWebUtil.<Process>d__2 : IEnumerator<object>, IEnumerat
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xC87C7C Offset: 0xC87C7C VA: 0xC87C7C
-	// RVA: 0x22B5044 Offset: 0x22B5044 VA: 0x22B5044
+	[DebuggerHiddenAttribute] // RVA: 0xC1BB54 Offset: 0xC1BB54 VA: 0xC1BB54
+	// RVA: 0x1DAB0D8 Offset: 0x1DAB0D8 VA: 0x1DAB0D8
 	public void .ctor(int <>1__state) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC87C8C Offset: 0xC87C8C VA: 0xC87C8C
-	// RVA: 0x22B52B8 Offset: 0x22B52B8 VA: 0x22B52B8 Slot: 8
+	[DebuggerHiddenAttribute] // RVA: 0xC1BB64 Offset: 0xC1BB64 VA: 0xC1BB64
+	// RVA: 0x1DAB34C Offset: 0x1DAB34C VA: 0x1DAB34C Slot: 8
 	private void System.IDisposable.Dispose() { }
 
-	// RVA: 0x22B52BC Offset: 0x22B52BC VA: 0x22B52BC Slot: 6
+	// RVA: 0x1DAB350 Offset: 0x1DAB350 VA: 0x1DAB350 Slot: 6
 	private bool MoveNext() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC87C9C Offset: 0xC87C9C VA: 0xC87C9C
-	// RVA: 0x22B5478 Offset: 0x22B5478 VA: 0x22B5478 Slot: 4
+	[DebuggerHiddenAttribute] // RVA: 0xC1BB74 Offset: 0xC1BB74 VA: 0xC1BB74
+	// RVA: 0x1DAB50C Offset: 0x1DAB50C VA: 0x1DAB50C Slot: 4
 	private object System.Collections.Generic.IEnumerator<System.Object>.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC87CAC Offset: 0xC87CAC VA: 0xC87CAC
-	// RVA: 0x22B5480 Offset: 0x22B5480 VA: 0x22B5480 Slot: 7
+	[DebuggerHiddenAttribute] // RVA: 0xC1BB84 Offset: 0xC1BB84 VA: 0xC1BB84
+	// RVA: 0x1DAB514 Offset: 0x1DAB514 VA: 0x1DAB514 Slot: 7
 	private void System.Collections.IEnumerator.Reset() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC87CBC Offset: 0xC87CBC VA: 0xC87CBC
-	// RVA: 0x22B54E8 Offset: 0x22B54E8 VA: 0x22B54E8 Slot: 5
+	[DebuggerHiddenAttribute] // RVA: 0xC1BB94 Offset: 0xC1BB94 VA: 0xC1BB94
+	// RVA: 0x1DAB57C Offset: 0x1DAB57C VA: 0x1DAB57C Slot: 5
 	private object System.Collections.IEnumerator.get_Current() { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC86F30 Offset: 0xC86F30 VA: 0xC86F30
+[CompilerGeneratedAttribute] // RVA: 0xC1AE08 Offset: 0xC1AE08 VA: 0xC1AE08
 private sealed class AsyncWebUtil.<DoInvoke>d__4 : IEnumerator<object>, IEnumerator, IDisposable // TypeDefIndex: 3532
 {
 	// Fields
@@ -201,27 +323,27 @@ private sealed class AsyncWebUtil.<DoInvoke>d__4 : IEnumerator<object>, IEnumera
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xC87CCC Offset: 0xC87CCC VA: 0xC87CCC
-	// RVA: 0x22B514C Offset: 0x22B514C VA: 0x22B514C
+	[DebuggerHiddenAttribute] // RVA: 0xC1BBA4 Offset: 0xC1BBA4 VA: 0xC1BBA4
+	// RVA: 0x1DAB1E0 Offset: 0x1DAB1E0 VA: 0x1DAB1E0
 	public void .ctor(int <>1__state) { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC87CDC Offset: 0xC87CDC VA: 0xC87CDC
-	// RVA: 0x22B5180 Offset: 0x22B5180 VA: 0x22B5180 Slot: 8
+	[DebuggerHiddenAttribute] // RVA: 0xC1BBB4 Offset: 0xC1BBB4 VA: 0xC1BBB4
+	// RVA: 0x1DAB214 Offset: 0x1DAB214 VA: 0x1DAB214 Slot: 8
 	private void System.IDisposable.Dispose() { }
 
-	// RVA: 0x22B5184 Offset: 0x22B5184 VA: 0x22B5184 Slot: 6
+	// RVA: 0x1DAB218 Offset: 0x1DAB218 VA: 0x1DAB218 Slot: 6
 	private bool MoveNext() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC87CEC Offset: 0xC87CEC VA: 0xC87CEC
-	// RVA: 0x22B5240 Offset: 0x22B5240 VA: 0x22B5240 Slot: 4
+	[DebuggerHiddenAttribute] // RVA: 0xC1BBC4 Offset: 0xC1BBC4 VA: 0xC1BBC4
+	// RVA: 0x1DAB2D4 Offset: 0x1DAB2D4 VA: 0x1DAB2D4 Slot: 4
 	private object System.Collections.Generic.IEnumerator<System.Object>.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC87CFC Offset: 0xC87CFC VA: 0xC87CFC
-	// RVA: 0x22B5248 Offset: 0x22B5248 VA: 0x22B5248 Slot: 7
+	[DebuggerHiddenAttribute] // RVA: 0xC1BBD4 Offset: 0xC1BBD4 VA: 0xC1BBD4
+	// RVA: 0x1DAB2DC Offset: 0x1DAB2DC VA: 0x1DAB2DC Slot: 7
 	private void System.Collections.IEnumerator.Reset() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC87D0C Offset: 0xC87D0C VA: 0xC87D0C
-	// RVA: 0x22B52B0 Offset: 0x22B52B0 VA: 0x22B52B0 Slot: 5
+	[DebuggerHiddenAttribute] // RVA: 0xC1BBE4 Offset: 0xC1BBE4 VA: 0xC1BBE4
+	// RVA: 0x1DAB344 Offset: 0x1DAB344 VA: 0x1DAB344 Slot: 5
 	private object System.Collections.IEnumerator.get_Current() { }
 }
 
@@ -238,13 +360,13 @@ internal interface IAsyncWebUtil // TypeDefIndex: 3533
 }
 
 // Namespace: UnityEngine.Purchasing
-[ExtensionAttribute] // RVA: 0xC86F40 Offset: 0xC86F40 VA: 0xC86F40
+[ExtensionAttribute] // RVA: 0xC1AE18 Offset: 0xC1AE18 VA: 0xC1AE18
 internal static class QueryHelper // TypeDefIndex: 3534
 {
 	// Methods
 
-	[ExtensionAttribute] // RVA: 0xC87D1C Offset: 0xC87D1C VA: 0xC87D1C
-	// RVA: 0x22CC260 Offset: 0x22CC260 VA: 0x22CC260
+	[ExtensionAttribute] // RVA: 0xC1BBF4 Offset: 0xC1BBF4 VA: 0xC1BBF4
+	// RVA: 0x1DC22F4 Offset: 0x1DC22F4 VA: 0x1DC22F4
 	internal static string ToQueryString(Dictionary<string, object> parameters) { }
 }
 
@@ -254,20 +376,20 @@ public class Price : ISerializationCallbackReceiver // TypeDefIndex: 3535
 {
 	// Fields
 	public Decimal value; // 0x10
-	[SerializeField] // RVA: 0xC871D4 Offset: 0xC871D4 VA: 0xC871D4
+	[SerializeField] // RVA: 0xC1B0AC Offset: 0xC1B0AC VA: 0xC1B0AC
 	private int[] data; // 0x20
-	[SerializeField] // RVA: 0xC871E4 Offset: 0xC871E4 VA: 0xC871E4
+	[SerializeField] // RVA: 0xC1B0BC Offset: 0xC1B0BC VA: 0xC1B0BC
 	private double num; // 0x28
 
 	// Methods
 
-	// RVA: 0x22C85B0 Offset: 0x22C85B0 VA: 0x22C85B0 Slot: 4
+	// RVA: 0x1DBE644 Offset: 0x1DBE644 VA: 0x1DBE644 Slot: 4
 	public void OnBeforeSerialize() { }
 
-	// RVA: 0x22C8644 Offset: 0x22C8644 VA: 0x22C8644 Slot: 5
+	// RVA: 0x1DBE6D8 Offset: 0x1DBE6D8 VA: 0x1DBE6D8 Slot: 5
 	public void OnAfterDeserialize() { }
 
-	// RVA: 0x22C8694 Offset: 0x22C8694 VA: 0x22C8694
+	// RVA: 0x1DBE728 Offset: 0x1DBE728 VA: 0x1DBE728
 	public void .ctor() { }
 }
 
@@ -325,9 +447,9 @@ public class LocalizedProductDescription // TypeDefIndex: 3538
 {
 	// Fields
 	public TranslationLocale googleLocale; // 0x10
-	[SerializeField] // RVA: 0xC871F4 Offset: 0xC871F4 VA: 0xC871F4
+	[SerializeField] // RVA: 0xC1B0CC Offset: 0xC1B0CC VA: 0xC1B0CC
 	private string title; // 0x18
-	[SerializeField] // RVA: 0xC87204 Offset: 0xC87204 VA: 0xC87204
+	[SerializeField] // RVA: 0xC1B0DC Offset: 0xC1B0DC VA: 0xC1B0DC
 	private string description; // 0x20
 
 	// Properties
@@ -336,21 +458,21 @@ public class LocalizedProductDescription // TypeDefIndex: 3538
 
 	// Methods
 
-	// RVA: 0x22BA9C0 Offset: 0x22BA9C0 VA: 0x22BA9C0
+	// RVA: 0x1DB0A54 Offset: 0x1DB0A54 VA: 0x1DB0A54
 	public string get_Title() { }
 
-	// RVA: 0x22BA9C8 Offset: 0x22BA9C8 VA: 0x22BA9C8
+	// RVA: 0x1DB0A5C Offset: 0x1DB0A5C VA: 0x1DB0A5C
 	public string get_Description() { }
 
-	// RVA: 0x22C5AFC Offset: 0x22C5AFC VA: 0x22C5AFC
+	// RVA: 0x1DBBB90 Offset: 0x1DBBB90 VA: 0x1DBBB90
 	private static string DecodeNonLatinCharacters(string s) { }
 
-	// RVA: 0x22C5C2C Offset: 0x22C5C2C VA: 0x22C5C2C
+	// RVA: 0x1DBBCC0 Offset: 0x1DBBCC0 VA: 0x1DBBCC0
 	public void .ctor() { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC86F50 Offset: 0xC86F50 VA: 0xC86F50
+[CompilerGeneratedAttribute] // RVA: 0xC1AE28 Offset: 0xC1AE28 VA: 0xC1AE28
 [Serializable]
 private sealed class LocalizedProductDescription.<>c // TypeDefIndex: 3539
 {
@@ -360,13 +482,13 @@ private sealed class LocalizedProductDescription.<>c // TypeDefIndex: 3539
 
 	// Methods
 
-	// RVA: 0x22C5C3C Offset: 0x22C5C3C VA: 0x22C5C3C
+	// RVA: 0x1DBBCD0 Offset: 0x1DBBCD0 VA: 0x1DBBCD0
 	private static void .cctor() { }
 
-	// RVA: 0x22C5CA0 Offset: 0x22C5CA0 VA: 0x22C5CA0
+	// RVA: 0x1DBBD34 Offset: 0x1DBBD34 VA: 0x1DBBD34
 	public void .ctor() { }
 
-	// RVA: 0x22C5CA8 Offset: 0x22C5CA8 VA: 0x22C5CA8
+	// RVA: 0x1DBBD3C Offset: 0x1DBBD3C VA: 0x1DBBD3C
 	internal string <DecodeNonLatinCharacters>b__11_0(Match m) { }
 }
 
@@ -375,13 +497,13 @@ private sealed class LocalizedProductDescription.<>c // TypeDefIndex: 3539
 public class ProductCatalogPayout // TypeDefIndex: 3540
 {
 	// Fields
-	[SerializeField] // RVA: 0xC87214 Offset: 0xC87214 VA: 0xC87214
+	[SerializeField] // RVA: 0xC1B0EC Offset: 0xC1B0EC VA: 0xC1B0EC
 	private string t; // 0x10
-	[SerializeField] // RVA: 0xC87224 Offset: 0xC87224 VA: 0xC87224
+	[SerializeField] // RVA: 0xC1B0FC Offset: 0xC1B0FC VA: 0xC1B0FC
 	private string st; // 0x18
-	[SerializeField] // RVA: 0xC87234 Offset: 0xC87234 VA: 0xC87234
+	[SerializeField] // RVA: 0xC1B10C Offset: 0xC1B10C VA: 0xC1B10C
 	private double q; // 0x20
-	[SerializeField] // RVA: 0xC87244 Offset: 0xC87244 VA: 0xC87244
+	[SerializeField] // RVA: 0xC1B11C Offset: 0xC1B11C VA: 0xC1B11C
 	private string d; // 0x28
 
 	// Properties
@@ -392,19 +514,19 @@ public class ProductCatalogPayout // TypeDefIndex: 3540
 
 	// Methods
 
-	// RVA: 0x22C8E54 Offset: 0x22C8E54 VA: 0x22C8E54
+	// RVA: 0x1DBEEE8 Offset: 0x1DBEEE8 VA: 0x1DBEEE8
 	public string get_typeString() { }
 
-	// RVA: 0x22C8E5C Offset: 0x22C8E5C VA: 0x22C8E5C
+	// RVA: 0x1DBEEF0 Offset: 0x1DBEEF0 VA: 0x1DBEEF0
 	public string get_subtype() { }
 
-	// RVA: 0x22C8E64 Offset: 0x22C8E64 VA: 0x22C8E64
+	// RVA: 0x1DBEEF8 Offset: 0x1DBEEF8 VA: 0x1DBEEF8
 	public double get_quantity() { }
 
-	// RVA: 0x22C8E6C Offset: 0x22C8E6C VA: 0x22C8E6C
+	// RVA: 0x1DBEF00 Offset: 0x1DBEF00 VA: 0x1DBEF00
 	public string get_data() { }
 
-	// RVA: 0x22C8E74 Offset: 0x22C8E74 VA: 0x22C8E74
+	// RVA: 0x1DBEF08 Offset: 0x1DBEF08 VA: 0x1DBEF08
 	public void .ctor() { }
 }
 
@@ -426,15 +548,15 @@ public class ProductCatalogItem // TypeDefIndex: 3542
 	// Fields
 	public string id; // 0x10
 	public ProductType type; // 0x18
-	[SerializeField] // RVA: 0xC87254 Offset: 0xC87254 VA: 0xC87254
+	[SerializeField] // RVA: 0xC1B12C Offset: 0xC1B12C VA: 0xC1B12C
 	private List<StoreID> storeIDs; // 0x20
 	public LocalizedProductDescription defaultDescription; // 0x28
 	public int applePriceTier; // 0x30
 	public Price googlePrice; // 0x38
-	[SerializeField] // RVA: 0xC87264 Offset: 0xC87264 VA: 0xC87264
+	[SerializeField] // RVA: 0xC1B13C Offset: 0xC1B13C VA: 0xC1B13C
 	private List<LocalizedProductDescription> descriptions; // 0x40
 	public Price udpPrice; // 0x48
-	[SerializeField] // RVA: 0xC87274 Offset: 0xC87274 VA: 0xC87274
+	[SerializeField] // RVA: 0xC1B14C Offset: 0xC1B14C VA: 0xC1B14C
 	private List<ProductCatalogPayout> payouts; // 0x50
 
 	// Properties
@@ -443,13 +565,13 @@ public class ProductCatalogItem // TypeDefIndex: 3542
 
 	// Methods
 
-	// RVA: 0x22C8D18 Offset: 0x22C8D18 VA: 0x22C8D18
+	// RVA: 0x1DBEDAC Offset: 0x1DBEDAC VA: 0x1DBEDAC
 	public IList<ProductCatalogPayout> get_Payouts() { }
 
-	// RVA: 0x22C8D20 Offset: 0x22C8D20 VA: 0x22C8D20
+	// RVA: 0x1DBEDB4 Offset: 0x1DBEDB4 VA: 0x1DBEDB4
 	public ICollection<StoreID> get_allStoreIDs() { }
 
-	// RVA: 0x22C8D28 Offset: 0x22C8D28 VA: 0x22C8D28
+	// RVA: 0x1DBEDBC Offset: 0x1DBEDBC VA: 0x1DBEDBC
 	public void .ctor() { }
 }
 
@@ -460,7 +582,7 @@ public class ProductCatalog // TypeDefIndex: 3543
 	// Fields
 	private static IProductCatalogImpl instance; // 0x0
 	public bool enableCodelessAutoInitialization; // 0x10
-	[SerializeField] // RVA: 0xC87284 Offset: 0xC87284 VA: 0xC87284
+	[SerializeField] // RVA: 0xC1B15C Offset: 0xC1B15C VA: 0xC1B15C
 	private List<ProductCatalogItem> products; // 0x18
 
 	// Properties
@@ -469,36 +591,36 @@ public class ProductCatalog // TypeDefIndex: 3543
 
 	// Methods
 
-	// RVA: 0x22BA9B8 Offset: 0x22BA9B8 VA: 0x22BA9B8
+	// RVA: 0x1DB0A4C Offset: 0x1DB0A4C VA: 0x1DB0A4C
 	public ICollection<ProductCatalogItem> get_allProducts() { }
 
-	// RVA: 0x22C869C Offset: 0x22C869C VA: 0x22C869C
+	// RVA: 0x1DBE730 Offset: 0x1DBE730 VA: 0x1DBE730
 	public ICollection<ProductCatalogItem> get_allValidProducts() { }
 
-	// RVA: 0x22C879C Offset: 0x22C879C VA: 0x22C879C
+	// RVA: 0x1DBE830 Offset: 0x1DBE830 VA: 0x1DBE830
 	internal static void Initialize() { }
 
-	// RVA: 0x22C884C Offset: 0x22C884C VA: 0x22C884C
+	// RVA: 0x1DBE8E0 Offset: 0x1DBE8E0 VA: 0x1DBE8E0
 	public static void Initialize(IProductCatalogImpl productCatalogImpl) { }
 
-	// RVA: 0x22C88A0 Offset: 0x22C88A0 VA: 0x22C88A0
+	// RVA: 0x1DBE934 Offset: 0x1DBE934 VA: 0x1DBE934
 	public bool IsEmpty() { }
 
-	// RVA: 0x22C8A04 Offset: 0x22C8A04 VA: 0x22C8A04
+	// RVA: 0x1DBEA98 Offset: 0x1DBEA98 VA: 0x1DBEA98
 	public static ProductCatalog Deserialize(string catalogJSON) { }
 
-	// RVA: 0x22C8A54 Offset: 0x22C8A54 VA: 0x22C8A54
+	// RVA: 0x1DBEAE8 Offset: 0x1DBEAE8 VA: 0x1DBEAE8
 	public static ProductCatalog FromTextAsset(TextAsset asset) { }
 
-	// RVA: 0x22BA8F4 Offset: 0x22BA8F4 VA: 0x22BA8F4
+	// RVA: 0x1DB0988 Offset: 0x1DB0988 VA: 0x1DB0988
 	public static ProductCatalog LoadDefaultCatalog() { }
 
-	// RVA: 0x22C8A84 Offset: 0x22C8A84 VA: 0x22C8A84
+	// RVA: 0x1DBEB18 Offset: 0x1DBEB18 VA: 0x1DBEB18
 	public void .ctor() { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC86F60 Offset: 0xC86F60 VA: 0xC86F60
+[CompilerGeneratedAttribute] // RVA: 0xC1AE38 Offset: 0xC1AE38 VA: 0xC1AE38
 [Serializable]
 private sealed class ProductCatalog.<>c // TypeDefIndex: 3544
 {
@@ -508,13 +630,13 @@ private sealed class ProductCatalog.<>c // TypeDefIndex: 3544
 
 	// Methods
 
-	// RVA: 0x22C8AF8 Offset: 0x22C8AF8 VA: 0x22C8AF8
+	// RVA: 0x1DBEB8C Offset: 0x1DBEB8C VA: 0x1DBEB8C
 	private static void .cctor() { }
 
-	// RVA: 0x22C8B5C Offset: 0x22C8B5C VA: 0x22C8B5C
+	// RVA: 0x1DBEBF0 Offset: 0x1DBEBF0 VA: 0x1DBEBF0
 	public void .ctor() { }
 
-	// RVA: 0x22C8B64 Offset: 0x22C8B64 VA: 0x22C8B64
+	// RVA: 0x1DBEBF8 Offset: 0x1DBEBF8 VA: 0x1DBEBF8
 	internal bool <get_allValidProducts>b__8_0(ProductCatalogItem x) { }
 }
 
@@ -532,10 +654,10 @@ internal class ProductCatalogImpl : IProductCatalogImpl // TypeDefIndex: 3546
 {
 	// Methods
 
-	// RVA: 0x22C8C28 Offset: 0x22C8C28 VA: 0x22C8C28 Slot: 4
+	// RVA: 0x1DBECBC Offset: 0x1DBECBC VA: 0x1DBECBC Slot: 4
 	public ProductCatalog LoadDefaultCatalog() { }
 
-	// RVA: 0x22C8844 Offset: 0x22C8844 VA: 0x22C8844
+	// RVA: 0x1DBE8D8 Offset: 0x1DBE8D8 VA: 0x1DBE8D8
 	public void .ctor() { }
 }
 
@@ -545,74 +667,74 @@ internal class ProfileData // TypeDefIndex: 3547
 	// Fields
 	private IUtil m_Util; // 0x10
 	private static ProfileData ProfileInstance; // 0x0
-	[DebuggerBrowsableAttribute] // RVA: 0xC87294 Offset: 0xC87294 VA: 0xC87294
-	[CompilerGeneratedAttribute] // RVA: 0xC87294 Offset: 0xC87294 VA: 0xC87294
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B16C Offset: 0xC1B16C VA: 0xC1B16C
+	[CompilerGeneratedAttribute] // RVA: 0xC1B16C Offset: 0xC1B16C VA: 0xC1B16C
 	private string <AppId>k__BackingField; // 0x18
-	[DebuggerBrowsableAttribute] // RVA: 0xC872D0 Offset: 0xC872D0 VA: 0xC872D0
-	[CompilerGeneratedAttribute] // RVA: 0xC872D0 Offset: 0xC872D0 VA: 0xC872D0
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B1A8 Offset: 0xC1B1A8 VA: 0xC1B1A8
+	[CompilerGeneratedAttribute] // RVA: 0xC1B1A8 Offset: 0xC1B1A8 VA: 0xC1B1A8
 	private string <UserId>k__BackingField; // 0x20
-	[DebuggerBrowsableAttribute] // RVA: 0xC8730C Offset: 0xC8730C VA: 0xC8730C
-	[CompilerGeneratedAttribute] // RVA: 0xC8730C Offset: 0xC8730C VA: 0xC8730C
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B1E4 Offset: 0xC1B1E4 VA: 0xC1B1E4
+	[CompilerGeneratedAttribute] // RVA: 0xC1B1E4 Offset: 0xC1B1E4 VA: 0xC1B1E4
 	private ulong <SessionId>k__BackingField; // 0x28
-	[DebuggerBrowsableAttribute] // RVA: 0xC87348 Offset: 0xC87348 VA: 0xC87348
-	[CompilerGeneratedAttribute] // RVA: 0xC87348 Offset: 0xC87348 VA: 0xC87348
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B220 Offset: 0xC1B220 VA: 0xC1B220
+	[CompilerGeneratedAttribute] // RVA: 0xC1B220 Offset: 0xC1B220 VA: 0xC1B220
 	private string <Platform>k__BackingField; // 0x30
-	[DebuggerBrowsableAttribute] // RVA: 0xC87384 Offset: 0xC87384 VA: 0xC87384
-	[CompilerGeneratedAttribute] // RVA: 0xC87384 Offset: 0xC87384 VA: 0xC87384
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B25C Offset: 0xC1B25C VA: 0xC1B25C
+	[CompilerGeneratedAttribute] // RVA: 0xC1B25C Offset: 0xC1B25C VA: 0xC1B25C
 	private int <PlatformId>k__BackingField; // 0x38
-	[DebuggerBrowsableAttribute] // RVA: 0xC873C0 Offset: 0xC873C0 VA: 0xC873C0
-	[CompilerGeneratedAttribute] // RVA: 0xC873C0 Offset: 0xC873C0 VA: 0xC873C0
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B298 Offset: 0xC1B298 VA: 0xC1B298
+	[CompilerGeneratedAttribute] // RVA: 0xC1B298 Offset: 0xC1B298 VA: 0xC1B298
 	private string <SdkVer>k__BackingField; // 0x40
-	[DebuggerBrowsableAttribute] // RVA: 0xC873FC Offset: 0xC873FC VA: 0xC873FC
-	[CompilerGeneratedAttribute] // RVA: 0xC873FC Offset: 0xC873FC VA: 0xC873FC
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B2D4 Offset: 0xC1B2D4 VA: 0xC1B2D4
+	[CompilerGeneratedAttribute] // RVA: 0xC1B2D4 Offset: 0xC1B2D4 VA: 0xC1B2D4
 	private string <OsVer>k__BackingField; // 0x48
-	[DebuggerBrowsableAttribute] // RVA: 0xC87438 Offset: 0xC87438 VA: 0xC87438
-	[CompilerGeneratedAttribute] // RVA: 0xC87438 Offset: 0xC87438 VA: 0xC87438
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B310 Offset: 0xC1B310 VA: 0xC1B310
+	[CompilerGeneratedAttribute] // RVA: 0xC1B310 Offset: 0xC1B310 VA: 0xC1B310
 	private int <ScreenWidth>k__BackingField; // 0x50
-	[CompilerGeneratedAttribute] // RVA: 0xC87474 Offset: 0xC87474 VA: 0xC87474
-	[DebuggerBrowsableAttribute] // RVA: 0xC87474 Offset: 0xC87474 VA: 0xC87474
+	[CompilerGeneratedAttribute] // RVA: 0xC1B34C Offset: 0xC1B34C VA: 0xC1B34C
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B34C Offset: 0xC1B34C VA: 0xC1B34C
 	private int <ScreenHeight>k__BackingField; // 0x54
-	[CompilerGeneratedAttribute] // RVA: 0xC874B0 Offset: 0xC874B0 VA: 0xC874B0
-	[DebuggerBrowsableAttribute] // RVA: 0xC874B0 Offset: 0xC874B0 VA: 0xC874B0
+	[CompilerGeneratedAttribute] // RVA: 0xC1B388 Offset: 0xC1B388 VA: 0xC1B388
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B388 Offset: 0xC1B388 VA: 0xC1B388
 	private float <ScreenDpi>k__BackingField; // 0x58
-	[CompilerGeneratedAttribute] // RVA: 0xC874EC Offset: 0xC874EC VA: 0xC874EC
-	[DebuggerBrowsableAttribute] // RVA: 0xC874EC Offset: 0xC874EC VA: 0xC874EC
+	[CompilerGeneratedAttribute] // RVA: 0xC1B3C4 Offset: 0xC1B3C4 VA: 0xC1B3C4
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B3C4 Offset: 0xC1B3C4 VA: 0xC1B3C4
 	private string <ScreenOrientation>k__BackingField; // 0x60
-	[CompilerGeneratedAttribute] // RVA: 0xC87528 Offset: 0xC87528 VA: 0xC87528
-	[DebuggerBrowsableAttribute] // RVA: 0xC87528 Offset: 0xC87528 VA: 0xC87528
+	[CompilerGeneratedAttribute] // RVA: 0xC1B400 Offset: 0xC1B400 VA: 0xC1B400
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B400 Offset: 0xC1B400 VA: 0xC1B400
 	private string <DeviceId>k__BackingField; // 0x68
-	[DebuggerBrowsableAttribute] // RVA: 0xC87564 Offset: 0xC87564 VA: 0xC87564
-	[CompilerGeneratedAttribute] // RVA: 0xC87564 Offset: 0xC87564 VA: 0xC87564
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B43C Offset: 0xC1B43C VA: 0xC1B43C
+	[CompilerGeneratedAttribute] // RVA: 0xC1B43C Offset: 0xC1B43C VA: 0xC1B43C
 	private string <BuildGUID>k__BackingField; // 0x70
-	[DebuggerBrowsableAttribute] // RVA: 0xC875A0 Offset: 0xC875A0 VA: 0xC875A0
-	[CompilerGeneratedAttribute] // RVA: 0xC875A0 Offset: 0xC875A0 VA: 0xC875A0
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B478 Offset: 0xC1B478 VA: 0xC1B478
+	[CompilerGeneratedAttribute] // RVA: 0xC1B478 Offset: 0xC1B478 VA: 0xC1B478
 	private string <IapVer>k__BackingField; // 0x78
-	[DebuggerBrowsableAttribute] // RVA: 0xC875DC Offset: 0xC875DC VA: 0xC875DC
-	[CompilerGeneratedAttribute] // RVA: 0xC875DC Offset: 0xC875DC VA: 0xC875DC
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B4B4 Offset: 0xC1B4B4 VA: 0xC1B4B4
+	[CompilerGeneratedAttribute] // RVA: 0xC1B4B4 Offset: 0xC1B4B4 VA: 0xC1B4B4
 	private string <AdsGamerToken>k__BackingField; // 0x80
-	[CompilerGeneratedAttribute] // RVA: 0xC87618 Offset: 0xC87618 VA: 0xC87618
-	[DebuggerBrowsableAttribute] // RVA: 0xC87618 Offset: 0xC87618 VA: 0xC87618
+	[CompilerGeneratedAttribute] // RVA: 0xC1B4F0 Offset: 0xC1B4F0 VA: 0xC1B4F0
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B4F0 Offset: 0xC1B4F0 VA: 0xC1B4F0
 	private Nullable<bool> <TrackingOptOut>k__BackingField; // 0x88
-	[DebuggerBrowsableAttribute] // RVA: 0xC87654 Offset: 0xC87654 VA: 0xC87654
-	[CompilerGeneratedAttribute] // RVA: 0xC87654 Offset: 0xC87654 VA: 0xC87654
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B52C Offset: 0xC1B52C VA: 0xC1B52C
+	[CompilerGeneratedAttribute] // RVA: 0xC1B52C Offset: 0xC1B52C VA: 0xC1B52C
 	private Nullable<int> <AdsABGroup>k__BackingField; // 0x8C
-	[DebuggerBrowsableAttribute] // RVA: 0xC87690 Offset: 0xC87690 VA: 0xC87690
-	[CompilerGeneratedAttribute] // RVA: 0xC87690 Offset: 0xC87690 VA: 0xC87690
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B568 Offset: 0xC1B568 VA: 0xC1B568
+	[CompilerGeneratedAttribute] // RVA: 0xC1B568 Offset: 0xC1B568 VA: 0xC1B568
 	private string <AdsGameId>k__BackingField; // 0x98
-	[DebuggerBrowsableAttribute] // RVA: 0xC876CC Offset: 0xC876CC VA: 0xC876CC
-	[CompilerGeneratedAttribute] // RVA: 0xC876CC Offset: 0xC876CC VA: 0xC876CC
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B5A4 Offset: 0xC1B5A4 VA: 0xC1B5A4
+	[CompilerGeneratedAttribute] // RVA: 0xC1B5A4 Offset: 0xC1B5A4 VA: 0xC1B5A4
 	private Nullable<int> <StoreABGroup>k__BackingField; // 0xA0
-	[DebuggerBrowsableAttribute] // RVA: 0xC87708 Offset: 0xC87708 VA: 0xC87708
-	[CompilerGeneratedAttribute] // RVA: 0xC87708 Offset: 0xC87708 VA: 0xC87708
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B5E0 Offset: 0xC1B5E0 VA: 0xC1B5E0
+	[CompilerGeneratedAttribute] // RVA: 0xC1B5E0 Offset: 0xC1B5E0 VA: 0xC1B5E0
 	private string <CatalogId>k__BackingField; // 0xA8
-	[DebuggerBrowsableAttribute] // RVA: 0xC87744 Offset: 0xC87744 VA: 0xC87744
-	[CompilerGeneratedAttribute] // RVA: 0xC87744 Offset: 0xC87744 VA: 0xC87744
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B61C Offset: 0xC1B61C VA: 0xC1B61C
+	[CompilerGeneratedAttribute] // RVA: 0xC1B61C Offset: 0xC1B61C VA: 0xC1B61C
 	private string <StoreName>k__BackingField; // 0xB0
-	[DebuggerBrowsableAttribute] // RVA: 0xC87780 Offset: 0xC87780 VA: 0xC87780
-	[CompilerGeneratedAttribute] // RVA: 0xC87780 Offset: 0xC87780 VA: 0xC87780
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B658 Offset: 0xC1B658 VA: 0xC1B658
+	[CompilerGeneratedAttribute] // RVA: 0xC1B658 Offset: 0xC1B658 VA: 0xC1B658
 	private string <GameVersion>k__BackingField; // 0xB8
-	[CompilerGeneratedAttribute] // RVA: 0xC877BC Offset: 0xC877BC VA: 0xC877BC
-	[DebuggerBrowsableAttribute] // RVA: 0xC877BC Offset: 0xC877BC VA: 0xC877BC
+	[CompilerGeneratedAttribute] // RVA: 0xC1B694 Offset: 0xC1B694 VA: 0xC1B694
+	[DebuggerBrowsableAttribute] // RVA: 0xC1B694 Offset: 0xC1B694 VA: 0xC1B694
 	private Nullable<bool> <StoreTestEnabled>k__BackingField; // 0xC0
 
 	// Properties
@@ -642,199 +764,199 @@ internal class ProfileData // TypeDefIndex: 3547
 
 	// Methods
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87D2C Offset: 0xC87D2C VA: 0xC87D2C
-	// RVA: 0x22C9254 Offset: 0x22C9254 VA: 0x22C9254
+	[CompilerGeneratedAttribute] // RVA: 0xC1BC04 Offset: 0xC1BC04 VA: 0xC1BC04
+	// RVA: 0x1DBF2E8 Offset: 0x1DBF2E8 VA: 0x1DBF2E8
 	public string get_AppId() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87D3C Offset: 0xC87D3C VA: 0xC87D3C
-	// RVA: 0x22C925C Offset: 0x22C925C VA: 0x22C925C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BC14 Offset: 0xC1BC14 VA: 0xC1BC14
+	// RVA: 0x1DBF2F0 Offset: 0x1DBF2F0 VA: 0x1DBF2F0
 	internal void set_AppId(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87D4C Offset: 0xC87D4C VA: 0xC87D4C
-	// RVA: 0x22C9264 Offset: 0x22C9264 VA: 0x22C9264
+	[CompilerGeneratedAttribute] // RVA: 0xC1BC24 Offset: 0xC1BC24 VA: 0xC1BC24
+	// RVA: 0x1DBF2F8 Offset: 0x1DBF2F8 VA: 0x1DBF2F8
 	public string get_UserId() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87D5C Offset: 0xC87D5C VA: 0xC87D5C
-	// RVA: 0x22C926C Offset: 0x22C926C VA: 0x22C926C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BC34 Offset: 0xC1BC34 VA: 0xC1BC34
+	// RVA: 0x1DBF300 Offset: 0x1DBF300 VA: 0x1DBF300
 	internal void set_UserId(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87D6C Offset: 0xC87D6C VA: 0xC87D6C
-	// RVA: 0x22C9274 Offset: 0x22C9274 VA: 0x22C9274
+	[CompilerGeneratedAttribute] // RVA: 0xC1BC44 Offset: 0xC1BC44 VA: 0xC1BC44
+	// RVA: 0x1DBF308 Offset: 0x1DBF308 VA: 0x1DBF308
 	public ulong get_SessionId() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87D7C Offset: 0xC87D7C VA: 0xC87D7C
-	// RVA: 0x22C927C Offset: 0x22C927C VA: 0x22C927C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BC54 Offset: 0xC1BC54 VA: 0xC1BC54
+	// RVA: 0x1DBF310 Offset: 0x1DBF310 VA: 0x1DBF310
 	internal void set_SessionId(ulong value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87D8C Offset: 0xC87D8C VA: 0xC87D8C
-	// RVA: 0x22C9284 Offset: 0x22C9284 VA: 0x22C9284
+	[CompilerGeneratedAttribute] // RVA: 0xC1BC64 Offset: 0xC1BC64 VA: 0xC1BC64
+	// RVA: 0x1DBF318 Offset: 0x1DBF318 VA: 0x1DBF318
 	public string get_Platform() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87D9C Offset: 0xC87D9C VA: 0xC87D9C
-	// RVA: 0x22C928C Offset: 0x22C928C VA: 0x22C928C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BC74 Offset: 0xC1BC74 VA: 0xC1BC74
+	// RVA: 0x1DBF320 Offset: 0x1DBF320 VA: 0x1DBF320
 	internal void set_Platform(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87DAC Offset: 0xC87DAC VA: 0xC87DAC
-	// RVA: 0x22C9294 Offset: 0x22C9294 VA: 0x22C9294
+	[CompilerGeneratedAttribute] // RVA: 0xC1BC84 Offset: 0xC1BC84 VA: 0xC1BC84
+	// RVA: 0x1DBF328 Offset: 0x1DBF328 VA: 0x1DBF328
 	public int get_PlatformId() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87DBC Offset: 0xC87DBC VA: 0xC87DBC
-	// RVA: 0x22C929C Offset: 0x22C929C VA: 0x22C929C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BC94 Offset: 0xC1BC94 VA: 0xC1BC94
+	// RVA: 0x1DBF330 Offset: 0x1DBF330 VA: 0x1DBF330
 	internal void set_PlatformId(int value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87DCC Offset: 0xC87DCC VA: 0xC87DCC
-	// RVA: 0x22C92A4 Offset: 0x22C92A4 VA: 0x22C92A4
+	[CompilerGeneratedAttribute] // RVA: 0xC1BCA4 Offset: 0xC1BCA4 VA: 0xC1BCA4
+	// RVA: 0x1DBF338 Offset: 0x1DBF338 VA: 0x1DBF338
 	public string get_SdkVer() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87DDC Offset: 0xC87DDC VA: 0xC87DDC
-	// RVA: 0x22C92AC Offset: 0x22C92AC VA: 0x22C92AC
+	[CompilerGeneratedAttribute] // RVA: 0xC1BCB4 Offset: 0xC1BCB4 VA: 0xC1BCB4
+	// RVA: 0x1DBF340 Offset: 0x1DBF340 VA: 0x1DBF340
 	internal void set_SdkVer(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87DEC Offset: 0xC87DEC VA: 0xC87DEC
-	// RVA: 0x22C92B4 Offset: 0x22C92B4 VA: 0x22C92B4
+	[CompilerGeneratedAttribute] // RVA: 0xC1BCC4 Offset: 0xC1BCC4 VA: 0xC1BCC4
+	// RVA: 0x1DBF348 Offset: 0x1DBF348 VA: 0x1DBF348
 	public string get_OsVer() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87DFC Offset: 0xC87DFC VA: 0xC87DFC
-	// RVA: 0x22C92BC Offset: 0x22C92BC VA: 0x22C92BC
+	[CompilerGeneratedAttribute] // RVA: 0xC1BCD4 Offset: 0xC1BCD4 VA: 0xC1BCD4
+	// RVA: 0x1DBF350 Offset: 0x1DBF350 VA: 0x1DBF350
 	internal void set_OsVer(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87E0C Offset: 0xC87E0C VA: 0xC87E0C
-	// RVA: 0x22C92C4 Offset: 0x22C92C4 VA: 0x22C92C4
+	[CompilerGeneratedAttribute] // RVA: 0xC1BCE4 Offset: 0xC1BCE4 VA: 0xC1BCE4
+	// RVA: 0x1DBF358 Offset: 0x1DBF358 VA: 0x1DBF358
 	public int get_ScreenWidth() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87E1C Offset: 0xC87E1C VA: 0xC87E1C
-	// RVA: 0x22C92CC Offset: 0x22C92CC VA: 0x22C92CC
+	[CompilerGeneratedAttribute] // RVA: 0xC1BCF4 Offset: 0xC1BCF4 VA: 0xC1BCF4
+	// RVA: 0x1DBF360 Offset: 0x1DBF360 VA: 0x1DBF360
 	internal void set_ScreenWidth(int value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87E2C Offset: 0xC87E2C VA: 0xC87E2C
-	// RVA: 0x22C92D4 Offset: 0x22C92D4 VA: 0x22C92D4
+	[CompilerGeneratedAttribute] // RVA: 0xC1BD04 Offset: 0xC1BD04 VA: 0xC1BD04
+	// RVA: 0x1DBF368 Offset: 0x1DBF368 VA: 0x1DBF368
 	public int get_ScreenHeight() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87E3C Offset: 0xC87E3C VA: 0xC87E3C
-	// RVA: 0x22C92DC Offset: 0x22C92DC VA: 0x22C92DC
+	[CompilerGeneratedAttribute] // RVA: 0xC1BD14 Offset: 0xC1BD14 VA: 0xC1BD14
+	// RVA: 0x1DBF370 Offset: 0x1DBF370 VA: 0x1DBF370
 	internal void set_ScreenHeight(int value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87E4C Offset: 0xC87E4C VA: 0xC87E4C
-	// RVA: 0x22C92E4 Offset: 0x22C92E4 VA: 0x22C92E4
+	[CompilerGeneratedAttribute] // RVA: 0xC1BD24 Offset: 0xC1BD24 VA: 0xC1BD24
+	// RVA: 0x1DBF378 Offset: 0x1DBF378 VA: 0x1DBF378
 	public float get_ScreenDpi() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87E5C Offset: 0xC87E5C VA: 0xC87E5C
-	// RVA: 0x22C92EC Offset: 0x22C92EC VA: 0x22C92EC
+	[CompilerGeneratedAttribute] // RVA: 0xC1BD34 Offset: 0xC1BD34 VA: 0xC1BD34
+	// RVA: 0x1DBF380 Offset: 0x1DBF380 VA: 0x1DBF380
 	internal void set_ScreenDpi(float value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87E6C Offset: 0xC87E6C VA: 0xC87E6C
-	// RVA: 0x22C92F4 Offset: 0x22C92F4 VA: 0x22C92F4
+	[CompilerGeneratedAttribute] // RVA: 0xC1BD44 Offset: 0xC1BD44 VA: 0xC1BD44
+	// RVA: 0x1DBF388 Offset: 0x1DBF388 VA: 0x1DBF388
 	public string get_ScreenOrientation() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87E7C Offset: 0xC87E7C VA: 0xC87E7C
-	// RVA: 0x22C92FC Offset: 0x22C92FC VA: 0x22C92FC
+	[CompilerGeneratedAttribute] // RVA: 0xC1BD54 Offset: 0xC1BD54 VA: 0xC1BD54
+	// RVA: 0x1DBF390 Offset: 0x1DBF390 VA: 0x1DBF390
 	internal void set_ScreenOrientation(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87E8C Offset: 0xC87E8C VA: 0xC87E8C
-	// RVA: 0x22C9304 Offset: 0x22C9304 VA: 0x22C9304
+	[CompilerGeneratedAttribute] // RVA: 0xC1BD64 Offset: 0xC1BD64 VA: 0xC1BD64
+	// RVA: 0x1DBF398 Offset: 0x1DBF398 VA: 0x1DBF398
 	public string get_DeviceId() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87E9C Offset: 0xC87E9C VA: 0xC87E9C
-	// RVA: 0x22C930C Offset: 0x22C930C VA: 0x22C930C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BD74 Offset: 0xC1BD74 VA: 0xC1BD74
+	// RVA: 0x1DBF3A0 Offset: 0x1DBF3A0 VA: 0x1DBF3A0
 	internal void set_DeviceId(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87EAC Offset: 0xC87EAC VA: 0xC87EAC
-	// RVA: 0x22C9314 Offset: 0x22C9314 VA: 0x22C9314
+	[CompilerGeneratedAttribute] // RVA: 0xC1BD84 Offset: 0xC1BD84 VA: 0xC1BD84
+	// RVA: 0x1DBF3A8 Offset: 0x1DBF3A8 VA: 0x1DBF3A8
 	public string get_BuildGUID() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87EBC Offset: 0xC87EBC VA: 0xC87EBC
-	// RVA: 0x22C931C Offset: 0x22C931C VA: 0x22C931C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BD94 Offset: 0xC1BD94 VA: 0xC1BD94
+	// RVA: 0x1DBF3B0 Offset: 0x1DBF3B0 VA: 0x1DBF3B0
 	public string get_IapVer() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87ECC Offset: 0xC87ECC VA: 0xC87ECC
-	// RVA: 0x22C9324 Offset: 0x22C9324 VA: 0x22C9324
+	[CompilerGeneratedAttribute] // RVA: 0xC1BDA4 Offset: 0xC1BDA4 VA: 0xC1BDA4
+	// RVA: 0x1DBF3B8 Offset: 0x1DBF3B8 VA: 0x1DBF3B8
 	internal void set_IapVer(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87EDC Offset: 0xC87EDC VA: 0xC87EDC
-	// RVA: 0x22C932C Offset: 0x22C932C VA: 0x22C932C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BDB4 Offset: 0xC1BDB4 VA: 0xC1BDB4
+	// RVA: 0x1DBF3C0 Offset: 0x1DBF3C0 VA: 0x1DBF3C0
 	public string get_AdsGamerToken() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87EEC Offset: 0xC87EEC VA: 0xC87EEC
-	// RVA: 0x22C9334 Offset: 0x22C9334 VA: 0x22C9334
+	[CompilerGeneratedAttribute] // RVA: 0xC1BDC4 Offset: 0xC1BDC4 VA: 0xC1BDC4
+	// RVA: 0x1DBF3C8 Offset: 0x1DBF3C8 VA: 0x1DBF3C8
 	internal void set_AdsGamerToken(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87EFC Offset: 0xC87EFC VA: 0xC87EFC
-	// RVA: 0x22C933C Offset: 0x22C933C VA: 0x22C933C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BDD4 Offset: 0xC1BDD4 VA: 0xC1BDD4
+	// RVA: 0x1DBF3D0 Offset: 0x1DBF3D0 VA: 0x1DBF3D0
 	public Nullable<bool> get_TrackingOptOut() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87F0C Offset: 0xC87F0C VA: 0xC87F0C
-	// RVA: 0x22C9344 Offset: 0x22C9344 VA: 0x22C9344
+	[CompilerGeneratedAttribute] // RVA: 0xC1BDE4 Offset: 0xC1BDE4 VA: 0xC1BDE4
+	// RVA: 0x1DBF3D8 Offset: 0x1DBF3D8 VA: 0x1DBF3D8
 	internal void set_TrackingOptOut(Nullable<bool> value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87F1C Offset: 0xC87F1C VA: 0xC87F1C
-	// RVA: 0x22C934C Offset: 0x22C934C VA: 0x22C934C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BDF4 Offset: 0xC1BDF4 VA: 0xC1BDF4
+	// RVA: 0x1DBF3E0 Offset: 0x1DBF3E0 VA: 0x1DBF3E0
 	public Nullable<int> get_AdsABGroup() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87F2C Offset: 0xC87F2C VA: 0xC87F2C
-	// RVA: 0x22C9354 Offset: 0x22C9354 VA: 0x22C9354
+	[CompilerGeneratedAttribute] // RVA: 0xC1BE04 Offset: 0xC1BE04 VA: 0xC1BE04
+	// RVA: 0x1DBF3E8 Offset: 0x1DBF3E8 VA: 0x1DBF3E8
 	internal void set_AdsABGroup(Nullable<int> value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87F3C Offset: 0xC87F3C VA: 0xC87F3C
-	// RVA: 0x22C935C Offset: 0x22C935C VA: 0x22C935C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BE14 Offset: 0xC1BE14 VA: 0xC1BE14
+	// RVA: 0x1DBF3F0 Offset: 0x1DBF3F0 VA: 0x1DBF3F0
 	public string get_AdsGameId() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87F4C Offset: 0xC87F4C VA: 0xC87F4C
-	// RVA: 0x22C9364 Offset: 0x22C9364 VA: 0x22C9364
+	[CompilerGeneratedAttribute] // RVA: 0xC1BE24 Offset: 0xC1BE24 VA: 0xC1BE24
+	// RVA: 0x1DBF3F8 Offset: 0x1DBF3F8 VA: 0x1DBF3F8
 	internal void set_AdsGameId(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87F5C Offset: 0xC87F5C VA: 0xC87F5C
-	// RVA: 0x22C936C Offset: 0x22C936C VA: 0x22C936C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BE34 Offset: 0xC1BE34 VA: 0xC1BE34
+	// RVA: 0x1DBF400 Offset: 0x1DBF400 VA: 0x1DBF400
 	public Nullable<int> get_StoreABGroup() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87F6C Offset: 0xC87F6C VA: 0xC87F6C
-	// RVA: 0x22C9374 Offset: 0x22C9374 VA: 0x22C9374
+	[CompilerGeneratedAttribute] // RVA: 0xC1BE44 Offset: 0xC1BE44 VA: 0xC1BE44
+	// RVA: 0x1DBF408 Offset: 0x1DBF408 VA: 0x1DBF408
 	public string get_CatalogId() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87F7C Offset: 0xC87F7C VA: 0xC87F7C
-	// RVA: 0x22C937C Offset: 0x22C937C VA: 0x22C937C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BE54 Offset: 0xC1BE54 VA: 0xC1BE54
+	// RVA: 0x1DBF410 Offset: 0x1DBF410 VA: 0x1DBF410
 	public string get_StoreName() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87F8C Offset: 0xC87F8C VA: 0xC87F8C
-	// RVA: 0x22C9384 Offset: 0x22C9384 VA: 0x22C9384
+	[CompilerGeneratedAttribute] // RVA: 0xC1BE64 Offset: 0xC1BE64 VA: 0xC1BE64
+	// RVA: 0x1DBF418 Offset: 0x1DBF418 VA: 0x1DBF418
 	internal void set_StoreName(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87F9C Offset: 0xC87F9C VA: 0xC87F9C
-	// RVA: 0x22C938C Offset: 0x22C938C VA: 0x22C938C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BE74 Offset: 0xC1BE74 VA: 0xC1BE74
+	// RVA: 0x1DBF420 Offset: 0x1DBF420 VA: 0x1DBF420
 	public string get_GameVersion() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87FAC Offset: 0xC87FAC VA: 0xC87FAC
-	// RVA: 0x22C9394 Offset: 0x22C9394 VA: 0x22C9394
+	[CompilerGeneratedAttribute] // RVA: 0xC1BE84 Offset: 0xC1BE84 VA: 0xC1BE84
+	// RVA: 0x1DBF428 Offset: 0x1DBF428 VA: 0x1DBF428
 	internal void set_GameVersion(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xC87FBC Offset: 0xC87FBC VA: 0xC87FBC
-	// RVA: 0x22C939C Offset: 0x22C939C VA: 0x22C939C
+	[CompilerGeneratedAttribute] // RVA: 0xC1BE94 Offset: 0xC1BE94 VA: 0xC1BE94
+	// RVA: 0x1DBF430 Offset: 0x1DBF430 VA: 0x1DBF430
 	public Nullable<bool> get_StoreTestEnabled() { }
 
-	// RVA: 0x22C93A4 Offset: 0x22C93A4 VA: 0x22C93A4
+	// RVA: 0x1DBF438 Offset: 0x1DBF438 VA: 0x1DBF438
 	private void .ctor(IUtil util) { }
 
-	// RVA: 0x22B732C Offset: 0x22B732C VA: 0x22B732C
+	// RVA: 0x1DAD3C0 Offset: 0x1DAD3C0 VA: 0x1DAD3C0
 	internal Dictionary<string, object> GetProfileDict() { }
 
-	// RVA: 0x22C9AA8 Offset: 0x22C9AA8 VA: 0x22C9AA8
+	// RVA: 0x1DBFB3C Offset: 0x1DBFB3C VA: 0x1DBFB3C
 	internal Dictionary<string, object> GetProfileIds() { }
 
-	// RVA: 0x22B72A0 Offset: 0x22B72A0 VA: 0x22B72A0
+	// RVA: 0x1DAD334 Offset: 0x1DAD334 VA: 0x1DAD334
 	internal static ProfileData Instance(IUtil util) { }
 
-	// RVA: 0x22C9BD0 Offset: 0x22C9BD0 VA: 0x22C9BD0
+	// RVA: 0x1DBFC64 Offset: 0x1DBFC64 VA: 0x1DBFC64
 	internal void SetGamerToken(string gamerToken) { }
 
-	// RVA: 0x22C9C50 Offset: 0x22C9C50 VA: 0x22C9C50
+	// RVA: 0x1DBFCE4 Offset: 0x1DBFCE4 VA: 0x1DBFCE4
 	internal void SetTrackingOptOut(Nullable<bool> trackingOptOut) { }
 
-	// RVA: 0x22C9CBC Offset: 0x22C9CBC VA: 0x22C9CBC
+	// RVA: 0x1DBFD50 Offset: 0x1DBFD50 VA: 0x1DBFD50
 	internal void SetGameId(string gameid) { }
 
-	// RVA: 0x22C9D3C Offset: 0x22C9D3C VA: 0x22C9D3C
+	// RVA: 0x1DBFDD0 Offset: 0x1DBFDD0 VA: 0x1DBFDD0
 	internal void SetABGroup(Nullable<int> abgroup) { }
 
-	// RVA: 0x22C4A64 Offset: 0x22C4A64 VA: 0x22C4A64
+	// RVA: 0x1DBAAF8 Offset: 0x1DBAAF8 VA: 0x1DBAAF8
 	internal void SetStoreName(string storename) { }
 }
 
@@ -854,147 +976,25 @@ public class Promo // TypeDefIndex: 3548
 
 	// Methods
 
-	[PreserveAttribute] // RVA: 0xC87FCC Offset: 0xC87FCC VA: 0xC87FCC
-	// RVA: 0x22C9DE4 Offset: 0x22C9DE4 VA: 0x22C9DE4
+	[PreserveAttribute] // RVA: 0xC1BEA4 Offset: 0xC1BEA4 VA: 0xC1BEA4
+	// RVA: 0x1DBFE78 Offset: 0x1DBFE78 VA: 0x1DBFE78
 	public static bool IsReady() { }
 
-	[PreserveAttribute] // RVA: 0xC87FDC Offset: 0xC87FDC VA: 0xC87FDC
-	// RVA: 0x22C9A40 Offset: 0x22C9A40 VA: 0x22C9A40
+	[PreserveAttribute] // RVA: 0xC1BEB4 Offset: 0xC1BEB4 VA: 0xC1BEB4
+	// RVA: 0x1DBFAD4 Offset: 0x1DBFAD4 VA: 0x1DBFAD4
 	public static string Version() { }
 
-	// RVA: 0x22C9E4C Offset: 0x22C9E4C VA: 0x22C9E4C
+	// RVA: 0x1DBFEE0 Offset: 0x1DBFEE0 VA: 0x1DBFEE0
 	public void .ctor() { }
 
-	// RVA: 0x22C9E54 Offset: 0x22C9E54 VA: 0x22C9E54
+	// RVA: 0x1DBFEE8 Offset: 0x1DBFEE8 VA: 0x1DBFEE8
 	internal static void InitPromo(RuntimePlatform platform, ILogger logger, IUtil util, IAsyncWebUtil webUtil) { }
 
-	// RVA: 0x22C9EEC Offset: 0x22C9EEC VA: 0x22C9EEC
+	// RVA: 0x1DBFF80 Offset: 0x1DBFF80 VA: 0x1DBFF80
 	internal static void InitPromo(RuntimePlatform platform, ILogger logger, string version, IUtil util, IAsyncWebUtil webUtil) { }
 
-	// RVA: 0x22CA010 Offset: 0x22CA010 VA: 0x22CA010
+	// RVA: 0x1DC00A4 Offset: 0x1DC00A4 VA: 0x1DC00A4
 	private static HashSet<Product> UpdatePromoProductList() { }
 
-	// RVA: 0x22B3918 Offset: 0x22B3918 VA: 0x22B3918
+	// RVA: 0x1DA99AC Offset: 0x1DA99AC VA: 0x1DA99AC
 	internal static void ProvideProductsToAds(JSONStore purchaser, IStoreCallback manager, bool shouldLog = False) { }
-
-	// RVA: 0x22CA3F4 Offset: 0x22CA3F4 VA: 0x22CA3F4
-	private static void ProvideProductsToAds(HashSet<Product> productsForAds, bool shouldLog) { }
-
-	[PreserveAttribute] // RVA: 0xC87FEC Offset: 0xC87FEC VA: 0xC87FEC
-	// RVA: 0x22CAC0C Offset: 0x22CAC0C VA: 0x22CAC0C
-	public static string QueryPromoProducts() { }
-
-	[PreserveAttribute] // RVA: 0xC87FFC Offset: 0xC87FFC VA: 0xC87FFC
-	// RVA: 0x22CAC74 Offset: 0x22CAC74 VA: 0x22CAC74
-	public static bool InitiatePromoPurchase(string itemRequest) { }
-
-	[PreserveAttribute] // RVA: 0xC8800C Offset: 0xC8800C VA: 0xC8800C
-	// RVA: 0x22CACD8 Offset: 0x22CACD8 VA: 0x22CACD8
-	public static bool InitiatePurchasingCommand(string command) { }
-
-	// RVA: 0x22CBA88 Offset: 0x22CBA88 VA: 0x22CBA88
-	internal static bool ExecPromoPurchase(string itemRequest) { }
-
-	// RVA: 0x22CC1FC Offset: 0x22CC1FC VA: 0x22CC1FC
-	private static void .cctor() { }
-}
-
-// Namespace: UnityEngine.Purchasing
-public class StandardPurchasingModule : AbstractPurchasingModule, IAndroidStoreSelection, IStoreConfiguration // TypeDefIndex: 3549
-{
-	// Fields
-	private AppStore m_AppStorePlatform; // 0x18
-	private INativeStoreProvider m_NativeStoreProvider; // 0x20
-	private RuntimePlatform m_RuntimePlatform; // 0x28
-	private bool m_UseCloudCatalog; // 0x2C
-	[DebuggerBrowsableAttribute] // RVA: 0xC877F8 Offset: 0xC877F8 VA: 0xC877F8
-	[CompilerGeneratedAttribute] // RVA: 0xC877F8 Offset: 0xC877F8 VA: 0xC877F8
-	private string <m_persistentDataPath>k__BackingField; // 0x30
-	private static StandardPurchasingModule ModuleInstance; // 0x0
-	[DebuggerBrowsableAttribute] // RVA: 0xC87834 Offset: 0xC87834 VA: 0xC87834
-	[CompilerGeneratedAttribute] // RVA: 0xC87834 Offset: 0xC87834 VA: 0xC87834
-	private IUtil <util>k__BackingField; // 0x38
-	[DebuggerBrowsableAttribute] // RVA: 0xC87870 Offset: 0xC87870 VA: 0xC87870
-	[CompilerGeneratedAttribute] // RVA: 0xC87870 Offset: 0xC87870 VA: 0xC87870
-	private ILogger <logger>k__BackingField; // 0x40
-	[DebuggerBrowsableAttribute] // RVA: 0xC878AC Offset: 0xC878AC VA: 0xC878AC
-	[CompilerGeneratedAttribute] // RVA: 0xC878AC Offset: 0xC878AC VA: 0xC878AC
-	private IAsyncWebUtil <webUtil>k__BackingField; // 0x48
-	[DebuggerBrowsableAttribute] // RVA: 0xC878E8 Offset: 0xC878E8 VA: 0xC878E8
-	[CompilerGeneratedAttribute] // RVA: 0xC878E8 Offset: 0xC878E8 VA: 0xC878E8
-	private StandardPurchasingModule.StoreInstance <storeInstance>k__BackingField; // 0x50
-	private static Dictionary<AppStore, string> AndroidStoreNameMap; // 0x8
-	private CloudCatalogImpl m_CloudCatalog; // 0x58
-	[CompilerGeneratedAttribute] // RVA: 0xC87924 Offset: 0xC87924 VA: 0xC87924
-	[DebuggerBrowsableAttribute] // RVA: 0xC87924 Offset: 0xC87924 VA: 0xC87924
-	private FakeStoreUIMode <useFakeStoreUIMode>k__BackingField; // 0x60
-	[DebuggerBrowsableAttribute] // RVA: 0xC87960 Offset: 0xC87960 VA: 0xC87960
-	[CompilerGeneratedAttribute] // RVA: 0xC87960 Offset: 0xC87960 VA: 0xC87960
-	private bool <useFakeStoreAlways>k__BackingField; // 0x64
-	private WinRTStore windowsStore; // 0x68
-
-	// Properties
-	private string m_persistentDataPath { get; set; }
-	internal IUtil util { get; set; }
-	internal ILogger logger { get; set; }
-	internal IAsyncWebUtil webUtil { get; set; }
-	internal StandardPurchasingModule.StoreInstance storeInstance { get; set; }
-	public AppStore appStore { get; }
-	public FakeStoreUIMode useFakeStoreUIMode { get; set; }
-	public bool useFakeStoreAlways { get; set; }
-
-	// Methods
-
-	[CompilerGeneratedAttribute] // RVA: 0xC8801C Offset: 0xC8801C VA: 0xC8801C
-	// RVA: 0x22CEA28 Offset: 0x22CEA28 VA: 0x22CEA28
-	private string get_m_persistentDataPath() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC8802C Offset: 0xC8802C VA: 0xC8802C
-	// RVA: 0x22CEA30 Offset: 0x22CEA30 VA: 0x22CEA30
-	private void set_m_persistentDataPath(string value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC8803C Offset: 0xC8803C VA: 0xC8803C
-	// RVA: 0x22C4A4C Offset: 0x22C4A4C VA: 0x22C4A4C
-	internal IUtil get_util() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC8804C Offset: 0xC8804C VA: 0xC8804C
-	// RVA: 0x22CEA38 Offset: 0x22CEA38 VA: 0x22CEA38
-	private void set_util(IUtil value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC8805C Offset: 0xC8805C VA: 0xC8805C
-	// RVA: 0x22C4A44 Offset: 0x22C4A44 VA: 0x22C4A44
-	internal ILogger get_logger() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC8806C Offset: 0xC8806C VA: 0xC8806C
-	// RVA: 0x22CEA40 Offset: 0x22CEA40 VA: 0x22CEA40
-	private void set_logger(ILogger value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC8807C Offset: 0xC8807C VA: 0xC8807C
-	// RVA: 0x22C4A54 Offset: 0x22C4A54 VA: 0x22C4A54
-	internal IAsyncWebUtil get_webUtil() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC8808C Offset: 0xC8808C VA: 0xC8808C
-	// RVA: 0x22CEA48 Offset: 0x22CEA48 VA: 0x22CEA48
-	private void set_webUtil(IAsyncWebUtil value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC8809C Offset: 0xC8809C VA: 0xC8809C
-	// RVA: 0x22C4A5C Offset: 0x22C4A5C VA: 0x22C4A5C
-	internal StandardPurchasingModule.StoreInstance get_storeInstance() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC880AC Offset: 0xC880AC VA: 0xC880AC
-	// RVA: 0x22CEA50 Offset: 0x22CEA50 VA: 0x22CEA50
-	private void set_storeInstance(StandardPurchasingModule.StoreInstance value) { }
-
-	// RVA: 0x22CEA58 Offset: 0x22CEA58 VA: 0x22CEA58
-	internal void .ctor(IUtil util, IAsyncWebUtil webUtil, ILogger logger, INativeStoreProvider nativeStoreProvider, RuntimePlatform platform, AppStore android, bool useCloudCatalog, string persistentDataPath) { }
-
-	// RVA: 0x22CEB58 Offset: 0x22CEB58 VA: 0x22CEB58 Slot: 6
-	public AppStore get_appStore() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC880BC Offset: 0xC880BC VA: 0xC880BC
-	// RVA: 0x22CEB60 Offset: 0x22CEB60 VA: 0x22CEB60
-	public FakeStoreUIMode get_useFakeStoreUIMode() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC880CC Offset: 0xC880CC VA: 0xC880CC
-	// RVA: 0x22CEB44 Offset: 0x22CEB44 VA: 0x22CEB44
-	public void set_useFakeStoreUIMode(FakeStoreUIMode value) { }

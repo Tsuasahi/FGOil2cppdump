@@ -1,1000 +1,1000 @@
-
-	// RVA: 0x21BF9E8 Offset: 0x21BF9E8 VA: 0x21BF9E8
-	public void set_value(float value) { }
-
-	// RVA: 0x21BFB94 Offset: 0x21BFB94 VA: 0x21BFB94
-	public float get_alpha() { }
-
-	// RVA: 0x21BFC7C Offset: 0x21BFC7C VA: 0x21BFC7C
-	public void set_alpha(float value) { }
-
-	// RVA: 0x21C02DC Offset: 0x21C02DC VA: 0x21C02DC
-	protected bool get_isHorizontal() { }
-
-	// RVA: 0x21C02EC Offset: 0x21C02EC VA: 0x21C02EC
-	protected bool get_isInverted() { }
-
-	// RVA: 0x21C0300 Offset: 0x21C0300 VA: 0x21C0300
-	protected void Start() { }
-
-	// RVA: 0x21C0460 Offset: 0x21C0460 VA: 0x21C0460 Slot: 4
-	protected virtual void Upgrade() { }
-
-	// RVA: 0x21C0464 Offset: 0x21C0464 VA: 0x21C0464 Slot: 5
-	protected virtual void OnStart() { }
-
-	// RVA: 0x21C0468 Offset: 0x21C0468 VA: 0x21C0468
-	protected void Update() { }
-
-	// RVA: 0x21C0480 Offset: 0x21C0480 VA: 0x21C0480
-	protected void OnValidate() { }
-
-	// RVA: 0x21C05EC Offset: 0x21C05EC VA: 0x21C05EC
-	protected float ScreenToValue(Vector2 screenPos) { }
-
-	// RVA: 0x21C08A4 Offset: 0x21C08A4 VA: 0x21C08A4 Slot: 6
-	protected virtual float LocalToValue(Vector2 localPos) { }
-
-	// RVA: 0x21C0A94 Offset: 0x21C0A94 VA: 0x21C0A94 Slot: 7
-	public virtual void ForceUpdate() { }
-
-	// RVA: 0x21C13BC Offset: 0x21C13BC VA: 0x21C13BC
-	protected void SetThumbPosition(Vector3 worldPos) { }
+	private static void <Start>m__0() { }
 }
 
 // Namespace: 
-public enum UIProgressBar.FillDirection // TypeDefIndex: 12059
+[RequireComponent] // RVA: 0xC2BC38 Offset: 0xC2BC38 VA: 0xC2BC38
+[AddComponentMenu] // RVA: 0xC2BC38 Offset: 0xC2BC38 VA: 0xC2BC38
+public class TypewriterEffect : MonoBehaviour // TypeDefIndex: 12049
 {
 	// Fields
-	public int value__; // 0x0
-	public const UIProgressBar.FillDirection LeftToRight = 0;
-	public const UIProgressBar.FillDirection RightToLeft = 1;
-	public const UIProgressBar.FillDirection BottomToTop = 2;
-	public const UIProgressBar.FillDirection TopToBottom = 3;
-}
-
-// Namespace: 
-public sealed class UIProgressBar.OnDragFinished : MulticastDelegate // TypeDefIndex: 12060
-{
-	// Methods
-
-	// RVA: 0x21C1724 Offset: 0x21C1724 VA: 0x21C1724
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x21C1734 Offset: 0x21C1734 VA: 0x21C1734 Slot: 11
-	public virtual void Invoke() { }
-
-	// RVA: 0x21C1934 Offset: 0x21C1934 VA: 0x21C1934 Slot: 12
-	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
-
-	// RVA: 0x21C1968 Offset: 0x21C1968 VA: 0x21C1968 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-[AddComponentMenu] // RVA: 0xC984A4 Offset: 0xC984A4 VA: 0xC984A4
-public class UISavedOption : MonoBehaviour // TypeDefIndex: 12061
-{
-	// Fields
-	public string keyName; // 0x18
-	private UIPopupList mList; // 0x20
-	private UIToggle mCheck; // 0x28
-	private UIProgressBar mSlider; // 0x30
+	public static TypewriterEffect current; // 0x0
+	public int charsPerSecond; // 0x18
+	public float fadeInTime; // 0x1C
+	public float delayOnPeriod; // 0x20
+	public float delayOnNewLine; // 0x24
+	public UIScrollView scrollView; // 0x28
+	public bool keepFullDimensions; // 0x30
+	public List<EventDelegate> onFinished; // 0x38
+	private UILabel mLabel; // 0x40
+	private string mFullText; // 0x48
+	private int mCurrentOffset; // 0x50
+	private float mNextChar; // 0x54
+	private bool mReset; // 0x58
+	private bool mActive; // 0x59
+	private BetterList<TypewriterEffect.FadeEntry> mFade; // 0x60
 
 	// Properties
-	private string key { get; }
+	public bool isActive { get; }
 
 	// Methods
 
-	// RVA: 0x21C4908 Offset: 0x21C4908 VA: 0x21C4908
+	// RVA: 0x2128160 Offset: 0x2128160 VA: 0x2128160
 	public void .ctor() { }
 
-	// RVA: 0x21C4910 Offset: 0x21C4910 VA: 0x21C4910
-	private string get_key() { }
+	// RVA: 0x2128238 Offset: 0x2128238 VA: 0x2128238
+	public bool get_isActive() { }
 
-	// RVA: 0x21C49E0 Offset: 0x21C49E0 VA: 0x21C49E0
-	private void Awake() { }
+	// RVA: 0x2128240 Offset: 0x2128240 VA: 0x2128240
+	public void ResetToBeginning() { }
 
-	// RVA: 0x21C4A68 Offset: 0x21C4A68 VA: 0x21C4A68
-	private void OnEnable() { }
-
-	// RVA: 0x21C4EF8 Offset: 0x21C4EF8 VA: 0x21C4EF8
-	private void OnDisable() { }
-
-	// RVA: 0x21C5190 Offset: 0x21C5190 VA: 0x21C5190
-	public void SaveSelection() { }
-
-	// RVA: 0x21C5208 Offset: 0x21C5208 VA: 0x21C5208
-	public void SaveState() { }
-
-	// RVA: 0x21C52A8 Offset: 0x21C52A8 VA: 0x21C52A8
-	public void SaveProgress() { }
-}
-
-// Namespace: 
-[ExecuteInEditMode] // RVA: 0xC984DC Offset: 0xC984DC VA: 0xC984DC
-[AddComponentMenu] // RVA: 0xC984DC Offset: 0xC984DC VA: 0xC984DC
-public class UIScrollBar : UISlider // TypeDefIndex: 12062
-{
-	// Fields
-	[HideInInspector] // RVA: 0xCF12B8 Offset: 0xCF12B8 VA: 0xCF12B8
-	[SerializeField] // RVA: 0xCF12B8 Offset: 0xCF12B8 VA: 0xCF12B8
-	protected float mSize; // 0x7C
-	[HideInInspector] // RVA: 0xCF12F0 Offset: 0xCF12F0 VA: 0xCF12F0
-	[SerializeField] // RVA: 0xCF12F0 Offset: 0xCF12F0 VA: 0xCF12F0
-	private float mScroll; // 0x80
-	[HideInInspector] // RVA: 0xCF1328 Offset: 0xCF1328 VA: 0xCF1328
-	[SerializeField] // RVA: 0xCF1328 Offset: 0xCF1328 VA: 0xCF1328
-	private UIScrollBar.Direction mDir; // 0x84
-
-	// Properties
-	[ObsoleteAttribute] // RVA: 0xD4BE24 Offset: 0xD4BE24 VA: 0xD4BE24
-	public float scrollValue { get; set; }
-	public float barSize { get; set; }
-
-	// Methods
-
-	// RVA: 0x1D7A934 Offset: 0x1D7A934 VA: 0x1D7A934
-	public void .ctor() { }
-
-	// RVA: 0x1D7A96C Offset: 0x1D7A96C VA: 0x1D7A96C
-	public float get_scrollValue() { }
-
-	// RVA: 0x1D7A974 Offset: 0x1D7A974 VA: 0x1D7A974
-	public void set_scrollValue(float value) { }
-
-	// RVA: 0x1D7A97C Offset: 0x1D7A97C VA: 0x1D7A97C
-	public float get_barSize() { }
-
-	// RVA: 0x1D7A984 Offset: 0x1D7A984 VA: 0x1D7A984
-	public void set_barSize(float value) { }
-
-	// RVA: 0x1D7AB04 Offset: 0x1D7AB04 VA: 0x1D7AB04 Slot: 4
-	protected override void Upgrade() { }
-
-	// RVA: 0x1D7AB38 Offset: 0x1D7AB38 VA: 0x1D7AB38 Slot: 5
-	protected override void OnStart() { }
-
-	// RVA: 0x1D7B11C Offset: 0x1D7B11C VA: 0x1D7B11C Slot: 6
-	protected override float LocalToValue(Vector2 localPos) { }
-
-	// RVA: 0x1D7B44C Offset: 0x1D7B44C VA: 0x1D7B44C Slot: 7
-	public override void ForceUpdate() { }
-
-	// RVA: 0x1D7B758 Offset: 0x1D7B758 VA: 0x1D7B758
-	protected void OnPressBackground(GameObject go, bool isPressed) { }
-
-	// RVA: 0x1D7B8EC Offset: 0x1D7B8EC VA: 0x1D7B8EC
-	protected void OnDragBackground(GameObject go, Vector2 delta) { }
-
-	// RVA: 0x1D7BA48 Offset: 0x1D7BA48 VA: 0x1D7BA48
-	protected void OnPressForeground(GameObject go, bool isPressed) { }
-
-	// RVA: 0x1D7BC50 Offset: 0x1D7BC50 VA: 0x1D7BC50
-	protected void OnDragForeground(GameObject go, Vector2 delta) { }
-}
-
-// Namespace: 
-private enum UIScrollBar.Direction // TypeDefIndex: 12063
-{
-	// Fields
-	public int value__; // 0x0
-	public const UIScrollBar.Direction Horizontal = 0;
-	public const UIScrollBar.Direction Vertical = 1;
-	public const UIScrollBar.Direction Upgraded = 2;
-}
-
-// Namespace: 
-[ExecuteInEditMode] // RVA: 0xC98528 Offset: 0xC98528 VA: 0xC98528
-[RequireComponent] // RVA: 0xC98528 Offset: 0xC98528 VA: 0xC98528
-[AddComponentMenu] // RVA: 0xC98528 Offset: 0xC98528 VA: 0xC98528
-public class UIScrollView : MonoBehaviour // TypeDefIndex: 12064
-{
-	// Fields
-	public static BetterList<UIScrollView> list; // 0x0
-	public UIScrollView.Movement movement; // 0x18
-	public UIScrollView.DragEffect dragEffect; // 0x1C
-	public bool restrictWithinPanel; // 0x20
-	public bool disableDragIfFits; // 0x21
-	public bool smoothDragStart; // 0x22
-	public bool iOSDragEmulation; // 0x23
-	public float scrollWheelFactor; // 0x24
-	public float momentumAmount; // 0x28
-	public UIProgressBar horizontalScrollBar; // 0x30
-	public UIProgressBar verticalScrollBar; // 0x38
-	public UIScrollView.ShowCondition showScrollBars; // 0x40
-	public Vector2 customMovement; // 0x44
-	public UIWidget.Pivot contentPivot; // 0x4C
-	public UIScrollView.OnDragNotification onDragStarted; // 0x50
-	public UIScrollView.OnDragNotification onDragFinished; // 0x58
-	public UIScrollView.OnDragNotification onMomentumMove; // 0x60
-	public UIScrollView.OnDragNotification onStoppedMoving; // 0x68
-	[HideInInspector] // RVA: 0xCF1360 Offset: 0xCF1360 VA: 0xCF1360
-	[SerializeField] // RVA: 0xCF1360 Offset: 0xCF1360 VA: 0xCF1360
-	private Vector3 scale; // 0x70
-	[SerializeField] // RVA: 0xCF1398 Offset: 0xCF1398 VA: 0xCF1398
-	[HideInInspector] // RVA: 0xCF1398 Offset: 0xCF1398 VA: 0xCF1398
-	private Vector2 relativePositionOnReset; // 0x7C
-	protected Transform mTrans; // 0x88
-	protected UIPanel mPanel; // 0x90
-	protected Plane mPlane; // 0x98
-	protected Vector3 mLastPos; // 0xA8
-	protected bool mPressed; // 0xB4
-	protected Vector3 mMomentum; // 0xB8
-	protected float mScroll; // 0xC4
-	protected Bounds mBounds; // 0xC8
-	protected bool mCalculatedBounds; // 0xE0
-	protected bool mShouldMove; // 0xE1
-	protected bool mIgnoreCallbacks; // 0xE2
-	protected int mDragID; // 0xE4
-	protected Vector2 mDragStartOffset; // 0xE8
-	protected bool mDragStarted; // 0xF0
-	private bool mStarted; // 0xF1
-	[HideInInspector] // RVA: 0xCF13D0 Offset: 0xCF13D0 VA: 0xCF13D0
-	public UICenterOnChild centerOnChild; // 0xF8
-
-	// Properties
-	public UIPanel panel { get; }
-	public bool isDragging { get; }
-	public virtual Bounds bounds { get; }
-	public bool canMoveHorizontally { get; }
-	public bool canMoveVertically { get; }
-	public virtual bool shouldMoveHorizontally { get; }
-	public virtual bool shouldMoveVertically { get; }
-	protected virtual bool shouldMove { get; }
-	public Vector3 currentMomentum { get; set; }
-
-	// Methods
-
-	// RVA: 0x1D7BDC0 Offset: 0x1D7BDC0 VA: 0x1D7BDC0
-	public void .ctor() { }
-
-	// RVA: 0x1D7BF08 Offset: 0x1D7BF08 VA: 0x1D7BF08
-	public UIPanel get_panel() { }
-
-	// RVA: 0x1D7BF10 Offset: 0x1D7BF10 VA: 0x1D7BF10
-	public bool get_isDragging() { }
-
-	// RVA: 0x1D7BF30 Offset: 0x1D7BF30 VA: 0x1D7BF30 Slot: 4
-	public virtual Bounds get_bounds() { }
-
-	// RVA: 0x1D7BFB4 Offset: 0x1D7BFB4 VA: 0x1D7BFB4
-	public bool get_canMoveHorizontally() { }
-
-	// RVA: 0x1D7BFEC Offset: 0x1D7BFEC VA: 0x1D7BFEC
-	public bool get_canMoveVertically() { }
-
-	// RVA: 0x1D7C024 Offset: 0x1D7C024 VA: 0x1D7C024 Slot: 5
-	public virtual bool get_shouldMoveHorizontally() { }
-
-	// RVA: 0x1D7C14C Offset: 0x1D7C14C VA: 0x1D7C14C Slot: 6
-	public virtual bool get_shouldMoveVertically() { }
-
-	// RVA: 0x1D7C274 Offset: 0x1D7C274 VA: 0x1D7C274 Slot: 7
-	protected virtual bool get_shouldMove() { }
-
-	// RVA: 0x1D7C47C Offset: 0x1D7C47C VA: 0x1D7C47C
-	public Vector3 get_currentMomentum() { }
-
-	// RVA: 0x1D7C488 Offset: 0x1D7C488 VA: 0x1D7C488
-	public void set_currentMomentum(Vector3 value) { }
-
-	// RVA: 0x1D7C49C Offset: 0x1D7C49C VA: 0x1D7C49C
-	private void Awake() { }
-
-	// RVA: 0x1D7C6CC Offset: 0x1D7C6CC VA: 0x1D7C6CC
-	private void OnEnable() { }
-
-	// RVA: 0x1D7C9D0 Offset: 0x1D7C9D0 VA: 0x1D7C9D0
-	private void Start() { }
-
-	// RVA: 0x1D7C780 Offset: 0x1D7C780 VA: 0x1D7C780
-	private void CheckScrollbars() { }
-
-	// RVA: 0x1D7CA10 Offset: 0x1D7CA10 VA: 0x1D7CA10
-	private void OnDisable() { }
-
-	// RVA: 0x1D7CA9C Offset: 0x1D7CA9C VA: 0x1D7CA9C
-	public bool RestrictWithinBounds(bool instant) { }
-
-	// RVA: 0x1D7CAAC Offset: 0x1D7CAAC VA: 0x1D7CAAC
-	public bool RestrictWithinBounds(bool instant, bool horizontal, bool vertical) { }
-
-	// RVA: 0x1D7CED0 Offset: 0x1D7CED0 VA: 0x1D7CED0
-	public void DisableSpring() { }
-
-	// RVA: 0x1D7CF84 Offset: 0x1D7CF84 VA: 0x1D7CF84
-	public void UpdateScrollbars() { }
-
-	// RVA: 0x1D7CF94 Offset: 0x1D7CF94 VA: 0x1D7CF94 Slot: 8
-	public virtual void UpdateScrollbars(bool recalculateBounds) { }
-
-	// RVA: 0x1D7D490 Offset: 0x1D7D490 VA: 0x1D7D490
-	protected void UpdateScrollbars(UIProgressBar slider, float contentMin, float contentMax, float contentSize, float viewSize, bool inverted) { }
-
-	// RVA: 0x1D7D75C Offset: 0x1D7D75C VA: 0x1D7D75C Slot: 9
-	public virtual void SetDragAmount(float x, float y, bool updateScrollbars) { }
-
-	// RVA: 0x1D7DBA8 Offset: 0x1D7DBA8 VA: 0x1D7DBA8
-	public void InvalidateBounds() { }
-
-	[ContextMenu] // RVA: 0xD43B24 Offset: 0xD43B24 VA: 0xD43B24
-	// RVA: 0x1D7DBB0 Offset: 0x1D7DBB0 VA: 0x1D7DBB0
-	public void ResetPosition() { }
-
-	// RVA: 0x1D7DC88 Offset: 0x1D7DC88 VA: 0x1D7DC88
-	public void UpdatePosition() { }
-
-	// RVA: 0x1D7DE44 Offset: 0x1D7DE44 VA: 0x1D7DE44
-	public void OnScrollBar() { }
-
-	// RVA: 0x1D7DF70 Offset: 0x1D7DF70 VA: 0x1D7DF70 Slot: 10
-	public virtual void MoveRelative(Vector3 relative) { }
-
-	// RVA: 0x1D7E0C4 Offset: 0x1D7E0C4 VA: 0x1D7E0C4
-	public void MoveAbsolute(Vector3 absolute) { }
-
-	// RVA: 0x1D7E1E4 Offset: 0x1D7E1E4 VA: 0x1D7E1E4
-	public void Press(bool pressed) { }
-
-	// RVA: 0x1D7EABC Offset: 0x1D7EABC VA: 0x1D7EABC
-	public void Drag() { }
-
-	// RVA: 0x1D7F2B0 Offset: 0x1D7F2B0 VA: 0x1D7F2B0
-	public void Scroll(float delta) { }
-
-	// RVA: 0x1D7F3F4 Offset: 0x1D7F3F4 VA: 0x1D7F3F4
-	private void Update() { }
-
-	// RVA: 0x1D7F41C Offset: 0x1D7F41C VA: 0x1D7F41C
-	public bool IsLimitOverPosition() { }
-
-	// RVA: 0x1D7F588 Offset: 0x1D7F588 VA: 0x1D7F588
-	public bool IsLimitOverPosition2() { }
-
-	// RVA: 0x1D7F6F4 Offset: 0x1D7F6F4 VA: 0x1D7F6F4
-	public bool IsLimitOverPosition2(Vector3 offset) { }
-
-	// RVA: 0x1D7F8D4 Offset: 0x1D7F8D4 VA: 0x1D7F8D4
-	private void LateUpdate() { }
-
-	// RVA: 0x1D7FFF8 Offset: 0x1D7FFF8 VA: 0x1D7FFF8
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public enum UIScrollView.Movement // TypeDefIndex: 12065
-{
-	// Fields
-	public int value__; // 0x0
-	public const UIScrollView.Movement Horizontal = 0;
-	public const UIScrollView.Movement Vertical = 1;
-	public const UIScrollView.Movement Unrestricted = 2;
-	public const UIScrollView.Movement Custom = 3;
-}
-
-// Namespace: 
-public enum UIScrollView.DragEffect // TypeDefIndex: 12066
-{
-	// Fields
-	public int value__; // 0x0
-	public const UIScrollView.DragEffect None = 0;
-	public const UIScrollView.DragEffect Momentum = 1;
-	public const UIScrollView.DragEffect MomentumAndSpring = 2;
-}
-
-// Namespace: 
-public enum UIScrollView.ShowCondition // TypeDefIndex: 12067
-{
-	// Fields
-	public int value__; // 0x0
-	public const UIScrollView.ShowCondition Always = 0;
-	public const UIScrollView.ShowCondition OnlyIfNeeded = 1;
-	public const UIScrollView.ShowCondition WhenDragging = 2;
-}
-
-// Namespace: 
-public sealed class UIScrollView.OnDragNotification : MulticastDelegate // TypeDefIndex: 12068
-{
-	// Methods
-
-	// RVA: 0x1D8006C Offset: 0x1D8006C VA: 0x1D8006C
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x1D7E8BC Offset: 0x1D7E8BC VA: 0x1D7E8BC Slot: 11
-	public virtual void Invoke() { }
-
-	// RVA: 0x1D8007C Offset: 0x1D8007C VA: 0x1D8007C Slot: 12
-	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
-
-	// RVA: 0x1D800B0 Offset: 0x1D800B0 VA: 0x1D800B0 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-[ExecuteInEditMode] // RVA: 0xC985C0 Offset: 0xC985C0 VA: 0xC985C0
-[AddComponentMenu] // RVA: 0xC985C0 Offset: 0xC985C0 VA: 0xC985C0
-public class UISlider : UIProgressBar // TypeDefIndex: 12069
-{
-	// Fields
-	[HideInInspector] // RVA: 0xCF13E0 Offset: 0xCF13E0 VA: 0xCF13E0
-	[SerializeField] // RVA: 0xCF13E0 Offset: 0xCF13E0 VA: 0xCF13E0
-	private Transform foreground; // 0x68
-	[HideInInspector] // RVA: 0xCF1418 Offset: 0xCF1418 VA: 0xCF1418
-	[SerializeField] // RVA: 0xCF1418 Offset: 0xCF1418 VA: 0xCF1418
-	private float rawValue; // 0x70
-	[HideInInspector] // RVA: 0xCF1450 Offset: 0xCF1450 VA: 0xCF1450
-	[SerializeField] // RVA: 0xCF1450 Offset: 0xCF1450 VA: 0xCF1450
-	private UISlider.Direction direction; // 0x74
-	[HideInInspector] // RVA: 0xCF1488 Offset: 0xCF1488 VA: 0xCF1488
-	[SerializeField] // RVA: 0xCF1488 Offset: 0xCF1488 VA: 0xCF1488
-	protected bool mInverted; // 0x78
-
-	// Properties
-	[ObsoleteAttribute] // RVA: 0xD4BE5C Offset: 0xD4BE5C VA: 0xD4BE5C
-	public float sliderValue { get; set; }
-	[ObsoleteAttribute] // RVA: 0xD4BE94 Offset: 0xD4BE94 VA: 0xD4BE94
-	public bool inverted { get; set; }
-
-	// Methods
-
-	// RVA: 0x1D7A958 Offset: 0x1D7A958 VA: 0x1D7A958
-	public void .ctor() { }
-
-	// RVA: 0x1D80BE8 Offset: 0x1D80BE8 VA: 0x1D80BE8
-	public float get_sliderValue() { }
-
-	// RVA: 0x1D80BF0 Offset: 0x1D80BF0 VA: 0x1D80BF0
-	public void set_sliderValue(float value) { }
-
-	// RVA: 0x1D80BF8 Offset: 0x1D80BF8 VA: 0x1D80BF8
-	public bool get_inverted() { }
-
-	// RVA: 0x1D80C00 Offset: 0x1D80C00 VA: 0x1D80C00
-	public void set_inverted(bool value) { }
-
-	// RVA: 0x1D80C04 Offset: 0x1D80C04 VA: 0x1D80C04 Slot: 4
-	protected override void Upgrade() { }
-
-	// RVA: 0x1D80CDC Offset: 0x1D80CDC VA: 0x1D80CDC Slot: 5
-	protected override void OnStart() { }
-
-	// RVA: 0x1D7B808 Offset: 0x1D7B808 VA: 0x1D7B808
-	protected void OnPressBackground(GameObject go, bool isPressed) { }
-
-	// RVA: 0x1D7B988 Offset: 0x1D7B988 VA: 0x1D7B988
-	protected void OnDragBackground(GameObject go, Vector2 delta) { }
-
-	// RVA: 0x1D7BAF8 Offset: 0x1D7BAF8 VA: 0x1D7BAF8
-	protected void OnPressForeground(GameObject go, bool isPressed) { }
-
-	// RVA: 0x1D7BCEC Offset: 0x1D7BCEC VA: 0x1D7BCEC
-	protected void OnDragForeground(GameObject go, Vector2 delta) { }
-
-	// RVA: 0x1D812C4 Offset: 0x1D812C4 VA: 0x1D812C4
-	protected void OnKey(KeyCode key) { }
-}
-
-// Namespace: 
-private enum UISlider.Direction // TypeDefIndex: 12070
-{
-	// Fields
-	public int value__; // 0x0
-	public const UISlider.Direction Horizontal = 0;
-	public const UISlider.Direction Vertical = 1;
-	public const UISlider.Direction Upgraded = 2;
-}
-
-// Namespace: 
-[RequireComponent] // RVA: 0xC9860C Offset: 0xC9860C VA: 0xC9860C
-[AddComponentMenu] // RVA: 0xC9860C Offset: 0xC9860C VA: 0xC9860C
-public class UISoundVolume : MonoBehaviour // TypeDefIndex: 12071
-{
-	// Methods
-
-	// RVA: 0x1D830F4 Offset: 0x1D830F4 VA: 0x1D830F4
-	public void .ctor() { }
-
-	// RVA: 0x1D830FC Offset: 0x1D830FC VA: 0x1D830FC
-	private void Awake() { }
-
-	// RVA: 0x1D83220 Offset: 0x1D83220 VA: 0x1D83220
-	private void OnChange() { }
-}
-
-// Namespace: 
-[AddComponentMenu] // RVA: 0xC98694 Offset: 0xC98694 VA: 0xC98694
-public class UITable : UIWidgetContainer // TypeDefIndex: 12072
-{
-	// Fields
-	public int columns; // 0x18
-	public UITable.Direction direction; // 0x1C
-	public UITable.Sorting sorting; // 0x20
-	public UIWidget.Pivot pivot; // 0x24
-	public UIWidget.Pivot cellAlignment; // 0x28
-	public bool hideInactive; // 0x2C
-	public bool keepWithinPanel; // 0x2D
-	public Vector2 padding; // 0x30
-	public UITable.OnReposition onReposition; // 0x38
-	public Comparison<Transform> onCustomSort; // 0x40
-	protected UIPanel mPanel; // 0x48
-	protected bool mInitDone; // 0x50
-	protected bool mReposition; // 0x51
-	[CompilerGeneratedAttribute] // RVA: 0xCF14C0 Offset: 0xCF14C0 VA: 0xCF14C0
-	private static Comparison<Transform> <>f__mg$cache0; // 0x0
-	[CompilerGeneratedAttribute] // RVA: 0xCF14D0 Offset: 0xCF14D0 VA: 0xCF14D0
-	private static Comparison<Transform> <>f__mg$cache1; // 0x8
-	[CompilerGeneratedAttribute] // RVA: 0xCF14E0 Offset: 0xCF14E0 VA: 0xCF14E0
-	private static Comparison<Transform> <>f__mg$cache2; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xCF14F0 Offset: 0xCF14F0 VA: 0xCF14F0
-	private static Comparison<Transform> <>f__mg$cache3; // 0x18
-
-	// Properties
-	public bool repositionNow { set; }
-
-	// Methods
-
-	// RVA: 0x20226FC Offset: 0x20226FC VA: 0x20226FC
-	public void .ctor() { }
-
-	// RVA: 0x2022780 Offset: 0x2022780 VA: 0x2022780
-	public void set_repositionNow(bool value) { }
-
-	// RVA: 0x202279C Offset: 0x202279C VA: 0x202279C
-	public List<Transform> GetChildList() { }
-
-	// RVA: 0x2022AE8 Offset: 0x2022AE8 VA: 0x2022AE8 Slot: 4
-	protected virtual void Sort(List<Transform> list) { }
-
-	// RVA: 0x2022BB0 Offset: 0x2022BB0 VA: 0x2022BB0 Slot: 5
-	protected virtual void Start() { }
-
-	// RVA: 0x2022BF4 Offset: 0x2022BF4 VA: 0x2022BF4 Slot: 6
-	protected virtual void Init() { }
-
-	// RVA: 0x2022C88 Offset: 0x2022C88 VA: 0x2022C88 Slot: 7
-	protected virtual void LateUpdate() { }
-
-	// RVA: 0x2022CC8 Offset: 0x2022CC8 VA: 0x2022CC8
-	private void OnValidate() { }
-
-	// RVA: 0x2022D5C Offset: 0x2022D5C VA: 0x2022D5C
-	protected void RepositionVariableSize(List<Transform> children) { }
-
-	[ContextMenu] // RVA: 0xD43B5C Offset: 0xD43B5C VA: 0xD43B5C
-	// RVA: 0x20237EC Offset: 0x20237EC VA: 0x20237EC Slot: 8
-	public virtual void Reposition() { }
-}
-
-// Namespace: 
-public sealed class UITable.OnReposition : MulticastDelegate // TypeDefIndex: 12073
-{
-	// Methods
-
-	// RVA: 0x2023BD0 Offset: 0x2023BD0 VA: 0x2023BD0
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x20239D0 Offset: 0x20239D0 VA: 0x20239D0 Slot: 11
-	public virtual void Invoke() { }
-
-	// RVA: 0x2023BE0 Offset: 0x2023BE0 VA: 0x2023BE0 Slot: 12
-	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
-
-	// RVA: 0x2023C14 Offset: 0x2023C14 VA: 0x2023C14 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-public enum UITable.Direction // TypeDefIndex: 12074
-{
-	// Fields
-	public int value__; // 0x0
-	public const UITable.Direction Down = 0;
-	public const UITable.Direction Up = 1;
-}
-
-// Namespace: 
-public enum UITable.Sorting // TypeDefIndex: 12075
-{
-	// Fields
-	public int value__; // 0x0
-	public const UITable.Sorting None = 0;
-	public const UITable.Sorting Alphabetic = 1;
-	public const UITable.Sorting Horizontal = 2;
-	public const UITable.Sorting Vertical = 3;
-	public const UITable.Sorting Custom = 4;
-}
-
-// Namespace: 
-[ExecuteInEditMode] // RVA: 0xC986CC Offset: 0xC986CC VA: 0xC986CC
-[AddComponentMenu] // RVA: 0xC986CC Offset: 0xC986CC VA: 0xC986CC
-public class UIToggle : UIWidgetContainer // TypeDefIndex: 12076
-{
-	// Fields
-	public static BetterList<UIToggle> list; // 0x0
-	public static UIToggle current; // 0x8
-	public int group; // 0x18
-	public UIWidget activeSprite; // 0x20
-	public Animation activeAnimation; // 0x28
-	public bool startsActive; // 0x30
-	public bool instantTween; // 0x31
-	public bool optionCanBeNone; // 0x32
-	public List<EventDelegate> onChange; // 0x38
-	public UIToggle.Validate validator; // 0x40
-	[HideInInspector] // RVA: 0xCF1500 Offset: 0xCF1500 VA: 0xCF1500
-	[SerializeField] // RVA: 0xCF1500 Offset: 0xCF1500 VA: 0xCF1500
-	private UISprite checkSprite; // 0x48
-	[HideInInspector] // RVA: 0xCF1538 Offset: 0xCF1538 VA: 0xCF1538
-	[SerializeField] // RVA: 0xCF1538 Offset: 0xCF1538 VA: 0xCF1538
-	private Animation checkAnimation; // 0x50
-	[HideInInspector] // RVA: 0xCF1570 Offset: 0xCF1570 VA: 0xCF1570
-	[SerializeField] // RVA: 0xCF1570 Offset: 0xCF1570 VA: 0xCF1570
-	private GameObject eventReceiver; // 0x58
-	[HideInInspector] // RVA: 0xCF15A8 Offset: 0xCF15A8 VA: 0xCF15A8
-	[SerializeField] // RVA: 0xCF15A8 Offset: 0xCF15A8 VA: 0xCF15A8
-	private string functionName; // 0x60
-	[HideInInspector] // RVA: 0xCF15E0 Offset: 0xCF15E0 VA: 0xCF15E0
-	[SerializeField] // RVA: 0xCF15E0 Offset: 0xCF15E0 VA: 0xCF15E0
-	private bool startsChecked; // 0x68
-	private bool mIsActive; // 0x69
-	private bool mStarted; // 0x6A
-
-	// Properties
-	public bool value { get; set; }
-	[ObsoleteAttribute] // RVA: 0xD4BECC Offset: 0xD4BECC VA: 0xD4BECC
-	public bool isChecked { get; set; }
-
-	// Methods
-
-	// RVA: 0x2026C38 Offset: 0x2026C38 VA: 0x2026C38
-	public void .ctor() { }
-
-	// RVA: 0x2026CC0 Offset: 0x2026CC0 VA: 0x2026CC0
-	public bool get_value() { }
-
-	// RVA: 0x2026CDC Offset: 0x2026CDC VA: 0x2026CDC
-	public void set_value(bool value) { }
-
-	// RVA: 0x2027340 Offset: 0x2027340 VA: 0x2027340
-	public bool get_isChecked() { }
-
-	// RVA: 0x202735C Offset: 0x202735C VA: 0x202735C
-	public void set_isChecked(bool value) { }
-
-	// RVA: 0x2027364 Offset: 0x2027364 VA: 0x2027364
-	public static UIToggle GetActiveToggle(int group) { }
-
-	// RVA: 0x20274B0 Offset: 0x20274B0 VA: 0x20274B0
-	private void OnEnable() { }
-
-	// RVA: 0x202753C Offset: 0x202753C VA: 0x202753C
-	private void OnDisable() { }
-
-	// RVA: 0x20275C8 Offset: 0x20275C8 VA: 0x20275C8
-	private void Start() { }
-
-	// RVA: 0x20277F0 Offset: 0x20277F0 VA: 0x20277F0
-	private void OnClick() { }
-
-	// RVA: 0x2026D10 Offset: 0x2026D10 VA: 0x2026D10
-	public void Set(bool state) { }
-
-	// RVA: 0x2027A78 Offset: 0x2027A78 VA: 0x2027A78
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public sealed class UIToggle.Validate : MulticastDelegate // TypeDefIndex: 12077
-{
-	// Methods
-
-	// RVA: 0x2027AEC Offset: 0x2027AEC VA: 0x2027AEC
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x2027848 Offset: 0x2027848 VA: 0x2027848 Slot: 11
-	public virtual bool Invoke(bool choice) { }
-
-	// RVA: 0x2027AFC Offset: 0x2027AFC VA: 0x2027AFC Slot: 12
-	public virtual IAsyncResult BeginInvoke(bool choice, AsyncCallback callback, object object) { }
-
-	// RVA: 0x2027B8C Offset: 0x2027B8C VA: 0x2027B8C Slot: 13
-	public virtual bool EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-[ExecuteInEditMode] // RVA: 0xC98718 Offset: 0xC98718 VA: 0xC98718
-[RequireComponent] // RVA: 0xC98718 Offset: 0xC98718 VA: 0xC98718
-[AddComponentMenu] // RVA: 0xC98718 Offset: 0xC98718 VA: 0xC98718
-public class UIToggledComponents : MonoBehaviour // TypeDefIndex: 12078
-{
-	// Fields
-	public List<MonoBehaviour> activate; // 0x18
-	public List<MonoBehaviour> deactivate; // 0x20
-	[HideInInspector] // RVA: 0xCF1618 Offset: 0xCF1618 VA: 0xCF1618
-	[SerializeField] // RVA: 0xCF1618 Offset: 0xCF1618 VA: 0xCF1618
-	private MonoBehaviour target; // 0x28
-	[HideInInspector] // RVA: 0xCF1650 Offset: 0xCF1650 VA: 0xCF1650
-	[SerializeField] // RVA: 0xCF1650 Offset: 0xCF1650 VA: 0xCF1650
-	private bool inverse; // 0x30
-
-	// Methods
-
-	// RVA: 0x2027BC8 Offset: 0x2027BC8 VA: 0x2027BC8
-	public void .ctor() { }
-
-	// RVA: 0x2027BD0 Offset: 0x2027BD0 VA: 0x2027BD0
-	private void Awake() { }
-
-	// RVA: 0x2027D58 Offset: 0x2027D58 VA: 0x2027D58
-	public void Toggle() { }
-}
-
-// Namespace: 
-[AddComponentMenu] // RVA: 0xC987B0 Offset: 0xC987B0 VA: 0xC987B0
-public class UIToggledObjects : MonoBehaviour // TypeDefIndex: 12079
-{
-	// Fields
-	public List<GameObject> activate; // 0x18
-	public List<GameObject> deactivate; // 0x20
-	[HideInInspector] // RVA: 0xCF1688 Offset: 0xCF1688 VA: 0xCF1688
-	[SerializeField] // RVA: 0xCF1688 Offset: 0xCF1688 VA: 0xCF1688
-	private GameObject target; // 0x28
-	[HideInInspector] // RVA: 0xCF16C0 Offset: 0xCF16C0 VA: 0xCF16C0
-	[SerializeField] // RVA: 0xCF16C0 Offset: 0xCF16C0 VA: 0xCF16C0
-	private bool inverse; // 0x30
-
-	// Methods
-
-	// RVA: 0x2027F58 Offset: 0x2027F58 VA: 0x2027F58
-	public void .ctor() { }
-
-	// RVA: 0x2027F60 Offset: 0x2027F60 VA: 0x2027F60
-	private void Awake() { }
-
-	// RVA: 0x20280E8 Offset: 0x20280E8 VA: 0x20280E8
-	public void Toggle() { }
-
-	// RVA: 0x2028278 Offset: 0x2028278 VA: 0x2028278
-	private void Set(GameObject go, bool state) { }
-}
-
-// Namespace: 
-[AddComponentMenu] // RVA: 0xC987E8 Offset: 0xC987E8 VA: 0xC987E8
-public class UIWidgetContainer : MonoBehaviour // TypeDefIndex: 12080
-{
-	// Methods
-
-	// RVA: 0x2022778 Offset: 0x2022778 VA: 0x2022778
-	public void .ctor() { }
-}
-
-// Namespace: 
-[AddComponentMenu] // RVA: 0xC98820 Offset: 0xC98820 VA: 0xC98820
-public class UIWrapContent : MonoBehaviour // TypeDefIndex: 12081
-{
-	// Fields
-	public int itemSize; // 0x18
-	public bool cullContent; // 0x1C
-	public int minIndex; // 0x20
-	public int maxIndex; // 0x24
-	public UIWrapContent.OnInitializeItem onInitializeItem; // 0x28
-	private Transform mTrans; // 0x30
-	private UIPanel mPanel; // 0x38
-	private UIScrollView mScroll; // 0x40
-	private bool mHorizontal; // 0x48
-	private bool mFirstTime; // 0x49
-	private List<Transform> mChildren; // 0x50
-	public UIWrapContent.CallbackFunc callbackFunc; // 0x58
-	protected static readonly float MOVE_TIME; // 0x0
-	[CompilerGeneratedAttribute] // RVA: 0xCF16F8 Offset: 0xCF16F8 VA: 0xCF16F8
-	private static Comparison<Transform> <>f__mg$cache0; // 0x8
-	[CompilerGeneratedAttribute] // RVA: 0xCF1708 Offset: 0xCF1708 VA: 0xCF1708
-	private static Comparison<Transform> <>f__mg$cache1; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xCF1718 Offset: 0xCF1718 VA: 0xCF1718
-	private static Comparison<Transform> <>f__mg$cache2; // 0x18
-
-	// Methods
-
-	// RVA: 0x20353AC Offset: 0x20353AC VA: 0x20353AC
-	public void .ctor() { }
-
-	// RVA: 0x2035430 Offset: 0x2035430 VA: 0x2035430 Slot: 4
-	protected virtual void Start() { }
-
-	// RVA: 0x2036000 Offset: 0x2036000 VA: 0x2036000 Slot: 5
-	protected virtual void OnMove(UIPanel panel) { }
-
-	[ContextMenu] // RVA: 0xD43B94 Offset: 0xD43B94 VA: 0xD43B94
-	// RVA: 0x2035528 Offset: 0x2035528 VA: 0x2035528
-	public void SortBasedOnScrollMovement() { }
-
-	[ContextMenu] // RVA: 0xD43BCC Offset: 0xD43BCC VA: 0xD43BCC
-	// RVA: 0x20362B0 Offset: 0x20362B0 VA: 0x20362B0
-	public void SortAlphabetically() { }
-
-	// RVA: 0x2036004 Offset: 0x2036004 VA: 0x2036004
-	protected bool CacheScrollView() { }
-
-	// RVA: 0x203614C Offset: 0x203614C VA: 0x203614C
-	private void ResetChildPositions() { }
-
-	// RVA: 0x20357B4 Offset: 0x20357B4 VA: 0x20357B4
-	public void WrapContent() { }
-
-	// RVA: 0x2036490 Offset: 0x2036490 VA: 0x2036490
-	private void OnValidate() { }
-
-	// RVA: 0x20364B4 Offset: 0x20364B4 VA: 0x20364B4 Slot: 6
-	protected virtual void UpdateItem(Transform item, int index) { }
-
-	// RVA: 0x20369F0 Offset: 0x20369F0 VA: 0x20369F0
-	public void setScrollPos(int idx) { }
-
-	// RVA: 0x2036B8C Offset: 0x2036B8C VA: 0x2036B8C
-	public void SetEventRewardScrollPos(int idx, UIWrapContent.CallbackFunc callback) { }
-
-	// RVA: 0x2036DBC Offset: 0x2036DBC VA: 0x2036DBC
-	private void EndCallback() { }
-
-	// RVA: 0x2036FEC Offset: 0x2036FEC VA: 0x2036FEC
-	public void resetScroll() { }
-
-	// RVA: 0x203701C Offset: 0x203701C VA: 0x203701C
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public sealed class UIWrapContent.OnInitializeItem : MulticastDelegate // TypeDefIndex: 12082
-{
-	// Methods
-
-	// RVA: 0x20370C4 Offset: 0x20370C4 VA: 0x20370C4
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x2036600 Offset: 0x2036600 VA: 0x2036600 Slot: 11
-	public virtual void Invoke(GameObject go, int wrapIndex, int realIndex) { }
-
-	// RVA: 0x20370D4 Offset: 0x20370D4 VA: 0x20370D4 Slot: 12
-	public virtual IAsyncResult BeginInvoke(GameObject go, int wrapIndex, int realIndex, AsyncCallback callback, object object) { }
-
-	// RVA: 0x2037188 Offset: 0x2037188 VA: 0x2037188 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-public sealed class UIWrapContent.CallbackFunc : MulticastDelegate // TypeDefIndex: 12083
-{
-	// Methods
-
-	// RVA: 0x2037074 Offset: 0x2037074 VA: 0x2037074
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x2036DEC Offset: 0x2036DEC VA: 0x2036DEC Slot: 11
-	public virtual void Invoke() { }
-
-	// RVA: 0x2037084 Offset: 0x2037084 VA: 0x2037084 Slot: 12
-	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
-
-	// RVA: 0x20370B8 Offset: 0x20370B8 VA: 0x20370B8 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-[AddComponentMenu] // RVA: 0xC98858 Offset: 0xC98858 VA: 0xC98858
-public class ActiveAnimation : MonoBehaviour // TypeDefIndex: 12084
-{
-	// Fields
-	public static ActiveAnimation current; // 0x0
-	public List<EventDelegate> onFinished; // 0x18
-	[HideInInspector] // RVA: 0xCF1728 Offset: 0xCF1728 VA: 0xCF1728
-	public GameObject eventReceiver; // 0x20
-	[HideInInspector] // RVA: 0xCF1738 Offset: 0xCF1738 VA: 0xCF1738
-	public string callWhenFinished; // 0x28
-	private Animation mAnim; // 0x30
-	private Direction mLastDirection; // 0x38
-	private Direction mDisableDirection; // 0x3C
-	private bool mNotify; // 0x40
-	private Animator mAnimator; // 0x48
-	private string mClip; // 0x50
-
-	// Properties
-	private float playbackTime { get; }
-	public bool isPlaying { get; }
-
-	// Methods
-
-	// RVA: 0x159B418 Offset: 0x159B418 VA: 0x159B418
-	public void .ctor() { }
-
-	// RVA: 0x159B4B8 Offset: 0x159B4B8 VA: 0x159B4B8
-	private float get_playbackTime() { }
-
-	// RVA: 0x159B588 Offset: 0x159B588 VA: 0x159B588
-	public bool get_isPlaying() { }
-
-	// RVA: 0x159BA04 Offset: 0x159BA04 VA: 0x159BA04
+	// RVA: 0x2128270 Offset: 0x2128270 VA: 0x2128270
 	public void Finish() { }
 
-	// RVA: 0x159BE00 Offset: 0x159BE00 VA: 0x159BE00
-	public void Reset() { }
+	// RVA: 0x2128E30 Offset: 0x2128E30 VA: 0x2128E30
+	private void OnEnable() { }
 
-	// RVA: 0x159C1DC Offset: 0x159C1DC VA: 0x159C1DC
-	private void Start() { }
-
-	// RVA: 0x159C298 Offset: 0x159C298 VA: 0x159C298
+	// RVA: 0x21283DC Offset: 0x21283DC VA: 0x21283DC
 	private void Update() { }
-
-	// RVA: 0x159C9C4 Offset: 0x159C9C4 VA: 0x159C9C4
-	private void Play(string clipName, Direction playDirection) { }
-
-	// RVA: 0x159D09C Offset: 0x159D09C VA: 0x159D09C
-	public static ActiveAnimation Play(Animation anim, string clipName, Direction playDirection, EnableCondition enableBeforePlay, DisableCondition disableCondition) { }
-
-	// RVA: 0x159D404 Offset: 0x159D404 VA: 0x159D404
-	public static ActiveAnimation Play(Animation anim, string clipName, Direction playDirection) { }
-
-	// RVA: 0x159D410 Offset: 0x159D410 VA: 0x159D410
-	public static ActiveAnimation Play(Animation anim, Direction playDirection) { }
-
-	// RVA: 0x159D428 Offset: 0x159D428 VA: 0x159D428
-	public static ActiveAnimation Play(Animator anim, string clipName, Direction playDirection, EnableCondition enableBeforePlay, DisableCondition disableCondition) { }
-}
-
-// Namespace: AnimationOrTween
-public enum Trigger // TypeDefIndex: 12085
-{
-	// Fields
-	public int value__; // 0x0
-	public const Trigger OnClick = 0;
-	public const Trigger OnHover = 1;
-	public const Trigger OnPress = 2;
-	public const Trigger OnHoverTrue = 3;
-	public const Trigger OnHoverFalse = 4;
-	public const Trigger OnPressTrue = 5;
-	public const Trigger OnPressFalse = 6;
-	public const Trigger OnActivate = 7;
-	public const Trigger OnActivateTrue = 8;
-	public const Trigger OnActivateFalse = 9;
-	public const Trigger OnDoubleClick = 10;
-	public const Trigger OnSelect = 11;
-	public const Trigger OnSelectTrue = 12;
-	public const Trigger OnSelectFalse = 13;
-}
-
-// Namespace: AnimationOrTween
-public enum Direction // TypeDefIndex: 12086
-{
-	// Fields
-	public int value__; // 0x0
-	public const Direction Reverse = -1;
-	public const Direction Toggle = 0;
-	public const Direction Forward = 1;
-}
-
-// Namespace: AnimationOrTween
-public enum EnableCondition // TypeDefIndex: 12087
-{
-	// Fields
-	public int value__; // 0x0
-	public const EnableCondition DoNothing = 0;
-	public const EnableCondition EnableThenPlay = 1;
-	public const EnableCondition IgnoreDisabledState = 2;
-}
-
-// Namespace: AnimationOrTween
-public enum DisableCondition // TypeDefIndex: 12088
-{
-	// Fields
-	public int value__; // 0x0
-	public const DisableCondition DisableAfterReverse = -1;
-	public const DisableCondition DoNotDisable = 0;
-	public const DisableCondition DisableAfterForward = 1;
 }
 
 // Namespace: 
-[DefaultMemberAttribute] // RVA: 0xC98890 Offset: 0xC98890 VA: 0xC98890
-public class BetterList<T> // TypeDefIndex: 12089
+private struct TypewriterEffect.FadeEntry // TypeDefIndex: 12050
 {
 	// Fields
-	public T[] buffer; // 0x0
-	public int size; // 0x0
+	public int index; // 0x0
+	public string text; // 0x8
+	public float alpha; // 0x10
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2BCC0 Offset: 0xC2BCC0 VA: 0xC2BCC0
+public class UIButton : UIButtonColor // TypeDefIndex: 12051
+{
+	// Fields
+	public static UIButton current; // 0x0
+	public bool dragHighlight; // 0x84
+	public string hoverSprite; // 0x88
+	public string pressedSprite; // 0x90
+	public string disabledSprite; // 0x98
+	public Sprite hoverSprite2D; // 0xA0
+	public Sprite pressedSprite2D; // 0xA8
+	public Sprite disabledSprite2D; // 0xB0
+	public bool pixelSnap; // 0xB8
+	public List<EventDelegate> onClick; // 0xC0
+	private UISprite mSprite; // 0xC8
+	private UI2DSprite mSprite2D; // 0xD0
+	private string mNormalSprite; // 0xD8
+	private Sprite mNormalSprite2D; // 0xE0
+
+	// Properties
+	public override bool isEnabled { get; set; }
+	public string normalSprite { get; set; }
+	public Sprite normalSprite2D { get; set; }
+
+	// Methods
+
+	// RVA: 0x2135170 Offset: 0x2135170 VA: 0x2135170
+	public void .ctor() { }
+
+	// RVA: 0x21352BC Offset: 0x21352BC VA: 0x21352BC Slot: 4
+	public override bool get_isEnabled() { }
+
+	// RVA: 0x2135408 Offset: 0x2135408 VA: 0x2135408 Slot: 5
+	public override void set_isEnabled(bool value) { }
+
+	// RVA: 0x21355A4 Offset: 0x21355A4 VA: 0x21355A4
+	public string get_normalSprite() { }
+
+	// RVA: 0x21355DC Offset: 0x21355DC VA: 0x21355DC
+	public void set_normalSprite(string value) { }
+
+	// RVA: 0x21358DC Offset: 0x21358DC VA: 0x21358DC
+	public Sprite get_normalSprite2D() { }
+
+	// RVA: 0x2135914 Offset: 0x2135914 VA: 0x2135914
+	public void set_normalSprite2D(Sprite value) { }
+
+	// RVA: 0x2135BB8 Offset: 0x2135BB8 VA: 0x2135BB8 Slot: 6
+	protected override void OnInit() { }
+
+	// RVA: 0x2136004 Offset: 0x2136004 VA: 0x2136004 Slot: 7
+	protected override void OnEnable() { }
+
+	// RVA: 0x2136264 Offset: 0x2136264 VA: 0x2136264 Slot: 11
+	protected override void OnDragOver() { }
+
+	// RVA: 0x2136428 Offset: 0x2136428 VA: 0x2136428 Slot: 12
+	protected override void OnDragOut() { }
+
+	// RVA: 0x21365EC Offset: 0x21365EC VA: 0x21365EC Slot: 15
+	protected virtual void OnClick() { }
+
+	// RVA: 0x21366D8 Offset: 0x21366D8 VA: 0x21366D8 Slot: 14
+	public override void SetState(UIButtonColor.State state, bool immediate) { }
+
+	// RVA: 0x2135780 Offset: 0x2135780 VA: 0x2135780
+	protected void SetSprite(string sp) { }
+
+	// RVA: 0x2135A74 Offset: 0x2135A74 VA: 0x2135A74
+	protected void SetSprite(Sprite sp) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2BCF8 Offset: 0xC2BCF8 VA: 0xC2BCF8
+public class UIButtonActivate : MonoBehaviour // TypeDefIndex: 12052
+{
+	// Fields
+	public GameObject target; // 0x18
+	public bool state; // 0x20
+
+	// Methods
+
+	// RVA: 0x2136930 Offset: 0x2136930 VA: 0x2136930
+	public void .ctor() { }
+
+	// RVA: 0x2136940 Offset: 0x2136940 VA: 0x2136940
+	private void OnClick() { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC2BD30 Offset: 0xC2BD30 VA: 0xC2BD30
+[AddComponentMenu] // RVA: 0xC2BD30 Offset: 0xC2BD30 VA: 0xC2BD30
+public class UIButtonColor : UIWidgetContainer // TypeDefIndex: 12053
+{
+	// Fields
+	public GameObject tweenTarget; // 0x18
+	public Color hover; // 0x20
+	public Color pressed; // 0x30
+	public Color disabledColor; // 0x40
+	public float duration; // 0x50
+	protected Color mStartingColor; // 0x54
+	protected Color mDefaultColor; // 0x64
+	protected bool mInitDone; // 0x74
+	protected UIWidget mWidget; // 0x78
+	protected UIButtonColor.State mState; // 0x80
+
+	// Properties
+	public UIButtonColor.State state { get; set; }
+	public Color defaultColor { get; set; }
+	public virtual bool isEnabled { get; set; }
+
+	// Methods
+
+	// RVA: 0x21351DC Offset: 0x21351DC VA: 0x21351DC
+	public void .ctor() { }
+
+	// RVA: 0x21369FC Offset: 0x21369FC VA: 0x21369FC
+	public UIButtonColor.State get_state() { }
+
+	// RVA: 0x2136A04 Offset: 0x2136A04 VA: 0x2136A04
+	public void set_state(UIButtonColor.State value) { }
+
+	// RVA: 0x2136A18 Offset: 0x2136A18 VA: 0x2136A18
+	public Color get_defaultColor() { }
+
+	// RVA: 0x2136A54 Offset: 0x2136A54 VA: 0x2136A54
+	public void set_defaultColor(Color value) { }
+
+	// RVA: 0x2136AD0 Offset: 0x2136AD0 VA: 0x2136AD0 Slot: 4
+	public virtual bool get_isEnabled() { }
+
+	// RVA: 0x2136AD8 Offset: 0x2136AD8 VA: 0x2136AD8 Slot: 5
+	public virtual void set_isEnabled(bool value) { }
+
+	// RVA: 0x2136AE4 Offset: 0x2136AE4 VA: 0x2136AE4
+	public void ResetDefaultColor() { }
+
+	// RVA: 0x2136AF0 Offset: 0x2136AF0 VA: 0x2136AF0
+	private void Start() { }
+
+	// RVA: 0x2135D40 Offset: 0x2135D40 VA: 0x2135D40 Slot: 6
+	protected virtual void OnInit() { }
+
+	// RVA: 0x2136B5C Offset: 0x2136B5C VA: 0x2136B5C Slot: 7
+	protected virtual void OnEnable() { }
+
+	// RVA: 0x2136E80 Offset: 0x2136E80 VA: 0x2136E80 Slot: 8
+	protected virtual void OnDisable() { }
+
+	// RVA: 0x2137008 Offset: 0x2137008 VA: 0x2137008 Slot: 9
+	protected virtual void OnHover(bool isOver) { }
+
+	// RVA: 0x21370E0 Offset: 0x21370E0 VA: 0x21370E0 Slot: 10
+	protected virtual void OnPress(bool isPressed) { }
+
+	// RVA: 0x2136360 Offset: 0x2136360 VA: 0x2136360 Slot: 11
+	protected virtual void OnDragOver() { }
+
+	// RVA: 0x2136524 Offset: 0x2136524 VA: 0x2136524 Slot: 12
+	protected virtual void OnDragOut() { }
+
+	// RVA: 0x2137340 Offset: 0x2137340 VA: 0x2137340 Slot: 13
+	protected virtual void OnSelect(bool isSelected) { }
+
+	// RVA: 0x21368BC Offset: 0x21368BC VA: 0x21368BC Slot: 14
+	public virtual void SetState(UIButtonColor.State state, bool instant) { }
+
+	// RVA: 0x213775C Offset: 0x213775C VA: 0x213775C
+	public void UpdateColor(bool instant) { }
+}
+
+// Namespace: 
+public enum UIButtonColor.State // TypeDefIndex: 12054
+{
+	// Fields
+	public int value__; // 0x0
+	public const UIButtonColor.State Normal = 0;
+	public const UIButtonColor.State Hover = 1;
+	public const UIButtonColor.State Pressed = 2;
+	public const UIButtonColor.State Disabled = 3;
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC2BD7C Offset: 0xC2BD7C VA: 0xC2BD7C
+[AddComponentMenu] // RVA: 0xC2BD7C Offset: 0xC2BD7C VA: 0xC2BD7C
+public class UIButtonKeys : UIKeyNavigation // TypeDefIndex: 12055
+{
+	// Fields
+	public UIButtonKeys selectOnClick; // 0x50
+	public UIButtonKeys selectOnUp; // 0x58
+	public UIButtonKeys selectOnDown; // 0x60
+	public UIButtonKeys selectOnLeft; // 0x68
+	public UIButtonKeys selectOnRight; // 0x70
+
+	// Methods
+
+	// RVA: 0x213791C Offset: 0x213791C VA: 0x213791C
+	public void .ctor() { }
+
+	// RVA: 0x2137984 Offset: 0x2137984 VA: 0x2137984 Slot: 4
+	protected override void OnEnable() { }
+
+	// RVA: 0x21379AC Offset: 0x21379AC VA: 0x21379AC
+	public void Upgrade() { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2BDC8 Offset: 0xC2BDC8 VA: 0xC2BDC8
+public class UIButtonMessage : MonoBehaviour // TypeDefIndex: 12056
+{
+	// Fields
+	public GameObject target; // 0x18
+	public string functionName; // 0x20
+	public UIButtonMessage.Trigger trigger; // 0x28
+	public bool includeChildren; // 0x2C
+	private bool mStarted; // 0x2D
+
+	// Methods
+
+	// RVA: 0x2137D78 Offset: 0x2137D78 VA: 0x2137D78
+	public void .ctor() { }
+
+	// RVA: 0x2137D80 Offset: 0x2137D80 VA: 0x2137D80
+	private void Start() { }
+
+	// RVA: 0x2137D8C Offset: 0x2137D8C VA: 0x2137D8C
+	private void OnEnable() { }
+
+	// RVA: 0x2137E24 Offset: 0x2137E24 VA: 0x2137E24
+	private void OnHover(bool isOver) { }
+
+	// RVA: 0x2138078 Offset: 0x2138078 VA: 0x2138078
+	private void OnPress(bool isPressed) { }
+
+	// RVA: 0x21380CC Offset: 0x21380CC VA: 0x21380CC
+	private void OnSelect(bool isSelected) { }
+
+	// RVA: 0x2138178 Offset: 0x2138178 VA: 0x2138178
+	private void OnClick() { }
+
+	// RVA: 0x21381B8 Offset: 0x21381B8 VA: 0x21381B8
+	private void OnDoubleClick() { }
+
+	// RVA: 0x2137E78 Offset: 0x2137E78 VA: 0x2137E78
+	private void Send() { }
+}
+
+// Namespace: 
+public enum UIButtonMessage.Trigger // TypeDefIndex: 12057
+{
+	// Fields
+	public int value__; // 0x0
+	public const UIButtonMessage.Trigger OnClick = 0;
+	public const UIButtonMessage.Trigger OnMouseOver = 1;
+	public const UIButtonMessage.Trigger OnMouseOut = 2;
+	public const UIButtonMessage.Trigger OnPress = 3;
+	public const UIButtonMessage.Trigger OnRelease = 4;
+	public const UIButtonMessage.Trigger OnDoubleClick = 5;
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2BE00 Offset: 0xC2BE00 VA: 0xC2BE00
+public class UIButtonOffset : MonoBehaviour // TypeDefIndex: 12058
+{
+	// Fields
+	public Transform tweenTarget; // 0x18
+	public Vector3 hover; // 0x20
+	public Vector3 pressed; // 0x2C
+	public float duration; // 0x38
+	private Vector3 mPos; // 0x3C
+	private bool mStarted; // 0x48
+
+	// Methods
+
+	// RVA: 0x21383CC Offset: 0x21383CC VA: 0x21383CC
+	public void .ctor() { }
+
+	// RVA: 0x2138484 Offset: 0x2138484 VA: 0x2138484
+	private void Start() { }
+
+	// RVA: 0x213854C Offset: 0x213854C VA: 0x213854C
+	private void OnEnable() { }
+
+	// RVA: 0x2138720 Offset: 0x2138720 VA: 0x2138720
+	private void OnDisable() { }
+
+	// RVA: 0x2138884 Offset: 0x2138884 VA: 0x2138884
+	private void OnPress(bool isPressed) { }
+
+	// RVA: 0x21385E4 Offset: 0x21385E4 VA: 0x21385E4
+	private void OnHover(bool isOver) { }
+
+	// RVA: 0x2138A20 Offset: 0x2138A20 VA: 0x2138A20
+	private void OnSelect(bool isSelected) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2BE38 Offset: 0xC2BE38 VA: 0xC2BE38
+public class UIButtonRotation : MonoBehaviour // TypeDefIndex: 12059
+{
+	// Fields
+	public Transform tweenTarget; // 0x18
+	public Vector3 hover; // 0x20
+	public Vector3 pressed; // 0x2C
+	public float duration; // 0x38
+	private Quaternion mRot; // 0x3C
+	private bool mStarted; // 0x4C
+
+	// Methods
+
+	// RVA: 0x2138ACC Offset: 0x2138ACC VA: 0x2138ACC
+	public void .ctor() { }
+
+	// RVA: 0x2138B60 Offset: 0x2138B60 VA: 0x2138B60
+	private void Start() { }
+
+	// RVA: 0x2138C28 Offset: 0x2138C28 VA: 0x2138C28
+	private void OnEnable() { }
+
+	// RVA: 0x2138E24 Offset: 0x2138E24 VA: 0x2138E24
+	private void OnDisable() { }
+
+	// RVA: 0x2138F90 Offset: 0x2138F90 VA: 0x2138F90
+	private void OnPress(bool isPressed) { }
+
+	// RVA: 0x2138CC0 Offset: 0x2138CC0 VA: 0x2138CC0
+	private void OnHover(bool isOver) { }
+
+	// RVA: 0x2139150 Offset: 0x2139150 VA: 0x2139150
+	private void OnSelect(bool isSelected) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2BE70 Offset: 0xC2BE70 VA: 0xC2BE70
+public class UIButtonScale : MonoBehaviour // TypeDefIndex: 12060
+{
+	// Fields
+	public Transform tweenTarget; // 0x18
+	public Vector3 hover; // 0x20
+	public Vector3 pressed; // 0x2C
+	public float duration; // 0x38
+	private Vector3 mScale; // 0x3C
+	private bool mStarted; // 0x48
+
+	// Methods
+
+	// RVA: 0x21391FC Offset: 0x21391FC VA: 0x21391FC
+	public void .ctor() { }
+
+	// RVA: 0x213929C Offset: 0x213929C VA: 0x213929C
+	private void Start() { }
+
+	// RVA: 0x2139364 Offset: 0x2139364 VA: 0x2139364
+	private void OnEnable() { }
+
+	// RVA: 0x2139538 Offset: 0x2139538 VA: 0x2139538
+	private void OnDisable() { }
+
+	// RVA: 0x213969C Offset: 0x213969C VA: 0x213969C
+	private void OnPress(bool isPressed) { }
+
+	// RVA: 0x21393FC Offset: 0x21393FC VA: 0x21393FC
+	private void OnHover(bool isOver) { }
+
+	// RVA: 0x2139838 Offset: 0x2139838 VA: 0x2139838
+	private void OnSelect(bool isSelected) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2BEA8 Offset: 0xC2BEA8 VA: 0xC2BEA8
+public class UICenterOnChild : MonoBehaviour // TypeDefIndex: 12061
+{
+	// Fields
+	public float springStrength; // 0x18
+	public float nextPageThreshold; // 0x1C
+	public SpringPanel.OnFinished onFinished; // 0x20
+	public UICenterOnChild.OnCenterCallback onCenter; // 0x28
+	protected UIScrollView mScrollView; // 0x30
+	private GameObject mCenteredObject; // 0x38
+
+	// Properties
+	public GameObject centeredObject { get; }
+
+	// Methods
+
+	// RVA: 0x1B04B28 Offset: 0x1B04B28 VA: 0x1B04B28
+	public void .ctor() { }
+
+	// RVA: 0x1B04B38 Offset: 0x1B04B38 VA: 0x1B04B38
+	public GameObject get_centeredObject() { }
+
+	// RVA: 0x1B04B40 Offset: 0x1B04B40 VA: 0x1B04B40
+	private void Start() { }
+
+	// RVA: 0x1B04B4C Offset: 0x1B04B4C VA: 0x1B04B4C
+	private void OnEnable() { }
+
+	// RVA: 0x1B04BEC Offset: 0x1B04BEC VA: 0x1B04BEC
+	private void OnDisable() { }
+
+	// RVA: 0x1B04C74 Offset: 0x1B04C74 VA: 0x1B04C74
+	private void OnDragFinished() { }
+
+	// RVA: 0x1B04CB4 Offset: 0x1B04CB4 VA: 0x1B04CB4
+	private void OnValidate() { }
+
+	[ContextMenu] // RVA: 0xCD6720 Offset: 0xCD6720 VA: 0xCD6720
+	// RVA: 0x1B04D28 Offset: 0x1B04D28 VA: 0x1B04D28 Slot: 4
+	public virtual void Recenter() { }
+
+	// RVA: 0x1B0595C Offset: 0x1B0595C VA: 0x1B0595C
+	private void CenterOn(Transform target, Vector3 panelCenter, bool isFinishAction = True) { }
+
+	// RVA: 0x1B0609C Offset: 0x1B0609C VA: 0x1B0609C
+	public void CenterOn(Transform target, bool isFinishAction = True) { }
+}
+
+// Namespace: 
+public sealed class UICenterOnChild.OnCenterCallback : MulticastDelegate // TypeDefIndex: 12062
+{
+	// Methods
+
+	// RVA: 0x1B06294 Offset: 0x1B06294 VA: 0x1B06294
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1B05CFC Offset: 0x1B05CFC VA: 0x1B05CFC Slot: 11
+	public virtual void Invoke(GameObject centeredObject) { }
+
+	// RVA: 0x1B062A4 Offset: 0x1B062A4 VA: 0x1B062A4 Slot: 12
+	public virtual IAsyncResult BeginInvoke(GameObject centeredObject, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1B062C8 Offset: 0x1B062C8 VA: 0x1B062C8 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2BEE0 Offset: 0xC2BEE0 VA: 0xC2BEE0
+public class UICenterOnClick : MonoBehaviour // TypeDefIndex: 12063
+{
+	// Methods
+
+	// RVA: 0x1B062D4 Offset: 0x1B062D4 VA: 0x1B062D4
+	public void .ctor() { }
+
+	// RVA: 0x1B062DC Offset: 0x1B062DC VA: 0x1B062DC
+	private void OnClick() { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC2BF18 Offset: 0xC2BF18 VA: 0xC2BF18
+[AddComponentMenu] // RVA: 0xC2BF18 Offset: 0xC2BF18 VA: 0xC2BF18
+public class UIDragCamera : MonoBehaviour // TypeDefIndex: 12064
+{
+	// Fields
+	public UIDraggableCamera draggableCamera; // 0x18
+
+	// Methods
+
+	// RVA: 0x1B0EC24 Offset: 0x1B0EC24 VA: 0x1B0EC24
+	public void .ctor() { }
+
+	// RVA: 0x1B0EC2C Offset: 0x1B0EC2C VA: 0x1B0EC2C
+	private void Awake() { }
+
+	// RVA: 0x1B0ECF0 Offset: 0x1B0ECF0 VA: 0x1B0ECF0
+	private void OnPress(bool isPressed) { }
+
+	// RVA: 0x1B0EF70 Offset: 0x1B0EF70 VA: 0x1B0EF70
+	private void OnDrag(Vector2 delta) { }
+
+	// RVA: 0x1B0F384 Offset: 0x1B0F384 VA: 0x1B0F384
+	private void OnScroll(float delta) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2BF64 Offset: 0xC2BF64 VA: 0xC2BF64
+public class UIDragDropContainer : MonoBehaviour // TypeDefIndex: 12065
+{
+	// Fields
+	public Transform reparentTarget; // 0x18
+
+	// Methods
+
+	// RVA: 0x1B0F58C Offset: 0x1B0F58C VA: 0x1B0F58C
+	public void .ctor() { }
+
+	// RVA: 0x1B0F594 Offset: 0x1B0F594 VA: 0x1B0F594 Slot: 4
+	protected virtual void Start() { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2BF9C Offset: 0xC2BF9C VA: 0xC2BF9C
+public class UIDragDropItem : MonoBehaviour // TypeDefIndex: 12066
+{
+	// Fields
+	public UIDragDropItem.Restriction restriction; // 0x18
+	public bool cloneOnDrag; // 0x1C
+	[HideInInspector] // RVA: 0xC84624 Offset: 0xC84624 VA: 0xC84624
+	public float pressAndHoldDelay; // 0x20
+	public bool interactable; // 0x24
+	protected Transform mTrans; // 0x28
+	protected Transform mParent; // 0x30
+	protected Collider mCollider; // 0x38
+	protected Collider2D mCollider2D; // 0x40
+	protected UIButton mButton; // 0x48
+	protected UIRoot mRoot; // 0x50
+	protected UIGrid mGrid; // 0x58
+	protected UITable mTable; // 0x60
+	protected float mDragStartTime; // 0x68
+	protected UIDragScrollView mDragScrollView; // 0x70
+	protected bool mPressed; // 0x78
+	protected bool mDragging; // 0x79
+	protected UICamera.MouseOrTouch mTouch; // 0x80
+
+	// Methods
+
+	// RVA: 0x1B0F61C Offset: 0x1B0F61C VA: 0x1B0F61C
+	public void .ctor() { }
+
+	// RVA: 0x1B0F634 Offset: 0x1B0F634 VA: 0x1B0F634 Slot: 4
+	protected virtual void Start() { }
+
+	// RVA: 0x1B0F714 Offset: 0x1B0F714 VA: 0x1B0F714 Slot: 5
+	protected virtual void OnPress(bool isPressed) { }
+
+	// RVA: 0x1B0F7C4 Offset: 0x1B0F7C4 VA: 0x1B0F7C4 Slot: 6
+	protected virtual void Update() { }
+
+	// RVA: 0x1B0F834 Offset: 0x1B0F834 VA: 0x1B0F834 Slot: 7
+	protected virtual void OnDragStart() { }
+
+	// RVA: 0x1B0F99C Offset: 0x1B0F99C VA: 0x1B0F99C Slot: 8
+	protected virtual void StartDragging() { }
+
+	// RVA: 0x1B0FF18 Offset: 0x1B0FF18 VA: 0x1B0FF18 Slot: 9
+	protected virtual void OnDrag(Vector2 delta) { }
+
+	// RVA: 0x1B10048 Offset: 0x1B10048 VA: 0x1B10048 Slot: 10
+	protected virtual void OnDragEnd() { }
+
+	// RVA: 0x1B10128 Offset: 0x1B10128 VA: 0x1B10128
+	public void StopDragging(GameObject go) { }
+
+	// RVA: 0x1B10144 Offset: 0x1B10144 VA: 0x1B10144 Slot: 11
+	protected virtual void OnDragDropStart() { }
+
+	// RVA: 0x1B105E8 Offset: 0x1B105E8 VA: 0x1B105E8 Slot: 12
+	protected virtual void OnDragDropMove(Vector2 delta) { }
+
+	// RVA: 0x1B10718 Offset: 0x1B10718 VA: 0x1B10718 Slot: 13
+	protected virtual void OnDragDropRelease(GameObject surface) { }
+
+	// RVA: 0x1B10C60 Offset: 0x1B10C60 VA: 0x1B10C60 Slot: 14
+	protected virtual void OnDragDropEnd() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCD6758 Offset: 0xCD6758 VA: 0xCD6758
+	// RVA: 0x1B10BF0 Offset: 0x1B10BF0 VA: 0x1B10BF0
+	protected IEnumerator EnableDragScrollView() { }
+}
+
+// Namespace: 
+public enum UIDragDropItem.Restriction // TypeDefIndex: 12067
+{
+	// Fields
+	public int value__; // 0x0
+	public const UIDragDropItem.Restriction None = 0;
+	public const UIDragDropItem.Restriction Horizontal = 1;
+	public const UIDragDropItem.Restriction Vertical = 2;
+	public const UIDragDropItem.Restriction PressAndHold = 3;
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC46E54 Offset: 0xC46E54 VA: 0xC46E54
+private sealed class UIDragDropItem.<EnableDragScrollView>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 12068
+{
+	// Fields
+	internal UIDragDropItem $this; // 0x10
+	internal object $current; // 0x18
+	internal bool $disposing; // 0x20
+	internal int $PC; // 0x24
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xCDE080 Offset: 0xCDE080 VA: 0xCDE080
+	// RVA: 0x1B10C64 Offset: 0x1B10C64 VA: 0x1B10C64
+	public void .ctor() { }
+
+	// RVA: 0x1B10C6C Offset: 0x1B10C6C VA: 0x1B10C6C Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCDE090 Offset: 0xCDE090 VA: 0xCDE090
+	// RVA: 0x1B10DA0 Offset: 0x1B10DA0 VA: 0x1B10DA0 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCDE0A0 Offset: 0xCDE0A0 VA: 0xCDE0A0
+	// RVA: 0x1B10DA8 Offset: 0x1B10DA8 VA: 0x1B10DA8 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCDE0B0 Offset: 0xCDE0B0 VA: 0xCDE0B0
+	// RVA: 0x1B10DB0 Offset: 0x1B10DB0 VA: 0x1B10DB0 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xCDE0C0 Offset: 0xCDE0C0 VA: 0xCDE0C0
+	// RVA: 0x1B10DC4 Offset: 0x1B10DC4 VA: 0x1B10DC4 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2BFD4 Offset: 0xC2BFD4 VA: 0xC2BFD4
+public class UIDragDropRoot : MonoBehaviour // TypeDefIndex: 12069
+{
+	// Fields
+	public static Transform root; // 0x0
+
+	// Methods
+
+	// RVA: 0x1B12394 Offset: 0x1B12394 VA: 0x1B12394
+	public void .ctor() { }
+
+	// RVA: 0x1B1239C Offset: 0x1B1239C VA: 0x1B1239C
+	private void OnEnable() { }
+
+	// RVA: 0x1B123FC Offset: 0x1B123FC VA: 0x1B123FC
+	private void OnDisable() { }
+}
+
+// Namespace: 
+[RequireComponent] // RVA: 0xC2C00C Offset: 0xC2C00C VA: 0xC2C00C
+[AddComponentMenu] // RVA: 0xC2C00C Offset: 0xC2C00C VA: 0xC2C00C
+public class UIDraggableCamera : MonoBehaviour // TypeDefIndex: 12070
+{
+	// Fields
+	public Transform rootForBounds; // 0x18
+	public Vector2 scale; // 0x20
+	public float scrollWheelFactor; // 0x28
+	public UIDragObject.DragEffect dragEffect; // 0x2C
+	public bool smoothDragStart; // 0x30
+	public float momentumAmount; // 0x34
+	private Camera mCam; // 0x38
+	private Transform mTrans; // 0x40
+	private bool mPressed; // 0x48
+	private Vector2 mMomentum; // 0x4C
+	private Bounds mBounds; // 0x54
+	private float mScroll; // 0x6C
+	private UIRoot mRoot; // 0x70
+	private bool mDragStarted; // 0x78
+
+	// Properties
+	public Vector2 currentMomentum { get; set; }
+
+	// Methods
+
+	// RVA: 0x1B14BF0 Offset: 0x1B14BF0 VA: 0x1B14BF0
+	public void .ctor() { }
+
+	// RVA: 0x1B14C88 Offset: 0x1B14C88 VA: 0x1B14C88
+	public Vector2 get_currentMomentum() { }
+
+	// RVA: 0x1B14C90 Offset: 0x1B14C90 VA: 0x1B14C90
+	public void set_currentMomentum(Vector2 value) { }
+
+	// RVA: 0x1B14C98 Offset: 0x1B14C98 VA: 0x1B14C98
+	private void Start() { }
+
+	// RVA: 0x1B14D9C Offset: 0x1B14D9C VA: 0x1B14D9C
+	private Vector3 CalculateConstrainOffset() { }
+
+	// RVA: 0x1B15148 Offset: 0x1B15148 VA: 0x1B15148
+	public bool ConstrainToBounds(bool immediate) { }
+
+	// RVA: 0x1B0EDF0 Offset: 0x1B0EDF0 VA: 0x1B0EDF0
+	public void Press(bool isPressed) { }
+
+	// RVA: 0x1B0F078 Offset: 0x1B0F078 VA: 0x1B0F078
+	public void Drag(Vector2 delta) { }
+
+	// RVA: 0x1B0F484 Offset: 0x1B0F484 VA: 0x1B0F484
+	public void Scroll(float delta) { }
+
+	// RVA: 0x1B153C0 Offset: 0x1B153C0 VA: 0x1B153C0
+	private void Update() { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC2C094 Offset: 0xC2C094 VA: 0xC2C094
+[AddComponentMenu] // RVA: 0xC2C094 Offset: 0xC2C094 VA: 0xC2C094
+public class UIDragObject : MonoBehaviour // TypeDefIndex: 12071
+{
+	// Fields
+	public Transform target; // 0x18
+	public UIPanel panelRegion; // 0x20
+	public Vector3 scrollMomentum; // 0x28
+	public bool restrictWithinPanel; // 0x34
+	public UIRect contentRect; // 0x38
+	public UIDragObject.DragEffect dragEffect; // 0x40
+	public float momentumAmount; // 0x44
+	[SerializeField] // RVA: 0xC84634 Offset: 0xC84634 VA: 0xC84634
+	protected Vector3 scale; // 0x48
+	[SerializeField] // RVA: 0xC84644 Offset: 0xC84644 VA: 0xC84644
+	[HideInInspector] // RVA: 0xC84644 Offset: 0xC84644 VA: 0xC84644
+	private float scrollWheelFactor; // 0x54
+	private Plane mPlane; // 0x58
+	private Vector3 mTargetPos; // 0x68
+	private Vector3 mLastPos; // 0x74
+	private Vector3 mMomentum; // 0x80
+	private Vector3 mScroll; // 0x8C
+	private Bounds mBounds; // 0x98
+	private int mTouchID; // 0xB0
+	private bool mStarted; // 0xB4
+	private bool mPressed; // 0xB5
+
+	// Properties
+	public Vector3 dragMovement { get; set; }
+
+	// Methods
+
+	// RVA: 0x1B124AC Offset: 0x1B124AC VA: 0x1B124AC
+	public void .ctor() { }
+
+	// RVA: 0x1B1258C Offset: 0x1B1258C VA: 0x1B1258C
+	public Vector3 get_dragMovement() { }
+
+	// RVA: 0x1B12598 Offset: 0x1B12598 VA: 0x1B12598
+	public void set_dragMovement(Vector3 value) { }
+
+	// RVA: 0x1B125A4 Offset: 0x1B125A4 VA: 0x1B125A4
+	private void OnEnable() { }
+
+	// RVA: 0x1B12724 Offset: 0x1B12724 VA: 0x1B12724
+	private void OnDisable() { }
+
+	// RVA: 0x1B1272C Offset: 0x1B1272C VA: 0x1B1272C
+	private void FindPanel() { }
+
+	// RVA: 0x1B12850 Offset: 0x1B12850 VA: 0x1B12850
+	private void UpdateBounds() { }
+
+	// RVA: 0x1B12B10 Offset: 0x1B12B10 VA: 0x1B12B10
+	private void OnPress(bool pressed) { }
+
+	// RVA: 0x1B131C4 Offset: 0x1B131C4 VA: 0x1B131C4
+	private void OnDrag(Vector2 delta) { }
+
+	// RVA: 0x1B13728 Offset: 0x1B13728 VA: 0x1B13728
+	private void Move(Vector3 worldDelta) { }
+
+	// RVA: 0x1B13AE8 Offset: 0x1B13AE8 VA: 0x1B13AE8
+	private void LateUpdate() { }
+
+	// RVA: 0x1B12F10 Offset: 0x1B12F10 VA: 0x1B12F10
+	public void CancelMovement() { }
+
+	// RVA: 0x1B13100 Offset: 0x1B13100 VA: 0x1B13100
+	public void CancelSpring() { }
+
+	// RVA: 0x1B13DBC Offset: 0x1B13DBC VA: 0x1B13DBC
+	private void OnScroll(float delta) { }
+}
+
+// Namespace: 
+public enum UIDragObject.DragEffect // TypeDefIndex: 12072
+{
+	// Fields
+	public int value__; // 0x0
+	public const UIDragObject.DragEffect None = 0;
+	public const UIDragObject.DragEffect Momentum = 1;
+	public const UIDragObject.DragEffect MomentumAndSpring = 2;
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2C0E0 Offset: 0xC2C0E0 VA: 0xC2C0E0
+public class UIDragResize : MonoBehaviour // TypeDefIndex: 12073
+{
+	// Fields
+	public UIWidget target; // 0x18
+	public UIWidget.Pivot pivot; // 0x20
+	public int minWidth; // 0x24
+	public int minHeight; // 0x28
+	public int maxWidth; // 0x2C
+	public int maxHeight; // 0x30
+	private Plane mPlane; // 0x34
+	private Vector3 mRayPos; // 0x44
+	private Vector3 mLocalPos; // 0x50
+	private int mWidth; // 0x5C
+	private int mHeight; // 0x60
+	private bool mDragging; // 0x64
+
+	// Methods
+
+	// RVA: 0x1B13EEC Offset: 0x1B13EEC VA: 0x1B13EEC
+	public void .ctor() { }
+
+	// RVA: 0x1B13F0C Offset: 0x1B13F0C VA: 0x1B13F0C
+	private void OnDragStart() { }
+
+	// RVA: 0x1B1418C Offset: 0x1B1418C VA: 0x1B1418C
+	private void OnDrag(Vector2 delta) { }
+
+	// RVA: 0x1B14528 Offset: 0x1B14528 VA: 0x1B14528
+	private void OnDragEnd() { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2C118 Offset: 0xC2C118 VA: 0xC2C118
+public class UIDragScrollView : MonoBehaviour // TypeDefIndex: 12074
+{
+	// Fields
+	public UIScrollView scrollView; // 0x18
+	[HideInInspector] // RVA: 0xC8467C Offset: 0xC8467C VA: 0xC8467C
+	[SerializeField] // RVA: 0xC8467C Offset: 0xC8467C VA: 0xC8467C
+	private UIScrollView draggablePanel; // 0x20
+	private Transform mTrans; // 0x28
+	private UIScrollView mScroll; // 0x30
+	private bool mAutoFind; // 0x38
+	private bool mStarted; // 0x39
+
+	// Methods
+
+	// RVA: 0x1B14530 Offset: 0x1B14530 VA: 0x1B14530
+	public void .ctor() { }
+
+	// RVA: 0x1B14538 Offset: 0x1B14538 VA: 0x1B14538
+	private void OnEnable() { }
+
+	// RVA: 0x1B14794 Offset: 0x1B14794 VA: 0x1B14794
+	private void Start() { }
+
+	// RVA: 0x1B14654 Offset: 0x1B14654 VA: 0x1B14654
+	private void FindScrollView() { }
+
+	// RVA: 0x1B147A0 Offset: 0x1B147A0 VA: 0x1B147A0
+	private void OnPress(bool pressed) { }
+
+	// RVA: 0x1B14940 Offset: 0x1B14940 VA: 0x1B14940
+	private void OnDrag(Vector2 delta) { }
+
+	// RVA: 0x1B14A08 Offset: 0x1B14A08 VA: 0x1B14A08
+	private void OnScroll(float delta) { }
+
+	// RVA: 0x1B14AE4 Offset: 0x1B14AE4 VA: 0x1B14AE4
+	private void OnScrollStop(bool dummy) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2C150 Offset: 0xC2C150 VA: 0xC2C150
+public class UIEventTrigger : MonoBehaviour // TypeDefIndex: 12075
+{
+	// Fields
+	public static UIEventTrigger current; // 0x0
+	public List<EventDelegate> onHoverOver; // 0x18
+	public List<EventDelegate> onHoverOut; // 0x20
+	public List<EventDelegate> onPress; // 0x28
+	public List<EventDelegate> onRelease; // 0x30
+	public List<EventDelegate> onSelect; // 0x38
+	public List<EventDelegate> onDeselect; // 0x40
+	public List<EventDelegate> onClick; // 0x48
+	public List<EventDelegate> onDoubleClick; // 0x50
+	public List<EventDelegate> onDragStart; // 0x58
+	public List<EventDelegate> onDragEnd; // 0x60
+	public List<EventDelegate> onDragOver; // 0x68
+	public List<EventDelegate> onDragOut; // 0x70
+	public List<EventDelegate> onDrag; // 0x78
+
+	// Methods
+
+	// RVA: 0x1B1E748 Offset: 0x1B1E748 VA: 0x1B1E748
+	public void .ctor() { }
+
+	// RVA: 0x1B1E8E0 Offset: 0x1B1E8E0 VA: 0x1B1E8E0
+	private void OnHover(bool isOver) { }
+
+	// RVA: 0x1B1E9D4 Offset: 0x1B1E9D4 VA: 0x1B1E9D4
+	private void OnPress(bool pressed) { }
+
+	// RVA: 0x1B1EAC8 Offset: 0x1B1EAC8 VA: 0x1B1EAC8
+	private void OnSelect(bool selected) { }
+
+	// RVA: 0x1B1EBBC Offset: 0x1B1EBBC VA: 0x1B1EBBC
+	private void OnClick() { }
+
+	// RVA: 0x1B1EC94 Offset: 0x1B1EC94 VA: 0x1B1EC94
+	private void OnDoubleClick() { }
+
+	// RVA: 0x1B1ED6C Offset: 0x1B1ED6C VA: 0x1B1ED6C
+	private void OnDragStart() { }
+
+	// RVA: 0x1B1EE44 Offset: 0x1B1EE44 VA: 0x1B1EE44
+	private void OnDragEnd() { }
+
+	// RVA: 0x1B1EF1C Offset: 0x1B1EF1C VA: 0x1B1EF1C
+	private void OnDragOver(GameObject go) { }
+
+	// RVA: 0x1B1EFF4 Offset: 0x1B1EFF4 VA: 0x1B1EFF4
+	private void OnDragOut(GameObject go) { }
+
+	// RVA: 0x1B1F0CC Offset: 0x1B1F0CC VA: 0x1B1F0CC
+	private void OnDrag(Vector2 delta) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC2C188 Offset: 0xC2C188 VA: 0xC2C188
+public class UIForwardEvents : MonoBehaviour // TypeDefIndex: 12076
+{
+	// Fields
+	public GameObject target; // 0x18
+	public bool onHover; // 0x20
+	public bool onPress; // 0x21
+	public bool onClick; // 0x22
+	public bool onDoubleClick; // 0x23
+	public bool onSelect; // 0x24
+	public bool onDrag; // 0x25
+	public bool onDrop; // 0x26
+	public bool onSubmit; // 0x27
+	public bool onScroll; // 0x28
+
+	// Methods
+
+	// RVA: 0x1BBEEC0 Offset: 0x1BBEEC0 VA: 0x1BBEEC0
+	public void .ctor() { }
+
+	// RVA: 0x1BBEEC8 Offset: 0x1BBEEC8 VA: 0x1BBEEC8
+	private void OnHover(bool isOver) { }
+
+	// RVA: 0x1BBEFA4 Offset: 0x1BBEFA4 VA: 0x1BBEFA4
+	private void OnPress(bool pressed) { }
+
+	// RVA: 0x1BBF080 Offset: 0x1BBF080 VA: 0x1BBF080
+	private void OnClick() { }
+
+	// RVA: 0x1BBF134 Offset: 0x1BBF134 VA: 0x1BBF134
+	private void OnDoubleClick() { }
+
+	// RVA: 0x1BBF1E8 Offset: 0x1BBF1E8 VA: 0x1BBF1E8
+	private void OnSelect(bool selected) { }
+
+	// RVA: 0x1BBF2C4 Offset: 0x1BBF2C4 VA: 0x1BBF2C4
+	private void OnDrag(Vector2 delta) { }

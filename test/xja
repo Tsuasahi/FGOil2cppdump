@@ -1,20 +1,142 @@
 
-	// RVA: 0x12F2964 Offset: 0x12F2964 VA: 0x12F2964
+	// RVA: 0x2AE0D0C Offset: 0x2AE0D0C VA: 0x2AE0D0C
+	public long get_TotalIn() { }
+
+	// RVA: 0x2AE13A4 Offset: 0x2AE13A4 VA: 0x2AE13A4
+	public void set_Strategy(DeflateStrategy value) { }
+
+	// RVA: 0x2AE0FE4 Offset: 0x2AE0FE4 VA: 0x2AE0FE4
+	public void SetLevel(int level) { }
+
+	// RVA: 0x2AE1E60 Offset: 0x2AE1E60 VA: 0x2AE1E60
+	public void FillWindow() { }
+
+	// RVA: 0x2AE2848 Offset: 0x2AE2848 VA: 0x2AE2848
+	private void UpdateHash() { }
+
+	// RVA: 0x2AE3040 Offset: 0x2AE3040 VA: 0x2AE3040
+	private int InsertString() { }
+
+	// RVA: 0x2AE2ECC Offset: 0x2AE2ECC VA: 0x2AE2ECC
+	private void SlideWindow() { }
+
+	// RVA: 0x2AE3164 Offset: 0x2AE3164 VA: 0x2AE3164
+	private bool FindLongestMatch(int curMatch) { }
+
+	// RVA: 0x2AE1F6C Offset: 0x2AE1F6C VA: 0x2AE1F6C
+	private bool DeflateStored(bool flush, bool finish) { }
+
+	// RVA: 0x2AE20F4 Offset: 0x2AE20F4 VA: 0x2AE20F4
+	private bool DeflateFast(bool flush, bool finish) { }
+
+	// RVA: 0x2AE23A8 Offset: 0x2AE23A8 VA: 0x2AE23A8
+	private bool DeflateSlow(bool flush, bool finish) { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Zip.Compression
+public class DeflaterHuffman // TypeDefIndex: 3669
+{
+	// Fields
+	private static readonly int[] BL_ORDER; // 0x0
+	private static readonly byte[] bit4Reverse; // 0x8
+	private static short[] staticLCodes; // 0x10
+	private static byte[] staticLLength; // 0x18
+	private static short[] staticDCodes; // 0x20
+	private static byte[] staticDLength; // 0x28
+	public DeflaterPending pending; // 0x10
+	private DeflaterHuffman.Tree literalTree; // 0x18
+	private DeflaterHuffman.Tree distTree; // 0x20
+	private DeflaterHuffman.Tree blTree; // 0x28
+	private short[] d_buf; // 0x30
+	private byte[] l_buf; // 0x38
+	private int last_lit; // 0x40
+	private int extra_bits; // 0x44
+
+	// Methods
+
+	// RVA: 0x2AE3C6C Offset: 0x2AE3C6C VA: 0x2AE3C6C
+	private static void .cctor() { }
+
+	// RVA: 0x2AE1D60 Offset: 0x2AE1D60 VA: 0x2AE1D60
+	public void .ctor(DeflaterPending pending) { }
+
+	// RVA: 0x2AE26FC Offset: 0x2AE26FC VA: 0x2AE26FC
+	public void Reset() { }
+
+	// RVA: 0x2AE4388 Offset: 0x2AE4388 VA: 0x2AE4388
+	public void SendAllTrees(int blTreeCodes) { }
+
+	// RVA: 0x2AE4A94 Offset: 0x2AE4A94 VA: 0x2AE4A94
+	public void CompressBlock() { }
+
+	// RVA: 0x2AE2760 Offset: 0x2AE2760 VA: 0x2AE2760
+	public void FlushStoredBlock(byte[] stored, int storedOffset, int storedLength, bool lastBlock) { }
+
+	// RVA: 0x2AE28EC Offset: 0x2AE28EC VA: 0x2AE28EC
+	public void FlushBlock(byte[] stored, int storedOffset, int storedLength, bool lastBlock) { }
+
+	// RVA: 0x2AE3C5C Offset: 0x2AE3C5C VA: 0x2AE3C5C
+	public bool IsFull() { }
+
+	// RVA: 0x2AE2DD0 Offset: 0x2AE2DD0 VA: 0x2AE2DD0
+	public bool TallyLit(int literal) { }
+
+	// RVA: 0x2AE3A08 Offset: 0x2AE3A08 VA: 0x2AE3A08
+	public bool TallyDist(int distance, int length) { }
+
+	// RVA: 0x2AE40D0 Offset: 0x2AE40D0 VA: 0x2AE40D0
+	public static short BitReverse(int toReverse) { }
+
+	// RVA: 0x2AE4D34 Offset: 0x2AE4D34 VA: 0x2AE4D34
+	private static int Lcode(int length) { }
+
+	// RVA: 0x2AE4E30 Offset: 0x2AE4E30 VA: 0x2AE4E30
+	private static int Dcode(int distance) { }
+}
+
+// Namespace: 
+private class DeflaterHuffman.Tree // TypeDefIndex: 3670
+{
+	// Fields
+	public short[] freqs; // 0x10
+	public byte[] length; // 0x18
+	public int minNumCodes; // 0x20
+	public int numCodes; // 0x24
+	private short[] codes; // 0x28
+	private readonly int[] bl_counts; // 0x30
+	private readonly int maxLength; // 0x38
+	private DeflaterHuffman dh; // 0x40
+
+	// Methods
+
+	// RVA: 0x2AE4254 Offset: 0x2AE4254 VA: 0x2AE4254
+	public void .ctor(DeflaterHuffman dh, int elems, int minCodes, int maxLength) { }
+
+	// RVA: 0x2AE42FC Offset: 0x2AE42FC VA: 0x2AE42FC
+	public void Reset() { }
+
+	// RVA: 0x2AE4D68 Offset: 0x2AE4D68 VA: 0x2AE4D68
+	public void WriteSymbol(int code) { }
+
+	// RVA: 0x2AE5DA4 Offset: 0x2AE5DA4 VA: 0x2AE5DA4
+	public void SetStaticCodes(short[] staticCodes, byte[] staticLengths) { }
+
+	// RVA: 0x2AE45C8 Offset: 0x2AE45C8 VA: 0x2AE45C8
 	public void BuildCodes() { }
 
-	// RVA: 0x12F32F0 Offset: 0x12F32F0 VA: 0x12F32F0
+	// RVA: 0x2AE4F54 Offset: 0x2AE4F54 VA: 0x2AE4F54
 	public void BuildTree() { }
 
-	// RVA: 0x12F4074 Offset: 0x12F4074 VA: 0x12F4074
+	// RVA: 0x2AE5CD8 Offset: 0x2AE5CD8 VA: 0x2AE5CD8
 	public int GetEncodedLength() { }
 
-	// RVA: 0x12F3DF8 Offset: 0x12F3DF8 VA: 0x12F3DF8
+	// RVA: 0x2AE5A5C Offset: 0x2AE5A5C VA: 0x2AE5A5C
 	public void CalcBLFreq(DeflaterHuffman.Tree blTree) { }
 
-	// RVA: 0x12F2BE4 Offset: 0x12F2BE4 VA: 0x12F2BE4
+	// RVA: 0x2AE4848 Offset: 0x2AE4848 VA: 0x2AE4848
 	public void WriteTree(DeflaterHuffman.Tree blTree) { }
 
-	// RVA: 0x12F414C Offset: 0x12F414C VA: 0x12F414C
+	// RVA: 0x2AE5DB0 Offset: 0x2AE5DB0 VA: 0x2AE5DB0
 	private void BuildLength(int[] childs) { }
 }
 
@@ -23,7 +145,7 @@ public class DeflaterPending : PendingBuffer // TypeDefIndex: 3671
 {
 	// Methods
 
-	// RVA: 0x12EED40 Offset: 0x12EED40 VA: 0x12EED40
+	// RVA: 0x2AE09A4 Offset: 0x2AE09A4 VA: 0x2AE09A4
 	public void .ctor() { }
 }
 
@@ -61,49 +183,49 @@ public class Inflater // TypeDefIndex: 3672
 
 	// Methods
 
-	// RVA: 0x12ECC5C Offset: 0x12ECC5C VA: 0x12ECC5C
+	// RVA: 0x2ADE8C0 Offset: 0x2ADE8C0 VA: 0x2ADE8C0
 	public void .ctor(bool noHeader) { }
 
-	// RVA: 0x12EDF20 Offset: 0x12EDF20 VA: 0x12EDF20
+	// RVA: 0x2ADFB84 Offset: 0x2ADFB84 VA: 0x2ADFB84
 	public void Reset() { }
 
-	// RVA: 0x12F486C Offset: 0x12F486C VA: 0x12F486C
+	// RVA: 0x2AE64D0 Offset: 0x2AE64D0 VA: 0x2AE64D0
 	private bool DecodeHeader() { }
 
-	// RVA: 0x12F4AF4 Offset: 0x12F4AF4 VA: 0x12F4AF4
+	// RVA: 0x2AE6758 Offset: 0x2AE6758 VA: 0x2AE6758
 	private bool DecodeDict() { }
 
-	// RVA: 0x12F4B84 Offset: 0x12F4B84 VA: 0x12F4B84
+	// RVA: 0x2AE67E8 Offset: 0x2AE67E8 VA: 0x2AE67E8
 	private bool DecodeHuffman() { }
 
-	// RVA: 0x12F55C8 Offset: 0x12F55C8 VA: 0x12F55C8
+	// RVA: 0x2AE722C Offset: 0x2AE722C VA: 0x2AE722C
 	private bool DecodeChksum() { }
 
-	// RVA: 0x12F58B8 Offset: 0x12F58B8 VA: 0x12F58B8
+	// RVA: 0x2AE751C Offset: 0x2AE751C VA: 0x2AE751C
 	private bool Decode() { }
 
-	// RVA: 0x12F6554 Offset: 0x12F6554 VA: 0x12F6554
+	// RVA: 0x2AE81B8 Offset: 0x2AE81B8 VA: 0x2AE81B8
 	public void SetInput(byte[] buffer, int index, int count) { }
 
-	// RVA: 0x12F678C Offset: 0x12F678C VA: 0x12F678C
+	// RVA: 0x2AE83F0 Offset: 0x2AE83F0 VA: 0x2AE83F0
 	public int Inflate(byte[] buffer, int offset, int count) { }
 
-	// RVA: 0x12F6AEC Offset: 0x12F6AEC VA: 0x12F6AEC
+	// RVA: 0x2AE8750 Offset: 0x2AE8750 VA: 0x2AE8750
 	public bool get_IsNeedingInput() { }
 
-	// RVA: 0x12F6B20 Offset: 0x12F6B20 VA: 0x12F6B20
+	// RVA: 0x2AE8784 Offset: 0x2AE8784 VA: 0x2AE8784
 	public bool get_IsNeedingDictionary() { }
 
-	// RVA: 0x12ED738 Offset: 0x12ED738 VA: 0x12ED738
+	// RVA: 0x2ADF39C Offset: 0x2ADF39C VA: 0x2ADF39C
 	public bool get_IsFinished() { }
 
-	// RVA: 0x12EDED8 Offset: 0x12EDED8 VA: 0x12EDED8
+	// RVA: 0x2ADFB3C Offset: 0x2ADFB3C VA: 0x2ADFB3C
 	public long get_TotalOut() { }
 
-	// RVA: 0x12EDEE0 Offset: 0x12EDEE0 VA: 0x12EDEE0
+	// RVA: 0x2ADFB44 Offset: 0x2ADFB44 VA: 0x2ADFB44
 	public int get_RemainingInput() { }
 
-	// RVA: 0x12F6B58 Offset: 0x12F6B58 VA: 0x12F6B58
+	// RVA: 0x2AE87BC Offset: 0x2AE87BC VA: 0x2AE87BC
 	private static void .cctor() { }
 }
 
@@ -128,19 +250,19 @@ internal class InflaterDynHeader // TypeDefIndex: 3673
 
 	// Methods
 
-	// RVA: 0x12F5EBC Offset: 0x12F5EBC VA: 0x12F5EBC
+	// RVA: 0x2AE7B20 Offset: 0x2AE7B20 VA: 0x2AE7B20
 	public bool Decode(StreamManipulator input) { }
 
-	// RVA: 0x12F6410 Offset: 0x12F6410 VA: 0x12F6410
+	// RVA: 0x2AE8074 Offset: 0x2AE8074 VA: 0x2AE8074
 	public InflaterHuffmanTree BuildLitLenTree() { }
 
-	// RVA: 0x12F64B4 Offset: 0x12F64B4 VA: 0x12F64B4
+	// RVA: 0x2AE8118 Offset: 0x2AE8118 VA: 0x2AE8118
 	public InflaterHuffmanTree BuildDistTree() { }
 
-	// RVA: 0x12F5D94 Offset: 0x12F5D94 VA: 0x12F5D94
+	// RVA: 0x2AE79F8 Offset: 0x2AE79F8 VA: 0x2AE79F8
 	public void .ctor() { }
 
-	// RVA: 0x12F6C9C Offset: 0x12F6C9C VA: 0x12F6C9C
+	// RVA: 0x2AE8900 Offset: 0x2AE8900 VA: 0x2AE8900
 	private static void .cctor() { }
 }
 
@@ -154,16 +276,16 @@ public class InflaterHuffmanTree // TypeDefIndex: 3674
 
 	// Methods
 
-	// RVA: 0x12F6D80 Offset: 0x12F6D80 VA: 0x12F6D80
+	// RVA: 0x2AE89E4 Offset: 0x2AE89E4 VA: 0x2AE89E4
 	private static void .cctor() { }
 
-	// RVA: 0x12F6C6C Offset: 0x12F6C6C VA: 0x12F6C6C
+	// RVA: 0x2AE88D0 Offset: 0x2AE88D0 VA: 0x2AE88D0
 	public void .ctor(byte[] codeLengths) { }
 
-	// RVA: 0x12F70A0 Offset: 0x12F70A0 VA: 0x12F70A0
+	// RVA: 0x2AE8D04 Offset: 0x2AE8D04 VA: 0x2AE8D04
 	private void BuildTree(byte[] codeLengths) { }
 
-	// RVA: 0x12F51B4 Offset: 0x12F51B4 VA: 0x12F51B4
+	// RVA: 0x2AE6E18 Offset: 0x2AE6E18 VA: 0x2AE6E18
 	public int GetSymbol(StreamManipulator input) { }
 }
 
@@ -183,34 +305,34 @@ public class PendingBuffer // TypeDefIndex: 3675
 
 	// Methods
 
-	// RVA: 0x12F4784 Offset: 0x12F4784 VA: 0x12F4784
+	// RVA: 0x2AE63E8 Offset: 0x2AE63E8 VA: 0x2AE63E8
 	public void .ctor(int bufferSize) { }
 
-	// RVA: 0x12EEFA8 Offset: 0x12EEFA8 VA: 0x12EEFA8
+	// RVA: 0x2AE0C0C Offset: 0x2AE0C0C VA: 0x2AE0C0C
 	public void Reset() { }
 
-	// RVA: 0x12F31F8 Offset: 0x12F31F8 VA: 0x12F31F8
+	// RVA: 0x2AE4E5C Offset: 0x2AE4E5C VA: 0x2AE4E5C
 	public void WriteShort(int value) { }
 
-	// RVA: 0x12F32A4 Offset: 0x12F32A4 VA: 0x12F32A4
+	// RVA: 0x2AE4F08 Offset: 0x2AE4F08 VA: 0x2AE4F08
 	public void WriteBlock(byte[] block, int offset, int length) { }
 
-	// RVA: 0x12EFDD0 Offset: 0x12EFDD0 VA: 0x12EFDD0
+	// RVA: 0x2AE1A34 Offset: 0x2AE1A34 VA: 0x2AE1A34
 	public int get_BitCount() { }
 
-	// RVA: 0x12EFEB8 Offset: 0x12EFEB8 VA: 0x12EFEB8
+	// RVA: 0x2AE1B1C Offset: 0x2AE1B1C VA: 0x2AE1B1C
 	public void AlignToByte() { }
 
-	// RVA: 0x12EFDD8 Offset: 0x12EFDD8 VA: 0x12EFDD8
+	// RVA: 0x2AE1A3C Offset: 0x2AE1A3C VA: 0x2AE1A3C
 	public void WriteBits(int b, int count) { }
 
-	// RVA: 0x12EFAAC Offset: 0x12EFAAC VA: 0x12EFAAC
+	// RVA: 0x2AE1710 Offset: 0x2AE1710 VA: 0x2AE1710
 	public void WriteShortMSB(int s) { }
 
-	// RVA: 0x12EF118 Offset: 0x12EF118 VA: 0x12EF118
+	// RVA: 0x2AE0D7C Offset: 0x2AE0D7C VA: 0x2AE0D7C
 	public bool get_IsFlushed() { }
 
-	// RVA: 0x12EFBB4 Offset: 0x12EFBB4 VA: 0x12EFBB4
+	// RVA: 0x2AE1818 Offset: 0x2AE1818 VA: 0x2AE1818
 	public int Flush(byte[] output, int offset, int length) { }
 }
 
@@ -236,70 +358,70 @@ public class DeflaterOutputStream : Stream // TypeDefIndex: 3676
 
 	// Methods
 
-	// RVA: 0x12EE2A4 Offset: 0x12EE2A4 VA: 0x12EE2A4
+	// RVA: 0x2ADFF08 Offset: 0x2ADFF08 VA: 0x2ADFF08
 	public void .ctor(Stream baseOutputStream, Deflater deflater, int bufferSize) { }
 
-	// RVA: 0x12EEA78 Offset: 0x12EEA78 VA: 0x12EEA78 Slot: 29
+	// RVA: 0x2AE06DC Offset: 0x2AE06DC VA: 0x2AE06DC Slot: 29
 	public virtual void Finish() { }
 
-	// RVA: 0x12EE848 Offset: 0x12EE848 VA: 0x12EE848
+	// RVA: 0x2AE04AC Offset: 0x2AE04AC VA: 0x2AE04AC
 	public bool get_IsStreamOwner() { }
 
-	// RVA: 0x12F75DC Offset: 0x12F75DC VA: 0x12F75DC
+	// RVA: 0x2AE9240 Offset: 0x2AE9240 VA: 0x2AE9240
 	protected void EncryptBlock(byte[] buffer, int offset, int length) { }
 
-	// RVA: 0x12F76B8 Offset: 0x12F76B8 VA: 0x12F76B8
+	// RVA: 0x2AE931C Offset: 0x2AE931C VA: 0x2AE931C
 	protected void Deflate() { }
 
-	// RVA: 0x12F7834 Offset: 0x12F7834 VA: 0x12F7834 Slot: 5
+	// RVA: 0x2AE9498 Offset: 0x2AE9498 VA: 0x2AE9498 Slot: 5
 	public override bool get_CanRead() { }
 
-	// RVA: 0x12F783C Offset: 0x12F783C VA: 0x12F783C Slot: 6
+	// RVA: 0x2AE94A0 Offset: 0x2AE94A0 VA: 0x2AE94A0 Slot: 6
 	public override bool get_CanSeek() { }
 
-	// RVA: 0x12F7844 Offset: 0x12F7844 VA: 0x12F7844 Slot: 7
+	// RVA: 0x2AE94A8 Offset: 0x2AE94A8 VA: 0x2AE94A8 Slot: 7
 	public override bool get_CanWrite() { }
 
-	// RVA: 0x12F7878 Offset: 0x12F7878 VA: 0x12F7878 Slot: 9
+	// RVA: 0x2AE94DC Offset: 0x2AE94DC VA: 0x2AE94DC Slot: 9
 	public override long get_Length() { }
 
-	// RVA: 0x12F78AC Offset: 0x12F78AC VA: 0x12F78AC Slot: 10
+	// RVA: 0x2AE9510 Offset: 0x2AE9510 VA: 0x2AE9510 Slot: 10
 	public override long get_Position() { }
 
-	// RVA: 0x12F78E0 Offset: 0x12F78E0 VA: 0x12F78E0 Slot: 11
+	// RVA: 0x2AE9544 Offset: 0x2AE9544 VA: 0x2AE9544 Slot: 11
 	public override void set_Position(long value) { }
 
-	// RVA: 0x12F7954 Offset: 0x12F7954 VA: 0x12F7954 Slot: 21
+	// RVA: 0x2AE95B8 Offset: 0x2AE95B8 VA: 0x2AE95B8 Slot: 21
 	public override long Seek(long offset, SeekOrigin origin) { }
 
-	// RVA: 0x12F79C8 Offset: 0x12F79C8 VA: 0x12F79C8 Slot: 22
+	// RVA: 0x2AE962C Offset: 0x2AE962C VA: 0x2AE962C Slot: 22
 	public override void SetLength(long value) { }
 
-	// RVA: 0x12F7A3C Offset: 0x12F7A3C VA: 0x12F7A3C Slot: 20
+	// RVA: 0x2AE96A0 Offset: 0x2AE96A0 VA: 0x2AE96A0 Slot: 20
 	public override int ReadByte() { }
 
-	// RVA: 0x12F7AB0 Offset: 0x12F7AB0 VA: 0x12F7AB0 Slot: 19
+	// RVA: 0x2AE9714 Offset: 0x2AE9714 VA: 0x2AE9714 Slot: 19
 	public override int Read(byte[] buffer, int offset, int count) { }
 
-	// RVA: 0x12F7B24 Offset: 0x12F7B24 VA: 0x12F7B24 Slot: 25
+	// RVA: 0x2AE9788 Offset: 0x2AE9788 VA: 0x2AE9788 Slot: 25
 	public override IAsyncResult BeginRead(byte[] buffer, int offset, int count, AsyncCallback callback, object state) { }
 
-	// RVA: 0x12F7B98 Offset: 0x12F7B98 VA: 0x12F7B98 Slot: 26
+	// RVA: 0x2AE97FC Offset: 0x2AE97FC VA: 0x2AE97FC Slot: 26
 	public override IAsyncResult BeginWrite(byte[] buffer, int offset, int count, AsyncCallback callback, object state) { }
 
-	// RVA: 0x12F7C0C Offset: 0x12F7C0C VA: 0x12F7C0C Slot: 18
+	// RVA: 0x2AE9870 Offset: 0x2AE9870 VA: 0x2AE9870 Slot: 18
 	public override void Flush() { }
 
-	// RVA: 0x12F7C6C Offset: 0x12F7C6C VA: 0x12F7C6C Slot: 13
+	// RVA: 0x2AE98D0 Offset: 0x2AE98D0 VA: 0x2AE98D0 Slot: 13
 	public override void Close() { }
 
-	// RVA: 0x12F7DEC Offset: 0x12F7DEC VA: 0x12F7DEC
+	// RVA: 0x2AE9A50 Offset: 0x2AE9A50 VA: 0x2AE9A50
 	private void GetAuthCodeIfAES() { }
 
-	// RVA: 0x12F7E70 Offset: 0x12F7E70 VA: 0x12F7E70 Slot: 24
+	// RVA: 0x2AE9AD4 Offset: 0x2AE9AD4 VA: 0x2AE9AD4 Slot: 24
 	public override void WriteByte(byte value) { }
 
-	// RVA: 0x12EE728 Offset: 0x12EE728 VA: 0x12EE728 Slot: 23
+	// RVA: 0x2AE038C Offset: 0x2AE038C VA: 0x2AE038C Slot: 23
 	public override void Write(byte[] buffer, int offset, int count) { }
 }
 
@@ -320,25 +442,25 @@ public class InflaterInputBuffer // TypeDefIndex: 3677
 
 	// Methods
 
-	// RVA: 0x12F7F14 Offset: 0x12F7F14 VA: 0x12F7F14
+	// RVA: 0x2AE9B78 Offset: 0x2AE9B78 VA: 0x2AE9B78
 	public void .ctor(Stream stream, int bufferSize) { }
 
-	// RVA: 0x12EDC6C Offset: 0x12EDC6C VA: 0x12EDC6C
+	// RVA: 0x2ADF8D0 Offset: 0x2ADF8D0 VA: 0x2ADF8D0
 	public int get_Available() { }
 
-	// RVA: 0x12EDF18 Offset: 0x12EDF18 VA: 0x12EDF18
+	// RVA: 0x2ADFB7C Offset: 0x2ADFB7C VA: 0x2ADFB7C
 	public void set_Available(int value) { }
 
-	// RVA: 0x12F7F98 Offset: 0x12F7F98 VA: 0x12F7F98
+	// RVA: 0x2AE9BFC Offset: 0x2AE9BFC VA: 0x2AE9BFC
 	public void SetInflaterInput(Inflater inflater) { }
 
-	// RVA: 0x12EDC74 Offset: 0x12EDC74 VA: 0x12EDC74
+	// RVA: 0x2ADF8D8 Offset: 0x2ADF8D8 VA: 0x2ADF8D8
 	public void Fill() { }
 
-	// RVA: 0x12EDFA8 Offset: 0x12EDFA8 VA: 0x12EDFA8
+	// RVA: 0x2ADFC0C Offset: 0x2ADFC0C VA: 0x2ADFC0C
 	public int ReadClearTextBuffer(byte[] outBuffer, int offset, int length) { }
 
-	// RVA: 0x12EDDE0 Offset: 0x12EDDE0 VA: 0x12EDDE0
+	// RVA: 0x2ADFA44 Offset: 0x2ADFA44 VA: 0x2ADFA44
 	public int ReadLeByte() { }
 }
 
@@ -361,52 +483,52 @@ public class InflaterInputStream : Stream // TypeDefIndex: 3678
 
 	// Methods
 
-	// RVA: 0x12ECD3C Offset: 0x12ECD3C VA: 0x12ECD3C
+	// RVA: 0x2ADE9A0 Offset: 0x2ADE9A0 VA: 0x2ADE9A0
 	public void .ctor(Stream baseInputStream, Inflater inflater, int bufferSize) { }
 
-	// RVA: 0x12F8008 Offset: 0x12F8008 VA: 0x12F8008
+	// RVA: 0x2AE9C6C Offset: 0x2AE9C6C VA: 0x2AE9C6C
 	protected void Fill() { }
 
-	// RVA: 0x12F80F8 Offset: 0x12F80F8 VA: 0x12F80F8 Slot: 5
+	// RVA: 0x2AE9D5C Offset: 0x2AE9D5C VA: 0x2AE9D5C Slot: 5
 	public override bool get_CanRead() { }
 
-	// RVA: 0x12F812C Offset: 0x12F812C VA: 0x12F812C Slot: 6
+	// RVA: 0x2AE9D90 Offset: 0x2AE9D90 VA: 0x2AE9D90 Slot: 6
 	public override bool get_CanSeek() { }
 
-	// RVA: 0x12F8134 Offset: 0x12F8134 VA: 0x12F8134 Slot: 7
+	// RVA: 0x2AE9D98 Offset: 0x2AE9D98 VA: 0x2AE9D98 Slot: 7
 	public override bool get_CanWrite() { }
 
-	// RVA: 0x12F813C Offset: 0x12F813C VA: 0x12F813C Slot: 9
+	// RVA: 0x2AE9DA0 Offset: 0x2AE9DA0 VA: 0x2AE9DA0 Slot: 9
 	public override long get_Length() { }
 
-	// RVA: 0x12F81B0 Offset: 0x12F81B0 VA: 0x12F81B0 Slot: 10
+	// RVA: 0x2AE9E14 Offset: 0x2AE9E14 VA: 0x2AE9E14 Slot: 10
 	public override long get_Position() { }
 
-	// RVA: 0x12F81E4 Offset: 0x12F81E4 VA: 0x12F81E4 Slot: 11
+	// RVA: 0x2AE9E48 Offset: 0x2AE9E48 VA: 0x2AE9E48 Slot: 11
 	public override void set_Position(long value) { }
 
-	// RVA: 0x12F8258 Offset: 0x12F8258 VA: 0x12F8258 Slot: 18
+	// RVA: 0x2AE9EBC Offset: 0x2AE9EBC VA: 0x2AE9EBC Slot: 18
 	public override void Flush() { }
 
-	// RVA: 0x12F8290 Offset: 0x12F8290 VA: 0x12F8290 Slot: 21
+	// RVA: 0x2AE9EF4 Offset: 0x2AE9EF4 VA: 0x2AE9EF4 Slot: 21
 	public override long Seek(long offset, SeekOrigin origin) { }
 
-	// RVA: 0x12F8304 Offset: 0x12F8304 VA: 0x12F8304 Slot: 22
+	// RVA: 0x2AE9F68 Offset: 0x2AE9F68 VA: 0x2AE9F68 Slot: 22
 	public override void SetLength(long value) { }
 
-	// RVA: 0x12F8378 Offset: 0x12F8378 VA: 0x12F8378 Slot: 23
+	// RVA: 0x2AE9FDC Offset: 0x2AE9FDC VA: 0x2AE9FDC Slot: 23
 	public override void Write(byte[] buffer, int offset, int count) { }
 
-	// RVA: 0x12F83EC Offset: 0x12F83EC VA: 0x12F83EC Slot: 24
+	// RVA: 0x2AEA050 Offset: 0x2AEA050 VA: 0x2AEA050 Slot: 24
 	public override void WriteByte(byte value) { }
 
-	// RVA: 0x12F8460 Offset: 0x12F8460 VA: 0x12F8460 Slot: 26
+	// RVA: 0x2AEA0C4 Offset: 0x2AEA0C4 VA: 0x2AEA0C4 Slot: 26
 	public override IAsyncResult BeginWrite(byte[] buffer, int offset, int count, AsyncCallback callback, object state) { }
 
-	// RVA: 0x12F84D4 Offset: 0x12F84D4 VA: 0x12F84D4 Slot: 13
+	// RVA: 0x2AEA138 Offset: 0x2AEA138 VA: 0x2AEA138 Slot: 13
 	public override void Close() { }
 
-	// RVA: 0x12ED5A0 Offset: 0x12ED5A0 VA: 0x12ED5A0 Slot: 19
+	// RVA: 0x2ADF204 Offset: 0x2ADF204 VA: 0x2ADF204 Slot: 19
 	public override int Read(byte[] buffer, int offset, int count) { }
 }
 
@@ -420,31 +542,31 @@ public class OutputWindow // TypeDefIndex: 3679
 
 	// Methods
 
-	// RVA: 0x12F50C4 Offset: 0x12F50C4 VA: 0x12F50C4
+	// RVA: 0x2AE6D28 Offset: 0x2AE6D28 VA: 0x2AE6D28
 	public void Write(int value) { }
 
-	// RVA: 0x12F8524 Offset: 0x12F8524 VA: 0x12F8524
+	// RVA: 0x2AEA188 Offset: 0x2AEA188 VA: 0x2AEA188
 	private void SlowRepeat(int repStart, int length, int distance) { }
 
-	// RVA: 0x12F5418 Offset: 0x12F5418 VA: 0x12F5418
+	// RVA: 0x2AE707C Offset: 0x2AE707C VA: 0x2AE707C
 	public void Repeat(int length, int distance) { }
 
-	// RVA: 0x12F5D9C Offset: 0x12F5D9C VA: 0x12F5D9C
+	// RVA: 0x2AE7A00 Offset: 0x2AE7A00 VA: 0x2AE7A00
 	public int CopyStored(StreamManipulator input, int length) { }
 
-	// RVA: 0x12F50B4 Offset: 0x12F50B4 VA: 0x12F50B4
+	// RVA: 0x2AE6D18 Offset: 0x2AE6D18 VA: 0x2AE6D18
 	public int GetFreeSpace() { }
 
-	// RVA: 0x12F6AE4 Offset: 0x12F6AE4 VA: 0x12F6AE4
+	// RVA: 0x2AE8748 Offset: 0x2AE8748 VA: 0x2AE8748
 	public int GetAvailable() { }
 
-	// RVA: 0x12F69C8 Offset: 0x12F69C8 VA: 0x12F69C8
+	// RVA: 0x2AE862C Offset: 0x2AE862C VA: 0x2AE862C
 	public int CopyOutput(byte[] output, int offset, int len) { }
 
-	// RVA: 0x12F4864 Offset: 0x12F4864 VA: 0x12F4864
+	// RVA: 0x2AE64C8 Offset: 0x2AE64C8 VA: 0x2AE64C8
 	public void Reset() { }
 
-	// RVA: 0x12F47FC Offset: 0x12F47FC VA: 0x12F47FC
+	// RVA: 0x2AE6460 Offset: 0x2AE6460 VA: 0x2AE6460
 	public void .ctor() { }
 }
 
@@ -465,34 +587,34 @@ public class StreamManipulator // TypeDefIndex: 3680
 
 	// Methods
 
-	// RVA: 0x12F49D0 Offset: 0x12F49D0 VA: 0x12F49D0
+	// RVA: 0x2AE6634 Offset: 0x2AE6634 VA: 0x2AE6634
 	public int PeekBits(int bitCount) { }
 
-	// RVA: 0x12F4ADC Offset: 0x12F4ADC VA: 0x12F4ADC
+	// RVA: 0x2AE6740 Offset: 0x2AE6740 VA: 0x2AE6740
 	public void DropBits(int bitCount) { }
 
-	// RVA: 0x12F75D4 Offset: 0x12F75D4 VA: 0x12F75D4
+	// RVA: 0x2AE9238 Offset: 0x2AE9238 VA: 0x2AE9238
 	public int get_AvailableBits() { }
 
-	// RVA: 0x12F6B44 Offset: 0x12F6B44 VA: 0x12F6B44
+	// RVA: 0x2AE87A8 Offset: 0x2AE87A8 VA: 0x2AE87A8
 	public int get_AvailableBytes() { }
 
-	// RVA: 0x12F5D7C Offset: 0x12F5D7C VA: 0x12F5D7C
+	// RVA: 0x2AE79E0 Offset: 0x2AE79E0 VA: 0x2AE79E0
 	public void SkipToByteBoundary() { }
 
-	// RVA: 0x12F5EAC Offset: 0x12F5EAC VA: 0x12F5EAC
+	// RVA: 0x2AE7B10 Offset: 0x2AE7B10 VA: 0x2AE7B10
 	public bool get_IsNeedingInput() { }
 
-	// RVA: 0x12F85EC Offset: 0x12F85EC VA: 0x12F85EC
+	// RVA: 0x2AEA250 Offset: 0x2AEA250 VA: 0x2AEA250
 	public int CopyBytes(byte[] output, int offset, int length) { }
 
-	// RVA: 0x12F485C Offset: 0x12F485C VA: 0x12F485C
+	// RVA: 0x2AE64C0 Offset: 0x2AE64C0 VA: 0x2AE64C0
 	public void Reset() { }
 
-	// RVA: 0x12F65BC Offset: 0x12F65BC VA: 0x12F65BC
+	// RVA: 0x2AE8220 Offset: 0x2AE8220 VA: 0x2AE8220
 	public void SetInput(byte[] buffer, int offset, int count) { }
 
-	// RVA: 0x12F47F4 Offset: 0x12F47F4 VA: 0x12F47F4
+	// RVA: 0x2AE6458 Offset: 0x2AE6458 VA: 0x2AE6458
 	public void .ctor() { }
 }
 
@@ -502,13 +624,13 @@ public class GZipException : SharpZipBaseException // TypeDefIndex: 3681
 {
 	// Methods
 
-	// RVA: 0x12ECBC0 Offset: 0x12ECBC0 VA: 0x12ECBC0
+	// RVA: 0x2ADE824 Offset: 0x2ADE824 VA: 0x2ADE824
 	protected void .ctor(SerializationInfo info, StreamingContext context) { }
 
-	// RVA: 0x12ECBC8 Offset: 0x12ECBC8 VA: 0x12ECBC8
+	// RVA: 0x2ADE82C Offset: 0x2ADE82C VA: 0x2ADE82C
 	public void .ctor() { }
 
-	// RVA: 0x12ECBD0 Offset: 0x12ECBD0 VA: 0x12ECBD0
+	// RVA: 0x2ADE834 Offset: 0x2ADE834 VA: 0x2ADE834
 	public void .ctor(string message) { }
 }
 
@@ -522,19 +644,19 @@ public class GZipInputStream : InflaterInputStream // TypeDefIndex: 3682
 
 	// Methods
 
-	// RVA: 0x12ECBD8 Offset: 0x12ECBD8 VA: 0x12ECBD8
+	// RVA: 0x2ADE83C Offset: 0x2ADE83C VA: 0x2ADE83C
 	public void .ctor(Stream baseInputStream) { }
 
-	// RVA: 0x12ECBE0 Offset: 0x12ECBE0 VA: 0x12ECBE0
+	// RVA: 0x2ADE844 Offset: 0x2ADE844 VA: 0x2ADE844
 	public void .ctor(Stream baseInputStream, int size) { }
 
-	// RVA: 0x12ECE94 Offset: 0x12ECE94 VA: 0x12ECE94 Slot: 19
+	// RVA: 0x2ADEAF8 Offset: 0x2ADEAF8 VA: 0x2ADEAF8 Slot: 19
 	public override int Read(byte[] buffer, int offset, int count) { }
 
-	// RVA: 0x12ED084 Offset: 0x12ED084 VA: 0x12ED084
+	// RVA: 0x2ADECE8 Offset: 0x2ADECE8 VA: 0x2ADECE8
 	private bool ReadHeader() { }
 
-	// RVA: 0x12ED780 Offset: 0x12ED780 VA: 0x12ED780
+	// RVA: 0x2ADF3E4 Offset: 0x2ADF3E4 VA: 0x2ADF3E4
 	private void ReadFooter() { }
 }
 
@@ -547,22 +669,22 @@ public class GZipOutputStream : DeflaterOutputStream // TypeDefIndex: 3683
 
 	// Methods
 
-	// RVA: 0x12EE0D0 Offset: 0x12EE0D0 VA: 0x12EE0D0
+	// RVA: 0x2ADFD34 Offset: 0x2ADFD34 VA: 0x2ADFD34
 	public void .ctor(Stream baseOutputStream) { }
 
-	// RVA: 0x12EE0D8 Offset: 0x12EE0D8 VA: 0x12EE0D8
+	// RVA: 0x2ADFD3C Offset: 0x2ADFD3C VA: 0x2ADFD3C
 	public void .ctor(Stream baseOutputStream, int size) { }
 
-	// RVA: 0x12EE450 Offset: 0x12EE450 VA: 0x12EE450 Slot: 23
+	// RVA: 0x2AE00B4 Offset: 0x2AE00B4 VA: 0x2AE00B4 Slot: 23
 	public override void Write(byte[] buffer, int offset, int count) { }
 
-	// RVA: 0x12EE788 Offset: 0x12EE788 VA: 0x12EE788 Slot: 13
+	// RVA: 0x2AE03EC Offset: 0x2AE03EC VA: 0x2AE03EC Slot: 13
 	public override void Close() { }
 
-	// RVA: 0x12EE850 Offset: 0x12EE850 VA: 0x12EE850 Slot: 29
+	// RVA: 0x2AE04B4 Offset: 0x2AE04B4 VA: 0x2AE04B4 Slot: 29
 	public override void Finish() { }
 
-	// RVA: 0x12EE540 Offset: 0x12EE540 VA: 0x12EE540
+	// RVA: 0x2AE01A4 Offset: 0x2AE01A4 VA: 0x2AE01A4
 	private void WriteHeader() { }
 }
 
@@ -598,28 +720,28 @@ internal class ZipAESTransform : ICryptoTransform, IDisposable // TypeDefIndex: 
 
 	// Methods
 
-	// RVA: 0x12EC6D4 Offset: 0x12EC6D4 VA: 0x12EC6D4 Slot: 8
+	// RVA: 0x2ADE338 Offset: 0x2ADE338 VA: 0x2ADE338 Slot: 8
 	public int TransformBlock(byte[] inputBuffer, int inputOffset, int inputCount, byte[] outputBuffer, int outputOffset) { }
 
-	// RVA: 0x12EC9B8 Offset: 0x12EC9B8 VA: 0x12EC9B8
+	// RVA: 0x2ADE61C Offset: 0x2ADE61C VA: 0x2ADE61C
 	public byte[] GetAuthCode() { }
 
-	// RVA: 0x12ECA78 Offset: 0x12ECA78 VA: 0x12ECA78 Slot: 9
+	// RVA: 0x2ADE6DC Offset: 0x2ADE6DC VA: 0x2ADE6DC Slot: 9
 	public byte[] TransformFinalBlock(byte[] inputBuffer, int inputOffset, int inputCount) { }
 
-	// RVA: 0x12ECAEC Offset: 0x12ECAEC VA: 0x12ECAEC Slot: 6
+	// RVA: 0x2ADE750 Offset: 0x2ADE750 VA: 0x2ADE750 Slot: 6
 	public int get_InputBlockSize() { }
 
-	// RVA: 0x12ECAF4 Offset: 0x12ECAF4 VA: 0x12ECAF4 Slot: 7
+	// RVA: 0x2ADE758 Offset: 0x2ADE758 VA: 0x2ADE758 Slot: 7
 	public int get_OutputBlockSize() { }
 
-	// RVA: 0x12ECAFC Offset: 0x12ECAFC VA: 0x12ECAFC Slot: 5
+	// RVA: 0x2ADE760 Offset: 0x2ADE760 VA: 0x2ADE760 Slot: 5
 	public bool get_CanTransformMultipleBlocks() { }
 
-	// RVA: 0x12ECB04 Offset: 0x12ECB04 VA: 0x12ECB04 Slot: 4
+	// RVA: 0x2ADE768 Offset: 0x2ADE768 VA: 0x2ADE768 Slot: 4
 	public bool get_CanReuseTransform() { }
 
-	// RVA: 0x12ECB0C Offset: 0x12ECB0C VA: 0x12ECB0C Slot: 10
+	// RVA: 0x2ADE770 Offset: 0x2ADE770 VA: 0x2ADE770 Slot: 10
 	public void Dispose() { }
 }
 
@@ -635,22 +757,22 @@ public sealed class Adler32 : IChecksum // TypeDefIndex: 3686
 
 	// Methods
 
-	// RVA: 0x12EBD58 Offset: 0x12EBD58 VA: 0x12EBD58
+	// RVA: 0x2ADD9BC Offset: 0x2ADD9BC VA: 0x2ADD9BC
 	public void .ctor() { }
 
-	// RVA: 0x12EBD84 Offset: 0x12EBD84 VA: 0x12EBD84 Slot: 4
+	// RVA: 0x2ADD9E8 Offset: 0x2ADD9E8 VA: 0x2ADD9E8 Slot: 4
 	public void Reset() { }
 
-	// RVA: 0x12EBD90 Offset: 0x12EBD90 VA: 0x12EBD90 Slot: 5
+	// RVA: 0x2ADD9F4 Offset: 0x2ADD9F4 VA: 0x2ADD9F4 Slot: 5
 	public long get_Value() { }
 
-	// RVA: 0x12EBD98 Offset: 0x12EBD98 VA: 0x12EBD98 Slot: 6
+	// RVA: 0x2ADD9FC Offset: 0x2ADD9FC VA: 0x2ADD9FC Slot: 6
 	public void Update(int bval) { }
 
-	// RVA: 0x12EBE44 Offset: 0x12EBE44 VA: 0x12EBE44 Slot: 7
+	// RVA: 0x2ADDAA8 Offset: 0x2ADDAA8 VA: 0x2ADDAA8 Slot: 7
 	public void Update(byte[] buffer, int offset, int count) { }
 
-	// RVA: 0x12EC0A0 Offset: 0x12EC0A0 VA: 0x12EC0A0
+	// RVA: 0x2ADDD04 Offset: 0x2ADDD04 VA: 0x2ADDD04
 	private static void .cctor() { }
 }
 
@@ -668,22 +790,22 @@ public sealed class Crc32 : IChecksum // TypeDefIndex: 3687
 
 	// Methods
 
-	// RVA: 0x12EC2C8 Offset: 0x12EC2C8 VA: 0x12EC2C8
+	// RVA: 0x2ADDF2C Offset: 0x2ADDF2C VA: 0x2ADDF2C
 	public void .ctor() { }
 
-	// RVA: 0x12EC2F0 Offset: 0x12EC2F0 VA: 0x12EC2F0 Slot: 4
+	// RVA: 0x2ADDF54 Offset: 0x2ADDF54 VA: 0x2ADDF54 Slot: 4
 	public void Reset() { }
 
-	// RVA: 0x12EC360 Offset: 0x12EC360 VA: 0x12EC360 Slot: 5
+	// RVA: 0x2ADDFC4 Offset: 0x2ADDFC4 VA: 0x2ADDFC4 Slot: 5
 	public long get_Value() { }
 
-	// RVA: 0x12EC3D4 Offset: 0x12EC3D4 VA: 0x12EC3D4 Slot: 6
+	// RVA: 0x2ADE038 Offset: 0x2ADE038 VA: 0x2ADE038 Slot: 6
 	public void Update(int bval) { }
 
-	// RVA: 0x12EC494 Offset: 0x12EC494 VA: 0x12EC494 Slot: 7
+	// RVA: 0x2ADE0F8 Offset: 0x2ADE0F8 VA: 0x2ADE0F8 Slot: 7
 	public void Update(byte[] buffer, int offset, int count) { }
 
-	// RVA: 0x12EC63C Offset: 0x12EC63C VA: 0x12EC63C
+	// RVA: 0x2ADE2A0 Offset: 0x2ADE2A0 VA: 0x2ADE2A0
 	private static void .cctor() { }
 }
 
@@ -719,19 +841,19 @@ public sealed class BZip2Crc : IChecksum // TypeDefIndex: 3689
 
 	// Methods
 
-	// RVA: 0x12E1D38 Offset: 0x12E1D38 VA: 0x12E1D38
+	// RVA: 0x2AD399C Offset: 0x2AD399C VA: 0x2AD399C
 	public void .ctor() { }
 
-	// RVA: 0x12EC0F4 Offset: 0x12EC0F4 VA: 0x12EC0F4 Slot: 4
+	// RVA: 0x2ADDD58 Offset: 0x2ADDD58 VA: 0x2ADDD58 Slot: 4
 	public void Reset() { }
 
-	// RVA: 0x12EC164 Offset: 0x12EC164 VA: 0x12EC164 Slot: 5
+	// RVA: 0x2ADDDC8 Offset: 0x2ADDDC8 VA: 0x2ADDDC8 Slot: 5
 	public long get_Value() { }
 
-	// RVA: 0x12EC170 Offset: 0x12EC170 VA: 0x12EC170 Slot: 6
+	// RVA: 0x2ADDDD4 Offset: 0x2ADDDD4 VA: 0x2ADDDD4 Slot: 6
 	public void Update(int bval) { }
 
-	// RVA: 0x12EC230 Offset: 0x12EC230 VA: 0x12EC230
+	// RVA: 0x2ADDE94 Offset: 0x2ADDE94 VA: 0x2ADDE94
 	private static void .cctor() { }
 }
 
@@ -743,7 +865,7 @@ internal sealed class BZip2Constants // TypeDefIndex: 3690
 
 	// Methods
 
-	// RVA: 0x12E1994 Offset: 0x12E1994 VA: 0x12E1994
+	// RVA: 0x2AD35F8 Offset: 0x2AD35F8 VA: 0x2AD35F8
 	private static void .cctor() { }
 }
 
@@ -753,13 +875,13 @@ public class BZip2Exception : SharpZipBaseException // TypeDefIndex: 3691
 {
 	// Methods
 
-	// RVA: 0x12E1A10 Offset: 0x12E1A10 VA: 0x12E1A10
+	// RVA: 0x2AD3674 Offset: 0x2AD3674 VA: 0x2AD3674
 	protected void .ctor(SerializationInfo info, StreamingContext context) { }
 
-	// RVA: 0x12E1A20 Offset: 0x12E1A20 VA: 0x12E1A20
+	// RVA: 0x2AD3684 Offset: 0x2AD3684 VA: 0x2AD3684
 	public void .ctor() { }
 
-	// RVA: 0x12E1A30 Offset: 0x12E1A30 VA: 0x12E1A30
+	// RVA: 0x2AD3694 Offset: 0x2AD3694 VA: 0x2AD3694
 	public void .ctor(string message) { }
 }
 
@@ -816,185 +938,63 @@ public class BZip2InputStream : Stream // TypeDefIndex: 3692
 
 	// Methods
 
-	// RVA: 0x12E1A40 Offset: 0x12E1A40 VA: 0x12E1A40
+	// RVA: 0x2AD36A4 Offset: 0x2AD36A4 VA: 0x2AD36A4
 	public void .ctor(Stream stream) { }
 
-	// RVA: 0x12E2270 Offset: 0x12E2270 VA: 0x12E2270
+	// RVA: 0x2AD3ED4 Offset: 0x2AD3ED4 VA: 0x2AD3ED4
 	public bool get_IsStreamOwner() { }
 
-	// RVA: 0x12E2278 Offset: 0x12E2278 VA: 0x12E2278 Slot: 5
+	// RVA: 0x2AD3EDC Offset: 0x2AD3EDC VA: 0x2AD3EDC Slot: 5
 	public override bool get_CanRead() { }
 
-	// RVA: 0x12E22AC Offset: 0x12E22AC VA: 0x12E22AC Slot: 6
+	// RVA: 0x2AD3F10 Offset: 0x2AD3F10 VA: 0x2AD3F10 Slot: 6
 	public override bool get_CanSeek() { }
 
-	// RVA: 0x12E22E0 Offset: 0x12E22E0 VA: 0x12E22E0 Slot: 7
+	// RVA: 0x2AD3F44 Offset: 0x2AD3F44 VA: 0x2AD3F44 Slot: 7
 	public override bool get_CanWrite() { }
 
-	// RVA: 0x12E22E8 Offset: 0x12E22E8 VA: 0x12E22E8 Slot: 9
+	// RVA: 0x2AD3F4C Offset: 0x2AD3F4C VA: 0x2AD3F4C Slot: 9
 	public override long get_Length() { }
 
-	// RVA: 0x12E231C Offset: 0x12E231C VA: 0x12E231C Slot: 10
+	// RVA: 0x2AD3F80 Offset: 0x2AD3F80 VA: 0x2AD3F80 Slot: 10
 	public override long get_Position() { }
 
-	// RVA: 0x12E2350 Offset: 0x12E2350 VA: 0x12E2350 Slot: 11
+	// RVA: 0x2AD3FB4 Offset: 0x2AD3FB4 VA: 0x2AD3FB4 Slot: 11
 	public override void set_Position(long value) { }
 
-	// RVA: 0x12E23C4 Offset: 0x12E23C4 VA: 0x12E23C4 Slot: 18
+	// RVA: 0x2AD4028 Offset: 0x2AD4028 VA: 0x2AD4028 Slot: 18
 	public override void Flush() { }
 
-	// RVA: 0x12E23E0 Offset: 0x12E23E0 VA: 0x12E23E0 Slot: 21
+	// RVA: 0x2AD4044 Offset: 0x2AD4044 VA: 0x2AD4044 Slot: 21
 	public override long Seek(long offset, SeekOrigin origin) { }
 
-	// RVA: 0x12E2454 Offset: 0x12E2454 VA: 0x12E2454 Slot: 22
+	// RVA: 0x2AD40B8 Offset: 0x2AD40B8 VA: 0x2AD40B8 Slot: 22
 	public override void SetLength(long value) { }
 
-	// RVA: 0x12E24C8 Offset: 0x12E24C8 VA: 0x12E24C8 Slot: 23
+	// RVA: 0x2AD412C Offset: 0x2AD412C VA: 0x2AD412C Slot: 23
 	public override void Write(byte[] buffer, int offset, int count) { }
 
-	// RVA: 0x12E253C Offset: 0x12E253C VA: 0x12E253C Slot: 24
+	// RVA: 0x2AD41A0 Offset: 0x2AD41A0 VA: 0x2AD41A0 Slot: 24
 	public override void WriteByte(byte value) { }
 
-	// RVA: 0x12E25B0 Offset: 0x12E25B0 VA: 0x12E25B0 Slot: 19
+	// RVA: 0x2AD4214 Offset: 0x2AD4214 VA: 0x2AD4214 Slot: 19
 	public override int Read(byte[] buffer, int offset, int count) { }
 
-	// RVA: 0x12E26D4 Offset: 0x12E26D4 VA: 0x12E26D4 Slot: 13
+	// RVA: 0x2AD4338 Offset: 0x2AD4338 VA: 0x2AD4338 Slot: 13
 	public override void Close() { }
 
-	// RVA: 0x12E26F4 Offset: 0x12E26F4 VA: 0x12E26F4 Slot: 20
+	// RVA: 0x2AD4358 Offset: 0x2AD4358 VA: 0x2AD4358 Slot: 20
 	public override int ReadByte() { }
 
-	// RVA: 0x12E2C44 Offset: 0x12E2C44 VA: 0x12E2C44
+	// RVA: 0x2AD48A8 Offset: 0x2AD48A8 VA: 0x2AD48A8
 	private void MakeMaps() { }
 
-	// RVA: 0x12E1D6C Offset: 0x12E1D6C VA: 0x12E1D6C
+	// RVA: 0x2AD39D0 Offset: 0x2AD39D0 VA: 0x2AD39D0
 	private void Initialize() { }
 
-	// RVA: 0x12E1E18 Offset: 0x12E1E18 VA: 0x12E1E18
+	// RVA: 0x2AD3A7C Offset: 0x2AD3A7C VA: 0x2AD3A7C
 	private void InitBlock() { }
 
-	// RVA: 0x12E3B74 Offset: 0x12E3B74 VA: 0x12E3B74
+	// RVA: 0x2AD57D8 Offset: 0x2AD57D8 VA: 0x2AD57D8
 	private void EndBlock() { }
 
-	// RVA: 0x12E2E30 Offset: 0x12E2E30 VA: 0x12E2E30
-	private void Complete() { }
-
-	// RVA: 0x12E1D60 Offset: 0x12E1D60 VA: 0x12E1D60
-	private void BsSetStream(Stream stream) { }
-
-	// RVA: 0x12E3CC4 Offset: 0x12E3CC4 VA: 0x12E3CC4
-	private void FillBuffer() { }
-
-	// RVA: 0x12E2F48 Offset: 0x12E2F48 VA: 0x12E2F48
-	private int BsR(int n) { }
-
-	// RVA: 0x12E2D30 Offset: 0x12E2D30 VA: 0x12E2D30
-	private char BsGetUChar() { }
-
-	// RVA: 0x12E3E28 Offset: 0x12E3E28 VA: 0x12E3E28
-	private int BsGetIntVS(int numBits) { }
-
-	// RVA: 0x12E2EE0 Offset: 0x12E2EE0 VA: 0x12E2EE0
-	private int BsGetInt32() { }
-
-	// RVA: 0x12E3E2C Offset: 0x12E3E2C VA: 0x12E3E2C
-	private void RecvDecodingTables() { }
-
-	// RVA: 0x12E2FAC Offset: 0x12E2FAC VA: 0x12E2FAC
-	private void GetAndMoveToFrontDecode() { }
-
-	// RVA: 0x12E2014 Offset: 0x12E2014 VA: 0x12E2014
-	private void SetupBlock() { }
-
-	// RVA: 0x12E4A50 Offset: 0x12E4A50 VA: 0x12E4A50
-	private void SetupRandPartA() { }
-
-	// RVA: 0x12E4C74 Offset: 0x12E4C74 VA: 0x12E4C74
-	private void SetupNoRandPartA() { }
-
-	// RVA: 0x12E2760 Offset: 0x12E2760 VA: 0x12E2760
-	private void SetupRandPartB() { }
-
-	// RVA: 0x12E2918 Offset: 0x12E2918 VA: 0x12E2918
-	private void SetupRandPartC() { }
-
-	// RVA: 0x12E2A30 Offset: 0x12E2A30 VA: 0x12E2A30
-	private void SetupNoRandPartB() { }
-
-	// RVA: 0x12E2B2C Offset: 0x12E2B2C VA: 0x12E2B2C
-	private void SetupNoRandPartC() { }
-
-	// RVA: 0x12E2D48 Offset: 0x12E2D48 VA: 0x12E2D48
-	private void SetDecompressStructureSizes(int newSize100k) { }
-
-	// RVA: 0x12E3DB4 Offset: 0x12E3DB4 VA: 0x12E3DB4
-	private static void CompressedStreamEOF() { }
-
-	// RVA: 0x12E49DC Offset: 0x12E49DC VA: 0x12E49DC
-	private static void BlockOverrun() { }
-
-	// RVA: 0x12E2E6C Offset: 0x12E2E6C VA: 0x12E2E6C
-	private static void BadBlockHeader() { }
-
-	// RVA: 0x12E3C50 Offset: 0x12E3C50 VA: 0x12E3C50
-	private static void CrcError() { }
-
-	// RVA: 0x12E4610 Offset: 0x12E4610 VA: 0x12E4610
-	private static void HbCreateDecodeTables(int[] limit, int[] baseArray, int[] perm, char[] length, int minLen, int maxLen, int alphaSize) { }
-}
-
-// Namespace: ICSharpCode.SharpZipLib.BZip2
-public class BZip2OutputStream : Stream // TypeDefIndex: 3693
-{
-	// Fields
-	private readonly int[] increments; // 0x10
-	private bool isStreamOwner; // 0x18
-	private int last; // 0x1C
-	private int origPtr; // 0x20
-	private int blockSize100k; // 0x24
-	private bool blockRandomised; // 0x28
-	private int bytesOut; // 0x2C
-	private int bsBuff; // 0x30
-	private int bsLive; // 0x34
-	private IChecksum mCrc; // 0x38
-	private bool[] inUse; // 0x40
-	private int nInUse; // 0x48
-	private char[] seqToUnseq; // 0x50
-	private char[] unseqToSeq; // 0x58
-	private char[] selector; // 0x60
-	private char[] selectorMtf; // 0x68
-	private byte[] block; // 0x70
-	private int[] quadrant; // 0x78
-	private int[] zptr; // 0x80
-	private short[] szptr; // 0x88
-	private int[] ftab; // 0x90
-	private int nMTF; // 0x98
-	private int[] mtfFreq; // 0xA0
-	private int workFactor; // 0xA8
-	private int workDone; // 0xAC
-	private int workLimit; // 0xB0
-	private bool firstAttempt; // 0xB4
-	private int nBlocksRandomised; // 0xB8
-	private int currentChar; // 0xBC
-	private int runLength; // 0xC0
-	private uint blockCRC; // 0xC4
-	private uint combinedCRC; // 0xC8
-	private int allowableBlockSize; // 0xCC
-	private Stream baseStream; // 0xD0
-	private bool disposed_; // 0xD8
-	private BZip2OutputStream.StackElement[] stack; // 0xE0
-
-	// Properties
-	public bool IsStreamOwner { get; }
-	public override bool CanRead { get; }
-	public override bool CanSeek { get; }
-	public override bool CanWrite { get; }
-	public override long Length { get; }
-	public override long Position { get; set; }
-
-	// Methods
-
-	// RVA: 0x12E4E04 Offset: 0x12E4E04 VA: 0x12E4E04
-	public void .ctor(Stream stream) { }
-
-	// RVA: 0x12E4E0C Offset: 0x12E4E0C VA: 0x12E4E0C

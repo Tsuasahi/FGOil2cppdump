@@ -1,19 +1,141 @@
-	// RVA: 0x159FEC8 Offset: 0x159FEC8 VA: 0x159FEC8
+	public ReflectionProbeUsage reflectionProbeUsage; // 0x20
+	public Transform probeAnchor; // 0x28
+}
+
+// Namespace: 
+[Serializable]
+private struct PrefabLightmapData.LightInfo // TypeDefIndex: 4283
+{
+	// Fields
+	public Light light; // 0x0
+	public int lightmapBaketype; // 0x8
+	public int mixedLightingMode; // 0xC
+}
+
+// Namespace: Adv.Core.Graphics
+[RequireComponent] // RVA: 0xC24A20 Offset: 0xC24A20 VA: 0xC24A20
+public class RendererScaler : MonoBehaviour // TypeDefIndex: 4284
+{
+	// Fields
+	public RendererScaler.RenderScale scale; // 0x18
+	private Camera cam; // 0x20
+	private RenderTexture renderTex; // 0x28
+	private CommandBuffer commandBuffer; // 0x30
+
+	// Methods
+
+	// RVA: 0x106D578 Offset: 0x106D578 VA: 0x106D578
+	public void .ctor() { }
+
+	// RVA: 0x106D588 Offset: 0x106D588 VA: 0x106D588
+	private void Start() { }
+
+	// RVA: 0x106D618 Offset: 0x106D618 VA: 0x106D618
+	public static void CreateRendererScaler() { }
+
+	// RVA: 0x106D734 Offset: 0x106D734 VA: 0x106D734
+	public void ChangeRenderSize() { }
+}
+
+// Namespace: 
+public enum RendererScaler.RenderScale // TypeDefIndex: 4285
+{
+	// Fields
+	public int value__; // 0x0
+	public const RendererScaler.RenderScale S12 = 12;
+	public const RendererScaler.RenderScale S25 = 25;
+	public const RendererScaler.RenderScale S50 = 50;
+	public const RendererScaler.RenderScale S75 = 75;
+	public const RendererScaler.RenderScale S100 = 100;
+}
+
+// Namespace: Adv.Core.Graphics
+[DisallowMultipleComponent] // RVA: 0xC24A84 Offset: 0xC24A84 VA: 0xC24A84
+[RequireComponent] // RVA: 0xC24A84 Offset: 0xC24A84 VA: 0xC24A84
+public class RenderOption : MonoBehaviour // TypeDefIndex: 4286
+{
+	// Fields
+	public RenderOption.Type type; // 0x18
+	private Material mat; // 0x20
+	private RenderOption.Grade setting; // 0x28
+
+	// Properties
+	public RenderOption.Grade Setting { get; set; }
+
+	// Methods
+
+	// RVA: 0x106D478 Offset: 0x106D478 VA: 0x106D478
+	public void .ctor() { }
+
+	// RVA: 0x106D480 Offset: 0x106D480 VA: 0x106D480
+	public RenderOption.Grade get_Setting() { }
+
+	// RVA: 0x106D488 Offset: 0x106D488 VA: 0x106D488
+	public void set_Setting(RenderOption.Grade value) { }
+
+	// RVA: 0x106D570 Offset: 0x106D570 VA: 0x106D570
+	public static RenderOption AttachComponent(GameObject gameObject) { }
+}
+
+// Namespace: 
+public enum RenderOption.Grade // TypeDefIndex: 4287
+{
+	// Fields
+	public int value__; // 0x0
+	public const RenderOption.Grade Normal = 0;
+	public const RenderOption.Grade Low = 1;
+}
+
+// Namespace: 
+public enum RenderOption.Type // TypeDefIndex: 4288
+{
+	// Fields
+	public int value__; // 0x0
+	public const RenderOption.Type Shadow = 0;
+}
+
+// Namespace: Adv.Core.Graphics.ScreenEffect
+public class ScreenEffectBlur : MonoBehaviour // TypeDefIndex: 4289
+{
+	// Fields
+	[SerializeField] // RVA: 0xC47850 Offset: 0xC47850 VA: 0xC47850
+	private AnimationCurve curve; // 0x18
+	[SerializeField] // RVA: 0xC47860 Offset: 0xC47860 VA: 0xC47860
+	private float intensity; // 0x20
+	[SerializeField] // RVA: 0xC47870 Offset: 0xC47870 VA: 0xC47870
+	private Material material; // 0x28
+	private ScreenEffectBlur.State state; // 0x30
+	private int nowFrame; // 0x34
+	private int startFrame; // 0x38
+	private int endFrame; // 0x3C
+	private int durationFrame; // 0x40
+	private RenderTexture captureTexture; // 0x48
+	private RenderTexture blurTexture; // 0x50
+
+	// Methods
+
+	// RVA: 0x106DA70 Offset: 0x106DA70 VA: 0x106DA70
+	public void .ctor() { }
+
+	// RVA: 0x106DA80 Offset: 0x106DA80 VA: 0x106DA80
+	private void Awake() { }
+
+	// RVA: 0x106DB00 Offset: 0x106DB00 VA: 0x106DB00
 	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
 
-	// RVA: 0x15A0428 Offset: 0x15A0428 VA: 0x15A0428
+	// RVA: 0x106E060 Offset: 0x106E060 VA: 0x106E060
 	public void UpdateFrame(int nowFrame) { }
 
-	// RVA: 0x15A0430 Offset: 0x15A0430 VA: 0x15A0430
+	// RVA: 0x106E068 Offset: 0x106E068 VA: 0x106E068
 	public void StartBlur(int durationFrame) { }
 
-	// RVA: 0x15A0448 Offset: 0x15A0448 VA: 0x15A0448
+	// RVA: 0x106E080 Offset: 0x106E080 VA: 0x106E080
 	public void StopBlur(int durationFrame) { }
 
-	// RVA: 0x15A0460 Offset: 0x15A0460 VA: 0x15A0460
+	// RVA: 0x106E098 Offset: 0x106E098 VA: 0x106E098
 	public bool IsCaptureing() { }
 
-	// RVA: 0x15A0484 Offset: 0x15A0484 VA: 0x15A0484
+	// RVA: 0x106E0BC Offset: 0x106E0BC VA: 0x106E0BC
 	public bool Actived() { }
 }
 
@@ -32,15 +154,15 @@ private enum ScreenEffectBlur.State // TypeDefIndex: 4290
 public class ScreenEffectCrossFade : MonoBehaviour // TypeDefIndex: 4291
 {
 	// Fields
-	[SerializeField] // RVA: 0xCB390C Offset: 0xCB390C VA: 0xCB390C
+	[SerializeField] // RVA: 0xC47880 Offset: 0xC47880 VA: 0xC47880
 	private AnimationCurve blurCurve; // 0x18
-	[SerializeField] // RVA: 0xCB391C Offset: 0xCB391C VA: 0xCB391C
+	[SerializeField] // RVA: 0xC47890 Offset: 0xC47890 VA: 0xC47890
 	private AnimationCurve fadeCurve; // 0x20
-	[SerializeField] // RVA: 0xCB392C Offset: 0xCB392C VA: 0xCB392C
+	[SerializeField] // RVA: 0xC478A0 Offset: 0xC478A0 VA: 0xC478A0
 	private float intensity; // 0x28
-	[SerializeField] // RVA: 0xCB393C Offset: 0xCB393C VA: 0xCB393C
+	[SerializeField] // RVA: 0xC478B0 Offset: 0xC478B0 VA: 0xC478B0
 	private Material blurMaterial; // 0x30
-	[SerializeField] // RVA: 0xCB394C Offset: 0xCB394C VA: 0xCB394C
+	[SerializeField] // RVA: 0xC478C0 Offset: 0xC478C0 VA: 0xC478C0
 	private Material fadeMaterial; // 0x38
 	private ScreenEffectCrossFade.State state; // 0x40
 	private int nowFrame; // 0x44
@@ -52,22 +174,22 @@ public class ScreenEffectCrossFade : MonoBehaviour // TypeDefIndex: 4291
 
 	// Methods
 
-	// RVA: 0x15A0498 Offset: 0x15A0498 VA: 0x15A0498
+	// RVA: 0x106E0D0 Offset: 0x106E0D0 VA: 0x106E0D0
 	public void .ctor() { }
 
-	// RVA: 0x15A04A8 Offset: 0x15A04A8 VA: 0x15A04A8
+	// RVA: 0x106E0E0 Offset: 0x106E0E0 VA: 0x106E0E0
 	private void Awake() { }
 
-	// RVA: 0x15A0548 Offset: 0x15A0548 VA: 0x15A0548
+	// RVA: 0x106E180 Offset: 0x106E180 VA: 0x106E180
 	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
 
-	// RVA: 0x15A0AA4 Offset: 0x15A0AA4 VA: 0x15A0AA4
+	// RVA: 0x106E6DC Offset: 0x106E6DC VA: 0x106E6DC
 	public void UpdateFrame(int nowFrame) { }
 
-	// RVA: 0x15A0AAC Offset: 0x15A0AAC VA: 0x15A0AAC
+	// RVA: 0x106E6E4 Offset: 0x106E6E4 VA: 0x106E6E4
 	public void StartCrossFade(int durationFrame) { }
 
-	// RVA: 0x15A0AC4 Offset: 0x15A0AC4 VA: 0x15A0AC4
+	// RVA: 0x106E6FC Offset: 0x106E6FC VA: 0x106E6FC
 	public bool IsCaptureing() { }
 }
 
@@ -90,28 +212,28 @@ public static class ShaderDefines // TypeDefIndex: 4293
 }
 
 // Namespace: 
-[ExecuteInEditMode] // RVA: 0xC90C20 Offset: 0xC90C20 VA: 0xC90C20
-[RequireComponent] // RVA: 0xC90C20 Offset: 0xC90C20 VA: 0xC90C20
-[AddComponentMenu] // RVA: 0xC90C20 Offset: 0xC90C20 VA: 0xC90C20
+[ExecuteInEditMode] // RVA: 0xC24AF8 Offset: 0xC24AF8 VA: 0xC24AF8
+[RequireComponent] // RVA: 0xC24AF8 Offset: 0xC24AF8 VA: 0xC24AF8
+[AddComponentMenu] // RVA: 0xC24AF8 Offset: 0xC24AF8 VA: 0xC24AF8
 public class FastMobileBloom : MonoBehaviour // TypeDefIndex: 4294
 {
 	// Fields
-	[RangeAttribute] // RVA: 0xCB395C Offset: 0xCB395C VA: 0xCB395C
+	[RangeAttribute] // RVA: 0xC478D0 Offset: 0xC478D0 VA: 0xC478D0
 	public float threshold; // 0x18
-	[RangeAttribute] // RVA: 0xCB3974 Offset: 0xCB3974 VA: 0xCB3974
+	[RangeAttribute] // RVA: 0xC478E8 Offset: 0xC478E8 VA: 0xC478E8
 	public float intensity; // 0x1C
-	[RangeAttribute] // RVA: 0xCB398C Offset: 0xCB398C VA: 0xCB398C
+	[RangeAttribute] // RVA: 0xC47900 Offset: 0xC47900 VA: 0xC47900
 	public float blurSize; // 0x20
-	[RangeAttribute] // RVA: 0xCB39A4 Offset: 0xCB39A4 VA: 0xCB39A4
+	[RangeAttribute] // RVA: 0xC47918 Offset: 0xC47918 VA: 0xC47918
 	public int blurIterations; // 0x24
 	public Material fastBloomMaterial; // 0x28
 
 	// Methods
 
-	// RVA: 0x18F1F0C Offset: 0x18F1F0C VA: 0x18F1F0C
+	// RVA: 0x135C224 Offset: 0x135C224 VA: 0x135C224
 	public void .ctor() { }
 
-	// RVA: 0x18F1F28 Offset: 0x18F1F28 VA: 0x18F1F28
+	// RVA: 0x135C240 Offset: 0x135C240 VA: 0x135C240
 	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
 }
 
@@ -129,14 +251,14 @@ public enum AuthenticationTypes // TypeDefIndex: 4295
 public sealed class Credentials // TypeDefIndex: 4296
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCB39BC Offset: 0xCB39BC VA: 0xCB39BC
-	[DebuggerBrowsableAttribute] // RVA: 0xCB39BC Offset: 0xCB39BC VA: 0xCB39BC
+	[CompilerGeneratedAttribute] // RVA: 0xC47930 Offset: 0xC47930 VA: 0xC47930
+	[DebuggerBrowsableAttribute] // RVA: 0xC47930 Offset: 0xC47930 VA: 0xC47930
 	private AuthenticationTypes <Type>k__BackingField; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xCB39F8 Offset: 0xCB39F8 VA: 0xCB39F8
-	[DebuggerBrowsableAttribute] // RVA: 0xCB39F8 Offset: 0xCB39F8 VA: 0xCB39F8
+	[CompilerGeneratedAttribute] // RVA: 0xC4796C Offset: 0xC4796C VA: 0xC4796C
+	[DebuggerBrowsableAttribute] // RVA: 0xC4796C Offset: 0xC4796C VA: 0xC4796C
 	private string <UserName>k__BackingField; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xCB3A34 Offset: 0xCB3A34 VA: 0xCB3A34
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3A34 Offset: 0xCB3A34 VA: 0xCB3A34
+	[CompilerGeneratedAttribute] // RVA: 0xC479A8 Offset: 0xC479A8 VA: 0xC479A8
+	[DebuggerBrowsableAttribute] // RVA: 0xC479A8 Offset: 0xC479A8 VA: 0xC479A8
 	private string <Password>k__BackingField; // 0x20
 
 	// Properties
@@ -146,34 +268,34 @@ public sealed class Credentials // TypeDefIndex: 4296
 
 	// Methods
 
-	// RVA: 0x1AED848 Offset: 0x1AED848 VA: 0x1AED848
+	// RVA: 0x1578848 Offset: 0x1578848 VA: 0x1578848
 	public void .ctor(string userName, string password) { }
 
-	// RVA: 0x1AED884 Offset: 0x1AED884 VA: 0x1AED884
+	// RVA: 0x1578884 Offset: 0x1578884 VA: 0x1578884
 	public void .ctor(AuthenticationTypes type, string userName, string password) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33338 Offset: 0xD33338 VA: 0xD33338
-	// RVA: 0x1AED8DC Offset: 0x1AED8DC VA: 0x1AED8DC
+	[CompilerGeneratedAttribute] // RVA: 0xCC5C64 Offset: 0xCC5C64 VA: 0xCC5C64
+	// RVA: 0x15788DC Offset: 0x15788DC VA: 0x15788DC
 	public AuthenticationTypes get_Type() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33348 Offset: 0xD33348 VA: 0xD33348
-	// RVA: 0x1AED8C4 Offset: 0x1AED8C4 VA: 0x1AED8C4
+	[CompilerGeneratedAttribute] // RVA: 0xCC5C74 Offset: 0xCC5C74 VA: 0xCC5C74
+	// RVA: 0x15788C4 Offset: 0x15788C4 VA: 0x15788C4
 	private void set_Type(AuthenticationTypes value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33358 Offset: 0xD33358 VA: 0xD33358
-	// RVA: 0x1AED8E4 Offset: 0x1AED8E4 VA: 0x1AED8E4
+	[CompilerGeneratedAttribute] // RVA: 0xCC5C84 Offset: 0xCC5C84 VA: 0xCC5C84
+	// RVA: 0x15788E4 Offset: 0x15788E4 VA: 0x15788E4
 	public string get_UserName() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33368 Offset: 0xD33368 VA: 0xD33368
-	// RVA: 0x1AED8CC Offset: 0x1AED8CC VA: 0x1AED8CC
+	[CompilerGeneratedAttribute] // RVA: 0xCC5C94 Offset: 0xCC5C94 VA: 0xCC5C94
+	// RVA: 0x15788CC Offset: 0x15788CC VA: 0x15788CC
 	private void set_UserName(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33378 Offset: 0xD33378 VA: 0xD33378
-	// RVA: 0x1AED8EC Offset: 0x1AED8EC VA: 0x1AED8EC
+	[CompilerGeneratedAttribute] // RVA: 0xCC5CA4 Offset: 0xCC5CA4 VA: 0xCC5CA4
+	// RVA: 0x15788EC Offset: 0x15788EC VA: 0x15788EC
 	public string get_Password() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33388 Offset: 0xD33388 VA: 0xD33388
-	// RVA: 0x1AED8D4 Offset: 0x1AED8D4 VA: 0x1AED8D4
+	[CompilerGeneratedAttribute] // RVA: 0xCC5CB4 Offset: 0xCC5CB4 VA: 0xCC5CB4
+	// RVA: 0x15788D4 Offset: 0x15788D4 VA: 0x15788D4
 	private void set_Password(string value) { }
 }
 
@@ -181,40 +303,40 @@ public sealed class Credentials // TypeDefIndex: 4296
 internal sealed class Digest // TypeDefIndex: 4297
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCB3A70 Offset: 0xCB3A70 VA: 0xCB3A70
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3A70 Offset: 0xCB3A70 VA: 0xCB3A70
+	[CompilerGeneratedAttribute] // RVA: 0xC479E4 Offset: 0xC479E4 VA: 0xC479E4
+	[DebuggerBrowsableAttribute] // RVA: 0xC479E4 Offset: 0xC479E4 VA: 0xC479E4
 	private Uri <Uri>k__BackingField; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xCB3AAC Offset: 0xCB3AAC VA: 0xCB3AAC
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3AAC Offset: 0xCB3AAC VA: 0xCB3AAC
+	[CompilerGeneratedAttribute] // RVA: 0xC47A20 Offset: 0xC47A20 VA: 0xC47A20
+	[DebuggerBrowsableAttribute] // RVA: 0xC47A20 Offset: 0xC47A20 VA: 0xC47A20
 	private AuthenticationTypes <Type>k__BackingField; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xCB3AE8 Offset: 0xCB3AE8 VA: 0xCB3AE8
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3AE8 Offset: 0xCB3AE8 VA: 0xCB3AE8
+	[CompilerGeneratedAttribute] // RVA: 0xC47A5C Offset: 0xC47A5C VA: 0xC47A5C
+	[DebuggerBrowsableAttribute] // RVA: 0xC47A5C Offset: 0xC47A5C VA: 0xC47A5C
 	private string <Realm>k__BackingField; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xCB3B24 Offset: 0xCB3B24 VA: 0xCB3B24
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3B24 Offset: 0xCB3B24 VA: 0xCB3B24
+	[CompilerGeneratedAttribute] // RVA: 0xC47A98 Offset: 0xC47A98 VA: 0xC47A98
+	[DebuggerBrowsableAttribute] // RVA: 0xC47A98 Offset: 0xC47A98 VA: 0xC47A98
 	private bool <Stale>k__BackingField; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xCB3B60 Offset: 0xCB3B60 VA: 0xCB3B60
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3B60 Offset: 0xCB3B60 VA: 0xCB3B60
+	[CompilerGeneratedAttribute] // RVA: 0xC47AD4 Offset: 0xC47AD4 VA: 0xC47AD4
+	[DebuggerBrowsableAttribute] // RVA: 0xC47AD4 Offset: 0xC47AD4 VA: 0xC47AD4
 	private string <Nonce>k__BackingField; // 0x30
-	[CompilerGeneratedAttribute] // RVA: 0xCB3B9C Offset: 0xCB3B9C VA: 0xCB3B9C
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3B9C Offset: 0xCB3B9C VA: 0xCB3B9C
+	[CompilerGeneratedAttribute] // RVA: 0xC47B10 Offset: 0xC47B10 VA: 0xC47B10
+	[DebuggerBrowsableAttribute] // RVA: 0xC47B10 Offset: 0xC47B10 VA: 0xC47B10
 	private string <Opaque>k__BackingField; // 0x38
-	[CompilerGeneratedAttribute] // RVA: 0xCB3BD8 Offset: 0xCB3BD8 VA: 0xCB3BD8
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3BD8 Offset: 0xCB3BD8 VA: 0xCB3BD8
+	[CompilerGeneratedAttribute] // RVA: 0xC47B4C Offset: 0xC47B4C VA: 0xC47B4C
+	[DebuggerBrowsableAttribute] // RVA: 0xC47B4C Offset: 0xC47B4C VA: 0xC47B4C
 	private string <Algorithm>k__BackingField; // 0x40
-	[CompilerGeneratedAttribute] // RVA: 0xCB3C14 Offset: 0xCB3C14 VA: 0xCB3C14
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3C14 Offset: 0xCB3C14 VA: 0xCB3C14
+	[CompilerGeneratedAttribute] // RVA: 0xC47B88 Offset: 0xC47B88 VA: 0xC47B88
+	[DebuggerBrowsableAttribute] // RVA: 0xC47B88 Offset: 0xC47B88 VA: 0xC47B88
 	private List<string> <ProtectedUris>k__BackingField; // 0x48
-	[CompilerGeneratedAttribute] // RVA: 0xCB3C50 Offset: 0xCB3C50 VA: 0xCB3C50
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3C50 Offset: 0xCB3C50 VA: 0xCB3C50
+	[CompilerGeneratedAttribute] // RVA: 0xC47BC4 Offset: 0xC47BC4 VA: 0xC47BC4
+	[DebuggerBrowsableAttribute] // RVA: 0xC47BC4 Offset: 0xC47BC4 VA: 0xC47BC4
 	private string <QualityOfProtections>k__BackingField; // 0x50
-	[CompilerGeneratedAttribute] // RVA: 0xCB3C8C Offset: 0xCB3C8C VA: 0xCB3C8C
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3C8C Offset: 0xCB3C8C VA: 0xCB3C8C
+	[CompilerGeneratedAttribute] // RVA: 0xC47C00 Offset: 0xC47C00 VA: 0xC47C00
+	[DebuggerBrowsableAttribute] // RVA: 0xC47C00 Offset: 0xC47C00 VA: 0xC47C00
 	private int <NonceCount>k__BackingField; // 0x58
-	[CompilerGeneratedAttribute] // RVA: 0xCB3CC8 Offset: 0xCB3CC8 VA: 0xCB3CC8
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3CC8 Offset: 0xCB3CC8 VA: 0xCB3CC8
+	[CompilerGeneratedAttribute] // RVA: 0xC47C3C Offset: 0xC47C3C VA: 0xC47C3C
+	[DebuggerBrowsableAttribute] // RVA: 0xC47C3C Offset: 0xC47C3C VA: 0xC47C3C
 	private string <HA1Sess>k__BackingField; // 0x60
-	[CompilerGeneratedAttribute] // RVA: 0xCB3D04 Offset: 0xCB3D04 VA: 0xCB3D04
+	[CompilerGeneratedAttribute] // RVA: 0xC47C78 Offset: 0xC47C78 VA: 0xC47C78
 	private static Dictionary<string, int> <>f__switch$map0; // 0x0
 
 	// Properties
@@ -232,104 +354,104 @@ internal sealed class Digest // TypeDefIndex: 4297
 
 	// Methods
 
-	// RVA: 0x1AED8F4 Offset: 0x1AED8F4 VA: 0x1AED8F4
+	// RVA: 0x15788F4 Offset: 0x15788F4 VA: 0x15788F4
 	internal void .ctor(Uri uri) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33398 Offset: 0xD33398 VA: 0xD33398
-	// RVA: 0x1AED970 Offset: 0x1AED970 VA: 0x1AED970
+	[CompilerGeneratedAttribute] // RVA: 0xCC5CC4 Offset: 0xCC5CC4 VA: 0xCC5CC4
+	// RVA: 0x1578970 Offset: 0x1578970 VA: 0x1578970
 	public Uri get_Uri() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD333A8 Offset: 0xD333A8 VA: 0xD333A8
-	// RVA: 0x1AED960 Offset: 0x1AED960 VA: 0x1AED960
+	[CompilerGeneratedAttribute] // RVA: 0xCC5CD4 Offset: 0xCC5CD4 VA: 0xCC5CD4
+	// RVA: 0x1578960 Offset: 0x1578960 VA: 0x1578960
 	private void set_Uri(Uri value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD333B8 Offset: 0xD333B8 VA: 0xD333B8
-	// RVA: 0x1AED978 Offset: 0x1AED978 VA: 0x1AED978
+	[CompilerGeneratedAttribute] // RVA: 0xCC5CE4 Offset: 0xCC5CE4 VA: 0xCC5CE4
+	// RVA: 0x1578978 Offset: 0x1578978 VA: 0x1578978
 	public AuthenticationTypes get_Type() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD333C8 Offset: 0xD333C8 VA: 0xD333C8
-	// RVA: 0x1AED980 Offset: 0x1AED980 VA: 0x1AED980
+	[CompilerGeneratedAttribute] // RVA: 0xCC5CF4 Offset: 0xCC5CF4 VA: 0xCC5CF4
+	// RVA: 0x1578980 Offset: 0x1578980 VA: 0x1578980
 	private void set_Type(AuthenticationTypes value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD333D8 Offset: 0xD333D8 VA: 0xD333D8
-	// RVA: 0x1AED988 Offset: 0x1AED988 VA: 0x1AED988
+	[CompilerGeneratedAttribute] // RVA: 0xCC5D04 Offset: 0xCC5D04 VA: 0xCC5D04
+	// RVA: 0x1578988 Offset: 0x1578988 VA: 0x1578988
 	public string get_Realm() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD333E8 Offset: 0xD333E8 VA: 0xD333E8
-	// RVA: 0x1AED990 Offset: 0x1AED990 VA: 0x1AED990
+	[CompilerGeneratedAttribute] // RVA: 0xCC5D14 Offset: 0xCC5D14 VA: 0xCC5D14
+	// RVA: 0x1578990 Offset: 0x1578990 VA: 0x1578990
 	private void set_Realm(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD333F8 Offset: 0xD333F8 VA: 0xD333F8
-	// RVA: 0x1AED998 Offset: 0x1AED998 VA: 0x1AED998
+	[CompilerGeneratedAttribute] // RVA: 0xCC5D24 Offset: 0xCC5D24 VA: 0xCC5D24
+	// RVA: 0x1578998 Offset: 0x1578998 VA: 0x1578998
 	public bool get_Stale() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33408 Offset: 0xD33408 VA: 0xD33408
-	// RVA: 0x1AED9A0 Offset: 0x1AED9A0 VA: 0x1AED9A0
+	[CompilerGeneratedAttribute] // RVA: 0xCC5D34 Offset: 0xCC5D34 VA: 0xCC5D34
+	// RVA: 0x15789A0 Offset: 0x15789A0 VA: 0x15789A0
 	private void set_Stale(bool value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33418 Offset: 0xD33418 VA: 0xD33418
-	// RVA: 0x1AED9AC Offset: 0x1AED9AC VA: 0x1AED9AC
+	[CompilerGeneratedAttribute] // RVA: 0xCC5D44 Offset: 0xCC5D44 VA: 0xCC5D44
+	// RVA: 0x15789AC Offset: 0x15789AC VA: 0x15789AC
 	private string get_Nonce() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33428 Offset: 0xD33428 VA: 0xD33428
-	// RVA: 0x1AED9B4 Offset: 0x1AED9B4 VA: 0x1AED9B4
+	[CompilerGeneratedAttribute] // RVA: 0xCC5D54 Offset: 0xCC5D54 VA: 0xCC5D54
+	// RVA: 0x15789B4 Offset: 0x15789B4 VA: 0x15789B4
 	private void set_Nonce(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33438 Offset: 0xD33438 VA: 0xD33438
-	// RVA: 0x1AED9BC Offset: 0x1AED9BC VA: 0x1AED9BC
+	[CompilerGeneratedAttribute] // RVA: 0xCC5D64 Offset: 0xCC5D64 VA: 0xCC5D64
+	// RVA: 0x15789BC Offset: 0x15789BC VA: 0x15789BC
 	private string get_Opaque() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33448 Offset: 0xD33448 VA: 0xD33448
-	// RVA: 0x1AED9C4 Offset: 0x1AED9C4 VA: 0x1AED9C4
+	[CompilerGeneratedAttribute] // RVA: 0xCC5D74 Offset: 0xCC5D74 VA: 0xCC5D74
+	// RVA: 0x15789C4 Offset: 0x15789C4 VA: 0x15789C4
 	private void set_Opaque(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33458 Offset: 0xD33458 VA: 0xD33458
-	// RVA: 0x1AED9CC Offset: 0x1AED9CC VA: 0x1AED9CC
+	[CompilerGeneratedAttribute] // RVA: 0xCC5D84 Offset: 0xCC5D84 VA: 0xCC5D84
+	// RVA: 0x15789CC Offset: 0x15789CC VA: 0x15789CC
 	private string get_Algorithm() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33468 Offset: 0xD33468 VA: 0xD33468
-	// RVA: 0x1AED968 Offset: 0x1AED968 VA: 0x1AED968
+	[CompilerGeneratedAttribute] // RVA: 0xCC5D94 Offset: 0xCC5D94 VA: 0xCC5D94
+	// RVA: 0x1578968 Offset: 0x1578968 VA: 0x1578968
 	private void set_Algorithm(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33478 Offset: 0xD33478 VA: 0xD33478
-	// RVA: 0x1AED9D4 Offset: 0x1AED9D4 VA: 0x1AED9D4
+	[CompilerGeneratedAttribute] // RVA: 0xCC5DA4 Offset: 0xCC5DA4 VA: 0xCC5DA4
+	// RVA: 0x15789D4 Offset: 0x15789D4 VA: 0x15789D4
 	public List<string> get_ProtectedUris() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33488 Offset: 0xD33488 VA: 0xD33488
-	// RVA: 0x1AED9DC Offset: 0x1AED9DC VA: 0x1AED9DC
+	[CompilerGeneratedAttribute] // RVA: 0xCC5DB4 Offset: 0xCC5DB4 VA: 0xCC5DB4
+	// RVA: 0x15789DC Offset: 0x15789DC VA: 0x15789DC
 	private void set_ProtectedUris(List<string> value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33498 Offset: 0xD33498 VA: 0xD33498
-	// RVA: 0x1AED9E4 Offset: 0x1AED9E4 VA: 0x1AED9E4
+	[CompilerGeneratedAttribute] // RVA: 0xCC5DC4 Offset: 0xCC5DC4 VA: 0xCC5DC4
+	// RVA: 0x15789E4 Offset: 0x15789E4 VA: 0x15789E4
 	private string get_QualityOfProtections() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD334A8 Offset: 0xD334A8 VA: 0xD334A8
-	// RVA: 0x1AED9EC Offset: 0x1AED9EC VA: 0x1AED9EC
+	[CompilerGeneratedAttribute] // RVA: 0xCC5DD4 Offset: 0xCC5DD4 VA: 0xCC5DD4
+	// RVA: 0x15789EC Offset: 0x15789EC VA: 0x15789EC
 	private void set_QualityOfProtections(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD334B8 Offset: 0xD334B8 VA: 0xD334B8
-	// RVA: 0x1AED9F4 Offset: 0x1AED9F4 VA: 0x1AED9F4
+	[CompilerGeneratedAttribute] // RVA: 0xCC5DE4 Offset: 0xCC5DE4 VA: 0xCC5DE4
+	// RVA: 0x15789F4 Offset: 0x15789F4 VA: 0x15789F4
 	private int get_NonceCount() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD334C8 Offset: 0xD334C8 VA: 0xD334C8
-	// RVA: 0x1AED9FC Offset: 0x1AED9FC VA: 0x1AED9FC
+	[CompilerGeneratedAttribute] // RVA: 0xCC5DF4 Offset: 0xCC5DF4 VA: 0xCC5DF4
+	// RVA: 0x15789FC Offset: 0x15789FC VA: 0x15789FC
 	private void set_NonceCount(int value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD334D8 Offset: 0xD334D8 VA: 0xD334D8
-	// RVA: 0x1AEDA04 Offset: 0x1AEDA04 VA: 0x1AEDA04
+	[CompilerGeneratedAttribute] // RVA: 0xCC5E04 Offset: 0xCC5E04 VA: 0xCC5E04
+	// RVA: 0x1578A04 Offset: 0x1578A04 VA: 0x1578A04
 	private string get_HA1Sess() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD334E8 Offset: 0xD334E8 VA: 0xD334E8
-	// RVA: 0x1AEDA0C Offset: 0x1AEDA0C VA: 0x1AEDA0C
+	[CompilerGeneratedAttribute] // RVA: 0xCC5E14 Offset: 0xCC5E14 VA: 0xCC5E14
+	// RVA: 0x1578A0C Offset: 0x1578A0C VA: 0x1578A0C
 	private void set_HA1Sess(string value) { }
 
-	// RVA: 0x1AEDA14 Offset: 0x1AEDA14 VA: 0x1AEDA14
+	// RVA: 0x1578A14 Offset: 0x1578A14 VA: 0x1578A14
 	public void ParseChallange(string header) { }
 
-	// RVA: 0x1AEE0F8 Offset: 0x1AEE0F8 VA: 0x1AEE0F8
+	// RVA: 0x15790F8 Offset: 0x15790F8 VA: 0x15790F8
 	public string GenerateResponseHeader(HTTPRequest request, Credentials credentials) { }
 
-	// RVA: 0x1AEF364 Offset: 0x1AEF364 VA: 0x1AEF364
+	// RVA: 0x157A364 Offset: 0x157A364 VA: 0x157A364
 	public bool IsUriProtected(Uri uri) { }
 }
 
@@ -343,24 +465,24 @@ internal static class DigestStore // TypeDefIndex: 4298
 
 	// Methods
 
-	// RVA: 0x1AEF4F4 Offset: 0x1AEF4F4 VA: 0x1AEF4F4
+	// RVA: 0x157A4F4 Offset: 0x157A4F4 VA: 0x157A4F4
 	public static Digest Get(Uri uri) { }
 
-	// RVA: 0x1AEF678 Offset: 0x1AEF678 VA: 0x1AEF678
+	// RVA: 0x157A678 Offset: 0x157A678 VA: 0x157A678
 	public static Digest GetOrCreate(Uri uri) { }
 
-	// RVA: 0x1AEF86C Offset: 0x1AEF86C VA: 0x1AEF86C
+	// RVA: 0x157A86C Offset: 0x157A86C VA: 0x157A86C
 	public static void Remove(Uri uri) { }
 
-	// RVA: 0x1AEF9B4 Offset: 0x1AEF9B4 VA: 0x1AEF9B4
+	// RVA: 0x157A9B4 Offset: 0x157A9B4 VA: 0x157A9B4
 	public static string FindBest(List<string> authHeaders) { }
 
-	// RVA: 0x1AEFC28 Offset: 0x1AEFC28 VA: 0x1AEFC28
+	// RVA: 0x157AC28 Offset: 0x157AC28 VA: 0x157AC28
 	private static void .cctor() { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAD9B0 Offset: 0xCAD9B0 VA: 0xCAD9B0
+[CompilerGeneratedAttribute] // RVA: 0xC41914 Offset: 0xC41914 VA: 0xC41914
 private sealed class DigestStore.<FindBest>c__AnonStorey0 // TypeDefIndex: 4299
 {
 	// Fields
@@ -368,10 +490,10 @@ private sealed class DigestStore.<FindBest>c__AnonStorey0 // TypeDefIndex: 4299
 
 	// Methods
 
-	// RVA: 0x1AEFC20 Offset: 0x1AEFC20 VA: 0x1AEFC20
+	// RVA: 0x157AC20 Offset: 0x157AC20 VA: 0x157AC20
 	public void .ctor() { }
 
-	// RVA: 0x1AEFD9C Offset: 0x1AEFD9C VA: 0x1AEFD9C
+	// RVA: 0x157AD9C Offset: 0x157AD9C VA: 0x157AD9C
 	internal bool <>m__0(string header) { }
 }
 
@@ -379,44 +501,44 @@ private sealed class DigestStore.<FindBest>c__AnonStorey0 // TypeDefIndex: 4299
 internal class HTTPCacheFileInfo : IComparable<HTTPCacheFileInfo> // TypeDefIndex: 4300
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCB3D14 Offset: 0xCB3D14 VA: 0xCB3D14
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3D14 Offset: 0xCB3D14 VA: 0xCB3D14
+	[CompilerGeneratedAttribute] // RVA: 0xC47C88 Offset: 0xC47C88 VA: 0xC47C88
+	[DebuggerBrowsableAttribute] // RVA: 0xC47C88 Offset: 0xC47C88 VA: 0xC47C88
 	private Uri <Uri>k__BackingField; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xCB3D50 Offset: 0xCB3D50 VA: 0xCB3D50
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3D50 Offset: 0xCB3D50 VA: 0xCB3D50
+	[CompilerGeneratedAttribute] // RVA: 0xC47CC4 Offset: 0xC47CC4 VA: 0xC47CC4
+	[DebuggerBrowsableAttribute] // RVA: 0xC47CC4 Offset: 0xC47CC4 VA: 0xC47CC4
 	private DateTime <LastAccess>k__BackingField; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xCB3D8C Offset: 0xCB3D8C VA: 0xCB3D8C
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3D8C Offset: 0xCB3D8C VA: 0xCB3D8C
+	[CompilerGeneratedAttribute] // RVA: 0xC47D00 Offset: 0xC47D00 VA: 0xC47D00
+	[DebuggerBrowsableAttribute] // RVA: 0xC47D00 Offset: 0xC47D00 VA: 0xC47D00
 	private int <BodyLength>k__BackingField; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xCB3DC8 Offset: 0xCB3DC8 VA: 0xCB3DC8
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3DC8 Offset: 0xCB3DC8 VA: 0xCB3DC8
+	[CompilerGeneratedAttribute] // RVA: 0xC47D3C Offset: 0xC47D3C VA: 0xC47D3C
+	[DebuggerBrowsableAttribute] // RVA: 0xC47D3C Offset: 0xC47D3C VA: 0xC47D3C
 	private string <ETag>k__BackingField; // 0x30
-	[CompilerGeneratedAttribute] // RVA: 0xCB3E04 Offset: 0xCB3E04 VA: 0xCB3E04
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3E04 Offset: 0xCB3E04 VA: 0xCB3E04
+	[CompilerGeneratedAttribute] // RVA: 0xC47D78 Offset: 0xC47D78 VA: 0xC47D78
+	[DebuggerBrowsableAttribute] // RVA: 0xC47D78 Offset: 0xC47D78 VA: 0xC47D78
 	private string <LastModified>k__BackingField; // 0x38
-	[CompilerGeneratedAttribute] // RVA: 0xCB3E40 Offset: 0xCB3E40 VA: 0xCB3E40
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3E40 Offset: 0xCB3E40 VA: 0xCB3E40
+	[CompilerGeneratedAttribute] // RVA: 0xC47DB4 Offset: 0xC47DB4 VA: 0xC47DB4
+	[DebuggerBrowsableAttribute] // RVA: 0xC47DB4 Offset: 0xC47DB4 VA: 0xC47DB4
 	private DateTime <Expires>k__BackingField; // 0x40
-	[CompilerGeneratedAttribute] // RVA: 0xCB3E7C Offset: 0xCB3E7C VA: 0xCB3E7C
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3E7C Offset: 0xCB3E7C VA: 0xCB3E7C
+	[CompilerGeneratedAttribute] // RVA: 0xC47DF0 Offset: 0xC47DF0 VA: 0xC47DF0
+	[DebuggerBrowsableAttribute] // RVA: 0xC47DF0 Offset: 0xC47DF0 VA: 0xC47DF0
 	private long <Age>k__BackingField; // 0x50
-	[CompilerGeneratedAttribute] // RVA: 0xCB3EB8 Offset: 0xCB3EB8 VA: 0xCB3EB8
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3EB8 Offset: 0xCB3EB8 VA: 0xCB3EB8
+	[CompilerGeneratedAttribute] // RVA: 0xC47E2C Offset: 0xC47E2C VA: 0xC47E2C
+	[DebuggerBrowsableAttribute] // RVA: 0xC47E2C Offset: 0xC47E2C VA: 0xC47E2C
 	private long <MaxAge>k__BackingField; // 0x58
-	[CompilerGeneratedAttribute] // RVA: 0xCB3EF4 Offset: 0xCB3EF4 VA: 0xCB3EF4
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3EF4 Offset: 0xCB3EF4 VA: 0xCB3EF4
+	[CompilerGeneratedAttribute] // RVA: 0xC47E68 Offset: 0xC47E68 VA: 0xC47E68
+	[DebuggerBrowsableAttribute] // RVA: 0xC47E68 Offset: 0xC47E68 VA: 0xC47E68
 	private DateTime <Date>k__BackingField; // 0x60
-	[CompilerGeneratedAttribute] // RVA: 0xCB3F30 Offset: 0xCB3F30 VA: 0xCB3F30
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3F30 Offset: 0xCB3F30 VA: 0xCB3F30
+	[CompilerGeneratedAttribute] // RVA: 0xC47EA4 Offset: 0xC47EA4 VA: 0xC47EA4
+	[DebuggerBrowsableAttribute] // RVA: 0xC47EA4 Offset: 0xC47EA4 VA: 0xC47EA4
 	private bool <MustRevalidate>k__BackingField; // 0x70
-	[CompilerGeneratedAttribute] // RVA: 0xCB3F6C Offset: 0xCB3F6C VA: 0xCB3F6C
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3F6C Offset: 0xCB3F6C VA: 0xCB3F6C
+	[CompilerGeneratedAttribute] // RVA: 0xC47EE0 Offset: 0xC47EE0 VA: 0xC47EE0
+	[DebuggerBrowsableAttribute] // RVA: 0xC47EE0 Offset: 0xC47EE0 VA: 0xC47EE0
 	private DateTime <Received>k__BackingField; // 0x78
-	[CompilerGeneratedAttribute] // RVA: 0xCB3FA8 Offset: 0xCB3FA8 VA: 0xCB3FA8
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3FA8 Offset: 0xCB3FA8 VA: 0xCB3FA8
+	[CompilerGeneratedAttribute] // RVA: 0xC47F1C Offset: 0xC47F1C VA: 0xC47F1C
+	[DebuggerBrowsableAttribute] // RVA: 0xC47F1C Offset: 0xC47F1C VA: 0xC47F1C
 	private string <ConstructedPath>k__BackingField; // 0x88
-	[CompilerGeneratedAttribute] // RVA: 0xCB3FE4 Offset: 0xCB3FE4 VA: 0xCB3FE4
-	[DebuggerBrowsableAttribute] // RVA: 0xCB3FE4 Offset: 0xCB3FE4 VA: 0xCB3FE4
+	[CompilerGeneratedAttribute] // RVA: 0xC47F58 Offset: 0xC47F58 VA: 0xC47F58
+	[DebuggerBrowsableAttribute] // RVA: 0xC47F58 Offset: 0xC47F58 VA: 0xC47F58
 	private ulong <MappedNameIDX>k__BackingField; // 0x90
 
 	// Properties
@@ -436,156 +558,156 @@ internal class HTTPCacheFileInfo : IComparable<HTTPCacheFileInfo> // TypeDefInde
 
 	// Methods
 
-	// RVA: 0x1AEFE60 Offset: 0x1AEFE60 VA: 0x1AEFE60
+	// RVA: 0x157AE60 Offset: 0x157AE60 VA: 0x157AE60
 	internal void .ctor(Uri uri) { }
 
-	// RVA: 0x1AEFEE8 Offset: 0x1AEFEE8 VA: 0x1AEFEE8
+	// RVA: 0x157AEE8 Offset: 0x157AEE8 VA: 0x157AEE8
 	internal void .ctor(Uri uri, DateTime lastAcces, int bodyLength) { }
 
-	// RVA: 0x1AEFFBC Offset: 0x1AEFFBC VA: 0x1AEFFBC
+	// RVA: 0x157AFBC Offset: 0x157AFBC VA: 0x157AFBC
 	internal void .ctor(Uri uri, BinaryReader reader, int version) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD334F8 Offset: 0xD334F8 VA: 0xD334F8
-	// RVA: 0x1AF01F8 Offset: 0x1AF01F8 VA: 0x1AF01F8
+	[CompilerGeneratedAttribute] // RVA: 0xCC5E24 Offset: 0xCC5E24 VA: 0xCC5E24
+	// RVA: 0x157B1F8 Offset: 0x157B1F8 VA: 0x157B1F8
 	internal Uri get_Uri() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33508 Offset: 0xD33508 VA: 0xD33508
-	// RVA: 0x1AEFF94 Offset: 0x1AEFF94 VA: 0x1AEFF94
+	[CompilerGeneratedAttribute] // RVA: 0xCC5E34 Offset: 0xCC5E34 VA: 0xCC5E34
+	// RVA: 0x157AF94 Offset: 0x157AF94 VA: 0x157AF94
 	internal void set_Uri(Uri value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33518 Offset: 0xD33518 VA: 0xD33518
-	// RVA: 0x1AF0200 Offset: 0x1AF0200 VA: 0x1AF0200
+	[CompilerGeneratedAttribute] // RVA: 0xCC5E44 Offset: 0xCC5E44 VA: 0xCC5E44
+	// RVA: 0x157B200 Offset: 0x157B200 VA: 0x157B200
 	internal DateTime get_LastAccess() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33528 Offset: 0xD33528 VA: 0xD33528
-	// RVA: 0x1AEFF9C Offset: 0x1AEFF9C VA: 0x1AEFF9C
+	[CompilerGeneratedAttribute] // RVA: 0xCC5E54 Offset: 0xCC5E54 VA: 0xCC5E54
+	// RVA: 0x157AF9C Offset: 0x157AF9C VA: 0x157AF9C
 	internal void set_LastAccess(DateTime value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33538 Offset: 0xD33538 VA: 0xD33538
-	// RVA: 0x1AF020C Offset: 0x1AF020C VA: 0x1AF020C
+	[CompilerGeneratedAttribute] // RVA: 0xCC5E64 Offset: 0xCC5E64 VA: 0xCC5E64
+	// RVA: 0x157B20C Offset: 0x157B20C VA: 0x157B20C
 	internal int get_BodyLength() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33548 Offset: 0xD33548 VA: 0xD33548
-	// RVA: 0x1AEFFA4 Offset: 0x1AEFFA4 VA: 0x1AEFFA4
+	[CompilerGeneratedAttribute] // RVA: 0xCC5E74 Offset: 0xCC5E74 VA: 0xCC5E74
+	// RVA: 0x157AFA4 Offset: 0x157AFA4 VA: 0x157AFA4
 	internal void set_BodyLength(int value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33558 Offset: 0xD33558 VA: 0xD33558
-	// RVA: 0x1AF0214 Offset: 0x1AF0214 VA: 0x1AF0214
+	[CompilerGeneratedAttribute] // RVA: 0xCC5E84 Offset: 0xCC5E84 VA: 0xCC5E84
+	// RVA: 0x157B214 Offset: 0x157B214 VA: 0x157B214
 	private string get_ETag() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33568 Offset: 0xD33568 VA: 0xD33568
-	// RVA: 0x1AF01BC Offset: 0x1AF01BC VA: 0x1AF01BC
+	[CompilerGeneratedAttribute] // RVA: 0xCC5E94 Offset: 0xCC5E94 VA: 0xCC5E94
+	// RVA: 0x157B1BC Offset: 0x157B1BC VA: 0x157B1BC
 	private void set_ETag(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33578 Offset: 0xD33578 VA: 0xD33578
-	// RVA: 0x1AF021C Offset: 0x1AF021C VA: 0x1AF021C
+	[CompilerGeneratedAttribute] // RVA: 0xCC5EA4 Offset: 0xCC5EA4 VA: 0xCC5EA4
+	// RVA: 0x157B21C Offset: 0x157B21C VA: 0x157B21C
 	private string get_LastModified() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33588 Offset: 0xD33588 VA: 0xD33588
-	// RVA: 0x1AF01C4 Offset: 0x1AF01C4 VA: 0x1AF01C4
+	[CompilerGeneratedAttribute] // RVA: 0xCC5EB4 Offset: 0xCC5EB4 VA: 0xCC5EB4
+	// RVA: 0x157B1C4 Offset: 0x157B1C4 VA: 0x157B1C4
 	private void set_LastModified(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33598 Offset: 0xD33598 VA: 0xD33598
-	// RVA: 0x1AF0224 Offset: 0x1AF0224 VA: 0x1AF0224
+	[CompilerGeneratedAttribute] // RVA: 0xCC5EC4 Offset: 0xCC5EC4 VA: 0xCC5EC4
+	// RVA: 0x157B224 Offset: 0x157B224 VA: 0x157B224
 	private DateTime get_Expires() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD335A8 Offset: 0xD335A8 VA: 0xD335A8
-	// RVA: 0x1AF01CC Offset: 0x1AF01CC VA: 0x1AF01CC
+	[CompilerGeneratedAttribute] // RVA: 0xCC5ED4 Offset: 0xCC5ED4 VA: 0xCC5ED4
+	// RVA: 0x157B1CC Offset: 0x157B1CC VA: 0x157B1CC
 	private void set_Expires(DateTime value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD335B8 Offset: 0xD335B8 VA: 0xD335B8
-	// RVA: 0x1AF0230 Offset: 0x1AF0230 VA: 0x1AF0230
+	[CompilerGeneratedAttribute] // RVA: 0xCC5EE4 Offset: 0xCC5EE4 VA: 0xCC5EE4
+	// RVA: 0x157B230 Offset: 0x157B230 VA: 0x157B230
 	private long get_Age() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD335C8 Offset: 0xD335C8 VA: 0xD335C8
-	// RVA: 0x1AF01D4 Offset: 0x1AF01D4 VA: 0x1AF01D4
+	[CompilerGeneratedAttribute] // RVA: 0xCC5EF4 Offset: 0xCC5EF4 VA: 0xCC5EF4
+	// RVA: 0x157B1D4 Offset: 0x157B1D4 VA: 0x157B1D4
 	private void set_Age(long value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD335D8 Offset: 0xD335D8 VA: 0xD335D8
-	// RVA: 0x1AF0238 Offset: 0x1AF0238 VA: 0x1AF0238
+	[CompilerGeneratedAttribute] // RVA: 0xCC5F04 Offset: 0xCC5F04 VA: 0xCC5F04
+	// RVA: 0x157B238 Offset: 0x157B238 VA: 0x157B238
 	private long get_MaxAge() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD335E8 Offset: 0xD335E8 VA: 0xD335E8
-	// RVA: 0x1AEFFAC Offset: 0x1AEFFAC VA: 0x1AEFFAC
+	[CompilerGeneratedAttribute] // RVA: 0xCC5F14 Offset: 0xCC5F14 VA: 0xCC5F14
+	// RVA: 0x157AFAC Offset: 0x157AFAC VA: 0x157AFAC
 	private void set_MaxAge(long value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD335F8 Offset: 0xD335F8 VA: 0xD335F8
-	// RVA: 0x1AF0240 Offset: 0x1AF0240 VA: 0x1AF0240
+	[CompilerGeneratedAttribute] // RVA: 0xCC5F24 Offset: 0xCC5F24 VA: 0xCC5F24
+	// RVA: 0x157B240 Offset: 0x157B240 VA: 0x157B240
 	private DateTime get_Date() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33608 Offset: 0xD33608 VA: 0xD33608
-	// RVA: 0x1AF01DC Offset: 0x1AF01DC VA: 0x1AF01DC
+	[CompilerGeneratedAttribute] // RVA: 0xCC5F34 Offset: 0xCC5F34 VA: 0xCC5F34
+	// RVA: 0x157B1DC Offset: 0x157B1DC VA: 0x157B1DC
 	private void set_Date(DateTime value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33618 Offset: 0xD33618 VA: 0xD33618
-	// RVA: 0x1AF024C Offset: 0x1AF024C VA: 0x1AF024C
+	[CompilerGeneratedAttribute] // RVA: 0xCC5F44 Offset: 0xCC5F44 VA: 0xCC5F44
+	// RVA: 0x157B24C Offset: 0x157B24C VA: 0x157B24C
 	private bool get_MustRevalidate() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33628 Offset: 0xD33628 VA: 0xD33628
-	// RVA: 0x1AF01E4 Offset: 0x1AF01E4 VA: 0x1AF01E4
+	[CompilerGeneratedAttribute] // RVA: 0xCC5F54 Offset: 0xCC5F54 VA: 0xCC5F54
+	// RVA: 0x157B1E4 Offset: 0x157B1E4 VA: 0x157B1E4
 	private void set_MustRevalidate(bool value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33638 Offset: 0xD33638 VA: 0xD33638
-	// RVA: 0x1AF0254 Offset: 0x1AF0254 VA: 0x1AF0254
+	[CompilerGeneratedAttribute] // RVA: 0xCC5F64 Offset: 0xCC5F64 VA: 0xCC5F64
+	// RVA: 0x157B254 Offset: 0x157B254 VA: 0x157B254
 	private DateTime get_Received() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33648 Offset: 0xD33648 VA: 0xD33648
-	// RVA: 0x1AF01F0 Offset: 0x1AF01F0 VA: 0x1AF01F0
+	[CompilerGeneratedAttribute] // RVA: 0xCC5F74 Offset: 0xCC5F74 VA: 0xCC5F74
+	// RVA: 0x157B1F0 Offset: 0x157B1F0 VA: 0x157B1F0
 	private void set_Received(DateTime value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33658 Offset: 0xD33658 VA: 0xD33658
-	// RVA: 0x1AF0260 Offset: 0x1AF0260 VA: 0x1AF0260
+	[CompilerGeneratedAttribute] // RVA: 0xCC5F84 Offset: 0xCC5F84 VA: 0xCC5F84
+	// RVA: 0x157B260 Offset: 0x157B260 VA: 0x157B260
 	private string get_ConstructedPath() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33668 Offset: 0xD33668 VA: 0xD33668
-	// RVA: 0x1AF0268 Offset: 0x1AF0268 VA: 0x1AF0268
+	[CompilerGeneratedAttribute] // RVA: 0xCC5F94 Offset: 0xCC5F94 VA: 0xCC5F94
+	// RVA: 0x157B268 Offset: 0x157B268 VA: 0x157B268
 	private void set_ConstructedPath(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33678 Offset: 0xD33678 VA: 0xD33678
-	// RVA: 0x1AF0270 Offset: 0x1AF0270 VA: 0x1AF0270
+	[CompilerGeneratedAttribute] // RVA: 0xCC5FA4 Offset: 0xCC5FA4 VA: 0xCC5FA4
+	// RVA: 0x157B270 Offset: 0x157B270 VA: 0x157B270
 	internal ulong get_MappedNameIDX() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33688 Offset: 0xD33688 VA: 0xD33688
-	// RVA: 0x1AEFFB4 Offset: 0x1AEFFB4 VA: 0x1AEFFB4
+	[CompilerGeneratedAttribute] // RVA: 0xCC5FB4 Offset: 0xCC5FB4 VA: 0xCC5FB4
+	// RVA: 0x157AFB4 Offset: 0x157AFB4 VA: 0x157AFB4
 	internal void set_MappedNameIDX(ulong value) { }
 
-	// RVA: 0x1AF0278 Offset: 0x1AF0278 VA: 0x1AF0278
+	// RVA: 0x157B278 Offset: 0x157B278 VA: 0x157B278
 	internal void SaveTo(BinaryWriter writer) { }
 
-	// RVA: 0x1AF04BC Offset: 0x1AF04BC VA: 0x1AF04BC
+	// RVA: 0x157B4BC Offset: 0x157B4BC VA: 0x157B4BC
 	private string GetPath() { }
 
-	// RVA: 0x1AF0598 Offset: 0x1AF0598 VA: 0x1AF0598
+	// RVA: 0x157B598 Offset: 0x157B598 VA: 0x157B598
 	internal bool IsExists() { }
 
-	// RVA: 0x1AF0620 Offset: 0x1AF0620 VA: 0x1AF0620
+	// RVA: 0x157B620 Offset: 0x157B620 VA: 0x157B620
 	internal void Delete() { }
 
-	// RVA: 0x1AF077C Offset: 0x1AF077C VA: 0x1AF077C
+	// RVA: 0x157B77C Offset: 0x157B77C VA: 0x157B77C
 	private void Reset() { }
 
-	// RVA: 0x1AF0868 Offset: 0x1AF0868 VA: 0x1AF0868
+	// RVA: 0x157B868 Offset: 0x157B868 VA: 0x157B868
 	private void SetUpCachingValues(HTTPResponse response) { }
 
-	// RVA: 0x1AF0B98 Offset: 0x1AF0B98 VA: 0x1AF0B98
+	// RVA: 0x157BB98 Offset: 0x157BB98 VA: 0x157BB98
 	internal bool WillExpireInTheFuture() { }
 
-	// RVA: 0x1AF0D20 Offset: 0x1AF0D20 VA: 0x1AF0D20
+	// RVA: 0x157BD20 Offset: 0x157BD20 VA: 0x157BD20
 	internal void SetUpRevalidationHeaders(HTTPRequest request) { }
 
-	// RVA: 0x1AF0E3C Offset: 0x1AF0E3C VA: 0x1AF0E3C
+	// RVA: 0x157BE3C Offset: 0x157BE3C VA: 0x157BE3C
 	internal Stream GetBodyStream(out int length) { }
 
-	// RVA: 0x1AF0F44 Offset: 0x1AF0F44 VA: 0x1AF0F44
+	// RVA: 0x157BF44 Offset: 0x157BF44 VA: 0x157BF44
 	internal HTTPResponse ReadResponseTo(HTTPRequest request) { }
 
-	// RVA: 0x1AF1150 Offset: 0x1AF1150 VA: 0x1AF1150
+	// RVA: 0x157C150 Offset: 0x157C150 VA: 0x157C150
 	internal void Store(HTTPResponse response) { }
 
-	// RVA: 0x1AF1810 Offset: 0x1AF1810 VA: 0x1AF1810
+	// RVA: 0x157C810 Offset: 0x157C810 VA: 0x157C810
 	internal Stream GetSaveStream(HTTPResponse response) { }
 
-	// RVA: 0x1AF1F8C Offset: 0x1AF1F8C VA: 0x1AF1F8C Slot: 4
+	// RVA: 0x157CF8C Offset: 0x157CF8C VA: 0x157CF8C Slot: 4
 	public int CompareTo(HTTPCacheFileInfo other) { }
 }
 
@@ -598,19 +720,19 @@ internal sealed class HTTPCacheFileLock // TypeDefIndex: 4301
 
 	// Methods
 
-	// RVA: 0x1AF1FD4 Offset: 0x1AF1FD4 VA: 0x1AF1FD4
+	// RVA: 0x157CFD4 Offset: 0x157CFD4 VA: 0x157CFD4
 	public void .ctor() { }
 
-	// RVA: 0x1AF1FDC Offset: 0x1AF1FDC VA: 0x1AF1FDC
+	// RVA: 0x157CFDC Offset: 0x157CFDC VA: 0x157CFDC
 	internal static object Acquire(Uri uri) { }
 
-	// RVA: 0x1AF218C Offset: 0x1AF218C VA: 0x1AF218C
+	// RVA: 0x157D18C Offset: 0x157D18C VA: 0x157D18C
 	internal static void Remove(Uri uri) { }
 
-	// RVA: 0x1AF2304 Offset: 0x1AF2304 VA: 0x1AF2304
+	// RVA: 0x157D304 Offset: 0x157D304 VA: 0x157D304
 	internal static void Clear() { }
 
-	// RVA: 0x1AF2414 Offset: 0x1AF2414 VA: 0x1AF2414
+	// RVA: 0x157D414 Offset: 0x157D414 VA: 0x157D414
 	private static void .cctor() { }
 }
 
@@ -618,11 +740,11 @@ internal sealed class HTTPCacheFileLock // TypeDefIndex: 4301
 public sealed class HTTPCacheMaintananceParams // TypeDefIndex: 4302
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCB4020 Offset: 0xCB4020 VA: 0xCB4020
-	[DebuggerBrowsableAttribute] // RVA: 0xCB4020 Offset: 0xCB4020 VA: 0xCB4020
+	[CompilerGeneratedAttribute] // RVA: 0xC47F94 Offset: 0xC47F94 VA: 0xC47F94
+	[DebuggerBrowsableAttribute] // RVA: 0xC47F94 Offset: 0xC47F94 VA: 0xC47F94
 	private TimeSpan <DeleteOlder>k__BackingField; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xCB405C Offset: 0xCB405C VA: 0xCB405C
-	[DebuggerBrowsableAttribute] // RVA: 0xCB405C Offset: 0xCB405C VA: 0xCB405C
+	[CompilerGeneratedAttribute] // RVA: 0xC47FD0 Offset: 0xC47FD0 VA: 0xC47FD0
+	[DebuggerBrowsableAttribute] // RVA: 0xC47FD0 Offset: 0xC47FD0 VA: 0xC47FD0
 	private ulong <MaxCacheSize>k__BackingField; // 0x18
 
 	// Properties
@@ -631,23 +753,23 @@ public sealed class HTTPCacheMaintananceParams // TypeDefIndex: 4302
 
 	// Methods
 
-	// RVA: 0x22F1110 Offset: 0x22F1110 VA: 0x22F1110
+	// RVA: 0x1E67180 Offset: 0x1E67180 VA: 0x1E67180
 	public void .ctor(TimeSpan deleteOlder, ulong maxCacheSize) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33698 Offset: 0xD33698 VA: 0xD33698
-	// RVA: 0x22F1158 Offset: 0x22F1158 VA: 0x22F1158
+	[CompilerGeneratedAttribute] // RVA: 0xCC5FC4 Offset: 0xCC5FC4 VA: 0xCC5FC4
+	// RVA: 0x1E671C8 Offset: 0x1E671C8 VA: 0x1E671C8
 	public TimeSpan get_DeleteOlder() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD336A8 Offset: 0xD336A8 VA: 0xD336A8
-	// RVA: 0x22F1148 Offset: 0x22F1148 VA: 0x22F1148
+	[CompilerGeneratedAttribute] // RVA: 0xCC5FD4 Offset: 0xCC5FD4 VA: 0xCC5FD4
+	// RVA: 0x1E671B8 Offset: 0x1E671B8 VA: 0x1E671B8
 	private void set_DeleteOlder(TimeSpan value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD336B8 Offset: 0xD336B8 VA: 0xD336B8
-	// RVA: 0x22F1160 Offset: 0x22F1160 VA: 0x22F1160
+	[CompilerGeneratedAttribute] // RVA: 0xCC5FE4 Offset: 0xCC5FE4 VA: 0xCC5FE4
+	// RVA: 0x1E671D0 Offset: 0x1E671D0 VA: 0x1E671D0
 	public ulong get_MaxCacheSize() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD336C8 Offset: 0xD336C8 VA: 0xD336C8
-	// RVA: 0x22F1150 Offset: 0x22F1150 VA: 0x22F1150
+	[CompilerGeneratedAttribute] // RVA: 0xCC5FF4 Offset: 0xCC5FF4 VA: 0xCC5FF4
+	// RVA: 0x1E671C0 Offset: 0x1E671C0 VA: 0x1E671C0
 	private void set_MaxCacheSize(ulong value) { }
 }
 
@@ -656,13 +778,13 @@ public sealed class UriComparer : IEqualityComparer<Uri> // TypeDefIndex: 4303
 {
 	// Methods
 
-	// RVA: 0x22F4814 Offset: 0x22F4814 VA: 0x22F4814
+	// RVA: 0x1E6A884 Offset: 0x1E6A884 VA: 0x1E6A884
 	public void .ctor() { }
 
-	// RVA: 0x22F5AE8 Offset: 0x22F5AE8 VA: 0x22F5AE8 Slot: 4
+	// RVA: 0x1E6BB58 Offset: 0x1E6BB58 VA: 0x1E6BB58 Slot: 4
 	public bool Equals(Uri x, Uri y) { }
 
-	// RVA: 0x22F5B78 Offset: 0x22F5B78 VA: 0x22F5B78 Slot: 5
+	// RVA: 0x1E6BBE8 Offset: 0x1E6BBE8 VA: 0x1E6BBE8 Slot: 5
 	public int GetHashCode(Uri uri) { }
 }
 
@@ -675,20 +797,20 @@ public static class HTTPCacheService // TypeDefIndex: 4304
 	private static bool IsSupportCheckDone; // 0x1
 	private static Dictionary<Uri, HTTPCacheFileInfo> library; // 0x8
 	private static Dictionary<ulong, HTTPCacheFileInfo> UsedIndexes; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xCB4098 Offset: 0xCB4098 VA: 0xCB4098
-	[DebuggerBrowsableAttribute] // RVA: 0xCB4098 Offset: 0xCB4098 VA: 0xCB4098
+	[CompilerGeneratedAttribute] // RVA: 0xC4800C Offset: 0xC4800C VA: 0xC4800C
+	[DebuggerBrowsableAttribute] // RVA: 0xC4800C Offset: 0xC4800C VA: 0xC4800C
 	private static string <CacheFolder>k__BackingField; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xCB40D4 Offset: 0xCB40D4 VA: 0xCB40D4
-	[DebuggerBrowsableAttribute] // RVA: 0xCB40D4 Offset: 0xCB40D4 VA: 0xCB40D4
+	[CompilerGeneratedAttribute] // RVA: 0xC48048 Offset: 0xC48048 VA: 0xC48048
+	[DebuggerBrowsableAttribute] // RVA: 0xC48048 Offset: 0xC48048 VA: 0xC48048
 	private static string <LibraryPath>k__BackingField; // 0x20
 	private static bool InClearThread; // 0x28
 	private static bool InMaintainenceThread; // 0x29
 	private static ulong NextNameIDX; // 0x30
-	[CompilerGeneratedAttribute] // RVA: 0xCB4110 Offset: 0xCB4110 VA: 0xCB4110
+	[CompilerGeneratedAttribute] // RVA: 0xC48084 Offset: 0xC48084 VA: 0xC48084
 	private static Predicate<string> <>f__am$cache0; // 0x38
-	[CompilerGeneratedAttribute] // RVA: 0xCB4120 Offset: 0xCB4120 VA: 0xCB4120
+	[CompilerGeneratedAttribute] // RVA: 0xC48094 Offset: 0xC48094 VA: 0xC48094
 	private static Predicate<string> <>f__am$cache1; // 0x40
-	[CompilerGeneratedAttribute] // RVA: 0xCB4130 Offset: 0xCB4130 VA: 0xCB4130
+	[CompilerGeneratedAttribute] // RVA: 0xC480A4 Offset: 0xC480A4 VA: 0xC480A4
 	private static WaitCallback <>f__am$cache2; // 0x48
 
 	// Properties
@@ -699,109 +821,109 @@ public static class HTTPCacheService // TypeDefIndex: 4304
 
 	// Methods
 
-	// RVA: 0x22F1168 Offset: 0x22F1168 VA: 0x22F1168
+	// RVA: 0x1E671D8 Offset: 0x1E671D8 VA: 0x1E671D8
 	private static void .cctor() { }
 
-	// RVA: 0x22F11E8 Offset: 0x22F11E8 VA: 0x22F11E8
+	// RVA: 0x1E67258 Offset: 0x1E67258 VA: 0x1E67258
 	public static bool get_IsSupported() { }
 
-	// RVA: 0x22F1520 Offset: 0x22F1520 VA: 0x22F1520
+	// RVA: 0x1E67590 Offset: 0x1E67590 VA: 0x1E67590
 	private static Dictionary<Uri, HTTPCacheFileInfo> get_Library() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD336D8 Offset: 0xD336D8 VA: 0xD336D8
-	// RVA: 0x22F1D0C Offset: 0x22F1D0C VA: 0x22F1D0C
+	[CompilerGeneratedAttribute] // RVA: 0xCC6004 Offset: 0xCC6004 VA: 0xCC6004
+	// RVA: 0x1E67D7C Offset: 0x1E67D7C VA: 0x1E67D7C
 	internal static string get_CacheFolder() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD336E8 Offset: 0xD336E8 VA: 0xD336E8
-	// RVA: 0x22F1D74 Offset: 0x22F1D74 VA: 0x22F1D74
+	[CompilerGeneratedAttribute] // RVA: 0xCC6014 Offset: 0xCC6014 VA: 0xCC6014
+	// RVA: 0x1E67DE4 Offset: 0x1E67DE4 VA: 0x1E67DE4
 	private static void set_CacheFolder(string value) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD336F8 Offset: 0xD336F8 VA: 0xD336F8
-	// RVA: 0x22F1DE0 Offset: 0x22F1DE0 VA: 0x22F1DE0
+	[CompilerGeneratedAttribute] // RVA: 0xCC6024 Offset: 0xCC6024 VA: 0xCC6024
+	// RVA: 0x1E67E50 Offset: 0x1E67E50 VA: 0x1E67E50
 	private static string get_LibraryPath() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33708 Offset: 0xD33708 VA: 0xD33708
-	// RVA: 0x22F1E48 Offset: 0x22F1E48 VA: 0x22F1E48
+	[CompilerGeneratedAttribute] // RVA: 0xCC6034 Offset: 0xCC6034 VA: 0xCC6034
+	// RVA: 0x1E67EB8 Offset: 0x1E67EB8 VA: 0x1E67EB8
 	private static void set_LibraryPath(string value) { }
 
-	// RVA: 0x22F1EB4 Offset: 0x22F1EB4 VA: 0x22F1EB4
+	// RVA: 0x1E67F24 Offset: 0x1E67F24 VA: 0x1E67F24
 	internal static void CheckSetup() { }
 
-	// RVA: 0x22F1FAC Offset: 0x22F1FAC VA: 0x22F1FAC
+	// RVA: 0x1E6801C Offset: 0x1E6801C VA: 0x1E6801C
 	internal static void SetupCacheFolder() { }
 
-	// RVA: 0x22F2360 Offset: 0x22F2360 VA: 0x22F2360
+	// RVA: 0x1E683D0 Offset: 0x1E683D0 VA: 0x1E683D0
 	internal static ulong GetNameIdx() { }
 
-	// RVA: 0x22F24D0 Offset: 0x22F24D0 VA: 0x22F24D0
+	// RVA: 0x1E68540 Offset: 0x1E68540 VA: 0x1E68540
 	internal static bool HasEntity(Uri uri) { }
 
-	// RVA: 0x22F2604 Offset: 0x22F2604 VA: 0x22F2604
+	// RVA: 0x1E68674 Offset: 0x1E68674 VA: 0x1E68674
 	internal static bool DeleteEntity(Uri uri, bool removeFromLibrary = True) { }
 
-	// RVA: 0x22F292C Offset: 0x22F292C VA: 0x22F292C
+	// RVA: 0x1E6899C Offset: 0x1E6899C VA: 0x1E6899C
 	internal static bool IsCachedEntityExpiresInTheFuture(HTTPRequest request) { }
 
-	// RVA: 0x22F2ABC Offset: 0x22F2ABC VA: 0x22F2ABC
+	// RVA: 0x1E68B2C Offset: 0x1E68B2C VA: 0x1E68B2C
 	internal static void SetHeaders(HTTPRequest request) { }
 
-	// RVA: 0x22F2C3C Offset: 0x22F2C3C VA: 0x22F2C3C
+	// RVA: 0x1E68CAC Offset: 0x1E68CAC VA: 0x1E68CAC
 	internal static Stream GetBody(Uri uri, out int length) { }
 
-	// RVA: 0x22F2DB8 Offset: 0x22F2DB8 VA: 0x22F2DB8
+	// RVA: 0x1E68E28 Offset: 0x1E68E28 VA: 0x1E68E28
 	internal static HTTPResponse GetFullResponse(HTTPRequest request) { }
 
-	// RVA: 0x22F2F4C Offset: 0x22F2F4C VA: 0x22F2F4C
+	// RVA: 0x1E68FBC Offset: 0x1E68FBC VA: 0x1E68FBC
 	internal static bool IsCacheble(Uri uri, HTTPMethods method, HTTPResponse response) { }
 
-	// RVA: 0x22F31E0 Offset: 0x22F31E0 VA: 0x22F31E0
+	// RVA: 0x1E69250 Offset: 0x1E69250 VA: 0x1E69250
 	internal static HTTPCacheFileInfo Store(Uri uri, HTTPMethods method, HTTPResponse response) { }
 
-	// RVA: 0x22F3528 Offset: 0x22F3528 VA: 0x22F3528
+	// RVA: 0x1E69598 Offset: 0x1E69598 VA: 0x1E69598
 	internal static Stream PrepareStreamed(Uri uri, HTTPResponse response) { }
 
-	// RVA: 0x22F3838 Offset: 0x22F3838 VA: 0x22F3838
+	// RVA: 0x1E698A8 Offset: 0x1E698A8 VA: 0x1E698A8
 	public static void BeginClear() { }
 
-	// RVA: 0x22F397C Offset: 0x22F397C VA: 0x22F397C
+	// RVA: 0x1E699EC Offset: 0x1E699EC VA: 0x1E699EC
 	private static void ClearImpl(object param) { }
 
-	// RVA: 0x22F42B0 Offset: 0x22F42B0 VA: 0x22F42B0
+	// RVA: 0x1E6A320 Offset: 0x1E6A320 VA: 0x1E6A320
 	public static void BeginMaintainence(HTTPCacheMaintananceParams maintananceParam) { }
 
-	// RVA: 0x22F4448 Offset: 0x22F4448 VA: 0x22F4448
+	// RVA: 0x1E6A4B8 Offset: 0x1E6A4B8 VA: 0x1E6A4B8
 	public static int GetCacheEntityCount() { }
 
-	// RVA: 0x22F4570 Offset: 0x22F4570 VA: 0x22F4570
+	// RVA: 0x1E6A5E0 Offset: 0x1E6A5E0 VA: 0x1E6A5E0
 	public static ulong GetCacheSize() { }
 
-	// RVA: 0x22F158C Offset: 0x22F158C VA: 0x22F158C
+	// RVA: 0x1E675FC Offset: 0x1E675FC VA: 0x1E675FC
 	private static void LoadLibrary() { }
 
-	// RVA: 0x22F3C04 Offset: 0x22F3C04 VA: 0x22F3C04
+	// RVA: 0x1E69C74 Offset: 0x1E69C74 VA: 0x1E69C74
 	internal static void SaveLibrary() { }
 
-	// RVA: 0x22F4B68 Offset: 0x22F4B68 VA: 0x22F4B68
+	// RVA: 0x1E6ABD8 Offset: 0x1E6ABD8 VA: 0x1E6ABD8
 	internal static void SetBodyLength(Uri uri, int bodyLength) { }
 
-	// RVA: 0x22F481C Offset: 0x22F481C VA: 0x22F481C
+	// RVA: 0x1E6A88C Offset: 0x1E6A88C VA: 0x1E6A88C
 	private static void DeleteUnusedFiles() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33718 Offset: 0xD33718 VA: 0xD33718
-	// RVA: 0x22F4DFC Offset: 0x22F4DFC VA: 0x22F4DFC
+	[CompilerGeneratedAttribute] // RVA: 0xCC6044 Offset: 0xCC6044 VA: 0xCC6044
+	// RVA: 0x1E6AE6C Offset: 0x1E6AE6C VA: 0x1E6AE6C
 	private static bool <IsCacheble>m__0(string headerValue) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33728 Offset: 0xD33728 VA: 0xD33728
-	// RVA: 0x22F4EAC Offset: 0x22F4EAC VA: 0x22F4EAC
+	[CompilerGeneratedAttribute] // RVA: 0xCC6054 Offset: 0xCC6054 VA: 0xCC6054
+	// RVA: 0x1E6AF1C Offset: 0x1E6AF1C VA: 0x1E6AF1C
 	private static bool <IsCacheble>m__1(string headerValue) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD33738 Offset: 0xD33738 VA: 0xD33738
-	// RVA: 0x22F4F5C Offset: 0x22F4F5C VA: 0x22F4F5C
+	[CompilerGeneratedAttribute] // RVA: 0xCC6064 Offset: 0xCC6064 VA: 0xCC6064
+	// RVA: 0x1E6AFCC Offset: 0x1E6AFCC VA: 0x1E6AFCC
 	private static void <BeginClear>m__2(object param) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAD9C0 Offset: 0xCAD9C0 VA: 0xCAD9C0
+[CompilerGeneratedAttribute] // RVA: 0xC41924 Offset: 0xC41924 VA: 0xC41924
 private sealed class HTTPCacheService.<BeginMaintainence>c__AnonStorey0 // TypeDefIndex: 4305
 {
 	// Fields
@@ -809,10 +931,10 @@ private sealed class HTTPCacheService.<BeginMaintainence>c__AnonStorey0 // TypeD
 
 	// Methods
 
-	// RVA: 0x22F4440 Offset: 0x22F4440 VA: 0x22F4440
+	// RVA: 0x1E6A4B0 Offset: 0x1E6A4B0 VA: 0x1E6A4B0
 	public void .ctor() { }
 
-	// RVA: 0x22F4FB8 Offset: 0x22F4FB8 VA: 0x22F4FB8
+	// RVA: 0x1E6B028 Offset: 0x1E6B028 VA: 0x1E6B028
 	internal void <>m__0(object param) { }
 }
 
@@ -821,16 +943,16 @@ internal sealed class HTTPConnectionRecycledDelegate : MulticastDelegate // Type
 {
 	// Methods
 
-	// RVA: 0x22374DC Offset: 0x22374DC VA: 0x22374DC
+	// RVA: 0x1CAABB0 Offset: 0x1CAABB0 VA: 0x1CAABB0
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x22374EC Offset: 0x22374EC VA: 0x22374EC Slot: 11
+	// RVA: 0x1CAABC0 Offset: 0x1CAABC0 VA: 0x1CAABC0 Slot: 11
 	public virtual void Invoke(ConnectionBase conn) { }
 
-	// RVA: 0x223788C Offset: 0x223788C VA: 0x223788C Slot: 12
+	// RVA: 0x1CAAF60 Offset: 0x1CAAF60 VA: 0x1CAAF60 Slot: 12
 	public virtual IAsyncResult BeginInvoke(ConnectionBase conn, AsyncCallback callback, object object) { }
 
-	// RVA: 0x22378B0 Offset: 0x22378B0 VA: 0x22378B0 Slot: 13
+	// RVA: 0x1CAAF84 Offset: 0x1CAAF84 VA: 0x1CAAF84 Slot: 13
 	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
@@ -838,32 +960,32 @@ internal sealed class HTTPConnectionRecycledDelegate : MulticastDelegate // Type
 internal abstract class ConnectionBase : IDisposable // TypeDefIndex: 4307
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCB4140 Offset: 0xCB4140 VA: 0xCB4140
-	[DebuggerBrowsableAttribute] // RVA: 0xCB4140 Offset: 0xCB4140 VA: 0xCB4140
+	[CompilerGeneratedAttribute] // RVA: 0xC480B4 Offset: 0xC480B4 VA: 0xC480B4
+	[DebuggerBrowsableAttribute] // RVA: 0xC480B4 Offset: 0xC480B4 VA: 0xC480B4
 	private string <ServerAddress>k__BackingField; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xCB417C Offset: 0xCB417C VA: 0xCB417C
-	[DebuggerBrowsableAttribute] // RVA: 0xCB417C Offset: 0xCB417C VA: 0xCB417C
+	[CompilerGeneratedAttribute] // RVA: 0xC480F0 Offset: 0xC480F0 VA: 0xC480F0
+	[DebuggerBrowsableAttribute] // RVA: 0xC480F0 Offset: 0xC480F0 VA: 0xC480F0
 	private HTTPConnectionStates <State>k__BackingField; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xCB41B8 Offset: 0xCB41B8 VA: 0xCB41B8
-	[DebuggerBrowsableAttribute] // RVA: 0xCB41B8 Offset: 0xCB41B8 VA: 0xCB41B8
+	[CompilerGeneratedAttribute] // RVA: 0xC4812C Offset: 0xC4812C VA: 0xC4812C
+	[DebuggerBrowsableAttribute] // RVA: 0xC4812C Offset: 0xC4812C VA: 0xC4812C
 	private HTTPRequest <CurrentRequest>k__BackingField; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xCB41F4 Offset: 0xCB41F4 VA: 0xCB41F4
-	[DebuggerBrowsableAttribute] // RVA: 0xCB41F4 Offset: 0xCB41F4 VA: 0xCB41F4
+	[CompilerGeneratedAttribute] // RVA: 0xC48168 Offset: 0xC48168 VA: 0xC48168
+	[DebuggerBrowsableAttribute] // RVA: 0xC48168 Offset: 0xC48168 VA: 0xC48168
 	private DateTime <StartTime>k__BackingField; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xCB4230 Offset: 0xCB4230 VA: 0xCB4230
-	[DebuggerBrowsableAttribute] // RVA: 0xCB4230 Offset: 0xCB4230 VA: 0xCB4230
+	[CompilerGeneratedAttribute] // RVA: 0xC481A4 Offset: 0xC481A4 VA: 0xC481A4
+	[DebuggerBrowsableAttribute] // RVA: 0xC481A4 Offset: 0xC481A4 VA: 0xC481A4
 	private DateTime <TimedOutStart>k__BackingField; // 0x38
-	[CompilerGeneratedAttribute] // RVA: 0xCB426C Offset: 0xCB426C VA: 0xCB426C
-	[DebuggerBrowsableAttribute] // RVA: 0xCB426C Offset: 0xCB426C VA: 0xCB426C
+	[CompilerGeneratedAttribute] // RVA: 0xC481E0 Offset: 0xC481E0 VA: 0xC481E0
+	[DebuggerBrowsableAttribute] // RVA: 0xC481E0 Offset: 0xC481E0 VA: 0xC481E0
 	private HTTPProxy <Proxy>k__BackingField; // 0x48
-	[CompilerGeneratedAttribute] // RVA: 0xCB42A8 Offset: 0xCB42A8 VA: 0xCB42A8
-	[DebuggerBrowsableAttribute] // RVA: 0xCB42A8 Offset: 0xCB42A8 VA: 0xCB42A8
+	[CompilerGeneratedAttribute] // RVA: 0xC4821C Offset: 0xC4821C VA: 0xC4821C
+	[DebuggerBrowsableAttribute] // RVA: 0xC4821C Offset: 0xC4821C VA: 0xC4821C
 	private Uri <LastProcessedUri>k__BackingField; // 0x50
 	protected DateTime LastProcessTime; // 0x58
 	protected HTTPConnectionRecycledDelegate OnConnectionRecycled; // 0x68
 	private bool IsThreaded; // 0x70
-	[CompilerGeneratedAttribute] // RVA: 0xCB42E4 Offset: 0xCB42E4 VA: 0xCB42E4
-	[DebuggerBrowsableAttribute] // RVA: 0xCB42E4 Offset: 0xCB42E4 VA: 0xCB42E4
+	[CompilerGeneratedAttribute] // RVA: 0xC48258 Offset: 0xC48258 VA: 0xC48258
+	[DebuggerBrowsableAttribute] // RVA: 0xC48258 Offset: 0xC48258 VA: 0xC48258
 	private bool <IsDisposed>k__BackingField; // 0x71
 
 	// Properties
@@ -876,125 +998,3 @@ internal abstract class ConnectionBase : IDisposable // TypeDefIndex: 4307
 	public DateTime StartTime { get; set; }
 	public DateTime TimedOutStart { get; set; }
 	protected HTTPProxy Proxy { get; set; }
-	public bool HasProxy { get; }
-	public Uri LastProcessedUri { get; set; }
-	protected bool IsDisposed { get; set; }
-
-	// Methods
-
-	// RVA: 0x22F5BC8 Offset: 0x22F5BC8 VA: 0x22F5BC8
-	public void .ctor(string serverAddress) { }
-
-	// RVA: 0x22F5BD0 Offset: 0x22F5BD0 VA: 0x22F5BD0
-	public void .ctor(string serverAddress, bool threaded) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD33748 Offset: 0xD33748 VA: 0xD33748
-	// RVA: 0x22F5C78 Offset: 0x22F5C78 VA: 0x22F5C78
-	public string get_ServerAddress() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD33758 Offset: 0xD33758 VA: 0xD33758
-	// RVA: 0x22F5C68 Offset: 0x22F5C68 VA: 0x22F5C68
-	protected void set_ServerAddress(string value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD33768 Offset: 0xD33768 VA: 0xD33768
-	// RVA: 0x22F5C80 Offset: 0x22F5C80 VA: 0x22F5C80
-	public HTTPConnectionStates get_State() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD33778 Offset: 0xD33778 VA: 0xD33778
-	// RVA: 0x22F5C70 Offset: 0x22F5C70 VA: 0x22F5C70
-	protected void set_State(HTTPConnectionStates value) { }
-
-	// RVA: 0x22F5C88 Offset: 0x22F5C88 VA: 0x22F5C88
-	public bool get_IsFree() { }
-
-	// RVA: 0x22F5CA4 Offset: 0x22F5CA4 VA: 0x22F5CA4
-	public bool get_IsActive() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD33788 Offset: 0xD33788 VA: 0xD33788
-	// RVA: 0x22F5CB8 Offset: 0x22F5CB8 VA: 0x22F5CB8
-	public HTTPRequest get_CurrentRequest() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD33798 Offset: 0xD33798 VA: 0xD33798
-	// RVA: 0x22F5CC0 Offset: 0x22F5CC0 VA: 0x22F5CC0
-	protected void set_CurrentRequest(HTTPRequest value) { }
-
-	// RVA: 0x22F5CC8 Offset: 0x22F5CC8 VA: 0x22F5CC8 Slot: 5
-	public virtual bool get_IsRemovable() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD337A8 Offset: 0xD337A8 VA: 0xD337A8
-	// RVA: 0x22F5DC0 Offset: 0x22F5DC0 VA: 0x22F5DC0
-	public DateTime get_StartTime() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD337B8 Offset: 0xD337B8 VA: 0xD337B8
-	// RVA: 0x22F5DCC Offset: 0x22F5DCC VA: 0x22F5DCC
-	protected void set_StartTime(DateTime value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD337C8 Offset: 0xD337C8 VA: 0xD337C8
-	// RVA: 0x22F5DD4 Offset: 0x22F5DD4 VA: 0x22F5DD4
-	public DateTime get_TimedOutStart() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD337D8 Offset: 0xD337D8 VA: 0xD337D8
-	// RVA: 0x22F5DE0 Offset: 0x22F5DE0 VA: 0x22F5DE0
-	protected void set_TimedOutStart(DateTime value) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD337E8 Offset: 0xD337E8 VA: 0xD337E8
-	// RVA: 0x22F5DE8 Offset: 0x22F5DE8 VA: 0x22F5DE8
-	protected HTTPProxy get_Proxy() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD337F8 Offset: 0xD337F8 VA: 0xD337F8
-	// RVA: 0x22F5DF0 Offset: 0x22F5DF0 VA: 0x22F5DF0
-	protected void set_Proxy(HTTPProxy value) { }
-
-	// RVA: 0x22F5DF8 Offset: 0x22F5DF8 VA: 0x22F5DF8
-	public bool get_HasProxy() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD33808 Offset: 0xD33808 VA: 0xD33808
-	// RVA: 0x22F5E08 Offset: 0x22F5E08 VA: 0x22F5E08
-	public Uri get_LastProcessedUri() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD33818 Offset: 0xD33818 VA: 0xD33818
-	// RVA: 0x22F5E10 Offset: 0x22F5E10 VA: 0x22F5E10
-	protected void set_LastProcessedUri(Uri value) { }
-
-	// RVA: -1 Offset: -1 Slot: 6
-	internal abstract void Abort(HTTPConnectionStates hTTPConnectionStates);
-
-	// RVA: 0x22F5E18 Offset: 0x22F5E18 VA: 0x22F5E18
-	internal void Process(HTTPRequest request) { }
-
-	// RVA: 0x22F5F48 Offset: 0x22F5F48 VA: 0x22F5F48 Slot: 7
-	protected virtual void ThreadFunc(object param) { }
-
-	// RVA: 0x22F5F4C Offset: 0x22F5F4C VA: 0x22F5F4C
-	internal void HandleProgressCallback() { }
-
-	// RVA: 0x22F63F0 Offset: 0x22F63F0 VA: 0x22F63F0
-	internal void HandleCallback() { }
-
-	// RVA: 0x22F6630 Offset: 0x22F6630 VA: 0x22F6630
-	internal void Recycle(HTTPConnectionRecycledDelegate onConnectionRecycled) { }
-
-	// RVA: 0x22F6654 Offset: 0x22F6654 VA: 0x22F6654
-	protected void RecycleNow() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD33828 Offset: 0xD33828 VA: 0xD33828
-	// RVA: 0x22F66F8 Offset: 0x22F66F8 VA: 0x22F66F8
-	protected bool get_IsDisposed() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD33838 Offset: 0xD33838 VA: 0xD33838
-	// RVA: 0x22F6700 Offset: 0x22F6700 VA: 0x22F6700
-	private void set_IsDisposed(bool value) { }
-
-	// RVA: 0x22F670C Offset: 0x22F670C VA: 0x22F670C Slot: 4
-	public void Dispose() { }
-
-	// RVA: 0x22F6740 Offset: 0x22F6740 VA: 0x22F6740 Slot: 8
-	protected virtual void Dispose(bool disposing) { }
-}
-
-// Namespace: BestHTTP
-internal sealed class StreamList : Stream // TypeDefIndex: 4308
-{
-	// Fields
-	private Stream[] Streams; // 0x10
-	private int CurrentIdx; // 0x18

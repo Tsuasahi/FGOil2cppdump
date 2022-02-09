@@ -1,51 +1,832 @@
-	// RVA: 0x199F868 Offset: 0x199F868 VA: 0x199F868
+	public int questType; // 0x1C
+
+	// Methods
+
+	// RVA: 0x1539F70 Offset: 0x1539F70 VA: 0x1539F70
+	public void .ctor() { }
+
+	// RVA: 0x1539FC0 Offset: 0x1539FC0 VA: 0x1539FC0 Slot: 5
+	protected sealed override string CreatePrimaryKey() { }
+
+	// RVA: 0x1539FD4 Offset: 0x1539FD4 VA: 0x1539FD4
+	public static string CreatePK(int id, int warId, int questAfterClear, int questType) { }
+}
+
+// Namespace: 
+public class WarGroupMaster : DataMasterBase<WarGroupMaster, WarGroupEntity, string> // TypeDefIndex: 7619
+{
+	// Methods
+
+	// RVA: 0x1539FEC Offset: 0x1539FEC VA: 0x1539FEC
+	public void .ctor() { }
+
+	// RVA: 0x153A040 Offset: 0x153A040 VA: 0x153A040
+	public WarGroupEntity GetEntity(int id, int warId, int questAfterClear, int questType) { }
+
+	// RVA: 0x153A0CC Offset: 0x153A0CC VA: 0x153A0CC
+	public bool TryGetEntity(out WarGroupEntity entity, int id, int warId, int questAfterClear, int questType) { }
+
+	// RVA: 0x153A168 Offset: 0x153A168 VA: 0x153A168
+	public bool CanUseContinueItem(int warId, int questAfterClear, int questType, int[] targetIds) { }
+
+	// RVA: 0x153A304 Offset: 0x153A304 VA: 0x153A304
+	public bool HasEntity(int warId, int questAfterClear, int questType, int[] targetIds) { }
+}
+
+// Namespace: 
+public class WarMaster : DataMasterBase<WarMaster, WarEntity, int> // TypeDefIndex: 7620
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xC560EC Offset: 0xC560EC VA: 0xC560EC
+	private static Func<DataEntityBase, WarEntity> <>f__am$cache0; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC560FC Offset: 0xC560FC VA: 0xC560FC
+	private static Comparison<WarEntity> <>f__am$cache1; // 0x8
+
+	// Methods
+
+	// RVA: 0x153A3C0 Offset: 0x153A3C0 VA: 0x153A3C0
+	public void .ctor() { }
+
+	// RVA: 0x153A414 Offset: 0x153A414 VA: 0x153A414
+	public List<WarEntity> GetEntityList() { }
+
+	// RVA: 0x153A4E4 Offset: 0x153A4E4 VA: 0x153A4E4
+	public WarEntity getByLastQuestId(int last_quest_id) { }
+
+	// RVA: 0x153A5F0 Offset: 0x153A5F0 VA: 0x153A5F0
+	public WarEntity getByEventId(int event_id) { }
+
+	// RVA: 0x153A6FC Offset: 0x153A6FC VA: 0x153A6FC
+	public static int getEventID(int warId) { }
+
+	// RVA: 0x153A7A4 Offset: 0x153A7A4 VA: 0x153A7A4
+	public WarEntity[] getPrioredWarEntsWithIds(List<int> ids) { }
+
+	// RVA: 0x153AA00 Offset: 0x153AA00 VA: 0x153AA00
+	public int[] getClearWarIdList() { }
+
+	// RVA: 0x153ABF4 Offset: 0x153ABF4 VA: 0x153ABF4
+	public static bool IsLastQuest(int warId, int questId) { }
+
+	// RVA: 0x153ACC8 Offset: 0x153ACC8 VA: 0x153ACC8
+	public bool IsClearAllMainScenario() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCAB08 Offset: 0xCCAB08 VA: 0xCCAB08
+	// RVA: 0x153AE4C Offset: 0x153AE4C VA: 0x153AE4C
+	private static WarEntity <GetEntityList>m__0(DataEntityBase data) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCCAB18 Offset: 0xCCAB18 VA: 0xCCAB18
+	// RVA: 0x153AECC Offset: 0x153AECC VA: 0x153AECC
+	private static int <getPrioredWarEntsWithIds>m__1(WarEntity a, WarEntity b) { }
+}
+
+// Namespace: 
+public class MaterialBranchRouteManager // TypeDefIndex: 7621
+{
+	// Fields
+	private static readonly string SAVE_DATA_VERSION; // 0x0
+	private static bool isModfiy; // 0x8
+	private static bool isContinueDevice; // 0x9
+	private static List<MaterialBranchRouteManager.MaterialBranchInfo> infoList; // 0x10
+
+	// Methods
+
+	// RVA: 0x16124C0 Offset: 0x16124C0 VA: 0x16124C0
+	public void .ctor() { }
+
+	// RVA: 0x16124C8 Offset: 0x16124C8 VA: 0x16124C8
+	private static string GetFilePath() { }
+
+	// RVA: 0x16125A0 Offset: 0x16125A0 VA: 0x16125A0
+	public static void DeleteSaveData() { }
+
+	// RVA: 0x1612624 Offset: 0x1612624 VA: 0x1612624
+	public static void Initialize() { }
+
+	// RVA: 0x1612B28 Offset: 0x1612B28 VA: 0x1612B28
+	private static void ClearSaveData() { }
+
+	// RVA: 0x1612C18 Offset: 0x1612C18 VA: 0x1612C18
+	public static bool IsMaterialSelectedRouteId(int questId, int routeId) { }
+
+	// RVA: 0x1612D24 Offset: 0x1612D24 VA: 0x1612D24
+	public static bool IsMaterialSelectedRouteIds(IList<int> questIds, IList<int> routeIds, int count, CondType.CheckType checkType) { }
+
+	// RVA: 0x1613394 Offset: 0x1613394 VA: 0x1613394
+	public static void SetRouteId(int questId, int phase, int index, ScriptManager.MenuRouteInfo[] routeInfos) { }
+
+	// RVA: 0x1612680 Offset: 0x1612680 VA: 0x1612680
 	public static bool ReadData() { }
 
-	// RVA: 0x199F134 Offset: 0x199F134 VA: 0x199F134
+	// RVA: 0x1613748 Offset: 0x1613748 VA: 0x1613748
 	public static bool WriteData() { }
 
-	// RVA: 0x19A04CC Offset: 0x19A04CC VA: 0x19A04CC
-	public static void SetForceReadNewComments(bool flag) { }
-
-	// RVA: 0x19A0240 Offset: 0x19A0240 VA: 0x19A0240
-	private static bool IsForceReadNewComments() { }
-
-	// RVA: 0x19A02BC Offset: 0x19A02BC VA: 0x19A02BC
-	public static void ForceReadNewComments() { }
-
-	// RVA: 0x19A16FC Offset: 0x19A16FC VA: 0x19A16FC
-	public static List<ServantCommentEntity> GetOpenServantCommentEntityByServantFriendShip(int svt_id, int oldFriendShipRank, int limitCount) { }
-
-	// RVA: 0x19A1FE0 Offset: 0x19A1FE0 VA: 0x19A1FE0
-	public static bool IsOpenByServantFriendShip(int svt_id, int oldFriendShipRank = -1) { }
-
-	// RVA: 0x19A2058 Offset: 0x19A2058 VA: 0x19A2058
-	public static bool IsOpenByServantFriendShip(int svt_id, int oldFriendShipRank = -1, int limitCount = -1) { }
-
-	// RVA: 0x19A2208 Offset: 0x19A2208 VA: 0x19A2208
-	public static List<ServantCommentEntity> GetOpenServantCommentEntityByServantFriendShipAndImageLimit(int svtId, int imageLimit, int oldFriendShipRank = -1) { }
-
-	// RVA: 0x19A2B78 Offset: 0x19A2B78 VA: 0x19A2B78
-	public static bool IsOpenByServantFriendShipAndImageLimit(int svt_id, int imageLimit, int oldFriendShipRank = -1) { }
-
-	// RVA: 0x19A073C Offset: 0x19A073C VA: 0x19A073C
-	public static void checkUIChange(bool isSave) { }
-
-	// RVA: 0x19A2C20 Offset: 0x19A2C20 VA: 0x19A2C20
-	public static int GetUiFlag() { }
-
-	// RVA: 0x19A2C90 Offset: 0x19A2C90 VA: 0x19A2C90
-	public static AtlasManager.UIChangeType GetUiChangeType() { }
-
-	// RVA: 0x19A2CEC Offset: 0x19A2CEC VA: 0x19A2CEC
-	public static int GetOverwriteUiVersion() { }
-
-	// RVA: 0x19A2D5C Offset: 0x19A2D5C VA: 0x19A2D5C
+	// RVA: 0x1613B58 Offset: 0x1613B58 VA: 0x1613B58
 	private static void .cctor() { }
 }
 
 // Namespace: 
-protected class ServantCommentManager.UserServantCommentOpenInfo // TypeDefIndex: 7618
+private class MaterialBranchRouteManager.MaterialBranchInfo // TypeDefIndex: 7622
+{
+	// Fields
+	public int questId; // 0x10
+	public int phase; // 0x14
+	public int routeId; // 0x18
+
+	// Methods
+
+	// RVA: 0x1613740 Offset: 0x1613740 VA: 0x1613740
+	public void .ctor() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC42F44 Offset: 0xC42F44 VA: 0xC42F44
+private sealed class MaterialBranchRouteManager.<IsMaterialSelectedRouteId>c__AnonStorey0 // TypeDefIndex: 7623
+{
+	// Fields
+	internal int questId; // 0x10
+	internal int routeId; // 0x14
+
+	// Methods
+
+	// RVA: 0x1612D1C Offset: 0x1612D1C VA: 0x1612D1C
+	public void .ctor() { }
+
+	// RVA: 0x1613BF8 Offset: 0x1613BF8 VA: 0x1613BF8
+	internal bool <>m__0(MaterialBranchRouteManager.MaterialBranchInfo x) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC42F54 Offset: 0xC42F54 VA: 0xC42F54
+private sealed class MaterialBranchRouteManager.<SetRouteId>c__AnonStorey1 // TypeDefIndex: 7624
+{
+	// Fields
+	internal int questId; // 0x10
+	internal int phase; // 0x14
+
+	// Methods
+
+	// RVA: 0x1613738 Offset: 0x1613738 VA: 0x1613738
+	public void .ctor() { }
+
+	// RVA: 0x1613C4C Offset: 0x1613C4C VA: 0x1613C4C
+	internal bool <>m__0(MaterialBranchRouteManager.MaterialBranchInfo x) { }
+}
+
+// Namespace: 
+public class MaterialServantLimitCountManager // TypeDefIndex: 7625
+{
+	// Fields
+	protected static readonly string SAVE_DATA_VERSION; // 0x0
+	protected static bool isModfiy; // 0x8
+	protected static bool isContinueDevice; // 0x9
+	protected static List<MaterialServantLimitCountManager.ServantLimitCountInfo> limitCountList; // 0x10
+
+	// Methods
+
+	// RVA: 0x162866C Offset: 0x162866C VA: 0x162866C
+	public void .ctor() { }
+
+	// RVA: 0x1628674 Offset: 0x1628674 VA: 0x1628674
+	protected static string GetSaveFileName() { }
+
+	// RVA: 0x162874C Offset: 0x162874C VA: 0x162874C
+	public static void DeleteSaveData() { }
+
+	// RVA: 0x16287D0 Offset: 0x16287D0 VA: 0x16287D0
+	public static void Initialize() { }
+
+	// RVA: 0x1628CD4 Offset: 0x1628CD4 VA: 0x1628CD4
+	protected static void ClearSaveDataList() { }
+
+	// RVA: 0x1628DD8 Offset: 0x1628DD8 VA: 0x1628DD8
+	public static void SetLimitCount(int servantId, int limitCount) { }
+
+	// RVA: 0x1628FCC Offset: 0x1628FCC VA: 0x1628FCC
+	public static int GetLimitCount(int servantId) { }
+
+	// RVA: 0x162882C Offset: 0x162882C VA: 0x162882C
+	public static bool ReadData() { }
+
+	// RVA: 0x16290F0 Offset: 0x16290F0 VA: 0x16290F0
+	public static bool WriteData() { }
+
+	// RVA: 0x16294EC Offset: 0x16294EC VA: 0x16294EC
+	private static void .cctor() { }
+}
+
+// Namespace: 
+protected class MaterialServantLimitCountManager.ServantLimitCountInfo // TypeDefIndex: 7626
+{
+	// Fields
+	public int servantId; // 0x10
+	public int limitCount; // 0x14
+
+	// Methods
+
+	// RVA: 0x1628FC4 Offset: 0x1628FC4 VA: 0x1628FC4
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class OtherUserNewManager // TypeDefIndex: 7627
+{
+	// Fields
+	protected static readonly string SAVE_DATA_VERSION; // 0x0
+	protected static bool isModfiy; // 0x8
+	protected static bool isContinueDevice; // 0x9
+	protected static List<long> oldList; // 0x10
+
+	// Methods
+
+	// RVA: 0x123CBD0 Offset: 0x123CBD0 VA: 0x123CBD0
+	public void .ctor() { }
+
+	// RVA: 0x123CBD8 Offset: 0x123CBD8 VA: 0x123CBD8
+	protected static string getSaveFileName() { }
+
+	// RVA: 0x123CCB0 Offset: 0x123CCB0 VA: 0x123CCB0
+	public static void DeleteSaveData() { }
+
+	// RVA: 0x123CD34 Offset: 0x123CD34 VA: 0x123CD34
+	public static void CreateContinueDeviceSaveData() { }
+
+	// RVA: 0x123D280 Offset: 0x123D280 VA: 0x123D280
+	public static void Initialize() { }
+
+	// RVA: 0x123CDB0 Offset: 0x123CDB0 VA: 0x123CDB0
+	protected static void ClearSaveDataList() { }
+
+	// RVA: 0x123D714 Offset: 0x123D714 VA: 0x123D714
+	public static void LoginProcess() { }
+
+	// RVA: 0x123D804 Offset: 0x123D804 VA: 0x123D804
+	public static bool IsNew(long userId) { }
+
+	// RVA: 0x123D918 Offset: 0x123D918 VA: 0x123D918
+	public static void SetOld(long userId) { }
+
+	// RVA: 0x123C990 Offset: 0x123C990 VA: 0x123C990
+	public static void SetOld(long[] userList) { }
+
+	// RVA: 0x123D2DC Offset: 0x123D2DC VA: 0x123D2DC
+	public static bool ReadData() { }
+
+	// RVA: 0x123CEB4 Offset: 0x123CEB4 VA: 0x123CEB4
+	public static bool WriteData() { }
+
+	// RVA: 0x123DA88 Offset: 0x123DA88 VA: 0x123DA88
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class QuestHintDialogOpenManager // TypeDefIndex: 7628
+{
+	// Fields
+	protected static readonly string SAVE_DATA_VERSION; // 0x0
+	protected static List<int> questHintDialogOpenList; // 0x8
+	protected static int temporarilyId; // 0x10
+
+	// Methods
+
+	// RVA: 0x11FF9FC Offset: 0x11FF9FC VA: 0x11FF9FC
+	public void .ctor() { }
+
+	// RVA: 0x11FFA04 Offset: 0x11FFA04 VA: 0x11FFA04
+	protected static string GetSaveFileName() { }
+
+	// RVA: 0x11FFADC Offset: 0x11FFADC VA: 0x11FFADC
+	public static void DeleteSaveData() { }
+
+	// RVA: 0x11FFB60 Offset: 0x11FFB60 VA: 0x11FFB60
+	public static void Initialize() { }
+
+	// RVA: 0x11FFFB8 Offset: 0x11FFFB8 VA: 0x11FFFB8
+	public static void ClearSaveDataList() { }
+
+	// RVA: 0x11FFBBC Offset: 0x11FFBBC VA: 0x11FFBBC
+	public static bool ReadData() { }
+
+	// RVA: 0x120003C Offset: 0x120003C VA: 0x120003C
+	public static bool WriteData() { }
+
+	// RVA: 0x12003A0 Offset: 0x12003A0 VA: 0x12003A0
+	public static bool IsQuestHintOpen(int questId) { }
+
+	// RVA: 0x1200510 Offset: 0x1200510 VA: 0x1200510
+	public static void SetQuestId(int questId) { }
+
+	// RVA: 0x12006DC Offset: 0x12006DC VA: 0x12006DC
+	public static void SetTemporarilyId(int id) { }
+
+	// RVA: 0x1200748 Offset: 0x1200748 VA: 0x1200748
+	public static int GetTemporarilyId() { }
+
+	// RVA: 0x12007B0 Offset: 0x12007B0 VA: 0x12007B0
+	public static void ResetTemporarilyId() { }
+
+	// RVA: 0x1200818 Offset: 0x1200818 VA: 0x1200818
+	public static bool IsSettingTemporarilyId(int id) { }
+
+	// RVA: 0x120088C Offset: 0x120088C VA: 0x120088C
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class QuestRestrictionInfo // TypeDefIndex: 7629
+{
+	// Fields
+	public int eventId; // 0x10
+	public int questId; // 0x14
+	public int questPhase; // 0x18
+	public QuestRestrictionEntity[] questRestrictionEntityList; // 0x20
+	public RestrictionEntity[] restrictionEntityList; // 0x28
+	public RestrictionEntity totalCostRestrictionEntity; // 0x30
+	public RestrictionEntity supportOnlyRestrictionEntity; // 0x38
+	public RestrictionEntity uniqueSvtRestrictionEntity; // 0x40
+	public int[] deckSvtIdList; // 0x48
+	public RestrictionEntity fixedSupportPositionRestrictionEntity; // 0x50
+	public bool[] supportPositionList; // 0x58
+	public RestrictionEntity fixedMyServantPositionRestrictionEntity; // 0x60
+	public RestrictionEntity fixedMyServantSingleRestrictionEntity; // 0x68
+	public RestrictionEntity servantNumRestrictionEntity; // 0x70
+	public int servantNumMax; // 0x78
+	public RestrictionEntity myServantNumRestrictionEntity; // 0x80
+	public int myServantNumMax; // 0x88
+	public List<RestrictionEntity> myServantOrNpcRestrictionEntityList; // 0x90
+	public List<int> specifiedPositionList; // 0x98
+	protected bool isSupportOnlyForceBattle; // 0xA0
+	protected bool isNoSupportBattle; // 0xA1
+	protected int[] svtIdForceBattleList; // 0xA8
+	protected bool isFatigure; // 0xB0
+	protected int eventDeckNum; // 0xB4
+	private bool isNpcMultipleBattle; // 0xB8
+	private bool isNpcOnlyBattle; // 0xB9
+	private bool isNpcEditablePos; // 0xBA
+	private bool isNotTransitionSupportList; // 0xBB
+	private int supportInitIndex; // 0xBC
+	protected bool isRestriction; // 0xC0
+	protected string restrictionMessage; // 0xC8
+	protected string confirmRestrictionMessage; // 0xD0
+	protected int correctionIconId; // 0xD8
+	protected int[] overwriteLimitCountSvtIds; // 0xE0
+	protected int[] overwriteLimitCounts; // 0xE8
+	protected int[] overwriteLimitCountIconIds; // 0xF0
+
+	// Methods
+
+	// RVA: 0x1210C98 Offset: 0x1210C98 VA: 0x1210C98
+	public void .ctor(int questId) { }
+
+	// RVA: 0x1210CC4 Offset: 0x1210CC4 VA: 0x1210CC4
+	public void .ctor(int eventId, int questId, int questPhase) { }
+
+	// RVA: 0x12118D8 Offset: 0x12118D8 VA: 0x12118D8
+	public void .ctor(int eventId, int questId, int questPhase, RestrictionEntity overwriteRestiction) { }
+
+	// RVA: 0x1210DA0 Offset: 0x1210DA0 VA: 0x1210DA0
+	public void Setup(int eventId, int questId, int questPhase) { }
+
+	// RVA: 0x12119E8 Offset: 0x12119E8 VA: 0x12119E8
+	public void SetDeckInfo(UserDeckEntity userDeckEntity) { }
+
+	// RVA: 0x1211B70 Offset: 0x1211B70 VA: 0x1211B70
+	public void SetDeckInfo(PartyListViewItem partyItem, int num) { }
+
+	// RVA: 0x1211D0C Offset: 0x1211D0C VA: 0x1211D0C
+	public bool IsEmpry() { }
+
+	// RVA: 0x1211D40 Offset: 0x1211D40 VA: 0x1211D40
+	public RestrictionEntity[] GetList() { }
+
+	// RVA: 0x1211D48 Offset: 0x1211D48 VA: 0x1211D48
+	public bool IsRestriction() { }
+
+	// RVA: 0x1211D50 Offset: 0x1211D50 VA: 0x1211D50
+	public bool IsRestriction(int svtId, int limitCount, int dispLimitCount, int lv) { }
+
+	// RVA: 0x1211F4C Offset: 0x1211F4C VA: 0x1211F4C
+	public string GetConfirmRestrictionMessage() { }
+
+	// RVA: 0x1211F54 Offset: 0x1211F54 VA: 0x1211F54
+	public string GetRestrictionMessage() { }
+
+	// RVA: 0x1211F5C Offset: 0x1211F5C VA: 0x1211F5C
+	public bool IsSupportOnly() { }
+
+	// RVA: 0x1211F6C Offset: 0x1211F6C VA: 0x1211F6C
+	public string GetSupportOnlyRestrictionMessage() { }
+
+	// RVA: 0x1211FD8 Offset: 0x1211FD8 VA: 0x1211FD8
+	public bool IsUniqueServant() { }
+
+	// RVA: 0x1211FE8 Offset: 0x1211FE8 VA: 0x1211FE8
+	public bool IsUniqueServant(int svtId) { }
+
+	// RVA: 0x12120E0 Offset: 0x12120E0 VA: 0x12120E0
+	public bool IsUniqueServant(int svtId, PartyListViewItem partyItem, int num, int partyIndex = -1) { }
+
+	// RVA: 0x121223C Offset: 0x121223C VA: 0x121223C
+	public string GetConfirmUniqueServantRestrictionMessage() { }
+
+	// RVA: 0x12122B8 Offset: 0x12122B8 VA: 0x12122B8
+	public string GetUniqueServantRestrictionMessage() { }
+
+	// RVA: 0x1212324 Offset: 0x1212324 VA: 0x1212324
+	public bool IsFixedSupportPosition() { }
+
+	// RVA: 0x1212334 Offset: 0x1212334 VA: 0x1212334
+	public bool IsFixedSupportPosition(int num) { }
+
+	// RVA: 0x12123A0 Offset: 0x12123A0 VA: 0x12123A0
+	public string GetConfirmFixedSupportPositionRestrictionMessage() { }
+
+	// RVA: 0x121241C Offset: 0x121241C VA: 0x121241C
+	public string GetFixedSupportPositionRestrictionMessage() { }
+
+	// RVA: 0x1212488 Offset: 0x1212488 VA: 0x1212488
+	public bool IsFixedMyServantPosition() { }
+
+	// RVA: 0x1212498 Offset: 0x1212498 VA: 0x1212498
+	public int[] GetFixedMyServantPositionSvtIdList() { }
+
+	// RVA: 0x12124B0 Offset: 0x12124B0 VA: 0x12124B0
+	public int GetFixedMyServantPositionCount() { }
+
+	// RVA: 0x12124D0 Offset: 0x12124D0 VA: 0x12124D0
+	public bool IsFixedMyServantPosition(out bool isFixedMyServantPositionRestriction, out bool isFixedMyServantPositionAgreement, int svtId, int num) { }
+
+	// RVA: 0x121261C Offset: 0x121261C VA: 0x121261C
+	public string GetConfirmFixedMyServantPositionRestrictionMessage() { }
+
+	// RVA: 0x1212698 Offset: 0x1212698 VA: 0x1212698
+	public string GetFixedMyServantPositionRestrictionMessage() { }
+
+	// RVA: 0x1212704 Offset: 0x1212704 VA: 0x1212704
+	public bool IsFixedMyServantSingleRestriction() { }
+
+	// RVA: 0x1212714 Offset: 0x1212714 VA: 0x1212714
+	public int[] GetFixedMyServantSingleSvtIdList() { }
+
+	// RVA: 0x121272C Offset: 0x121272C VA: 0x121272C
+	public bool GetFixedMyServantSingleRestriction(int svtId, int num) { }
+
+	// RVA: 0x12127A0 Offset: 0x12127A0 VA: 0x12127A0
+	public string GetFixedMyServantSingleRestrictionMessage() { }
+
+	// RVA: 0x121280C Offset: 0x121280C VA: 0x121280C
+	public int GetUserEventDeckNum() { }
+
+	// RVA: 0x1212814 Offset: 0x1212814 VA: 0x1212814
+	public bool IsUseEventDeck() { }
+
+	// RVA: 0x1212824 Offset: 0x1212824 VA: 0x1212824
+	public int[] GetSvtIdBattleList() { }
+
+	// RVA: 0x121282C Offset: 0x121282C VA: 0x121282C
+	public int GetTotalCostRestriction() { }
+
+	// RVA: 0x1212840 Offset: 0x1212840 VA: 0x1212840
+	public string GetTotalCostRestrictionMessage() { }
+
+	// RVA: 0x12128F0 Offset: 0x12128F0 VA: 0x12128F0
+	public int[] GetDialogList() { }
+
+	// RVA: 0x1212B90 Offset: 0x1212B90 VA: 0x1212B90
+	public string GetDialogMessage(int n) { }
+
+	// RVA: 0x1212BF4 Offset: 0x1212BF4 VA: 0x1212BF4
+	public string GetDialogTargetName(int n) { }
+
+	// RVA: 0x1212C58 Offset: 0x1212C58 VA: 0x1212C58
+	public Restriction.Type GetDialogType(int n) { }
+
+	// RVA: 0x1212CBC Offset: 0x1212CBC VA: 0x1212CBC
+	public bool GetExplanationMessage(out string message) { }
+
+	// RVA: 0x1212DD4 Offset: 0x1212DD4 VA: 0x1212DD4
+	public bool IsSupportOnlyForceBattle() { }
+
+	// RVA: 0x1212DDC Offset: 0x1212DDC VA: 0x1212DDC
+	public bool IsNoSupportBattle() { }
+
+	// RVA: 0x1212DE4 Offset: 0x1212DE4 VA: 0x1212DE4
+	public bool IsFatigure() { }
+
+	// RVA: 0x1212DEC Offset: 0x1212DEC VA: 0x1212DEC
+	public bool IsNpcMulitpleBattle() { }
+
+	// RVA: 0x1212DF4 Offset: 0x1212DF4 VA: 0x1212DF4
+	public bool IsNpcOnlyBattle() { }
+
+	// RVA: 0x1212DFC Offset: 0x1212DFC VA: 0x1212DFC
+	public bool IsNpcMulitipleOrOnly() { }
+
+	// RVA: 0x1212E1C Offset: 0x1212E1C VA: 0x1212E1C
+	public bool IsNpcEditablePos() { }
+
+	// RVA: 0x1212E24 Offset: 0x1212E24 VA: 0x1212E24
+	public bool IsNotTransitionSupportList() { }
+
+	// RVA: 0x1212E2C Offset: 0x1212E2C VA: 0x1212E2C
+	public int GetSupportInitIndex() { }
+
+	// RVA: 0x1212E34 Offset: 0x1212E34 VA: 0x1212E34
+	public int GetCorrectionIconId(int svtId, bool isFollower) { }
+
+	// RVA: 0x1212F18 Offset: 0x1212F18 VA: 0x1212F18
+	public bool IsConvertOverwriteImage(int svtId) { }
+
+	// RVA: 0x1212FC4 Offset: 0x1212FC4 VA: 0x1212FC4
+	public int ConvertOverwriteImageLimitCount(int svtId) { }
+
+	// RVA: 0x12130A0 Offset: 0x12130A0 VA: 0x12130A0
+	public int[] ConvertOverwriteImageLimitCounts(int svtId) { }
+
+	// RVA: 0x1213208 Offset: 0x1213208 VA: 0x1213208
+	public int ConvertOverwriteImageLimitCount(UserServantEntity userServantEntity) { }
+
+	// RVA: 0x1213358 Offset: 0x1213358 VA: 0x1213358
+	public string[] GetPartyOrganizationServantSwapExplanationFixedMyServantText() { }
+
+	// RVA: 0x12136B0 Offset: 0x12136B0 VA: 0x12136B0
+	public bool IsServantNum() { }
+
+	// RVA: 0x12136C0 Offset: 0x12136C0 VA: 0x12136C0
+	public int GetServantNumRestriction() { }
+
+	// RVA: 0x12136C8 Offset: 0x12136C8 VA: 0x12136C8
+	public bool IsServantNumCheckEqual() { }
+
+	// RVA: 0x12136E8 Offset: 0x12136E8 VA: 0x12136E8
+	public string GetServantNumRestrictionMessage() { }
+
+	// RVA: 0x1213834 Offset: 0x1213834 VA: 0x1213834
+	public bool IsFirstServantNum() { }
+
+	// RVA: 0x1213900 Offset: 0x1213900 VA: 0x1213900
+	public string GetServantNumRestrictionDialogMessage() { }
+
+	// RVA: 0x12139B0 Offset: 0x12139B0 VA: 0x12139B0
+	public bool IsServantNumAndFixedMyServantPositionRestriction(int svtId, int num) { }
+
+	// RVA: 0x1213B84 Offset: 0x1213B84 VA: 0x1213B84
+	public bool IsMyServantNum() { }
+
+	// RVA: 0x1213B94 Offset: 0x1213B94 VA: 0x1213B94
+	public int GetMyServantNumRestriction() { }
+
+	// RVA: 0x1213B9C Offset: 0x1213B9C VA: 0x1213B9C
+	public string GetMyServantNumRestrictionDialogMessage() { }
+
+	// RVA: 0x1213C4C Offset: 0x1213C4C VA: 0x1213C4C
+	public string GetFixNpcOnlyRestrictionMessage() { }
+
+	// RVA: 0x1213CB8 Offset: 0x1213CB8 VA: 0x1213CB8
+	public string GetFixNpcMessage() { }
+
+	// RVA: 0x1213D24 Offset: 0x1213D24 VA: 0x1213D24
+	public bool CheckMyServantNumRestriction(int myServantNum) { }
+
+	// RVA: 0x1213D54 Offset: 0x1213D54 VA: 0x1213D54
+	public bool IsMyServantOrNpcRestriction() { }
+
+	// RVA: 0x1213A94 Offset: 0x1213A94 VA: 0x1213A94
+	public bool IsMyServantOrNpcRestriction(int pos) { }
+
+	// RVA: 0x1213DB4 Offset: 0x1213DB4 VA: 0x1213DB4
+	public bool IsRestrictionServantIndividuality(int svtId, int limitCount, int dispLimitCount, int pos) { }
+
+	// RVA: 0x1213F50 Offset: 0x1213F50 VA: 0x1213F50
+	public string GetRestrictedName(int pos) { }
+
+	// RVA: 0x1214118 Offset: 0x1214118 VA: 0x1214118
+	public string GetMyServantOrNpcRestrictionMessage(int pos, bool haveIndividualityServant) { }
+
+	// RVA: 0x1214208 Offset: 0x1214208 VA: 0x1214208
+	public int[] GetMyServantOrNpcSvtIdList(int index) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC42F64 Offset: 0xC42F64 VA: 0xC42F64
+private sealed class QuestRestrictionInfo.<IsMyServantOrNpcRestriction>c__AnonStorey0 // TypeDefIndex: 7630
+{
+	// Fields
+	internal int pos; // 0x10
+
+	// Methods
+
+	// RVA: 0x126FEFC Offset: 0x126FEFC VA: 0x126FEFC
+	public void .ctor() { }
+
+	// RVA: 0x126FF04 Offset: 0x126FF04 VA: 0x126FF04
+	internal bool <>m__0(RestrictionEntity x) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC42F74 Offset: 0xC42F74 VA: 0xC42F74
+private sealed class QuestRestrictionInfo.<IsRestrictionServantIndividuality>c__AnonStorey1 // TypeDefIndex: 7631
+{
+	// Fields
+	internal int pos; // 0x10
+
+	// Methods
+
+	// RVA: 0x126FF48 Offset: 0x126FF48 VA: 0x126FF48
+	public void .ctor() { }
+
+	// RVA: 0x126FF50 Offset: 0x126FF50 VA: 0x126FF50
+	internal bool <>m__0(RestrictionEntity x) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC42F84 Offset: 0xC42F84 VA: 0xC42F84
+private sealed class QuestRestrictionInfo.<GetRestrictedName>c__AnonStorey2 // TypeDefIndex: 7632
+{
+	// Fields
+	internal QuestRestrictionEntity questRestrictionEntity; // 0x10
+
+	// Methods
+
+	// RVA: 0x126FEA8 Offset: 0x126FEA8 VA: 0x126FEA8
+	public void .ctor() { }
+
+	// RVA: 0x126FEB0 Offset: 0x126FEB0 VA: 0x126FEB0
+	internal bool <>m__0(RestrictionEntity x) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC42F94 Offset: 0xC42F94 VA: 0xC42F94
+private sealed class QuestRestrictionInfo.<GetMyServantOrNpcSvtIdList>c__AnonStorey3 // TypeDefIndex: 7633
+{
+	// Fields
+	internal int index; // 0x10
+	internal QuestRestrictionInfo $this; // 0x18
+
+	// Methods
+
+	// RVA: 0x126FE08 Offset: 0x126FE08 VA: 0x126FE08
+	public void .ctor() { }
+
+	// RVA: 0x126FE10 Offset: 0x126FE10 VA: 0x126FE10
+	internal bool <>m__0(RestrictionEntity x) { }
+}
+
+// Namespace: 
+public static class RarityRestrictedSkillUtil // TypeDefIndex: 7634
+{
+	// Methods
+
+	// RVA: 0x1288334 Offset: 0x1288334 VA: 0x1288334
+	public static bool IsDisabled(SkillLvEntity skillLvEntity, ServantEntity servantEntity, int servantRarity) { }
+
+	// RVA: 0x1288400 Offset: 0x1288400 VA: 0x1288400
+	private static int GetOverwrittenRarity(ServantEntity servantEntity, int defaultRarity) { }
+}
+
+// Namespace: 
+public class ServantCharaGraphEXOpenManager // TypeDefIndex: 7635
+{
+	// Fields
+	protected static readonly string SAVE_DATA_VERSION; // 0x0
+	protected static Dictionary<int, List<int>> svtCharaGraphEXOpenDict; // 0x8
+
+	// Methods
+
+	// RVA: 0x13B5B34 Offset: 0x13B5B34 VA: 0x13B5B34
+	public void .ctor() { }
+
+	// RVA: 0x13B5B3C Offset: 0x13B5B3C VA: 0x13B5B3C
+	protected static string GetSaveFileName() { }
+
+	// RVA: 0x13B5C14 Offset: 0x13B5C14 VA: 0x13B5C14
+	public static void DeleteSaveData() { }
+
+	// RVA: 0x13B5C98 Offset: 0x13B5C98 VA: 0x13B5C98
+	public static void Initialize() { }
+
+	// RVA: 0x13B61F0 Offset: 0x13B61F0 VA: 0x13B61F0
+	public static void ClearSaveDataList() { }
+
+	// RVA: 0x13B5CF4 Offset: 0x13B5CF4 VA: 0x13B5CF4
+	public static bool ReadData() { }
+
+	// RVA: 0x13B6274 Offset: 0x13B6274 VA: 0x13B6274
+	public static bool WriteData() { }
+
+	// RVA: 0x13B6774 Offset: 0x13B6774 VA: 0x13B6774
+	public static bool IsCharaGraphEXOpen(int svtId, int limitCount) { }
+
+	// RVA: 0x13B68BC Offset: 0x13B68BC VA: 0x13B68BC
+	public static void SetCharaGraphEXOpen(int svtId, int limitCount) { }
+
+	// RVA: 0x13B6ABC Offset: 0x13B6ABC VA: 0x13B6ABC
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class ServantCommentManager // TypeDefIndex: 7636
+{
+	// Fields
+	protected static readonly string SAVE_DATA_OLD_VERSION; // 0x0
+	protected static readonly string SAVE_DATA_VERSION; // 0x8
+	protected static readonly string SAVE_KEY; // 0x10
+	public static readonly string UI_CHANGE_TYPE_KEY; // 0x18
+	public static readonly string OVERWIRTE_UI_VERSION_KEY; // 0x20
+	protected static readonly string FORCE_READ_NEW_COMMENTS_KEY; // 0x28
+	protected static bool isModfiy; // 0x30
+	protected static bool isContinueDevice; // 0x31
+	protected static List<ServantCommentManager.UserServantCommentOpenInfo> openList; // 0x38
+
+	// Methods
+
+	// RVA: 0x13CA4FC Offset: 0x13CA4FC VA: 0x13CA4FC
+	public void .ctor() { }
+
+	// RVA: 0x13CA504 Offset: 0x13CA504 VA: 0x13CA504
+	protected static string getSaveFileName() { }
+
+	// RVA: 0x13CA5DC Offset: 0x13CA5DC VA: 0x13CA5DC
+	public static void DeleteContinueData() { }
+
+	// RVA: 0x13CA65C Offset: 0x13CA65C VA: 0x13CA65C
+	public static void DeleteSaveData() { }
+
+	// RVA: 0x13CA6E0 Offset: 0x13CA6E0 VA: 0x13CA6E0
+	public static void CreateContinueDeviceSaveData() { }
+
+	// RVA: 0x13CAF64 Offset: 0x13CAF64 VA: 0x13CAF64
+	public static void Initialize() { }
+
+	// RVA: 0x13CA760 Offset: 0x13CA760 VA: 0x13CA760
+	protected static void ClearSaveDataList() { }
+
+	// RVA: 0x13CB85C Offset: 0x13CB85C VA: 0x13CB85C
+	public static void LoginProcess() { }
+
+	// RVA: 0x13CBCA0 Offset: 0x13CBCA0 VA: 0x13CBCA0
+	public static int[] GetClearWarIdList() { }
+
+	// RVA: 0x13CAD54 Offset: 0x13CAD54 VA: 0x13CAD54
+	public static void UpdateChapter() { }
+
+	// RVA: 0x13C99D4 Offset: 0x13C99D4 VA: 0x13C99D4
+	public static bool IsOpen(int svtId, int svtCommentId, int svtCommentPriority) { }
+
+	// RVA: 0x13CBFB4 Offset: 0x13CBFB4 VA: 0x13CBFB4
+	public static void SetOpen(int svtId, int svtCommentId, int svtCommentPriority) { }
+
+	// RVA: 0x13CC318 Offset: 0x13CC318 VA: 0x13CC318
+	public static void SetOpen(int svtId, int[] svtCommentIdList, int[] svtCommentPriorityList) { }
+
+	// RVA: 0x13CAFC0 Offset: 0x13CAFC0 VA: 0x13CAFC0
+	public static bool ReadData() { }
+
+	// RVA: 0x13CA864 Offset: 0x13CA864 VA: 0x13CA864
+	public static bool WriteData() { }
+
+	// RVA: 0x13CBC28 Offset: 0x13CBC28 VA: 0x13CBC28
+	public static void SetForceReadNewComments(bool flag) { }
+
+	// RVA: 0x13CB998 Offset: 0x13CB998 VA: 0x13CB998
+	private static bool IsForceReadNewComments() { }
+
+	// RVA: 0x13CBA14 Offset: 0x13CBA14 VA: 0x13CBA14
+	public static void ForceReadNewComments() { }
+
+	// RVA: 0x13CC7D8 Offset: 0x13CC7D8 VA: 0x13CC7D8
+	public static List<ServantCommentEntity> GetOpenServantCommentEntityByServantFriendShip(int svt_id, int oldFriendShipRank, int limitCount) { }
+
+	// RVA: 0x13CCB90 Offset: 0x13CCB90 VA: 0x13CCB90
+	public static bool IsOpenByServantFriendShip(int svt_id, int oldFriendShipRank = -1) { }
+
+	// RVA: 0x13CCC08 Offset: 0x13CCC08 VA: 0x13CCC08
+	public static bool IsOpenByServantFriendShip(int svt_id, int oldFriendShipRank = -1, int limitCount = -1) { }
+
+	// RVA: 0x13CCDB8 Offset: 0x13CCDB8 VA: 0x13CCDB8
+	public static List<ServantCommentEntity> GetOpenServantCommentEntityByServantFriendShipAndImageLimit(int svtId, int imageLimit, int oldFriendShipRank = -1) { }
+
+	// RVA: 0x13CD16C Offset: 0x13CD16C VA: 0x13CD16C
+	public static bool IsOpenByServantFriendShipAndImageLimit(int svt_id, int imageLimit, int oldFriendShipRank = -1) { }
+
+	// RVA: 0x13CBE0C Offset: 0x13CBE0C VA: 0x13CBE0C
+	public static void checkUIChange(bool isSave) { }
+
+	// RVA: 0x13CD214 Offset: 0x13CD214 VA: 0x13CD214
+	public static int GetUiFlag() { }
+
+	// RVA: 0x13CD284 Offset: 0x13CD284 VA: 0x13CD284
+	public static AtlasManager.UIChangeType GetUiChangeType() { }
+
+	// RVA: 0x13CD2E0 Offset: 0x13CD2E0 VA: 0x13CD2E0
+	public static int GetOverwriteUiVersion() { }
+
+	// RVA: 0x13CD350 Offset: 0x13CD350 VA: 0x13CD350
+	private static void .cctor() { }
+}
+
+// Namespace: 
+protected class ServantCommentManager.UserServantCommentOpenInfo // TypeDefIndex: 7637
 {
 	// Fields
 	public int svtId; // 0x10
@@ -54,27 +835,27 @@ protected class ServantCommentManager.UserServantCommentOpenInfo // TypeDefIndex
 
 	// Methods
 
-	// RVA: 0x19A0C48 Offset: 0x19A0C48 VA: 0x19A0C48
+	// RVA: 0x19F97EC Offset: 0x19F97EC VA: 0x19F97EC
 	public void .ctor() { }
 }
 
 // Namespace: 
-protected class ServantCommentManager.ClearWarInfo // TypeDefIndex: 7619
+protected class ServantCommentManager.ClearWarInfo // TypeDefIndex: 7638
 {
 	// Fields
 	public int[] warIdList; // 0x10
 
 	// Methods
 
-	// RVA: 0x19A2E60 Offset: 0x19A2E60 VA: 0x19A2E60
+	// RVA: 0x19F96FC Offset: 0x19F96FC VA: 0x19F96FC
 	public void .ctor() { }
 
-	// RVA: 0x19A06B0 Offset: 0x19A06B0 VA: 0x19A06B0
+	// RVA: 0x19F9760 Offset: 0x19F9760 VA: 0x19F9760
 	public void .ctor(int[] warIdList) { }
 }
 
 // Namespace: 
-public class ServantLeaderInfo // TypeDefIndex: 7620
+public class ServantLeaderInfo // TypeDefIndex: 7639
 {
 	// Fields
 	private static readonly int LIMIT_COUNT_THIRD_STAGE; // 0x0
@@ -112,8 +893,9 @@ public class ServantLeaderInfo // TypeDefIndex: 7620
 	public CommandCodeStatus[] commandCode; // 0xC8
 	public int[] commandCardParam; // 0xD0
 	public AppendPassiveSkillInfo[] appendPassiveSkill; // 0xD8
-	private Dictionary<int, int> limitChangeDic; // 0xE0
-	private string overwriteServantName; // 0xE8
+	public int eventSvtPoint; // 0xE0
+	private Dictionary<int, int> limitChangeDic; // 0xE8
+	private string overwriteServantName; // 0xF0
 
 	// Properties
 	public bool IsRandomChoice { get; }
@@ -121,880 +903,98 @@ public class ServantLeaderInfo // TypeDefIndex: 7620
 
 	// Methods
 
-	// RVA: 0x1C18BE8 Offset: 0x1C18BE8 VA: 0x1C18BE8
+	// RVA: 0x16C29A4 Offset: 0x16C29A4 VA: 0x16C29A4
 	public void .ctor() { }
 
-	// RVA: 0x1C18BF8 Offset: 0x1C18BF8 VA: 0x1C18BF8
+	// RVA: 0x16C29B4 Offset: 0x16C29B4 VA: 0x16C29B4
 	public void .ctor(int svtId, int limitCnt = 0, int level = 1) { }
 
-	// RVA: 0x1C190C4 Offset: 0x1C190C4 VA: 0x1C190C4
+	// RVA: 0x16C2E80 Offset: 0x16C2E80 VA: 0x16C2E80
 	public bool get_IsRandomChoice() { }
 
-	// RVA: 0x1C1916C Offset: 0x1C1916C VA: 0x1C1916C
+	// RVA: 0x16C2F28 Offset: 0x16C2F28 VA: 0x16C2F28
 	private int GetLimitCountWithRandom(ServantLeaderInfo.RandomLimitCountKind kind) { }
 
-	// RVA: 0x1C1929C Offset: 0x1C1929C VA: 0x1C1929C Slot: 1
+	// RVA: 0x16C3058 Offset: 0x16C3058 VA: 0x16C3058 Slot: 1
 	protected override void Finalize() { }
 
-	// RVA: 0x1C192A8 Offset: 0x1C192A8 VA: 0x1C192A8
+	// RVA: 0x16C3064 Offset: 0x16C3064 VA: 0x16C3064
 	public int getServantLevel() { }
 
-	// RVA: 0x1C192B0 Offset: 0x1C192B0 VA: 0x1C192B0
+	// RVA: 0x16C306C Offset: 0x16C306C VA: 0x16C306C
 	public int getLevelMax() { }
 
-	// RVA: 0x1C1945C Offset: 0x1C1945C VA: 0x1C1945C
+	// RVA: 0x16C3218 Offset: 0x16C3218 VA: 0x16C3218
 	public int getRarity() { }
 
-	// RVA: 0x1C19554 Offset: 0x1C19554 VA: 0x1C19554
+	// RVA: 0x16C3310 Offset: 0x16C3310 VA: 0x16C3310
 	public bool GetAdjustMax(out int maxAjustHp, out int maxAjustAtk, out int secondMaxAdjustHp, out int secondMaxAdjustAtk) { }
 
-	// RVA: 0x1C19718 Offset: 0x1C19718 VA: 0x1C19718
+	// RVA: 0x16C34D4 Offset: 0x16C34D4 VA: 0x16C34D4
 	public int[] getSkillIdList() { }
 
-	// RVA: 0x1C19814 Offset: 0x1C19814 VA: 0x1C19814
+	// RVA: 0x16C35D0 Offset: 0x16C35D0 VA: 0x16C35D0
 	public int[] getSkillLevelList() { }
 
-	// RVA: 0x1C19910 Offset: 0x1C19910 VA: 0x1C19910
+	// RVA: 0x16C36CC Offset: 0x16C36CC VA: 0x16C36CC
 	public int[] getPassiveSkillIdList() { }
 
-	// RVA: 0x1C19A08 Offset: 0x1C19A08 VA: 0x1C19A08
+	// RVA: 0x16C37C4 Offset: 0x16C37C4 VA: 0x16C37C4
 	public bool get_IsEquip() { }
 
-	// RVA: 0x1C19A94 Offset: 0x1C19A94 VA: 0x1C19A94
+	// RVA: 0x16C3850 Offset: 0x16C3850 VA: 0x16C3850
 	public void getSkillInfo(out SkillInfo[] skillInfoList) { }
 
-	// RVA: 0x1C19F88 Offset: 0x1C19F88 VA: 0x1C19F88
+	// RVA: 0x16C3D44 Offset: 0x16C3D44 VA: 0x16C3D44
 	public void getEquipSkillInfo(out SkillInfo[] skillInfoList) { }
 
-	// RVA: 0x1C1A084 Offset: 0x1C1A084 VA: 0x1C1A084
+	// RVA: 0x16C3E40 Offset: 0x16C3E40 VA: 0x16C3E40
 	public void getPassiveSkillInfo(out int[] idList, out string[] titleList, out string[] explanationList) { }
 
-	// RVA: 0x1C1A410 Offset: 0x1C1A410 VA: 0x1C1A410
+	// RVA: 0x16C41CC Offset: 0x16C41CC VA: 0x16C41CC
 	public int getFriendPointUpVal() { }
 
-	// RVA: 0x1C1A6B0 Offset: 0x1C1A6B0 VA: 0x1C1A6B0
+	// RVA: 0x16C446C Offset: 0x16C446C VA: 0x16C446C
 	public FuncList.TYPE getFriendPointUpType() { }
 
-	// RVA: 0x1C1A4C8 Offset: 0x1C1A4C8 VA: 0x1C1A4C8
+	// RVA: 0x16C4284 Offset: 0x16C4284 VA: 0x16C4284
 	protected int getBaseFriendPointUpVal() { }
 
-	// RVA: 0x1C1A788 Offset: 0x1C1A788 VA: 0x1C1A788
+	// RVA: 0x16C4544 Offset: 0x16C4544 VA: 0x16C4544
 	public bool getEventUpVal(EventUpValSetupInfo setupInfo) { }
 
-	// RVA: 0x1C1AD70 Offset: 0x1C1AD70 VA: 0x1C1AD70
+	// RVA: 0x16C4B2C Offset: 0x16C4B2C VA: 0x16C4B2C
 	public bool getServantEventUpVal(EventUpValSetupInfo setupInfo) { }
 
-	// RVA: 0x1C1AE18 Offset: 0x1C1AE18 VA: 0x1C1AE18
+	// RVA: 0x16C4BD4 Offset: 0x16C4BD4 VA: 0x16C4BD4
 	public bool getEquipEventUpVal(EventUpValSetupInfo setupInfo) { }
 
-	// RVA: 0x1C1A89C Offset: 0x1C1A89C VA: 0x1C1A89C
+	// RVA: 0x16C4658 Offset: 0x16C4658 VA: 0x16C4658
 	protected bool getBaseEventUpVal(EventUpValSetupInfo setupInfo) { }
 
-	// RVA: 0x1C1AF1C Offset: 0x1C1AF1C VA: 0x1C1AF1C
+	// RVA: 0x16C4CD8 Offset: 0x16C4CD8 VA: 0x16C4CD8
 	public bool getEventUpVal(out EventUpValInfo eventUpVallInfo, EventUpValSetupInfo setupInfo) { }
 
-	// RVA: 0x1C1B3C4 Offset: 0x1C1B3C4 VA: 0x1C1B3C4
+	// RVA: 0x16C5180 Offset: 0x16C5180 VA: 0x16C5180
 	public bool getEventUpVal(out EventUpValInfo eventUpVallInfo, out bool isServantEventUpVal, out bool isEquipEventUpVal, EventUpValSetupInfo setupInfo) { }
 
-	// RVA: 0x1C1B0BC Offset: 0x1C1B0BC VA: 0x1C1B0BC
+	// RVA: 0x16C4E78 Offset: 0x16C4E78 VA: 0x16C4E78
 	protected bool getBaseEventUpVal(ref EventUpValInfo eventUpVallInfo) { }
 
-	// RVA: 0x1C1B598 Offset: 0x1C1B598 VA: 0x1C1B598
+	// RVA: 0x16C5354 Offset: 0x16C5354 VA: 0x16C5354
 	public bool getQuestRestriction(QuestRestrictionInfo questRestrictionInfo) { }
 
-	// RVA: 0x1C1B658 Offset: 0x1C1B658 VA: 0x1C1B658
+	// RVA: 0x16C5414 Offset: 0x16C5414 VA: 0x16C5414
 	public bool getUniqueSvtRestriction(QuestRestrictionInfo questRestrictionInfo) { }
 
-	// RVA: 0x1C1B6FC Offset: 0x1C1B6FC VA: 0x1C1B6FC
+	// RVA: 0x16C54B8 Offset: 0x16C54B8 VA: 0x16C54B8
 	public bool getUniqueSvtRestriction(QuestRestrictionInfo questRestrictionInfo, PartyListViewItem partyItem, int num) { }
 
-	// RVA: 0x1C1B7C0 Offset: 0x1C1B7C0 VA: 0x1C1B7C0
+	// RVA: 0x16C557C Offset: 0x16C557C VA: 0x16C557C
 	public bool getTreasureDeviceInfo(out TreasureDvcInfo tdInfo) { }
 
-	// RVA: 0x1C1BA08 Offset: 0x1C1BA08 VA: 0x1C1BA08
+	// RVA: 0x16C57C4 Offset: 0x16C57C4 VA: 0x16C57C4
 	public bool getTreasureDeviceInfo(out int tdLv, out int tdMaxLv) { }
 
-	// RVA: 0x1C1BAE4 Offset: 0x1C1BAE4 VA: 0x1C1BAE4
+	// RVA: 0x16C58A0 Offset: 0x16C58A0 VA: 0x16C58A0
 	public int getTreasureDeviceLevelIcon() { }
-
-	// RVA: 0x1C1BBBC Offset: 0x1C1BBBC VA: 0x1C1BBBC
-	public bool getExpInfo(out int exp, out int lateExp, out float barExp) { }
-
-	// RVA: 0x1C1BE18 Offset: 0x1C1BE18 VA: 0x1C1BE18
-	public bool getEquipExpInfo(out int exp, out int lateExp, out float barExp) { }
-
-	// RVA: 0x1C1BF00 Offset: 0x1C1BF00 VA: 0x1C1BF00
-	public int getFrameType() { }
-
-	// RVA: 0x1C1C058 Offset: 0x1C1C058 VA: 0x1C1C058
-	public bool IsHideSupport() { }
-
-	// RVA: 0x1C1C064 Offset: 0x1C1C064 VA: 0x1C1C064
-	public bool IsHideEquip() { }
-
-	// RVA: 0x1C1C070 Offset: 0x1C1C070 VA: 0x1C1C070
-	public bool IsNotUsedTreasureDeice() { }
-
-	// RVA: 0x1C19160 Offset: 0x1C19160 VA: 0x1C19160
-	public bool IsNpc() { }
-
-	// RVA: 0x1C1C07C Offset: 0x1C1C07C VA: 0x1C1C07C
-	public int GetFriendIconDispLimitCount() { }
-
-	// RVA: 0x1C1AC60 Offset: 0x1C1AC60 VA: 0x1C1AC60
-	public int getDispLimitCount() { }
-
-	// RVA: 0x1C19010 Offset: 0x1C19010 VA: 0x1C19010
-	public int getMaxDispLimitCount() { }
-
-	// RVA: 0x1C1C0B8 Offset: 0x1C1C0B8 VA: 0x1C1C0B8
-	public int getDispSelectLimitCount() { }
-
-	// RVA: 0x1C1C1E8 Offset: 0x1C1C1E8 VA: 0x1C1C1E8
-	public int getCommandCardLimitCount() { }
-
-	// RVA: 0x1C1C2A8 Offset: 0x1C1C2A8 VA: 0x1C1C2A8
-	public int getMaxCommandCardLimitCount() { }
-
-	// RVA: 0x1C1C35C Offset: 0x1C1C35C VA: 0x1C1C35C
-	public int getCardImageLimitCount() { }
-
-	// RVA: 0x1C1C4F4 Offset: 0x1C1C4F4 VA: 0x1C1C4F4
-	public int getMaxCardImageLimitCount(bool isNpc = False) { }
-
-	// RVA: 0x1C1C5B4 Offset: 0x1C1C5B4 VA: 0x1C1C5B4
-	public int getIconLimitCount() { }
-
-	// RVA: 0x1C1C74C Offset: 0x1C1C74C VA: 0x1C1C74C
-	public int getMaxIconLimitCount(bool isNpc = False) { }
-
-	// RVA: 0x1C1C80C Offset: 0x1C1C80C VA: 0x1C1C80C
-	public int getPortraitLimitCount() { }
-
-	// RVA: 0x1C1C8CC Offset: 0x1C1C8CC VA: 0x1C1C8CC
-	public int getMaxPortraitLimitCount() { }
-
-	// RVA: 0x1C1C980 Offset: 0x1C1C980 VA: 0x1C1C980
-	public int[] getCommandCodeIdList() { }
-
-	// RVA: 0x1C1CB20 Offset: 0x1C1CB20 VA: 0x1C1CB20
-	public CommandCodeEntity getCommandCodeEntity(int index) { }
-
-	// RVA: 0x1C1CC70 Offset: 0x1C1CC70 VA: 0x1C1CC70
-	public void ChangeLimitCountBySpoilerProtection() { }
-
-	// RVA: 0x1C1CDC8 Offset: 0x1C1CDC8 VA: 0x1C1CDC8
-	private int GetLimitChangeDic(int limit) { }
-
-	// RVA: 0x1C1CF8C Offset: 0x1C1CF8C VA: 0x1C1CF8C
-	private void SetServantNameBySpoilerProtection() { }
-
-	// RVA: 0x1C1CEE0 Offset: 0x1C1CEE0 VA: 0x1C1CEE0
-	private int GetAdjustLimitCount(int orgLimitCount) { }
-
-	// RVA: 0x1C1D238 Offset: 0x1C1D238 VA: 0x1C1D238
-	public string GetOverWriteServantName() { }
-
-	// RVA: 0x1C1D240 Offset: 0x1C1D240 VA: 0x1C1D240
-	public void GetAppendPassiveSkillInfo(out int[] idList, out string[] titleList, out string[] explanationList, out bool[] releaseStateList, out int[] lvList) { }
-
-	// RVA: 0x1C1DB4C Offset: 0x1C1DB4C VA: 0x1C1DB4C
-	public void GetAppendPassiveSkillInfoForNpc(out int[] idList, out string[] titleList, out string[] explanationList, out bool[] releaseStateList, out int[] lvList) { }
-
-	// RVA: 0x1C1E404 Offset: 0x1C1E404 VA: 0x1C1E404
-	public void GetAppendPassiveSkillInfo(out SkillInfo[] skillInfoList, bool isNpc = False) { }
-
-	// RVA: 0x1C1E65C Offset: 0x1C1E65C VA: 0x1C1E65C
-	private static void .cctor() { }
-}
-
-// Namespace: 
-private enum ServantLeaderInfo.RandomLimitCountKind // TypeDefIndex: 7621
-{
-	// Fields
-	public int value__; // 0x0
-	public const ServantLeaderInfo.RandomLimitCountKind IMAGE_LIMIT_COUNT = 0;
-	public const ServantLeaderInfo.RandomLimitCountKind DISP_LIMIT_COUNT = 1;
-	public const ServantLeaderInfo.RandomLimitCountKind COMMANDCARD_LIMIT_COUNT = 2;
-	public const ServantLeaderInfo.RandomLimitCountKind ICON_LIMIT_COUNT = 3;
-	public const ServantLeaderInfo.RandomLimitCountKind PORTRAIT_LIMIT_COUNT = 4;
-}
-
-// Namespace: 
-public class ServantProfileEventJoinManager // TypeDefIndex: 7622
-{
-	// Fields
-	private static readonly string SAVE_DATA_VERSION; // 0x0
-	private static bool isModified; // 0x8
-	private static bool isContinueDevice; // 0x9
-	private static List<ServantProfileEventJoinManager.ServantEventJoinInfo> infoList; // 0x10
-
-	// Methods
-
-	// RVA: 0x1EE182C Offset: 0x1EE182C VA: 0x1EE182C
-	public void .ctor() { }
-
-	// RVA: 0x1EE1834 Offset: 0x1EE1834 VA: 0x1EE1834
-	private static string GetSaveFileName() { }
-
-	// RVA: 0x1EE190C Offset: 0x1EE190C VA: 0x1EE190C
-	public static void DeleteSaveData() { }
-
-	// RVA: 0x1EE1990 Offset: 0x1EE1990 VA: 0x1EE1990
-	protected static void ClearSaveDataList() { }
-
-	// RVA: 0x1EE1A94 Offset: 0x1EE1A94 VA: 0x1EE1A94
-	public static void Initialize() { }
-
-	// RVA: 0x1EE1F4C Offset: 0x1EE1F4C VA: 0x1EE1F4C
-	public static void UpdateProfileServantEventJoin() { }
-
-	// RVA: 0x1EE2C70 Offset: 0x1EE2C70 VA: 0x1EE2C70
-	public static bool GetIsNeedToCheckEventJoinName(ServantEntity servantEntity) { }
-
-	// RVA: 0x1EE260C Offset: 0x1EE260C VA: 0x1EE260C
-	private static void SetIsNeedToCheckEventJoinNameExist(int servantId, bool isNeedToChecEventJoinNameExist) { }
-
-	// RVA: 0x1EE1AF0 Offset: 0x1EE1AF0 VA: 0x1EE1AF0
-	private static bool ReadData() { }
-
-	// RVA: 0x1EE27CC Offset: 0x1EE27CC VA: 0x1EE27CC
-	private static bool WriteData() { }
-
-	// RVA: 0x1EE2EF0 Offset: 0x1EE2EF0 VA: 0x1EE2EF0
-	private static void .cctor() { }
-}
-
-// Namespace: 
-private class ServantProfileEventJoinManager.ServantEventJoinInfo // TypeDefIndex: 7623
-{
-	// Fields
-	public int servantId; // 0x10
-	public bool isNeedToCheckEventJoinNameExist; // 0x14
-
-	// Methods
-
-	// RVA: 0x1EE2EE8 Offset: 0x1EE2EE8 VA: 0x1EE2EE8
-	public void .ctor() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF060 Offset: 0xCAF060 VA: 0xCAF060
-private sealed class ServantProfileEventJoinManager.<GetIsNeedToCheckEventJoinName>c__AnonStorey0 // TypeDefIndex: 7624
-{
-	// Fields
-	internal ServantEntity servantEntity; // 0x10
-
-	// Methods
-
-	// RVA: 0x1EE2ED8 Offset: 0x1EE2ED8 VA: 0x1EE2ED8
-	public void .ctor() { }
-
-	// RVA: 0x1EE2F90 Offset: 0x1EE2F90 VA: 0x1EE2F90
-	internal bool <>m__0(ServantProfileEventJoinManager.ServantEventJoinInfo i) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF070 Offset: 0xCAF070 VA: 0xCAF070
-private sealed class ServantProfileEventJoinManager.<SetIsNeedToCheckEventJoinNameExist>c__AnonStorey1 // TypeDefIndex: 7625
-{
-	// Fields
-	internal int servantId; // 0x10
-
-	// Methods
-
-	// RVA: 0x1EE2EE0 Offset: 0x1EE2EE0 VA: 0x1EE2EE0
-	public void .ctor() { }
-
-	// RVA: 0x1EE3038 Offset: 0x1EE3038 VA: 0x1EE3038
-	internal bool <>m__0(ServantProfileEventJoinManager.ServantEventJoinInfo i) { }
-}
-
-// Namespace: 
-public class ServantProfileLimitCountManager // TypeDefIndex: 7626
-{
-	// Fields
-	protected static readonly string SAVE_DATA_VERSION; // 0x0
-	protected static bool isModfiy; // 0x8
-	protected static bool isContinueDevice; // 0x9
-	protected static List<ServantProfileLimitCountManager.ServantLimitCountInfo> limitCountList; // 0x10
-
-	// Methods
-
-	// RVA: 0x1EE3074 Offset: 0x1EE3074 VA: 0x1EE3074
-	public void .ctor() { }
-
-	// RVA: 0x1EE307C Offset: 0x1EE307C VA: 0x1EE307C
-	protected static string GetSaveFileName() { }
-
-	// RVA: 0x1EE3154 Offset: 0x1EE3154 VA: 0x1EE3154
-	public static void DeleteSaveData() { }
-
-	// RVA: 0x1EE31D8 Offset: 0x1EE31D8 VA: 0x1EE31D8
-	public static void Initialize() { }
-
-	// RVA: 0x1EE37FC Offset: 0x1EE37FC VA: 0x1EE37FC
-	protected static void ClearSaveDataList() { }
-
-	// RVA: 0x1EE3900 Offset: 0x1EE3900 VA: 0x1EE3900
-	public static void SetLimitCount(int servantId, int limitCount) { }
-
-	// RVA: 0x1EE3AE4 Offset: 0x1EE3AE4 VA: 0x1EE3AE4
-	public static int GetLimitCount(int servantId) { }
-
-	// RVA: 0x1EE3234 Offset: 0x1EE3234 VA: 0x1EE3234
-	public static bool ReadData() { }
-
-	// RVA: 0x1EE3BEC Offset: 0x1EE3BEC VA: 0x1EE3BEC
-	public static bool WriteData() { }
-
-	// RVA: 0x1EE40F4 Offset: 0x1EE40F4 VA: 0x1EE40F4
-	public static void UpdateProfileServantLimitCount() { }
-
-	// RVA: 0x1EE4408 Offset: 0x1EE4408 VA: 0x1EE4408
-	public static void SetLimitCountExistProfile(int servantId, int limitCount) { }
-
-	// RVA: 0x1EE45A8 Offset: 0x1EE45A8 VA: 0x1EE45A8
-	private static void .cctor() { }
-}
-
-// Namespace: 
-protected class ServantProfileLimitCountManager.ServantLimitCountInfo // TypeDefIndex: 7627
-{
-	// Fields
-	public int servantId; // 0x10
-	public int limitCount; // 0x14
-
-	// Methods
-
-	// RVA: 0x1EE3ADC Offset: 0x1EE3ADC VA: 0x1EE3ADC
-	public void .ctor() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF080 Offset: 0xCAF080 VA: 0xCAF080
-private sealed class ServantProfileLimitCountManager.<SetLimitCount>c__AnonStorey0 // TypeDefIndex: 7628
-{
-	// Fields
-	internal int servantId; // 0x10
-
-	// Methods
-
-	// RVA: 0x1EE3AD4 Offset: 0x1EE3AD4 VA: 0x1EE3AD4
-	public void .ctor() { }
-
-	// RVA: 0x1EE4684 Offset: 0x1EE4684 VA: 0x1EE4684
-	internal bool <>m__0(ServantProfileLimitCountManager.ServantLimitCountInfo x) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF090 Offset: 0xCAF090 VA: 0xCAF090
-private sealed class ServantProfileLimitCountManager.<GetLimitCount>c__AnonStorey1 // TypeDefIndex: 7629
-{
-	// Fields
-	internal int servantId; // 0x10
-
-	// Methods
-
-	// RVA: 0x1EE3BE4 Offset: 0x1EE3BE4 VA: 0x1EE3BE4
-	public void .ctor() { }
-
-	// RVA: 0x1EE4648 Offset: 0x1EE4648 VA: 0x1EE4648
-	internal bool <>m__0(ServantProfileLimitCountManager.ServantLimitCountInfo x) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF0A0 Offset: 0xCAF0A0 VA: 0xCAF0A0
-private sealed class ServantProfileLimitCountManager.<UpdateProfileServantLimitCount>c__AnonStorey2 // TypeDefIndex: 7630
-{
-	// Fields
-	internal UserServantEntity ent; // 0x10
-
-	// Methods
-
-	// RVA: 0x1EE4400 Offset: 0x1EE4400 VA: 0x1EE4400
-	public void .ctor() { }
-
-	// RVA: 0x1EE46FC Offset: 0x1EE46FC VA: 0x1EE46FC
-	internal bool <>m__0(ServantProfileEntity x) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF0B0 Offset: 0xCAF0B0 VA: 0xCAF0B0
-private sealed class ServantProfileLimitCountManager.<SetLimitCountExistProfile>c__AnonStorey3 // TypeDefIndex: 7631
-{
-	// Fields
-	internal int servantId; // 0x10
-
-	// Methods
-
-	// RVA: 0x1EE45A0 Offset: 0x1EE45A0 VA: 0x1EE45A0
-	public void .ctor() { }
-
-	// RVA: 0x1EE46C0 Offset: 0x1EE46C0 VA: 0x1EE46C0
-	internal bool <>m__0(ServantProfileEntity x) { }
-}
-
-// Namespace: 
-public class ServantVoiceCond // TypeDefIndex: 7632
-{
-	// Fields
-	public int condType; // 0x10
-	public int value; // 0x14
-
-	// Methods
-
-	// RVA: 0x185CE84 Offset: 0x185CE84 VA: 0x185CE84
-	public void .ctor() { }
-}
-
-// Namespace: 
-public class ServantVoiceData // TypeDefIndex: 7633
-{
-	// Fields
-	public string id; // 0x10
-	public float delay; // 0x18
-	public int face; // 0x1C
-	public int[] multiFace; // 0x20
-	public int[] multiForm; // 0x28
-	public string text; // 0x30
-	public int form; // 0x38
-	public int changeEffect; // 0x3C
-
-	// Methods
-
-	// RVA: 0x185CE8C Offset: 0x185CE8C VA: 0x185CE8C
-	public void .ctor() { }
-}
-
-// Namespace: 
-public class SetNoticeInfo // TypeDefIndex: 7634
-{
-	// Fields
-	private static bool isApRecover; // 0x0
-	private static bool isGameNotice; // 0x1
-
-	// Methods
-
-	// RVA: 0x1887110 Offset: 0x1887110 VA: 0x1887110
-	public void .ctor() { }
-
-	// RVA: 0x1887118 Offset: 0x1887118 VA: 0x1887118
-	public static void SetisApRecover(bool isNotice) { }
-
-	// RVA: 0x1887188 Offset: 0x1887188 VA: 0x1887188
-	public static bool GetisApRecover() { }
-
-	// RVA: 0x18871F0 Offset: 0x18871F0 VA: 0x18871F0
-	public static void SetisGameNotice(bool isNotice) { }
-
-	// RVA: 0x1887260 Offset: 0x1887260 VA: 0x1887260
-	public static bool GetisGameNotice() { }
-
-	// RVA: 0x18872C8 Offset: 0x18872C8 VA: 0x18872C8
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public class SkillInfo // TypeDefIndex: 7635
-{
-	// Fields
-	public int id; // 0x10
-	public int lv; // 0x14
-	public int charge; // 0x18
-	public string title; // 0x20
-	public string explanation; // 0x28
-	public int strengthStatus; // 0x30
-	public int skillRecord; // 0x34
-	public bool isUse; // 0x38
-
-	// Methods
-
-	// RVA: 0x1CE12A8 Offset: 0x1CE12A8 VA: 0x1CE12A8
-	public void .ctor() { }
-
-	// RVA: 0x1CE133C Offset: 0x1CE133C VA: 0x1CE133C
-	public static string GetMargeExplanation(SkillInfo[] skillInfoList) { }
-
-	// RVA: 0x1CE14E0 Offset: 0x1CE14E0 VA: 0x1CE14E0
-	public static string GetMargeExplanation(string[] explanationList) { }
-
-	// RVA: 0x1CE168C Offset: 0x1CE168C VA: 0x1CE168C
-	public bool Equals(SkillInfo info) { }
-
-	// RVA: 0x1CE16C4 Offset: 0x1CE16C4 VA: 0x1CE16C4
-	public string GetName() { }
-
-	// RVA: 0x1CE17D8 Offset: 0x1CE17D8 VA: 0x1CE17D8
-	public void OverwriteNextSkill(long userId, int svtId) { }
-}
-
-// Namespace: 
-public class SvtEquipInfo // TypeDefIndex: 7636
-{
-	// Fields
-	public long userSvtId; // 0x10
-	public long equipTargetId1; // 0x18
-
-	// Methods
-
-	// RVA: 0x15E52E4 Offset: 0x15E52E4 VA: 0x15E52E4
-	public void .ctor() { }
-}
-
-// Namespace: 
-public class SvtVoiceInfo // TypeDefIndex: 7637
-{
-	// Fields
-	public bool isInvalidVoiceList; // 0x10
-	public string summonScript; // 0x18
-	public string overwriteName; // 0x20
-	public string overwriteNameDefault; // 0x28
-	public string materialOverwriteName; // 0x30
-	public int overwritePriority; // 0x38
-	public ServantVoiceData[] infos; // 0x40
-	public ServantVoiceCond[] conds; // 0x48
-	public int condAddItem; // 0x50
-
-	// Methods
-
-	// RVA: 0x15E5B18 Offset: 0x15E5B18 VA: 0x15E5B18
-	public void .ctor() { }
-}
-
-// Namespace: 
-public class TreasureDvcInfo // TypeDefIndex: 7638
-{
-	// Fields
-	public int id; // 0x10
-	public int lv; // 0x14
-	public int maxLv; // 0x18
-	public string name; // 0x20
-	public string explanation; // 0x28
-	public int guageCount; // 0x30
-	public int cardId; // 0x34
-	public int strengthStatus; // 0x38
-	public bool isUse; // 0x3C
-
-	// Methods
-
-	// RVA: 0x1E103A4 Offset: 0x1E103A4 VA: 0x1E103A4
-	public void .ctor() { }
-
-	// RVA: 0x1E10438 Offset: 0x1E10438 VA: 0x1E10438
-	public bool Equals(TreasureDvcInfo info) { }
-
-	// RVA: 0x1E10470 Offset: 0x1E10470 VA: 0x1E10470
-	public string GetName() { }
-}
-
-// Namespace: 
-public class UsedCount // TypeDefIndex: 7639
-{
-	// Fields
-	public long userId; // 0x10
-	public int count; // 0x18
-
-	// Methods
-
-	// RVA: 0x2038488 Offset: 0x2038488 VA: 0x2038488
-	public void .ctor() { }
-}
-
-// Namespace: 
-public class UserCommandCodeCollectionManager // TypeDefIndex: 7640
-{
-	// Fields
-	protected static readonly string SAVE_DATA_VERSION; // 0x0
-	protected static bool isModfiy; // 0x8
-	protected static bool isContinueDevice; // 0x9
-	protected static List<int> oldList; // 0x10
-
-	// Methods
-
-	// RVA: 0x203987C Offset: 0x203987C VA: 0x203987C
-	public void .ctor() { }
-
-	// RVA: 0x2039884 Offset: 0x2039884 VA: 0x2039884
-	protected static string getSaveFileName() { }
-
-	// RVA: 0x203995C Offset: 0x203995C VA: 0x203995C
-	public static void DeleteSaveData() { }
-
-	// RVA: 0x20399E0 Offset: 0x20399E0 VA: 0x20399E0
-	public static void CreateContinueDeviceSaveData() { }
-
-	// RVA: 0x2039F2C Offset: 0x2039F2C VA: 0x2039F2C
-	public static void Initialize() { }
-
-	// RVA: 0x2039A5C Offset: 0x2039A5C VA: 0x2039A5C
-	protected static void ClearSaveDataList() { }
-
-	// RVA: 0x203A3D4 Offset: 0x203A3D4 VA: 0x203A3D4
-	public static void LoginProcess() { }
-
-	// RVA: 0x20393FC Offset: 0x20393FC VA: 0x20393FC
-	public static bool IsNew(int svtId) { }
-
-	// RVA: 0x20395F8 Offset: 0x20395F8 VA: 0x20395F8
-	public static void SetOld(int svtId) { }
-
-	// RVA: 0x203A6A0 Offset: 0x203A6A0 VA: 0x203A6A0
-	public static void SetOld(int[] svtIdList) { }
-
-	// RVA: 0x2039F88 Offset: 0x2039F88 VA: 0x2039F88
-	public static bool ReadData() { }
-
-	// RVA: 0x2039B60 Offset: 0x2039B60 VA: 0x2039B60
-	public static bool WriteData() { }
-
-	// RVA: 0x203A8E0 Offset: 0x203A8E0 VA: 0x203A8E0
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public class UserCommandCodeNewManager // TypeDefIndex: 7641
-{
-	// Fields
-	protected static readonly string SAVE_DATA_VERSION; // 0x0
-	protected static bool isModfiy; // 0x8
-	protected static bool isContinueDevice; // 0x9
-	protected static List<long> oldList; // 0x10
-
-	// Methods
-
-	// RVA: 0x1BD8658 Offset: 0x1BD8658 VA: 0x1BD8658
-	public void .ctor() { }
-
-	// RVA: 0x1BD8660 Offset: 0x1BD8660 VA: 0x1BD8660
-	protected static string getSaveFileName() { }
-
-	// RVA: 0x1BD8738 Offset: 0x1BD8738 VA: 0x1BD8738
-	public static void DeleteSaveData() { }
-
-	// RVA: 0x1BD87BC Offset: 0x1BD87BC VA: 0x1BD87BC
-	public static void CreateContinueDeviceSaveData() { }
-
-	// RVA: 0x1BD8D08 Offset: 0x1BD8D08 VA: 0x1BD8D08
-	public static void Initialize() { }
-
-	// RVA: 0x1BD8838 Offset: 0x1BD8838 VA: 0x1BD8838
-	protected static void ClearSaveDataList() { }
-
-	// RVA: 0x1BD91B0 Offset: 0x1BD91B0 VA: 0x1BD91B0
-	public static void LoginProcess() { }
-
-	// RVA: 0x1BD92A4 Offset: 0x1BD92A4 VA: 0x1BD92A4
-	public static bool IsNew(long userCmdCodeId) { }
-
-	// RVA: 0x1BD93B8 Offset: 0x1BD93B8 VA: 0x1BD93B8
-	public static void SetOld(long userCmdCodeId) { }
-
-	// RVA: 0x1BD8D64 Offset: 0x1BD8D64 VA: 0x1BD8D64
-	public static bool ReadData() { }
-
-	// RVA: 0x1BD893C Offset: 0x1BD893C VA: 0x1BD893C
-	public static bool WriteData() { }
-
-	// RVA: 0x1BD9528 Offset: 0x1BD9528 VA: 0x1BD9528
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public class UserEquipNewManager // TypeDefIndex: 7642
-{
-	// Fields
-	protected static readonly string SAVE_DATA_VERSION; // 0x0
-	protected static bool isModfiy; // 0x8
-	protected static bool isContinueDevice; // 0x9
-	protected static List<UserEquipNewManager.UserEquipLvInfo> openList; // 0x10
-
-	// Methods
-
-	// RVA: 0x1BDC390 Offset: 0x1BDC390 VA: 0x1BDC390
-	public void .ctor() { }
-
-	// RVA: 0x1BDC398 Offset: 0x1BDC398 VA: 0x1BDC398
-	protected static string getSaveFileName() { }
-
-	// RVA: 0x1BDC470 Offset: 0x1BDC470 VA: 0x1BDC470
-	public static void DeleteSaveData() { }
-
-	// RVA: 0x1BDC4F4 Offset: 0x1BDC4F4 VA: 0x1BDC4F4
-	public static void CreateContinueDeviceSaveData() { }
-
-	// RVA: 0x1BDCA70 Offset: 0x1BDCA70 VA: 0x1BDCA70
-	public static void Initialize() { }
-
-	// RVA: 0x1BDC570 Offset: 0x1BDC570 VA: 0x1BDC570
-	protected static void ClearSaveDataList() { }
-
-	// RVA: 0x1BDCF74 Offset: 0x1BDCF74 VA: 0x1BDCF74
-	public static void LoginProcess() { }
-
-	// RVA: 0x1BDBC78 Offset: 0x1BDBC78 VA: 0x1BDBC78
-	public static bool IsNew(int equipId, int lv) { }
-
-	// RVA: 0x1BDBE64 Offset: 0x1BDBE64 VA: 0x1BDBE64
-	public static void SetOld(int equipId, int lv) { }
-
-	// RVA: 0x1BDCACC Offset: 0x1BDCACC VA: 0x1BDCACC
-	public static bool ReadData() { }
-
-	// RVA: 0x1BDC674 Offset: 0x1BDC674 VA: 0x1BDC674
-	public static bool WriteData() { }
-
-	// RVA: 0x1BDD06C Offset: 0x1BDD06C VA: 0x1BDD06C
-	private static void .cctor() { }
-}
-
-// Namespace: 
-protected class UserEquipNewManager.UserEquipLvInfo // TypeDefIndex: 7643
-{
-	// Fields
-	public int equipId; // 0x10
-	public int equipLv; // 0x14
-
-	// Methods
-
-	// RVA: 0x1BDD064 Offset: 0x1BDD064 VA: 0x1BDD064
-	public void .ctor() { }
-}
-
-// Namespace: 
-public class UserFormationData // TypeDefIndex: 7644
-{
-	// Fields
-	public long userId; // 0x10
-	public long userEquipId; // 0x18
-	public int[] item; // 0x20
-
-	// Methods
-
-	// RVA: 0x1BE5720 Offset: 0x1BE5720 VA: 0x1BE5720
-	public void .ctor() { }
-}
-
-// Namespace: 
-public class UserMissionNewManager // TypeDefIndex: 7645
-{
-	// Fields
-	protected static readonly string SAVE_DATA_VERSION; // 0x0
-	protected static bool isModfiy; // 0x8
-	protected static bool isContinueDevice; // 0x9
-	protected static bool isNew; // 0xA
-	protected static int currentEventId; // 0xC
-	protected static List<UserMissionNewManager.UserMissionNewInfo> missionNewInfoList; // 0x10
-	protected static List<UserMissionNewManager.UserMissionNewInfo> oldNewInfoList; // 0x18
-	protected static string saveName; // 0x20
-
-	// Methods
-
-	// RVA: 0x1BEEC7C Offset: 0x1BEEC7C VA: 0x1BEEC7C
-	public void .ctor() { }
-
-	// RVA: 0x1BEEC84 Offset: 0x1BEEC84 VA: 0x1BEEC84
-	public static void setSaveFileName(int eventId) { }
-
-	// RVA: 0x1BEED7C Offset: 0x1BEED7C VA: 0x1BEED7C
-	public static string getSaveFileNameByEvent(int eventId) { }
-
-	// RVA: 0x1BEEE60 Offset: 0x1BEEE60 VA: 0x1BEEE60
-	public static string getSaveFileName() { }
-
-	// RVA: 0x1BEEF24 Offset: 0x1BEEF24 VA: 0x1BEEF24
-	public static void DeleteSaveData() { }
-
-	// RVA: 0x1BEEFA8 Offset: 0x1BEEFA8 VA: 0x1BEEFA8
-	public static void CreateContinueDeviceSaveData() { }
-
-	// RVA: 0x1BEF53C Offset: 0x1BEF53C VA: 0x1BEF53C
-	public static void Initialize() { }
-
-	// RVA: 0x1BEF024 Offset: 0x1BEF024 VA: 0x1BEF024
-	protected static void ClearSaveDataList() { }
-
-	// RVA: 0x1BEFB20 Offset: 0x1BEFB20 VA: 0x1BEFB20
-	public static bool ReadData() { }
-
-	// RVA: 0x1BEF128 Offset: 0x1BEF128 VA: 0x1BEF128
-	public static bool WriteData() { }
-
-	// RVA: 0x1BEFFE4 Offset: 0x1BEFFE4 VA: 0x1BEFFE4
-	public static bool SetIsNewMissionInfo(int targetMissionId) { }
-
-	// RVA: 0x1BF0260 Offset: 0x1BF0260 VA: 0x1BF0260
-	public static void SetClearNewFlg() { }
-
-	// RVA: 0x1BF03E0 Offset: 0x1BF03E0 VA: 0x1BF03E0
-	private static void .cctor() { }
-}
-
-// Namespace: 
-protected class UserMissionNewManager.UserMissionNewInfo // TypeDefIndex: 7646
-{
-	// Fields
-	public int eventId; // 0x10
-	public int missionId; // 0x14
-	public bool isNew; // 0x18
-
-	// Methods
-
-	// RVA: 0x1BEFFDC Offset: 0x1BEFFDC VA: 0x1BEFFDC
-	public void .ctor() { }
-}
-
-// Namespace: 
-public class UserMissionProgressInfo // TypeDefIndex: 7647
-{
-	// Fields
-	public int eventId; // 0x10
-	public int missionId; // 0x14
-	public int currentProgressType; // 0x18
-	public int currentProgStatus; // 0x1C
-	public long progNum; // 0x20
-	public long targetNum; // 0x28
-	public int condMsgType; // 0x30
-
-	// Methods
-
-	// RVA: 0x1BF04B0 Offset: 0x1BF04B0 VA: 0x1BF04B0
-	public void .ctor() { }
-
-	// RVA: 0x1BF04B8 Offset: 0x1BF04B8 VA: 0x1BF04B8
-	public void .ctor(int eventId, int missionId) { }
-
-	// RVA: 0x1BF0638 Offset: 0x1BF0638 VA: 0x1BF0638 Slot: 1
-	protected override void Finalize() { }
-
-	// RVA: 0x1BF04F4 Offset: 0x1BF04F4 VA: 0x1BF04F4
-	public void checkMissionCond() { }
-
-	// RVA: 0x1BF0640 Offset: 0x1BF0640 VA: 0x1BF0640
-	private void setMissionCondInfo() { }
-}
-
-// Namespace: 
-public enum UserMissionProgressInfo.ProgStatus // TypeDefIndex: 7648
-{
-	// Fields
-	public int value__; // 0x0
-	public const UserMissionProgressInfo.ProgStatus LOCK = 0;
-	public const UserMissionProgressInfo.ProgStatus NOSTART = 1;
-	public const UserMissionProgressInfo.ProgStatus PROGRESS = 2;
-	public const UserMissionProgressInfo.ProgStatus CLEAR = 3;
-	public const UserMissionProgressInfo.ProgStatus ACHIVE = 4;
-	public const UserMissionProgressInfo.ProgStatus END = 5;
-}
-
-// Namespace: 
-public class UserMissionProgressManager // TypeDefIndex: 7649
-{
-	// Fields
-	protected static readonly string SAVE_DATA_VERSION; // 0x0
-	protected static bool isModfiy; // 0x8
-	protected static bool isContinueDevice; // 0x9
-	protected static List<UserMissionProgressInfo> missionProgList; // 0x10
-	protected static string saveName; // 0x18
-
-	// Methods

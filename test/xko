@@ -1,27 +1,149 @@
+	public virtual bool IsPartialBlockOkay { get; }
+
+	// Methods
+
+	// RVA: 0x202A804 Offset: 0x202A804 VA: 0x202A804
+	public void .ctor() { }
+
+	// RVA: 0x202A80C Offset: 0x202A80C VA: 0x202A80C
+	private static uint Shift(uint r, int shift) { }
+
+	// RVA: 0x202A818 Offset: 0x202A818 VA: 0x202A818
+	private static uint FFmulX(uint x) { }
+
+	// RVA: 0x202A838 Offset: 0x202A838 VA: 0x202A838
+	private static uint FFmulX2(uint x) { }
+
+	// RVA: 0x202A854 Offset: 0x202A854 VA: 0x202A854
+	private static uint Inv_Mcol(uint x) { }
+
+	// RVA: 0x202A8FC Offset: 0x202A8FC VA: 0x202A8FC
+	private static uint SubWord(uint x) { }
+
+	// RVA: 0x202AA7C Offset: 0x202AA7C VA: 0x202AA7C
+	private uint[][] GenerateWorkingKey(byte[] key, bool forEncryption) { }
+
+	// RVA: 0x202C270 Offset: 0x202C270 VA: 0x202C270 Slot: 10
+	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
+
+	// RVA: 0x202C3D0 Offset: 0x202C3D0 VA: 0x202C3D0 Slot: 11
+	public virtual string get_AlgorithmName() { }
+
+	// RVA: 0x202C418 Offset: 0x202C418 VA: 0x202C418 Slot: 12
 	public virtual bool get_IsPartialBlockOkay() { }
 
-	// RVA: 0x23E8FD0 Offset: 0x23E8FD0 VA: 0x23E8FD0 Slot: 13
+	// RVA: 0x202C420 Offset: 0x202C420 VA: 0x202C420 Slot: 13
 	public virtual int GetBlockSize() { }
 
-	// RVA: 0x23E8FD8 Offset: 0x23E8FD8 VA: 0x23E8FD8 Slot: 14
+	// RVA: 0x202C428 Offset: 0x202C428 VA: 0x202C428 Slot: 14
 	public virtual int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
 
-	// RVA: 0x23EC0A8 Offset: 0x23EC0A8 VA: 0x23EC0A8 Slot: 15
+	// RVA: 0x202F708 Offset: 0x202F708 VA: 0x202F708 Slot: 15
 	public virtual void Reset() { }
 
-	// RVA: 0x23E9104 Offset: 0x23E9104 VA: 0x23E9104
+	// RVA: 0x202C554 Offset: 0x202C554 VA: 0x202C554
 	private void UnPackBlock(byte[] bytes, int off) { }
 
-	// RVA: 0x23EC038 Offset: 0x23EC038 VA: 0x23EC038
+	// RVA: 0x202F698 Offset: 0x202F698 VA: 0x202F698
 	private void PackBlock(byte[] bytes, int off) { }
 
-	// RVA: 0x23E9180 Offset: 0x23E9180 VA: 0x23E9180
+	// RVA: 0x202C5D0 Offset: 0x202C5D0 VA: 0x202C5D0
 	private void EncryptBlock(uint[][] KW) { }
 
-	// RVA: 0x23EA908 Offset: 0x23EA908 VA: 0x23EA908
+	// RVA: 0x202DE48 Offset: 0x202DE48 VA: 0x202DE48
 	private void DecryptBlock(uint[][] KW) { }
 
-	// RVA: 0x23EC0AC Offset: 0x23EC0AC VA: 0x23EC0AC
+	// RVA: 0x202F70C Offset: 0x202F70C VA: 0x202F70C
+	private static void .cctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Engines
+public class AesFastEngine : IBlockCipher // TypeDefIndex: 4694
+{
+	// Fields
+	private static readonly byte[] S; // 0x0
+	private static readonly byte[] Si; // 0x8
+	private static readonly byte[] rcon; // 0x10
+	private static readonly uint[] T0; // 0x18
+	private static readonly uint[] T1; // 0x20
+	private static readonly uint[] T2; // 0x28
+	private static readonly uint[] T3; // 0x30
+	private static readonly uint[] Tinv0; // 0x38
+	private static readonly uint[] Tinv1; // 0x40
+	private static readonly uint[] Tinv2; // 0x48
+	private static readonly uint[] Tinv3; // 0x50
+	private const uint m1 = 2155905152;
+	private const uint m2 = 2139062143;
+	private const uint m3 = 27;
+	private const uint m4 = 3233857728;
+	private const uint m5 = 1061109567;
+	private int ROUNDS; // 0x10
+	private uint[][] WorkingKey; // 0x18
+	private uint C0; // 0x20
+	private uint C1; // 0x24
+	private uint C2; // 0x28
+	private uint C3; // 0x2C
+	private bool forEncryption; // 0x30
+	private const int BLOCK_SIZE = 16;
+
+	// Properties
+	public virtual string AlgorithmName { get; }
+	public virtual bool IsPartialBlockOkay { get; }
+
+	// Methods
+
+	// RVA: 0x23DE08C Offset: 0x23DE08C VA: 0x23DE08C
+	public void .ctor() { }
+
+	// RVA: 0x23DE094 Offset: 0x23DE094 VA: 0x23DE094
+	private static uint Shift(uint r, int shift) { }
+
+	// RVA: 0x23DE0A0 Offset: 0x23DE0A0 VA: 0x23DE0A0
+	private static uint FFmulX(uint x) { }
+
+	// RVA: 0x23DE0C0 Offset: 0x23DE0C0 VA: 0x23DE0C0
+	private static uint FFmulX2(uint x) { }
+
+	// RVA: 0x23DE0DC Offset: 0x23DE0DC VA: 0x23DE0DC
+	private static uint Inv_Mcol(uint x) { }
+
+	// RVA: 0x23DE184 Offset: 0x23DE184 VA: 0x23DE184
+	private static uint SubWord(uint x) { }
+
+	// RVA: 0x23DE304 Offset: 0x23DE304 VA: 0x23DE304
+	private uint[][] GenerateWorkingKey(byte[] key, bool forEncryption) { }
+
+	// RVA: 0x23DFAF8 Offset: 0x23DFAF8 VA: 0x23DFAF8 Slot: 10
+	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
+
+	// RVA: 0x23DFC58 Offset: 0x23DFC58 VA: 0x23DFC58 Slot: 11
+	public virtual string get_AlgorithmName() { }
+
+	// RVA: 0x23DFCA0 Offset: 0x23DFCA0 VA: 0x23DFCA0 Slot: 12
+	public virtual bool get_IsPartialBlockOkay() { }
+
+	// RVA: 0x23DFCA8 Offset: 0x23DFCA8 VA: 0x23DFCA8 Slot: 13
+	public virtual int GetBlockSize() { }
+
+	// RVA: 0x23DFCB0 Offset: 0x23DFCB0 VA: 0x23DFCB0 Slot: 14
+	public virtual int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
+
+	// RVA: 0x23E2D80 Offset: 0x23E2D80 VA: 0x23E2D80 Slot: 15
+	public virtual void Reset() { }
+
+	// RVA: 0x23DFDDC Offset: 0x23DFDDC VA: 0x23DFDDC
+	private void UnPackBlock(byte[] bytes, int off) { }
+
+	// RVA: 0x23E2D10 Offset: 0x23E2D10 VA: 0x23E2D10
+	private void PackBlock(byte[] bytes, int off) { }
+
+	// RVA: 0x23DFE58 Offset: 0x23DFE58 VA: 0x23DFE58
+	private void EncryptBlock(uint[][] KW) { }
+
+	// RVA: 0x23E15E0 Offset: 0x23E15E0 VA: 0x23E15E0
+	private void DecryptBlock(uint[][] KW) { }
+
+	// RVA: 0x23E2D84 Offset: 0x23E2D84 VA: 0x23E2D84
 	private static void .cctor() { }
 }
 
@@ -30,7 +152,7 @@ public class AesWrapEngine : Rfc3394WrapEngine // TypeDefIndex: 4695
 {
 	// Methods
 
-	// RVA: 0x2576F20 Offset: 0x2576F20 VA: 0x2576F20
+	// RVA: 0x23E2FF0 Offset: 0x23E2FF0 VA: 0x23E2FF0
 	public void .ctor() { }
 }
 
@@ -61,43 +183,43 @@ public sealed class BlowfishEngine : IBlockCipher // TypeDefIndex: 4696
 
 	// Methods
 
-	// RVA: 0x2576F88 Offset: 0x2576F88 VA: 0x2576F88
+	// RVA: 0x23E3058 Offset: 0x23E3058 VA: 0x23E3058
 	public void .ctor() { }
 
-	// RVA: 0x257707C Offset: 0x257707C VA: 0x257707C Slot: 5
+	// RVA: 0x23E314C Offset: 0x23E314C VA: 0x23E314C Slot: 5
 	public void Init(bool forEncryption, ICipherParameters parameters) { }
 
-	// RVA: 0x2577780 Offset: 0x2577780 VA: 0x2577780 Slot: 4
+	// RVA: 0x23E3850 Offset: 0x23E3850 VA: 0x23E3850 Slot: 4
 	public string get_AlgorithmName() { }
 
-	// RVA: 0x25777C8 Offset: 0x25777C8 VA: 0x25777C8 Slot: 7
+	// RVA: 0x23E3898 Offset: 0x23E3898 VA: 0x23E3898 Slot: 7
 	public bool get_IsPartialBlockOkay() { }
 
-	// RVA: 0x25777D0 Offset: 0x25777D0 VA: 0x25777D0 Slot: 8
+	// RVA: 0x23E38A0 Offset: 0x23E38A0 VA: 0x23E38A0 Slot: 8
 	public int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
 
-	// RVA: 0x2577D58 Offset: 0x2577D58 VA: 0x2577D58 Slot: 9
+	// RVA: 0x23E3E28 Offset: 0x23E3E28 VA: 0x23E3E28 Slot: 9
 	public void Reset() { }
 
-	// RVA: 0x2577D5C Offset: 0x2577D5C VA: 0x2577D5C Slot: 6
+	// RVA: 0x23E3E2C Offset: 0x23E3E2C VA: 0x23E3E2C Slot: 6
 	public int GetBlockSize() { }
 
-	// RVA: 0x2577D64 Offset: 0x2577D64 VA: 0x2577D64
+	// RVA: 0x23E3E34 Offset: 0x23E3E34 VA: 0x23E3E34
 	private uint F(uint x) { }
 
-	// RVA: 0x2577E80 Offset: 0x2577E80 VA: 0x2577E80
+	// RVA: 0x23E3F50 Offset: 0x23E3F50 VA: 0x23E3F50
 	private void ProcessTable(uint xl, uint xr, uint[] table) { }
 
-	// RVA: 0x25772C8 Offset: 0x25772C8 VA: 0x25772C8
+	// RVA: 0x23E3398 Offset: 0x23E3398 VA: 0x23E3398
 	private void SetKey(byte[] key) { }
 
-	// RVA: 0x25778FC Offset: 0x25778FC VA: 0x25778FC
+	// RVA: 0x23E39CC Offset: 0x23E39CC VA: 0x23E39CC
 	private void EncryptBlock(byte[] src, int srcIndex, byte[] dst, int dstIndex) { }
 
-	// RVA: 0x2577B40 Offset: 0x2577B40 VA: 0x2577B40
+	// RVA: 0x23E3C10 Offset: 0x23E3C10 VA: 0x23E3C10
 	private void DecryptBlock(byte[] src, int srcIndex, byte[] dst, int dstIndex) { }
 
-	// RVA: 0x2578140 Offset: 0x2578140 VA: 0x2578140
+	// RVA: 0x23E4210 Offset: 0x23E4210 VA: 0x23E4210
 	private static void .cctor() { }
 }
 
@@ -124,67 +246,67 @@ public class CamelliaEngine : IBlockCipher // TypeDefIndex: 4697
 
 	// Methods
 
-	// RVA: 0x25782AC Offset: 0x25782AC VA: 0x25782AC
+	// RVA: 0x23E437C Offset: 0x23E437C VA: 0x23E437C
 	public void .ctor() { }
 
-	// RVA: 0x257833C Offset: 0x257833C VA: 0x257833C
+	// RVA: 0x23E440C Offset: 0x23E440C VA: 0x23E440C
 	private static uint rightRotate(uint x, int s) { }
 
-	// RVA: 0x2578358 Offset: 0x2578358 VA: 0x2578358
+	// RVA: 0x23E4428 Offset: 0x23E4428 VA: 0x23E4428
 	private static uint leftRotate(uint x, int s) { }
 
-	// RVA: 0x2578374 Offset: 0x2578374 VA: 0x2578374
+	// RVA: 0x23E4444 Offset: 0x23E4444 VA: 0x23E4444
 	private static void roldq(int rot, uint[] ki, int ioff, uint[] ko, int ooff) { }
 
-	// RVA: 0x2578750 Offset: 0x2578750 VA: 0x2578750
+	// RVA: 0x23E4820 Offset: 0x23E4820 VA: 0x23E4820
 	private static void decroldq(int rot, uint[] ki, int ioff, uint[] ko, int ooff) { }
 
-	// RVA: 0x2578B38 Offset: 0x2578B38 VA: 0x2578B38
+	// RVA: 0x23E4C08 Offset: 0x23E4C08 VA: 0x23E4C08
 	private static void roldqo32(int rot, uint[] ki, int ioff, uint[] ko, int ooff) { }
 
-	// RVA: 0x2578F0C Offset: 0x2578F0C VA: 0x2578F0C
+	// RVA: 0x23E4FDC Offset: 0x23E4FDC VA: 0x23E4FDC
 	private static void decroldqo32(int rot, uint[] ki, int ioff, uint[] ko, int ooff) { }
 
-	// RVA: 0x25792FC Offset: 0x25792FC VA: 0x25792FC
+	// RVA: 0x23E53CC Offset: 0x23E53CC VA: 0x23E53CC
 	private static uint bytes2uint(byte[] src, int offset) { }
 
-	// RVA: 0x2579384 Offset: 0x2579384 VA: 0x2579384
+	// RVA: 0x23E5454 Offset: 0x23E5454 VA: 0x23E5454
 	private static void uint2bytes(uint word, byte[] dst, int offset) { }
 
-	// RVA: 0x2579404 Offset: 0x2579404 VA: 0x2579404
+	// RVA: 0x23E54D4 Offset: 0x23E54D4 VA: 0x23E54D4
 	private static void camelliaF2(uint[] s, uint[] skey, int keyoff) { }
 
-	// RVA: 0x2579AE4 Offset: 0x2579AE4 VA: 0x2579AE4
+	// RVA: 0x23E5BB4 Offset: 0x23E5BB4 VA: 0x23E5BB4
 	private static void camelliaFLs(uint[] s, uint[] fkey, int keyoff) { }
 
-	// RVA: 0x2579D48 Offset: 0x2579D48 VA: 0x2579D48
+	// RVA: 0x23E5E18 Offset: 0x23E5E18 VA: 0x23E5E18
 	private void setKey(bool forEncryption, byte[] key) { }
 
-	// RVA: 0x257BA20 Offset: 0x257BA20 VA: 0x257BA20
+	// RVA: 0x23E7AF0 Offset: 0x23E7AF0 VA: 0x23E7AF0
 	private int processBlock128(byte[] input, int inOff, byte[] output, int outOff) { }
 
-	// RVA: 0x257BED0 Offset: 0x257BED0 VA: 0x257BED0
+	// RVA: 0x23E7FA0 Offset: 0x23E7FA0 VA: 0x23E7FA0
 	private int processBlock192or256(byte[] input, int inOff, byte[] output, int outOff) { }
 
-	// RVA: 0x257C3BC Offset: 0x257C3BC VA: 0x257C3BC Slot: 10
+	// RVA: 0x23E848C Offset: 0x23E848C VA: 0x23E848C Slot: 10
 	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
 
-	// RVA: 0x257C4AC Offset: 0x257C4AC VA: 0x257C4AC Slot: 11
+	// RVA: 0x23E857C Offset: 0x23E857C VA: 0x23E857C Slot: 11
 	public virtual string get_AlgorithmName() { }
 
-	// RVA: 0x257C4F4 Offset: 0x257C4F4 VA: 0x257C4F4 Slot: 12
+	// RVA: 0x23E85C4 Offset: 0x23E85C4 VA: 0x23E85C4 Slot: 12
 	public virtual bool get_IsPartialBlockOkay() { }
 
-	// RVA: 0x257C4FC Offset: 0x257C4FC VA: 0x257C4FC Slot: 13
+	// RVA: 0x23E85CC Offset: 0x23E85CC VA: 0x23E85CC Slot: 13
 	public virtual int GetBlockSize() { }
 
-	// RVA: 0x257C504 Offset: 0x257C504 VA: 0x257C504 Slot: 14
+	// RVA: 0x23E85D4 Offset: 0x23E85D4 VA: 0x23E85D4 Slot: 14
 	public virtual int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
 
-	// RVA: 0x257C630 Offset: 0x257C630 VA: 0x257C630 Slot: 15
+	// RVA: 0x23E8700 Offset: 0x23E8700 VA: 0x23E8700 Slot: 15
 	public virtual void Reset() { }
 
-	// RVA: 0x257C634 Offset: 0x257C634 VA: 0x257C634
+	// RVA: 0x23E8704 Offset: 0x23E8704 VA: 0x23E8704
 	private static void .cctor() { }
 }
 
@@ -193,7 +315,7 @@ public class CamelliaWrapEngine : Rfc3394WrapEngine // TypeDefIndex: 4698
 {
 	// Methods
 
-	// RVA: 0x257C778 Offset: 0x257C778 VA: 0x257C778
+	// RVA: 0x23E8848 Offset: 0x23E8848 VA: 0x23E8848
 	public void .ctor() { }
 }
 
@@ -224,58 +346,58 @@ public class Cast5Engine : IBlockCipher // TypeDefIndex: 4699
 
 	// Methods
 
-	// RVA: 0x257C7DC Offset: 0x257C7DC VA: 0x257C7DC
+	// RVA: 0x23E88AC Offset: 0x23E88AC VA: 0x23E88AC
 	public void .ctor() { }
 
-	// RVA: 0x257C884 Offset: 0x257C884 VA: 0x257C884 Slot: 10
+	// RVA: 0x23E8954 Offset: 0x23E8954 VA: 0x23E8954 Slot: 10
 	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
 
-	// RVA: 0x257CB04 Offset: 0x257CB04 VA: 0x257CB04 Slot: 11
+	// RVA: 0x23E8BD4 Offset: 0x23E8BD4 VA: 0x23E8BD4 Slot: 11
 	public virtual string get_AlgorithmName() { }
 
-	// RVA: 0x257CB4C Offset: 0x257CB4C VA: 0x257CB4C Slot: 12
+	// RVA: 0x23E8C1C Offset: 0x23E8C1C VA: 0x23E8C1C Slot: 12
 	public virtual bool get_IsPartialBlockOkay() { }
 
-	// RVA: 0x257CB54 Offset: 0x257CB54 VA: 0x257CB54 Slot: 13
+	// RVA: 0x23E8C24 Offset: 0x23E8C24 VA: 0x23E8C24 Slot: 13
 	public virtual int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
 
-	// RVA: 0x257CCDC Offset: 0x257CCDC VA: 0x257CCDC Slot: 14
+	// RVA: 0x23E8DAC Offset: 0x23E8DAC VA: 0x23E8DAC Slot: 14
 	public virtual void Reset() { }
 
-	// RVA: 0x257CCE0 Offset: 0x257CCE0 VA: 0x257CCE0 Slot: 15
+	// RVA: 0x23E8DB0 Offset: 0x23E8DB0 VA: 0x23E8DB0 Slot: 15
 	public virtual int GetBlockSize() { }
 
-	// RVA: 0x257CCE8 Offset: 0x257CCE8 VA: 0x257CCE8 Slot: 16
+	// RVA: 0x23E8DB8 Offset: 0x23E8DB8 VA: 0x23E8DB8 Slot: 16
 	internal virtual void SetKey(byte[] key) { }
 
-	// RVA: 0x2585238 Offset: 0x2585238 VA: 0x2585238 Slot: 17
+	// RVA: 0x23F1308 Offset: 0x23F1308 VA: 0x23F1308 Slot: 17
 	internal virtual int EncryptBlock(byte[] src, int srcIndex, byte[] dst, int dstIndex) { }
 
-	// RVA: 0x2585658 Offset: 0x2585658 VA: 0x2585658 Slot: 18
+	// RVA: 0x23F1728 Offset: 0x23F1728 VA: 0x23F1728 Slot: 18
 	internal virtual int DecryptBlock(byte[] src, int srcIndex, byte[] dst, int dstIndex) { }
 
-	// RVA: 0x2585ADC Offset: 0x2585ADC VA: 0x2585ADC
+	// RVA: 0x23F1BAC Offset: 0x23F1BAC VA: 0x23F1BAC
 	internal static uint F1(uint D, uint Kmi, int Kri) { }
 
-	// RVA: 0x2585C70 Offset: 0x2585C70 VA: 0x2585C70
+	// RVA: 0x23F1D40 Offset: 0x23F1D40 VA: 0x23F1D40
 	internal static uint F2(uint D, uint Kmi, int Kri) { }
 
-	// RVA: 0x2585E04 Offset: 0x2585E04 VA: 0x2585E04
+	// RVA: 0x23F1ED4 Offset: 0x23F1ED4 VA: 0x23F1ED4
 	internal static uint F3(uint D, uint Kmi, int Kri) { }
 
-	// RVA: 0x258535C Offset: 0x258535C VA: 0x258535C
+	// RVA: 0x23F142C Offset: 0x23F142C VA: 0x23F142C
 	internal void CAST_Encipher(uint L0, uint R0, uint[] result) { }
 
-	// RVA: 0x258577C Offset: 0x258577C VA: 0x258577C
+	// RVA: 0x23F184C Offset: 0x23F184C VA: 0x23F184C
 	internal void CAST_Decipher(uint L16, uint R16, uint[] result) { }
 
-	// RVA: 0x258513C Offset: 0x258513C VA: 0x258513C
+	// RVA: 0x23F120C Offset: 0x23F120C VA: 0x23F120C
 	internal static void Bits32ToInts(uint inData, int[] b, int offset) { }
 
-	// RVA: 0x2585048 Offset: 0x2585048 VA: 0x2585048
+	// RVA: 0x23F1118 Offset: 0x23F1118 VA: 0x23F1118
 	internal static uint IntsTo32bits(int[] b, int i) { }
 
-	// RVA: 0x2585F98 Offset: 0x2585F98 VA: 0x2585F98
+	// RVA: 0x23F2068 Offset: 0x23F2068 VA: 0x23F2068
 	private static void .cctor() { }
 }
 
@@ -296,31 +418,31 @@ public sealed class Cast6Engine : Cast5Engine // TypeDefIndex: 4700
 
 	// Methods
 
-	// RVA: 0x2586184 Offset: 0x2586184 VA: 0x2586184
+	// RVA: 0x23F2254 Offset: 0x23F2254 VA: 0x23F2254
 	public void .ctor() { }
 
-	// RVA: 0x2586250 Offset: 0x2586250 VA: 0x2586250 Slot: 11
+	// RVA: 0x23F2320 Offset: 0x23F2320 VA: 0x23F2320 Slot: 11
 	public override string get_AlgorithmName() { }
 
-	// RVA: 0x2586298 Offset: 0x2586298 VA: 0x2586298 Slot: 14
+	// RVA: 0x23F2368 Offset: 0x23F2368 VA: 0x23F2368 Slot: 14
 	public override void Reset() { }
 
-	// RVA: 0x258629C Offset: 0x258629C VA: 0x258629C Slot: 15
+	// RVA: 0x23F236C Offset: 0x23F236C VA: 0x23F236C Slot: 15
 	public override int GetBlockSize() { }
 
-	// RVA: 0x25862A4 Offset: 0x25862A4 VA: 0x25862A4 Slot: 16
+	// RVA: 0x23F2374 Offset: 0x23F2374 VA: 0x23F2374 Slot: 16
 	internal override void SetKey(byte[] key) { }
 
-	// RVA: 0x25875D4 Offset: 0x25875D4 VA: 0x25875D4 Slot: 17
+	// RVA: 0x23F36A4 Offset: 0x23F36A4 VA: 0x23F36A4 Slot: 17
 	internal override int EncryptBlock(byte[] src, int srcIndex, byte[] dst, int dstIndex) { }
 
-	// RVA: 0x2587CFC Offset: 0x2587CFC VA: 0x2587CFC Slot: 18
+	// RVA: 0x23F3DCC Offset: 0x23F3DCC VA: 0x23F3DCC Slot: 18
 	internal override int DecryptBlock(byte[] src, int srcIndex, byte[] dst, int dstIndex) { }
 
-	// RVA: 0x2587790 Offset: 0x2587790 VA: 0x2587790
+	// RVA: 0x23F3860 Offset: 0x23F3860 VA: 0x23F3860
 	private void CAST_Encipher(uint A, uint B, uint C, uint D, uint[] result) { }
 
-	// RVA: 0x2587EB8 Offset: 0x2587EB8 VA: 0x2587EB8
+	// RVA: 0x23F3F88 Offset: 0x23F3F88 VA: 0x23F3F88
 	private void CAST_Decipher(uint A, uint B, uint C, uint D, uint[] result) { }
 }
 
@@ -333,25 +455,25 @@ public class ChaCha7539Engine : Salsa20Engine // TypeDefIndex: 4701
 
 	// Methods
 
-	// RVA: 0x2588428 Offset: 0x2588428 VA: 0x2588428
+	// RVA: 0x23F44F8 Offset: 0x23F44F8 VA: 0x23F44F8
 	public void .ctor() { }
 
-	// RVA: 0x2588490 Offset: 0x2588490 VA: 0x2588490 Slot: 11
+	// RVA: 0x23F4560 Offset: 0x23F4560 VA: 0x23F4560 Slot: 11
 	public override string get_AlgorithmName() { }
 
-	// RVA: 0x2588534 Offset: 0x2588534 VA: 0x2588534 Slot: 10
+	// RVA: 0x23F4604 Offset: 0x23F4604 VA: 0x23F4604 Slot: 10
 	protected override int get_NonceSize() { }
 
-	// RVA: 0x258853C Offset: 0x258853C VA: 0x258853C Slot: 13
+	// RVA: 0x23F460C Offset: 0x23F460C VA: 0x23F460C Slot: 13
 	protected override void AdvanceCounter() { }
 
-	// RVA: 0x25885FC Offset: 0x25885FC VA: 0x25885FC Slot: 16
+	// RVA: 0x23F46CC Offset: 0x23F46CC VA: 0x23F46CC Slot: 16
 	protected override void ResetCounter() { }
 
-	// RVA: 0x2588644 Offset: 0x2588644 VA: 0x2588644 Slot: 17
+	// RVA: 0x23F4714 Offset: 0x23F4714 VA: 0x23F4714 Slot: 17
 	protected override void SetKey(byte[] keyBytes, byte[] ivBytes) { }
 
-	// RVA: 0x2588790 Offset: 0x2588790 VA: 0x2588790 Slot: 18
+	// RVA: 0x23F4860 Offset: 0x23F4860 VA: 0x23F4860 Slot: 18
 	protected override void GenerateKeyStream(byte[] output) { }
 }
 
@@ -363,28 +485,28 @@ public class ChaChaEngine : Salsa20Engine // TypeDefIndex: 4702
 
 	// Methods
 
-	// RVA: 0x258935C Offset: 0x258935C VA: 0x258935C
+	// RVA: 0x23F542C Offset: 0x23F542C VA: 0x23F542C
 	public void .ctor() { }
 
-	// RVA: 0x25893C4 Offset: 0x25893C4 VA: 0x25893C4
+	// RVA: 0x23F5494 Offset: 0x23F5494 VA: 0x23F5494
 	public void .ctor(int rounds) { }
 
-	// RVA: 0x258943C Offset: 0x258943C VA: 0x258943C Slot: 11
+	// RVA: 0x23F550C Offset: 0x23F550C VA: 0x23F550C Slot: 11
 	public override string get_AlgorithmName() { }
 
-	// RVA: 0x25894E0 Offset: 0x25894E0 VA: 0x25894E0 Slot: 13
+	// RVA: 0x23F55B0 Offset: 0x23F55B0 VA: 0x23F55B0 Slot: 13
 	protected override void AdvanceCounter() { }
 
-	// RVA: 0x2589570 Offset: 0x2589570 VA: 0x2589570 Slot: 16
+	// RVA: 0x23F5640 Offset: 0x23F5640 VA: 0x23F5640 Slot: 16
 	protected override void ResetCounter() { }
 
-	// RVA: 0x25895D8 Offset: 0x25895D8 VA: 0x25895D8 Slot: 17
+	// RVA: 0x23F56A8 Offset: 0x23F56A8 VA: 0x23F56A8 Slot: 17
 	protected override void SetKey(byte[] keyBytes, byte[] ivBytes) { }
 
-	// RVA: 0x2589748 Offset: 0x2589748 VA: 0x2589748 Slot: 18
+	// RVA: 0x23F5818 Offset: 0x23F5818 VA: 0x23F5818 Slot: 18
 	protected override void GenerateKeyStream(byte[] output) { }
 
-	// RVA: 0x25887D0 Offset: 0x25887D0 VA: 0x25887D0
+	// RVA: 0x23F48A0 Offset: 0x23F48A0 VA: 0x23F48A0
 	internal static void ChachaCore(int rounds, uint[] input, uint[] x) { }
 }
 
@@ -402,22 +524,22 @@ public class DesEdeEngine : DesEngine // TypeDefIndex: 4703
 
 	// Methods
 
-	// RVA: 0x2589788 Offset: 0x2589788 VA: 0x2589788
+	// RVA: 0x23F5858 Offset: 0x23F5858 VA: 0x23F5858
 	public void .ctor() { }
 
-	// RVA: 0x25897F8 Offset: 0x25897F8 VA: 0x25897F8 Slot: 11
+	// RVA: 0x23F58C8 Offset: 0x23F58C8 VA: 0x23F58C8 Slot: 11
 	public override void Init(bool forEncryption, ICipherParameters parameters) { }
 
-	// RVA: 0x258A254 Offset: 0x258A254 VA: 0x258A254 Slot: 12
+	// RVA: 0x23F6324 Offset: 0x23F6324 VA: 0x23F6324 Slot: 12
 	public override string get_AlgorithmName() { }
 
-	// RVA: 0x258A29C Offset: 0x258A29C VA: 0x258A29C Slot: 14
+	// RVA: 0x23F636C Offset: 0x23F636C VA: 0x23F636C Slot: 14
 	public override int GetBlockSize() { }
 
-	// RVA: 0x258A2A4 Offset: 0x258A2A4 VA: 0x258A2A4 Slot: 15
+	// RVA: 0x23F6374 Offset: 0x23F6374 VA: 0x23F6374 Slot: 15
 	public override int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
 
-	// RVA: 0x258AB5C Offset: 0x258AB5C VA: 0x258AB5C Slot: 16
+	// RVA: 0x23F6C2C Offset: 0x23F6C2C VA: 0x23F6C2C Slot: 16
 	public override void Reset() { }
 }
 
@@ -439,31 +561,31 @@ public class DesEdeWrapEngine : IWrapper // TypeDefIndex: 4704
 
 	// Methods
 
-	// RVA: 0x258AB60 Offset: 0x258AB60 VA: 0x258AB60
+	// RVA: 0x23F6C30 Offset: 0x23F6C30 VA: 0x23F6C30
 	public void .ctor() { }
 
-	// RVA: 0x258ABE0 Offset: 0x258ABE0 VA: 0x258ABE0 Slot: 8
+	// RVA: 0x23F6CB0 Offset: 0x23F6CB0 VA: 0x23F6CB0 Slot: 8
 	public virtual void Init(bool forWrapping, ICipherParameters parameters) { }
 
-	// RVA: 0x258AF20 Offset: 0x258AF20 VA: 0x258AF20 Slot: 9
+	// RVA: 0x23F6FF0 Offset: 0x23F6FF0 VA: 0x23F6FF0 Slot: 9
 	public virtual string get_AlgorithmName() { }
 
-	// RVA: 0x258AF68 Offset: 0x258AF68 VA: 0x258AF68 Slot: 10
+	// RVA: 0x23F7038 Offset: 0x23F7038 VA: 0x23F7038 Slot: 10
 	public virtual byte[] Wrap(byte[] input, int inOff, int length) { }
 
-	// RVA: 0x258B5F0 Offset: 0x258B5F0 VA: 0x258B5F0 Slot: 11
+	// RVA: 0x23F76C0 Offset: 0x23F76C0 VA: 0x23F76C0 Slot: 11
 	public virtual byte[] Unwrap(byte[] input, int inOff, int length) { }
 
-	// RVA: 0x258B348 Offset: 0x258B348 VA: 0x258B348
+	// RVA: 0x23F7418 Offset: 0x23F7418 VA: 0x23F7418
 	private byte[] CalculateCmsKeyChecksum(byte[] key) { }
 
-	// RVA: 0x258BA74 Offset: 0x258BA74 VA: 0x258BA74
+	// RVA: 0x23F7B44 Offset: 0x23F7B44 VA: 0x23F7B44
 	private bool CheckCmsKeyChecksum(byte[] key, byte[] checksum) { }
 
-	// RVA: 0x258B4F4 Offset: 0x258B4F4 VA: 0x258B4F4
+	// RVA: 0x23F75C4 Offset: 0x23F75C4 VA: 0x23F75C4
 	private static byte[] reverse(byte[] bs) { }
 
-	// RVA: 0x258BA9C Offset: 0x258BA9C VA: 0x258BA9C
+	// RVA: 0x23F7B6C Offset: 0x23F7B6C VA: 0x23F7B6C
 	private static void .cctor() { }
 }
 
@@ -493,37 +615,37 @@ public class DesEngine : IBlockCipher // TypeDefIndex: 4705
 
 	// Methods
 
-	// RVA: 0x25897F0 Offset: 0x25897F0 VA: 0x25897F0
+	// RVA: 0x23F58C0 Offset: 0x23F58C0 VA: 0x23F58C0
 	public void .ctor() { }
 
-	// RVA: 0x258BB18 Offset: 0x258BB18 VA: 0x258BB18 Slot: 10
+	// RVA: 0x23F7BE8 Offset: 0x23F7BE8 VA: 0x23F7BE8 Slot: 10
 	public virtual int[] GetWorkingKey() { }
 
-	// RVA: 0x258BB20 Offset: 0x258BB20 VA: 0x258BB20 Slot: 11
+	// RVA: 0x23F7BF0 Offset: 0x23F7BF0 VA: 0x23F7BF0 Slot: 11
 	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
 
-	// RVA: 0x258BC9C Offset: 0x258BC9C VA: 0x258BC9C Slot: 12
+	// RVA: 0x23F7D6C Offset: 0x23F7D6C VA: 0x23F7D6C Slot: 12
 	public virtual string get_AlgorithmName() { }
 
-	// RVA: 0x258BCE4 Offset: 0x258BCE4 VA: 0x258BCE4 Slot: 13
+	// RVA: 0x23F7DB4 Offset: 0x23F7DB4 VA: 0x23F7DB4 Slot: 13
 	public virtual bool get_IsPartialBlockOkay() { }
 
-	// RVA: 0x258BCEC Offset: 0x258BCEC VA: 0x258BCEC Slot: 14
+	// RVA: 0x23F7DBC Offset: 0x23F7DBC VA: 0x23F7DBC Slot: 14
 	public virtual int GetBlockSize() { }
 
-	// RVA: 0x258BCF4 Offset: 0x258BCF4 VA: 0x258BCF4 Slot: 15
+	// RVA: 0x23F7DC4 Offset: 0x23F7DC4 VA: 0x23F7DC4 Slot: 15
 	public virtual int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
 
-	// RVA: 0x258BE20 Offset: 0x258BE20 VA: 0x258BE20 Slot: 16
+	// RVA: 0x23F7EF0 Offset: 0x23F7EF0 VA: 0x23F7EF0 Slot: 16
 	public virtual void Reset() { }
 
-	// RVA: 0x2589AC4 Offset: 0x2589AC4 VA: 0x2589AC4
+	// RVA: 0x23F5B94 Offset: 0x23F5B94 VA: 0x23F5B94
 	protected static int[] GenerateWorkingKey(bool encrypting, byte[] key) { }
 
-	// RVA: 0x258A484 Offset: 0x258A484 VA: 0x258A484
+	// RVA: 0x23F6554 Offset: 0x23F6554 VA: 0x23F6554
 	internal static void DesFunc(int[] wKey, byte[] input, int inOff, byte[] outBytes, int outOff) { }
 
-	// RVA: 0x258BE24 Offset: 0x258BE24 VA: 0x258BE24
+	// RVA: 0x23F7EF4 Offset: 0x23F7EF4 VA: 0x23F7EF4
 	private static void .cctor() { }
 }
 
@@ -541,22 +663,22 @@ public class ElGamalEngine : IAsymmetricBlockCipher // TypeDefIndex: 4706
 
 	// Methods
 
-	// RVA: 0x258C100 Offset: 0x258C100 VA: 0x258C100
+	// RVA: 0x23F81D0 Offset: 0x23F81D0 VA: 0x23F81D0
 	public void .ctor() { }
 
-	// RVA: 0x258C108 Offset: 0x258C108 VA: 0x258C108 Slot: 9
+	// RVA: 0x23F81D8 Offset: 0x23F81D8 VA: 0x23F81D8 Slot: 9
 	public virtual string get_AlgorithmName() { }
 
-	// RVA: 0x258C150 Offset: 0x258C150 VA: 0x258C150 Slot: 10
+	// RVA: 0x23F8220 Offset: 0x23F8220 VA: 0x23F8220 Slot: 10
 	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
 
-	// RVA: 0x258C448 Offset: 0x258C448 VA: 0x258C448 Slot: 11
+	// RVA: 0x23F8518 Offset: 0x23F8518 VA: 0x23F8518 Slot: 11
 	public virtual int GetInputBlockSize() { }
 
-	// RVA: 0x258C488 Offset: 0x258C488 VA: 0x258C488 Slot: 12
+	// RVA: 0x23F8558 Offset: 0x23F8558 VA: 0x23F8558 Slot: 12
 	public virtual int GetOutputBlockSize() { }
 
-	// RVA: 0x258C4C8 Offset: 0x258C4C8 VA: 0x258C4C8 Slot: 13
+	// RVA: 0x23F8598 Offset: 0x23F8598 VA: 0x23F8598 Slot: 13
 	public virtual byte[] ProcessBlock(byte[] input, int inOff, int length) { }
 }
 
@@ -584,49 +706,49 @@ public class Gost28147Engine : IBlockCipher // TypeDefIndex: 4707
 
 	// Methods
 
-	// RVA: 0x258CBAC Offset: 0x258CBAC VA: 0x258CBAC
+	// RVA: 0x23F8C7C Offset: 0x23F8C7C VA: 0x23F8C7C
 	private static void .cctor() { }
 
-	// RVA: 0x258CFAC Offset: 0x258CFAC VA: 0x258CFAC
+	// RVA: 0x23F907C Offset: 0x23F907C VA: 0x23F907C
 	public void .ctor() { }
 
-	// RVA: 0x258CE84 Offset: 0x258CE84 VA: 0x258CE84
+	// RVA: 0x23F8F54 Offset: 0x23F8F54 VA: 0x23F8F54
 	private static void AddSBox(string sBoxName, byte[] sBox) { }
 
-	// RVA: 0x258D024 Offset: 0x258D024 VA: 0x258D024 Slot: 10
+	// RVA: 0x23F90F4 Offset: 0x23F90F4 VA: 0x23F90F4 Slot: 10
 	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
 
-	// RVA: 0x258D4D0 Offset: 0x258D4D0 VA: 0x258D4D0 Slot: 11
+	// RVA: 0x23F95A0 Offset: 0x23F95A0 VA: 0x23F95A0 Slot: 11
 	public virtual string get_AlgorithmName() { }
 
-	// RVA: 0x258D518 Offset: 0x258D518 VA: 0x258D518 Slot: 12
+	// RVA: 0x23F95E8 Offset: 0x23F95E8 VA: 0x23F95E8 Slot: 12
 	public virtual bool get_IsPartialBlockOkay() { }
 
-	// RVA: 0x258D520 Offset: 0x258D520 VA: 0x258D520 Slot: 13
+	// RVA: 0x23F95F0 Offset: 0x23F95F0 VA: 0x23F95F0 Slot: 13
 	public virtual int GetBlockSize() { }
 
-	// RVA: 0x258D528 Offset: 0x258D528 VA: 0x258D528 Slot: 14
+	// RVA: 0x23F95F8 Offset: 0x23F95F8 VA: 0x23F95F8 Slot: 14
 	public virtual int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
 
-	// RVA: 0x258D904 Offset: 0x258D904 VA: 0x258D904 Slot: 15
+	// RVA: 0x23F99D4 Offset: 0x23F99D4 VA: 0x23F99D4 Slot: 15
 	public virtual void Reset() { }
 
-	// RVA: 0x258D378 Offset: 0x258D378 VA: 0x258D378
+	// RVA: 0x23F9448 Offset: 0x23F9448 VA: 0x23F9448
 	private int[] generateWorkingKey(bool forEncryption, byte[] userKey) { }
 
-	// RVA: 0x258D9FC Offset: 0x258D9FC VA: 0x258D9FC
+	// RVA: 0x23F9ACC Offset: 0x23F9ACC VA: 0x23F9ACC
 	private int Gost28147_mainStep(int n1, int key) { }
 
-	// RVA: 0x258D634 Offset: 0x258D634 VA: 0x258D634
+	// RVA: 0x23F9704 Offset: 0x23F9704 VA: 0x23F9704
 	private void Gost28147Func(int[] workingKey, byte[] inBytes, int inOff, byte[] outBytes, int outOff) { }
 
-	// RVA: 0x258D908 Offset: 0x258D908 VA: 0x258D908
+	// RVA: 0x23F99D8 Offset: 0x23F99D8 VA: 0x23F99D8
 	private static int bytesToint(byte[] inBytes, int inOff) { }
 
-	// RVA: 0x258DC30 Offset: 0x258DC30 VA: 0x258DC30
+	// RVA: 0x23F9D00 Offset: 0x23F9D00 VA: 0x23F9D00
 	private static void intTobytes(int num, byte[] outBytes, int outOff) { }
 
-	// RVA: 0x258DD20 Offset: 0x258DD20 VA: 0x258DD20
+	// RVA: 0x23F9DF0 Offset: 0x23F9DF0 VA: 0x23F9DF0
 	public static byte[] GetSBox(string sBoxName) { }
 }
 
@@ -648,64 +770,64 @@ public class HC128Engine : IStreamCipher // TypeDefIndex: 4708
 
 	// Methods
 
-	// RVA: 0x258DEFC Offset: 0x258DEFC VA: 0x258DEFC
+	// RVA: 0x23F9FCC Offset: 0x23F9FCC VA: 0x23F9FCC
 	public void .ctor() { }
 
-	// RVA: 0x258DF84 Offset: 0x258DF84 VA: 0x258DF84
+	// RVA: 0x23FA054 Offset: 0x23FA054 VA: 0x23FA054
 	private static uint F1(uint x) { }
 
-	// RVA: 0x258DFA0 Offset: 0x258DFA0 VA: 0x258DFA0
+	// RVA: 0x23FA070 Offset: 0x23FA070 VA: 0x23FA070
 	private static uint F2(uint x) { }
 
-	// RVA: 0x258DFB0 Offset: 0x258DFB0 VA: 0x258DFB0
+	// RVA: 0x23FA080 Offset: 0x23FA080 VA: 0x23FA080
 	private uint G1(uint x, uint y, uint z) { }
 
-	// RVA: 0x258DFC4 Offset: 0x258DFC4 VA: 0x258DFC4
+	// RVA: 0x23FA094 Offset: 0x23FA094 VA: 0x23FA094
 	private uint G2(uint x, uint y, uint z) { }
 
-	// RVA: 0x258DFD8 Offset: 0x258DFD8 VA: 0x258DFD8
+	// RVA: 0x23FA0A8 Offset: 0x23FA0A8 VA: 0x23FA0A8
 	private static uint RotateLeft(uint x, int bits) { }
 
-	// RVA: 0x258DF94 Offset: 0x258DF94 VA: 0x258DF94
+	// RVA: 0x23FA064 Offset: 0x23FA064 VA: 0x23FA064
 	private static uint RotateRight(uint x, int bits) { }
 
-	// RVA: 0x258DFE8 Offset: 0x258DFE8 VA: 0x258DFE8
+	// RVA: 0x23FA0B8 Offset: 0x23FA0B8 VA: 0x23FA0B8
 	private uint H1(uint x) { }
 
-	// RVA: 0x258E088 Offset: 0x258E088 VA: 0x258E088
+	// RVA: 0x23FA158 Offset: 0x23FA158 VA: 0x23FA158
 	private uint H2(uint x) { }
 
-	// RVA: 0x258E128 Offset: 0x258E128 VA: 0x258E128
+	// RVA: 0x23FA1F8 Offset: 0x23FA1F8 VA: 0x23FA1F8
 	private static uint Mod1024(uint x) { }
 
-	// RVA: 0x258E130 Offset: 0x258E130 VA: 0x258E130
+	// RVA: 0x23FA200 Offset: 0x23FA200 VA: 0x23FA200
 	private static uint Mod512(uint x) { }
 
-	// RVA: 0x258E138 Offset: 0x258E138 VA: 0x258E138
+	// RVA: 0x23FA208 Offset: 0x23FA208 VA: 0x23FA208
 	private static uint Dim(uint x, uint y) { }
 
-	// RVA: 0x258E144 Offset: 0x258E144 VA: 0x258E144
+	// RVA: 0x23FA214 Offset: 0x23FA214 VA: 0x23FA214
 	private uint Step() { }
 
-	// RVA: 0x258E470 Offset: 0x258E470 VA: 0x258E470
+	// RVA: 0x23FA540 Offset: 0x23FA540 VA: 0x23FA540
 	private void Init() { }
 
-	// RVA: 0x258E88C Offset: 0x258E88C VA: 0x258E88C Slot: 9
+	// RVA: 0x23FA95C Offset: 0x23FA95C VA: 0x23FA95C Slot: 9
 	public virtual string get_AlgorithmName() { }
 
-	// RVA: 0x258E8D4 Offset: 0x258E8D4 VA: 0x258E8D4 Slot: 10
+	// RVA: 0x23FA9A4 Offset: 0x23FA9A4 VA: 0x23FA9A4 Slot: 10
 	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
 
-	// RVA: 0x258EB8C Offset: 0x258EB8C VA: 0x258EB8C
+	// RVA: 0x23FAC5C Offset: 0x23FAC5C VA: 0x23FAC5C
 	private byte GetByte() { }
 
-	// RVA: 0x258EC24 Offset: 0x258EC24 VA: 0x258EC24 Slot: 11
+	// RVA: 0x23FACF4 Offset: 0x23FACF4 VA: 0x23FACF4 Slot: 11
 	public virtual void ProcessBytes(byte[] input, int inOff, int len, byte[] output, int outOff) { }
 
-	// RVA: 0x258EE08 Offset: 0x258EE08 VA: 0x258EE08 Slot: 12
+	// RVA: 0x23FAED8 Offset: 0x23FAED8 VA: 0x23FAED8 Slot: 12
 	public virtual void Reset() { }
 
-	// RVA: 0x258EE0C Offset: 0x258EE0C VA: 0x258EE0C Slot: 13
+	// RVA: 0x23FAEDC Offset: 0x23FAEDC VA: 0x23FAEDC Slot: 13
 	public virtual byte ReturnByte(byte input) { }
 }
 
@@ -727,34 +849,34 @@ public class HC256Engine : IStreamCipher // TypeDefIndex: 4709
 
 	// Methods
 
-	// RVA: 0x258EE30 Offset: 0x258EE30 VA: 0x258EE30
+	// RVA: 0x23FAF00 Offset: 0x23FAF00 VA: 0x23FAF00
 	public void .ctor() { }
 
-	// RVA: 0x258EEB8 Offset: 0x258EEB8 VA: 0x258EEB8
+	// RVA: 0x23FAF88 Offset: 0x23FAF88 VA: 0x23FAF88
 	private uint Step() { }
 
-	// RVA: 0x258F45C Offset: 0x258F45C VA: 0x258F45C
+	// RVA: 0x23FB52C Offset: 0x23FB52C VA: 0x23FB52C
 	private void Init() { }
 
-	// RVA: 0x258F954 Offset: 0x258F954 VA: 0x258F954 Slot: 9
+	// RVA: 0x23FBA24 Offset: 0x23FBA24 VA: 0x23FBA24 Slot: 9
 	public virtual string get_AlgorithmName() { }
 
-	// RVA: 0x258F99C Offset: 0x258F99C VA: 0x258F99C Slot: 10
+	// RVA: 0x23FBA6C Offset: 0x23FBA6C VA: 0x23FBA6C Slot: 10
 	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
 
-	// RVA: 0x258FC54 Offset: 0x258FC54 VA: 0x258FC54
+	// RVA: 0x23FBD24 Offset: 0x23FBD24 VA: 0x23FBD24
 	private byte GetByte() { }
 
-	// RVA: 0x258FCEC Offset: 0x258FCEC VA: 0x258FCEC Slot: 11
+	// RVA: 0x23FBDBC Offset: 0x23FBDBC VA: 0x23FBDBC Slot: 11
 	public virtual void ProcessBytes(byte[] input, int inOff, int len, byte[] output, int outOff) { }
 
-	// RVA: 0x258FED0 Offset: 0x258FED0 VA: 0x258FED0 Slot: 12
+	// RVA: 0x23FBFA0 Offset: 0x23FBFA0 VA: 0x23FBFA0 Slot: 12
 	public virtual void Reset() { }
 
-	// RVA: 0x258FED4 Offset: 0x258FED4 VA: 0x258FED4 Slot: 13
+	// RVA: 0x23FBFA4 Offset: 0x23FBFA4 VA: 0x23FBFA4 Slot: 13
 	public virtual byte ReturnByte(byte input) { }
 
-	// RVA: 0x258F450 Offset: 0x258F450 VA: 0x258F450
+	// RVA: 0x23FB520 Offset: 0x23FB520 VA: 0x23FB520
 	private static uint RotateRight(uint x, int bits) { }
 }
 
@@ -773,55 +895,55 @@ public class IdeaEngine : IBlockCipher // TypeDefIndex: 4710
 
 	// Methods
 
-	// RVA: 0x258FEF8 Offset: 0x258FEF8 VA: 0x258FEF8
+	// RVA: 0x23FBFC8 Offset: 0x23FBFC8 VA: 0x23FBFC8
 	public void .ctor() { }
 
-	// RVA: 0x258FF00 Offset: 0x258FF00 VA: 0x258FF00 Slot: 10
+	// RVA: 0x23FBFD0 Offset: 0x23FBFD0 VA: 0x23FBFD0 Slot: 10
 	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
 
-	// RVA: 0x2590094 Offset: 0x2590094 VA: 0x2590094 Slot: 11
+	// RVA: 0x23FC164 Offset: 0x23FC164 VA: 0x23FC164 Slot: 11
 	public virtual string get_AlgorithmName() { }
 
-	// RVA: 0x25900DC Offset: 0x25900DC VA: 0x25900DC Slot: 12
+	// RVA: 0x23FC1AC Offset: 0x23FC1AC VA: 0x23FC1AC Slot: 12
 	public virtual bool get_IsPartialBlockOkay() { }
 
-	// RVA: 0x25900E4 Offset: 0x25900E4 VA: 0x25900E4 Slot: 13
+	// RVA: 0x23FC1B4 Offset: 0x23FC1B4 VA: 0x23FC1B4 Slot: 13
 	public virtual int GetBlockSize() { }
 
-	// RVA: 0x25900EC Offset: 0x25900EC VA: 0x25900EC Slot: 14
+	// RVA: 0x23FC1BC Offset: 0x23FC1BC VA: 0x23FC1BC Slot: 14
 	public virtual int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
 
-	// RVA: 0x2590578 Offset: 0x2590578 VA: 0x2590578 Slot: 15
+	// RVA: 0x23FC648 Offset: 0x23FC648 VA: 0x23FC648 Slot: 15
 	public virtual void Reset() { }
 
-	// RVA: 0x259057C Offset: 0x259057C VA: 0x259057C
+	// RVA: 0x23FC64C Offset: 0x23FC64C VA: 0x23FC64C
 	private int BytesToWord(byte[] input, int inOff) { }
 
-	// RVA: 0x2590608 Offset: 0x2590608 VA: 0x2590608
+	// RVA: 0x23FC6D8 Offset: 0x23FC6D8 VA: 0x23FC6D8
 	private void WordToBytes(int word, byte[] outBytes, int outOff) { }
 
-	// RVA: 0x2590698 Offset: 0x2590698 VA: 0x2590698
+	// RVA: 0x23FC768 Offset: 0x23FC768 VA: 0x23FC768
 	private int Mul(int x, int y) { }
 
-	// RVA: 0x25901F8 Offset: 0x25901F8 VA: 0x25901F8
+	// RVA: 0x23FC2C8 Offset: 0x23FC2C8 VA: 0x23FC2C8
 	private void IdeaFunc(int[] workingKey, byte[] input, int inOff, byte[] outBytes, int outOff) { }
 
-	// RVA: 0x25907BC Offset: 0x25907BC VA: 0x25907BC
+	// RVA: 0x23FC88C Offset: 0x23FC88C VA: 0x23FC88C
 	private int[] ExpandKey(byte[] uKey) { }
 
-	// RVA: 0x2590A38 Offset: 0x2590A38 VA: 0x2590A38
+	// RVA: 0x23FCB08 Offset: 0x23FCB08 VA: 0x23FCB08
 	private int MulInv(int x) { }
 
-	// RVA: 0x2590B78 Offset: 0x2590B78 VA: 0x2590B78
+	// RVA: 0x23FCC48 Offset: 0x23FCC48 VA: 0x23FCC48
 	private int AddInv(int x) { }
 
-	// RVA: 0x2590BEC Offset: 0x2590BEC VA: 0x2590BEC
+	// RVA: 0x23FCCBC Offset: 0x23FCCBC VA: 0x23FCCBC
 	private int[] InvertKey(int[] inKey) { }
 
-	// RVA: 0x259005C Offset: 0x259005C VA: 0x259005C
+	// RVA: 0x23FC12C Offset: 0x23FC12C VA: 0x23FC12C
 	private int[] GenerateWorkingKey(bool forEncryption, byte[] userKey) { }
 
-	// RVA: 0x25910C4 Offset: 0x25910C4 VA: 0x25910C4
+	// RVA: 0x23FD194 Offset: 0x23FD194 VA: 0x23FD194
 	private static void .cctor() { }
 }
 
@@ -841,25 +963,25 @@ public class IesEngine // TypeDefIndex: 4711
 
 	// Methods
 
-	// RVA: 0x2591128 Offset: 0x2591128 VA: 0x2591128
+	// RVA: 0x23FD1F8 Offset: 0x23FD1F8 VA: 0x23FD1F8
 	public void .ctor(IBasicAgreement agree, IDerivationFunction kdf, IMac mac) { }
 
-	// RVA: 0x259122C Offset: 0x259122C VA: 0x259122C
+	// RVA: 0x23FD2FC Offset: 0x23FD2FC VA: 0x23FD2FC
 	public void .ctor(IBasicAgreement agree, IDerivationFunction kdf, IMac mac, BufferedBlockCipher cipher) { }
 
-	// RVA: 0x2591334 Offset: 0x2591334 VA: 0x2591334 Slot: 4
+	// RVA: 0x23FD404 Offset: 0x23FD404 VA: 0x23FD404 Slot: 4
 	public virtual void Init(bool forEncryption, ICipherParameters privParameters, ICipherParameters pubParameters, ICipherParameters iesParameters) { }
 
-	// RVA: 0x259142C Offset: 0x259142C VA: 0x259142C
+	// RVA: 0x23FD4FC Offset: 0x23FD4FC VA: 0x23FD4FC
 	private byte[] DecryptBlock(byte[] in_enc, int inOff, int inLen, byte[] z) { }
 
-	// RVA: 0x2591DF4 Offset: 0x2591DF4 VA: 0x2591DF4
+	// RVA: 0x23FDEC4 Offset: 0x23FDEC4 VA: 0x23FDEC4
 	private byte[] EncryptBlock(byte[] input, int inOff, int inLen, byte[] z) { }
 
-	// RVA: 0x2591C6C Offset: 0x2591C6C VA: 0x2591C6C
+	// RVA: 0x23FDD3C Offset: 0x23FDD3C VA: 0x23FDD3C
 	private byte[] GenerateKdfBytes(KdfParameters kParam, int length) { }
 
-	// RVA: 0x25925C8 Offset: 0x25925C8 VA: 0x25925C8 Slot: 5
+	// RVA: 0x23FE698 Offset: 0x23FE698 VA: 0x23FE698 Slot: 5
 	public virtual byte[] ProcessBlock(byte[] input, int inOff, int inLen) { }
 }
 
@@ -876,125 +998,3 @@ public class NoekeonEngine : IBlockCipher // TypeDefIndex: 4712
 	private bool _initialised; // 0x28
 	private bool _forEncryption; // 0x29
 
-	// Properties
-	public virtual string AlgorithmName { get; }
-	public virtual bool IsPartialBlockOkay { get; }
-
-	// Methods
-
-	// RVA: 0x2592868 Offset: 0x2592868 VA: 0x2592868
-	public void .ctor() { }
-
-	// RVA: 0x25928F0 Offset: 0x25928F0 VA: 0x25928F0 Slot: 10
-	public virtual string get_AlgorithmName() { }
-
-	// RVA: 0x2592938 Offset: 0x2592938 VA: 0x2592938 Slot: 11
-	public virtual bool get_IsPartialBlockOkay() { }
-
-	// RVA: 0x2592940 Offset: 0x2592940 VA: 0x2592940 Slot: 12
-	public virtual int GetBlockSize() { }
-
-	// RVA: 0x2592948 Offset: 0x2592948 VA: 0x2592948 Slot: 13
-	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
-
-	// RVA: 0x2592C68 Offset: 0x2592C68 VA: 0x2592C68 Slot: 14
-	public virtual int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
-
-	// RVA: 0x25935A4 Offset: 0x25935A4 VA: 0x25935A4 Slot: 15
-	public virtual void Reset() { }
-
-	// RVA: 0x2592B34 Offset: 0x2592B34 VA: 0x2592B34
-	private void setKey(byte[] key) { }
-
-	// RVA: 0x2592DE4 Offset: 0x2592DE4 VA: 0x2592DE4
-	private int encryptBlock(byte[] input, int inOff, byte[] output, int outOff) { }
-
-	// RVA: 0x2593198 Offset: 0x2593198 VA: 0x2593198
-	private int decryptBlock(byte[] input, int inOff, byte[] output, int outOff) { }
-
-	// RVA: 0x2593874 Offset: 0x2593874 VA: 0x2593874
-	private void gamma(uint[] a) { }
-
-	// RVA: 0x25935A8 Offset: 0x25935A8 VA: 0x25935A8
-	private void theta(uint[] a, uint[] k) { }
-
-	// RVA: 0x2593780 Offset: 0x2593780 VA: 0x2593780
-	private void pi1(uint[] a) { }
-
-	// RVA: 0x2593B50 Offset: 0x2593B50 VA: 0x2593B50
-	private void pi2(uint[] a) { }
-
-	// RVA: 0x2593C44 Offset: 0x2593C44 VA: 0x2593C44
-	private uint rotl(uint x, int y) { }
-
-	// RVA: 0x2593C54 Offset: 0x2593C54 VA: 0x2593C54
-	private static void .cctor() { }
-}
-
-// Namespace: Org.BouncyCastle.Crypto.Engines
-public class RC2Engine : IBlockCipher // TypeDefIndex: 4713
-{
-	// Fields
-	private static readonly byte[] piTable; // 0x0
-	private const int BLOCK_SIZE = 8;
-	private int[] workingKey; // 0x10
-	private bool encrypting; // 0x18
-
-	// Properties
-	public virtual string AlgorithmName { get; }
-	public virtual bool IsPartialBlockOkay { get; }
-
-	// Methods
-
-	// RVA: 0x2593CE8 Offset: 0x2593CE8 VA: 0x2593CE8
-	public void .ctor() { }
-
-	// RVA: 0x2593CF0 Offset: 0x2593CF0 VA: 0x2593CF0
-	private int[] GenerateWorkingKey(byte[] key, int bits) { }
-
-	// RVA: 0x2594158 Offset: 0x2594158 VA: 0x2594158 Slot: 10
-	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
-
-	// RVA: 0x2594318 Offset: 0x2594318 VA: 0x2594318 Slot: 11
-	public virtual void Reset() { }
-
-	// RVA: 0x259431C Offset: 0x259431C VA: 0x259431C Slot: 12
-	public virtual string get_AlgorithmName() { }
-
-	// RVA: 0x2594364 Offset: 0x2594364 VA: 0x2594364 Slot: 13
-	public virtual bool get_IsPartialBlockOkay() { }
-
-	// RVA: 0x259436C Offset: 0x259436C VA: 0x259436C Slot: 14
-	public virtual int GetBlockSize() { }
-
-	// RVA: 0x2594374 Offset: 0x2594374 VA: 0x2594374 Slot: 15
-	public virtual int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
-
-	// RVA: 0x25957E8 Offset: 0x25957E8 VA: 0x25957E8
-	private int RotateWordLeft(int x, int y) { }
-
-	// RVA: 0x25944A0 Offset: 0x25944A0 VA: 0x25944A0
-	private void EncryptBlock(byte[] input, int inOff, byte[] outBytes, int outOff) { }
-
-	// RVA: 0x2594E64 Offset: 0x2594E64 VA: 0x2594E64
-	private void DecryptBlock(byte[] input, int inOff, byte[] outBytes, int outOff) { }
-
-	// RVA: 0x259580C Offset: 0x259580C VA: 0x259580C
-	private static void .cctor() { }
-}
-
-// Namespace: Org.BouncyCastle.Crypto.Engines
-public class RC2WrapEngine : IWrapper // TypeDefIndex: 4714
-{
-	// Fields
-	private CbcBlockCipher engine; // 0x10
-	private ICipherParameters parameters; // 0x18
-	private ParametersWithIV paramPlusIV; // 0x20
-	private byte[] iv; // 0x28
-	private bool forWrapping; // 0x30
-	private SecureRandom sr; // 0x38
-	private static readonly byte[] IV2; // 0x0
-	private IDigest sha1; // 0x40
-	private byte[] digest; // 0x48
-
-	// Properties

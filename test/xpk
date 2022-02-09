@@ -1,110 +1,923 @@
-	// RVA: 0x1D8A048 Offset: 0x1D8A048 VA: 0x1D8A048
+public class UIPanel : UIRect // TypeDefIndex: 7859
+{
+	// Fields
+	[HideInInspector] // RVA: 0xC57850 Offset: 0xC57850 VA: 0xC57850
+	[SerializeField] // RVA: 0xC57850 Offset: 0xC57850 VA: 0xC57850
+	private float mClipTextureRotation; // 0x8C
+	public static List<UIPanel> list; // 0x0
+	public static HashSet<UIPanel> updateAgainPanels; // 0x8
+	public UIPanel.OnGeometryUpdated onGeometryUpdated; // 0x90
+	public bool showInPanelTool; // 0x98
+	public bool generateNormals; // 0x99
+	public bool widgetsAreStatic; // 0x9A
+	public bool cullWhileDragging; // 0x9B
+	public bool alwaysOnScreen; // 0x9C
+	public bool anchorOffset; // 0x9D
+	public bool softBorderPadding; // 0x9E
+	public UIPanel.RenderQueue renderQueue; // 0xA0
+	public int startingRenderQueue; // 0xA4
+	public List<UIWidget> widgets; // 0xA8
+	public List<UIDrawCall> drawCalls; // 0xB0
+	public Matrix4x4 worldToLocal; // 0xB8
+	public Vector4 drawCallClipRange; // 0xF8
+	public UIPanel.OnClippingMoved onClipMove; // 0x108
+	[HideInInspector] // RVA: 0xC57888 Offset: 0xC57888 VA: 0xC57888
+	[SerializeField] // RVA: 0xC57888 Offset: 0xC57888 VA: 0xC57888
+	private Texture2D mClipTexture; // 0x110
+	[HideInInspector] // RVA: 0xC578C0 Offset: 0xC578C0 VA: 0xC578C0
+	[SerializeField] // RVA: 0xC578C0 Offset: 0xC578C0 VA: 0xC578C0
+	private float mAlpha; // 0x118
+	[HideInInspector] // RVA: 0xC578F8 Offset: 0xC578F8 VA: 0xC578F8
+	[SerializeField] // RVA: 0xC578F8 Offset: 0xC578F8 VA: 0xC578F8
+	private UIDrawCall.Clipping mClipping; // 0x11C
+	[HideInInspector] // RVA: 0xC57930 Offset: 0xC57930 VA: 0xC57930
+	[SerializeField] // RVA: 0xC57930 Offset: 0xC57930 VA: 0xC57930
+	private Vector4 mClipRange; // 0x120
+	[HideInInspector] // RVA: 0xC57968 Offset: 0xC57968 VA: 0xC57968
+	[SerializeField] // RVA: 0xC57968 Offset: 0xC57968 VA: 0xC57968
+	private Vector2 mClipSoftness; // 0x130
+	[HideInInspector] // RVA: 0xC579A0 Offset: 0xC579A0 VA: 0xC579A0
+	[SerializeField] // RVA: 0xC579A0 Offset: 0xC579A0 VA: 0xC579A0
+	private int mDepth; // 0x138
+	[HideInInspector] // RVA: 0xC579D8 Offset: 0xC579D8 VA: 0xC579D8
+	[SerializeField] // RVA: 0xC579D8 Offset: 0xC579D8 VA: 0xC579D8
+	private int mSortingOrder; // 0x13C
+	private bool mRebuild; // 0x140
+	private bool mResized; // 0x141
+	[SerializeField] // RVA: 0xC57A10 Offset: 0xC57A10 VA: 0xC57A10
+	private Vector2 mClipOffset; // 0x144
+	private float mCullTime; // 0x14C
+	private float mUpdateTime; // 0x150
+	private int mUpdatedFrame; // 0x154
+	private int mMatrixFrame; // 0x158
+	private int mAlphaFrameID; // 0x15C
+	private int mLayer; // 0x160
+	private static float[] mTemp; // 0x10
+	private Vector2 mMin; // 0x164
+	private Vector2 mMax; // 0x16C
+	private bool mHalfPixelOffset; // 0x174
+	private bool mSortWidgets; // 0x175
+	private bool mUpdateScroll; // 0x176
+	private UIPanel mParentPanel; // 0x178
+	private static Vector3[] mCorners; // 0x18
+	private static int mUpdateFrame; // 0x20
+	public static bool mUpdating; // 0x24
+	private UIDrawCall.OnRenderCallback mOnRender; // 0x180
+	private bool mForced; // 0x188
+	[CompilerGeneratedAttribute] // RVA: 0xC57A20 Offset: 0xC57A20 VA: 0xC57A20
+	private static Comparison<UIPanel> <>f__mg$cache0; // 0x28
+	[CompilerGeneratedAttribute] // RVA: 0xC57A30 Offset: 0xC57A30 VA: 0xC57A30
+	private static Comparison<UIPanel> <>f__mg$cache1; // 0x30
+	[CompilerGeneratedAttribute] // RVA: 0xC57A40 Offset: 0xC57A40 VA: 0xC57A40
+	private static Comparison<UIWidget> <>f__mg$cache2; // 0x38
+
+	// Properties
+	public float clipTextureRotation { get; set; }
+	public Vector4 clipTextureRotationInfo { get; }
+	public bool IsUpdated { get; }
+	public static int nextUnusedDepth { get; }
+	public override bool canBeAnchored { get; }
+	public override float alpha { get; set; }
+	public int depth { get; set; }
+	public int sortingOrder { get; set; }
+	public float width { get; }
+	public float height { get; }
+	public bool halfPixelOffset { get; }
+	public bool usedForUI { get; }
+	public Vector3 drawCallOffset { get; }
+	public UIDrawCall.Clipping clipping { get; set; }
+	public UIPanel parentPanel { get; }
+	public int clipCount { get; }
+	public bool hasClipping { get; }
+	public bool hasCumulativeClipping { get; }
+	[ObsoleteAttribute] // RVA: 0xCDEA60 Offset: 0xCDEA60 VA: 0xCDEA60
+	public bool clipsChildren { get; }
+	public Vector2 clipOffset { get; set; }
+	public Texture2D clipTexture { get; set; }
+	[ObsoleteAttribute] // RVA: 0xCDEA98 Offset: 0xCDEA98 VA: 0xCDEA98
+	public Vector4 clipRange { get; set; }
+	public Vector4 baseClipRegion { get; set; }
+	public Vector4 finalClipRegion { get; }
+	public Vector2 clipSoftness { get; set; }
+	public override Vector3[] localCorners { get; }
+	public override Vector3[] worldCorners { get; }
+
+	// Methods
+
+	// RVA: 0x1C3F638 Offset: 0x1C3F638 VA: 0x1C3F638
+	public void .ctor() { }
+
+	// RVA: 0x1C3F970 Offset: 0x1C3F970 VA: 0x1C3F970
+	public float get_clipTextureRotation() { }
+
+	// RVA: 0x1C3F978 Offset: 0x1C3F978 VA: 0x1C3F978
+	public void set_clipTextureRotation(float value) { }
+
+	// RVA: 0x1C3F98C Offset: 0x1C3F98C VA: 0x1C3F98C
+	public Vector4 get_clipTextureRotationInfo() { }
+
+	// RVA: 0x1C3F9CC Offset: 0x1C3F9CC VA: 0x1C3F9CC
+	public bool get_IsUpdated() { }
+
+	// RVA: 0x1C3FA44 Offset: 0x1C3FA44 VA: 0x1C3FA44
+	public static int get_nextUnusedDepth() { }
+
+	// RVA: 0x1C3FBAC Offset: 0x1C3FBAC VA: 0x1C3FBAC Slot: 6
+	public override bool get_canBeAnchored() { }
+
+	// RVA: 0x1C3FBBC Offset: 0x1C3FBBC VA: 0x1C3FBBC Slot: 7
+	public override float get_alpha() { }
+
+	// RVA: 0x1C3FBC4 Offset: 0x1C3FBC4 VA: 0x1C3FBC4 Slot: 8
+	public override void set_alpha(float value) { }
+
+	// RVA: 0x1C3FBA4 Offset: 0x1C3FBA4 VA: 0x1C3FBA4
+	public int get_depth() { }
+
+	// RVA: 0x1C3FD4C Offset: 0x1C3FD4C VA: 0x1C3FD4C
+	public void set_depth(int value) { }
+
+	// RVA: 0x1C3FE84 Offset: 0x1C3FE84 VA: 0x1C3FE84
+	public int get_sortingOrder() { }
+
+	// RVA: 0x1C3FE8C Offset: 0x1C3FE8C VA: 0x1C3FE8C
+	public void set_sortingOrder(int value) { }
+
+	// RVA: 0x1C4037C Offset: 0x1C4037C VA: 0x1C4037C
+	public static int CompareFunc(UIPanel a, UIPanel b) { }
+
+	// RVA: 0x1C404C4 Offset: 0x1C404C4 VA: 0x1C404C4
+	public float get_width() { }
+
+	// RVA: 0x1C40564 Offset: 0x1C40564 VA: 0x1C40564
+	public float get_height() { }
+
+	// RVA: 0x1C4057C Offset: 0x1C4057C VA: 0x1C4057C
+	public bool get_halfPixelOffset() { }
+
+	// RVA: 0x1C40584 Offset: 0x1C40584 VA: 0x1C40584
+	public bool get_usedForUI() { }
+
+	// RVA: 0x1C40664 Offset: 0x1C40664 VA: 0x1C40664
+	public Vector3 get_drawCallOffset() { }
+
+	// RVA: 0x1C40B3C Offset: 0x1C40B3C VA: 0x1C40B3C
+	public UIDrawCall.Clipping get_clipping() { }
+
+	// RVA: 0x1C40B44 Offset: 0x1C40B44 VA: 0x1C40B44
+	public void set_clipping(UIDrawCall.Clipping value) { }
+
+	// RVA: 0x1C40B68 Offset: 0x1C40B68 VA: 0x1C40B68
+	public UIPanel get_parentPanel() { }
+
+	// RVA: 0x1C40B70 Offset: 0x1C40B70 VA: 0x1C40B70
+	public int get_clipCount() { }
+
+	// RVA: 0x1C40C1C Offset: 0x1C40C1C VA: 0x1C40C1C
+	public bool get_hasClipping() { }
+
+	// RVA: 0x1C40C30 Offset: 0x1C40C30 VA: 0x1C40C30
+	public bool get_hasCumulativeClipping() { }
+
+	// RVA: 0x1C40C4C Offset: 0x1C40C4C VA: 0x1C40C4C
+	public bool get_clipsChildren() { }
+
+	// RVA: 0x1C40C68 Offset: 0x1C40C68 VA: 0x1C40C68
+	public Vector2 get_clipOffset() { }
+
+	// RVA: 0x1C40C74 Offset: 0x1C40C74 VA: 0x1C40C74
+	public void set_clipOffset(Vector2 value) { }
+
+	// RVA: 0x1C40D68 Offset: 0x1C40D68 VA: 0x1C40D68
+	private void InvalidateClipping() { }
+
+	// RVA: 0x1C412D0 Offset: 0x1C412D0 VA: 0x1C412D0
+	public Texture2D get_clipTexture() { }
+
+	// RVA: 0x1C412D8 Offset: 0x1C412D8 VA: 0x1C412D8
+	public void set_clipTexture(Texture2D value) { }
+
+	// RVA: 0x1C41360 Offset: 0x1C41360 VA: 0x1C41360
+	public Vector4 get_clipRange() { }
+
+	// RVA: 0x1C41388 Offset: 0x1C41388 VA: 0x1C41388
+	public void set_clipRange(Vector4 value) { }
+
+	// RVA: 0x1C41374 Offset: 0x1C41374 VA: 0x1C41374
+	public Vector4 get_baseClipRegion() { }
+
+	// RVA: 0x1C4138C Offset: 0x1C4138C VA: 0x1C4138C
+	public void set_baseClipRegion(Vector4 value) { }
+
+	// RVA: 0x1C41588 Offset: 0x1C41588 VA: 0x1C41588
+	public Vector4 get_finalClipRegion() { }
+
+	// RVA: 0x1C41604 Offset: 0x1C41604 VA: 0x1C41604
+	public Vector2 get_clipSoftness() { }
+
+	// RVA: 0x1C41610 Offset: 0x1C41610 VA: 0x1C41610
+	public void set_clipSoftness(Vector2 value) { }
+
+	// RVA: 0x1C416B4 Offset: 0x1C416B4 VA: 0x1C416B4 Slot: 10
+	public override Vector3[] get_localCorners() { }
+
+	// RVA: 0x1C41A60 Offset: 0x1C41A60 VA: 0x1C41A60 Slot: 11
+	public override Vector3[] get_worldCorners() { }
+
+	// RVA: 0x1C4246C Offset: 0x1C4246C VA: 0x1C4246C Slot: 13
+	public override Vector3[] GetSides(Transform relativeTo) { }
+
+	// RVA: 0x1C42D80 Offset: 0x1C42D80 VA: 0x1C42D80 Slot: 12
+	public override void Invalidate(bool includeChildren) { }
+
+	// RVA: 0x1C42E50 Offset: 0x1C42E50 VA: 0x1C42E50 Slot: 9
+	public override float CalculateFinalAlpha(int frameID) { }
+
+	// RVA: 0x1C42FF0 Offset: 0x1C42FF0 VA: 0x1C42FF0 Slot: 18
+	public override void SetRect(float x, float y, float width, float height) { }
+
+	// RVA: 0x1C43808 Offset: 0x1C43808 VA: 0x1C43808
+	public bool IsVisible(Vector3 a, Vector3 b, Vector3 c, Vector3 d) { }
+
+	// RVA: 0x1C43CF0 Offset: 0x1C43CF0 VA: 0x1C43CF0
+	public bool IsVisible(Vector3 worldPos) { }
+
+	// RVA: 0x1C43DAC Offset: 0x1C43DAC VA: 0x1C43DAC
+	public bool IsVisible(UIWidget w) { }
+
+	// RVA: 0x1C43F8C Offset: 0x1C43F8C VA: 0x1C43F8C
+	public bool Affects(UIWidget w) { }
+
+	[ContextMenu] // RVA: 0xCCAE10 Offset: 0xCCAE10 VA: 0xCCAE10
+	// RVA: 0x1C440D8 Offset: 0x1C440D8 VA: 0x1C440D8
+	public void RebuildAllDrawCalls() { }
+
+	// RVA: 0x1C3FC70 Offset: 0x1C3FC70 VA: 0x1C3FC70
+	public void SetDirty() { }
+
+	// RVA: 0x1C440E4 Offset: 0x1C440E4 VA: 0x1C440E4
+	private void Awake() { }
+
+	// RVA: 0x1C441DC Offset: 0x1C441DC VA: 0x1C441DC
+	private void FindParent() { }
+
+	// RVA: 0x1C442EC Offset: 0x1C442EC VA: 0x1C442EC Slot: 19
+	public override void ParentHasChanged() { }
+
+	// RVA: 0x1C444DC Offset: 0x1C444DC VA: 0x1C444DC Slot: 20
+	protected override void OnStart() { }
+
+	// RVA: 0x1C44518 Offset: 0x1C44518 VA: 0x1C44518 Slot: 14
+	protected override void OnEnable() { }
+
+	// RVA: 0x1C44664 Offset: 0x1C44664 VA: 0x1C44664 Slot: 15
+	protected override void OnInit() { }
+
+	// RVA: 0x1C44AB4 Offset: 0x1C44AB4 VA: 0x1C44AB4 Slot: 16
+	protected override void OnDisable() { }
+
+	// RVA: 0x1C43BC8 Offset: 0x1C43BC8 VA: 0x1C43BC8
+	private void UpdateTransformMatrix() { }
+
+	// RVA: 0x1C44DF8 Offset: 0x1C44DF8 VA: 0x1C44DF8 Slot: 17
+	protected override void OnAnchor() { }
+
+	// RVA: 0x1C45CCC Offset: 0x1C45CCC VA: 0x1C45CCC
+	private void LateUpdate() { }
+
+	// RVA: 0x1C4621C Offset: 0x1C4621C VA: 0x1C4621C
+	private void UpdateSelf() { }
+
+	// RVA: 0x1C47350 Offset: 0x1C47350 VA: 0x1C47350
+	public void SortWidgets() { }
+
+	// RVA: 0x1C4694C Offset: 0x1C4694C VA: 0x1C4694C
+	private void FillAllDrawCalls() { }
+
+	// RVA: 0x1C47028 Offset: 0x1C47028 VA: 0x1C47028
+	private bool FillDrawCall(UIDrawCall dc) { }
+
+	// RVA: 0x1C3FEA4 Offset: 0x1C3FEA4 VA: 0x1C3FEA4
+	private void UpdateDrawCalls() { }
+
+	// RVA: 0x1C46444 Offset: 0x1C46444 VA: 0x1C46444
+	private void UpdateLayers() { }
+
+	// RVA: 0x1C466A8 Offset: 0x1C466A8 VA: 0x1C466A8
+	private void UpdateWidgets() { }
+
+	// RVA: 0x1C477C0 Offset: 0x1C477C0 VA: 0x1C477C0
+	public UIDrawCall FindDrawCall(UIWidget w) { }
+
+	// RVA: 0x1C47CC8 Offset: 0x1C47CC8 VA: 0x1C47CC8
+	public void AddWidget(UIWidget w) { }
+
+	// RVA: 0x1C47E9C Offset: 0x1C47E9C VA: 0x1C47E9C
+	public void RemoveWidget(UIWidget w) { }
+
+	// RVA: 0x1C47FC4 Offset: 0x1C47FC4 VA: 0x1C47FC4
+	public void Refresh() { }
+
+	// RVA: 0x1C480C8 Offset: 0x1C480C8 VA: 0x1C480C8 Slot: 22
+	public virtual Vector3 CalculateConstrainOffset(Vector2 min, Vector2 max) { }
+
+	// RVA: 0x1C48250 Offset: 0x1C48250 VA: 0x1C48250
+	public bool ConstrainTargetToBounds(Transform target, ref Bounds targetBounds, bool immediate) { }
+
+	// RVA: 0x1C486C4 Offset: 0x1C486C4 VA: 0x1C486C4
+	public bool ConstrainTargetToBounds(Transform target, bool immediate) { }
+
+	// RVA: 0x1C4873C Offset: 0x1C4873C VA: 0x1C4873C
+	public static UIPanel Find(Transform trans) { }
+
+	// RVA: 0x1C488BC Offset: 0x1C488BC VA: 0x1C488BC
+	public static UIPanel Find(Transform trans, bool createIfMissing) { }
+
+	// RVA: 0x1C487A8 Offset: 0x1C487A8 VA: 0x1C487A8
+	public static UIPanel Find(Transform trans, bool createIfMissing, int layer) { }
+
+	// RVA: 0x1C40814 Offset: 0x1C40814 VA: 0x1C40814
+	public Vector2 GetWindowSize() { }
+
+	// RVA: 0x1C404C8 Offset: 0x1C404C8 VA: 0x1C404C8
+	public Vector2 GetViewSize() { }
+
+	// RVA: 0x1C48A00 Offset: 0x1C48A00 VA: 0x1C48A00
+	public void EndShowOverWriteRange(float overWriteValue) { }
+
+	// RVA: 0x1C48A08 Offset: 0x1C48A08 VA: 0x1C48A08
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public enum UIPanel.RenderQueue // TypeDefIndex: 7860
+{
+	// Fields
+	public int value__; // 0x0
+	public const UIPanel.RenderQueue Automatic = 0;
+	public const UIPanel.RenderQueue StartAt = 1;
+	public const UIPanel.RenderQueue Explicit = 2;
+}
+
+// Namespace: 
+public sealed class UIPanel.OnGeometryUpdated : MulticastDelegate // TypeDefIndex: 7861
+{
+	// Methods
+
+	// RVA: 0x1C48B40 Offset: 0x1C48B40 VA: 0x1C48B40
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1C47AC8 Offset: 0x1C47AC8 VA: 0x1C47AC8 Slot: 11
+	public virtual void Invoke() { }
+
+	// RVA: 0x1C48B50 Offset: 0x1C48B50 VA: 0x1C48B50 Slot: 12
+	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
+
+	// RVA: 0x1C48B84 Offset: 0x1C48B84 VA: 0x1C48B84 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public sealed class UIPanel.OnClippingMoved : MulticastDelegate // TypeDefIndex: 7862
+{
+	// Methods
+
+	// RVA: 0x1C48B00 Offset: 0x1C48B00 VA: 0x1C48B00
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1C40F30 Offset: 0x1C40F30 VA: 0x1C40F30 Slot: 11
+	public virtual void Invoke(UIPanel panel) { }
+
+	// RVA: 0x1C48B10 Offset: 0x1C48B10 VA: 0x1C48B10 Slot: 12
+	public virtual IAsyncResult BeginInvoke(UIPanel panel, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1C48B34 Offset: 0x1C48B34 VA: 0x1C48B34 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC25DA8 Offset: 0xC25DA8 VA: 0xC25DA8
+public class UIPlaySystemSe : MonoBehaviour // TypeDefIndex: 7863
+{
+	// Fields
+	public SeManager.SystemSeKind kind; // 0x18
+	public UIPlaySystemSe.Trigger trigger; // 0x1C
+	private bool mIsOver; // 0x20
+
+	// Methods
+
+	// RVA: 0x1C4A530 Offset: 0x1C4A530 VA: 0x1C4A530
+	public void .ctor() { }
+
+	// RVA: 0x1C4A538 Offset: 0x1C4A538 VA: 0x1C4A538
+	private void OnHover(bool isOver) { }
+
+	// RVA: 0x1C4A610 Offset: 0x1C4A610 VA: 0x1C4A610
+	private void OnPress(bool isPressed) { }
+
+	// RVA: 0x1C4A6E8 Offset: 0x1C4A6E8 VA: 0x1C4A6E8
+	private void OnClick() { }
+
+	// RVA: 0x1C4A778 Offset: 0x1C4A778 VA: 0x1C4A778
+	private void OnSelect(bool isSelected) { }
+
+	// RVA: 0x1C4A824 Offset: 0x1C4A824 VA: 0x1C4A824
+	public void Play() { }
+}
+
+// Namespace: 
+public enum UIPlaySystemSe.Trigger // TypeDefIndex: 7864
+{
+	// Fields
+	public int value__; // 0x0
+	public const UIPlaySystemSe.Trigger OnClick = 0;
+	public const UIPlaySystemSe.Trigger OnMouseOver = 1;
+	public const UIPlaySystemSe.Trigger OnMouseOut = 2;
+	public const UIPlaySystemSe.Trigger OnPress = 3;
+	public const UIPlaySystemSe.Trigger OnRelease = 4;
+	public const UIPlaySystemSe.Trigger Custom = 5;
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC25DE0 Offset: 0xC25DE0 VA: 0xC25DE0
+[AddComponentMenu] // RVA: 0xC25DE0 Offset: 0xC25DE0 VA: 0xC25DE0
+public class UIRotSprite : UISprite // TypeDefIndex: 7865
+{
+	// Fields
+	private Rect mOuterUV; // 0x1EC
+
+	// Properties
+	private Vector4 drawingUVs { get; }
+	private Color32 drawingColor { get; }
+
+	// Methods
+
+	// RVA: 0x1C547BC Offset: 0x1C547BC VA: 0x1C547BC
+	public void .ctor() { }
+
+	// RVA: 0x1C547D4 Offset: 0x1C547D4 VA: 0x1C547D4
+	private Vector4 get_drawingUVs() { }
+
+	// RVA: 0x1C5491C Offset: 0x1C5491C VA: 0x1C5491C
+	private Color32 get_drawingColor() { }
+
+	// RVA: 0x1C54A74 Offset: 0x1C54A74 VA: 0x1C54A74 Slot: 38
+	public override void OnFill(BetterList<Vector3> verts, BetterList<Vector2> uvs, BetterList<Color32> cols) { }
+
+	// RVA: 0x1C54E90 Offset: 0x1C54E90 VA: 0x1C54E90
+	private void RotFill(BetterList<Vector3> verts, BetterList<Vector2> uvs, BetterList<Color32> cols, Rect outer, Rect inner) { }
+}
+
+// Namespace: 
+public class UISkinSprite : UISprite // TypeDefIndex: 7866
+{
+	// Fields
+	[HideInInspector] // RVA: 0xC57A50 Offset: 0xC57A50 VA: 0xC57A50
+	[SerializeField] // RVA: 0xC57A50 Offset: 0xC57A50 VA: 0xC57A50
+	private AtlasManager.SkinType skinType; // 0x1EC
+	[HideInInspector] // RVA: 0xC57A88 Offset: 0xC57A88 VA: 0xC57A88
+	[SerializeField] // RVA: 0xC57A88 Offset: 0xC57A88 VA: 0xC57A88
+	private UIAtlas defaultAtlas; // 0x1F0
+	[SerializeField] // RVA: 0xC57AC0 Offset: 0xC57AC0 VA: 0xC57AC0
+	private List<string> spriteNameList; // 0x1F8
+	[SerializeField] // RVA: 0xC57AD0 Offset: 0xC57AD0 VA: 0xC57AD0
+	private List<UISkinSprite.ReplaceData> replaceDataList; // 0x200
+
+	// Methods
+
+	// RVA: 0x182268C Offset: 0x182268C VA: 0x182268C
+	public void .ctor() { }
+
+	// RVA: 0x1822700 Offset: 0x1822700 VA: 0x1822700
+	private void OnEnable() { }
+
+	// RVA: 0x1822728 Offset: 0x1822728 VA: 0x1822728
+	public void setupSprite() { }
+
+	// RVA: 0x1822CE4 Offset: 0x1822CE4 VA: 0x1822CE4
+	public void OnDisable() { }
+
+	// RVA: 0x1822BEC Offset: 0x1822BEC VA: 0x1822BEC
+	private string GetSpriteName(int uiChangeType) { }
+
+	// RVA: 0x1822D10 Offset: 0x1822D10 VA: 0x1822D10
+	private string GetReplaceSpriteName(int uiChangeType, int version) { }
+}
+
+// Namespace: 
+[Serializable]
+public class UISkinSprite.ReplaceData // TypeDefIndex: 7867
+{
+	// Fields
+	public int UiChangeType; // 0x10
+	public int Version; // 0x14
+	public string SpriteName; // 0x18
+
+	// Methods
+
+	// RVA: 0x1822E54 Offset: 0x1822E54 VA: 0x1822E54
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class UISliderWithButton : UIProgressBar // TypeDefIndex: 7868
+{
+	// Fields
+	[HideInInspector] // RVA: 0xC57AE0 Offset: 0xC57AE0 VA: 0xC57AE0
+	[SerializeField] // RVA: 0xC57AE0 Offset: 0xC57AE0 VA: 0xC57AE0
+	private Transform foreground; // 0x68
+	[HideInInspector] // RVA: 0xC57B18 Offset: 0xC57B18 VA: 0xC57B18
+	[SerializeField] // RVA: 0xC57B18 Offset: 0xC57B18 VA: 0xC57B18
+	private float rawValue; // 0x70
+	[HideInInspector] // RVA: 0xC57B50 Offset: 0xC57B50 VA: 0xC57B50
+	[SerializeField] // RVA: 0xC57B50 Offset: 0xC57B50 VA: 0xC57B50
+	private UISliderWithButton.Direction direction; // 0x74
+	[HideInInspector] // RVA: 0xC57B88 Offset: 0xC57B88 VA: 0xC57B88
+	[SerializeField] // RVA: 0xC57B88 Offset: 0xC57B88 VA: 0xC57B88
+	protected bool mInverted; // 0x78
+	[SerializeField] // RVA: 0xC57BC0 Offset: 0xC57BC0 VA: 0xC57BC0
+	protected UICommonButton plusButton; // 0x80
+	[SerializeField] // RVA: 0xC57BD0 Offset: 0xC57BD0 VA: 0xC57BD0
+	protected UICommonButton minusButton; // 0x88
+	[SerializeField] // RVA: 0xC57BE0 Offset: 0xC57BE0 VA: 0xC57BE0
+	protected UILabel minValue; // 0x90
+	[SerializeField] // RVA: 0xC57BF0 Offset: 0xC57BF0 VA: 0xC57BF0
+	protected UILabel maxValue; // 0x98
+	[SerializeField] // RVA: 0xC57C00 Offset: 0xC57C00 VA: 0xC57C00
+	protected UILabel minLabel; // 0xA0
+	[SerializeField] // RVA: 0xC57C10 Offset: 0xC57C10 VA: 0xC57C10
+	protected UILabel maxLabel; // 0xA8
+	protected int maxStep; // 0xB0
+	protected int minStep; // 0xB4
+	protected int nowStep; // 0xB8
+	private const int ValueNone = 0;
+	private const int ValuePlus = 1;
+	private const int ValueMinus = -1;
+	private int valueChange; // 0xBC
+	private bool isTouchEnable; // 0xC0
+
+	// Properties
+	[ObsoleteAttribute] // RVA: 0xCDEAD0 Offset: 0xCDEAD0 VA: 0xCDEAD0
+	public float sliderValue { get; set; }
+	[ObsoleteAttribute] // RVA: 0xCDEB08 Offset: 0xCDEB08 VA: 0xCDEB08
+	public bool inverted { get; set; }
+
+	// Methods
+
+	// RVA: 0x1823978 Offset: 0x1823978 VA: 0x1823978
+	public void .ctor() { }
+
+	// RVA: 0x1823994 Offset: 0x1823994 VA: 0x1823994
+	public float get_sliderValue() { }
+
+	// RVA: 0x182399C Offset: 0x182399C VA: 0x182399C
+	public void set_sliderValue(float value) { }
+
+	// RVA: 0x18239A4 Offset: 0x18239A4 VA: 0x18239A4
+	public bool get_inverted() { }
+
+	// RVA: 0x18239AC Offset: 0x18239AC VA: 0x18239AC
+	public void set_inverted(bool value) { }
+
+	// RVA: 0x18239B0 Offset: 0x18239B0 VA: 0x18239B0
+	public void init(int max, bool setMax = False) { }
+
+	// RVA: 0x1823B58 Offset: 0x1823B58 VA: 0x1823B58 Slot: 4
+	protected override void Upgrade() { }
+
+	// RVA: 0x1823C30 Offset: 0x1823C30 VA: 0x1823C30 Slot: 5
+	protected override void OnStart() { }
+
+	// RVA: 0x1824218 Offset: 0x1824218 VA: 0x1824218
+	protected void OnPressBackground(GameObject go, bool isPressed) { }
+
+	// RVA: 0x1824304 Offset: 0x1824304 VA: 0x1824304
+	protected void OnDragBackground(GameObject go, Vector2 delta) { }
+
+	// RVA: 0x18243CC Offset: 0x18243CC VA: 0x18243CC
+	protected void OnPressForeground(GameObject go, bool isPressed) { }
+
+	// RVA: 0x1824708 Offset: 0x1824708 VA: 0x1824708
+	protected void OnDragForeground(GameObject go, Vector2 delta) { }
+
+	// RVA: 0x18247E4 Offset: 0x18247E4 VA: 0x18247E4
+	protected void OnKey(KeyCode key) { }
+
+	// RVA: 0x18248C8 Offset: 0x18248C8 VA: 0x18248C8
+	public void OnClickPlusButton() { }
+
+	// RVA: 0x18249F0 Offset: 0x18249F0 VA: 0x18249F0
+	public void OnClickMinusButton() { }
+
+	// RVA: 0x1824B14 Offset: 0x1824B14 VA: 0x1824B14
+	public int sliderValueChange() { }
+
+	// RVA: 0x1824C4C Offset: 0x1824C4C VA: 0x1824C4C
+	public void normalMode() { }
+
+	// RVA: 0x182511C Offset: 0x182511C VA: 0x182511C
+	public void grayMode() { }
+}
+
+// Namespace: 
+private enum UISliderWithButton.Direction // TypeDefIndex: 7869
+{
+	// Fields
+	public int value__; // 0x0
+	public const UISliderWithButton.Direction Horizontal = 0;
+	public const UISliderWithButton.Direction Vertical = 1;
+	public const UISliderWithButton.Direction Upgraded = 2;
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC25E2C Offset: 0xC25E2C VA: 0xC25E2C
+[AddComponentMenu] // RVA: 0xC25E2C Offset: 0xC25E2C VA: 0xC25E2C
+public class UISpriteAltMat : UISprite // TypeDefIndex: 7870
+{
+	// Fields
+	protected Material exMaterial; // 0x1F0
+
+	// Properties
+	public override Material material { get; }
+
+	// Methods
+
+	// RVA: 0x1826BCC Offset: 0x1826BCC VA: 0x1826BCC
+	public void .ctor() { }
+
+	// RVA: 0x1826BD0 Offset: 0x1826BD0 VA: 0x1826BD0 Slot: 24
+	public override Material get_material() { }
+
+	// RVA: 0x1826C5C Offset: 0x1826C5C VA: 0x1826C5C
+	public void ResetMaterial() { }
+
+	// RVA: 0x1826CD0 Offset: 0x1826CD0 VA: 0x1826CD0
+	public void SetMaterialKeepTexture(Material mat) { }
+}
+
+// Namespace: 
+public class UIStandFigureM : UIStandFigureRender // TypeDefIndex: 7871
+{
+	// Fields
+	protected AssetData assetData; // 0x260
+	protected string loadName; // 0x268
+	protected Action callbackFunc; // 0x270
+	private bool isCrossFade; // 0x278
+
+	// Properties
+	public bool IsLoad { get; }
+
+	// Methods
+
+	// RVA: 0x1827848 Offset: 0x1827848 VA: 0x1827848
+	public void .ctor() { }
+
+	// RVA: 0x182791C Offset: 0x182791C VA: 0x182791C
+	public bool get_IsLoad() { }
+
+	// RVA: 0x182792C Offset: 0x182792C VA: 0x182792C
+	public void Dispose() { }
+
+	// RVA: 0x18279B0 Offset: 0x18279B0 VA: 0x18279B0
+	protected void OnDestroy() { }
+
+	// RVA: 0x1815680 Offset: 0x1815680 VA: 0x1815680
+	public void ReleaseCharacter() { }
+
+	// RVA: 0x1827FDC Offset: 0x1827FDC VA: 0x1827FDC
+	public void SetCharacter(int svtId, int limitCount, int lv, Face.Type faceType, Action callbackFunc) { }
+
+	// RVA: 0x1828088 Offset: 0x1828088 VA: 0x1828088
+	public bool SetCharacter(int svtId, int imageLimitCount, Face.Type faceType, Action callbackFunc, bool loadRequiredResource = False) { }
+
+	// RVA: 0x1812E4C Offset: 0x1812E4C VA: 0x1812E4C
+	public bool SetCharacter(int svtId, int imageLimitCount, Face.Type faceType, int formId, Action callbackFunc, bool loadRequiredResource = False) { }
+
+	// RVA: 0x18281DC Offset: 0x18281DC VA: 0x18281DC
+	private string[] GetRequiredResourceNames(int imageId, Face.Type faceType) { }
+
+	// RVA: 0x1828770 Offset: 0x1828770 VA: 0x1828770
+	protected void EndLoadAsset(AssetData assetData) { }
+
+	// RVA: 0x1828864 Offset: 0x1828864 VA: 0x1828864
+	protected void SetTexture() { }
+
+	// RVA: 0x182809C Offset: 0x182809C VA: 0x182809C
+	protected void SetTextureStatus() { }
+
+	// RVA: 0x1813620 Offset: 0x1813620 VA: 0x1813620
+	public void SetDispOffset() { }
+
+	// RVA: 0x182ADEC Offset: 0x182ADEC VA: 0x182ADEC
+	public void SetOffsetDirect(Vector3 offset) { }
+
+	// RVA: 0x182AEA0 Offset: 0x182AEA0 VA: 0x182AEA0
+	public void SetSclDirect(Vector3 scl) { }
+
+	// RVA: 0x182AEFC Offset: 0x182AEFC VA: 0x182AEFC
+	private int GetTexturePosition(Face.Type faceType, int faceTextureSize) { }
+
+	// RVA: 0x1813BC4 Offset: 0x1813BC4 VA: 0x1813BC4
+	public void SetCrossFadeCharactar(UIStandFigureM inFigure, UIStandFigureM outFigure) { }
+
+	// RVA: 0x182AFBC Offset: 0x182AFBC VA: 0x182AFBC Slot: 39
+	public override void SetTweenColor(Color c) { }
+}
+
+// Namespace: 
+public class UIStandFigureR : MonoBehaviour // TypeDefIndex: 7872
+{
+	// Fields
+	[SerializeField] // RVA: 0xC57C20 Offset: 0xC57C20 VA: 0xC57C20
+	protected UITexture bodyTexture; // 0x18
+	protected int imageId; // 0x20
+	protected ServantScriptEntity.OffsetKind offsetKind; // 0x24
+	protected Face.Type faceType; // 0x28
+	protected int formId; // 0x2C
+	protected List<AssetData> formAssetList; // 0x30
+	protected AssetData assetData; // 0x38
+	protected RenderTexture renderTexture; // 0x40
+	protected List<string> loadNameList; // 0x48
+	protected string loadName; // 0x50
+	protected Action callbackFunc; // 0x58
+	protected Action callbackFuncAfterLoadForms; // 0x60
+	protected SvtMultiPortraitEntity svtMultiPortraitEntity; // 0x68
+	protected bool isBusyRender; // 0x70
+	protected bool isRetryRender; // 0x71
+	public bool isAssetLoaded; // 0x72
+
+	// Properties
+	public int Id { get; }
+	public bool IsLoad { get; }
+	public int FormId { get; }
+	public UITexture Texture { get; }
+
+	// Methods
+
+	// RVA: 0x182B334 Offset: 0x182B334 VA: 0x182B334
+	public void .ctor() { }
+
+	// RVA: 0x182B3CC Offset: 0x182B3CC VA: 0x182B3CC
+	public int get_Id() { }
+
+	// RVA: 0x182B3D4 Offset: 0x182B3D4 VA: 0x182B3D4
+	public bool get_IsLoad() { }
+
+	// RVA: 0x182B3E4 Offset: 0x182B3E4 VA: 0x182B3E4
+	public int get_FormId() { }
+
+	// RVA: 0x182B3EC Offset: 0x182B3EC VA: 0x182B3EC
+	public void SetSvtMultiPortraitEntity(SvtMultiPortraitEntity entity) { }
+
+	// RVA: 0x182B3F4 Offset: 0x182B3F4 VA: 0x182B3F4
+	public void Destroy() { }
+
+	// RVA: 0x182B3F8 Offset: 0x182B3F8 VA: 0x182B3F8
+	protected void OnDestroy() { }
+
+	// RVA: 0x182B758 Offset: 0x182B758 VA: 0x182B758
+	public void SetActive(bool isActive) { }
+
+	// RVA: 0x182B7A8 Offset: 0x182B7A8 VA: 0x182B7A8
+	public UITexture get_Texture() { }
+
+	// RVA: 0x182B3FC Offset: 0x182B3FC VA: 0x182B3FC
+	public void ReleaseCharacter() { }
+
+	// RVA: 0x182B7B0 Offset: 0x182B7B0 VA: 0x182B7B0
+	public void SetCharacter(int svtId, int limitCount, int lv, ServantScriptEntity.OffsetKind offsetKind, Face.Type faceType, Action callbackFunc) { }
+
+	// RVA: 0x182BA0C Offset: 0x182BA0C VA: 0x182BA0C
+	public void SetCharacter(int svtId, int imageLimitCount, ServantScriptEntity.OffsetKind offsetKind, Face.Type faceType, Action callbackFunc) { }
+
+	// RVA: 0x182B868 Offset: 0x182B868 VA: 0x182B868
+	public void SetCharacter(int svtId, int imageLimitCount, ServantScriptEntity.OffsetKind offsetKind, Face.Type faceType, int formId, Action callbackFunc) { }
+
+	// RVA: 0x182BC10 Offset: 0x182BC10 VA: 0x182BC10
+	public void SetCharacterForImageId(int imageId, ServantScriptEntity.OffsetKind offsetKind, Face.Type faceType, int formId, Action callbackFunc) { }
+
+	// RVA: 0x182BD9C Offset: 0x182BD9C VA: 0x182BD9C
+	public void EndLoadAsset(AssetData assetData) { }
+
+	// RVA: 0x182BF8C Offset: 0x182BF8C VA: 0x182BF8C
+	protected void RequestRenderAsset() { }
+
+	// RVA: 0x182C0A4 Offset: 0x182C0A4 VA: 0x182C0A4
+	protected void EndRenderAsset(RenderTexture renderTex) { }
+
+	// RVA: 0x182C520 Offset: 0x182C520 VA: 0x182C520
+	public void SetFace(Face.Type faceType) { }
+
+	// RVA: 0x182C534 Offset: 0x182C534 VA: 0x182C534
+	public void SetFace(Face.Type faceType, Action callbackFunc) { }
+
+	// RVA: 0x182C618 Offset: 0x182C618 VA: 0x182C618
 	public void SetFace(Face.Type faceType, int formId, Action callbackFunc) { }
 
-	// RVA: 0x1D8A25C Offset: 0x1D8A25C VA: 0x1D8A25C
+	// RVA: 0x182C82C Offset: 0x182C82C VA: 0x182C82C
 	protected void EndLoadFormAsset(AssetData assetData) { }
 
-	// RVA: 0x1D8A3CC Offset: 0x1D8A3CC VA: 0x1D8A3CC
+	// RVA: 0x182C99C Offset: 0x182C99C VA: 0x182C99C
 	public void PreloadFormAssets(List<int> formIdList, Action callbackFunc) { }
 
-	// RVA: 0x1D8A740 Offset: 0x1D8A740 VA: 0x1D8A740
+	// RVA: 0x182CD10 Offset: 0x182CD10 VA: 0x182CD10
 	public void CancelPreloadFormAssets() { }
 
-	// RVA: 0x1D8A748 Offset: 0x1D8A748 VA: 0x1D8A748
+	// RVA: 0x182CD18 Offset: 0x182CD18 VA: 0x182CD18
 	public void RemoveCallback(Action removeCallback) { }
 
-	// RVA: 0x1D8A80C Offset: 0x1D8A80C VA: 0x1D8A80C
+	// RVA: 0x182CDDC Offset: 0x182CDDC VA: 0x182CDDC
 	private void OnEndPreloadForms() { }
 
-	// RVA: 0x1D8AA0C Offset: 0x1D8AA0C VA: 0x1D8AA0C
+	// RVA: 0x182CFDC Offset: 0x182CFDC VA: 0x182CFDC
 	public void SetAlpha(float a) { }
 
-	// RVA: 0x1D8AA50 Offset: 0x1D8AA50 VA: 0x1D8AA50
+	// RVA: 0x182D020 Offset: 0x182D020 VA: 0x182D020
 	public void SetDepth(int d) { }
 
-	// RVA: 0x1D8AA88 Offset: 0x1D8AA88 VA: 0x1D8AA88
+	// RVA: 0x182D058 Offset: 0x182D058 VA: 0x182D058
 	public void MoveAlpha(float duration, float alpha) { }
 
-	// RVA: 0x1D8AB00 Offset: 0x1D8AB00 VA: 0x1D8AB00
+	// RVA: 0x182D0D0 Offset: 0x182D0D0 VA: 0x182D0D0
 	public void MoveAlpha(float duration, float alpha, GameObject callbackObject, string callbackFunc) { }
 
-	// RVA: 0x1D8AC98 Offset: 0x1D8AC98 VA: 0x1D8AC98
+	// RVA: 0x182D268 Offset: 0x182D268 VA: 0x182D268
 	public void SetLayer(int layer) { }
 
-	// RVA: 0x1D8AD10 Offset: 0x1D8AD10 VA: 0x1D8AD10
+	// RVA: 0x182D2E0 Offset: 0x182D2E0 VA: 0x182D2E0
 	protected void SetLayer(Transform tf, int layer) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD384BC Offset: 0xD384BC VA: 0xD384BC
-	// RVA: 0x1D8B010 Offset: 0x1D8B010 VA: 0x1D8B010
+	[CompilerGeneratedAttribute] // RVA: 0xCCAE48 Offset: 0xCCAE48 VA: 0xCCAE48
+	// RVA: 0x182D5E0 Offset: 0x182D5E0 VA: 0x182D5E0
 	private bool <SetFace>m__0(AssetData a) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF110 Offset: 0xCAF110 VA: 0xCAF110
-private sealed class UIStandFigureR.<EndLoadFormAsset>c__AnonStorey0 // TypeDefIndex: 7854
+[CompilerGeneratedAttribute] // RVA: 0xC43054 Offset: 0xC43054 VA: 0xC43054
+private sealed class UIStandFigureR.<EndLoadFormAsset>c__AnonStorey0 // TypeDefIndex: 7873
 {
 	// Fields
 	internal AssetData assetData; // 0x10
 
 	// Methods
 
-	// RVA: 0x1D8A3C4 Offset: 0x1D8A3C4 VA: 0x1D8A3C4
+	// RVA: 0x182C994 Offset: 0x182C994 VA: 0x182C994
 	public void .ctor() { }
 
-	// RVA: 0x1D8B064 Offset: 0x1D8B064 VA: 0x1D8B064
+	// RVA: 0x182D634 Offset: 0x182D634 VA: 0x182D634
 	internal bool <>m__0(AssetData a) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF120 Offset: 0xCAF120 VA: 0xCAF120
-private sealed class UIStandFigureR.<PreloadFormAssets>c__AnonStorey1 // TypeDefIndex: 7855
+[CompilerGeneratedAttribute] // RVA: 0xC43064 Offset: 0xC43064 VA: 0xC43064
+private sealed class UIStandFigureR.<PreloadFormAssets>c__AnonStorey1 // TypeDefIndex: 7874
 {
 	// Fields
 	internal string assetPath; // 0x10
 
 	// Methods
 
-	// RVA: 0x1D8A738 Offset: 0x1D8A738 VA: 0x1D8A738
+	// RVA: 0x182CD08 Offset: 0x182CD08 VA: 0x182CD08
 	public void .ctor() { }
 
-	// RVA: 0x1D8B14C Offset: 0x1D8B14C VA: 0x1D8B14C
+	// RVA: 0x182D71C Offset: 0x182D71C VA: 0x182D71C
 	internal bool <>m__0(AssetData a) { }
 
-	// RVA: 0x1D8B1A0 Offset: 0x1D8B1A0 VA: 0x1D8B1A0
+	// RVA: 0x182D770 Offset: 0x182D770 VA: 0x182D770
 	internal bool <>m__1(string a) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF130 Offset: 0xCAF130 VA: 0xCAF130
-private sealed class UIStandFigureR.<OnEndPreloadForms>c__AnonStorey2 // TypeDefIndex: 7856
+[CompilerGeneratedAttribute] // RVA: 0xC43074 Offset: 0xC43074 VA: 0xC43074
+private sealed class UIStandFigureR.<OnEndPreloadForms>c__AnonStorey2 // TypeDefIndex: 7875
 {
 	// Fields
 	internal AssetData asset; // 0x10
 
 	// Methods
 
-	// RVA: 0x1D8AA04 Offset: 0x1D8AA04 VA: 0x1D8AA04
+	// RVA: 0x182CFD4 Offset: 0x182CFD4 VA: 0x182CFD4
 	public void .ctor() { }
 
-	// RVA: 0x1D8B0D8 Offset: 0x1D8B0D8 VA: 0x1D8B0D8
+	// RVA: 0x182D6A8 Offset: 0x182D6A8 VA: 0x182D6A8
 	internal bool <>m__0(AssetData a) { }
 }
 
 // Namespace: 
-public class UIStandFigureRender : UITweenRenderer // TypeDefIndex: 7857
+public class UIStandFigureRender : UITweenRenderer // TypeDefIndex: 7876
 {
 	// Fields
-	[SerializeField] // RVA: 0xCC3AC8 Offset: 0xCC3AC8 VA: 0xCC3AC8
+	[SerializeField] // RVA: 0xC57C30 Offset: 0xC57C30 VA: 0xC57C30
 	protected MeshFilter bodyFilter; // 0x188
-	[SerializeField] // RVA: 0xCC3AD8 Offset: 0xCC3AD8 VA: 0xCC3AD8
+	[SerializeField] // RVA: 0xC57C40 Offset: 0xC57C40 VA: 0xC57C40
 	protected MeshRenderer bodyRenderer; // 0x190
-	[SerializeField] // RVA: 0xCC3AE8 Offset: 0xCC3AE8 VA: 0xCC3AE8
+	[SerializeField] // RVA: 0xC57C50 Offset: 0xC57C50 VA: 0xC57C50
 	protected MeshFilter faceFilter; // 0x198
-	[SerializeField] // RVA: 0xCC3AF8 Offset: 0xCC3AF8 VA: 0xCC3AF8
+	[SerializeField] // RVA: 0xC57C60 Offset: 0xC57C60 VA: 0xC57C60
 	protected MeshRenderer faceRenderer; // 0x1A0
-	[SerializeField] // RVA: 0xCC3B08 Offset: 0xCC3B08 VA: 0xCC3B08
+	[SerializeField] // RVA: 0xC57C70 Offset: 0xC57C70 VA: 0xC57C70
 	protected MeshFilter fadeFilter; // 0x1A8
-	[SerializeField] // RVA: 0xCC3B18 Offset: 0xCC3B18 VA: 0xCC3B18
+	[SerializeField] // RVA: 0xC57C80 Offset: 0xC57C80 VA: 0xC57C80
 	protected MeshRenderer fadeRenderer; // 0x1B0
 	public static readonly int MAIN_SIZE_X; // 0x0
 	public static readonly int MAIN_SIZE_Y; // 0x4
@@ -168,833 +981,20 @@ public class UIStandFigureRender : UITweenRenderer // TypeDefIndex: 7857
 
 	// Methods
 
-	// RVA: 0x1D852DC Offset: 0x1D852DC VA: 0x1D852DC
+	// RVA: 0x18278AC Offset: 0x18278AC VA: 0x18278AC
 	public void .ctor() { }
 
-	// RVA: 0x1D70364 Offset: 0x1D70364 VA: 0x1D70364
+	// RVA: 0x1812934 Offset: 0x1812934 VA: 0x1812934
 	public static int GetServantId(string imageName) { }
 
-	// RVA: 0x1D704C8 Offset: 0x1D704C8 VA: 0x1D704C8
+	// RVA: 0x1812A98 Offset: 0x1812A98 VA: 0x1812A98
 	public static int GetImageLimitCount(string imageName) { }
 
-	// RVA: 0x1D7052C Offset: 0x1D7052C VA: 0x1D7052C
+	// RVA: 0x1812AFC Offset: 0x1812AFC VA: 0x1812AFC
 	public static int GetImageForm(string imageName) { }
 
-	// RVA: 0x1D8B1D8 Offset: 0x1D8B1D8 VA: 0x1D8B1D8
+	// RVA: 0x182D7A8 Offset: 0x182D7A8 VA: 0x182D7A8
 	public static string GetAssetName(int svtId, int imageLimitCount) { }
 
-	// RVA: 0x1D8B250 Offset: 0x1D8B250 VA: 0x1D8B250
+	// RVA: 0x182D820 Offset: 0x182D820 VA: 0x182D820
 	public static string GetAssetName(int svtId, int imageLimitCount, int formId) { }
-
-	// RVA: 0x1D8B5B8 Offset: 0x1D8B5B8 VA: 0x1D8B5B8
-	public static string GetAssetName(int imageId) { }
-
-	// RVA: 0x1D8B68C Offset: 0x1D8B68C VA: 0x1D8B68C
-	public static string GetAssetName(string imageName, int formId = 0) { }
-
-	// RVA: 0x1D8944C Offset: 0x1D8944C VA: 0x1D8944C
-	public static string GetAssetNameWithForm(int imageId, int formId) { }
-
-	// RVA: 0x1D86320 Offset: 0x1D86320 VA: 0x1D86320
-	public static Texture2D[] GetTextureList(AssetData assetData, bool loadRequiredResource = False) { }
-
-	// RVA: 0x1D74F40 Offset: 0x1D74F40 VA: 0x1D74F40
-	public bool IsBusyMoveAlpha() { }
-
-	// RVA: 0x1D73688 Offset: 0x1D73688 VA: 0x1D73688
-	public Vector2 GetCenterOffset() { }
-
-	// RVA: 0x1D89EA0 Offset: 0x1D89EA0 VA: 0x1D89EA0
-	public static Vector2 GetCharacterOffset(int id, int formId, ServantScriptEntity.OffsetKind offsetKind) { }
-
-	// RVA: 0x1D8B83C Offset: 0x1D8B83C VA: 0x1D8B83C
-	public static int GetForm(int imageId, bool isMyRoom, int friendship = -1) { }
-
-	// RVA: 0x1D88ABC Offset: 0x1D88ABC VA: 0x1D88ABC Slot: 39
-	public override void SetTweenColor(Color c) { }
-
-	// RVA: 0x1D8BA24 Offset: 0x1D8BA24 VA: 0x1D8BA24
-	public Vector2 GetBodySize() { }
-
-	// RVA: 0x1D705C8 Offset: 0x1D705C8 VA: 0x1D705C8
-	public void SetActive(bool isActive) { }
-
-	// RVA: 0x1D853E4 Offset: 0x1D853E4 VA: 0x1D853E4
-	public void ReleaseCharacter() { }
-
-	// RVA: 0x1D8BBD8 Offset: 0x1D8BBD8 VA: 0x1D8BBD8
-	public void SetCharacter(int id, Face.Type faceType, int formId, Texture2D[] textureList) { }
-
-	// RVA: 0x1D86A7C Offset: 0x1D86A7C VA: 0x1D86A7C
-	protected void SetCharacterRender() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD384CC Offset: 0xD384CC VA: 0xD384CC
-	// RVA: 0x1D8BDF8 Offset: 0x1D8BDF8 VA: 0x1D8BDF8
-	private IEnumerator ChangeFaceFade(float time) { }
-
-	// RVA: 0x1D8BAA8 Offset: 0x1D8BAA8 VA: 0x1D8BAA8
-	private void StopChangeFaceFade() { }
-
-	// RVA: 0x1D8BE88 Offset: 0x1D8BE88 VA: 0x1D8BE88
-	private void CopyFaceFadeMesh() { }
-
-	// RVA: 0x1D737A4 Offset: 0x1D737A4 VA: 0x1D737A4
-	public void SetFace(Face.Type faceType, float fadeTime = 0) { }
-
-	// RVA: 0x1D8C8B4 Offset: 0x1D8C8B4 VA: 0x1D8C8B4
-	public void SetSharder(string shaderName) { }
-
-	// RVA: 0x1D8CA78 Offset: 0x1D8CA78 VA: 0x1D8CA78
-	public void RecoverSharder() { }
-
-	// RVA: 0x1D8CB90 Offset: 0x1D8CB90 VA: 0x1D8CB90
-	public void SetWipeTexture(Texture texture) { }
-
-	// RVA: 0x1D7331C Offset: 0x1D7331C VA: 0x1D7331C
-	public void SetFilter(string filterName, Color filterColor) { }
-
-	// RVA: 0x1D8BBF4 Offset: 0x1D8BBF4 VA: 0x1D8BBF4
-	public void SetBaseColor() { }
-
-	// RVA: 0x1D70870 Offset: 0x1D70870 VA: 0x1D70870
-	public void SetShadow(bool isShadow) { }
-
-	// RVA: 0x1D74D44 Offset: 0x1D74D44 VA: 0x1D74D44
-	public void SetTalkMask(bool isMask) { }
-
-	// RVA: 0x1D707A4 Offset: 0x1D707A4 VA: 0x1D707A4
-	public void SetAlpha(float alpha) { }
-
-	// RVA: 0x1D8BCCC Offset: 0x1D8BCCC VA: 0x1D8BCCC
-	public void SetFilterColor(Color c) { }
-
-	// RVA: 0x1D8CE88 Offset: 0x1D8CE88 VA: 0x1D8CE88
-	public void SetGradation(float g) { }
-
-	// RVA: 0x1D8CFA8 Offset: 0x1D8CFA8 VA: 0x1D8CFA8
-	public void SetVolume(float v) { }
-
-	// RVA: 0x1D707E8 Offset: 0x1D707E8 VA: 0x1D707E8
-	public void SetDepth(float d) { }
-
-	// RVA: 0x1D712E8 Offset: 0x1D712E8 VA: 0x1D712E8
-	public void MoveAlpha(float duration, float alpha, GameObject callbackObject, string callbackFunc) { }
-
-	// RVA: 0x1D75090 Offset: 0x1D75090 VA: 0x1D75090
-	public void MoveAlphaSpeed(float speed, float alpha, GameObject callbackObject, string callbackFunc) { }
-
-	// RVA: 0x1D8D0C8 Offset: 0x1D8D0C8 VA: 0x1D8D0C8
-	protected void EndMoveAlpha() { }
-
-	// RVA: 0x1D8D18C Offset: 0x1D8D18C VA: 0x1D8D18C
-	public void SetLayer(int layer) { }
-
-	// RVA: 0x1D8D204 Offset: 0x1D8D204 VA: 0x1D8D204
-	protected void SetLayer(Transform tf, int layer) { }
-
-	// RVA: 0x1D8D504 Offset: 0x1D8D504 VA: 0x1D8D504
-	public void StartChaseParentAlpha() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD384DC Offset: 0xD384DC VA: 0xD384DC
-	// RVA: 0x1D8D530 Offset: 0x1D8D530 VA: 0x1D8D530
-	private IEnumerator ChaseParentAlpha() { }
-
-	// RVA: 0x1D75B48 Offset: 0x1D75B48 VA: 0x1D75B48
-	public void SetSortingOrder(int order) { }
-
-	// RVA: 0x1D759E4 Offset: 0x1D759E4 VA: 0x1D759E4
-	public void SetMaskInteraction(SpriteMaskInteraction maskInteraction) { }
-
-	// RVA: 0x1D85D50 Offset: 0x1D85D50 VA: 0x1D85D50
-	protected List<string> GetFaceImageNameByFaceType(int imageId, Face.Type type) { }
-
-	// RVA: 0x1D8D5A0 Offset: 0x1D8D5A0 VA: 0x1D8D5A0
-	private static void .cctor() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF140 Offset: 0xCAF140 VA: 0xCAF140
-private sealed class UIStandFigureRender.<ChangeFaceFade>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 7858
-{
-	// Fields
-	internal float <total>__1; // 0x10
-	internal float time; // 0x14
-	internal UIStandFigureRender $this; // 0x18
-	internal object $current; // 0x20
-	internal bool $disposing; // 0x28
-	internal int $PC; // 0x2C
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD467E4 Offset: 0xD467E4 VA: 0xD467E4
-	// RVA: 0x2020614 Offset: 0x2020614 VA: 0x2020614
-	public void .ctor() { }
-
-	// RVA: 0x202061C Offset: 0x202061C VA: 0x202061C Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD467F4 Offset: 0xD467F4 VA: 0xD467F4
-	// RVA: 0x2020A30 Offset: 0x2020A30 VA: 0x2020A30 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46804 Offset: 0xD46804 VA: 0xD46804
-	// RVA: 0x2020A38 Offset: 0x2020A38 VA: 0x2020A38 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46814 Offset: 0xD46814 VA: 0xD46814
-	// RVA: 0x2020A40 Offset: 0x2020A40 VA: 0x2020A40 Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46824 Offset: 0xD46824 VA: 0xD46824
-	// RVA: 0x2020A54 Offset: 0x2020A54 VA: 0x2020A54 Slot: 6
-	public void Reset() { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCAF150 Offset: 0xCAF150 VA: 0xCAF150
-private sealed class UIStandFigureRender.<ChaseParentAlpha>c__Iterator1 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 7859
-{
-	// Fields
-	internal Transform <parent>__0; // 0x10
-	internal UITexture <tex>__0; // 0x18
-	internal Color <color>__0; // 0x20
-	internal UIStandFigureRender $this; // 0x30
-	internal object $current; // 0x38
-	internal bool $disposing; // 0x40
-	internal int $PC; // 0x44
-
-	// Properties
-	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
-	private object System.Collections.IEnumerator.Current { get; }
-
-	// Methods
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46834 Offset: 0xD46834 VA: 0xD46834
-	// RVA: 0x2020ABC Offset: 0x2020ABC VA: 0x2020ABC
-	public void .ctor() { }
-
-	// RVA: 0x2020AC4 Offset: 0x2020AC4 VA: 0x2020AC4 Slot: 5
-	public bool MoveNext() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46844 Offset: 0xD46844 VA: 0xD46844
-	// RVA: 0x2020DF8 Offset: 0x2020DF8 VA: 0x2020DF8 Slot: 8
-	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46854 Offset: 0xD46854 VA: 0xD46854
-	// RVA: 0x2020E00 Offset: 0x2020E00 VA: 0x2020E00 Slot: 4
-	private object System.Collections.IEnumerator.get_Current() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46864 Offset: 0xD46864 VA: 0xD46864
-	// RVA: 0x2020E08 Offset: 0x2020E08 VA: 0x2020E08 Slot: 7
-	public void Dispose() { }
-
-	[DebuggerHiddenAttribute] // RVA: 0xD46874 Offset: 0xD46874 VA: 0xD46874
-	// RVA: 0x2020E1C Offset: 0x2020E1C VA: 0x2020E1C Slot: 6
-	public void Reset() { }
-}
-
-// Namespace: 
-[AddComponentMenu] // RVA: 0xC91FA0 Offset: 0xC91FA0 VA: 0xC91FA0
-public class UITouchPress : MonoBehaviour // TypeDefIndex: 7860
-{
-	// Fields
-	public const float LONG_PRESS_NORMAL_TIME = 1;
-	public const float LONG_PRESS_FAST_TIME = 0.5;
-	public List<EventDelegate> onClick; // 0x18
-	public List<EventDelegate> onPress; // 0x20
-	public List<EventDelegate> onLongPress; // 0x28
-	public List<EventDelegate> onLongRelease; // 0x30
-	public bool isLongPressFast; // 0x38
-	public float releaseRange; // 0x3C
-	[SerializeField] // RVA: 0xCC3B28 Offset: 0xCC3B28 VA: 0xCC3B28
-	private float clickRange; // 0x40
-	protected bool isCancel; // 0x44
-	protected bool isPress; // 0x45
-	protected bool isLongPressCheck; // 0x46
-	protected bool isLongPress; // 0x47
-	protected Vector2 startPosition; // 0x48
-
-	// Properties
-	public bool IsEnabled { get; set; }
-	public bool IsPress { get; }
-	public bool IsLongPress { get; }
-
-	// Methods
-
-	// RVA: 0x2029374 Offset: 0x2029374 VA: 0x2029374
-	public void .ctor() { }
-
-	// RVA: 0x2029440 Offset: 0x2029440 VA: 0x2029440
-	public bool get_IsEnabled() { }
-
-	// RVA: 0x2029448 Offset: 0x2029448 VA: 0x2029448
-	public void set_IsEnabled(bool value) { }
-
-	// RVA: 0x20294E0 Offset: 0x20294E0 VA: 0x20294E0
-	public bool get_IsPress() { }
-
-	// RVA: 0x2029500 Offset: 0x2029500 VA: 0x2029500
-	public bool get_IsLongPress() { }
-
-	// RVA: 0x2029520 Offset: 0x2029520 VA: 0x2029520
-	protected void OnEnable() { }
-
-	// RVA: 0x2029528 Offset: 0x2029528 VA: 0x2029528
-	protected void Init() { }
-
-	// RVA: 0x202952C Offset: 0x202952C VA: 0x202952C
-	public void OnPress(bool isPressed) { }
-
-	// RVA: 0x2029780 Offset: 0x2029780 VA: 0x2029780
-	protected void OnCheckLongPress() { }
-
-	// RVA: 0x20297F4 Offset: 0x20297F4 VA: 0x20297F4
-	public void OnHover(bool isSelect) { }
-
-	// RVA: 0x2029870 Offset: 0x2029870 VA: 0x2029870
-	protected void OnDrag(Vector2 v) { }
-
-	// RVA: 0x2029998 Offset: 0x2029998 VA: 0x2029998
-	public void Click() { }
-
-	// RVA: 0x2029A30 Offset: 0x2029A30 VA: 0x2029A30
-	protected void OnPressCancel() { }
-
-	// RVA: 0x2029A3C Offset: 0x2029A3C VA: 0x2029A3C
-	public void PressReset() { }
-}
-
-// Namespace: 
-[AddComponentMenu] // RVA: 0xC91FD8 Offset: 0xC91FD8 VA: 0xC91FD8
-public class UITouchPressMarge : MonoBehaviour // TypeDefIndex: 7861
-{
-	// Fields
-	public UITouchPress margeComponent; // 0x18
-	protected bool isPress; // 0x20
-
-	// Methods
-
-	// RVA: 0x2029A48 Offset: 0x2029A48 VA: 0x2029A48
-	public void .ctor() { }
-
-	// RVA: 0x2029A50 Offset: 0x2029A50 VA: 0x2029A50
-	public void OnPress(bool isPressed) { }
-
-	// RVA: 0x2029AD0 Offset: 0x2029AD0 VA: 0x2029AD0
-	protected void OnHover(bool isSelect) { }
-}
-
-// Namespace: 
-[ExecuteInEditMode] // RVA: 0xC92010 Offset: 0xC92010 VA: 0xC92010
-[AddComponentMenu] // RVA: 0xC92010 Offset: 0xC92010 VA: 0xC92010
-public class UITweenRenderer : UIWidget // TypeDefIndex: 7862
-{
-	// Fields
-	protected float volume; // 0x180
-
-	// Methods
-
-	// RVA: 0x2029B50 Offset: 0x2029B50 VA: 0x2029B50
-	public void .ctor() { }
-
-	// RVA: 0x2029C7C Offset: 0x2029C7C VA: 0x2029C7C Slot: 39
-	public virtual void SetTweenColor(Color c) { }
-
-	// RVA: 0x2029C80 Offset: 0x2029C80 VA: 0x2029C80 Slot: 40
-	public virtual Color GetTweenColor() { }
-
-	// RVA: 0x2029C8C Offset: 0x2029C8C VA: 0x2029C8C Slot: 41
-	public virtual void SetTweenVolume(float v) { }
-
-	// RVA: 0x2029C94 Offset: 0x2029C94 VA: 0x2029C94 Slot: 42
-	public virtual float GetTweenVolume() { }
-
-	// RVA: 0x2029C9C Offset: 0x2029C9C VA: 0x2029C9C
-	protected CompareFunction GetRenderingCompareFunction(SpriteMaskInteraction maskInteraction) { }
-}
-
-// Namespace: 
-public class UIUnityRendererEnableClip : UIWidget // TypeDefIndex: 7863
-{
-	// Fields
-	[HideInInspector] // RVA: 0xCC3B38 Offset: 0xCC3B38 VA: 0xCC3B38
-	[SerializeField] // RVA: 0xCC3B38 Offset: 0xCC3B38 VA: 0xCC3B38
-	private Renderer mRenderer; // 0x180
-	[HideInInspector] // RVA: 0xCC3B70 Offset: 0xCC3B70 VA: 0xCC3B70
-	[SerializeField] // RVA: 0xCC3B70 Offset: 0xCC3B70 VA: 0xCC3B70
-	private int renderQueue; // 0x188
-	[HideInInspector] // RVA: 0xCC3BA8 Offset: 0xCC3BA8 VA: 0xCC3BA8
-	[SerializeField] // RVA: 0xCC3BA8 Offset: 0xCC3BA8 VA: 0xCC3BA8
-	private Material[] mMats; // 0x190
-	private bool createMat; // 0x198
-	private static readonly int PROPERTY_ID_ClipRange0; // 0x0
-	private static readonly int PROPERTY_ID_ClipRotateInfo; // 0x4
-	private static readonly int PROPERTY_ID_ClipTex; // 0x8
-	private static readonly int PROPERTY_ID_PanelReplace; // 0xC
-	private static readonly int PROPERTY_ID_ClipSharpness; // 0x10
-	private static readonly int PROPERTY_ID_PanelSpaceMatrix; // 0x14
-	private UIDrawCall.Clipping currentClipping; // 0x19C
-
-	// Properties
-	public Renderer cachedRenderer { get; }
-	public override Material material { get; set; }
-	public override Shader shader { get; set; }
-
-	// Methods
-
-	// RVA: 0x202BCC0 Offset: 0x202BCC0 VA: 0x202BCC0
-	public void .ctor() { }
-
-	// RVA: 0x202BCCC Offset: 0x202BCCC VA: 0x202BCCC
-	public Renderer get_cachedRenderer() { }
-
-	// RVA: 0x202BD64 Offset: 0x202BD64 VA: 0x202BD64 Slot: 24
-	public override Material get_material() { }
-
-	// RVA: 0x202C3B4 Offset: 0x202C3B4 VA: 0x202C3B4 Slot: 25
-	public override void set_material(Material value) { }
-
-	// RVA: 0x202C288 Offset: 0x202C288 VA: 0x202C288
-	public bool isEqualMaterials(Material[] a, Material[] b) { }
-
-	// RVA: 0x202C478 Offset: 0x202C478 VA: 0x202C478 Slot: 28
-	public override Shader get_shader() { }
-
-	// RVA: 0x202C4F0 Offset: 0x202C4F0 VA: 0x202C4F0 Slot: 29
-	public override void set_shader(Shader value) { }
-
-	// RVA: 0x202C0FC Offset: 0x202C0FC VA: 0x202C0FC
-	private bool ExistSharedMaterial0() { }
-
-	// RVA: 0x202C1B8 Offset: 0x202C1B8 VA: 0x202C1B8
-	private bool CheckMaterial(Material[] mats) { }
-
-	// RVA: 0x202C5B4 Offset: 0x202C5B4 VA: 0x202C5B4
-	private void OnDestroy() { }
-
-	// RVA: 0x202C6DC Offset: 0x202C6DC VA: 0x202C6DC
-	private void OnWillRenderObject() { }
-
-	// RVA: 0x202D1B4 Offset: 0x202D1B4 VA: 0x202D1B4 Slot: 38
-	public override void OnFill(BetterList<Vector3> verts, BetterList<Vector2> uvs, BetterList<Color32> cols) { }
-
-	// RVA: 0x202D4C0 Offset: 0x202D4C0 VA: 0x202D4C0
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public class UIVerticalImageM : UIVerticalImageRender // TypeDefIndex: 7864
-{
-	// Fields
-	protected AssetData[] assetDataList; // 0x1F0
-	protected string[] loadNameList; // 0x1F8
-	protected Action callbackFunc; // 0x200
-
-	// Properties
-	public bool IsLoad { get; }
-
-	// Methods
-
-	// RVA: 0x202D5C4 Offset: 0x202D5C4 VA: 0x202D5C4
-	public void .ctor() { }
-
-	// RVA: 0x202D694 Offset: 0x202D694 VA: 0x202D694
-	public bool get_IsLoad() { }
-
-	// RVA: 0x202D6A4 Offset: 0x202D6A4 VA: 0x202D6A4
-	public void Destroy() { }
-
-	// RVA: 0x202D760 Offset: 0x202D760 VA: 0x202D760
-	protected void OnDestroy() { }
-
-	// RVA: 0x202D6A8 Offset: 0x202D6A8 VA: 0x202D6A8
-	public void ReleaseCharacter() { }
-
-	// RVA: 0x202D9B4 Offset: 0x202D9B4 VA: 0x202D9B4
-	public void SetCharacter(string imageName, Face.Type faceType, Action callbackFunc) { }
-
-	// RVA: 0x202DE8C Offset: 0x202DE8C VA: 0x202DE8C
-	protected void EndLoadAsset() { }
-
-	// RVA: 0x202DFB0 Offset: 0x202DFB0 VA: 0x202DFB0
-	protected void SetTexture() { }
-
-	// RVA: 0x202DDAC Offset: 0x202DDAC VA: 0x202DDAC
-	protected void SetTextureStatus() { }
-
-	// RVA: 0x202F078 Offset: 0x202F078 VA: 0x202F078
-	public void SetDispOffset() { }
-}
-
-// Namespace: 
-public class UIVerticalImageRender : UITweenRenderer // TypeDefIndex: 7865
-{
-	// Fields
-	[SerializeField] // RVA: 0xCC3BE0 Offset: 0xCC3BE0 VA: 0xCC3BE0
-	protected MeshFilter bodyFilter; // 0x188
-	[SerializeField] // RVA: 0xCC3BF0 Offset: 0xCC3BF0 VA: 0xCC3BF0
-	protected MeshRenderer bodyRenderer; // 0x190
-	public static readonly int MAIN_SIZE_X; // 0x0
-	public static readonly int MAIN_SIZE_Y; // 0x4
-	public static readonly int BODY_SIZE_X; // 0x8
-	public static readonly int BODY_SIZE_Y; // 0xC
-	public static readonly int OVERLAP_V; // 0x10
-	public static readonly int LEFT_X; // 0x14
-	public static readonly int RIGHT_X; // 0x18
-	public static readonly int TOP_Y; // 0x1C
-	public static readonly int BOTTOM_Y; // 0x20
-	public static readonly int BOTTOM_Y2; // 0x24
-	public static readonly float BODY_U; // 0x28
-	public static readonly float BODY_V; // 0x2C
-	public static readonly float BODY_U2; // 0x30
-	public static readonly float BODY_V2; // 0x34
-	public static readonly float BODY_W; // 0x38
-	public static readonly float BODY_H; // 0x3C
-	protected bool isShadow; // 0x198
-	protected bool isTalkMask; // 0x199
-	protected string filterName; // 0x1A0
-	protected Color filterColor; // 0x1A8
-	protected Vector2 figureOffset; // 0x1B8
-	protected Vector2 dispOffset; // 0x1C0
-	protected Vector2 dispTop; // 0x1C8
-	protected Texture2D[] textureList; // 0x1D0
-	protected bool isBusyMoveAlpha; // 0x1D8
-	protected GameObject moveAlphaCallbackObject; // 0x1E0
-	protected string moveAlphaCallbackFunc; // 0x1E8
-
-	// Methods
-
-	// RVA: 0x202D628 Offset: 0x202D628 VA: 0x202D628
-	public void .ctor() { }
-
-	// RVA: 0x202DC5C Offset: 0x202DC5C VA: 0x202DC5C
-	public static string[] GetAssetNameList(string imageName) { }
-
-	// RVA: 0x202F150 Offset: 0x202F150 VA: 0x202F150
-	public bool IsBusyMoveAlpha() { }
-
-	// RVA: 0x202F158 Offset: 0x202F158 VA: 0x202F158
-	public Vector2 GetCenterOffset() { }
-
-	// RVA: 0x202F1F4 Offset: 0x202F1F4 VA: 0x202F1F4
-	public static Vector2 GetCharacterOffset() { }
-
-	// RVA: 0x202F228 Offset: 0x202F228 VA: 0x202F228
-	public static Vector2 GetCharacterOffsetMyroom() { }
-
-	// RVA: 0x202F25C Offset: 0x202F25C VA: 0x202F25C Slot: 39
-	public override void SetTweenColor(Color c) { }
-
-	// RVA: 0x202F36C Offset: 0x202F36C VA: 0x202F36C
-	public Vector2 GetBodySize() { }
-
-	// RVA: 0x202F3F0 Offset: 0x202F3F0 VA: 0x202F3F0
-	public void SetActive(bool isActive) { }
-
-	// RVA: 0x202D764 Offset: 0x202D764 VA: 0x202D764
-	public void ReleaseCharacter() { }
-
-	// RVA: 0x202F440 Offset: 0x202F440 VA: 0x202F440
-	public void SetCharacter(string imageName, Face.Type faceType, Texture2D[] textureList) { }
-
-	// RVA: 0x202E1A8 Offset: 0x202E1A8 VA: 0x202E1A8
-	protected void SetCharacterRender() { }
-
-	// RVA: 0x202F5B4 Offset: 0x202F5B4 VA: 0x202F5B4
-	public void SetSharder(string shaderName) { }
-
-	// RVA: 0x202F730 Offset: 0x202F730 VA: 0x202F730
-	public void RecoverSharder() { }
-
-	// RVA: 0x202F808 Offset: 0x202F808 VA: 0x202F808
-	public void SetWipeTexture(Texture texture) { }
-
-	// RVA: 0x202FA4C Offset: 0x202FA4C VA: 0x202FA4C
-	public void SetFilter(string filterName, Color filterColor) { }
-
-	// RVA: 0x202F44C Offset: 0x202F44C VA: 0x202F44C
-	public void SetBaseColor() { }
-
-	// RVA: 0x202FAA4 Offset: 0x202FAA4 VA: 0x202FAA4
-	public void SetShadow(bool isShadow) { }
-
-	// RVA: 0x202FAB0 Offset: 0x202FAB0 VA: 0x202FAB0
-	public void SetTalkMask(bool isMask) { }
-
-	// RVA: 0x202FABC Offset: 0x202FABC VA: 0x202FABC
-	public void SetAlpha(float alpha) { }
-
-	// RVA: 0x202F4DC Offset: 0x202F4DC VA: 0x202F4DC
-	public void SetFilterColor(Color c) { }
-
-	// RVA: 0x202FAE0 Offset: 0x202FAE0 VA: 0x202FAE0
-	public void SetGradation(float g) { }
-
-	// RVA: 0x202FBC4 Offset: 0x202FBC4 VA: 0x202FBC4
-	public void SetVolume(float v) { }
-
-	// RVA: 0x202FCA8 Offset: 0x202FCA8 VA: 0x202FCA8
-	public void SetDepth(float d) { }
-
-	// RVA: 0x202FD30 Offset: 0x202FD30 VA: 0x202FD30
-	public void MoveAlpha(float duration, float alpha, GameObject callbackObject, string callbackFunc) { }
-
-	// RVA: 0x202FFE0 Offset: 0x202FFE0 VA: 0x202FFE0
-	public void MoveAlphaSpeed(float speed, float alpha, GameObject callbackObject, string callbackFunc) { }
-
-	// RVA: 0x202FF28 Offset: 0x202FF28 VA: 0x202FF28
-	protected void EndMoveAlpha() { }
-
-	// RVA: 0x20301EC Offset: 0x20301EC VA: 0x20301EC
-	public void SetLayer(int layer) { }
-
-	// RVA: 0x2030264 Offset: 0x2030264 VA: 0x2030264
-	protected void SetLayer(Transform tf, int layer) { }
-
-	// RVA: 0x2030564 Offset: 0x2030564 VA: 0x2030564
-	public void SetMaskInteraction(SpriteMaskInteraction maskInteraction) { }
-
-	// RVA: 0x2030608 Offset: 0x2030608 VA: 0x2030608
-	public void SetSortingOrder(int order) { }
-
-	// RVA: 0x2030640 Offset: 0x2030640 VA: 0x2030640
-	private static void .cctor() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9205C Offset: 0xC9205C VA: 0xC9205C
-[TooltipAttribute] // RVA: 0xC9205C Offset: 0xC9205C VA: 0xC9205C
-public class ActionCommonConfirmDialog : FsmStateAction // TypeDefIndex: 7866
-{
-	// Fields
-	[TooltipAttribute] // RVA: 0xCC3C00 Offset: 0xCC3C00 VA: 0xCC3C00
-	public FsmString titleName; // 0x50
-	[TooltipAttribute] // RVA: 0xCC3C38 Offset: 0xCC3C38 VA: 0xCC3C38
-	public FsmString messageName; // 0x58
-	[TooltipAttribute] // RVA: 0xCC3C70 Offset: 0xCC3C70 VA: 0xCC3C70
-	public FsmEvent decideFinishedEvent; // 0x60
-	[TooltipAttribute] // RVA: 0xCC3CA8 Offset: 0xCC3CA8 VA: 0xCC3CA8
-	public FsmEvent cancelFinishedEvent; // 0x68
-
-	// Methods
-
-	// RVA: 0x2112D08 Offset: 0x2112D08 VA: 0x2112D08
-	public void .ctor() { }
-
-	// RVA: 0x2112D10 Offset: 0x2112D10 VA: 0x2112D10 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x2112D18 Offset: 0x2112D18 VA: 0x2112D18 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x2112E18 Offset: 0x2112E18 VA: 0x2112E18
-	protected void EndDialog(bool isDecide) { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC920AC Offset: 0xC920AC VA: 0xC920AC
-[TooltipAttribute] // RVA: 0xC920AC Offset: 0xC920AC VA: 0xC920AC
-public class ActionTripleButtonDialog : FsmStateAction // TypeDefIndex: 7867
-{
-	// Fields
-	[TooltipAttribute] // RVA: 0xCC3CE0 Offset: 0xCC3CE0 VA: 0xCC3CE0
-	public FsmString titleName; // 0x50
-	[TooltipAttribute] // RVA: 0xCC3D18 Offset: 0xCC3D18 VA: 0xCC3D18
-	public FsmString messageName; // 0x58
-	[TooltipAttribute] // RVA: 0xCC3D50 Offset: 0xCC3D50 VA: 0xCC3D50
-	public FsmString cancelButtonLabel; // 0x60
-	[TooltipAttribute] // RVA: 0xCC3D88 Offset: 0xCC3D88 VA: 0xCC3D88
-	public FsmString middleButtonLabel; // 0x68
-	[TooltipAttribute] // RVA: 0xCC3DC0 Offset: 0xCC3DC0 VA: 0xCC3DC0
-	public FsmString rightButtonLabel; // 0x70
-	[TooltipAttribute] // RVA: 0xCC3DF8 Offset: 0xCC3DF8 VA: 0xCC3DF8
-	public FsmEvent decideMiddleFinishedEvent; // 0x78
-	[TooltipAttribute] // RVA: 0xCC3E30 Offset: 0xCC3E30 VA: 0xCC3E30
-	public FsmEvent decideRightFinishedEvent; // 0x80
-	[TooltipAttribute] // RVA: 0xCC3E68 Offset: 0xCC3E68 VA: 0xCC3E68
-	public FsmEvent cancelFinishedEvent; // 0x88
-
-	// Methods
-
-	// RVA: 0x2112EF8 Offset: 0x2112EF8 VA: 0x2112EF8
-	public void .ctor() { }
-
-	// RVA: 0x2112F00 Offset: 0x2112F00 VA: 0x2112F00 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x2112F0C Offset: 0x2112F0C VA: 0x2112F0C Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x21130A0 Offset: 0x21130A0 VA: 0x21130A0
-	protected void EndDialog(TripleButtonDlgComponent.ResultClicked result) { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC920FC Offset: 0xC920FC VA: 0xC920FC
-[TooltipAttribute] // RVA: 0xC920FC Offset: 0xC920FC VA: 0xC920FC
-public class AdStoreEvent : FsmStateAction // TypeDefIndex: 7868
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCC3EA0 Offset: 0xCC3EA0 VA: 0xCC3EA0
-	[TooltipAttribute] // RVA: 0xCC3EA0 Offset: 0xCC3EA0 VA: 0xCC3EA0
-	public FsmString actionKey; // 0x50
-
-	// Methods
-
-	// RVA: 0x23115FC Offset: 0x23115FC VA: 0x23115FC
-	public void .ctor() { }
-
-	// RVA: 0x2311604 Offset: 0x2311604 VA: 0x2311604 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x2311608 Offset: 0x2311608 VA: 0x2311608 Slot: 32
-	public override void OnEnter() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9215C Offset: 0xC9215C VA: 0xC9215C
-[TooltipAttribute] // RVA: 0xC9215C Offset: 0xC9215C VA: 0xC9215C
-public class AssetManagerLoader : FsmStateAction // TypeDefIndex: 7869
-{
-	// Fields
-	[TooltipAttribute] // RVA: 0xCC3EEC Offset: 0xCC3EEC VA: 0xCC3EEC
-	public FsmString assetName; // 0x50
-	[TooltipAttribute] // RVA: 0xCC3F24 Offset: 0xCC3F24 VA: 0xCC3F24
-	public FsmBool isDownloadOnly; // 0x58
-	[TooltipAttribute] // RVA: 0xCC3F5C Offset: 0xCC3F5C VA: 0xCC3F5C
-	public FsmEvent finishEvent; // 0x60
-	[TooltipAttribute] // RVA: 0xCC3F94 Offset: 0xCC3F94 VA: 0xCC3F94
-	public FsmObject assetData; // 0x68
-
-	// Methods
-
-	// RVA: 0x231BFF8 Offset: 0x231BFF8 VA: 0x231BFF8
-	public void .ctor() { }
-
-	// RVA: 0x231C000 Offset: 0x231C000 VA: 0x231C000 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x231C088 Offset: 0x231C088 VA: 0x231C088 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x231C1A4 Offset: 0x231C1A4 VA: 0x231C1A4
-	protected void LoadEndAsset(AssetData data) { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC921AC Offset: 0xC921AC VA: 0xC921AC
-[NoteAttribute] // RVA: 0xC921AC Offset: 0xC921AC VA: 0xC921AC
-public class JudgeUsingOptionalBattleEffectId : FsmStateAction // TypeDefIndex: 7870
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCC3FCC Offset: 0xCC3FCC VA: 0xCC3FCC
-	[CheckForComponentAttribute] // RVA: 0xCC3FCC Offset: 0xCC3FCC VA: 0xCC3FCC
-	public FsmGameObject PerformanceObject; // 0x50
-	[TooltipAttribute] // RVA: 0xCC4040 Offset: 0xCC4040 VA: 0xCC4040
-	public FsmEvent TrueEvent; // 0x58
-	[TooltipAttribute] // RVA: 0xCC4078 Offset: 0xCC4078 VA: 0xCC4078
-	public FsmEvent FalseEvent; // 0x60
-
-	// Methods
-
-	// RVA: 0x20EED60 Offset: 0x20EED60 VA: 0x20EED60
-	public void .ctor() { }
-
-	// RVA: 0x20EED68 Offset: 0x20EED68 VA: 0x20EED68 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x20EEDC4 Offset: 0x20EEDC4 VA: 0x20EEDC4
-	private bool IsOptionalBattleEffectIdAvaliable() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9220C Offset: 0xC9220C VA: 0xC9220C
-[NoteAttribute] // RVA: 0xC9220C Offset: 0xC9220C VA: 0xC9220C
-public class StoreOptionalBattleEffectId : FsmStateAction // TypeDefIndex: 7871
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCC40B0 Offset: 0xCC40B0 VA: 0xCC40B0
-	[CheckForComponentAttribute] // RVA: 0xCC40B0 Offset: 0xCC40B0 VA: 0xCC40B0
-	public FsmGameObject PerformanceObject; // 0x50
-	[RequiredFieldAttribute] // RVA: 0xCC4124 Offset: 0xCC4124 VA: 0xCC4124
-	[TooltipAttribute] // RVA: 0xCC4124 Offset: 0xCC4124 VA: 0xCC4124
-	public FsmInt EffectIndex; // 0x58
-	[TooltipAttribute] // RVA: 0xCC4170 Offset: 0xCC4170 VA: 0xCC4170
-	public FsmInt StoreEffectId; // 0x60
-
-	// Methods
-
-	// RVA: 0x212DF24 Offset: 0x212DF24 VA: 0x212DF24
-	public void .ctor() { }
-
-	// RVA: 0x212DF2C Offset: 0x212DF2C VA: 0x212DF2C Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x212DF80 Offset: 0x212DF80 VA: 0x212DF80
-	private int GetEffectIdFromSKillLvScript() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC9226C Offset: 0xC9226C VA: 0xC9226C
-[TooltipAttribute] // RVA: 0xC9226C Offset: 0xC9226C VA: 0xC9226C
-public class BattleSeLoader : FsmStateAction // TypeDefIndex: 7872
-{
-	// Fields
-	[TooltipAttribute] // RVA: 0xCC41A8 Offset: 0xCC41A8 VA: 0xCC41A8
-	public FsmString categoryName; // 0x50
-	[TooltipAttribute] // RVA: 0xCC41E0 Offset: 0xCC41E0 VA: 0xCC41E0
-	public FsmBool isDownloadOnly; // 0x58
-	[TooltipAttribute] // RVA: 0xCC4218 Offset: 0xCC4218 VA: 0xCC4218
-	public FsmEvent finishEvent; // 0x60
-	[TooltipAttribute] // RVA: 0xCC4250 Offset: 0xCC4250 VA: 0xCC4250
-	public FsmObject assetData; // 0x68
-
-	// Methods
-
-	// RVA: 0x231D67C Offset: 0x231D67C VA: 0x231D67C
-	public void .ctor() { }
-
-	// RVA: 0x231D684 Offset: 0x231D684 VA: 0x231D684 Slot: 28
-	public override void Reset() { }
-
-	// RVA: 0x231D70C Offset: 0x231D70C VA: 0x231D70C Slot: 32
-	public override void OnEnter() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions
-[ActionCategoryAttribute] // RVA: 0xC922BC Offset: 0xC922BC VA: 0xC922BC
-public class ChangeRendererMaterialColor : FsmStateAction // TypeDefIndex: 7873
-{
-	// Fields
-	[RequiredFieldAttribute] // RVA: 0xCC4288 Offset: 0xCC4288 VA: 0xCC4288
-	public FsmGameObject gameObject; // 0x50
-	public ChangeRendererMaterialColorEffect.RendererType[] targetRendererTypes; // 0x58
-	public FsmString propertyName; // 0x60
-	public FsmColor color; // 0x68
-	public FsmFloat time; // 0x70
-	public iTween.EaseType easeType; // 0x78
-	public FsmBool isMaterialAll; // 0x80
-	public FsmEvent changedEvent; // 0x88
-	private bool isChanged; // 0x90
-
-	// Methods
-
-	// RVA: 0x2322158 Offset: 0x2322158 VA: 0x2322158
-	public void .ctor() { }
-
-	// RVA: 0x23221C8 Offset: 0x23221C8 VA: 0x23221C8 Slot: 32
-	public override void OnEnter() { }
-
-	// RVA: 0x2322488 Offset: 0x2322488 VA: 0x2322488 Slot: 34
-	public override void OnUpdate() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD384EC Offset: 0xD384EC VA: 0xD384EC
-	// RVA: 0x2322500 Offset: 0x2322500 VA: 0x2322500
-	private void <OnEnter>m__0() { }
-}
-
-// Namespace: HutongGames.PlayMaker.Actions

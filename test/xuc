@@ -1,1000 +1,1000 @@
-	// RVA: 0x1FCA790 Offset: 0x1FCA790 VA: 0x1FCA790
-	public void Init(SupportServantData supportServantData, EventCampaignEntity[] friendPointCampaigns, int deckNum) { }
-
-	// RVA: 0x1FCC430 Offset: 0x1FCC430 VA: 0x1FCC430
-	public void SetDragPrefab(GameObject dragPrefab, SupportSelectListViewManager manager) { }
-
-	// RVA: 0x1FCB1F0 Offset: 0x1FCB1F0 VA: 0x1FCB1F0
-	public SupportSelectListViewItem GetItem() { }
-
-	// RVA: 0x1FCB664 Offset: 0x1FCB664 VA: 0x1FCB664
-	public void clearItemObj() { }
-
-	// RVA: 0x1FCD910 Offset: 0x1FCD910 VA: 0x1FCD910
-	public void clearItemObj(int classPos) { }
-
-	// RVA: 0x1FCB3F0 Offset: 0x1FCB3F0 VA: 0x1FCB3F0
-	public void setItemObj(int deckNum) { }
-
-	// RVA: 0x1FCDA98 Offset: 0x1FCDA98 VA: 0x1FCDA98
-	public void setItemObj(int deckNum, int classPos) { }
-
-	// RVA: 0x1FCB858 Offset: 0x1FCB858 VA: 0x1FCB858
-	public void setDisp(bool disp) { }
-
-	// RVA: 0x1FCBF90 Offset: 0x1FCBF90 VA: 0x1FCBF90
-	public void ResetEventCampaign(EventCampaignEntity[] friendPointCampaigns) { }
-
-	// RVA: 0x1FCDB98 Offset: 0x1FCDB98 VA: 0x1FCDB98
-	public void callbackFuncObj(SupportSelectMenu.ResultKind result, int d, int n) { }
-
-	// RVA: 0x1FCD784 Offset: 0x1FCD784 VA: 0x1FCD784
-	private void setUpperClassIcon(int classPos) { }
-
-	// RVA: 0x1FCCEF0 Offset: 0x1FCCEF0 VA: 0x1FCCEF0
-	public void UpdateExplanationLabel(bool displaySwapInfo) { }
-
-	// RVA: 0x1FCCFA4 Offset: 0x1FCCFA4 VA: 0x1FCCFA4
-	public void SetActiveDragSwapGuide(bool flag) { }
-
-	// RVA: 0x1FCDD30 Offset: 0x1FCDD30 VA: 0x1FCDD30
-	public void OnClickListView() { }
-
-	// RVA: 0x1FCD574 Offset: 0x1FCD574 VA: 0x1FCD574
-	private void InitAlphaMask() { }
-
-	// RVA: 0x1FCD284 Offset: 0x1FCD284 VA: 0x1FCD284
-	private void UpdateAlphaMask() { }
-
-	// RVA: 0x1FCDD34 Offset: 0x1FCDD34 VA: 0x1FCDD34
-	private void UpdateCollider(bool enable) { }
-
-	// RVA: 0x1FCDDE0 Offset: 0x1FCDDE0 VA: 0x1FCDDE0
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public class SupportSelectMenu : BaseMenu // TypeDefIndex: 10799
-{
-	// Fields
-	private readonly Vector3 SUPPORT_EDIT_BUTTON_POSITION_EDTTING; // 0x58
-	private readonly Vector3 SUPPORT_EDIT_BUTTON_POSITION_NOT_EDIT; // 0x64
-	[SerializeField] // RVA: 0xCE61E0 Offset: 0xCE61E0 VA: 0xCE61E0
-	protected UICommonButton decideButton; // 0x70
-	[SerializeField] // RVA: 0xCE61F0 Offset: 0xCE61F0 VA: 0xCE61F0
-	protected UICommonButton swapButton; // 0x78
-	[SerializeField] // RVA: 0xCE6200 Offset: 0xCE6200 VA: 0xCE6200
-	protected UICommonButton editButton; // 0x80
-	[SerializeField] // RVA: 0xCE6210 Offset: 0xCE6210 VA: 0xCE6210
-	protected UICommonButton cancelButton; // 0x88
-	[SerializeField] // RVA: 0xCE6220 Offset: 0xCE6220 VA: 0xCE6220
-	protected UISprite helpButton; // 0x90
-	[SerializeField] // RVA: 0xCE6230 Offset: 0xCE6230 VA: 0xCE6230
-	protected GameObject headerObject; // 0x98
-	[SerializeField] // RVA: 0xCE6240 Offset: 0xCE6240 VA: 0xCE6240
-	protected UISprite fixBaseSprite; // 0xA0
-	[SerializeField] // RVA: 0xCE6250 Offset: 0xCE6250 VA: 0xCE6250
-	protected UISprite fixMainQuestFrameSprite; // 0xA8
-	[SerializeField] // RVA: 0xCE6260 Offset: 0xCE6260 VA: 0xCE6260
-	protected UIButton[] fixMainQuestSupportDeckButtons; // 0xB0
-	[SerializeField] // RVA: 0xCE6270 Offset: 0xCE6270 VA: 0xCE6270
-	protected UISprite[] fixMainQuestSupportDeckLabelSprites; // 0xB8
-	[SerializeField] // RVA: 0xCE6280 Offset: 0xCE6280 VA: 0xCE6280
-	protected UISprite[] fixMainQuestSupportDeckFrameSprites; // 0xC0
-	[SerializeField] // RVA: 0xCE6290 Offset: 0xCE6290 VA: 0xCE6290
-	protected UISprite fixEventQuestFrameSprite; // 0xC8
-	[SerializeField] // RVA: 0xCE62A0 Offset: 0xCE62A0 VA: 0xCE62A0
-	protected UIButton[] fixEventQuestSupportDeckButtons; // 0xD0
-	[SerializeField] // RVA: 0xCE62B0 Offset: 0xCE62B0 VA: 0xCE62B0
-	protected UISprite[] fixEventQuestSupportDeckLabelSprites; // 0xD8
-	[SerializeField] // RVA: 0xCE62C0 Offset: 0xCE62C0 VA: 0xCE62C0
-	protected UISprite[] fixEventQuestSupportDeckFrameSprites; // 0xE0
-	[SerializeField] // RVA: 0xCE62D0 Offset: 0xCE62D0 VA: 0xCE62D0
-	protected GameObject indexItemSeed; // 0xE8
-	[SerializeField] // RVA: 0xCE62E0 Offset: 0xCE62E0 VA: 0xCE62E0
-	protected UISprite supportDeckNum; // 0xF0
-	[SerializeField] // RVA: 0xCE62F0 Offset: 0xCE62F0 VA: 0xCE62F0
-	protected UIGrid indexGrid; // 0xF8
-	[SerializeField] // RVA: 0xCE6300 Offset: 0xCE6300 VA: 0xCE6300
-	protected SupportSelectListViewManager supportSelectListViewManager; // 0x100
-	[SerializeField] // RVA: 0xCE6310 Offset: 0xCE6310 VA: 0xCE6310
-	public SupportSelectListViewIndicator indicator; // 0x108
-	[SerializeField] // RVA: 0xCE6320 Offset: 0xCE6320 VA: 0xCE6320
-	protected UIGrid currentSupportDeckSpriteGrid; // 0x110
-	[SerializeField] // RVA: 0xCE6330 Offset: 0xCE6330 VA: 0xCE6330
-	protected UISprite currentMainQuestSupportSprite; // 0x118
-	[SerializeField] // RVA: 0xCE6340 Offset: 0xCE6340 VA: 0xCE6340
-	protected UISprite currentEventQuestSupportSprite; // 0x120
-	[SerializeField] // RVA: 0xCE6350 Offset: 0xCE6350 VA: 0xCE6350
-	protected UIGrid applySupportDeckGrid; // 0x128
-	[SerializeField] // RVA: 0xCE6360 Offset: 0xCE6360 VA: 0xCE6360
-	protected UISprite applyMainQuestSupport; // 0x130
-	[SerializeField] // RVA: 0xCE6370 Offset: 0xCE6370 VA: 0xCE6370
-	protected UISprite applyMainQuestSupportFrame; // 0x138
-	[SerializeField] // RVA: 0xCE6380 Offset: 0xCE6380 VA: 0xCE6380
-	protected UISprite applyEventQuestSupport; // 0x140
-	[SerializeField] // RVA: 0xCE6390 Offset: 0xCE6390 VA: 0xCE6390
-	protected UISprite applyEventQuestSupportFrame; // 0x148
-	[SerializeField] // RVA: 0xCE63A0 Offset: 0xCE63A0 VA: 0xCE63A0
-	protected BoxCollider namePanelCollider; // 0x150
-	[CompilerGeneratedAttribute] // RVA: 0xCE63B0 Offset: 0xCE63B0 VA: 0xCE63B0
-	[DebuggerBrowsableAttribute] // RVA: 0xCE63B0 Offset: 0xCE63B0 VA: 0xCE63B0
-	private SupportSelectMenu.CallbackFunc callbackFunc; // 0x158
-	[CompilerGeneratedAttribute] // RVA: 0xCE63EC Offset: 0xCE63EC VA: 0xCE63EC
-	[DebuggerBrowsableAttribute] // RVA: 0xCE63EC Offset: 0xCE63EC VA: 0xCE63EC
-	private SupportSelectMenu.DragSwapCallbackFunc dragSwapCallbackFunc; // 0x160
-	protected SupportServantData[] supportServantData; // 0x168
-	[CompilerGeneratedAttribute] // RVA: 0xCE6428 Offset: 0xCE6428 VA: 0xCE6428
-	private static Func<int, bool> <>f__am$cache0; // 0x0
-	[CompilerGeneratedAttribute] // RVA: 0xCE6438 Offset: 0xCE6438 VA: 0xCE6438
-	private static Func<int, bool> <>f__am$cache1; // 0x8
-
-	// Methods
-
-	// RVA: 0x1FCE45C Offset: 0x1FCE45C VA: 0x1FCE45C
-	public void .ctor() { }
-
-	// RVA: 0x1FCE534 Offset: 0x1FCE534 VA: 0x1FCE534
-	protected void add_callbackFunc(SupportSelectMenu.CallbackFunc value) { }
-
-	// RVA: 0x1FCE624 Offset: 0x1FCE624 VA: 0x1FCE624
-	protected void remove_callbackFunc(SupportSelectMenu.CallbackFunc value) { }
-
-	// RVA: 0x1FCE714 Offset: 0x1FCE714 VA: 0x1FCE714
-	protected void add_dragSwapCallbackFunc(SupportSelectMenu.DragSwapCallbackFunc value) { }
-
-	// RVA: 0x1FCE804 Offset: 0x1FCE804 VA: 0x1FCE804
-	protected void remove_dragSwapCallbackFunc(SupportSelectMenu.DragSwapCallbackFunc value) { }
-
-	// RVA: 0x1FCE8F4 Offset: 0x1FCE8F4 VA: 0x1FCE8F4
-	public void Init() { }
-
-	// RVA: 0x1FCE900 Offset: 0x1FCE900 VA: 0x1FCE900
-	private void createIndexItem(int deckNum) { }
-
-	// RVA: 0x1FCECE4 Offset: 0x1FCECE4 VA: 0x1FCECE4
-	public void Open(SupportServantData[] supportServantData, int mainDeckIdx, SupportSelectMenu.CallbackFunc callback, SupportSelectMenu.DragSwapCallbackFunc dragSwapCallbackFunc) { }
-
-	// RVA: 0x1FCF008 Offset: 0x1FCF008 VA: 0x1FCF008
-	public void SetActiveHeader(bool active) { }
-
-	// RVA: 0x1FCF040 Offset: 0x1FCF040 VA: 0x1FCF040
-	public void SetActiveSupportApplyIcon(int nowDeckId, int[] fixMainDeckIds, int[] fixEventDeckIds) { }
-
-	// RVA: 0x1FCF410 Offset: 0x1FCF410 VA: 0x1FCF410
-	public void HideActiveSupportApplyIcon() { }
-
-	// RVA: 0x1FCF508 Offset: 0x1FCF508 VA: 0x1FCF508
-	public void SetActiveCurrentSupportSprite(bool mainQuestActive, bool eventQuestActive, int mainNo = 0, int eventNo = 0) { }
-
-	// RVA: 0x1FCF79C Offset: 0x1FCF79C VA: 0x1FCF79C
-	public SupportSelectListViewItem GetCenterItem() { }
-
-	// RVA: 0x1FCF840 Offset: 0x1FCF840 VA: 0x1FCF840
-	public void Active() { }
-
-	// RVA: 0x1FCEF84 Offset: 0x1FCEF84 VA: 0x1FCEF84
-	public void Redisp() { }
-
-	// RVA: 0x1FCF878 Offset: 0x1FCF878 VA: 0x1FCF878
-	public void Reset(int classPos = -1) { }
-
-	// RVA: 0x1FCF924 Offset: 0x1FCF924 VA: 0x1FCF924
 	public void Close() { }
 
-	// RVA: 0x1FCF970 Offset: 0x1FCF970 VA: 0x1FCF970
-	protected void Callback(SupportSelectMenu.ResultKind result, int d = -1, int n = -1) { }
+	// RVA: 0x14E7584 Offset: 0x14E7584 VA: 0x14E7584
+	public void Close(Action callback) { }
 
-	// RVA: 0x1FCF984 Offset: 0x1FCF984 VA: 0x1FCF984
-	public void buttonDispSetting(bool flag) { }
+	// RVA: 0x14E7614 Offset: 0x14E7614 VA: 0x14E7614
+	protected void EndClose() { }
 
-	// RVA: 0x1FCFAD0 Offset: 0x1FCFAD0 VA: 0x1FCFAD0
-	public void SetActiveFixDeckButton(bool active) { }
+	// RVA: 0x14E7650 Offset: 0x14E7650 VA: 0x14E7650
+	protected void Callback(bool result) { }
 
-	// RVA: 0x1FCFCA8 Offset: 0x1FCFCA8 VA: 0x1FCFCA8
-	public void SetupFooterButtons(bool isEditting) { }
-
-	// RVA: 0x1FCFDFC Offset: 0x1FCFDFC VA: 0x1FCFDFC
-	public void SetAbleToSwapDrag(bool flag) { }
-
-	// RVA: 0x1FCFE40 Offset: 0x1FCFE40 VA: 0x1FCFE40
-	public void setActiveDeckNameChangeButton(bool active) { }
-
-	// RVA: 0x1FCF814 Offset: 0x1FCF814 VA: 0x1FCF814
-	public int getPageIdx() { }
-
-	// RVA: 0x1FCEF4C Offset: 0x1FCEF4C VA: 0x1FCEF4C
-	public void moveCenterItem(int centerIdx) { }
-
-	// RVA: 0x1FCFE78 Offset: 0x1FCFE78 VA: 0x1FCFE78
-	public void SetFixDeckButton(int currentId, bool isEventButton, int[] fixDeckIds) { }
-
-	// RVA: 0x1FD0124 Offset: 0x1FD0124 VA: 0x1FD0124
+	// RVA: 0x14E789C Offset: 0x14E789C VA: 0x14E789C
 	public void OnClickDecide() { }
 
-	// RVA: 0x1FD0144 Offset: 0x1FD0144 VA: 0x1FD0144
-	public void OnClickTab(GameObject idxSprite) { }
-
-	// RVA: 0x1FD0200 Offset: 0x1FD0200 VA: 0x1FD0200
-	public void OnClickSupportEdit() { }
-
-	// RVA: 0x1FD0290 Offset: 0x1FD0290 VA: 0x1FD0290
-	public void OnClickSwap() { }
-
-	// RVA: 0x1FD0320 Offset: 0x1FD0320 VA: 0x1FD0320
-	public void OnClickDeckName() { }
-
-	// RVA: 0x1FD03B0 Offset: 0x1FD03B0 VA: 0x1FD03B0
+	// RVA: 0x14E78D0 Offset: 0x14E78D0 VA: 0x14E78D0
 	public void OnClickCancel() { }
 
-	// RVA: 0x1FD0440 Offset: 0x1FD0440 VA: 0x1FD0440
-	public void onClickHelpButton() { }
+	// RVA: 0x14E7904 Offset: 0x14E7904 VA: 0x14E7904 Slot: 6
+	protected override string get_closeBtnPath() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3F2C4 Offset: 0xD3F2C4 VA: 0xD3F2C4
-	// RVA: 0x1FD04B8 Offset: 0x1FD04B8 VA: 0x1FD04B8
-	private static bool <SetActiveSupportApplyIcon>m__0(int x) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3F2D4 Offset: 0xD3F2D4 VA: 0xD3F2D4
-	// RVA: 0x1FD04C4 Offset: 0x1FD04C4 VA: 0x1FD04C4
-	private static bool <SetActiveSupportApplyIcon>m__1(int x) { }
+	[CompilerGeneratedAttribute] // RVA: 0xCD1ED8 Offset: 0xCD1ED8 VA: 0xCD1ED8
+	// RVA: 0x14E794C Offset: 0x14E794C VA: 0x14E794C
+	private static bool <SetDeckInfo>m__0(int x) { }
 }
 
 // Namespace: 
-public enum SupportSelectMenu.ResultKind // TypeDefIndex: 10800
+private enum CancelConfirmDeckIdDialog.State // TypeDefIndex: 10779
 {
 	// Fields
 	public int value__; // 0x0
-	public const SupportSelectMenu.ResultKind CANCEL = 0;
-	public const SupportSelectMenu.ResultKind DECIDE = 1;
-	public const SupportSelectMenu.ResultKind CLOSE = 2;
-	public const SupportSelectMenu.ResultKind SELECT_SERVANT = 3;
-	public const SupportSelectMenu.ResultKind SELECT_EQUIP = 4;
-	public const SupportSelectMenu.ResultKind DECK_NAME = 5;
-	public const SupportSelectMenu.ResultKind SWAP = 6;
-	public const SupportSelectMenu.ResultKind EDIT = 7;
-	public const SupportSelectMenu.ResultKind SELECT_FOLLOWER = 8;
-	public const SupportSelectMenu.ResultKind SUPPORT_INFO_SERVANT = 9;
-	public const SupportSelectMenu.ResultKind SUPPORT_INFO_EQUIP = 10;
+	public const CancelConfirmDeckIdDialog.State INIT = 0;
+	public const CancelConfirmDeckIdDialog.State OPEN = 1;
+	public const CancelConfirmDeckIdDialog.State INPUT = 2;
+	public const CancelConfirmDeckIdDialog.State SELECTED = 3;
+	public const CancelConfirmDeckIdDialog.State CLOSE = 4;
 }
 
 // Namespace: 
-public sealed class SupportSelectMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10801
+public sealed class CancelConfirmDeckIdDialog.CallbackFunc : MulticastDelegate // TypeDefIndex: 10780
 {
 	// Methods
 
-	// RVA: 0x1FCD98C Offset: 0x1FCD98C VA: 0x1FCD98C
+	// RVA: 0x14E7958 Offset: 0x14E7958 VA: 0x14E7958
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x1FCC508 Offset: 0x1FCC508 VA: 0x1FCC508 Slot: 11
-	public virtual void Invoke(SupportSelectMenu.ResultKind result, int d, int n) { }
+	// RVA: 0x14E7670 Offset: 0x14E7670 VA: 0x14E7670 Slot: 11
+	public virtual void Invoke(bool result) { }
 
-	// RVA: 0x1FD04D0 Offset: 0x1FD04D0 VA: 0x1FD04D0 Slot: 12
-	public virtual IAsyncResult BeginInvoke(SupportSelectMenu.ResultKind result, int d, int n, AsyncCallback callback, object object) { }
+	// RVA: 0x14E7968 Offset: 0x14E7968 VA: 0x14E7968 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
 
-	// RVA: 0x1FD0590 Offset: 0x1FD0590 VA: 0x1FD0590 Slot: 13
+	// RVA: 0x14E79F8 Offset: 0x14E79F8 VA: 0x14E79F8 Slot: 13
 	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: 
-public sealed class SupportSelectMenu.DragSwapCallbackFunc : MulticastDelegate // TypeDefIndex: 10802
+public class CancelConfirmItemDraw : MonoBehaviour // TypeDefIndex: 10781
 {
+	// Fields
+	[SerializeField] // RVA: 0xC79058 Offset: 0xC79058 VA: 0xC79058
+	protected UISprite baseSprite; // 0x18
+	[SerializeField] // RVA: 0xC79068 Offset: 0xC79068 VA: 0xC79068
+	protected ServantFaceIconComponent servantFaceIcon; // 0x20
+	[SerializeField] // RVA: 0xC79078 Offset: 0xC79078 VA: 0xC79078
+	protected UISprite maskSprite; // 0x28
+	[SerializeField] // RVA: 0xC79088 Offset: 0xC79088 VA: 0xC79088
+	protected UILabel warningText; // 0x30
+	[SerializeField] // RVA: 0xC79098 Offset: 0xC79098 VA: 0xC79098
+	protected UISprite pushSprite; // 0x38
+
 	// Methods
 
-	// RVA: 0x1FD059C Offset: 0x1FD059C VA: 0x1FD059C
-	public void .ctor(object object, IntPtr method) { }
+	// RVA: 0x14E7A04 Offset: 0x14E7A04 VA: 0x14E7A04
+	public void .ctor() { }
 
-	// RVA: 0x1FCCA5C Offset: 0x1FCCA5C VA: 0x1FCCA5C Slot: 11
-	public virtual void Invoke(SupportSelectRootComponent.SwapKind kind, int classPos1, UserServantLeaderEntity leader1, int classPos2, UserServantLeaderEntity leader2) { }
-
-	// RVA: 0x1FD05AC Offset: 0x1FD05AC VA: 0x1FD05AC Slot: 12
-	public virtual IAsyncResult BeginInvoke(SupportSelectRootComponent.SwapKind kind, int classPos1, UserServantLeaderEntity leader1, int classPos2, UserServantLeaderEntity leader2, AsyncCallback callback, object object) { }
-
-	// RVA: 0x1FD067C Offset: 0x1FD067C VA: 0x1FD067C Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
+	// RVA: 0x14E7A0C Offset: 0x14E7A0C VA: 0x14E7A0C
+	public void SetItem(UserServantEntity userServantEntity, long[] equipIdList) { }
 }
 
 // Namespace: 
-public class SupportSelectObject : BaseMonoBehaviour // TypeDefIndex: 10803
+public class CancelConfirmMenu : BaseDialog // TypeDefIndex: 10782
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCE6448 Offset: 0xCE6448 VA: 0xCE6448
-	[DebuggerBrowsableAttribute] // RVA: 0xCE6448 Offset: 0xCE6448 VA: 0xCE6448
-	private SupportSelectMenu.CallbackFunc callbackFunc; // 0x18
-	protected SupportSelectItemDraw itemDraw; // 0x20
-	protected SupportServantData supportServantData; // 0x28
-	protected int deckNum; // 0x30
-	protected int classPos; // 0x34
-	protected EventCampaignEntity[] eventFriendPoints; // 0x38
+	[SerializeField] // RVA: 0xC790A8 Offset: 0xC790A8 VA: 0xC790A8
+	protected UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xC790B8 Offset: 0xC790B8 VA: 0xC790B8
+	protected UILabel messageLabel; // 0x60
+	[SerializeField] // RVA: 0xC790C8 Offset: 0xC790C8 VA: 0xC790C8
+	private UILabel wideMessageLabel; // 0x68
+	[SerializeField] // RVA: 0xC790D8 Offset: 0xC790D8 VA: 0xC790D8
+	private GameObject currentMemberContainer; // 0x70
+	[SerializeField] // RVA: 0xC790E8 Offset: 0xC790E8 VA: 0xC790E8
+	private GameObject lastMemberConstainer; // 0x78
+	[SerializeField] // RVA: 0xC790F8 Offset: 0xC790F8 VA: 0xC790F8
+	protected UILabel currentSupportMemberTitleLabel; // 0x80
+	[SerializeField] // RVA: 0xC79108 Offset: 0xC79108 VA: 0xC79108
+	protected UILabel oldSupportMemberTitleLabel; // 0x88
+	[SerializeField] // RVA: 0xC79118 Offset: 0xC79118 VA: 0xC79118
+	protected CancelConfirmItemDraw[] currentSupportMemberObjectList; // 0x90
+	[SerializeField] // RVA: 0xC79128 Offset: 0xC79128 VA: 0xC79128
+	protected CancelConfirmItemDraw[] oldSupportMemberObjectList; // 0x98
+	[SerializeField] // RVA: 0xC79138 Offset: 0xC79138 VA: 0xC79138
+	protected UILabel decideLabel; // 0xA0
+	[SerializeField] // RVA: 0xC79148 Offset: 0xC79148 VA: 0xC79148
+	protected UILabel cancelLabel; // 0xA8
+	[SerializeField] // RVA: 0xC79158 Offset: 0xC79158 VA: 0xC79158
+	protected UICommonButton decideButton; // 0xB0
+	[SerializeField] // RVA: 0xC79168 Offset: 0xC79168 VA: 0xC79168
+	protected UICommonButton cancelButton; // 0xB8
+	protected CancelConfirmMenu.State state; // 0xC0
+	[CompilerGeneratedAttribute] // RVA: 0xC79178 Offset: 0xC79178 VA: 0xC79178
+	[DebuggerBrowsableAttribute] // RVA: 0xC79178 Offset: 0xC79178 VA: 0xC79178
+	private CancelConfirmMenu.CallbackFunc callbackFunc; // 0xC8
+	protected Action closeCallbackFunc; // 0xD0
 
 	// Methods
 
-	// RVA: 0x1FD0688 Offset: 0x1FD0688 VA: 0x1FD0688
+	// RVA: 0x14E7DD4 Offset: 0x14E7DD4 VA: 0x14E7DD4
 	public void .ctor() { }
 
-	// RVA: 0x1FD0690 Offset: 0x1FD0690 VA: 0x1FD0690
-	protected void add_callbackFunc(SupportSelectMenu.CallbackFunc value) { }
+	// RVA: 0x14E7E9C Offset: 0x14E7E9C VA: 0x14E7E9C
+	protected void add_callbackFunc(CancelConfirmMenu.CallbackFunc value) { }
 
-	// RVA: 0x1FD077C Offset: 0x1FD077C VA: 0x1FD077C
-	protected void remove_callbackFunc(SupportSelectMenu.CallbackFunc value) { }
+	// RVA: 0x14E7F88 Offset: 0x14E7F88 VA: 0x14E7F88
+	protected void remove_callbackFunc(CancelConfirmMenu.CallbackFunc value) { }
 
-	// RVA: 0x1FD0868 Offset: 0x1FD0868 VA: 0x1FD0868
-	protected void Awake() { }
-
-	// RVA: 0x1FD08C0 Offset: 0x1FD08C0 VA: 0x1FD08C0
-	public SupportServantData GetSupportServantData() { }
-
-	// RVA: 0x1FD08C8 Offset: 0x1FD08C8 VA: 0x1FD08C8
-	public int GetClassPos() { }
-
-	// RVA: 0x1FD08D0 Offset: 0x1FD08D0 VA: 0x1FD08D0
-	public int GetDeckNum() { }
-
-	// RVA: 0x1FD08D8 Offset: 0x1FD08D8 VA: 0x1FD08D8
-	public EventCampaignEntity[] GetEventFriendPoints() { }
-
-	// RVA: 0x1FD08E0 Offset: 0x1FD08E0 VA: 0x1FD08E0
-	public UserServantLeaderEntity GetLeaderInfo() { }
-
-	// RVA: 0x1FCD6E0 Offset: 0x1FCD6E0 VA: 0x1FCD6E0
-	public void ClearItem() { }
-
-	// RVA: 0x1FD0914 Offset: 0x1FD0914 VA: 0x1FD0914
-	public void ModifyItem() { }
-
-	// RVA: 0x1FCD99C Offset: 0x1FCD99C VA: 0x1FCD99C
-	public void SetItem(SupportServantData supportServantData, int deckNum, int classPos, EventCampaignEntity[] friendPointCampaigns, SupportSelectMenu.CallbackFunc callback) { }
-
-	// RVA: 0x1FCDB90 Offset: 0x1FCDB90 VA: 0x1FCDB90
-	public void ChangeEvent(EventCampaignEntity[] changeEventFriendPoints) { }
-
-	// RVA: 0x1FD09DC Offset: 0x1FD09DC VA: 0x1FD09DC
-	public void OnClickItem() { }
-
-	// RVA: 0x1FD0B40 Offset: 0x1FD0B40 VA: 0x1FD0B40
-	public void OnLongPressItem() { }
-
-	// RVA: 0x1FD0D4C Offset: 0x1FD0D4C VA: 0x1FD0D4C
-	public void OnClickItemEquip() { }
-
-	// RVA: 0x1FD0D64 Offset: 0x1FD0D64 VA: 0x1FD0D64
-	public void OnLongPressItemEquip() { }
-
-	// RVA: 0x1FD0E44 Offset: 0x1FD0E44 VA: 0x1FD0E44
-	protected void EndShowEquip(bool isDecide) { }
-
-	// RVA: 0x1FD09F4 Offset: 0x1FD09F4 VA: 0x1FD09F4
-	private void clickSelectItem(SupportSelectMenu.ResultKind result, int deckNum, int classPos) { }
-
-	// RVA: 0x1FD0EC4 Offset: 0x1FD0EC4 VA: 0x1FD0EC4
-	public void AddDepth(int depth) { }
-
-	// RVA: 0x1FCDCF8 Offset: 0x1FCDCF8 VA: 0x1FCDCF8
-	public void SetActiveDragSwapGuide(bool flag) { }
-
-	// RVA: 0x1FD0FC4 Offset: 0x1FD0FC4 VA: 0x1FD0FC4
-	public void HideEquip() { }
-
-	// RVA: 0x1FD0FF8 Offset: 0x1FD0FF8 VA: 0x1FD0FF8
-	public void ShowEquip() { }
-
-	// RVA: 0x1FD102C Offset: 0x1FD102C VA: 0x1FD102C
-	public void ActivateEquipOnly() { }
-}
-
-// Namespace: 
-public class SupportSelectRootComponent : SceneRootComponent // TypeDefIndex: 10804
-{
-	// Fields
-	protected static float EDIT_SCENE_FADE_TIME; // 0x0
-	private const string INITIAL_PAGE_INDEX = "SUPPORT_SETTING_SCENE_INITIAL_PAGE_INDEX";
-	[SerializeField] // RVA: 0xCE6484 Offset: 0xCE6484 VA: 0xCE6484
-	protected UISkinSprite backSkinSprite; // 0x38
-	[SerializeField] // RVA: 0xCE6494 Offset: 0xCE6494 VA: 0xCE6494
-	protected SupportSelectMenu supportSelectMenu; // 0x40
-	[SerializeField] // RVA: 0xCE64A4 Offset: 0xCE64A4 VA: 0xCE64A4
-	protected SupportServantSelectMenu supportServantSelectMenu; // 0x48
-	[SerializeField] // RVA: 0xCE64B4 Offset: 0xCE64B4 VA: 0xCE64B4
-	protected SupportSelectConfirmMenu supportSelectConfirmMenu; // 0x50
-	[SerializeField] // RVA: 0xCE64C4 Offset: 0xCE64C4 VA: 0xCE64C4
-	private SupportSelectConfirmDeckMenu confirmDeckMenu; // 0x58
-	[SerializeField] // RVA: 0xCE64D4 Offset: 0xCE64D4 VA: 0xCE64D4
-	private SupportSelectCopyDeckSelectMenu copyDeckSelectMenu; // 0x60
-	[SerializeField] // RVA: 0xCE64E4 Offset: 0xCE64E4 VA: 0xCE64E4
-	private SupportSelectConfirmCopyMenu copyConfirmMenu; // 0x68
-	[SerializeField] // RVA: 0xCE64F4 Offset: 0xCE64F4 VA: 0xCE64F4
-	protected CancelConfirmMenu cancelConfirmMenu; // 0x70
-	[SerializeField] // RVA: 0xCE6504 Offset: 0xCE6504 VA: 0xCE6504
-	protected TitleInfoControl titleInfo; // 0x78
-	[SerializeField] // RVA: 0xCE6514 Offset: 0xCE6514 VA: 0xCE6514
-	protected SupportDeckNameInputMenu deckNameInputMenu; // 0x80
-	protected string editDeckName; // 0x88
-	[SerializeField] // RVA: 0xCE6524 Offset: 0xCE6524 VA: 0xCE6524
-	protected SupportSelectEditMenu supportEditMenu; // 0x90
-	[SerializeField] // RVA: 0xCE6534 Offset: 0xCE6534 VA: 0xCE6534
-	protected UISprite blackMask; // 0x98
-	[SerializeField] // RVA: 0xCE6544 Offset: 0xCE6544 VA: 0xCE6544
-	protected UIScrollView scrollView; // 0xA0
-	[SerializeField] // RVA: 0xCE6554 Offset: 0xCE6554 VA: 0xCE6554
-	protected FollowerQuestInfomationDraw followerQuestInfomationDraw; // 0xA8
-	[SerializeField] // RVA: 0xCE6564 Offset: 0xCE6564 VA: 0xCE6564
-	protected GameObject applyIconObj; // 0xB0
-	[SerializeField] // RVA: 0xCE6574 Offset: 0xCE6574 VA: 0xCE6574
-	protected UISprite bgTxtSprite; // 0xB8
-	[SerializeField] // RVA: 0xCE6584 Offset: 0xCE6584 VA: 0xCE6584
-	private SupportDeckFixErrorDialog fixErrorDialog; // 0xC0
-	[SerializeField] // RVA: 0xCE6594 Offset: 0xCE6594 VA: 0xCE6594
-	private CancelConfirmDeckIdDialog cancelConfirmDeckIdDialog; // 0xC8
-	protected SupportSelectRootComponent.State state; // 0xD0
-	protected SupportServantData[] supportServantData; // 0xD8
-	protected SupportServantData[] orgSupportServantData; // 0xE0
-	protected SupportServantData[] tmpSupportServantData; // 0xE8
-	protected string[] cacheAssetNameList; // 0xF0
-	private int selectNum; // 0xF8
-	private int classPos; // 0xFC
-	private bool isEdit; // 0x100
-	private bool isDragSwapState; // 0x101
-	private int copyTargetDeckId; // 0x104
-	protected SupportInfoJump supportInfoJump; // 0x108
-	protected SceneJumpInfo sceneJumpInfo; // 0x110
-	private EventUpValSetupInfo eventSetupInfo; // 0x118
-	private int[] tempFixMainQuestSupportDeckIds; // 0x120
-	private int[] tempFixEventQuestSupportDeckIds; // 0x128
-	private const string SVTEQ_SCROLL_SAVE_KEY = "SvtEqScrollBarValue";
-	[CompilerGeneratedAttribute] // RVA: 0xCE65A4 Offset: 0xCE65A4 VA: 0xCE65A4
-	private static Func<int, bool> <>f__am$cache0; // 0x8
-	[CompilerGeneratedAttribute] // RVA: 0xCE65B4 Offset: 0xCE65B4 VA: 0xCE65B4
-	private static Func<int, bool> <>f__am$cache1; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xCE65C4 Offset: 0xCE65C4 VA: 0xCE65C4
-	private static Func<int, bool> <>f__am$cache2; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xCE65D4 Offset: 0xCE65D4 VA: 0xCE65D4
-	private static Action <>f__am$cache3; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xCE65E4 Offset: 0xCE65E4 VA: 0xCE65E4
-	private static Func<int, bool> <>f__am$cache4; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xCE65F4 Offset: 0xCE65F4 VA: 0xCE65F4
-	private static Func<int, bool> <>f__am$cache5; // 0x30
-
-	// Methods
-
-	// RVA: 0x1FD105C Offset: 0x1FD105C VA: 0x1FD105C
-	public void .ctor() { }
-
-	// RVA: 0x1FD1104 Offset: 0x1FD1104 VA: 0x1FD1104 Slot: 4
-	public override void beginInitialize() { }
-
-	// RVA: 0x1FD1270 Offset: 0x1FD1270 VA: 0x1FD1270
-	private void RefreshSupportServantData() { }
-
-	// RVA: 0x1FD195C Offset: 0x1FD195C VA: 0x1FD195C
-	private void InitSupportServantData() { }
-
-	// RVA: 0x1FD19E0 Offset: 0x1FD19E0 VA: 0x1FD19E0
-	private int GetCurrentDeckID() { }
-
-	// RVA: 0x1FD1A3C Offset: 0x1FD1A3C VA: 0x1FD1A3C
-	private bool IsFixedMainQuestSupportDeckIdNow(int checkDeckId) { }
-
-	// RVA: 0x1FD1AAC Offset: 0x1FD1AAC VA: 0x1FD1AAC
-	private bool IsFixedEventQuestSupportDeckIdNow(int checkDeckId) { }
-
-	// RVA: 0x1FD1B1C Offset: 0x1FD1B1C VA: 0x1FD1B1C
-	private void SetCurrentSupportDeckIds(out int currentMainQuestSupportDeckId) { }
-
-	// RVA: 0x1FD1B44 Offset: 0x1FD1B44 VA: 0x1FD1B44
-	private bool IsValidServantData(int index) { }
-
-	// RVA: 0x1FD1BB8 Offset: 0x1FD1BB8 VA: 0x1FD1BB8
-	private void SetFriendInfo(out int deckIndex) { }
-
-	// RVA: 0x1FD281C Offset: 0x1FD281C VA: 0x1FD281C
-	private void SetFriendInfoPrepareBattle() { }
-
-	// RVA: 0x1FD32F0 Offset: 0x1FD32F0 VA: 0x1FD32F0
-	private void StartUp() { }
-
-	// RVA: 0x1FD3FBC Offset: 0x1FD3FBC VA: 0x1FD3FBC Slot: 5
-	public override void beginStartUp(object data) { }
-
-	// RVA: 0x1FD4210 Offset: 0x1FD4210 VA: 0x1FD4210
-	protected void EndLoadCommonBg() { }
-
-	// RVA: 0x1FD431C Offset: 0x1FD431C VA: 0x1FD431C
-	public void modifyCenterItemCallBack() { }
-
-	// RVA: 0x1FD3A9C Offset: 0x1FD3A9C VA: 0x1FD3A9C
-	private void SetActiveApplyIcon() { }
-
-	// RVA: 0x1FD4830 Offset: 0x1FD4830 VA: 0x1FD4830 Slot: 7
-	public override void beginFinish() { }
-
-	// RVA: 0x1FD4A94 Offset: 0x1FD4A94 VA: 0x1FD4A94
+	// RVA: 0x14E8074 Offset: 0x14E8074 VA: 0x14E8074
 	public void Init() { }
 
-	// RVA: 0x1FD4A98 Offset: 0x1FD4A98 VA: 0x1FD4A98
-	public void Quit() { }
+	// RVA: 0x14E81F0 Offset: 0x14E81F0 VA: 0x14E81F0
+	public void Open(CancelConfirmMenu.Kind kind, SupportServantData supportServantData, CancelConfirmMenu.CallbackFunc callback) { }
 
-	// RVA: 0x1FD49CC Offset: 0x1FD49CC VA: 0x1FD49CC
-	protected void SetCacheAssetNameList(string[] list) { }
+	// RVA: 0x14E884C Offset: 0x14E884C VA: 0x14E884C
+	private void SetActiveServantInfo(bool active) { }
 
-	// RVA: 0x1FD3FB8 Offset: 0x1FD3FB8 VA: 0x1FD3FB8
-	public void RefreshInfo() { }
+	// RVA: 0x14E895C Offset: 0x14E895C VA: 0x14E895C
+	protected void EndOpen() { }
 
-	// RVA: 0x1FD19F8 Offset: 0x1FD19F8 VA: 0x1FD19F8
-	private int getCenterNum() { }
+	// RVA: 0x14E8968 Offset: 0x14E8968 VA: 0x14E8968
+	public void Close() { }
 
-	// RVA: 0x1FD3E74 Offset: 0x1FD3E74 VA: 0x1FD3E74
-	private void setEditUI(bool editOn) { }
+	// RVA: 0x14E8970 Offset: 0x14E8970 VA: 0x14E8970
+	public void Close(Action callback) { }
 
-	// RVA: 0x1FD4AA0 Offset: 0x1FD4AA0 VA: 0x1FD4AA0
-	private void ChangeTitle() { }
+	// RVA: 0x14E8A00 Offset: 0x14E8A00 VA: 0x14E8A00
+	protected void EndClose() { }
 
-	// RVA: 0x1FD3B2C Offset: 0x1FD3B2C VA: 0x1FD3B2C
-	private void setInfoUIDisp(bool disp) { }
+	// RVA: 0x14E8A3C Offset: 0x14E8A3C VA: 0x14E8A3C
+	protected void Callback(bool result) { }
 
-	// RVA: 0x1FD4B10 Offset: 0x1FD4B10 VA: 0x1FD4B10
-	private void RequestApi() { }
+	// RVA: 0x14E8C88 Offset: 0x14E8C88 VA: 0x14E8C88
+	public void OnClickDecide() { }
 
-	// RVA: 0x1FD5788 Offset: 0x1FD5788 VA: 0x1FD5788
-	private void CallbackUpdateDeckIdApi(string result) { }
-
-	// RVA: 0x1FD5800 Offset: 0x1FD5800 VA: 0x1FD5800
-	protected void EndSupportSelectMenu(SupportSelectMenu.ResultKind result, int deckNum, int classPos) { }
-
-	// RVA: 0x1FD532C Offset: 0x1FD532C VA: 0x1FD532C
-	private bool IsUpdateDeckId() { }
-
-	// RVA: 0x1FD714C Offset: 0x1FD714C VA: 0x1FD714C
-	public void RequestDeckName() { }
-
-	// RVA: 0x1FD72A0 Offset: 0x1FD72A0 VA: 0x1FD72A0
-	public void OnBackSelect(SupportSelectRootComponent.ResultKind result, int classPos, UserServantEntity entity) { }
-
-	// RVA: 0x1FD792C Offset: 0x1FD792C VA: 0x1FD792C
-	private void ExecutionServantSet(SupportSelectRootComponent.ResultKind result, int classPos, UserServantEntity entity) { }
-
-	// RVA: 0x1FD7EB8 Offset: 0x1FD7EB8 VA: 0x1FD7EB8
-	protected void EndSupportServantEquipListMenu(SupportSelectRootComponent.ResultKind result, int classPos, SupportServantEquipListViewItem item) { }
-
-	// RVA: 0x1FD8614 Offset: 0x1FD8614 VA: 0x1FD8614
-	private void SetEquip(SupportSelectRootComponent.ResultKind result, int classPos, SupportServantEquipListViewItem item) { }
-
-	// RVA: 0x1FD8D98 Offset: 0x1FD8D98 VA: 0x1FD8D98
-	protected void EndSupportServantDragSwap(SupportSelectRootComponent.SwapKind kind, int classPos1, UserServantLeaderEntity leader1, int classPos2, UserServantLeaderEntity leader2) { }
-
-	// RVA: 0x1FD907C Offset: 0x1FD907C VA: 0x1FD907C
-	protected void EndShowServant(bool isDecide) { }
-
-	// RVA: 0x1FD91A4 Offset: 0x1FD91A4 VA: 0x1FD91A4
-	protected void EndShowServantWithQuest(bool isDecide, int questId) { }
-
-	// RVA: 0x1FD926C Offset: 0x1FD926C VA: 0x1FD926C
-	protected void EndCloseShowServantQuestJump() { }
-
-	// RVA: 0x1FD92D8 Offset: 0x1FD92D8 VA: 0x1FD92D8
-	protected void EndShowEquip(bool isDecide) { }
-
-	// RVA: 0x1FD9380 Offset: 0x1FD9380 VA: 0x1FD9380
-	protected void EndCloseServantEquipListDecide() { }
-
-	// RVA: 0x1FD93AC Offset: 0x1FD93AC VA: 0x1FD93AC
-	protected void EndCloseServantEquipListCancel() { }
-
-	// RVA: 0x1FD93D8 Offset: 0x1FD93D8 VA: 0x1FD93D8
-	private void UpdateTempFixDeckId(int idx, int deckId, bool isEvent) { }
-
-	// RVA: 0x1FD9688 Offset: 0x1FD9688 VA: 0x1FD9688
-	private List<string> GetFixedErrorList(int idx, int nowDeckId, int[] fixDeckIds, bool isMain) { }
-
-	// RVA: 0x1FD9CCC Offset: 0x1FD9CCC VA: 0x1FD9CCC
-	private void OnClickFixMainDeckButton(int idx) { }
-
-	// RVA: 0x1FD9FE4 Offset: 0x1FD9FE4 VA: 0x1FD9FE4
-	public void OnClickFixMainQuestSupportDeck() { }
-
-	// RVA: 0x1FD9FEC Offset: 0x1FD9FEC VA: 0x1FD9FEC
-	public void OnClickFixMainQuestSupportDeck2() { }
-
-	// RVA: 0x1FD9FF4 Offset: 0x1FD9FF4 VA: 0x1FD9FF4
-	public void OnClickFixMainQuestSupportDeck3() { }
-
-	// RVA: 0x1FD9FFC Offset: 0x1FD9FFC VA: 0x1FD9FFC
-	private void OnClickFixEventDeckButton(int idx) { }
-
-	// RVA: 0x1FDA2A4 Offset: 0x1FDA2A4 VA: 0x1FDA2A4
-	public void OnClickFixEventQuestSupportDeck() { }
-
-	// RVA: 0x1FDA2AC Offset: 0x1FDA2AC VA: 0x1FDA2AC
-	public void OnClickFixEventQuestSupportDeck2() { }
-
-	// RVA: 0x1FDA2B4 Offset: 0x1FDA2B4 VA: 0x1FDA2B4
-	public void OnClickFixEventQuestSupportDeck3() { }
-
-	// RVA: 0x1FD9F74 Offset: 0x1FD9F74 VA: 0x1FD9F74
-	private void PlaySEOnClickFixQuestSupportDeck(bool isFixed) { }
-
-	// RVA: 0x1FDA2BC Offset: 0x1FDA2BC VA: 0x1FDA2BC
-	public void OnClickBack() { }
-
-	// RVA: 0x1FDA89C Offset: 0x1FDA89C VA: 0x1FDA89C
-	private void EndChangeDeckIdCancelConfirmMenu(bool isDecide) { }
-
-	// RVA: 0x1FDA988 Offset: 0x1FDA988 VA: 0x1FDA988
-	public void EndCancelConfirmMenu(bool isDecide) { }
-
-	// RVA: 0x1FD5160 Offset: 0x1FD5160 VA: 0x1FD5160
-	private void ReturnScene(string result) { }
-
-	// RVA: 0x1FDAA7C Offset: 0x1FDAA7C VA: 0x1FDAA7C
-	private void EndConfirmMenu(bool flag) { }
-
-	// RVA: 0x1FD7060 Offset: 0x1FD7060 VA: 0x1FD7060
-	private void OpenSupportEditMenu() { }
-
-	// RVA: 0x1FDAAC0 Offset: 0x1FDAAC0 VA: 0x1FDAAC0
-	protected void EndSupportEditMenu(SupportSelectEditMenu.ResultKind resultKind) { }
-
-	// RVA: 0x1FDB0B4 Offset: 0x1FDB0B4 VA: 0x1FDB0B4
-	private bool IsPossibleCopy(int idx, int[] fixDeckIds) { }
-
-	// RVA: 0x1FDAB90 Offset: 0x1FDAB90 VA: 0x1FDAB90
-	private void SelectCopySupportDeck() { }
-
-	// RVA: 0x1FDB36C Offset: 0x1FDB36C VA: 0x1FDB36C
-	private void EndSelectCopySupportDeck(int deckId) { }
-
-	// RVA: 0x1FDB49C Offset: 0x1FDB49C VA: 0x1FDB49C
-	private void ConfirmDeckCopy(int targetDeckId) { }
-
-	// RVA: 0x1FDB5C8 Offset: 0x1FDB5C8 VA: 0x1FDB5C8
-	private void EndConfirmDeckCopy(bool isDecide) { }
-
-	// RVA: 0x1FDAE20 Offset: 0x1FDAE20 VA: 0x1FDAE20
-	private void RemoveAll() { }
-
-	// RVA: 0x1FDBB40 Offset: 0x1FDBB40 VA: 0x1FDBB40
-	private void EndRemoveAll(bool isDecide) { }
-
-	// RVA: 0x1FDAEFC Offset: 0x1FDAEFC VA: 0x1FDAEFC
-	private void InitAll() { }
-
-	// RVA: 0x1FDBD90 Offset: 0x1FDBD90 VA: 0x1FDBD90
-	private void EndInitAll(bool isDecide) { }
-
-	// RVA: 0x1FDAFD8 Offset: 0x1FDAFD8 VA: 0x1FDAFD8
-	private void RemoveAllEquip() { }
-
-	// RVA: 0x1FDC054 Offset: 0x1FDC054 VA: 0x1FDC054
-	private void EndRemoveAllEquip(bool isDecide) { }
-
-	// RVA: 0x1FD6F48 Offset: 0x1FD6F48 VA: 0x1FD6F48
-	private void ChangeDeckName() { }
-
-	// RVA: 0x1FDC2D8 Offset: 0x1FDC2D8 VA: 0x1FDC2D8
-	private void EndChangeDeckName(bool isDecide, string changeName) { }
-
-	// RVA: 0x1FD6B68 Offset: 0x1FD6B68 VA: 0x1FD6B68
-	private bool isUpdate(bool servant = True, bool equip = True) { }
-
-	// RVA: 0x1FD3B9C Offset: 0x1FD3B9C VA: 0x1FD3B9C
-	private void initSupportServantDatas() { }
-
-	// RVA: 0x1FD6E98 Offset: 0x1FD6E98 VA: 0x1FD6E98
-	private void SaveTemp(int targetIdx = -1) { }
-
-	// RVA: 0x1FD3D2C Offset: 0x1FD3D2C VA: 0x1FD3D2C
-	private void CopySupportData(SupportServantData[] orgData, SupportServantData[] toData, bool isInit = False) { }
-
-	// RVA: 0x1FD4D3C Offset: 0x1FD4D3C VA: 0x1FD4D3C
-	private bool IsFinallyUpdate() { }
-
-	// RVA: 0x1FDCA40 Offset: 0x1FDCA40 VA: 0x1FDCA40
-	private static void .cctor() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3F2E4 Offset: 0xD3F2E4 VA: 0xD3F2E4
-	// RVA: 0x1FDCA94 Offset: 0x1FDCA94 VA: 0x1FDCA94
-	private static bool <SetFriendInfoPrepareBattle>m__0(int x) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3F2F4 Offset: 0xD3F2F4 VA: 0xD3F2F4
-	// RVA: 0x1FDCAA0 Offset: 0x1FDCAA0 VA: 0x1FDCAA0
-	private void <beginStartUp>m__1() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3F304 Offset: 0xD3F304 VA: 0xD3F304
-	[DebuggerHiddenAttribute] // RVA: 0xD3F304 Offset: 0xD3F304 VA: 0xD3F304
-	// RVA: 0x1FDCAA4 Offset: 0x1FDCAA4 VA: 0x1FDCAA4
-	private void <beginStartUp>__BaseCallProxy0() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3F33C Offset: 0xD3F33C VA: 0xD3F33C
-	// RVA: 0x1FDCAAC Offset: 0x1FDCAAC VA: 0x1FDCAAC
-	private void <EndLoadCommonBg>m__2() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3F34C Offset: 0xD3F34C VA: 0xD3F34C
-	// RVA: 0x1FDCB08 Offset: 0x1FDCB08 VA: 0x1FDCB08
-	private static bool <EndSupportSelectMenu>m__3(int x) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3F35C Offset: 0xD3F35C VA: 0xD3F35C
-	// RVA: 0x1FDCB14 Offset: 0x1FDCB14 VA: 0x1FDCB14
-	private static bool <EndSupportSelectMenu>m__4(int x) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3F36C Offset: 0xD3F36C VA: 0xD3F36C
-	// RVA: 0x1FDCB20 Offset: 0x1FDCB20 VA: 0x1FDCB20
-	private static void <EndSupportSelectMenu>m__5() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3F37C Offset: 0xD3F37C VA: 0xD3F37C
-	// RVA: 0x1FDCBB8 Offset: 0x1FDCBB8 VA: 0x1FDCBB8
-	private static bool <IsUpdateDeckId>m__6(int x) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3F38C Offset: 0xD3F38C VA: 0xD3F38C
-	// RVA: 0x1FDCBC4 Offset: 0x1FDCBC4 VA: 0x1FDCBC4
-	private static bool <IsUpdateDeckId>m__7(int x) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xD3F39C Offset: 0xD3F39C VA: 0xD3F39C
-	// RVA: 0x1FDCBD0 Offset: 0x1FDCBD0 VA: 0x1FDCBD0
-	private void <EndChangeDeckName>m__8() { }
+	// RVA: 0x14E8CBC Offset: 0x14E8CBC VA: 0x14E8CBC
+	public void OnClickCancel() { }
 }
 
 // Namespace: 
-protected enum SupportSelectRootComponent.State // TypeDefIndex: 10805
+public enum CancelConfirmMenu.Kind // TypeDefIndex: 10783
 {
 	// Fields
 	public int value__; // 0x0
-	public const SupportSelectRootComponent.State INIT = 0;
-	public const SupportSelectRootComponent.State SELECT = 1;
-	public const SupportSelectRootComponent.State INPUT_SERVANT_SELECT = 2;
-	public const SupportSelectRootComponent.State INPUT_EQUIP_SELECT = 3;
-	public const SupportSelectRootComponent.State INFO = 4;
-	public const SupportSelectRootComponent.State QUIT_SCENE = 5;
+	public const CancelConfirmMenu.Kind CANCEL = 0;
+	public const CancelConfirmMenu.Kind EMPTY_DECK_MEMBER = 1;
+	public const CancelConfirmMenu.Kind SHORTAGE_DECK_MEMBER = 2;
+	public const CancelConfirmMenu.Kind SAME_SAERVANT = 3;
+	public const CancelConfirmMenu.Kind REMOVE = 4;
+	public const CancelConfirmMenu.Kind REMOVE_MAIN_DECK = 5;
+	public const CancelConfirmMenu.Kind REMOVE_MAIN_DECK_LEADER = 6;
+	public const CancelConfirmMenu.Kind START_SHORTAGE_DECK_MEMBER = 7;
+	public const CancelConfirmMenu.Kind START_COST_OVER = 8;
+	public const CancelConfirmMenu.Kind DECKID_CHANGE = 9;
 }
 
 // Namespace: 
-public enum SupportSelectRootComponent.ResultKind // TypeDefIndex: 10806
+protected enum CancelConfirmMenu.State // TypeDefIndex: 10784
 {
 	// Fields
 	public int value__; // 0x0
-	public const SupportSelectRootComponent.ResultKind CANCEL = 0;
-	public const SupportSelectRootComponent.ResultKind DECIDE = 1;
-	public const SupportSelectRootComponent.ResultKind REMOVE = 2;
+	public const CancelConfirmMenu.State INIT = 0;
+	public const CancelConfirmMenu.State OPEN = 1;
+	public const CancelConfirmMenu.State INPUT = 2;
+	public const CancelConfirmMenu.State SELECTED = 3;
+	public const CancelConfirmMenu.State CLOSE = 4;
 }
 
 // Namespace: 
-public enum SupportSelectRootComponent.SwapKind // TypeDefIndex: 10807
+public sealed class CancelConfirmMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10785
 {
-	// Fields
-	public int value__; // 0x0
-	public const SupportSelectRootComponent.SwapKind SERVANT = 0;
-	public const SupportSelectRootComponent.SwapKind EQUIPMENT = 1;
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCB1700 Offset: 0xCB1700 VA: 0xCB1700
-private sealed class SupportSelectRootComponent.<OnBackSelect>c__AnonStorey0 // TypeDefIndex: 10808
-{
-	// Fields
-	internal SupportSelectRootComponent.ResultKind result; // 0x10
-	internal int classPos; // 0x14
-	internal UserServantEntity entity; // 0x18
-	internal SupportSelectRootComponent $this; // 0x20
-
 	// Methods
 
-	// RVA: 0x1FD7924 Offset: 0x1FD7924 VA: 0x1FD7924
-	public void .ctor() { }
+	// RVA: 0x14E8CF0 Offset: 0x14E8CF0 VA: 0x14E8CF0
+	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x1FDCE94 Offset: 0x1FDCE94 VA: 0x1FDCE94
-	internal void <>m__0(bool isDecide) { }
+	// RVA: 0x14E8A5C Offset: 0x14E8A5C VA: 0x14E8A5C Slot: 11
+	public virtual void Invoke(bool result) { }
+
+	// RVA: 0x14E8D00 Offset: 0x14E8D00 VA: 0x14E8D00 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
+
+	// RVA: 0x14E8D90 Offset: 0x14E8D90 VA: 0x14E8D90 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCB1710 Offset: 0xCB1710 VA: 0xCB1710
-private sealed class SupportSelectRootComponent.<EndSupportServantEquipListMenu>c__AnonStorey1 // TypeDefIndex: 10809
+public class SupportDeckFixErrorDialog : BaseDialog // TypeDefIndex: 10786
 {
 	// Fields
-	internal SupportSelectRootComponent.ResultKind result; // 0x10
-	internal int classPos; // 0x14
-	internal SupportServantEquipListViewItem item; // 0x18
-	internal SupportSelectRootComponent $this; // 0x20
-
-	// Methods
-
-	// RVA: 0x1FD8604 Offset: 0x1FD8604 VA: 0x1FD8604
-	public void .ctor() { }
-
-	// RVA: 0x1FDCBD4 Offset: 0x1FDCBD4 VA: 0x1FDCBD4
-	internal void <>m__0(bool isDecide) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCB1720 Offset: 0xCB1720 VA: 0xCB1720
-private sealed class SupportSelectRootComponent.<GetFixedErrorList>c__AnonStorey2 // TypeDefIndex: 10810
-{
-	// Fields
-	internal UserServantLeaderEntity svtInfo; // 0x10
-
-	// Methods
-
-	// RVA: 0x1FD9CBC Offset: 0x1FD9CBC VA: 0x1FD9CBC
-	public void .ctor() { }
-
-	// RVA: 0x1FDCDFC Offset: 0x1FDCDFC VA: 0x1FDCDFC
-	internal bool <>m__0(UserServantLeaderEntity x) { }
-}
-
-// Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCB1730 Offset: 0xCB1730 VA: 0xCB1730
-private sealed class SupportSelectRootComponent.<IsPossibleCopy>c__AnonStorey3 // TypeDefIndex: 10811
-{
-	// Fields
-	internal UserServantLeaderEntity svtInfo; // 0x10
-
-	// Methods
-
-	// RVA: 0x1FDB364 Offset: 0x1FDB364 VA: 0x1FDB364
-	public void .ctor() { }
-
-	// RVA: 0x1FDCE48 Offset: 0x1FDCE48 VA: 0x1FDCE48
-	internal bool <>m__0(UserServantLeaderEntity x) { }
-}
-
-// Namespace: 
-public class SupportSelectUIDragDropListViewSurface : UIDragDropListViewSurface // TypeDefIndex: 10812
-{
-	// Fields
-	[SerializeField] // RVA: 0xCE6604 Offset: 0xCE6604 VA: 0xCE6604
-	private SupportSelectListViewDropObject dropObject; // 0x18
+	[SerializeField] // RVA: 0xC791B4 Offset: 0xC791B4 VA: 0xC791B4
+	private UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xC791C4 Offset: 0xC791C4 VA: 0xC791C4
+	private UILabel messageLabel; // 0x60
+	[SerializeField] // RVA: 0xC791D4 Offset: 0xC791D4 VA: 0xC791D4
+	private UILabel closeButtonLabel; // 0x68
+	[SerializeField] // RVA: 0xC791E4 Offset: 0xC791E4 VA: 0xC791E4
+	private SupportDeckFixErrorListViewManager errorListViewManager; // 0x70
+	private SupportDeckFixErrorDialog.State state; // 0x78
 
 	// Properties
-	public SupportSelectListViewDropObject DropObject { get; set; }
+	protected override string closeBtnPath { get; }
 
 	// Methods
 
-	// RVA: 0x1FDD0C4 Offset: 0x1FDD0C4 VA: 0x1FDD0C4
+	// RVA: 0x17FF290 Offset: 0x17FF290 VA: 0x17FF290
 	public void .ctor() { }
 
-	// RVA: 0x1FCCA40 Offset: 0x1FCCA40 VA: 0x1FCCA40
-	public void set_DropObject(SupportSelectListViewDropObject value) { }
+	// RVA: 0x17FF2F8 Offset: 0x17FF2F8 VA: 0x17FF2F8
+	public void Init() { }
 
-	// RVA: 0x1FDD0CC Offset: 0x1FDD0CC VA: 0x1FDD0CC
-	public SupportSelectListViewDropObject get_DropObject() { }
+	// RVA: 0x17FF3F0 Offset: 0x17FF3F0 VA: 0x17FF3F0
+	public void Open(string[] messageList) { }
+
+	// RVA: 0x17FF880 Offset: 0x17FF880 VA: 0x17FF880
+	private void OnFinishedOpen() { }
+
+	// RVA: 0x17FF8B8 Offset: 0x17FF8B8 VA: 0x17FF8B8
+	public void Close() { }
+
+	// RVA: 0x17FF938 Offset: 0x17FF938 VA: 0x17FF938
+	private void OnFinishedClose() { }
+
+	// RVA: 0x17FF968 Offset: 0x17FF968 VA: 0x17FF968
+	public void OnClickClose() { }
+
+	// RVA: 0x17FF9F0 Offset: 0x17FF9F0 VA: 0x17FF9F0 Slot: 6
+	protected override string get_closeBtnPath() { }
 }
 
 // Namespace: 
-public class SupportServantData // TypeDefIndex: 10813
+private enum SupportDeckFixErrorDialog.State // TypeDefIndex: 10787
 {
 	// Fields
-	protected UserServantLeaderEntity[] userServantLeaderEntityList; // 0x10
-	protected long[] servantIdList; // 0x18
-	protected long[] oldServantIdList; // 0x20
-	protected long[] equipIdList; // 0x28
-	protected long[] oldEquipIdList; // 0x30
-	private string[] className; // 0x38
-	protected bool isFriendInfo; // 0x40
-	protected ServantStatusDialog.Kind kind; // 0x44
-	protected bool isSelectServant; // 0x48
-	protected EventUpValSetupInfo eventSetupInfo; // 0x50
-	protected EventUpValSetupInfo eventSetupInfo2; // 0x58
-	protected QuestRestrictionInfo questRestrictionInfo; // 0x60
-	private long pushUserServantId; // 0x68
-	[CompilerGeneratedAttribute] // RVA: 0xCE6614 Offset: 0xCE6614 VA: 0xCE6614
-	[DebuggerBrowsableAttribute] // RVA: 0xCE6614 Offset: 0xCE6614 VA: 0xCE6614
-	private int <deckId>k__BackingField; // 0x70
-	[CompilerGeneratedAttribute] // RVA: 0xCE6650 Offset: 0xCE6650 VA: 0xCE6650
-	[DebuggerBrowsableAttribute] // RVA: 0xCE6650 Offset: 0xCE6650 VA: 0xCE6650
-	private string <deckName>k__BackingField; // 0x78
-	[CompilerGeneratedAttribute] // RVA: 0xCE668C Offset: 0xCE668C VA: 0xCE668C
-	[DebuggerBrowsableAttribute] // RVA: 0xCE668C Offset: 0xCE668C VA: 0xCE668C
-	private string <oldDeckName>k__BackingField; // 0x80
+	public int value__; // 0x0
+	public const SupportDeckFixErrorDialog.State INIT = 0;
+	public const SupportDeckFixErrorDialog.State OPEN = 1;
+	public const SupportDeckFixErrorDialog.State INPUT = 2;
+	public const SupportDeckFixErrorDialog.State CLOSE = 3;
+}
 
-	// Properties
-	public int deckId { get; set; }
-	public string deckName { get; set; }
-	public string oldDeckName { get; set; }
-	public bool IsNoServant { get; }
-	public bool IsFriendInfo { get; }
-	public ServantStatusDialog.Kind Kind { get; }
-	public bool IsSelectServant { get; }
-	public EventUpValSetupInfo EventSetupInfo { get; set; }
-	public EventUpValSetupInfo EventSetupInfo2 { get; }
-	public QuestRestrictionInfo QuestRestriction { get; }
-	public long PushUserServantId { get; set; }
+// Namespace: 
+public class SupportDeckFixErrorListViewItem : ListViewItem // TypeDefIndex: 10788
+{
+	// Fields
+	private string message; // 0x70
 
 	// Methods
 
-	// RVA: 0x1FD1550 Offset: 0x1FD1550 VA: 0x1FD1550
+	// RVA: 0x17FFA38 Offset: 0x17FFA38 VA: 0x17FFA38
+	public void .ctor(string message, int index) { }
+
+	// RVA: 0x17FFA68 Offset: 0x17FFA68 VA: 0x17FFA68
+	public string GetMessage() { }
+}
+
+// Namespace: 
+public class SupportDeckFixErrorListViewItemDraw : MonoBehaviour // TypeDefIndex: 10789
+{
+	// Fields
+	[SerializeField] // RVA: 0xC791F4 Offset: 0xC791F4 VA: 0xC791F4
+	private UISprite baseSprite; // 0x18
+	[SerializeField] // RVA: 0xC79204 Offset: 0xC79204 VA: 0xC79204
+	private UILabel messageLabel; // 0x20
+
+	// Methods
+
+	// RVA: 0x17FFA70 Offset: 0x17FFA70 VA: 0x17FFA70
 	public void .ctor() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3F3AC Offset: 0xD3F3AC VA: 0xD3F3AC
-	// RVA: 0x1FDD0D4 Offset: 0x1FDD0D4 VA: 0x1FDD0D4
-	public int get_deckId() { }
+	// RVA: 0x17FFA78 Offset: 0x17FFA78 VA: 0x17FFA78
+	public void SetMessage(string message) { }
+}
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3F3BC Offset: 0xD3F3BC VA: 0xD3F3BC
-	// RVA: 0x1FDD0DC Offset: 0x1FDD0DC VA: 0x1FDD0DC
-	public void set_deckId(int value) { }
+// Namespace: 
+public class SupportDeckFixErrorListViewManager : ListViewManager // TypeDefIndex: 10790
+{
+	// Fields
+	private SupportDeckFixErrorListViewManager.InitMode currentMode; // 0x138
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3F3CC Offset: 0xD3F3CC VA: 0xD3F3CC
-	// RVA: 0x1FCA9EC Offset: 0x1FCA9EC VA: 0x1FCA9EC
-	public string get_deckName() { }
+	// Methods
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3F3DC Offset: 0xD3F3DC VA: 0xD3F3DC
-	// RVA: 0x1FD7298 Offset: 0x1FD7298 VA: 0x1FD7298
-	public void set_deckName(string value) { }
+	// RVA: 0x17FFAB0 Offset: 0x17FFAB0 VA: 0x17FFAB0
+	public void .ctor() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3F3EC Offset: 0xD3F3EC VA: 0xD3F3EC
-	// RVA: 0x1FDD0E4 Offset: 0x1FDD0E4 VA: 0x1FDD0E4
-	public string get_oldDeckName() { }
+	// RVA: 0x17FF5C0 Offset: 0x17FF5C0 VA: 0x17FF5C0
+	public void CreateList(string[] messageList) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD3F3FC Offset: 0xD3F3FC VA: 0xD3F3FC
-	// RVA: 0x1FDD0EC Offset: 0x1FDD0EC VA: 0x1FDD0EC
-	private void set_oldDeckName(string value) { }
+	// RVA: 0x17FF6EC Offset: 0x17FF6EC VA: 0x17FF6EC
+	public void SetMode(SupportDeckFixErrorListViewManager.InitMode mode) { }
 
-	// RVA: 0x1FDC4D8 Offset: 0x1FDC4D8 VA: 0x1FDC4D8
-	public void Init(int deckId, EventUpValSetupInfo eventUpSetupInfo) { }
+	// RVA: 0x17FFAB8 Offset: 0x17FFAB8 VA: 0x17FFAB8
+	private List<SupportDeckFixErrorListViewObject> GetObjectList() { }
 
-	// RVA: 0x1FDC204 Offset: 0x1FDC204 VA: 0x1FDC204
-	public string getDefaultDeckName() { }
+	// RVA: 0x17FFC98 Offset: 0x17FFC98 VA: 0x17FFC98 Slot: 4
+	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
+}
 
-	// RVA: 0x1FDC030 Offset: 0x1FDC030 VA: 0x1FDC030
-	public void ResetDeckName() { }
+// Namespace: 
+public enum SupportDeckFixErrorListViewManager.InitMode // TypeDefIndex: 10791
+{
+	// Fields
+	public int value__; // 0x0
+	public const SupportDeckFixErrorListViewManager.InitMode NONE = 0;
+	public const SupportDeckFixErrorListViewManager.InitMode VALID = 1;
+	public const SupportDeckFixErrorListViewManager.InitMode INPUT = 2;
+}
 
-	// RVA: 0x1FD23A8 Offset: 0x1FD23A8 VA: 0x1FD23A8
-	public void Init(OtherUserGameEntity otherData, FriendStatus.Kind friendKind, bool isSelectServant, EventUpValSetupInfo _eventSetupInfo, OtherUserGameEntity.ReturnSupportServantType displayType, int deckId) { }
+// Namespace: 
+public class SupportDeckFixErrorListViewObject : ListViewObject // TypeDefIndex: 10792
+{
+	// Fields
+	private SupportDeckFixErrorListViewItemDraw itemDraw; // 0x70
 
-	// RVA: 0x1FD2DE8 Offset: 0x1FD2DE8 VA: 0x1FD2DE8
-	public void Init(FollowerInfo followerInfo, FriendStatus.Kind friendKind, bool isSelectServant, EventUpValSetupInfo _eventSetupInfo, QuestRestrictionInfo questRestrictionInfo, int deckId) { }
+	// Methods
 
-	// RVA: 0x1FCDCA4 Offset: 0x1FCDCA4 VA: 0x1FCDCA4
-	public UserServantLeaderEntity getUserServantLeaderEntity(int classPos) { }
+	// RVA: 0x17FFEA0 Offset: 0x17FFEA0 VA: 0x17FFEA0
+	public void .ctor() { }
 
-	// RVA: 0x1FD7B9C Offset: 0x1FD7B9C VA: 0x1FD7B9C
-	public void setServantData(int classPos, UserServantEntity entity) { }
+	// RVA: 0x17FFF08 Offset: 0x17FFF08 VA: 0x17FFF08
+	protected void Awake() { }
 
-	// RVA: 0x1FD7DC8 Offset: 0x1FD7DC8 VA: 0x1FD7DC8
-	public void removeServantData(int classPos) { }
+	// RVA: 0x17FFDA8 Offset: 0x17FFDA8 VA: 0x17FFDA8
+	public void Init() { }
 
-	// RVA: 0x1FD8B34 Offset: 0x1FD8B34 VA: 0x1FD8B34
-	public void setEquipData(int classPos, long userSvtId, int svtId = -1) { }
+	// RVA: 0x17FFC84 Offset: 0x17FFC84 VA: 0x17FFC84
+	public void SetMode(SupportDeckFixErrorListViewManager.InitMode mode) { }
+}
 
-	// RVA: 0x1FD8944 Offset: 0x1FD8944 VA: 0x1FD8944
-	public void removeEquipData(int classPos) { }
+// Namespace: 
+public class SupportDeckNameInputMenu : BaseDialog // TypeDefIndex: 10793
+{
+	// Fields
+	[SerializeField] // RVA: 0xC79214 Offset: 0xC79214 VA: 0xC79214
+	protected UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xC79224 Offset: 0xC79224 VA: 0xC79224
+	protected UILabel explanationLabel; // 0x60
+	[SerializeField] // RVA: 0xC79234 Offset: 0xC79234 VA: 0xC79234
+	protected UILineInput nameInput; // 0x68
+	[SerializeField] // RVA: 0xC79244 Offset: 0xC79244 VA: 0xC79244
+	protected UILabel nameText; // 0x70
+	[SerializeField] // RVA: 0xC79254 Offset: 0xC79254 VA: 0xC79254
+	protected UIInput inputTarget; // 0x78
+	[SerializeField] // RVA: 0xC79264 Offset: 0xC79264 VA: 0xC79264
+	protected UICommonButton decideButton; // 0x80
+	[SerializeField] // RVA: 0xC79274 Offset: 0xC79274 VA: 0xC79274
+	protected UILabel decideLabel; // 0x88
+	[SerializeField] // RVA: 0xC79284 Offset: 0xC79284 VA: 0xC79284
+	protected UILabel cancelLabel; // 0x90
+	[SerializeField] // RVA: 0xC79294 Offset: 0xC79294 VA: 0xC79294
+	protected UILabel clearLabel; // 0x98
+	[SerializeField] // RVA: 0xC792A4 Offset: 0xC792A4 VA: 0xC792A4
+	protected UILabel initLabel; // 0xA0
+	[CompilerGeneratedAttribute] // RVA: 0xC792B4 Offset: 0xC792B4 VA: 0xC792B4
+	[DebuggerBrowsableAttribute] // RVA: 0xC792B4 Offset: 0xC792B4 VA: 0xC792B4
+	private SupportDeckNameInputMenu.CallbackFunc callbackFunc; // 0xA8
+	protected Action closeCallbackFunc; // 0xB0
+	protected string baseName; // 0xB8
+	protected string changeName; // 0xC0
+	protected string initName; // 0xC8
+	protected SupportDeckNameInputMenu.State state; // 0xD0
+	[CompilerGeneratedAttribute] // RVA: 0xC792F0 Offset: 0xC792F0 VA: 0xC792F0
+	private static UIInput.OnValidate <>f__mg$cache0; // 0x0
 
-	// RVA: 0x1FDD0F4 Offset: 0x1FDD0F4 VA: 0x1FDD0F4
-	public long getMember(int classPos) { }
+	// Properties
+	protected override string closeBtnPath { get; }
 
-	// RVA: 0x1FD9CC4 Offset: 0x1FD9CC4 VA: 0x1FD9CC4
-	public UserServantLeaderEntity[] GetUserServantLeaderList() { }
+	// Methods
 
-	// RVA: 0x1FD0CF8 Offset: 0x1FD0CF8 VA: 0x1FD0CF8
-	public long getServant(int classPos) { }
+	// RVA: 0x17FFF7C Offset: 0x17FFF7C VA: 0x17FFF7C
+	public void .ctor() { }
 
-	// RVA: 0x1FDC3C0 Offset: 0x1FDC3C0 VA: 0x1FDC3C0
-	public long getOldServant(int classPos) { }
+	// RVA: 0x17FFFE4 Offset: 0x17FFFE4 VA: 0x17FFFE4
+	protected void add_callbackFunc(SupportDeckNameInputMenu.CallbackFunc value) { }
 
-	// RVA: 0x1FDD1A4 Offset: 0x1FDD1A4 VA: 0x1FDD1A4
-	public int getServantSum() { }
+	// RVA: 0x18000D0 Offset: 0x18000D0 VA: 0x18000D0
+	protected void remove_callbackFunc(SupportDeckNameInputMenu.CallbackFunc value) { }
 
-	// RVA: 0x1FD893C Offset: 0x1FD893C VA: 0x1FD893C
-	public long[] GetEquipList() { }
+	// RVA: 0x18001BC Offset: 0x18001BC VA: 0x18001BC
+	public void Init() { }
 
-	// RVA: 0x1FD0DF0 Offset: 0x1FD0DF0 VA: 0x1FD0DF0
-	public long getEquip(int classPos) { }
+	// RVA: 0x1800270 Offset: 0x1800270 VA: 0x1800270
+	public void Open(string deckName, string initName, SupportDeckNameInputMenu.CallbackFunc callback) { }
 
-	// RVA: 0x1FDC414 Offset: 0x1FDC414 VA: 0x1FDC414
-	public long getOldEquip(int classPos) { }
+	// RVA: 0x18005C0 Offset: 0x18005C0 VA: 0x18005C0
+	public void OnChangeInput() { }
 
-	// RVA: 0x1FDD27C Offset: 0x1FDD27C VA: 0x1FDD27C
-	public int getEquipSum() { }
+	// RVA: 0x1800630 Offset: 0x1800630 VA: 0x1800630
+	private void changeInput(string initName) { }
 
-	// RVA: 0x1FDD354 Offset: 0x1FDD354 VA: 0x1FDD354
-	public bool isUseServant(long userSvtId) { }
+	// RVA: 0x1800898 Offset: 0x1800898 VA: 0x1800898
+	protected void EndOpen() { }
 
-	// RVA: 0x1FDD430 Offset: 0x1FDD430 VA: 0x1FDD430
-	public string updateCheck(int classPos) { }
+	// RVA: 0x1800934 Offset: 0x1800934 VA: 0x1800934
+	public void Close() { }
 
-	// RVA: 0x1FDD958 Offset: 0x1FDD958 VA: 0x1FDD958
-	public string updateNameCheck() { }
+	// RVA: 0x180093C Offset: 0x180093C VA: 0x180093C
+	public void Close(Action callback) { }
 
-	// RVA: 0x1FD6DC0 Offset: 0x1FD6DC0 VA: 0x1FD6DC0
-	public bool get_IsNoServant() { }
+	// RVA: 0x1800A0C Offset: 0x1800A0C VA: 0x1800A0C
+	protected void EndClose() { }
 
-	// RVA: 0x1FDDBD8 Offset: 0x1FDDBD8 VA: 0x1FDDBD8
-	public string getClassName(int classPos) { }
+	// RVA: 0x1800A70 Offset: 0x1800A70 VA: 0x1800A70
+	protected void Callback(bool result, string name) { }
 
-	// RVA: 0x1FCBBB4 Offset: 0x1FCBBB4 VA: 0x1FCBBB4
-	public bool get_IsFriendInfo() { }
+	// RVA: 0x1800CD4 Offset: 0x1800CD4 VA: 0x1800CD4
+	protected void setCallbackFunc(SupportDeckNameInputMenu.CallbackFunc callback) { }
+
+	// RVA: 0x1800CDC Offset: 0x1800CDC VA: 0x1800CDC
+	public void OnClickDecide() { }
+
+	// RVA: 0x1800DB0 Offset: 0x1800DB0 VA: 0x1800DB0
+	public void OnClickCancel() { }
+
+	// RVA: 0x1800E74 Offset: 0x1800E74 VA: 0x1800E74
+	public void OnClickClear() { }
+
+	// RVA: 0x1800F54 Offset: 0x1800F54 VA: 0x1800F54
+	public void OnClickInit() { }
+
+	// RVA: 0x1801010 Offset: 0x1801010 VA: 0x1801010 Slot: 6
+	protected override string get_closeBtnPath() { }
+}
+
+// Namespace: 
+public sealed class SupportDeckNameInputMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10794
+{
+	// Methods
+
+	// RVA: 0x1801058 Offset: 0x1801058 VA: 0x1801058
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1800A90 Offset: 0x1800A90 VA: 0x1800A90 Slot: 11
+	public virtual void Invoke(bool result, string changeName) { }
+
+	// RVA: 0x1801068 Offset: 0x1801068 VA: 0x1801068 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, string changeName, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1801104 Offset: 0x1801104 VA: 0x1801104 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+protected enum SupportDeckNameInputMenu.State // TypeDefIndex: 10795
+{
+	// Fields
+	public int value__; // 0x0
+	public const SupportDeckNameInputMenu.State INIT = 0;
+	public const SupportDeckNameInputMenu.State OPEN = 1;
+	public const SupportDeckNameInputMenu.State INPUT = 2;
+	public const SupportDeckNameInputMenu.State CLOSE = 3;
+}
+
+// Namespace: 
+public static class SupportSelectCommonFunction // TypeDefIndex: 10796
+{
+	// Methods
+
+	// RVA: 0x180138C Offset: 0x180138C VA: 0x180138C
+	public static long GetEventFriendCampaignStartedAt() { }
+}
+
+// Namespace: 
+public class SupportSelectConfirmCopyMenu : BaseDialog // TypeDefIndex: 10797
+{
+	// Fields
+	[SerializeField] // RVA: 0xC79300 Offset: 0xC79300 VA: 0xC79300
+	protected UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xC79310 Offset: 0xC79310 VA: 0xC79310
+	protected UILabel messageLabel; // 0x60
+	[SerializeField] // RVA: 0xC79320 Offset: 0xC79320 VA: 0xC79320
+	protected UILabel baseDeckTitleLabel; // 0x68
+	[SerializeField] // RVA: 0xC79330 Offset: 0xC79330 VA: 0xC79330
+	protected UILabel targetDeckTitleLabel; // 0x70
+	[SerializeField] // RVA: 0xC79340 Offset: 0xC79340 VA: 0xC79340
+	protected UILabel decideButtonLabel; // 0x78
+	[SerializeField] // RVA: 0xC79350 Offset: 0xC79350 VA: 0xC79350
+	protected UILabel cancelButtonLabel; // 0x80
+	[SerializeField] // RVA: 0xC79360 Offset: 0xC79360 VA: 0xC79360
+	private SupportSelectDeckListViewItemDraw baseDeckObj; // 0x88
+	[SerializeField] // RVA: 0xC79370 Offset: 0xC79370 VA: 0xC79370
+	private SupportSelectDeckListViewItemDraw targetDeckObj; // 0x90
+	private SupportSelectConfirmCopyMenu.State currentState; // 0x98
+	[CompilerGeneratedAttribute] // RVA: 0xC79380 Offset: 0xC79380 VA: 0xC79380
+	[DebuggerBrowsableAttribute] // RVA: 0xC79380 Offset: 0xC79380 VA: 0xC79380
+	private SupportSelectConfirmCopyMenu.OnClickButtonEvent onClickButton; // 0xA0
+
+	// Properties
+	protected override string closeBtnPath { get; }
+
+	// Methods
+
+	// RVA: 0x1801594 Offset: 0x1801594 VA: 0x1801594
+	public void .ctor() { }
+
+	// RVA: 0x1801604 Offset: 0x1801604 VA: 0x1801604
+	private void add_onClickButton(SupportSelectConfirmCopyMenu.OnClickButtonEvent value) { }
+
+	// RVA: 0x18016F0 Offset: 0x18016F0 VA: 0x18016F0
+	private void remove_onClickButton(SupportSelectConfirmCopyMenu.OnClickButtonEvent value) { }
+
+	// RVA: 0x18017DC Offset: 0x18017DC VA: 0x18017DC
+	public void Open(SupportServantData baseDeckData, SupportServantData targetDeckData, SupportSelectConfirmCopyMenu.OnClickButtonEvent onClickButton) { }
+
+	// RVA: 0x18022B0 Offset: 0x18022B0 VA: 0x18022B0
+	private void OnFinishedOpen() { }
+
+	// RVA: 0x18022BC Offset: 0x18022BC VA: 0x18022BC
+	public void Close() { }
+
+	// RVA: 0x180233C Offset: 0x180233C VA: 0x180233C
+	private void OnFinishedClose() { }
+
+	// RVA: 0x1802344 Offset: 0x1802344 VA: 0x1802344
+	public void OnClickDecide() { }
+
+	// RVA: 0x1802604 Offset: 0x1802604 VA: 0x1802604
+	public void OnClickCancel() { }
+
+	// RVA: 0x1802698 Offset: 0x1802698 VA: 0x1802698 Slot: 6
+	protected override string get_closeBtnPath() { }
+}
+
+// Namespace: 
+private enum SupportSelectConfirmCopyMenu.State // TypeDefIndex: 10798
+{
+	// Fields
+	public int value__; // 0x0
+	public const SupportSelectConfirmCopyMenu.State OPEN = 0;
+	public const SupportSelectConfirmCopyMenu.State INPUT = 1;
+	public const SupportSelectConfirmCopyMenu.State CLOSE = 2;
+}
+
+// Namespace: 
+public sealed class SupportSelectConfirmCopyMenu.OnClickButtonEvent : MulticastDelegate // TypeDefIndex: 10799
+{
+	// Methods
+
+	// RVA: 0x18026E0 Offset: 0x18026E0 VA: 0x18026E0
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x18023D8 Offset: 0x18023D8 VA: 0x18023D8 Slot: 11
+	public virtual void Invoke(bool isDecide) { }
+
+	// RVA: 0x18026F0 Offset: 0x18026F0 VA: 0x18026F0 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool isDecide, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1802780 Offset: 0x1802780 VA: 0x1802780 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class SupportSelectConfirmDeckMenu : BaseDialog // TypeDefIndex: 10800
+{
+	// Fields
+	[SerializeField] // RVA: 0xC793BC Offset: 0xC793BC VA: 0xC793BC
+	private UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xC793CC Offset: 0xC793CC VA: 0xC793CC
+	private UILabel messageLabel; // 0x60
+	[SerializeField] // RVA: 0xC793DC Offset: 0xC793DC VA: 0xC793DC
+	private UILabel nameLabel; // 0x68
+	[SerializeField] // RVA: 0xC793EC Offset: 0xC793EC VA: 0xC793EC
+	private SupportSelectDeckListViewItemDraw deckInfoObj; // 0x70
+	[SerializeField] // RVA: 0xC793FC Offset: 0xC793FC VA: 0xC793FC
+	private UILabel decideButtonLabel; // 0x78
+	[SerializeField] // RVA: 0xC7940C Offset: 0xC7940C VA: 0xC7940C
+	private UILabel cancelButtonLabel; // 0x80
+	private SupportSelectConfirmDeckMenu.State currentState; // 0x88
+	[CompilerGeneratedAttribute] // RVA: 0xC7941C Offset: 0xC7941C VA: 0xC7941C
+	[DebuggerBrowsableAttribute] // RVA: 0xC7941C Offset: 0xC7941C VA: 0xC7941C
+	private SupportSelectConfirmDeckMenu.OnClickButtonEvent onClickButton; // 0x90
+
+	// Properties
+	protected override string closeBtnPath { get; }
+
+	// Methods
+
+	// RVA: 0x180278C Offset: 0x180278C VA: 0x180278C
+	public void .ctor() { }
+
+	// RVA: 0x18027FC Offset: 0x18027FC VA: 0x18027FC
+	private void add_onClickButton(SupportSelectConfirmDeckMenu.OnClickButtonEvent value) { }
+
+	// RVA: 0x18028E8 Offset: 0x18028E8 VA: 0x18028E8
+	private void remove_onClickButton(SupportSelectConfirmDeckMenu.OnClickButtonEvent value) { }
+
+	// RVA: 0x18029D4 Offset: 0x18029D4 VA: 0x18029D4
+	public void Open(SupportSelectConfirmDeckMenu.DialogKind kind, SupportServantData supportData, SupportSelectConfirmDeckMenu.OnClickButtonEvent onClickButton) { }
+
+	// RVA: 0x1802DCC Offset: 0x1802DCC VA: 0x1802DCC
+	private void OnFinishedOpen() { }
+
+	// RVA: 0x1802DD8 Offset: 0x1802DD8 VA: 0x1802DD8
+	public void Close() { }
+
+	// RVA: 0x1802E58 Offset: 0x1802E58 VA: 0x1802E58
+	private void OnFinishedClose() { }
+
+	// RVA: 0x1802E60 Offset: 0x1802E60 VA: 0x1802E60
+	public void OnClickDecide() { }
+
+	// RVA: 0x1803120 Offset: 0x1803120 VA: 0x1803120
+	public void OnClickCancel() { }
+
+	// RVA: 0x18031B4 Offset: 0x18031B4 VA: 0x18031B4 Slot: 6
+	protected override string get_closeBtnPath() { }
+}
+
+// Namespace: 
+public enum SupportSelectConfirmDeckMenu.DialogKind // TypeDefIndex: 10801
+{
+	// Fields
+	public int value__; // 0x0
+	public const SupportSelectConfirmDeckMenu.DialogKind REMOVE_ALL = 0;
+	public const SupportSelectConfirmDeckMenu.DialogKind INIT_ALL = 1;
+	public const SupportSelectConfirmDeckMenu.DialogKind REMOVE_ALL_EQUIP = 2;
+}
+
+// Namespace: 
+private enum SupportSelectConfirmDeckMenu.State // TypeDefIndex: 10802
+{
+	// Fields
+	public int value__; // 0x0
+	public const SupportSelectConfirmDeckMenu.State OPEN = 0;
+	public const SupportSelectConfirmDeckMenu.State INPUT = 1;
+	public const SupportSelectConfirmDeckMenu.State CLOSE = 2;
+}
+
+// Namespace: 
+public sealed class SupportSelectConfirmDeckMenu.OnClickButtonEvent : MulticastDelegate // TypeDefIndex: 10803
+{
+	// Methods
+
+	// RVA: 0x18031FC Offset: 0x18031FC VA: 0x18031FC
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1802EF4 Offset: 0x1802EF4 VA: 0x1802EF4 Slot: 11
+	public virtual void Invoke(bool isDecide) { }
+
+	// RVA: 0x180320C Offset: 0x180320C VA: 0x180320C Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool isDecide, AsyncCallback callback, object object) { }
+
+	// RVA: 0x180329C Offset: 0x180329C VA: 0x180329C Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class SupportSelectConfirmMenu : BaseDialog // TypeDefIndex: 10804
+{
+	// Fields
+	[SerializeField] // RVA: 0xC79458 Offset: 0xC79458 VA: 0xC79458
+	protected UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xC79468 Offset: 0xC79468 VA: 0xC79468
+	protected UILabel messageLabel; // 0x60
+	[SerializeField] // RVA: 0xC79478 Offset: 0xC79478 VA: 0xC79478
+	protected UICommonButton closeButton; // 0x68
+	[SerializeField] // RVA: 0xC79488 Offset: 0xC79488 VA: 0xC79488
+	protected UICommonButton cancelButton; // 0x70
+	[SerializeField] // RVA: 0xC79498 Offset: 0xC79498 VA: 0xC79498
+	protected UICommonButton decideButton; // 0x78
+	[SerializeField] // RVA: 0xC794A8 Offset: 0xC794A8 VA: 0xC794A8
+	protected UILabel closeLabel; // 0x80
+	[SerializeField] // RVA: 0xC794B8 Offset: 0xC794B8 VA: 0xC794B8
+	protected UILabel cancelLabel; // 0x88
+	[SerializeField] // RVA: 0xC794C8 Offset: 0xC794C8 VA: 0xC794C8
+	protected UILabel decideLabel; // 0x90
+	protected SupportSelectConfirmMenu.State state; // 0x98
+	[CompilerGeneratedAttribute] // RVA: 0xC794D8 Offset: 0xC794D8 VA: 0xC794D8
+	[DebuggerBrowsableAttribute] // RVA: 0xC794D8 Offset: 0xC794D8 VA: 0xC794D8
+	private SupportSelectConfirmMenu.CallbackFunc callbackFunc; // 0xA0
+	protected Action closeCallbackFunc; // 0xA8
+
+	// Methods
+
+	// RVA: 0x18032A8 Offset: 0x18032A8 VA: 0x18032A8
+	public void .ctor() { }
+
+	// RVA: 0x1803310 Offset: 0x1803310 VA: 0x1803310
+	protected void add_callbackFunc(SupportSelectConfirmMenu.CallbackFunc value) { }
+
+	// RVA: 0x18033FC Offset: 0x18033FC VA: 0x18033FC
+	protected void remove_callbackFunc(SupportSelectConfirmMenu.CallbackFunc value) { }
+
+	// RVA: 0x18034E8 Offset: 0x18034E8 VA: 0x18034E8
+	public void Init() { }
+
+	// RVA: 0x1803638 Offset: 0x1803638 VA: 0x1803638
+	public void Open(SupportSelectConfirmMenu.Kind kind, SupportSelectConfirmMenu.CallbackFunc callback) { }
+
+	// RVA: 0x18036C4 Offset: 0x18036C4 VA: 0x18036C4
+	public void Open(SupportSelectConfirmMenu.Kind kind, SupportSelectConfirmMenu.CallbackFunc callback, string class1, string class2) { }
+
+	// RVA: 0x1803DB4 Offset: 0x1803DB4 VA: 0x1803DB4
+	protected void EndOpen() { }
+
+	// RVA: 0x1803DC0 Offset: 0x1803DC0 VA: 0x1803DC0
+	public void Close() { }
+
+	// RVA: 0x1803DC8 Offset: 0x1803DC8 VA: 0x1803DC8
+	public void Close(Action callback) { }
+
+	// RVA: 0x1803E58 Offset: 0x1803E58 VA: 0x1803E58
+	protected void EndClose() { }
+
+	// RVA: 0x1803E94 Offset: 0x1803E94 VA: 0x1803E94
+	protected void Callback(bool result) { }
+
+	// RVA: 0x18040E0 Offset: 0x18040E0 VA: 0x18040E0
+	public void OnClickClose() { }
+
+	// RVA: 0x1804180 Offset: 0x1804180 VA: 0x1804180
+	public void OnCancelClose() { }
+
+	// RVA: 0x1804220 Offset: 0x1804220 VA: 0x1804220
+	public void OnDecideClose() { }
+}
+
+// Namespace: 
+public enum SupportSelectConfirmMenu.Kind // TypeDefIndex: 10805
+{
+	// Fields
+	public int value__; // 0x0
+	public const SupportSelectConfirmMenu.Kind NONE = 0;
+	public const SupportSelectConfirmMenu.Kind NO_SERVANT = 1;
+	public const SupportSelectConfirmMenu.Kind SERVANT_CLEAR = 2;
+	public const SupportSelectConfirmMenu.Kind EQUIP_CLEAR = 3;
+	public const SupportSelectConfirmMenu.Kind ALL_CLEAR = 4;
+	public const SupportSelectConfirmMenu.Kind EQUIP_CHANGE = 5;
+}
+
+// Namespace: 
+protected enum SupportSelectConfirmMenu.State // TypeDefIndex: 10806
+{
+	// Fields
+	public int value__; // 0x0
+	public const SupportSelectConfirmMenu.State INIT = 0;
+	public const SupportSelectConfirmMenu.State OPEN = 1;
+	public const SupportSelectConfirmMenu.State INPUT = 2;
+	public const SupportSelectConfirmMenu.State SELECTED = 3;
+	public const SupportSelectConfirmMenu.State CLOSE = 4;
+}
+
+// Namespace: 
+public sealed class SupportSelectConfirmMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10807
+{
+	// Methods
+
+	// RVA: 0x18042C0 Offset: 0x18042C0 VA: 0x18042C0
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1803EB4 Offset: 0x1803EB4 VA: 0x1803EB4 Slot: 11
+	public virtual void Invoke(bool result) { }
+
+	// RVA: 0x18042D0 Offset: 0x18042D0 VA: 0x18042D0 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1804360 Offset: 0x1804360 VA: 0x1804360 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class SupportSelectCopyDeckSelectMenu : BaseDialog // TypeDefIndex: 10808
+{
+	// Fields
+	public const int INVALID_DECK_ID = -1;
+	[SerializeField] // RVA: 0xC79514 Offset: 0xC79514 VA: 0xC79514
+	private UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xC79524 Offset: 0xC79524 VA: 0xC79524
+	private UILabel messageLabel; // 0x60
+	[SerializeField] // RVA: 0xC79534 Offset: 0xC79534 VA: 0xC79534
+	private UILabel cancelButtonLabel; // 0x68
+	[SerializeField] // RVA: 0xC79544 Offset: 0xC79544 VA: 0xC79544
+	private SupportSelectDeckListViewManager deckListViewManager; // 0x70
+	private SupportSelectCopyDeckSelectMenu.State currentState; // 0x78
+	[CompilerGeneratedAttribute] // RVA: 0xC79554 Offset: 0xC79554 VA: 0xC79554
+	[DebuggerBrowsableAttribute] // RVA: 0xC79554 Offset: 0xC79554 VA: 0xC79554
+	private SupportSelectCopyDeckSelectMenu.OnSelectEvent onSelected; // 0x80
+
+	// Properties
+	protected override string closeBtnPath { get; }
+
+	// Methods
+
+	// RVA: 0x180436C Offset: 0x180436C VA: 0x180436C
+	public void .ctor() { }
+
+	// RVA: 0x18043DC Offset: 0x18043DC VA: 0x18043DC
+	private void add_onSelected(SupportSelectCopyDeckSelectMenu.OnSelectEvent value) { }
+
+	// RVA: 0x18044C8 Offset: 0x18044C8 VA: 0x18044C8
+	private void remove_onSelected(SupportSelectCopyDeckSelectMenu.OnSelectEvent value) { }
+
+	// RVA: 0x18045B4 Offset: 0x18045B4 VA: 0x18045B4
+	public void Open(SupportServantData[] targetDeckList, int[] sameKindIdxList, int[] notCopyIdxList, SupportSelectCopyDeckSelectMenu.OnSelectEvent onSelected) { }
+
+	// RVA: 0x1804938 Offset: 0x1804938 VA: 0x1804938
+	private void OnFinishedOpen() { }
+
+	// RVA: 0x1804B8C Offset: 0x1804B8C VA: 0x1804B8C
+	public void Close() { }
+
+	// RVA: 0x1804C0C Offset: 0x1804C0C VA: 0x1804C0C
+	private void OnFinishedClose() { }
+
+	// RVA: 0x1804C40 Offset: 0x1804C40 VA: 0x1804C40
+	public void OnSelectedDeck(int deckId) { }
+
+	// RVA: 0x1804F10 Offset: 0x1804F10 VA: 0x1804F10
+	public void OnClickCancel() { }
+
+	// RVA: 0x1804FA4 Offset: 0x1804FA4 VA: 0x1804FA4 Slot: 6
+	protected override string get_closeBtnPath() { }
+}
+
+// Namespace: 
+private enum SupportSelectCopyDeckSelectMenu.State // TypeDefIndex: 10809
+{
+	// Fields
+	public int value__; // 0x0
+	public const SupportSelectCopyDeckSelectMenu.State OPEN = 0;
+	public const SupportSelectCopyDeckSelectMenu.State INPUT = 1;
+	public const SupportSelectCopyDeckSelectMenu.State CLOSE = 2;
+}
+
+// Namespace: 
+public sealed class SupportSelectCopyDeckSelectMenu.OnSelectEvent : MulticastDelegate // TypeDefIndex: 10810
+{
+	// Methods
+
+	// RVA: 0x1804FEC Offset: 0x1804FEC VA: 0x1804FEC
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1804CE4 Offset: 0x1804CE4 VA: 0x1804CE4 Slot: 11
+	public virtual void Invoke(int selectDeckId) { }
+
+	// RVA: 0x1804FFC Offset: 0x1804FFC VA: 0x1804FFC Slot: 12
+	public virtual IAsyncResult BeginInvoke(int selectDeckId, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1805088 Offset: 0x1805088 VA: 0x1805088 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class SupportSelectDeckListViewItem : ListViewItem // TypeDefIndex: 10811
+{
+	// Fields
+	private SupportServantData supportData; // 0x70
+	private bool isSameKind; // 0x78
+	private bool isPossibleSelect; // 0x79
+
+	// Properties
+	public bool IsSameKind { get; }
+	public bool IsPossibleSelect { get; }
+
+	// Methods
+
+	// RVA: 0x1805094 Offset: 0x1805094 VA: 0x1805094
+	public void .ctor(SupportServantData data, int index, bool isSameKind, bool isPossibleCopy) { }
+
+	// RVA: 0x18050E4 Offset: 0x18050E4 VA: 0x18050E4
+	public SupportServantData GetSupportData() { }
+
+	// RVA: 0x18050EC Offset: 0x18050EC VA: 0x18050EC
+	public bool get_IsSameKind() { }
+
+	// RVA: 0x18050F4 Offset: 0x18050F4 VA: 0x18050F4
+	public bool get_IsPossibleSelect() { }
+}
+
+// Namespace: 
+public class SupportSelectDeckListViewItemDraw : MonoBehaviour // TypeDefIndex: 10812
+{
+	// Fields
+	[SerializeField] // RVA: 0xC79590 Offset: 0xC79590 VA: 0xC79590
+	private UISprite baseSprite; // 0x18
+	[SerializeField] // RVA: 0xC795A0 Offset: 0xC795A0 VA: 0xC795A0
+	private UISprite maskSprite; // 0x20
+	[SerializeField] // RVA: 0xC795B0 Offset: 0xC795B0 VA: 0xC795B0
+	private UILabel maskMessageLabel; // 0x28
+	[SerializeField] // RVA: 0xC795C0 Offset: 0xC795C0 VA: 0xC795C0
+	private UILabel supportNumberLabel; // 0x30
+	[SerializeField] // RVA: 0xC795D0 Offset: 0xC795D0 VA: 0xC795D0
+	private UILabel deckNameLabel; // 0x38
+	[SerializeField] // RVA: 0xC795E0 Offset: 0xC795E0 VA: 0xC795E0
+	private SupportSelectDeckListViewItemDraw.ClassInfo[] memberObjectList; // 0x40
+
+	// Methods
+
+	// RVA: 0x18050FC Offset: 0x18050FC VA: 0x18050FC
+	public void .ctor() { }
+
+	// RVA: 0x1801A54 Offset: 0x1801A54 VA: 0x1801A54
+	public void SetSupportData(SupportServantData data, bool isSameKind = False, bool isPossibleSelect = True) { }
+}
+
+// Namespace: 
+[Serializable]
+private class SupportSelectDeckListViewItemDraw.ClassInfo // TypeDefIndex: 10813
+{
+	// Fields
+	public UISprite classIconSprite; // 0x10
+	public ServantFaceIconComponent servantFaceIcon; // 0x18
+	public UISprite pushSprite; // 0x20
+
+	// Methods
+
+	// RVA: 0x1805184 Offset: 0x1805184 VA: 0x1805184
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class SupportSelectDeckListViewManager : ListViewManager // TypeDefIndex: 10814
+{
+	// Fields
+	private SupportSelectDeckListViewManager.InitMode currentMode; // 0x138
+	private SupportSelectDeckListViewObject.OnSelectEvent onSelectDeck; // 0x140
+
+	// Methods
+
+	// RVA: 0x180518C Offset: 0x180518C VA: 0x180518C
+	public void .ctor() { }
+
+	// RVA: 0x18047A8 Offset: 0x18047A8 VA: 0x18047A8
+	public void CreateList(SupportServantData[] deckDataList, int[] sameKindIdxList, int[] notCopyIdxList) { }
+
+	// RVA: 0x1804930 Offset: 0x1804930 VA: 0x1804930
+	public void SetMode(SupportSelectDeckListViewManager.InitMode mode) { }
+
+	// RVA: 0x18049E0 Offset: 0x18049E0 VA: 0x18049E0
+	public void SetMode(SupportSelectDeckListViewManager.InitMode mode, SupportSelectDeckListViewObject.OnSelectEvent onSelectDeck) { }
+
+	// RVA: 0x1805194 Offset: 0x1805194 VA: 0x1805194
+	private List<SupportSelectDeckListViewObject> GetObjectList() { }
+
+	// RVA: 0x1805378 Offset: 0x1805378 VA: 0x1805378 Slot: 4
+	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
+
+	// RVA: 0x18055CC Offset: 0x18055CC VA: 0x18055CC
+	protected void OnClickListView(ListViewObject obj) { }
+}
+
+// Namespace: 
+public enum SupportSelectDeckListViewManager.InitMode // TypeDefIndex: 10815
+{
+	// Fields
+	public int value__; // 0x0
+	public const SupportSelectDeckListViewManager.InitMode NONE = 0;
+	public const SupportSelectDeckListViewManager.InitMode VALID = 1;
+	public const SupportSelectDeckListViewManager.InitMode INPUT = 2;
+}
+
+// Namespace: 
+public class SupportSelectDeckListViewObject : ListViewObject // TypeDefIndex: 10816
+{
+	// Fields
+	private SupportSelectDeckListViewItemDraw itemDraw; // 0x70
+	[CompilerGeneratedAttribute] // RVA: 0xC795F0 Offset: 0xC795F0 VA: 0xC795F0
+	[DebuggerBrowsableAttribute] // RVA: 0xC795F0 Offset: 0xC795F0 VA: 0xC795F0
+	private SupportSelectDeckListViewObject.OnSelectEvent onSelected; // 0x78
+
+	// Methods
+
+	// RVA: 0x18055D0 Offset: 0x18055D0 VA: 0x18055D0
+	public void .ctor() { }
+
+	// RVA: 0x1805638 Offset: 0x1805638 VA: 0x1805638
+	private void add_onSelected(SupportSelectDeckListViewObject.OnSelectEvent value) { }
+
+	// RVA: 0x1805724 Offset: 0x1805724 VA: 0x1805724
+	private void remove_onSelected(SupportSelectDeckListViewObject.OnSelectEvent value) { }
+
+	// RVA: 0x1805810 Offset: 0x1805810 VA: 0x1805810
+	protected void Awake() { }
+
+	// RVA: 0x1805498 Offset: 0x1805498 VA: 0x1805498
+	public void Init() { }
+
+	// RVA: 0x1805884 Offset: 0x1805884 VA: 0x1805884
+	public void SetMode(SupportSelectDeckListViewManager.InitMode mode) { }
+
+	// RVA: 0x1805360 Offset: 0x1805360 VA: 0x1805360
+	public void SetMode(SupportSelectDeckListViewManager.InitMode mode, SupportSelectDeckListViewObject.OnSelectEvent onSelected) { }

@@ -1,18 +1,367 @@
-	[SerializeField] // RVA: 0xCB7380 Offset: 0xCB7380 VA: 0xCB7380
+	// RVA: 0x19BB8D0 Offset: 0x19BB8D0 VA: 0x19BB8D0
+	public void SetCallBack(BoostSupportRequestItemListViewManager.CallbackFunc callback) { }
+
+	// RVA: 0x19BBAF0 Offset: 0x19BBAF0 VA: 0x19BBAF0 Slot: 4
+	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
+
+	// RVA: 0x19BB900 Offset: 0x19BB900 VA: 0x19BB900
+	protected void RequestListObject() { }
+
+	// RVA: 0x19BBBC8 Offset: 0x19BBBC8 VA: 0x19BBBC8
+	protected void OnMoveEnd() { }
+
+	// RVA: 0x19BBC8C Offset: 0x19BBC8C VA: 0x19BBC8C
+	protected void OnClickListView(ListViewObject obj) { }
+}
+
+// Namespace: 
+public enum BoostSupportRequestItemListViewManager.ResultKind // TypeDefIndex: 5311
+{
+	// Fields
+	public int value__; // 0x0
+	public const BoostSupportRequestItemListViewManager.ResultKind CANCEL = 0;
+	public const BoostSupportRequestItemListViewManager.ResultKind UNSELECT = 1;
+	public const BoostSupportRequestItemListViewManager.ResultKind SELECT = 2;
+	public const BoostSupportRequestItemListViewManager.ResultKind IMPOSSIBLE_SELECT = 3;
+}
+
+// Namespace: 
+public sealed class BoostSupportRequestItemListViewManager.CallbackFunc : MulticastDelegate // TypeDefIndex: 5312
+{
+	// Methods
+
+	// RVA: 0x19BC010 Offset: 0x19BC010 VA: 0x19BC010
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x19BBDCC Offset: 0x19BBDCC VA: 0x19BBDCC Slot: 11
+	public virtual void Invoke(BoostSupportRequestItemListViewManager.ResultKind result, int index) { }
+
+	// RVA: 0x19BC020 Offset: 0x19BC020 VA: 0x19BC020 Slot: 12
+	public virtual IAsyncResult BeginInvoke(BoostSupportRequestItemListViewManager.ResultKind result, int index, AsyncCallback callback, object object) { }
+
+	// RVA: 0x19BC0C8 Offset: 0x19BC0C8 VA: 0x19BC0C8 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class BoostSupportRequestItemListViewObject : ListViewObject // TypeDefIndex: 5313
+{
+	// Fields
+	public BoostSupportRequestItemListViewItemDraw.DispMode dispMode; // 0x6C
+	[CompilerGeneratedAttribute] // RVA: 0xC4B290 Offset: 0xC4B290 VA: 0xC4B290
+	[DebuggerBrowsableAttribute] // RVA: 0xC4B290 Offset: 0xC4B290 VA: 0xC4B290
+	private Action callbackFunc; // 0x70
+	protected BoostSupportRequestItemListViewItemDraw itemDraw; // 0x78
+
+	// Methods
+
+	// RVA: 0x19BC0D4 Offset: 0x19BC0D4 VA: 0x19BC0D4
+	public void .ctor() { }
+
+	// RVA: 0x19BC13C Offset: 0x19BC13C VA: 0x19BC13C
+	protected void add_callbackFunc(Action value) { }
+
+	// RVA: 0x19BC228 Offset: 0x19BC228 VA: 0x19BC228
+	protected void remove_callbackFunc(Action value) { }
+
+	// RVA: 0x19BC314 Offset: 0x19BC314 VA: 0x19BC314
+	protected void Awake() { }
+
+	// RVA: 0x19BC388 Offset: 0x19BC388 VA: 0x19BC388 Slot: 6
+	public override void SetItem(ListViewItem item, ListViewItemSeed seed) { }
+
+	// RVA: 0x19BC390 Offset: 0x19BC390 VA: 0x19BC390
+	public void SetDirectItem(BoostSupportRequsetItemListViewItem item) { }
+
+	// RVA: 0x19BC398 Offset: 0x19BC398 VA: 0x19BC398 Slot: 8
+	public override GameObject CreateDragObject() { }
+
+	// RVA: 0x19BC408 Offset: 0x19BC408 VA: 0x19BC408
+	public void Init(Action callbackFunc, bool displayOnly) { }
+
+	// RVA: 0x19BC5F4 Offset: 0x19BC5F4 VA: 0x19BC5F4
+	public bool IsAllUserItemEnough(CommonConsumeEntity[] consumeList, UserItemEntity[] userItemEntityList) { }
+
+	// RVA: 0x19BBBC0 Offset: 0x19BBBC0 VA: 0x19BBBC0
+	public void Init(Action callbackFunc) { }
+
+	// RVA: 0x19BC7E4 Offset: 0x19BC7E4 VA: 0x19BC7E4
+	public void DisplayOnlyInit() { }
+
+	// RVA: 0x19BC7F0 Offset: 0x19BC7F0 VA: 0x19BC7F0
+	public void Init() { }
+
+	// RVA: 0x19BC6E0 Offset: 0x19BC6E0 VA: 0x19BC6E0
+	protected void SetupDisp() { }
+
+	// RVA: 0x19BC7FC Offset: 0x19BC7FC VA: 0x19BC7FC
+	protected void EventMoveEnd() { }
+}
+
+// Namespace: 
+public class BoostSupportRequestMenu : BaseDialog // TypeDefIndex: 5314
+{
+	// Fields
+	private static readonly string RECOMMENDED_ICON; // 0x0
+	[SerializeField] // RVA: 0xC4B2CC Offset: 0xC4B2CC VA: 0xC4B2CC
+	protected UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xC4B2DC Offset: 0xC4B2DC VA: 0xC4B2DC
+	protected UILabel titleDetailLabel; // 0x60
+	[SerializeField] // RVA: 0xC4B2EC Offset: 0xC4B2EC VA: 0xC4B2EC
+	protected EventItemComponent[] eventItemIconList; // 0x68
+	[SerializeField] // RVA: 0xC4B2FC Offset: 0xC4B2FC VA: 0xC4B2FC
+	protected UILabel useConfirmOptionLabel; // 0x70
+	[SerializeField] // RVA: 0xC4B30C Offset: 0xC4B30C VA: 0xC4B30C
+	protected BoostSupportRequestItemListViewManager itemListViewManager; // 0x78
+	[SerializeField] // RVA: 0xC4B31C Offset: 0xC4B31C VA: 0xC4B31C
+	protected UILabel decideLabel; // 0x80
+	[SerializeField] // RVA: 0xC4B32C Offset: 0xC4B32C VA: 0xC4B32C
+	protected UILabel cancelLabel; // 0x88
+	[SerializeField] // RVA: 0xC4B33C Offset: 0xC4B33C VA: 0xC4B33C
+	protected UISprite setupConfirmSprite; // 0x90
+	[CompilerGeneratedAttribute] // RVA: 0xC4B34C Offset: 0xC4B34C VA: 0xC4B34C
+	[DebuggerBrowsableAttribute] // RVA: 0xC4B34C Offset: 0xC4B34C VA: 0xC4B34C
+	private BoostFunctionUtility.CallbackFunc callbackFunc; // 0x98
+	protected Action closeCallbackFunc; // 0xA0
+	protected BoostSupportRequestMenu.State state; // 0xA8
+	protected bool isBoostItemUseConfirm; // 0xAC
+	protected UserItemEntity[] mUsrItemEntityList; // 0xB0
+
+	// Methods
+
+	// RVA: 0x19BC81C Offset: 0x19BC81C VA: 0x19BC81C
+	public void .ctor() { }
+
+	// RVA: 0x19BC884 Offset: 0x19BC884 VA: 0x19BC884
+	protected void add_callbackFunc(BoostFunctionUtility.CallbackFunc value) { }
+
+	// RVA: 0x19BC970 Offset: 0x19BC970 VA: 0x19BC970
+	protected void remove_callbackFunc(BoostFunctionUtility.CallbackFunc value) { }
+
+	// RVA: 0x19BCA5C Offset: 0x19BCA5C VA: 0x19BCA5C
+	public BoostSupportRequsetItemListViewItem GetItem(int index) { }
+
+	// RVA: 0x19BCA90 Offset: 0x19BCA90 VA: 0x19BCA90
+	public void Init() { }
+
+	// RVA: 0x19BCAD4 Offset: 0x19BCAD4 VA: 0x19BCAD4
+	public void Open(int questId, int questPhase, BoostFunctionUtility.CallbackFunc callback, bool isRetryBattle = False) { }
+
+	// RVA: 0x19BD66C Offset: 0x19BD66C VA: 0x19BD66C
+	protected void EndOpen() { }
+
+	// RVA: 0x19BD498 Offset: 0x19BD498 VA: 0x19BD498
+	protected BoostEntity[] RearrangesRecommendedBoostFirst(BoostEntity[] boostEntityList, int RecommendedBoostId) { }
+
+	// RVA: 0x19BD678 Offset: 0x19BD678 VA: 0x19BD678
+	protected void Callback(BoostFunctionUtility.BoostResultKind result, int index = -1) { }
+
+	// RVA: 0x19BD788 Offset: 0x19BD788 VA: 0x19BD788
+	public void Close(Action callback) { }
+
+	// RVA: 0x19BD818 Offset: 0x19BD818 VA: 0x19BD818
+	protected void EndClose() { }
+
+	// RVA: 0x19BD854 Offset: 0x19BD854 VA: 0x19BD854
+	public void OnClickCancel() { }
+
+	// RVA: 0x19BD8EC Offset: 0x19BD8EC VA: 0x19BD8EC
+	public void OnClickDecide() { }
+
+	// RVA: 0x19BD984 Offset: 0x19BD984 VA: 0x19BD984
+	protected void OnSelectItem(BoostSupportRequestItemListViewManager.ResultKind kind, int n) { }
+
+	// RVA: 0x19BDBA4 Offset: 0x19BDBA4 VA: 0x19BDBA4
+	public void OnClickSetupConfirm() { }
+
+	// RVA: 0x19BDC6C Offset: 0x19BDC6C VA: 0x19BDC6C
+	private static void .cctor() { }
+}
+
+// Namespace: 
+protected enum BoostSupportRequestMenu.State // TypeDefIndex: 5315
+{
+	// Fields
+	public int value__; // 0x0
+	public const BoostSupportRequestMenu.State INIT = 0;
+	public const BoostSupportRequestMenu.State OPEN = 1;
+	public const BoostSupportRequestMenu.State INPUT = 2;
+	public const BoostSupportRequestMenu.State SELECTED = 3;
+	public const BoostSupportRequestMenu.State CLOSE = 4;
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC419D4 Offset: 0xC419D4 VA: 0xC419D4
+private sealed class BoostSupportRequestMenu.<Callback>c__AnonStorey0 // TypeDefIndex: 5316
+{
+	// Fields
+	internal BoostFunctionUtility.BoostResultKind result; // 0x10
+	internal int index; // 0x14
+	internal BoostSupportRequestMenu $this; // 0x18
+
+	// Methods
+
+	// RVA: 0x19BD780 Offset: 0x19BD780 VA: 0x19BD780
+	public void .ctor() { }
+
+	// RVA: 0x19BDCC8 Offset: 0x19BDCC8 VA: 0x19BDCC8
+	internal void <>m__0() { }
+}
+
+// Namespace: 
+public class BoostSupportRequestReconfirmationMenu : BaseDialog // TypeDefIndex: 5317
+{
+	// Fields
+	[SerializeField] // RVA: 0xC4B388 Offset: 0xC4B388 VA: 0xC4B388
+	protected UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xC4B398 Offset: 0xC4B398 VA: 0xC4B398
+	protected UILabel skillNameLabel; // 0x60
+	[SerializeField] // RVA: 0xC4B3A8 Offset: 0xC4B3A8 VA: 0xC4B3A8
+	protected UILabel skillDetailLabel; // 0x68
+	[SerializeField] // RVA: 0xC4B3B8 Offset: 0xC4B3B8 VA: 0xC4B3B8
+	protected UILabel consumptionLabel; // 0x70
+	[SerializeField] // RVA: 0xC4B3C8 Offset: 0xC4B3C8 VA: 0xC4B3C8
+	protected UIGrid consumeItemIconGrid; // 0x78
+	[SerializeField] // RVA: 0xC4B3D8 Offset: 0xC4B3D8 VA: 0xC4B3D8
+	protected UISprite[] itemIcon; // 0x80
+	[SerializeField] // RVA: 0xC4B3E8 Offset: 0xC4B3E8 VA: 0xC4B3E8
+	protected UILabel[] itemNumLabel; // 0x88
+	[SerializeField] // RVA: 0xC4B3F8 Offset: 0xC4B3F8 VA: 0xC4B3F8
+	private GameObject consumeItem; // 0x90
+	[SerializeField] // RVA: 0xC4B408 Offset: 0xC4B408 VA: 0xC4B408
+	protected UILabel decideLabel; // 0x98
+	[SerializeField] // RVA: 0xC4B418 Offset: 0xC4B418 VA: 0xC4B418
+	protected UILabel cancelLabel; // 0xA0
+	[CompilerGeneratedAttribute] // RVA: 0xC4B428 Offset: 0xC4B428 VA: 0xC4B428
+	[DebuggerBrowsableAttribute] // RVA: 0xC4B428 Offset: 0xC4B428 VA: 0xC4B428
+	private BoostFunctionUtility.CallbackFunc callbackFunc; // 0xA8
+	protected Action closeCallbackFunc; // 0xB0
+	protected bool isBoostItemUseConfirm; // 0xB8
+	private BoostEntity serectBoostEntity; // 0xC0
+
+	// Methods
+
+	// RVA: 0x19BDD28 Offset: 0x19BDD28 VA: 0x19BDD28
+	public void .ctor() { }
+
+	// RVA: 0x19BDD90 Offset: 0x19BDD90 VA: 0x19BDD90
+	protected void add_callbackFunc(BoostFunctionUtility.CallbackFunc value) { }
+
+	// RVA: 0x19BDE7C Offset: 0x19BDE7C VA: 0x19BDE7C
+	protected void remove_callbackFunc(BoostFunctionUtility.CallbackFunc value) { }
+
+	// RVA: 0x19BDF68 Offset: 0x19BDF68 VA: 0x19BDF68
+	public void Open(BoostEntity boostEntity, BoostFunctionUtility.CallbackFunc callback) { }
+
+	// RVA: 0x19BE2D4 Offset: 0x19BE2D4 VA: 0x19BE2D4
+	private void setConsumeItemIconList(CommonConsumeEntity[] commonConsumeEntityList) { }
+
+	// RVA: 0x19BE800 Offset: 0x19BE800 VA: 0x19BE800
+	public void Close() { }
+
+	// RVA: 0x19BE808 Offset: 0x19BE808 VA: 0x19BE808
+	public void Close(Action callback) { }
+
+	// RVA: 0x19BE890 Offset: 0x19BE890 VA: 0x19BE890
+	protected void EndClose() { }
+
+	// RVA: 0x19BE8AC Offset: 0x19BE8AC VA: 0x19BE8AC
+	protected void Callback() { }
+
+	// RVA: 0x19BE954 Offset: 0x19BE954 VA: 0x19BE954
+	public void OnClickCancel() { }
+
+	// RVA: 0x19BE9E4 Offset: 0x19BE9E4 VA: 0x19BE9E4
+	public void OnClickDecide() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xCC7A0C Offset: 0xCC7A0C VA: 0xCC7A0C
+	// RVA: 0x19BEA80 Offset: 0x19BEA80 VA: 0x19BEA80
+	private void <Callback>m__0() { }
+}
+
+// Namespace: 
+public class BoostSupportRequsetItemListViewItem : ListViewItem // TypeDefIndex: 5318
+{
+	// Fields
+	protected BoostEntity boostEntity; // 0x70
+	protected UserItemEntity[] usrItemEntityList; // 0x78
+	protected CommonConsumeEntity[] commonConsumeEntity; // 0x80
+	protected bool isRelease; // 0x88
+	protected bool isRecommended; // 0x89
+
+	// Properties
+	public BoostEntity BoostEntity { get; }
+	public int ItemId { get; }
+	public int Skill_id { get; }
+	public int Image_id { get; }
+	public CommonConsumeEntity[] ConsumeList { get; }
+	public bool IsRelease { get; }
+	public UserItemEntity[] UserItemEntityList { get; }
+	public bool IsRecommended { get; }
+
+	// Methods
+
+	// RVA: 0x19BB768 Offset: 0x19BB768 VA: 0x19BB768
+	public void .ctor(int index, BoostEntity boostEntity, UserItemEntity[] usrItemEntityList, int recommendedBoostId = -1) { }
+
+	// RVA: 0x19BEAD0 Offset: 0x19BEAD0 VA: 0x19BEAD0 Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x19BDB84 Offset: 0x19BDB84 VA: 0x19BDB84
+	public BoostEntity get_BoostEntity() { }
+
+	// RVA: 0x19BDB8C Offset: 0x19BDB8C VA: 0x19BDB8C
+	public int get_ItemId() { }
+
+	// RVA: 0x19BA990 Offset: 0x19BA990 VA: 0x19BA990
+	public int get_Skill_id() { }
+
+	// RVA: 0x19BAB78 Offset: 0x19BAB78 VA: 0x19BAB78
+	public int get_Image_id() { }
+
+	// RVA: 0x19BB0C0 Offset: 0x19BB0C0 VA: 0x19BB0C0
+	public CommonConsumeEntity[] get_ConsumeList() { }
+
+	// RVA: 0x19BC5EC Offset: 0x19BC5EC VA: 0x19BC5EC
+	public bool get_IsRelease() { }
+
+	// RVA: 0x19BB0C8 Offset: 0x19BB0C8 VA: 0x19BB0C8
+	public UserItemEntity[] get_UserItemEntityList() { }
+
+	// RVA: 0x19BB0B8 Offset: 0x19BB0B8 VA: 0x19BB0B8
+	public bool get_IsRecommended() { }
+}
+
+// Namespace: 
+public class CampaignInfoDlg : BaseDialog // TypeDefIndex: 5319
+{
+	// Fields
+	protected static readonly float FADE_TIME; // 0x0
+	protected static readonly string alphaImgPath; // 0x8
+	protected static readonly string alphaImgName; // 0x10
+	protected static readonly int baseImgNo; // 0x18
+	protected static readonly int basePosX; // 0x1C
+	[SerializeField] // RVA: 0xC4B464 Offset: 0xC4B464 VA: 0xC4B464
+	protected GameObject ImagePrefab; // 0x58
+	[SerializeField] // RVA: 0xC4B474 Offset: 0xC4B474 VA: 0xC4B474
+	protected GameObject ImageRoot; // 0x60
+	[SerializeField] // RVA: 0xC4B484 Offset: 0xC4B484 VA: 0xC4B484
+	protected UIGrid ImageGrid; // 0x68
+	[SerializeField] // RVA: 0xC4B494 Offset: 0xC4B494 VA: 0xC4B494
 	protected UITexture BaseImg; // 0x70
-	[SerializeField] // RVA: 0xCB7390 Offset: 0xCB7390 VA: 0xCB7390
+	[SerializeField] // RVA: 0xC4B4A4 Offset: 0xC4B4A4 VA: 0xC4B4A4
 	protected GameObject CancelButton; // 0x78
-	[SerializeField] // RVA: 0xCB73A0 Offset: 0xCB73A0 VA: 0xCB73A0
+	[SerializeField] // RVA: 0xC4B4B4 Offset: 0xC4B4B4 VA: 0xC4B4B4
 	protected GameObject DecideButton; // 0x80
-	[SerializeField] // RVA: 0xCB73B0 Offset: 0xCB73B0 VA: 0xCB73B0
+	[SerializeField] // RVA: 0xC4B4C4 Offset: 0xC4B4C4 VA: 0xC4B4C4
 	protected GameObject CloseButton; // 0x88
-	[SerializeField] // RVA: 0xCB73C0 Offset: 0xCB73C0 VA: 0xCB73C0
+	[SerializeField] // RVA: 0xC4B4D4 Offset: 0xC4B4D4 VA: 0xC4B4D4
 	protected GameObject TouchMask; // 0x90
-	[SerializeField] // RVA: 0xCB73D0 Offset: 0xCB73D0 VA: 0xCB73D0
+	[SerializeField] // RVA: 0xC4B4E4 Offset: 0xC4B4E4 VA: 0xC4B4E4
 	protected UIScrollView ScrView; // 0x98
-	[SerializeField] // RVA: 0xCB73E0 Offset: 0xCB73E0 VA: 0xCB73E0
+	[SerializeField] // RVA: 0xC4B4F4 Offset: 0xC4B4F4 VA: 0xC4B4F4
 	protected UILabel DecideBtnLb; // 0xA0
-	[SerializeField] // RVA: 0xCB73F0 Offset: 0xCB73F0 VA: 0xCB73F0
+	[SerializeField] // RVA: 0xC4B504 Offset: 0xC4B504 VA: 0xC4B504
 	protected UILabel CancelBtnLb; // 0xA8
 	protected bool IsFading; // 0xB0
 	protected CampaignInfoDlg.onButtonDelgate btnCallbackFunc; // 0xB8
@@ -32,131 +381,131 @@
 
 	// Methods
 
-	// RVA: 0x19272DC Offset: 0x19272DC VA: 0x19272DC
+	// RVA: 0x14E3ED4 Offset: 0x14E3ED4 VA: 0x14E3ED4
 	public void .ctor() { }
 
-	// RVA: 0x1927344 Offset: 0x1927344 VA: 0x1927344
+	// RVA: 0x14E3F3C Offset: 0x14E3F3C VA: 0x14E3F3C
 	public void Init() { }
 
-	// RVA: 0x1927390 Offset: 0x1927390 VA: 0x1927390
+	// RVA: 0x14E3F88 Offset: 0x14E3F88 VA: 0x14E3F88
 	public void Open(CampaignInfoEntity cInfo, string cancelBtnMsg, string decideBtnMsg, bool activeDecide, CampaignInfoDlg.onButtonDelgate onClickButton) { }
 
-	// RVA: 0x19276E4 Offset: 0x19276E4 VA: 0x19276E4
+	// RVA: 0x14E42DC Offset: 0x14E42DC VA: 0x14E42DC
 	protected void LoadImages(CampaignInformation[] images) { }
 
-	// RVA: 0x19279A8 Offset: 0x19279A8 VA: 0x19279A8
+	// RVA: 0x14E45A0 Offset: 0x14E45A0 VA: 0x14E45A0
 	protected string GetTuorialImagePath(int imgId) { }
 
-	// RVA: 0x1927A2C Offset: 0x1927A2C VA: 0x1927A2C
+	// RVA: 0x14E4624 Offset: 0x14E4624 VA: 0x14E4624
 	protected string GetTuorialImageName(int imgId) { }
 
-	// RVA: 0x1927AE8 Offset: 0x1927AE8 VA: 0x1927AE8
+	// RVA: 0x14E46E0 Offset: 0x14E46E0 VA: 0x14E46E0
 	protected string GetCampaignInfoImagePath(int imgId) { }
 
-	// RVA: 0x1927B6C Offset: 0x1927B6C VA: 0x1927B6C
+	// RVA: 0x14E4764 Offset: 0x14E4764 VA: 0x14E4764
 	protected string GetCampaignInfoImageName(int imgId) { }
 
-	// RVA: 0x1927C28 Offset: 0x1927C28 VA: 0x1927C28
+	// RVA: 0x14E4820 Offset: 0x14E4820 VA: 0x14E4820
 	protected int GetScrollHeightWithName(string imageName) { }
 
-	// RVA: 0x1927D10 Offset: 0x1927D10 VA: 0x1927D10
+	// RVA: 0x14E4908 Offset: 0x14E4908 VA: 0x14E4908
 	protected void LoadStart() { }
 
-	// RVA: 0x1927E44 Offset: 0x1927E44 VA: 0x1927E44
+	// RVA: 0x14E4A3C Offset: 0x14E4A3C VA: 0x14E4A3C
 	protected void SetBaseImage(Texture2D tex) { }
 
-	// RVA: 0x1928040 Offset: 0x1928040 VA: 0x1928040
+	// RVA: 0x14E4C38 Offset: 0x14E4C38 VA: 0x14E4C38
 	protected void AddScrollImg(AssetData data, Action callback) { }
 
-	// RVA: 0x1928840 Offset: 0x1928840 VA: 0x1928840
+	// RVA: 0x14E5438 Offset: 0x14E5438 VA: 0x14E5438
 	protected void AfterLoad(int addCount) { }
 
-	// RVA: 0x19289C8 Offset: 0x19289C8 VA: 0x19289C8
+	// RVA: 0x14E55C0 Offset: 0x14E55C0 VA: 0x14E55C0
 	protected void LoadBase(Action callback) { }
 
-	// RVA: 0x1927888 Offset: 0x1927888 VA: 0x1927888
+	// RVA: 0x14E4480 Offset: 0x14E4480 VA: 0x14E4480
 	protected void LoadAlpha(Action callback) { }
 
-	// RVA: 0x1928B08 Offset: 0x1928B08 VA: 0x1928B08
+	// RVA: 0x14E5700 Offset: 0x14E5700 VA: 0x14E5700
 	protected void OpenWindow() { }
 
-	// RVA: 0x19288EC Offset: 0x19288EC VA: 0x19288EC
+	// RVA: 0x14E54E4 Offset: 0x14E54E4 VA: 0x14E54E4
 	protected void UpdatePage() { }
 
-	// RVA: 0x19277B0 Offset: 0x19277B0 VA: 0x19277B0
+	// RVA: 0x14E43A8 Offset: 0x14E43A8 VA: 0x14E43A8
 	protected void UpdateButtons(bool isDisp = True) { }
 
-	// RVA: 0x1928BB0 Offset: 0x1928BB0 VA: 0x1928BB0
+	// RVA: 0x14E57A8 Offset: 0x14E57A8 VA: 0x14E57A8
 	protected void EndOpen() { }
 
-	// RVA: 0x1928BBC Offset: 0x1928BBC VA: 0x1928BBC
+	// RVA: 0x14E57B4 Offset: 0x14E57B4 VA: 0x14E57B4
 	private void refreshCurrent() { }
 
-	// RVA: 0x1928C58 Offset: 0x1928C58 VA: 0x1928C58
+	// RVA: 0x14E5850 Offset: 0x14E5850 VA: 0x14E5850
 	public void Close() { }
 
-	// RVA: 0x1928C60 Offset: 0x1928C60 VA: 0x1928C60
+	// RVA: 0x14E5858 Offset: 0x14E5858 VA: 0x14E5858
 	public void Close(Action callback) { }
 
-	// RVA: 0x1928CEC Offset: 0x1928CEC VA: 0x1928CEC
+	// RVA: 0x14E58E4 Offset: 0x14E58E4 VA: 0x14E58E4
 	protected void EndClose() { }
 
-	// RVA: 0x1929004 Offset: 0x1929004 VA: 0x1929004
+	// RVA: 0x14E5BFC Offset: 0x14E5BFC VA: 0x14E5BFC
 	public void OnDecideButton() { }
 
-	// RVA: 0x19292D4 Offset: 0x19292D4 VA: 0x19292D4
+	// RVA: 0x14E5ECC Offset: 0x14E5ECC VA: 0x14E5ECC
 	public void OnCancelButton() { }
 
-	// RVA: 0x192937C Offset: 0x192937C VA: 0x192937C
+	// RVA: 0x14E5F74 Offset: 0x14E5F74 VA: 0x14E5F74
 	public void OnClickClose() { }
 
-	// RVA: 0x1927550 Offset: 0x1927550 VA: 0x1927550
+	// RVA: 0x14E4148 Offset: 0x14E4148 VA: 0x14E4148
 	protected void SetTouchMask(bool isDisp) { }
 
-	// RVA: 0x19275D8 Offset: 0x19275D8 VA: 0x19275D8
+	// RVA: 0x14E41D0 Offset: 0x14E41D0 VA: 0x14E41D0
 	protected void SetDecideActive(bool onOff) { }
 
-	// RVA: 0x1929424 Offset: 0x1929424 VA: 0x1929424
+	// RVA: 0x14E601C Offset: 0x14E601C VA: 0x14E601C
 	private static void .cctor() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD350E0 Offset: 0xD350E0 VA: 0xD350E0
-	// RVA: 0x19294C0 Offset: 0x19294C0 VA: 0x19294C0
+	[CompilerGeneratedAttribute] // RVA: 0xCC7A1C Offset: 0xCC7A1C VA: 0xCC7A1C
+	// RVA: 0x14E60B8 Offset: 0x14E60B8 VA: 0x14E60B8
 	private void <LoadImages>m__0() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD350F0 Offset: 0xD350F0 VA: 0xD350F0
-	// RVA: 0x1929534 Offset: 0x1929534 VA: 0x1929534
+	[CompilerGeneratedAttribute] // RVA: 0xCC7A2C Offset: 0xCC7A2C VA: 0xCC7A2C
+	// RVA: 0x14E612C Offset: 0x14E612C VA: 0x14E612C
 	private void <LoadStart>m__1(AssetData data) { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35100 Offset: 0xD35100 VA: 0xD35100
-	// RVA: 0x19295D0 Offset: 0x19295D0 VA: 0x19295D0
+	[CompilerGeneratedAttribute] // RVA: 0xCC7A3C Offset: 0xCC7A3C VA: 0xCC7A3C
+	// RVA: 0x14E61C8 Offset: 0x14E61C8 VA: 0x14E61C8
 	private void <UpdatePage>m__2() { }
 
-	[CompilerGeneratedAttribute] // RVA: 0xD35110 Offset: 0xD35110 VA: 0xD35110
-	// RVA: 0x19295FC Offset: 0x19295FC VA: 0x19295FC
+	[CompilerGeneratedAttribute] // RVA: 0xCC7A4C Offset: 0xCC7A4C VA: 0xCC7A4C
+	// RVA: 0x14E61F4 Offset: 0x14E61F4 VA: 0x14E61F4
 	private void <LoadStart>m__3() { }
 }
 
 // Namespace: 
-public sealed class CampaignInfoDlg.onButtonDelgate : MulticastDelegate // TypeDefIndex: 5316
+public sealed class CampaignInfoDlg.onButtonDelgate : MulticastDelegate // TypeDefIndex: 5320
 {
 	// Methods
 
-	// RVA: 0x1929820 Offset: 0x1929820 VA: 0x1929820
+	// RVA: 0x14E6418 Offset: 0x14E6418 VA: 0x14E6418
 	public void .ctor(object object, IntPtr method) { }
 
-	// RVA: 0x19290A8 Offset: 0x19290A8 VA: 0x19290A8 Slot: 11
+	// RVA: 0x14E5CA0 Offset: 0x14E5CA0 VA: 0x14E5CA0 Slot: 11
 	public virtual void Invoke(bool decide) { }
 
-	// RVA: 0x1929830 Offset: 0x1929830 VA: 0x1929830 Slot: 12
+	// RVA: 0x14E6428 Offset: 0x14E6428 VA: 0x14E6428 Slot: 12
 	public virtual IAsyncResult BeginInvoke(bool decide, AsyncCallback callback, object object) { }
 
-	// RVA: 0x19298C0 Offset: 0x19298C0 VA: 0x19298C0 Slot: 13
+	// RVA: 0x14E64B8 Offset: 0x14E64B8 VA: 0x14E64B8 Slot: 13
 	public virtual void EndInvoke(IAsyncResult result) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCADA70 Offset: 0xCADA70 VA: 0xCADA70
-private sealed class CampaignInfoDlg.<LoadBase>c__AnonStorey0 // TypeDefIndex: 5317
+[CompilerGeneratedAttribute] // RVA: 0xC419E4 Offset: 0xC419E4 VA: 0xC419E4
+private sealed class CampaignInfoDlg.<LoadBase>c__AnonStorey0 // TypeDefIndex: 5321
 {
 	// Fields
 	internal Action callback; // 0x10
@@ -164,16 +513,16 @@ private sealed class CampaignInfoDlg.<LoadBase>c__AnonStorey0 // TypeDefIndex: 5
 
 	// Methods
 
-	// RVA: 0x1928AF8 Offset: 0x1928AF8 VA: 0x1928AF8
+	// RVA: 0x14E56F0 Offset: 0x14E56F0 VA: 0x14E56F0
 	public void .ctor() { }
 
-	// RVA: 0x1929648 Offset: 0x1929648 VA: 0x1929648
+	// RVA: 0x14E6240 Offset: 0x14E6240 VA: 0x14E6240
 	internal void <>m__0(AssetData data) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xCADA80 Offset: 0xCADA80 VA: 0xCADA80
-private sealed class CampaignInfoDlg.<LoadAlpha>c__AnonStorey1 // TypeDefIndex: 5318
+[CompilerGeneratedAttribute] // RVA: 0xC419F4 Offset: 0xC419F4 VA: 0xC419F4
+private sealed class CampaignInfoDlg.<LoadAlpha>c__AnonStorey1 // TypeDefIndex: 5322
 {
 	// Fields
 	internal Action callback; // 0x10
@@ -181,15 +530,15 @@ private sealed class CampaignInfoDlg.<LoadAlpha>c__AnonStorey1 // TypeDefIndex: 
 
 	// Methods
 
-	// RVA: 0x1928B00 Offset: 0x1928B00 VA: 0x1928B00
+	// RVA: 0x14E56F8 Offset: 0x14E56F8 VA: 0x14E56F8
 	public void .ctor() { }
 
-	// RVA: 0x1929604 Offset: 0x1929604 VA: 0x1929604
+	// RVA: 0x14E61FC Offset: 0x14E61FC VA: 0x14E61FC
 	internal void <>m__0(AssetData data) { }
 }
 
 // Namespace: 
-public class CampaignInfoItem : MonoBehaviour // TypeDefIndex: 5319
+public class CampaignInfoItem : MonoBehaviour // TypeDefIndex: 5323
 {
 	// Fields
 	public UITexture baseText; // 0x18
@@ -199,21 +548,21 @@ public class CampaignInfoItem : MonoBehaviour // TypeDefIndex: 5319
 
 	// Methods
 
-	// RVA: 0x1929924 Offset: 0x1929924 VA: 0x1929924
+	// RVA: 0x14E651C Offset: 0x14E651C VA: 0x14E651C
 	public void .ctor() { }
 
-	// RVA: 0x19284E8 Offset: 0x19284E8 VA: 0x19284E8
+	// RVA: 0x14E50E0 Offset: 0x14E50E0 VA: 0x14E50E0
 	public void SetCampaignInfo(CampaignInformation info, Texture2D tex, Texture2D maskTex, int height) { }
 
-	// RVA: 0x192992C Offset: 0x192992C VA: 0x192992C
+	// RVA: 0x14E6524 Offset: 0x14E6524 VA: 0x14E6524
 	public void OnClick() { }
 
-	// RVA: 0x1929A88 Offset: 0x1929A88 VA: 0x1929A88
+	// RVA: 0x14E6680 Offset: 0x14E6680 VA: 0x14E6680
 	private static void .cctor() { }
 }
 
 // Namespace: 
-public class CampaignInformation // TypeDefIndex: 5320
+public class CampaignInformation // TypeDefIndex: 5324
 {
 	// Fields
 	public int urlOpenType; // 0x10
@@ -222,12 +571,12 @@ public class CampaignInformation // TypeDefIndex: 5320
 
 	// Methods
 
-	// RVA: 0x1929BFC Offset: 0x1929BFC VA: 0x1929BFC
+	// RVA: 0x14E67F4 Offset: 0x14E67F4 VA: 0x14E67F4
 	public void .ctor() { }
 }
 
 // Namespace: 
-public enum CampaignInformation.UrlOpenType // TypeDefIndex: 5321
+public enum CampaignInformation.UrlOpenType // TypeDefIndex: 5325
 {
 	// Fields
 	public int value__; // 0x0
@@ -237,21 +586,21 @@ public enum CampaignInformation.UrlOpenType // TypeDefIndex: 5321
 }
 
 // Namespace: 
-public class CenterEffectDetailDialog : BaseDialog // TypeDefIndex: 5322
+public class CenterEffectDetailDialog : BaseDialog // TypeDefIndex: 5326
 {
 	// Fields
-	[SerializeField] // RVA: 0xCB7400 Offset: 0xCB7400 VA: 0xCB7400
+	[SerializeField] // RVA: 0xC4B514 Offset: 0xC4B514 VA: 0xC4B514
 	protected UILabel titleLabel; // 0x58
-	[SerializeField] // RVA: 0xCB7410 Offset: 0xCB7410 VA: 0xCB7410
+	[SerializeField] // RVA: 0xC4B524 Offset: 0xC4B524 VA: 0xC4B524
 	protected UILabel titleDetailLabel; // 0x60
-	[SerializeField] // RVA: 0xCB7420 Offset: 0xCB7420 VA: 0xCB7420
+	[SerializeField] // RVA: 0xC4B534 Offset: 0xC4B534 VA: 0xC4B534
 	protected CenterEffectDetailItemListViewManager itemListViewManager; // 0x68
-	[SerializeField] // RVA: 0xCB7430 Offset: 0xCB7430 VA: 0xCB7430
+	[SerializeField] // RVA: 0xC4B544 Offset: 0xC4B544 VA: 0xC4B544
 	protected UILabel closeLabel; // 0x70
-	[SerializeField] // RVA: 0xCB7440 Offset: 0xCB7440 VA: 0xCB7440
+	[SerializeField] // RVA: 0xC4B554 Offset: 0xC4B554 VA: 0xC4B554
 	protected UIButton closeBtn; // 0x78
-	[CompilerGeneratedAttribute] // RVA: 0xCB7450 Offset: 0xCB7450 VA: 0xCB7450
-	[DebuggerBrowsableAttribute] // RVA: 0xCB7450 Offset: 0xCB7450 VA: 0xCB7450
+	[CompilerGeneratedAttribute] // RVA: 0xC4B564 Offset: 0xC4B564 VA: 0xC4B564
+	[DebuggerBrowsableAttribute] // RVA: 0xC4B564 Offset: 0xC4B564 VA: 0xC4B564
 	private Action callbackFunc; // 0x80
 	protected Action closeCallbackFunc; // 0x88
 	protected CenterEffectDetailDialog.State state; // 0x90
@@ -261,42 +610,42 @@ public class CenterEffectDetailDialog : BaseDialog // TypeDefIndex: 5322
 
 	// Methods
 
-	// RVA: 0x1F08F58 Offset: 0x1F08F58 VA: 0x1F08F58
+	// RVA: 0x1A3DAB8 Offset: 0x1A3DAB8 VA: 0x1A3DAB8
 	public void .ctor() { }
 
-	// RVA: 0x1F08FC0 Offset: 0x1F08FC0 VA: 0x1F08FC0
+	// RVA: 0x1A3DB20 Offset: 0x1A3DB20 VA: 0x1A3DB20
 	protected void add_callbackFunc(Action value) { }
 
-	// RVA: 0x1F090AC Offset: 0x1F090AC VA: 0x1F090AC
+	// RVA: 0x1A3DC0C Offset: 0x1A3DC0C VA: 0x1A3DC0C
 	protected void remove_callbackFunc(Action value) { }
 
-	// RVA: 0x1F09198 Offset: 0x1F09198 VA: 0x1F09198
+	// RVA: 0x1A3DCF8 Offset: 0x1A3DCF8 VA: 0x1A3DCF8
 	public void Init() { }
 
-	// RVA: 0x1F091DC Offset: 0x1F091DC VA: 0x1F091DC
+	// RVA: 0x1A3DD3C Offset: 0x1A3DD3C VA: 0x1A3DD3C
 	public void Open(int questId, int questPhase, Action callback) { }
 
-	// RVA: 0x1F098E4 Offset: 0x1F098E4 VA: 0x1F098E4
+	// RVA: 0x1A3E444 Offset: 0x1A3E444 VA: 0x1A3E444
 	protected void EndOpen() { }
 
-	// RVA: 0x1F098F0 Offset: 0x1F098F0 VA: 0x1F098F0
+	// RVA: 0x1A3E450 Offset: 0x1A3E450 VA: 0x1A3E450
 	protected void Callback() { }
 
-	// RVA: 0x1F0990C Offset: 0x1F0990C VA: 0x1F0990C
+	// RVA: 0x1A3E46C Offset: 0x1A3E46C VA: 0x1A3E46C
 	public void Close(Action callback) { }
 
-	// RVA: 0x1F0999C Offset: 0x1F0999C VA: 0x1F0999C
+	// RVA: 0x1A3E4FC Offset: 0x1A3E4FC VA: 0x1A3E4FC
 	protected void EndClose() { }
 
-	// RVA: 0x1F099D8 Offset: 0x1F099D8 VA: 0x1F099D8
+	// RVA: 0x1A3E538 Offset: 0x1A3E538 VA: 0x1A3E538
 	public void OnClickCancel() { }
 
-	// RVA: 0x1F09A74 Offset: 0x1F09A74 VA: 0x1F09A74 Slot: 4
+	// RVA: 0x1A3E5D4 Offset: 0x1A3E5D4 VA: 0x1A3E5D4 Slot: 4
 	protected override GameObject get_closeBtnObject() { }
 }
 
 // Namespace: 
-protected enum CenterEffectDetailDialog.State // TypeDefIndex: 5323
+protected enum CenterEffectDetailDialog.State // TypeDefIndex: 5327
 {
 	// Fields
 	public int value__; // 0x0
@@ -308,7 +657,7 @@ protected enum CenterEffectDetailDialog.State // TypeDefIndex: 5323
 }
 
 // Namespace: 
-public struct CenterEffectDetailDialog.CenterEffectDetailSkillInfo // TypeDefIndex: 5324
+public struct CenterEffectDetailDialog.CenterEffectDetailSkillInfo // TypeDefIndex: 5328
 {
 	// Fields
 	public int id; // 0x0
@@ -316,7 +665,7 @@ public struct CenterEffectDetailDialog.CenterEffectDetailSkillInfo // TypeDefInd
 }
 
 // Namespace: 
-public class CenterEffectDetailItemListViewItem : ListViewItem // TypeDefIndex: 5325
+public class CenterEffectDetailItemListViewItem : ListViewItem // TypeDefIndex: 5329
 {
 	// Fields
 	protected int skillId; // 0x70
@@ -328,50 +677,50 @@ public class CenterEffectDetailItemListViewItem : ListViewItem // TypeDefIndex: 
 
 	// Methods
 
-	// RVA: 0x1F09B14 Offset: 0x1F09B14 VA: 0x1F09B14
+	// RVA: 0x1A3E674 Offset: 0x1A3E674 VA: 0x1A3E674
 	public void .ctor(int index, int skillId, int skillLevel) { }
 
-	// RVA: 0x1F09B4C Offset: 0x1F09B4C VA: 0x1F09B4C Slot: 1
+	// RVA: 0x1A3E6AC Offset: 0x1A3E6AC VA: 0x1A3E6AC Slot: 1
 	protected override void Finalize() { }
 
-	// RVA: 0x1F09B54 Offset: 0x1F09B54 VA: 0x1F09B54
+	// RVA: 0x1A3E6B4 Offset: 0x1A3E6B4 VA: 0x1A3E6B4
 	public int get_Skill_id() { }
 
-	// RVA: 0x1F09B5C Offset: 0x1F09B5C VA: 0x1F09B5C
+	// RVA: 0x1A3E6BC Offset: 0x1A3E6BC VA: 0x1A3E6BC
 	public int get_Skill_level() { }
 }
 
 // Namespace: 
-public class CenterEffectDetailItemListViewItemDraw : MonoBehaviour // TypeDefIndex: 5326
+public class CenterEffectDetailItemListViewItemDraw : MonoBehaviour // TypeDefIndex: 5330
 {
 	// Fields
 	private static readonly int TITLE_FONT_SIZE; // 0x0
 	private static readonly int DETAIL_FONT_SIZE; // 0x4
-	[SerializeField] // RVA: 0xCB748C Offset: 0xCB748C VA: 0xCB748C
+	[SerializeField] // RVA: 0xC4B5A0 Offset: 0xC4B5A0 VA: 0xC4B5A0
 	protected UISprite baseSprite; // 0x18
-	[SerializeField] // RVA: 0xCB749C Offset: 0xCB749C VA: 0xCB749C
+	[SerializeField] // RVA: 0xC4B5B0 Offset: 0xC4B5B0 VA: 0xC4B5B0
 	protected SkillIconComponent skillIcon; // 0x20
-	[SerializeField] // RVA: 0xCB74AC Offset: 0xCB74AC VA: 0xCB74AC
+	[SerializeField] // RVA: 0xC4B5C0 Offset: 0xC4B5C0 VA: 0xC4B5C0
 	private UICrossNarrowLabel nameTextLabel; // 0x28
-	[SerializeField] // RVA: 0xCB74BC Offset: 0xCB74BC VA: 0xCB74BC
+	[SerializeField] // RVA: 0xC4B5D0 Offset: 0xC4B5D0 VA: 0xC4B5D0
 	protected UILabel levelLabel; // 0x30
-	[SerializeField] // RVA: 0xCB74CC Offset: 0xCB74CC VA: 0xCB74CC
+	[SerializeField] // RVA: 0xC4B5E0 Offset: 0xC4B5E0 VA: 0xC4B5E0
 	protected UILabel detailLabel; // 0x38
 
 	// Methods
 
-	// RVA: 0x1F09B64 Offset: 0x1F09B64 VA: 0x1F09B64
+	// RVA: 0x1A3E6C4 Offset: 0x1A3E6C4 VA: 0x1A3E6C4
 	public void .ctor() { }
 
-	// RVA: 0x1F09B6C Offset: 0x1F09B6C VA: 0x1F09B6C
+	// RVA: 0x1A3E6CC Offset: 0x1A3E6CC VA: 0x1A3E6CC
 	public void SetItem(CenterEffectDetailItemListViewItem item) { }
 
-	// RVA: 0x1F09E08 Offset: 0x1F09E08 VA: 0x1F09E08
+	// RVA: 0x1A3E968 Offset: 0x1A3E968 VA: 0x1A3E968
 	private static void .cctor() { }
 }
 
 // Namespace: 
-public class CenterEffectDetailItemListViewManager : ListViewManager // TypeDefIndex: 5327
+public class CenterEffectDetailItemListViewManager : ListViewManager // TypeDefIndex: 5331
 {
 	// Fields
 	protected int callbackCount; // 0x138
@@ -381,91 +730,91 @@ public class CenterEffectDetailItemListViewManager : ListViewManager // TypeDefI
 
 	// Methods
 
-	// RVA: 0x1F09E6C Offset: 0x1F09E6C VA: 0x1F09E6C
+	// RVA: 0x1A3E9CC Offset: 0x1A3E9CC VA: 0x1A3E9CC
 	public void .ctor() { }
 
-	// RVA: 0x1F09E74 Offset: 0x1F09E74 VA: 0x1F09E74
+	// RVA: 0x1A3E9D4 Offset: 0x1A3E9D4 VA: 0x1A3E9D4
 	public CenterEffectDetailItemListViewItem GetItem(int index) { }
 
-	// RVA: 0x1F09F1C Offset: 0x1F09F1C VA: 0x1F09F1C
+	// RVA: 0x1A3EA7C Offset: 0x1A3EA7C VA: 0x1A3EA7C
 	public List<CenterEffectDetailItemListViewObject> get_ObjectList() { }
 
-	// RVA: 0x1F096E0 Offset: 0x1F096E0 VA: 0x1F096E0
+	// RVA: 0x1A3E240 Offset: 0x1A3E240 VA: 0x1A3E240
 	public void CreateList(List<CenterEffectDetailDialog.CenterEffectDetailSkillInfo> centerEffectDetailSkillInfoList) { }
 
-	// RVA: 0x1F0A0E8 Offset: 0x1F0A0E8 VA: 0x1F0A0E8 Slot: 4
+	// RVA: 0x1A3EC48 Offset: 0x1A3EC48 VA: 0x1A3EC48 Slot: 4
 	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
 
-	// RVA: 0x1F0A2C8 Offset: 0x1F0A2C8 VA: 0x1F0A2C8
+	// RVA: 0x1A3EE28 Offset: 0x1A3EE28 VA: 0x1A3EE28
 	protected void RequestListObject() { }
 
-	// RVA: 0x1F0A4B4 Offset: 0x1F0A4B4 VA: 0x1F0A4B4
+	// RVA: 0x1A3F014 Offset: 0x1A3F014 VA: 0x1A3F014
 	protected void OnMoveEnd() { }
 }
 
 // Namespace: 
-public class CenterEffectDetailItemListViewObject : ListViewObject // TypeDefIndex: 5328
+public class CenterEffectDetailItemListViewObject : ListViewObject // TypeDefIndex: 5332
 {
 	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xCB74DC Offset: 0xCB74DC VA: 0xCB74DC
-	[DebuggerBrowsableAttribute] // RVA: 0xCB74DC Offset: 0xCB74DC VA: 0xCB74DC
+	[CompilerGeneratedAttribute] // RVA: 0xC4B5F0 Offset: 0xC4B5F0 VA: 0xC4B5F0
+	[DebuggerBrowsableAttribute] // RVA: 0xC4B5F0 Offset: 0xC4B5F0 VA: 0xC4B5F0
 	private Action callbackFunc; // 0x70
 	protected CenterEffectDetailItemListViewItemDraw itemDraw; // 0x78
 
 	// Methods
 
-	// RVA: 0x1F0A578 Offset: 0x1F0A578 VA: 0x1F0A578
+	// RVA: 0x1A3F0D8 Offset: 0x1A3F0D8 VA: 0x1A3F0D8
 	public void .ctor() { }
 
-	// RVA: 0x1F0A5E0 Offset: 0x1F0A5E0 VA: 0x1F0A5E0
+	// RVA: 0x1A3F140 Offset: 0x1A3F140 VA: 0x1A3F140
 	protected void add_callbackFunc(Action value) { }
 
-	// RVA: 0x1F0A6CC Offset: 0x1F0A6CC VA: 0x1F0A6CC
+	// RVA: 0x1A3F22C Offset: 0x1A3F22C VA: 0x1A3F22C
 	protected void remove_callbackFunc(Action value) { }
 
-	// RVA: 0x1F0A7B8 Offset: 0x1F0A7B8 VA: 0x1F0A7B8
+	// RVA: 0x1A3F318 Offset: 0x1A3F318 VA: 0x1A3F318
 	protected void Awake() { }
 
-	// RVA: 0x1F0A82C Offset: 0x1F0A82C VA: 0x1F0A82C Slot: 6
+	// RVA: 0x1A3F38C Offset: 0x1A3F38C VA: 0x1A3F38C Slot: 6
 	public override void SetItem(ListViewItem item, ListViewItemSeed seed) { }
 
-	// RVA: 0x1F0A834 Offset: 0x1F0A834 VA: 0x1F0A834
+	// RVA: 0x1A3F394 Offset: 0x1A3F394 VA: 0x1A3F394
 	public void SetDirectItem(CenterEffectDetailItemListViewItem item) { }
 
-	// RVA: 0x1F0A83C Offset: 0x1F0A83C VA: 0x1F0A83C Slot: 8
+	// RVA: 0x1A3F39C Offset: 0x1A3F39C VA: 0x1A3F39C Slot: 8
 	public override GameObject CreateDragObject() { }
 
-	// RVA: 0x1F0A1B4 Offset: 0x1F0A1B4 VA: 0x1F0A1B4
+	// RVA: 0x1A3ED14 Offset: 0x1A3ED14 VA: 0x1A3ED14
 	public void Init(Action callbackFunc) { }
 
-	// RVA: 0x1F0A8AC Offset: 0x1F0A8AC VA: 0x1F0A8AC
+	// RVA: 0x1A3F40C Offset: 0x1A3F40C VA: 0x1A3F40C
 	protected void SetupDisp() { }
 
-	// RVA: 0x1F0A9A8 Offset: 0x1F0A9A8 VA: 0x1F0A9A8
+	// RVA: 0x1A3F508 Offset: 0x1A3F508 VA: 0x1A3F508
 	protected void EventMoveEnd() { }
 }
 
 // Namespace: 
-public class ClassCompatibilityInfoDialog : BaseDialog // TypeDefIndex: 5329
+public class ClassCompatibilityInfoDialog : BaseDialog // TypeDefIndex: 5333
 {
 	// Fields
-	[SerializeField] // RVA: 0xCB7518 Offset: 0xCB7518 VA: 0xCB7518
+	[SerializeField] // RVA: 0xC4B62C Offset: 0xC4B62C VA: 0xC4B62C
 	protected UILabel titleLabel; // 0x58
-	[SerializeField] // RVA: 0xCB7528 Offset: 0xCB7528 VA: 0xCB7528
+	[SerializeField] // RVA: 0xC4B63C Offset: 0xC4B63C VA: 0xC4B63C
 	protected UILabel messageLabel; // 0x60
-	[SerializeField] // RVA: 0xCB7538 Offset: 0xCB7538 VA: 0xCB7538
+	[SerializeField] // RVA: 0xC4B64C Offset: 0xC4B64C VA: 0xC4B64C
 	protected GameObject type1Base; // 0x68
-	[SerializeField] // RVA: 0xCB7548 Offset: 0xCB7548 VA: 0xCB7548
+	[SerializeField] // RVA: 0xC4B65C Offset: 0xC4B65C VA: 0xC4B65C
 	protected GameObject type2Base; // 0x70
-	[SerializeField] // RVA: 0xCB7558 Offset: 0xCB7558 VA: 0xCB7558
+	[SerializeField] // RVA: 0xC4B66C Offset: 0xC4B66C VA: 0xC4B66C
 	protected UISprite compatibility1Sprite; // 0x78
-	[SerializeField] // RVA: 0xCB7568 Offset: 0xCB7568 VA: 0xCB7568
+	[SerializeField] // RVA: 0xC4B67C Offset: 0xC4B67C VA: 0xC4B67C
 	protected UISprite compatibility2Sprite; // 0x80
-	[SerializeField] // RVA: 0xCB7578 Offset: 0xCB7578 VA: 0xCB7578
+	[SerializeField] // RVA: 0xC4B68C Offset: 0xC4B68C VA: 0xC4B68C
 	protected ServantClassIconComponent[] classIconList; // 0x88
-	[SerializeField] // RVA: 0xCB7588 Offset: 0xCB7588 VA: 0xCB7588
+	[SerializeField] // RVA: 0xC4B69C Offset: 0xC4B69C VA: 0xC4B69C
 	protected UILabel closeLabel; // 0x90
-	[SerializeField] // RVA: 0xCB7598 Offset: 0xCB7598 VA: 0xCB7598
+	[SerializeField] // RVA: 0xC4B6AC Offset: 0xC4B6AC VA: 0xC4B6AC
 	protected UICommonButton closeButton; // 0x98
 	protected ClassCompatibilityInfoDialog.State state; // 0xA0
 	protected Action callbackFunc; // 0xA8
@@ -478,36 +827,36 @@ public class ClassCompatibilityInfoDialog : BaseDialog // TypeDefIndex: 5329
 
 	// Methods
 
-	// RVA: 0x1F2AE9C Offset: 0x1F2AE9C VA: 0x1F2AE9C
+	// RVA: 0x1960034 Offset: 0x1960034 VA: 0x1960034
 	public void .ctor() { }
 
-	// RVA: 0x1F2AF04 Offset: 0x1F2AF04 VA: 0x1F2AF04
+	// RVA: 0x196009C Offset: 0x196009C VA: 0x196009C
 	public void Init() { }
 
-	// RVA: 0x1F2B010 Offset: 0x1F2B010 VA: 0x1F2B010
+	// RVA: 0x19601A8 Offset: 0x19601A8 VA: 0x19601A8
 	public void Open(int questId, int questPhase, Action callback) { }
 
-	// RVA: 0x1F2B53C Offset: 0x1F2B53C VA: 0x1F2B53C
+	// RVA: 0x19606D4 Offset: 0x19606D4 VA: 0x19606D4
 	protected void EndOpen() { }
 
-	// RVA: 0x1F2B548 Offset: 0x1F2B548 VA: 0x1F2B548
+	// RVA: 0x19606E0 Offset: 0x19606E0 VA: 0x19606E0
 	public void Close() { }
 
-	// RVA: 0x1F2B550 Offset: 0x1F2B550 VA: 0x1F2B550
+	// RVA: 0x19606E8 Offset: 0x19606E8 VA: 0x19606E8
 	public void Close(Action callback) { }
 
-	// RVA: 0x1F2B5E0 Offset: 0x1F2B5E0 VA: 0x1F2B5E0
+	// RVA: 0x1960778 Offset: 0x1960778 VA: 0x1960778
 	protected void EndClose() { }
 
-	// RVA: 0x1F2B61C Offset: 0x1F2B61C VA: 0x1F2B61C
+	// RVA: 0x19607B4 Offset: 0x19607B4 VA: 0x19607B4
 	public void OnClickClose() { }
 
-	// RVA: 0x1F2B6B8 Offset: 0x1F2B6B8 VA: 0x1F2B6B8 Slot: 6
+	// RVA: 0x1960850 Offset: 0x1960850 VA: 0x1960850 Slot: 6
 	protected override string get_closeBtnPath() { }
 }
 
 // Namespace: 
-protected enum ClassCompatibilityInfoDialog.State // TypeDefIndex: 5330
+protected enum ClassCompatibilityInfoDialog.State // TypeDefIndex: 5334
 {
 	// Fields
 	public int value__; // 0x0
@@ -519,51 +868,51 @@ protected enum ClassCompatibilityInfoDialog.State // TypeDefIndex: 5330
 }
 
 // Namespace: 
-public class ClassCompatibilityMenu : BaseMonoBehaviour // TypeDefIndex: 5331
+public class ClassCompatibilityMenu : BaseMonoBehaviour // TypeDefIndex: 5335
 {
 	// Fields
-	[SerializeField] // RVA: 0xCB75A8 Offset: 0xCB75A8 VA: 0xCB75A8
+	[SerializeField] // RVA: 0xC4B6BC Offset: 0xC4B6BC VA: 0xC4B6BC
 	protected ClassCompatibilityInfoDialog classCompatibilityConfirmMenu; // 0x18
 	protected ClassCompatibilityMenu.State state; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xCB75B8 Offset: 0xCB75B8 VA: 0xCB75B8
-	[DebuggerBrowsableAttribute] // RVA: 0xCB75B8 Offset: 0xCB75B8 VA: 0xCB75B8
+	[CompilerGeneratedAttribute] // RVA: 0xC4B6CC Offset: 0xC4B6CC VA: 0xC4B6CC
+	[DebuggerBrowsableAttribute] // RVA: 0xC4B6CC Offset: 0xC4B6CC VA: 0xC4B6CC
 	private Action callbackFunc; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xCB75F4 Offset: 0xCB75F4 VA: 0xCB75F4
-	[DebuggerBrowsableAttribute] // RVA: 0xCB75F4 Offset: 0xCB75F4 VA: 0xCB75F4
+	[CompilerGeneratedAttribute] // RVA: 0xC4B708 Offset: 0xC4B708 VA: 0xC4B708
+	[DebuggerBrowsableAttribute] // RVA: 0xC4B708 Offset: 0xC4B708 VA: 0xC4B708
 	private Action closeCallbackFunc; // 0x30
 
 	// Methods
 
-	// RVA: 0x1F2B700 Offset: 0x1F2B700 VA: 0x1F2B700
+	// RVA: 0x1960898 Offset: 0x1960898 VA: 0x1960898
 	public void .ctor() { }
 
-	// RVA: 0x1F2B708 Offset: 0x1F2B708 VA: 0x1F2B708
+	// RVA: 0x19608A0 Offset: 0x19608A0 VA: 0x19608A0
 	protected void add_callbackFunc(Action value) { }
 
-	// RVA: 0x1F2B7F4 Offset: 0x1F2B7F4 VA: 0x1F2B7F4
+	// RVA: 0x196098C Offset: 0x196098C VA: 0x196098C
 	protected void remove_callbackFunc(Action value) { }
 
-	// RVA: 0x1F2B8E0 Offset: 0x1F2B8E0 VA: 0x1F2B8E0
+	// RVA: 0x1960A78 Offset: 0x1960A78 VA: 0x1960A78
 	protected void add_closeCallbackFunc(Action value) { }
 
-	// RVA: 0x1F2B9CC Offset: 0x1F2B9CC VA: 0x1F2B9CC
+	// RVA: 0x1960B64 Offset: 0x1960B64 VA: 0x1960B64
 	protected void remove_closeCallbackFunc(Action value) { }
 
-	// RVA: 0x1F2BAB8 Offset: 0x1F2BAB8 VA: 0x1F2BAB8
+	// RVA: 0x1960C50 Offset: 0x1960C50 VA: 0x1960C50
 	public void Open(int questId, int questPhase, Action callback) { }
 
-	// RVA: 0x1F2BBB0 Offset: 0x1F2BBB0 VA: 0x1F2BBB0
+	// RVA: 0x1960D48 Offset: 0x1960D48 VA: 0x1960D48
 	public void Close(Action callback) { }
 
-	// RVA: 0x1F2BC64 Offset: 0x1F2BC64 VA: 0x1F2BC64
+	// RVA: 0x1960DFC Offset: 0x1960DFC VA: 0x1960DFC
 	protected void EndClose() { }
 
-	// RVA: 0x1F2BCEC Offset: 0x1F2BCEC VA: 0x1F2BCEC
+	// RVA: 0x1960E84 Offset: 0x1960E84 VA: 0x1960E84
 	protected void Callback() { }
 }
 
 // Namespace: 
-protected enum ClassCompatibilityMenu.State // TypeDefIndex: 5332
+protected enum ClassCompatibilityMenu.State // TypeDefIndex: 5336
 {
 	// Fields
 	public int value__; // 0x0
@@ -574,20 +923,20 @@ protected enum ClassCompatibilityMenu.State // TypeDefIndex: 5332
 }
 
 // Namespace: 
-public class CommonConfirmDialog : BaseDialog // TypeDefIndex: 5333
+public class CommonConfirmDialog : BaseDialog // TypeDefIndex: 5337
 {
 	// Fields
-	[SerializeField] // RVA: 0xCB7630 Offset: 0xCB7630 VA: 0xCB7630
+	[SerializeField] // RVA: 0xC4B744 Offset: 0xC4B744 VA: 0xC4B744
 	protected UILabel titleLabel; // 0x58
-	[SerializeField] // RVA: 0xCB7640 Offset: 0xCB7640 VA: 0xCB7640
+	[SerializeField] // RVA: 0xC4B754 Offset: 0xC4B754 VA: 0xC4B754
 	protected UILabel messageLabel; // 0x60
-	[SerializeField] // RVA: 0xCB7650 Offset: 0xCB7650 VA: 0xCB7650
+	[SerializeField] // RVA: 0xC4B764 Offset: 0xC4B764 VA: 0xC4B764
 	protected UILabel buttonDecideLabel; // 0x68
-	[SerializeField] // RVA: 0xCB7660 Offset: 0xCB7660 VA: 0xCB7660
+	[SerializeField] // RVA: 0xC4B774 Offset: 0xC4B774 VA: 0xC4B774
 	protected UILabel buttonCancelLabel; // 0x70
-	[SerializeField] // RVA: 0xCB7670 Offset: 0xCB7670 VA: 0xCB7670
+	[SerializeField] // RVA: 0xC4B784 Offset: 0xC4B784 VA: 0xC4B784
 	protected GameObject buttonDecide; // 0x78
-	[SerializeField] // RVA: 0xCB7680 Offset: 0xCB7680 VA: 0xCB7680
+	[SerializeField] // RVA: 0xC4B794 Offset: 0xC4B794 VA: 0xC4B794
 	protected GameObject buttonCancel; // 0x80
 	protected CommonConfirmDialog.ClickDelegate clickFunc; // 0x88
 	protected Action closeCallbackFunc; // 0x90
@@ -608,393 +957,44 @@ public class CommonConfirmDialog : BaseDialog // TypeDefIndex: 5333
 
 	// Methods
 
-	// RVA: 0x1B6A5D0 Offset: 0x1B6A5D0 VA: 0x1B6A5D0
+	// RVA: 0x1666E2C Offset: 0x1666E2C VA: 0x1666E2C
 	public void .ctor() { }
 
-	// RVA: 0x1B6A664 Offset: 0x1B6A664 VA: 0x1B6A664
+	// RVA: 0x1666EC0 Offset: 0x1666EC0 VA: 0x1666EC0
 	public UILabel get_ButtonDecideLabel() { }
 
-	// RVA: 0x1B6A66C Offset: 0x1B6A66C VA: 0x1B6A66C
+	// RVA: 0x1666EC8 Offset: 0x1666EC8 VA: 0x1666EC8
 	public UILabel get_ButtonCancelLabel() { }
 
-	// RVA: 0x1B6A674 Offset: 0x1B6A674 VA: 0x1B6A674
+	// RVA: 0x1666ED0 Offset: 0x1666ED0 VA: 0x1666ED0
 	public void Init() { }
 
-	// RVA: 0x1B6A8E8 Offset: 0x1B6A8E8 VA: 0x1B6A8E8
-	private void Setup(string title, string message, string decideTxt, string cancelTxt, bool isDecideSe, CommonConfirmDialog.ClickDelegate func, int fontsize, float windowPosY, float messagePosY, int spacingY, Vector2Int messageWidgetSize, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0, Nullable<float> titlePosY, int titleFontSize = 0, bool setCondensedScale = False, int minFontSize = 0, NGUIText.Alignment alignment = 0, int windowHeight = 480, float buttonPosY = -162.5) { }
+	// RVA: 0x1667144 Offset: 0x1667144 VA: 0x1667144
+	private void Setup(string title, string message, string decideTxt, string cancelTxt, bool isDecideSe, CommonConfirmDialog.ClickDelegate func, int fontsize, float windowPosY, float messagePosY, int spacingY, Vector2Int messageWidgetSize, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0, Nullable<float> titlePosY, int titleFontSize = 0, bool setCondensedScale = False, int minFontSize = 0, NGUIText.Alignment alignment = 0, int windowHeight = 480, float buttonPosY = -162.5, int decideTxtSize = 0, int cancelTxtSize = 0) { }
 
-	// RVA: 0x1B6B03C Offset: 0x1B6B03C VA: 0x1B6B03C
+	// RVA: 0x1667940 Offset: 0x1667940 VA: 0x1667940
 	public void Open(string title, string message, CommonConfirmDialog.ClickDelegate func, int fontsize = 0, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x1B6B0B8 Offset: 0x1B6B0B8 VA: 0x1B6B0B8
+	// RVA: 0x16679C4 Offset: 0x16679C4 VA: 0x16679C4
 	public void Open(string title, string message, bool isDecideSe, CommonConfirmDialog.ClickDelegate func, int fontsize = 0, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0, bool setCondensedScale = False) { }
 
-	// RVA: 0x1B6B13C Offset: 0x1B6B13C VA: 0x1B6B13C
+	// RVA: 0x1667A50 Offset: 0x1667A50 VA: 0x1667A50
 	public void Open(string title, string message, string decideTxt, string cancelTxt, bool isDecideSe, CommonConfirmDialog.ClickDelegate func, int fontsize = 0, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x1B6B1A8 Offset: 0x1B6B1A8 VA: 0x1B6B1A8
+	// RVA: 0x1667AC4 Offset: 0x1667AC4 VA: 0x1667AC4
 	public void Open(string title, string message, string decideTxt, string cancelTxt, CommonConfirmDialog.ClickDelegate func, int fontsize = 0, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x1B6B220 Offset: 0x1B6B220 VA: 0x1B6B220
+	// RVA: 0x1667B44 Offset: 0x1667B44 VA: 0x1667B44
 	public void Open(string title, string message, string decideTxt, string cancelTxt, bool isDecideSe, CommonConfirmDialog.ClickDelegate func, int titleFontSize, int messageFontSize, float titlePosY, float messagePosY, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x1B6B340 Offset: 0x1B6B340 VA: 0x1B6B340
+	// RVA: 0x1667C6C Offset: 0x1667C6C VA: 0x1667C6C
 	public void Open(string title, string message, string decideTxt, string cancelTxt, CommonConfirmDialog.ClickDelegate func, int fontsize, int minFontSize, float messagePosY, int messageLabelWidth, NGUIText.Alignment alignment, int windowHeight, float buttonPosY, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x1B6B448 Offset: 0x1B6B448 VA: 0x1B6B448
+	// RVA: 0x1667D7C Offset: 0x1667D7C VA: 0x1667D7C
 	public void OpenDecideDlg(string title, string message, string decideTxt, string cancelTxt, CommonConfirmDialog.ClickDelegate func, int fontsize, float windowPosY, float messagePosY, int spacingY, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0, int messageLabelHeight = 240) { }
 
-	// RVA: 0x1B6B558 Offset: 0x1B6B558 VA: 0x1B6B558
+	// RVA: 0x1667E94 Offset: 0x1667E94 VA: 0x1667E94
 	public void OpenDecideDlg(string title, string message, string decideTxt, string cancelTxt, CommonConfirmDialog.ClickDelegate func, int fontsize, float messagePosY, int spacingY, Vector2Int messageWidgetSize, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0) { }
 
-	// RVA: 0x1B6B5D4 Offset: 0x1B6B5D4 VA: 0x1B6B5D4
+	// RVA: 0x1667F18 Offset: 0x1667F18 VA: 0x1667F18
 	public void OpenDecideDlg(string title, string message, string decideTxt, string cancelTxt, CommonConfirmDialog.ClickDelegate func, int fontsize, float windowPosY, float messagePosY, int spacingY, bool canMaskTouchClose = False, BaseDialog.MaskType maskType = 0, int messageLabelHeight = 240, NGUIText.Alignment alignment = 0) { }
-
-	// RVA: 0x1B6B6E4 Offset: 0x1B6B6E4 VA: 0x1B6B6E4
-	protected void EndOpen() { }
-
-	// RVA: 0x1B6B6F0 Offset: 0x1B6B6F0 VA: 0x1B6B6F0
-	public void Close() { }
-
-	// RVA: 0x1B6B6F8 Offset: 0x1B6B6F8 VA: 0x1B6B6F8
-	public void Close(Action callback) { }
-
-	// RVA: 0x1B6B784 Offset: 0x1B6B784 VA: 0x1B6B784
-	protected void EndClose() { }
-
-	// RVA: 0x1B6B7E8 Offset: 0x1B6B7E8 VA: 0x1B6B7E8
-	public void OnClickDecide() { }
-
-	// RVA: 0x1B6B89C Offset: 0x1B6B89C VA: 0x1B6B89C
-	public void OnClickDecide2() { }
-
-	// RVA: 0x1B6B930 Offset: 0x1B6B930 VA: 0x1B6B930
-	public void OnClickCancel() { }
-
-	// RVA: 0x1B6B9C4 Offset: 0x1B6B9C4 VA: 0x1B6B9C4
-	public void OnClickClose() { }
-
-	// RVA: 0x1B6BA58 Offset: 0x1B6BA58 VA: 0x1B6BA58
-	private void OnEnable() { }
-}
-
-// Namespace: 
-public sealed class CommonConfirmDialog.ClickDelegate : MulticastDelegate // TypeDefIndex: 5334
-{
-	// Methods
-
-	// RVA: 0x148DA0C Offset: 0x148DA0C VA: 0x148DA0C
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x148DA1C Offset: 0x148DA1C VA: 0x148DA1C Slot: 11
-	public virtual void Invoke(bool isDecide) { }
-
-	// RVA: 0x148DC48 Offset: 0x148DC48 VA: 0x148DC48 Slot: 12
-	public virtual IAsyncResult BeginInvoke(bool isDecide, AsyncCallback callback, object object) { }
-
-	// RVA: 0x148DCD8 Offset: 0x148DCD8 VA: 0x148DCD8 Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-public class CommonMultiItemGetDlg : BaseDialog // TypeDefIndex: 5335
-{
-	// Fields
-	[SerializeField] // RVA: 0xCB7690 Offset: 0xCB7690 VA: 0xCB7690
-	private CommonMultiItemGetList itemWindow; // 0x58
-	[SerializeField] // RVA: 0xCB76A0 Offset: 0xCB76A0 VA: 0xCB76A0
-	private UILabel titleConfLabel; // 0x60
-	[SerializeField] // RVA: 0xCB76B0 Offset: 0xCB76B0 VA: 0xCB76B0
-	private UILabel detailLabel; // 0x68
-	[SerializeField] // RVA: 0xCB76C0 Offset: 0xCB76C0 VA: 0xCB76C0
-	private ItemDetailInfoComponent itemDialog; // 0x70
-	[SerializeField] // RVA: 0xCB76D0 Offset: 0xCB76D0 VA: 0xCB76D0
-	private UILabel decideLabel; // 0x78
-	[SerializeField] // RVA: 0xCB76E0 Offset: 0xCB76E0 VA: 0xCB76E0
-	private UILabel cancelLabel; // 0x80
-	private CommonMultiItemGetDlg.OnClickDelegate onclick; // 0x88
-	private Action onEndClose; // 0x90
-
-	// Methods
-
-	// RVA: 0x149B464 Offset: 0x149B464 VA: 0x149B464
-	public void .ctor() { }
-
-	// RVA: 0x149B4CC Offset: 0x149B4CC VA: 0x149B4CC
-	public void Init() { }
-
-	// RVA: 0x149B4FC Offset: 0x149B4FC VA: 0x149B4FC
-	public void endOpen() { }
-
-	// RVA: 0x149B5E0 Offset: 0x149B5E0 VA: 0x149B5E0
-	public void Open(string title, string detail, string closeMsg, string decideMsg, GiftEntity[] giftList, int columnCount, CommonMultiItemGetDlg.OnClickDelegate callback) { }
-
-	// RVA: 0x149BCB0 Offset: 0x149BCB0 VA: 0x149BCB0
-	public void setShowConf(GiftEntity item) { }
-
-	// RVA: 0x149BD30 Offset: 0x149BD30 VA: 0x149BD30
-	private void setShowServantConf(GiftEntity gift) { }
-
-	// RVA: 0x149C138 Offset: 0x149C138 VA: 0x149C138
-	private void DialogCallBack(bool flg) { }
-
-	// RVA: 0x149BDDC Offset: 0x149BDDC VA: 0x149BDDC
-	private void setShowItemConf(int itemId) { }
-
-	// RVA: 0x149C298 Offset: 0x149C298 VA: 0x149C298
-	private void itemDialogCallBack(bool flg) { }
-
-	// RVA: 0x149C320 Offset: 0x149C320 VA: 0x149C320
-	public void OnClickDecide() { }
-
-	// RVA: 0x149C580 Offset: 0x149C580 VA: 0x149C580
-	public void OnClickCancel() { }
-
-	// RVA: 0x149C5B4 Offset: 0x149C5B4 VA: 0x149C5B4
-	public void Close(Action callback) { }
-
-	// RVA: 0x149C654 Offset: 0x149C654 VA: 0x149C654
-	private void endClose() { }
-}
-
-// Namespace: 
-public sealed class CommonMultiItemGetDlg.OnClickDelegate : MulticastDelegate // TypeDefIndex: 5336
-{
-	// Methods
-
-	// RVA: 0x149C6AC Offset: 0x149C6AC VA: 0x149C6AC
-	public void .ctor(object object, IntPtr method) { }
-
-	// RVA: 0x149C354 Offset: 0x149C354 VA: 0x149C354 Slot: 11
-	public virtual void Invoke(bool isDecide) { }
-
-	// RVA: 0x149C6BC Offset: 0x149C6BC VA: 0x149C6BC Slot: 12
-	public virtual IAsyncResult BeginInvoke(bool isDecide, AsyncCallback callback, object object) { }
-
-	// RVA: 0x149C74C Offset: 0x149C74C VA: 0x149C74C Slot: 13
-	public virtual void EndInvoke(IAsyncResult result) { }
-}
-
-// Namespace: 
-public class CommonMultiItemGetList : BaseMonoBehaviour // TypeDefIndex: 5337
-{
-	// Fields
-	public Transform listRoot; // 0x18
-	public GameObject prefabResultItem; // 0x20
-	private float width; // 0x28
-	private float height; // 0x2C
-	private static readonly int baseCol; // 0x0
-	private List<GameObject> itemObjectList; // 0x30
-
-	// Methods
-
-	// RVA: 0x149C758 Offset: 0x149C758 VA: 0x149C758
-	public void .ctor() { }
-
-	// RVA: 0x149B784 Offset: 0x149B784 VA: 0x149B784
-	public void setListData(GiftEntity[] itemlist, int columnCount, GiftListViewItemIcon.ClickDelegate callBack) { }
-
-	// RVA: 0x149BBF8 Offset: 0x149BBF8 VA: 0x149BBF8
-	public void setHide() { }
-
-	// RVA: 0x149B528 Offset: 0x149B528 VA: 0x149B528
-	public void setShow() { }
-
-	// RVA: 0x149C7D4 Offset: 0x149C7D4 VA: 0x149C7D4
-	private static void .cctor() { }
-}
-
-// Namespace: 
-public class CommonUI : SingletonMonoBehaviour<CommonUI> // TypeDefIndex: 5338
-{
-	// Fields
-	private static readonly int WINDOW_OUTSIDE_PLATE_HEIGHT_NUM; // 0x0
-	private static readonly int DIALOG_ON_MASKFADE_DEPTH; // 0x4
-	private static readonly string ASSET_DATA_PATH_EFFECT_ANIME; // 0x8
-	private static readonly string COSTUME_RELEASE_EFFECT_NAME; // 0x10
-	private static readonly string EQUIP_GET_EFFECT_NAME; // 0x18
-	private static readonly string ITEM_GET_EFFECT_NAME; // 0x20
-	private static readonly int ITEM_GET_EFFECT_SKILL_EXCEED_ID; // 0x28
-	private static readonly int ITEM_GET_FRIEND_SHIP_EXCEED_ID; // 0x2C
-	private static readonly int ITEM_GET_LV_EXCEED_DEWDROP_ID; // 0x30
-	private static readonly int ITEM_GET_LV_EXCEED_ID; // 0x34
-	private static readonly int FRIENDPOINT_NOTIFY_DIALOG_Y; // 0x38
-	private const string SERIALIZED_LOGIN_RESULT_SAVE_KEY = "SerializedLoginResult";
-	[SerializeField] // RVA: 0xCB76F0 Offset: 0xCB76F0 VA: 0xCB76F0
-	protected bool forceObi_16_9; // 0x18
-	[SerializeField] // RVA: 0xCB7700 Offset: 0xCB7700 VA: 0xCB7700
-	protected UISprite topImg; // 0x20
-	[SerializeField] // RVA: 0xCB7710 Offset: 0xCB7710 VA: 0xCB7710
-	protected UISprite bottomImg; // 0x28
-	[SerializeField] // RVA: 0xCB7720 Offset: 0xCB7720 VA: 0xCB7720
-	protected UISprite leftImg; // 0x30
-	[SerializeField] // RVA: 0xCB7730 Offset: 0xCB7730 VA: 0xCB7730
-	protected UISprite rightImg; // 0x38
-	[SerializeField] // RVA: 0xCB7740 Offset: 0xCB7740 VA: 0xCB7740
-	protected GameObject leftMaskPanel; // 0x40
-	[SerializeField] // RVA: 0xCB7750 Offset: 0xCB7750 VA: 0xCB7750
-	protected GameObject rightMaskPanel; // 0x48
-	[SerializeField] // RVA: 0xCB7760 Offset: 0xCB7760 VA: 0xCB7760
-	protected GameObject basePlateObj; // 0x50
-	private List<GameObject> leftPlateList; // 0x58
-	private List<GameObject> rightPlateList; // 0x60
-	[SerializeField] // RVA: 0xCB7770 Offset: 0xCB7770 VA: 0xCB7770
-	protected AllocMem allocMem; // 0x68
-	protected AssetsInfo assetsInfo; // 0x70
-	protected SoundInfo soundInfo; // 0x78
-	[SerializeField] // RVA: 0xCB7780 Offset: 0xCB7780 VA: 0xCB7780
-	protected Transform baseMount; // 0x80
-	[SerializeField] // RVA: 0xCB7790 Offset: 0xCB7790 VA: 0xCB7790
-	protected Transform baseMountSystemUI; // 0x88
-	[SerializeField] // RVA: 0xCB77A0 Offset: 0xCB77A0 VA: 0xCB77A0
-	protected MaskFade maskFade; // 0x90
-	[SerializeField] // RVA: 0xCB77B0 Offset: 0xCB77B0 VA: 0xCB77B0
-	protected ConnectMark connectMark; // 0x98
-	[SerializeField] // RVA: 0xCB77C0 Offset: 0xCB77C0 VA: 0xCB77C0
-	protected ErrorDialog warningDialog; // 0xA0
-	[SerializeField] // RVA: 0xCB77D0 Offset: 0xCB77D0 VA: 0xCB77D0
-	protected ErrorDialog errorDialog; // 0xA8
-	[SerializeField] // RVA: 0xCB77E0 Offset: 0xCB77E0 VA: 0xCB77E0
-	protected ErrorDialog retryDialog; // 0xB0
-	[SerializeField] // RVA: 0xCB77F0 Offset: 0xCB77F0 VA: 0xCB77F0
-	protected ErrorDialog retryBootDialog; // 0xB8
-	[SerializeField] // RVA: 0xCB7800 Offset: 0xCB7800 VA: 0xCB7800
-	protected DummyErrorSelectDialog dummyErrorSelectDialog; // 0xC0
-	[SerializeField] // RVA: 0xCB7810 Offset: 0xCB7810 VA: 0xCB7810
-	protected DebugSelectDialog debugSelectDialog; // 0xC8
-	[SerializeField] // RVA: 0xCB7820 Offset: 0xCB7820 VA: 0xCB7820
-	protected ErrorDialog dataUpdateDialog; // 0xD0
-	[SerializeField] // RVA: 0xCB7830 Offset: 0xCB7830 VA: 0xCB7830
-	protected CommonConfirmDialog commonConfirmDialog; // 0xD8
-	[SerializeField] // RVA: 0xCB7840 Offset: 0xCB7840 VA: 0xCB7840
-	protected NotificationDialog notifiDialog; // 0xE0
-	[SerializeField] // RVA: 0xCB7850 Offset: 0xCB7850 VA: 0xCB7850
-	protected PopupMessageDialog popupMessageDialog; // 0xE8
-	[SerializeField] // RVA: 0xCB7860 Offset: 0xCB7860 VA: 0xCB7860
-	protected DetailInfoDialog detailInfoDialog; // 0xF0
-	[SerializeField] // RVA: 0xCB7870 Offset: 0xCB7870 VA: 0xCB7870
-	protected MovieConfirmDialog movieConfirmDialog; // 0xF8
-	[SerializeField] // RVA: 0xCB7880 Offset: 0xCB7880 VA: 0xCB7880
-	protected LinkConfirmDialog linkConfirmDialog; // 0x100
-	[SerializeField] // RVA: 0xCB7890 Offset: 0xCB7890 VA: 0xCB7890
-	protected GameObject servantFramePurchaseMenuPrefab; // 0x108
-	[SerializeField] // RVA: 0xCB78A0 Offset: 0xCB78A0 VA: 0xCB78A0
-	protected GameObject servantEquipFramePurchaseMenuPrefab; // 0x110
-	[SerializeField] // RVA: 0xCB78B0 Offset: 0xCB78B0 VA: 0xCB78B0
-	protected string equipGraphListMenuPath; // 0x118
-	[SerializeField] // RVA: 0xCB78C0 Offset: 0xCB78C0 VA: 0xCB78C0
-	protected string supportSelectEquipListMenuPath; // 0x120
-	[SerializeField] // RVA: 0xCB78D0 Offset: 0xCB78D0 VA: 0xCB78D0
-	protected string servantSortSelectMenuPath; // 0x128
-	[SerializeField] // RVA: 0xCB78E0 Offset: 0xCB78E0 VA: 0xCB78E0
-	protected GameObject servantFilterSelectMenuPrefab; // 0x130
-	[SerializeField] // RVA: 0xCB78F0 Offset: 0xCB78F0 VA: 0xCB78F0
-	protected GameObject servantBonusFilterSelectMenuPrefab; // 0x138
-	[SerializeField] // RVA: 0xCB7900 Offset: 0xCB7900 VA: 0xCB7900
-	private string servantBonusFilterExtensionSelectMenuPrefabPath; // 0x140
-	[SerializeField] // RVA: 0xCB7910 Offset: 0xCB7910 VA: 0xCB7910
-	protected string servantStatusDialogPath; // 0x148
-	[SerializeField] // RVA: 0xCB7920 Offset: 0xCB7920 VA: 0xCB7920
-	protected string servantEquipStatusDialogPath; // 0x150
-	[SerializeField] // RVA: 0xCB7930 Offset: 0xCB7930 VA: 0xCB7930
-	protected GameObject stonePurchaseMenuPrefab; // 0x158
-	[SerializeField] // RVA: 0xCB7940 Offset: 0xCB7940 VA: 0xCB7940
-	protected StonePurchaseNotificationMenu stonePurchaseNotificationMenu; // 0x160
-	[SerializeField] // RVA: 0xCB7950 Offset: 0xCB7950 VA: 0xCB7950
-	protected GameObject userGameActRecoverMenuPrefab; // 0x168
-	[SerializeField] // RVA: 0xCB7960 Offset: 0xCB7960 VA: 0xCB7960
-	protected string userPresentBoxWindowPath; // 0x170
-	[SerializeField] // RVA: 0xCB7970 Offset: 0xCB7970 VA: 0xCB7970
-	protected GameObject presentBoxNotificationMenuPrefab; // 0x178
-	[SerializeField] // RVA: 0xCB7980 Offset: 0xCB7980 VA: 0xCB7980
-	protected TutorialNotificationDialog tutorialNotificationDialog; // 0x180
-	[SerializeField] // RVA: 0xCB7990 Offset: 0xCB7990 VA: 0xCB7990
-	protected TutorialBigDialog tutorialBigDialog; // 0x188
-	[SerializeField] // RVA: 0xCB79A0 Offset: 0xCB79A0 VA: 0xCB79A0
-	protected TutorialNotificationMessage tutorialNotificationMessage; // 0x190
-	[SerializeField] // RVA: 0xCB79B0 Offset: 0xCB79B0 VA: 0xCB79B0
-	protected TutorialArrowMenu tutorialArrowMenu; // 0x198
-	[SerializeField] // RVA: 0xCB79C0 Offset: 0xCB79C0 VA: 0xCB79C0
-	protected string logoPath; // 0x1A0
-	[SerializeField] // RVA: 0xCB79D0 Offset: 0xCB79D0 VA: 0xCB79D0
-	protected TermsOfUseDlg termsOfUseDlg; // 0x1A8
-	[SerializeField] // RVA: 0xCB79E0 Offset: 0xCB79E0 VA: 0xCB79E0
-	protected GameObject tripleButtonDlgPrefab; // 0x1B0
-	[SerializeField] // RVA: 0xCB79F0 Offset: 0xCB79F0 VA: 0xCB79F0
-	protected GameObject servantFrameShortDlgPrefab; // 0x1B8
-	[SerializeField] // RVA: 0xCB7A00 Offset: 0xCB7A00 VA: 0xCB7A00
-	protected GameObject questPhaseRewardPrefab; // 0x1C0
-	[SerializeField] // RVA: 0xCB7A10 Offset: 0xCB7A10 VA: 0xCB7A10
-	protected GameObject questPhaseRewardNotify; // 0x1C8
-	[SerializeField] // RVA: 0xCB7A20 Offset: 0xCB7A20 VA: 0xCB7A20
-	protected string userNameEntryPath; // 0x1D0
-	[SerializeField] // RVA: 0xCB7A30 Offset: 0xCB7A30 VA: 0xCB7A30
-	protected string combineResEffectPath; // 0x1D8
-	[SerializeField] // RVA: 0xCB7A40 Offset: 0xCB7A40 VA: 0xCB7A40
-	protected string classCompatibilityMenuPath; // 0x1E0
-	[SerializeField] // RVA: 0xCB7A50 Offset: 0xCB7A50 VA: 0xCB7A50
-	protected string boostSupportRequestMenuPath; // 0x1E8
-	[SerializeField] // RVA: 0xCB7A60 Offset: 0xCB7A60 VA: 0xCB7A60
-	protected string boostSupportRequestReconfirmationMenuPath; // 0x1F0
-	[SerializeField] // RVA: 0xCB7A70 Offset: 0xCB7A70 VA: 0xCB7A70
-	protected string centerEffectDetailDialogPath; // 0x1F8
-	[SerializeField] // RVA: 0xCB7A80 Offset: 0xCB7A80 VA: 0xCB7A80
-	protected string RecoverItemListDlgPath; // 0x200
-	[SerializeField] // RVA: 0xCB7A90 Offset: 0xCB7A90 VA: 0xCB7A90
-	protected string EventItemSelectDlgPath; // 0x208
-	[SerializeField] // RVA: 0xCB7AA0 Offset: 0xCB7AA0 VA: 0xCB7AA0
-	protected GameObject itemDetailDlgPrefab; // 0x210
-	[SerializeField] // RVA: 0xCB7AB0 Offset: 0xCB7AB0 VA: 0xCB7AB0
-	protected GameObject missionNotifyRoot; // 0x218
-	[SerializeField] // RVA: 0xCB7AC0 Offset: 0xCB7AC0 VA: 0xCB7AC0
-	protected GameObject missionNotifyPrefab; // 0x220
-	[SerializeField] // RVA: 0xCB7AD0 Offset: 0xCB7AD0 VA: 0xCB7AD0
-	protected string completeMissionWindowPath; // 0x228
-	[SerializeField] // RVA: 0xCB7AE0 Offset: 0xCB7AE0 VA: 0xCB7AE0
-	protected string masterMissionWindowPath; // 0x230
-	[SerializeField] // RVA: 0xCB7AF0 Offset: 0xCB7AF0 VA: 0xCB7AF0
-	protected string masterProfileWindowPath; // 0x238
-	[SerializeField] // RVA: 0xCB7B00 Offset: 0xCB7B00 VA: 0xCB7B00
-	protected string commonMultiItemGetDlgPath; // 0x240
-	[SerializeField] // RVA: 0xCB7B10 Offset: 0xCB7B10 VA: 0xCB7B10
-	protected string CampaignInfoDlgPath; // 0x248
-	[SerializeField] // RVA: 0xCB7B20 Offset: 0xCB7B20 VA: 0xCB7B20
-	protected GameObject missionRewardGetDialogPrefab; // 0x250
-	[SerializeField] // RVA: 0xCB7B30 Offset: 0xCB7B30 VA: 0xCB7B30
-	private GameObject screenTouchInfoPrefab; // 0x258
-	[SerializeField] // RVA: 0xCB7B40 Offset: 0xCB7B40 VA: 0xCB7B40
-	private GameObject screenTouchInfoPrefabExpand; // 0x260
-	[SerializeField] // RVA: 0xCB7B50 Offset: 0xCB7B50 VA: 0xCB7B50
-	protected string missionListDlgPath; // 0x268
-	[SerializeField] // RVA: 0xCB7B60 Offset: 0xCB7B60 VA: 0xCB7B60
-	protected string assistEffectConfirmDialogPath; // 0x270
-	[SerializeField] // RVA: 0xCB7B70 Offset: 0xCB7B70 VA: 0xCB7B70
-	protected GameObject warBoardTreasureGetDialogPrefab; // 0x278
-	protected Action closeNotificationCallback; // 0x280
-	[SerializeField] // RVA: 0xCB7B80 Offset: 0xCB7B80 VA: 0xCB7B80
-	protected string notificationIconDialogPrefabPath; // 0x288
-	[SerializeField] // RVA: 0xCB7B90 Offset: 0xCB7B90 VA: 0xCB7B90
-	protected string scrollMessageDialogPrefabPath; // 0x290
-	[SerializeField] // RVA: 0xCB7BA0 Offset: 0xCB7BA0 VA: 0xCB7BA0
-	protected string scrollMessageSubtitleDialogPrefabPath; // 0x298
-	[SerializeField] // RVA: 0xCB7BB0 Offset: 0xCB7BB0 VA: 0xCB7BB0
-	protected GameObject TreasureBoxDialogPrefab; // 0x2A0
-	[SerializeField] // RVA: 0xCB7BC0 Offset: 0xCB7BC0 VA: 0xCB7BC0
-	protected string achievementExchangeConditionsDialogPath; // 0x2A8
-	[SerializeField] // RVA: 0xCB7BD0 Offset: 0xCB7BD0 VA: 0xCB7BD0
-	protected string noTitleDialogPath; // 0x2B0
-	protected ServantFramePurchaseMenu servantFramePurchaseMenu; // 0x2B8
-	protected ServantEquipFramePurchaseMenu servantEquipFramePurchaseMenu; // 0x2C0
-	protected EquipGraphListMenu equipGraphListMenu; // 0x2C8
-	protected Action closeEquipGraphListMenuCallback; // 0x2D0
-	protected SupportServantEquipListMenu supportServantEquipListMenu; // 0x2D8
-	protected Action closeSupportServantEquipListMenuCallback; // 0x2E0
-	protected ServantSortSelectMenu servantSortSelectMenu; // 0x2E8
-	protected Action closeServantSortSelectMenuCallback; // 0x2F0
-	protected ServantFilterSelectMenu servantFilterSelectMenu; // 0x2F8
-	protected Action closeServantFilterSelectMenuCallback; // 0x300
-	protected ServantBonusFilterSelectMenu servantBonusFilterSelectMenu; // 0x308
-	protected Action closeServantBonusFilterSelectMenuCallback; // 0x310
-	protected ServantStatusDialog servantStatusDialog; // 0x318
-	protected Action closeServantStatusDialogCallback; // 0x320
-	protected ServantStatusDialog servantEquipStatusDialog; // 0x328

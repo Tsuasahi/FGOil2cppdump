@@ -1,41 +1,163 @@
+	// Properties
+	public abstract GameObject gameObject { get; }
+	public abstract RectTransform rectTransform { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract GameObject get_gameObject();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void RecalculateClipping();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract RectTransform get_rectTransform();
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract void Cull(Rect clipRect, bool validRect);
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void SetClipRect(Rect value, bool validRect);
+}
+
 // Namespace: UnityEngine.UI
-[RequireComponent] // RVA: 0xC7EBB0 Offset: 0xC7EBB0 VA: 0xC7EBB0
-[ExecuteAlways] // RVA: 0xC7EBB0 Offset: 0xC7EBB0 VA: 0xC7EBB0
-[AddComponentMenu] // RVA: 0xC7EBB0 Offset: 0xC7EBB0 VA: 0xC7EBB0
+internal class RectangularVertexClipper // TypeDefIndex: 3136
+{
+	// Fields
+	private readonly Vector3[] m_WorldCorners; // 0x10
+	private readonly Vector3[] m_CanvasCorners; // 0x18
+
+	// Methods
+
+	// RVA: 0x21135C0 Offset: 0x21135C0 VA: 0x21135C0
+	public void .ctor() { }
+
+	// RVA: 0x2113880 Offset: 0x2113880 VA: 0x2113880
+	public Rect GetCanvasRect(RectTransform t, Canvas c) { }
+}
+
+// Namespace: UnityEngine.UI
+[AddComponentMenu] // RVA: 0xC129DC Offset: 0xC129DC VA: 0xC129DC
+[ExecuteAlways] // RVA: 0xC129DC Offset: 0xC129DC VA: 0xC129DC
+[RequireComponent] // RVA: 0xC129DC Offset: 0xC129DC VA: 0xC129DC
+[DisallowMultipleComponent] // RVA: 0xC129DC Offset: 0xC129DC VA: 0xC129DC
+public class AspectRatioFitter : UIBehaviour, ILayoutSelfController, ILayoutController // TypeDefIndex: 3137
+{
+	// Fields
+	[SerializeField] // RVA: 0xC14ECC Offset: 0xC14ECC VA: 0xC14ECC
+	private AspectRatioFitter.AspectMode m_AspectMode; // 0x18
+	[SerializeField] // RVA: 0xC14EDC Offset: 0xC14EDC VA: 0xC14EDC
+	private float m_AspectRatio; // 0x1C
+	private RectTransform m_Rect; // 0x20
+	private bool m_DelayedSetDirty; // 0x28
+	private DrivenRectTransformTracker m_Tracker; // 0x29
+
+	// Properties
+	public AspectRatioFitter.AspectMode aspectMode { get; set; }
+	public float aspectRatio { get; set; }
+	private RectTransform rectTransform { get; }
+
+	// Methods
+
+	// RVA: 0x1F7B914 Offset: 0x1F7B914 VA: 0x1F7B914
+	protected void .ctor() { }
+
+	// RVA: 0x1F7B928 Offset: 0x1F7B928 VA: 0x1F7B928
+	public AspectRatioFitter.AspectMode get_aspectMode() { }
+
+	// RVA: 0x1F7B930 Offset: 0x1F7B930 VA: 0x1F7B930
+	public void set_aspectMode(AspectRatioFitter.AspectMode value) { }
+
+	// RVA: 0x1F7B9B0 Offset: 0x1F7B9B0 VA: 0x1F7B9B0
+	public float get_aspectRatio() { }
+
+	// RVA: 0x1F7B9B8 Offset: 0x1F7B9B8 VA: 0x1F7B9B8
+	public void set_aspectRatio(float value) { }
+
+	// RVA: 0x1F7BA34 Offset: 0x1F7BA34 VA: 0x1F7BA34
+	private RectTransform get_rectTransform() { }
+
+	// RVA: 0x1F7BACC Offset: 0x1F7BACC VA: 0x1F7BACC Slot: 5
+	protected override void OnEnable() { }
+
+	// RVA: 0x1F7BAD0 Offset: 0x1F7BAD0 VA: 0x1F7BAD0 Slot: 7
+	protected override void OnDisable() { }
+
+	// RVA: 0x1F7BB54 Offset: 0x1F7BB54 VA: 0x1F7BB54 Slot: 19
+	protected virtual void Update() { }
+
+	// RVA: 0x1F7BB68 Offset: 0x1F7BB68 VA: 0x1F7BB68 Slot: 10
+	protected override void OnRectTransformDimensionsChange() { }
+
+	// RVA: 0x1F7BB6C Offset: 0x1F7BB6C VA: 0x1F7BB6C
+	private void UpdateRect() { }
+
+	// RVA: 0x1F7BFC0 Offset: 0x1F7BFC0 VA: 0x1F7BFC0
+	private float GetSizeDeltaToProduceSize(float size, int axis) { }
+
+	// RVA: 0x1F7BEA8 Offset: 0x1F7BEA8 VA: 0x1F7BEA8
+	private Vector2 GetParentSize() { }
+
+	// RVA: 0x1F7C09C Offset: 0x1F7C09C VA: 0x1F7C09C Slot: 20
+	public virtual void SetLayoutHorizontal() { }
+
+	// RVA: 0x1F7C0A0 Offset: 0x1F7C0A0 VA: 0x1F7C0A0 Slot: 21
+	public virtual void SetLayoutVertical() { }
+
+	// RVA: 0x1F7B9AC Offset: 0x1F7B9AC VA: 0x1F7B9AC
+	protected void SetDirty() { }
+}
+
+// Namespace: 
+public enum AspectRatioFitter.AspectMode // TypeDefIndex: 3138
+{
+	// Fields
+	public int value__; // 0x0
+	public const AspectRatioFitter.AspectMode None = 0;
+	public const AspectRatioFitter.AspectMode WidthControlsHeight = 1;
+	public const AspectRatioFitter.AspectMode HeightControlsWidth = 2;
+	public const AspectRatioFitter.AspectMode FitInParent = 3;
+	public const AspectRatioFitter.AspectMode EnvelopeParent = 4;
+}
+
+// Namespace: UnityEngine.UI
+[RequireComponent] // RVA: 0xC12A88 Offset: 0xC12A88 VA: 0xC12A88
+[ExecuteAlways] // RVA: 0xC12A88 Offset: 0xC12A88 VA: 0xC12A88
+[AddComponentMenu] // RVA: 0xC12A88 Offset: 0xC12A88 VA: 0xC12A88
 public class CanvasScaler : UIBehaviour // TypeDefIndex: 3139
 {
 	// Fields
-	[TooltipAttribute] // RVA: 0xC81014 Offset: 0xC81014 VA: 0xC81014
-	[SerializeField] // RVA: 0xC81014 Offset: 0xC81014 VA: 0xC81014
+	[TooltipAttribute] // RVA: 0xC14EEC Offset: 0xC14EEC VA: 0xC14EEC
+	[SerializeField] // RVA: 0xC14EEC Offset: 0xC14EEC VA: 0xC14EEC
 	private CanvasScaler.ScaleMode m_UiScaleMode; // 0x18
-	[TooltipAttribute] // RVA: 0xC81060 Offset: 0xC81060 VA: 0xC81060
-	[SerializeField] // RVA: 0xC81060 Offset: 0xC81060 VA: 0xC81060
+	[TooltipAttribute] // RVA: 0xC14F38 Offset: 0xC14F38 VA: 0xC14F38
+	[SerializeField] // RVA: 0xC14F38 Offset: 0xC14F38 VA: 0xC14F38
 	protected float m_ReferencePixelsPerUnit; // 0x1C
-	[TooltipAttribute] // RVA: 0xC810AC Offset: 0xC810AC VA: 0xC810AC
-	[SerializeField] // RVA: 0xC810AC Offset: 0xC810AC VA: 0xC810AC
+	[TooltipAttribute] // RVA: 0xC14F84 Offset: 0xC14F84 VA: 0xC14F84
+	[SerializeField] // RVA: 0xC14F84 Offset: 0xC14F84 VA: 0xC14F84
 	protected float m_ScaleFactor; // 0x20
-	[TooltipAttribute] // RVA: 0xC810F8 Offset: 0xC810F8 VA: 0xC810F8
-	[SerializeField] // RVA: 0xC810F8 Offset: 0xC810F8 VA: 0xC810F8
+	[TooltipAttribute] // RVA: 0xC14FD0 Offset: 0xC14FD0 VA: 0xC14FD0
+	[SerializeField] // RVA: 0xC14FD0 Offset: 0xC14FD0 VA: 0xC14FD0
 	protected Vector2 m_ReferenceResolution; // 0x24
-	[TooltipAttribute] // RVA: 0xC81144 Offset: 0xC81144 VA: 0xC81144
-	[SerializeField] // RVA: 0xC81144 Offset: 0xC81144 VA: 0xC81144
+	[TooltipAttribute] // RVA: 0xC1501C Offset: 0xC1501C VA: 0xC1501C
+	[SerializeField] // RVA: 0xC1501C Offset: 0xC1501C VA: 0xC1501C
 	protected CanvasScaler.ScreenMatchMode m_ScreenMatchMode; // 0x2C
-	[TooltipAttribute] // RVA: 0xC81190 Offset: 0xC81190 VA: 0xC81190
-	[RangeAttribute] // RVA: 0xC81190 Offset: 0xC81190 VA: 0xC81190
-	[SerializeField] // RVA: 0xC81190 Offset: 0xC81190 VA: 0xC81190
+	[TooltipAttribute] // RVA: 0xC15068 Offset: 0xC15068 VA: 0xC15068
+	[RangeAttribute] // RVA: 0xC15068 Offset: 0xC15068 VA: 0xC15068
+	[SerializeField] // RVA: 0xC15068 Offset: 0xC15068 VA: 0xC15068
 	protected float m_MatchWidthOrHeight; // 0x30
 	private const float kLogBase = 2;
-	[TooltipAttribute] // RVA: 0xC811F4 Offset: 0xC811F4 VA: 0xC811F4
-	[SerializeField] // RVA: 0xC811F4 Offset: 0xC811F4 VA: 0xC811F4
+	[TooltipAttribute] // RVA: 0xC150CC Offset: 0xC150CC VA: 0xC150CC
+	[SerializeField] // RVA: 0xC150CC Offset: 0xC150CC VA: 0xC150CC
 	protected CanvasScaler.Unit m_PhysicalUnit; // 0x34
-	[TooltipAttribute] // RVA: 0xC81240 Offset: 0xC81240 VA: 0xC81240
-	[SerializeField] // RVA: 0xC81240 Offset: 0xC81240 VA: 0xC81240
+	[TooltipAttribute] // RVA: 0xC15118 Offset: 0xC15118 VA: 0xC15118
+	[SerializeField] // RVA: 0xC15118 Offset: 0xC15118 VA: 0xC15118
 	protected float m_FallbackScreenDPI; // 0x38
-	[TooltipAttribute] // RVA: 0xC8128C Offset: 0xC8128C VA: 0xC8128C
-	[SerializeField] // RVA: 0xC8128C Offset: 0xC8128C VA: 0xC8128C
+	[TooltipAttribute] // RVA: 0xC15164 Offset: 0xC15164 VA: 0xC15164
+	[SerializeField] // RVA: 0xC15164 Offset: 0xC15164 VA: 0xC15164
 	protected float m_DefaultSpriteDPI; // 0x3C
-	[TooltipAttribute] // RVA: 0xC812D8 Offset: 0xC812D8 VA: 0xC812D8
-	[SerializeField] // RVA: 0xC812D8 Offset: 0xC812D8 VA: 0xC812D8
+	[TooltipAttribute] // RVA: 0xC151B0 Offset: 0xC151B0 VA: 0xC151B0
+	[SerializeField] // RVA: 0xC151B0 Offset: 0xC151B0 VA: 0xC151B0
 	protected float m_DynamicPixelsPerUnit; // 0x40
 	private Canvas m_Canvas; // 0x48
 	private float m_PrevScaleFactor; // 0x50
@@ -55,97 +177,97 @@ public class CanvasScaler : UIBehaviour // TypeDefIndex: 3139
 
 	// Methods
 
-	// RVA: 0xF1729C Offset: 0xF1729C VA: 0xF1729C
+	// RVA: 0x1F7C928 Offset: 0x1F7C928 VA: 0x1F7C928
 	protected void .ctor() { }
 
-	// RVA: 0xF17324 Offset: 0xF17324 VA: 0xF17324
+	// RVA: 0x1F7C9B0 Offset: 0x1F7C9B0 VA: 0x1F7C9B0
 	public CanvasScaler.ScaleMode get_uiScaleMode() { }
 
-	// RVA: 0xF1732C Offset: 0xF1732C VA: 0xF1732C
+	// RVA: 0x1F7C9B8 Offset: 0x1F7C9B8 VA: 0x1F7C9B8
 	public void set_uiScaleMode(CanvasScaler.ScaleMode value) { }
 
-	// RVA: 0xF17334 Offset: 0xF17334 VA: 0xF17334
+	// RVA: 0x1F7C9C0 Offset: 0x1F7C9C0 VA: 0x1F7C9C0
 	public float get_referencePixelsPerUnit() { }
 
-	// RVA: 0xF1733C Offset: 0xF1733C VA: 0xF1733C
+	// RVA: 0x1F7C9C8 Offset: 0x1F7C9C8 VA: 0x1F7C9C8
 	public void set_referencePixelsPerUnit(float value) { }
 
-	// RVA: 0xF17344 Offset: 0xF17344 VA: 0xF17344
+	// RVA: 0x1F7C9D0 Offset: 0x1F7C9D0 VA: 0x1F7C9D0
 	public float get_scaleFactor() { }
 
-	// RVA: 0xF1734C Offset: 0xF1734C VA: 0xF1734C
+	// RVA: 0x1F7C9D8 Offset: 0x1F7C9D8 VA: 0x1F7C9D8
 	public void set_scaleFactor(float value) { }
 
-	// RVA: 0xF173D0 Offset: 0xF173D0 VA: 0xF173D0
+	// RVA: 0x1F7CA5C Offset: 0x1F7CA5C VA: 0x1F7CA5C
 	public Vector2 get_referenceResolution() { }
 
-	// RVA: 0xF173D8 Offset: 0xF173D8 VA: 0xF173D8
+	// RVA: 0x1F7CA64 Offset: 0x1F7CA64 VA: 0x1F7CA64
 	public void set_referenceResolution(Vector2 value) { }
 
-	// RVA: 0xF174D8 Offset: 0xF174D8 VA: 0xF174D8
+	// RVA: 0x1F7CB64 Offset: 0x1F7CB64 VA: 0x1F7CB64
 	public CanvasScaler.ScreenMatchMode get_screenMatchMode() { }
 
-	// RVA: 0xF174E0 Offset: 0xF174E0 VA: 0xF174E0
+	// RVA: 0x1F7CB6C Offset: 0x1F7CB6C VA: 0x1F7CB6C
 	public void set_screenMatchMode(CanvasScaler.ScreenMatchMode value) { }
 
-	// RVA: 0xF174E8 Offset: 0xF174E8 VA: 0xF174E8
+	// RVA: 0x1F7CB74 Offset: 0x1F7CB74 VA: 0x1F7CB74
 	public float get_matchWidthOrHeight() { }
 
-	// RVA: 0xF174F0 Offset: 0xF174F0 VA: 0xF174F0
+	// RVA: 0x1F7CB7C Offset: 0x1F7CB7C VA: 0x1F7CB7C
 	public void set_matchWidthOrHeight(float value) { }
 
-	// RVA: 0xF174F8 Offset: 0xF174F8 VA: 0xF174F8
+	// RVA: 0x1F7CB84 Offset: 0x1F7CB84 VA: 0x1F7CB84
 	public CanvasScaler.Unit get_physicalUnit() { }
 
-	// RVA: 0xF17500 Offset: 0xF17500 VA: 0xF17500
+	// RVA: 0x1F7CB8C Offset: 0x1F7CB8C VA: 0x1F7CB8C
 	public void set_physicalUnit(CanvasScaler.Unit value) { }
 
-	// RVA: 0xF17508 Offset: 0xF17508 VA: 0xF17508
+	// RVA: 0x1F7CB94 Offset: 0x1F7CB94 VA: 0x1F7CB94
 	public float get_fallbackScreenDPI() { }
 
-	// RVA: 0xF17510 Offset: 0xF17510 VA: 0xF17510
+	// RVA: 0x1F7CB9C Offset: 0x1F7CB9C VA: 0x1F7CB9C
 	public void set_fallbackScreenDPI(float value) { }
 
-	// RVA: 0xF17518 Offset: 0xF17518 VA: 0xF17518
+	// RVA: 0x1F7CBA4 Offset: 0x1F7CBA4 VA: 0x1F7CBA4
 	public float get_defaultSpriteDPI() { }
 
-	// RVA: 0xF17520 Offset: 0xF17520 VA: 0xF17520
+	// RVA: 0x1F7CBAC Offset: 0x1F7CBAC VA: 0x1F7CBAC
 	public void set_defaultSpriteDPI(float value) { }
 
-	// RVA: 0xF175A0 Offset: 0xF175A0 VA: 0xF175A0
+	// RVA: 0x1F7CC2C Offset: 0x1F7CC2C VA: 0x1F7CC2C
 	public float get_dynamicPixelsPerUnit() { }
 
-	// RVA: 0xF175A8 Offset: 0xF175A8 VA: 0xF175A8
+	// RVA: 0x1F7CC34 Offset: 0x1F7CC34 VA: 0x1F7CC34
 	public void set_dynamicPixelsPerUnit(float value) { }
 
-	// RVA: 0xF175B0 Offset: 0xF175B0 VA: 0xF175B0 Slot: 5
+	// RVA: 0x1F7CC3C Offset: 0x1F7CC3C VA: 0x1F7CC3C Slot: 5
 	protected override void OnEnable() { }
 
-	// RVA: 0xF17618 Offset: 0xF17618 VA: 0xF17618 Slot: 7
+	// RVA: 0x1F7CCA4 Offset: 0x1F7CCA4 VA: 0x1F7CCA4 Slot: 7
 	protected override void OnDisable() { }
 
-	// RVA: 0xF176F8 Offset: 0xF176F8 VA: 0xF176F8 Slot: 17
+	// RVA: 0x1F7CD84 Offset: 0x1F7CD84 VA: 0x1F7CD84 Slot: 17
 	protected virtual void Update() { }
 
-	// RVA: 0xF17708 Offset: 0xF17708 VA: 0xF17708 Slot: 18
+	// RVA: 0x1F7CD94 Offset: 0x1F7CD94 VA: 0x1F7CD94 Slot: 18
 	protected virtual void Handle() { }
 
-	// RVA: 0xF17828 Offset: 0xF17828 VA: 0xF17828 Slot: 19
+	// RVA: 0x1F7CEB4 Offset: 0x1F7CEB4 VA: 0x1F7CEB4 Slot: 19
 	protected virtual void HandleWorldCanvas() { }
 
-	// RVA: 0xF17854 Offset: 0xF17854 VA: 0xF17854 Slot: 20
+	// RVA: 0x1F7CEE0 Offset: 0x1F7CEE0 VA: 0x1F7CEE0 Slot: 20
 	protected virtual void HandleConstantPixelSize() { }
 
-	// RVA: 0xF17880 Offset: 0xF17880 VA: 0xF17880 Slot: 21
+	// RVA: 0x1F7CF0C Offset: 0x1F7CF0C VA: 0x1F7CF0C Slot: 21
 	protected virtual void HandleScaleWithScreenSize() { }
 
-	// RVA: 0xF17B40 Offset: 0xF17B40 VA: 0xF17B40 Slot: 22
+	// RVA: 0x1F7D1CC Offset: 0x1F7D1CC VA: 0x1F7D1CC Slot: 22
 	protected virtual void HandleConstantPhysicalSize() { }
 
-	// RVA: 0xF17648 Offset: 0xF17648 VA: 0xF17648
+	// RVA: 0x1F7CCD4 Offset: 0x1F7CCD4 VA: 0x1F7CCD4
 	protected void SetScaleFactor(float scaleFactor) { }
 
-	// RVA: 0xF176A0 Offset: 0xF176A0 VA: 0xF176A0
+	// RVA: 0x1F7CD2C Offset: 0x1F7CD2C VA: 0x1F7CD2C
 	protected void SetReferencePixelsPerUnit(float referencePixelsPerUnit) { }
 }
 
@@ -182,15 +304,15 @@ public enum CanvasScaler.Unit // TypeDefIndex: 3142
 }
 
 // Namespace: UnityEngine.UI
-[AddComponentMenu] // RVA: 0xC7EC4C Offset: 0xC7EC4C VA: 0xC7EC4C
-[ExecuteAlways] // RVA: 0xC7EC4C Offset: 0xC7EC4C VA: 0xC7EC4C
-[RequireComponent] // RVA: 0xC7EC4C Offset: 0xC7EC4C VA: 0xC7EC4C
+[AddComponentMenu] // RVA: 0xC12B24 Offset: 0xC12B24 VA: 0xC12B24
+[ExecuteAlways] // RVA: 0xC12B24 Offset: 0xC12B24 VA: 0xC12B24
+[RequireComponent] // RVA: 0xC12B24 Offset: 0xC12B24 VA: 0xC12B24
 public class ContentSizeFitter : UIBehaviour, ILayoutSelfController, ILayoutController // TypeDefIndex: 3143
 {
 	// Fields
-	[SerializeField] // RVA: 0xC81324 Offset: 0xC81324 VA: 0xC81324
+	[SerializeField] // RVA: 0xC151FC Offset: 0xC151FC VA: 0xC151FC
 	protected ContentSizeFitter.FitMode m_HorizontalFit; // 0x18
-	[SerializeField] // RVA: 0xC81334 Offset: 0xC81334 VA: 0xC81334
+	[SerializeField] // RVA: 0xC1520C Offset: 0xC1520C VA: 0xC1520C
 	protected ContentSizeFitter.FitMode m_VerticalFit; // 0x1C
 	private RectTransform m_Rect; // 0x20
 	private DrivenRectTransformTracker m_Tracker; // 0x28
@@ -202,43 +324,43 @@ public class ContentSizeFitter : UIBehaviour, ILayoutSelfController, ILayoutCont
 
 	// Methods
 
-	// RVA: 0xF1A064 Offset: 0xF1A064 VA: 0xF1A064
+	// RVA: 0x1F7F6F0 Offset: 0x1F7F6F0 VA: 0x1F7F6F0
 	protected void .ctor() { }
 
-	// RVA: 0xF1A070 Offset: 0xF1A070 VA: 0xF1A070
+	// RVA: 0x1F7F6FC Offset: 0x1F7F6FC VA: 0x1F7F6FC
 	public ContentSizeFitter.FitMode get_horizontalFit() { }
 
-	// RVA: 0xF1A078 Offset: 0xF1A078 VA: 0xF1A078
+	// RVA: 0x1F7F704 Offset: 0x1F7F704 VA: 0x1F7F704
 	public void set_horizontalFit(ContentSizeFitter.FitMode value) { }
 
-	// RVA: 0xF1A18C Offset: 0xF1A18C VA: 0xF1A18C
+	// RVA: 0x1F7F818 Offset: 0x1F7F818 VA: 0x1F7F818
 	public ContentSizeFitter.FitMode get_verticalFit() { }
 
-	// RVA: 0xF1A194 Offset: 0xF1A194 VA: 0xF1A194
+	// RVA: 0x1F7F820 Offset: 0x1F7F820 VA: 0x1F7F820
 	public void set_verticalFit(ContentSizeFitter.FitMode value) { }
 
-	// RVA: 0xF1A210 Offset: 0xF1A210 VA: 0xF1A210
+	// RVA: 0x1F7F89C Offset: 0x1F7F89C VA: 0x1F7F89C
 	private RectTransform get_rectTransform() { }
 
-	// RVA: 0xF1A2A8 Offset: 0xF1A2A8 VA: 0xF1A2A8 Slot: 5
+	// RVA: 0x1F7F934 Offset: 0x1F7F934 VA: 0x1F7F934 Slot: 5
 	protected override void OnEnable() { }
 
-	// RVA: 0xF1A2AC Offset: 0xF1A2AC VA: 0xF1A2AC Slot: 7
+	// RVA: 0x1F7F938 Offset: 0x1F7F938 VA: 0x1F7F938 Slot: 7
 	protected override void OnDisable() { }
 
-	// RVA: 0xF1A330 Offset: 0xF1A330 VA: 0xF1A330 Slot: 10
+	// RVA: 0x1F7F9BC Offset: 0x1F7F9BC VA: 0x1F7F9BC Slot: 10
 	protected override void OnRectTransformDimensionsChange() { }
 
-	// RVA: 0xF1A334 Offset: 0xF1A334 VA: 0xF1A334
+	// RVA: 0x1F7F9C0 Offset: 0x1F7F9C0 VA: 0x1F7F9C0
 	private void HandleSelfFittingAlongAxis(int axis) { }
 
-	// RVA: 0xF1A41C Offset: 0xF1A41C VA: 0xF1A41C Slot: 19
+	// RVA: 0x1F7FAA8 Offset: 0x1F7FAA8 VA: 0x1F7FAA8 Slot: 19
 	public virtual void SetLayoutHorizontal() { }
 
-	// RVA: 0xF1A44C Offset: 0xF1A44C VA: 0xF1A44C Slot: 20
+	// RVA: 0x1F7FAD8 Offset: 0x1F7FAD8 VA: 0x1F7FAD8 Slot: 20
 	public virtual void SetLayoutVertical() { }
 
-	// RVA: 0xF1A0F4 Offset: 0xF1A0F4 VA: 0xF1A0F4
+	// RVA: 0x1F7F780 Offset: 0x1F7F780 VA: 0x1F7F780
 	protected void SetDirty() { }
 }
 
@@ -253,21 +375,21 @@ public enum ContentSizeFitter.FitMode // TypeDefIndex: 3144
 }
 
 // Namespace: UnityEngine.UI
-[AddComponentMenu] // RVA: 0xC7ECE8 Offset: 0xC7ECE8 VA: 0xC7ECE8
+[AddComponentMenu] // RVA: 0xC12BC0 Offset: 0xC12BC0 VA: 0xC12BC0
 public class GridLayoutGroup : LayoutGroup // TypeDefIndex: 3145
 {
 	// Fields
-	[SerializeField] // RVA: 0xC81344 Offset: 0xC81344 VA: 0xC81344
+	[SerializeField] // RVA: 0xC1521C Offset: 0xC1521C VA: 0xC1521C
 	protected GridLayoutGroup.Corner m_StartCorner; // 0x58
-	[SerializeField] // RVA: 0xC81354 Offset: 0xC81354 VA: 0xC81354
+	[SerializeField] // RVA: 0xC1522C Offset: 0xC1522C VA: 0xC1522C
 	protected GridLayoutGroup.Axis m_StartAxis; // 0x5C
-	[SerializeField] // RVA: 0xC81364 Offset: 0xC81364 VA: 0xC81364
+	[SerializeField] // RVA: 0xC1523C Offset: 0xC1523C VA: 0xC1523C
 	protected Vector2 m_CellSize; // 0x60
-	[SerializeField] // RVA: 0xC81374 Offset: 0xC81374 VA: 0xC81374
+	[SerializeField] // RVA: 0xC1524C Offset: 0xC1524C VA: 0xC1524C
 	protected Vector2 m_Spacing; // 0x68
-	[SerializeField] // RVA: 0xC81384 Offset: 0xC81384 VA: 0xC81384
+	[SerializeField] // RVA: 0xC1525C Offset: 0xC1525C VA: 0xC1525C
 	protected GridLayoutGroup.Constraint m_Constraint; // 0x70
-	[SerializeField] // RVA: 0xC81394 Offset: 0xC81394 VA: 0xC81394
+	[SerializeField] // RVA: 0xC1526C Offset: 0xC1526C VA: 0xC1526C
 	protected int m_ConstraintCount; // 0x74
 
 	// Properties
@@ -280,58 +402,58 @@ public class GridLayoutGroup : LayoutGroup // TypeDefIndex: 3145
 
 	// Methods
 
-	// RVA: 0x1018DD0 Offset: 0x1018DD0 VA: 0x1018DD0
+	// RVA: 0x214B1A8 Offset: 0x214B1A8 VA: 0x214B1A8
 	protected void .ctor() { }
 
-	// RVA: 0x1018F80 Offset: 0x1018F80 VA: 0x1018F80
+	// RVA: 0x214B358 Offset: 0x214B358 VA: 0x214B358
 	public GridLayoutGroup.Corner get_startCorner() { }
 
-	// RVA: 0x1018F88 Offset: 0x1018F88 VA: 0x1018F88
+	// RVA: 0x214B360 Offset: 0x214B360 VA: 0x214B360
 	public void set_startCorner(GridLayoutGroup.Corner value) { }
 
-	// RVA: 0x1018FEC Offset: 0x1018FEC VA: 0x1018FEC
+	// RVA: 0x214B3C4 Offset: 0x214B3C4 VA: 0x214B3C4
 	public GridLayoutGroup.Axis get_startAxis() { }
 
-	// RVA: 0x1018FF4 Offset: 0x1018FF4 VA: 0x1018FF4
+	// RVA: 0x214B3CC Offset: 0x214B3CC VA: 0x214B3CC
 	public void set_startAxis(GridLayoutGroup.Axis value) { }
 
-	// RVA: 0x1019058 Offset: 0x1019058 VA: 0x1019058
+	// RVA: 0x214B430 Offset: 0x214B430 VA: 0x214B430
 	public Vector2 get_cellSize() { }
 
-	// RVA: 0x1019060 Offset: 0x1019060 VA: 0x1019060
+	// RVA: 0x214B438 Offset: 0x214B438 VA: 0x214B438
 	public void set_cellSize(Vector2 value) { }
 
-	// RVA: 0x10190CC Offset: 0x10190CC VA: 0x10190CC
+	// RVA: 0x214B4A4 Offset: 0x214B4A4 VA: 0x214B4A4
 	public Vector2 get_spacing() { }
 
-	// RVA: 0x10190D4 Offset: 0x10190D4 VA: 0x10190D4
+	// RVA: 0x214B4AC Offset: 0x214B4AC VA: 0x214B4AC
 	public void set_spacing(Vector2 value) { }
 
-	// RVA: 0x1019140 Offset: 0x1019140 VA: 0x1019140
+	// RVA: 0x214B518 Offset: 0x214B518 VA: 0x214B518
 	public GridLayoutGroup.Constraint get_constraint() { }
 
-	// RVA: 0x1019148 Offset: 0x1019148 VA: 0x1019148
+	// RVA: 0x214B520 Offset: 0x214B520 VA: 0x214B520
 	public void set_constraint(GridLayoutGroup.Constraint value) { }
 
-	// RVA: 0x10191AC Offset: 0x10191AC VA: 0x10191AC
+	// RVA: 0x214B584 Offset: 0x214B584 VA: 0x214B584
 	public int get_constraintCount() { }
 
-	// RVA: 0x10191B4 Offset: 0x10191B4 VA: 0x10191B4
+	// RVA: 0x214B58C Offset: 0x214B58C VA: 0x214B58C
 	public void set_constraintCount(int value) { }
 
-	// RVA: 0x101924C Offset: 0x101924C VA: 0x101924C Slot: 28
+	// RVA: 0x214B624 Offset: 0x214B624 VA: 0x214B624 Slot: 28
 	public override void CalculateLayoutInputHorizontal() { }
 
-	// RVA: 0x1019840 Offset: 0x1019840 VA: 0x1019840 Slot: 29
+	// RVA: 0x214BC18 Offset: 0x214BC18 VA: 0x214BC18 Slot: 29
 	public override void CalculateLayoutInputVertical() { }
 
-	// RVA: 0x1019B10 Offset: 0x1019B10 VA: 0x1019B10 Slot: 37
+	// RVA: 0x214BEE8 Offset: 0x214BEE8 VA: 0x214BEE8 Slot: 37
 	public override void SetLayoutHorizontal() { }
 
-	// RVA: 0x101A318 Offset: 0x101A318 VA: 0x101A318 Slot: 38
+	// RVA: 0x214C6F0 Offset: 0x214C6F0 VA: 0x214C6F0 Slot: 38
 	public override void SetLayoutVertical() { }
 
-	// RVA: 0x1019B18 Offset: 0x1019B18 VA: 0x1019B18
+	// RVA: 0x214BEF0 Offset: 0x214BEF0 VA: 0x214BEF0
 	private void SetCellsAlongAxis(int axis) { }
 }
 
@@ -366,24 +488,24 @@ public enum GridLayoutGroup.Constraint // TypeDefIndex: 3148
 }
 
 // Namespace: UnityEngine.UI
-[AddComponentMenu] // RVA: 0xC7ED24 Offset: 0xC7ED24 VA: 0xC7ED24
+[AddComponentMenu] // RVA: 0xC12BFC Offset: 0xC12BFC VA: 0xC12BFC
 public class HorizontalLayoutGroup : HorizontalOrVerticalLayoutGroup // TypeDefIndex: 3149
 {
 	// Methods
 
-	// RVA: 0x101A56C Offset: 0x101A56C VA: 0x101A56C
+	// RVA: 0x214C944 Offset: 0x214C944 VA: 0x214C944
 	protected void .ctor() { }
 
-	// RVA: 0x101A594 Offset: 0x101A594 VA: 0x101A594 Slot: 28
+	// RVA: 0x214C96C Offset: 0x214C96C VA: 0x214C96C Slot: 28
 	public override void CalculateLayoutInputHorizontal() { }
 
-	// RVA: 0x101A85C Offset: 0x101A85C VA: 0x101A85C Slot: 29
+	// RVA: 0x214CC34 Offset: 0x214CC34 VA: 0x214CC34 Slot: 29
 	public override void CalculateLayoutInputVertical() { }
 
-	// RVA: 0x101A868 Offset: 0x101A868 VA: 0x101A868 Slot: 37
+	// RVA: 0x214CC40 Offset: 0x214CC40 VA: 0x214CC40 Slot: 37
 	public override void SetLayoutHorizontal() { }
 
-	// RVA: 0x101AEA0 Offset: 0x101AEA0 VA: 0x101AEA0 Slot: 38
+	// RVA: 0x214D278 Offset: 0x214D278 VA: 0x214D278 Slot: 38
 	public override void SetLayoutVertical() { }
 }
 
@@ -391,15 +513,15 @@ public class HorizontalLayoutGroup : HorizontalOrVerticalLayoutGroup // TypeDefI
 public abstract class HorizontalOrVerticalLayoutGroup : LayoutGroup // TypeDefIndex: 3150
 {
 	// Fields
-	[SerializeField] // RVA: 0xC813A4 Offset: 0xC813A4 VA: 0xC813A4
+	[SerializeField] // RVA: 0xC1527C Offset: 0xC1527C VA: 0xC1527C
 	protected float m_Spacing; // 0x58
-	[SerializeField] // RVA: 0xC813B4 Offset: 0xC813B4 VA: 0xC813B4
+	[SerializeField] // RVA: 0xC1528C Offset: 0xC1528C VA: 0xC1528C
 	protected bool m_ChildForceExpandWidth; // 0x5C
-	[SerializeField] // RVA: 0xC813C4 Offset: 0xC813C4 VA: 0xC813C4
+	[SerializeField] // RVA: 0xC1529C Offset: 0xC1529C VA: 0xC1529C
 	protected bool m_ChildForceExpandHeight; // 0x5D
-	[SerializeField] // RVA: 0xC813D4 Offset: 0xC813D4 VA: 0xC813D4
+	[SerializeField] // RVA: 0xC152AC Offset: 0xC152AC VA: 0xC152AC
 	protected bool m_ChildControlWidth; // 0x5E
-	[SerializeField] // RVA: 0xC813E4 Offset: 0xC813E4 VA: 0xC813E4
+	[SerializeField] // RVA: 0xC152BC Offset: 0xC152BC VA: 0xC152BC
 	protected bool m_ChildControlHeight; // 0x5F
 
 	// Properties
@@ -411,46 +533,46 @@ public abstract class HorizontalOrVerticalLayoutGroup : LayoutGroup // TypeDefIn
 
 	// Methods
 
-	// RVA: 0x101A580 Offset: 0x101A580 VA: 0x101A580
+	// RVA: 0x214C958 Offset: 0x214C958 VA: 0x214C958
 	protected void .ctor() { }
 
-	// RVA: 0x101AEAC Offset: 0x101AEAC VA: 0x101AEAC
+	// RVA: 0x214D284 Offset: 0x214D284 VA: 0x214D284
 	public float get_spacing() { }
 
-	// RVA: 0x101AEB4 Offset: 0x101AEB4 VA: 0x101AEB4
+	// RVA: 0x214D28C Offset: 0x214D28C VA: 0x214D28C
 	public void set_spacing(float value) { }
 
-	// RVA: 0x101AF18 Offset: 0x101AF18 VA: 0x101AF18
+	// RVA: 0x214D2F0 Offset: 0x214D2F0 VA: 0x214D2F0
 	public bool get_childForceExpandWidth() { }
 
-	// RVA: 0x101AF20 Offset: 0x101AF20 VA: 0x101AF20
+	// RVA: 0x214D2F8 Offset: 0x214D2F8 VA: 0x214D2F8
 	public void set_childForceExpandWidth(bool value) { }
 
-	// RVA: 0x101AF84 Offset: 0x101AF84 VA: 0x101AF84
+	// RVA: 0x214D35C Offset: 0x214D35C VA: 0x214D35C
 	public bool get_childForceExpandHeight() { }
 
-	// RVA: 0x101AF8C Offset: 0x101AF8C VA: 0x101AF8C
+	// RVA: 0x214D364 Offset: 0x214D364 VA: 0x214D364
 	public void set_childForceExpandHeight(bool value) { }
 
-	// RVA: 0x101AFF0 Offset: 0x101AFF0 VA: 0x101AFF0
+	// RVA: 0x214D3C8 Offset: 0x214D3C8 VA: 0x214D3C8
 	public bool get_childControlWidth() { }
 
-	// RVA: 0x101AFF8 Offset: 0x101AFF8 VA: 0x101AFF8
+	// RVA: 0x214D3D0 Offset: 0x214D3D0 VA: 0x214D3D0
 	public void set_childControlWidth(bool value) { }
 
-	// RVA: 0x101B05C Offset: 0x101B05C VA: 0x101B05C
+	// RVA: 0x214D434 Offset: 0x214D434 VA: 0x214D434
 	public bool get_childControlHeight() { }
 
-	// RVA: 0x101B064 Offset: 0x101B064 VA: 0x101B064
+	// RVA: 0x214D43C Offset: 0x214D43C VA: 0x214D43C
 	public void set_childControlHeight(bool value) { }
 
-	// RVA: 0x101A5C0 Offset: 0x101A5C0 VA: 0x101A5C0
+	// RVA: 0x214C998 Offset: 0x214C998 VA: 0x214C998
 	protected void CalcAlongAxis(int axis, bool isVertical) { }
 
-	// RVA: 0x101A874 Offset: 0x101A874 VA: 0x101A874
+	// RVA: 0x214CC4C Offset: 0x214CC4C VA: 0x214CC4C
 	protected void SetChildrenAlongAxis(int axis, bool isVertical) { }
 
-	// RVA: 0x101B0C8 Offset: 0x101B0C8 VA: 0x101B0C8
+	// RVA: 0x214D4A0 Offset: 0x214D4A0 VA: 0x214D4A0
 	private void GetChildSizes(RectTransform child, int axis, bool controlSize, bool childForceExpand, out float min, out float preferred, out float flexible) { }
 }
 
@@ -529,27 +651,27 @@ public interface ILayoutIgnorer // TypeDefIndex: 3155
 }
 
 // Namespace: UnityEngine.UI
-[AddComponentMenu] // RVA: 0xC7ED60 Offset: 0xC7ED60 VA: 0xC7ED60
-[RequireComponent] // RVA: 0xC7ED60 Offset: 0xC7ED60 VA: 0xC7ED60
-[ExecuteAlways] // RVA: 0xC7ED60 Offset: 0xC7ED60 VA: 0xC7ED60
+[AddComponentMenu] // RVA: 0xC12C38 Offset: 0xC12C38 VA: 0xC12C38
+[RequireComponent] // RVA: 0xC12C38 Offset: 0xC12C38 VA: 0xC12C38
+[ExecuteAlways] // RVA: 0xC12C38 Offset: 0xC12C38 VA: 0xC12C38
 public class LayoutElement : UIBehaviour, ILayoutElement, ILayoutIgnorer // TypeDefIndex: 3156
 {
 	// Fields
-	[SerializeField] // RVA: 0xC813F4 Offset: 0xC813F4 VA: 0xC813F4
+	[SerializeField] // RVA: 0xC152CC Offset: 0xC152CC VA: 0xC152CC
 	private bool m_IgnoreLayout; // 0x18
-	[SerializeField] // RVA: 0xC81404 Offset: 0xC81404 VA: 0xC81404
+	[SerializeField] // RVA: 0xC152DC Offset: 0xC152DC VA: 0xC152DC
 	private float m_MinWidth; // 0x1C
-	[SerializeField] // RVA: 0xC81414 Offset: 0xC81414 VA: 0xC81414
+	[SerializeField] // RVA: 0xC152EC Offset: 0xC152EC VA: 0xC152EC
 	private float m_MinHeight; // 0x20
-	[SerializeField] // RVA: 0xC81424 Offset: 0xC81424 VA: 0xC81424
+	[SerializeField] // RVA: 0xC152FC Offset: 0xC152FC VA: 0xC152FC
 	private float m_PreferredWidth; // 0x24
-	[SerializeField] // RVA: 0xC81434 Offset: 0xC81434 VA: 0xC81434
+	[SerializeField] // RVA: 0xC1530C Offset: 0xC1530C VA: 0xC1530C
 	private float m_PreferredHeight; // 0x28
-	[SerializeField] // RVA: 0xC81444 Offset: 0xC81444 VA: 0xC81444
+	[SerializeField] // RVA: 0xC1531C Offset: 0xC1531C VA: 0xC1531C
 	private float m_FlexibleWidth; // 0x2C
-	[SerializeField] // RVA: 0xC81454 Offset: 0xC81454 VA: 0xC81454
+	[SerializeField] // RVA: 0xC1532C Offset: 0xC1532C VA: 0xC1532C
 	private float m_FlexibleHeight; // 0x30
-	[SerializeField] // RVA: 0xC81464 Offset: 0xC81464 VA: 0xC81464
+	[SerializeField] // RVA: 0xC1533C Offset: 0xC1533C VA: 0xC1533C
 	private int m_LayoutPriority; // 0x34
 
 	// Properties
@@ -564,92 +686,92 @@ public class LayoutElement : UIBehaviour, ILayoutElement, ILayoutIgnorer // Type
 
 	// Methods
 
-	// RVA: 0x102DC94 Offset: 0x102DC94 VA: 0x102DC94
+	// RVA: 0x216006C Offset: 0x216006C VA: 0x216006C
 	protected void .ctor() { }
 
-	// RVA: 0x102DCBC Offset: 0x102DCBC VA: 0x102DCBC Slot: 27
+	// RVA: 0x2160094 Offset: 0x2160094 VA: 0x2160094 Slot: 27
 	public virtual bool get_ignoreLayout() { }
 
-	// RVA: 0x102DCC4 Offset: 0x102DCC4 VA: 0x102DCC4 Slot: 28
+	// RVA: 0x216009C Offset: 0x216009C VA: 0x216009C Slot: 28
 	public virtual void set_ignoreLayout(bool value) { }
 
-	// RVA: 0x102DE00 Offset: 0x102DE00 VA: 0x102DE00 Slot: 29
+	// RVA: 0x21601D8 Offset: 0x21601D8 VA: 0x21601D8 Slot: 29
 	public virtual void CalculateLayoutInputHorizontal() { }
 
-	// RVA: 0x102DE04 Offset: 0x102DE04 VA: 0x102DE04 Slot: 30
+	// RVA: 0x21601DC Offset: 0x21601DC VA: 0x21601DC Slot: 30
 	public virtual void CalculateLayoutInputVertical() { }
 
-	// RVA: 0x102DE08 Offset: 0x102DE08 VA: 0x102DE08 Slot: 31
+	// RVA: 0x21601E0 Offset: 0x21601E0 VA: 0x21601E0 Slot: 31
 	public virtual float get_minWidth() { }
 
-	// RVA: 0x102DE10 Offset: 0x102DE10 VA: 0x102DE10 Slot: 32
+	// RVA: 0x21601E8 Offset: 0x21601E8 VA: 0x21601E8 Slot: 32
 	public virtual void set_minWidth(float value) { }
 
-	// RVA: 0x102DE8C Offset: 0x102DE8C VA: 0x102DE8C Slot: 33
+	// RVA: 0x2160264 Offset: 0x2160264 VA: 0x2160264 Slot: 33
 	public virtual float get_minHeight() { }
 
-	// RVA: 0x102DE94 Offset: 0x102DE94 VA: 0x102DE94 Slot: 34
+	// RVA: 0x216026C Offset: 0x216026C VA: 0x216026C Slot: 34
 	public virtual void set_minHeight(float value) { }
 
-	// RVA: 0x102DF10 Offset: 0x102DF10 VA: 0x102DF10 Slot: 35
+	// RVA: 0x21602E8 Offset: 0x21602E8 VA: 0x21602E8 Slot: 35
 	public virtual float get_preferredWidth() { }
 
-	// RVA: 0x102DF18 Offset: 0x102DF18 VA: 0x102DF18 Slot: 36
+	// RVA: 0x21602F0 Offset: 0x21602F0 VA: 0x21602F0 Slot: 36
 	public virtual void set_preferredWidth(float value) { }
 
-	// RVA: 0x102DF94 Offset: 0x102DF94 VA: 0x102DF94 Slot: 37
+	// RVA: 0x216036C Offset: 0x216036C VA: 0x216036C Slot: 37
 	public virtual float get_preferredHeight() { }
 
-	// RVA: 0x102DF9C Offset: 0x102DF9C VA: 0x102DF9C Slot: 38
+	// RVA: 0x2160374 Offset: 0x2160374 VA: 0x2160374 Slot: 38
 	public virtual void set_preferredHeight(float value) { }
 
-	// RVA: 0x102E018 Offset: 0x102E018 VA: 0x102E018 Slot: 39
+	// RVA: 0x21603F0 Offset: 0x21603F0 VA: 0x21603F0 Slot: 39
 	public virtual float get_flexibleWidth() { }
 
-	// RVA: 0x102E020 Offset: 0x102E020 VA: 0x102E020 Slot: 40
+	// RVA: 0x21603F8 Offset: 0x21603F8 VA: 0x21603F8 Slot: 40
 	public virtual void set_flexibleWidth(float value) { }
 
-	// RVA: 0x102E09C Offset: 0x102E09C VA: 0x102E09C Slot: 41
+	// RVA: 0x2160474 Offset: 0x2160474 VA: 0x2160474 Slot: 41
 	public virtual float get_flexibleHeight() { }
 
-	// RVA: 0x102E0A4 Offset: 0x102E0A4 VA: 0x102E0A4 Slot: 42
+	// RVA: 0x216047C Offset: 0x216047C VA: 0x216047C Slot: 42
 	public virtual void set_flexibleHeight(float value) { }
 
-	// RVA: 0x102E120 Offset: 0x102E120 VA: 0x102E120 Slot: 43
+	// RVA: 0x21604F8 Offset: 0x21604F8 VA: 0x21604F8 Slot: 43
 	public virtual int get_layoutPriority() { }
 
-	// RVA: 0x102E128 Offset: 0x102E128 VA: 0x102E128 Slot: 44
+	// RVA: 0x2160500 Offset: 0x2160500 VA: 0x2160500 Slot: 44
 	public virtual void set_layoutPriority(int value) { }
 
-	// RVA: 0x102E1A4 Offset: 0x102E1A4 VA: 0x102E1A4 Slot: 5
+	// RVA: 0x216057C Offset: 0x216057C VA: 0x216057C Slot: 5
 	protected override void OnEnable() { }
 
-	// RVA: 0x102E1CC Offset: 0x102E1CC VA: 0x102E1CC Slot: 12
+	// RVA: 0x21605A4 Offset: 0x21605A4 VA: 0x21605A4 Slot: 12
 	protected override void OnTransformParentChanged() { }
 
-	// RVA: 0x102E1D0 Offset: 0x102E1D0 VA: 0x102E1D0 Slot: 7
+	// RVA: 0x21605A8 Offset: 0x21605A8 VA: 0x21605A8 Slot: 7
 	protected override void OnDisable() { }
 
-	// RVA: 0x102E1F8 Offset: 0x102E1F8 VA: 0x102E1F8 Slot: 13
+	// RVA: 0x21605D0 Offset: 0x21605D0 VA: 0x21605D0 Slot: 13
 	protected override void OnDidApplyAnimationProperties() { }
 
-	// RVA: 0x102E1FC Offset: 0x102E1FC VA: 0x102E1FC Slot: 11
+	// RVA: 0x21605D4 Offset: 0x21605D4 VA: 0x21605D4 Slot: 11
 	protected override void OnBeforeTransformParentChanged() { }
 
-	// RVA: 0x102DD40 Offset: 0x102DD40 VA: 0x102DD40
+	// RVA: 0x2160118 Offset: 0x2160118 VA: 0x2160118
 	protected void SetDirty() { }
 }
 
 // Namespace: UnityEngine.UI
-[DisallowMultipleComponent] // RVA: 0xC7EDFC Offset: 0xC7EDFC VA: 0xC7EDFC
-[ExecuteAlways] // RVA: 0xC7EDFC Offset: 0xC7EDFC VA: 0xC7EDFC
-[RequireComponent] // RVA: 0xC7EDFC Offset: 0xC7EDFC VA: 0xC7EDFC
+[DisallowMultipleComponent] // RVA: 0xC12CD4 Offset: 0xC12CD4 VA: 0xC12CD4
+[ExecuteAlways] // RVA: 0xC12CD4 Offset: 0xC12CD4 VA: 0xC12CD4
+[RequireComponent] // RVA: 0xC12CD4 Offset: 0xC12CD4 VA: 0xC12CD4
 public abstract class LayoutGroup : UIBehaviour, ILayoutElement, ILayoutGroup, ILayoutController // TypeDefIndex: 3157
 {
 	// Fields
-	[SerializeField] // RVA: 0xC81474 Offset: 0xC81474 VA: 0xC81474
+	[SerializeField] // RVA: 0xC1534C Offset: 0xC1534C VA: 0xC1534C
 	protected RectOffset m_Padding; // 0x18
-	[SerializeField] // RVA: 0xC81484 Offset: 0xC81484 VA: 0xC81484
+	[SerializeField] // RVA: 0xC1535C Offset: 0xC1535C VA: 0xC1535C
 	protected TextAnchor m_ChildAlignment; // 0x20
 	private RectTransform m_Rect; // 0x28
 	protected DrivenRectTransformTracker m_Tracker; // 0x30
@@ -674,52 +796,52 @@ public abstract class LayoutGroup : UIBehaviour, ILayoutElement, ILayoutGroup, I
 
 	// Methods
 
-	// RVA: 0x1018E7C Offset: 0x1018E7C VA: 0x1018E7C
+	// RVA: 0x214B254 Offset: 0x214B254 VA: 0x214B254
 	protected void .ctor() { }
 
-	// RVA: 0x10197D8 Offset: 0x10197D8 VA: 0x10197D8
+	// RVA: 0x214BBB0 Offset: 0x214BBB0 VA: 0x214BBB0
 	public RectOffset get_padding() { }
 
-	// RVA: 0x102E200 Offset: 0x102E200 VA: 0x102E200
+	// RVA: 0x21605D8 Offset: 0x21605D8 VA: 0x21605D8
 	public void set_padding(RectOffset value) { }
 
-	// RVA: 0x102E264 Offset: 0x102E264 VA: 0x102E264
+	// RVA: 0x216063C Offset: 0x216063C VA: 0x216063C
 	public TextAnchor get_childAlignment() { }
 
-	// RVA: 0x102E26C Offset: 0x102E26C VA: 0x102E26C
+	// RVA: 0x2160644 Offset: 0x2160644 VA: 0x2160644
 	public void set_childAlignment(TextAnchor value) { }
 
-	// RVA: 0x1019A78 Offset: 0x1019A78 VA: 0x1019A78
+	// RVA: 0x214BE50 Offset: 0x214BE50 VA: 0x214BE50
 	protected RectTransform get_rectTransform() { }
 
-	// RVA: 0x10197D0 Offset: 0x10197D0 VA: 0x10197D0
+	// RVA: 0x214BBA8 Offset: 0x214BBA8 VA: 0x214BBA8
 	protected List<RectTransform> get_rectChildren() { }
 
-	// RVA: 0x101940C Offset: 0x101940C VA: 0x101940C Slot: 28
+	// RVA: 0x214B7E4 Offset: 0x214B7E4 VA: 0x214B7E4 Slot: 28
 	public virtual void CalculateLayoutInputHorizontal() { }
 
 	// RVA: -1 Offset: -1 Slot: 29
 	public abstract void CalculateLayoutInputVertical();
 
-	// RVA: 0x102E2D0 Offset: 0x102E2D0 VA: 0x102E2D0 Slot: 30
+	// RVA: 0x21606A8 Offset: 0x21606A8 VA: 0x21606A8 Slot: 30
 	public virtual float get_minWidth() { }
 
-	// RVA: 0x102E2E0 Offset: 0x102E2E0 VA: 0x102E2E0 Slot: 31
+	// RVA: 0x21606B8 Offset: 0x21606B8 VA: 0x21606B8 Slot: 31
 	public virtual float get_preferredWidth() { }
 
-	// RVA: 0x102E2F0 Offset: 0x102E2F0 VA: 0x102E2F0 Slot: 32
+	// RVA: 0x21606C8 Offset: 0x21606C8 VA: 0x21606C8 Slot: 32
 	public virtual float get_flexibleWidth() { }
 
-	// RVA: 0x102E300 Offset: 0x102E300 VA: 0x102E300 Slot: 33
+	// RVA: 0x21606D8 Offset: 0x21606D8 VA: 0x21606D8 Slot: 33
 	public virtual float get_minHeight() { }
 
-	// RVA: 0x102E310 Offset: 0x102E310 VA: 0x102E310 Slot: 34
+	// RVA: 0x21606E8 Offset: 0x21606E8 VA: 0x21606E8 Slot: 34
 	public virtual float get_preferredHeight() { }
 
-	// RVA: 0x102E320 Offset: 0x102E320 VA: 0x102E320 Slot: 35
+	// RVA: 0x21606F8 Offset: 0x21606F8 VA: 0x21606F8 Slot: 35
 	public virtual float get_flexibleHeight() { }
 
-	// RVA: 0x102E330 Offset: 0x102E330 VA: 0x102E330 Slot: 36
+	// RVA: 0x2160708 Offset: 0x2160708 VA: 0x2160708 Slot: 36
 	public virtual int get_layoutPriority() { }
 
 	// RVA: -1 Offset: -1 Slot: 37
@@ -728,91 +850,91 @@ public abstract class LayoutGroup : UIBehaviour, ILayoutElement, ILayoutGroup, I
 	// RVA: -1 Offset: -1 Slot: 38
 	public abstract void SetLayoutVertical();
 
-	// RVA: 0x102E338 Offset: 0x102E338 VA: 0x102E338 Slot: 5
+	// RVA: 0x2160710 Offset: 0x2160710 VA: 0x2160710 Slot: 5
 	protected override void OnEnable() { }
 
-	// RVA: 0x102E454 Offset: 0x102E454 VA: 0x102E454 Slot: 7
+	// RVA: 0x216082C Offset: 0x216082C VA: 0x216082C Slot: 7
 	protected override void OnDisable() { }
 
-	// RVA: 0x102E4E4 Offset: 0x102E4E4 VA: 0x102E4E4 Slot: 13
+	// RVA: 0x21608BC Offset: 0x21608BC VA: 0x21608BC Slot: 13
 	protected override void OnDidApplyAnimationProperties() { }
 
-	// RVA: 0x101B37C Offset: 0x101B37C VA: 0x101B37C
+	// RVA: 0x214D754 Offset: 0x214D754 VA: 0x214D754
 	protected float GetTotalMinSize(int axis) { }
 
-	// RVA: 0x101B370 Offset: 0x101B370 VA: 0x101B370
+	// RVA: 0x214D748 Offset: 0x214D748 VA: 0x214D748
 	protected float GetTotalPreferredSize(int axis) { }
 
-	// RVA: 0x101B364 Offset: 0x101B364 VA: 0x101B364
+	// RVA: 0x214D73C Offset: 0x214D73C VA: 0x214D73C
 	protected float GetTotalFlexibleSize(int axis) { }
 
-	// RVA: 0x101A320 Offset: 0x101A320 VA: 0x101A320
+	// RVA: 0x214C6F8 Offset: 0x214C6F8 VA: 0x214C6F8
 	protected float GetStartOffset(int axis, float requiredSpaceWithoutPadding) { }
 
-	// RVA: 0x101B1FC Offset: 0x101B1FC VA: 0x101B1FC
+	// RVA: 0x214D5D4 Offset: 0x214D5D4 VA: 0x214D5D4
 	protected float GetAlignmentOnAxis(int axis) { }
 
-	// RVA: 0x10197E0 Offset: 0x10197E0 VA: 0x10197E0
+	// RVA: 0x214BBB8 Offset: 0x214BBB8 VA: 0x214BBB8
 	protected void SetLayoutInputForAxis(float totalMin, float totalPreferred, float totalFlexible, int axis) { }
 
-	// RVA: 0x101B248 Offset: 0x101B248 VA: 0x101B248
+	// RVA: 0x214D620 Offset: 0x214D620 VA: 0x214D620
 	protected void SetChildAlongAxis(RectTransform rect, int axis, float pos) { }
 
-	// RVA: 0x101A478 Offset: 0x101A478 VA: 0x101A478
+	// RVA: 0x214C850 Offset: 0x214C850 VA: 0x214C850
 	protected void SetChildAlongAxis(RectTransform rect, int axis, float pos, float size) { }
 
-	// RVA: 0x102E4E8 Offset: 0x102E4E8 VA: 0x102E4E8
+	// RVA: 0x21608C0 Offset: 0x21608C0 VA: 0x21608C0
 	private bool get_isRootLayoutGroup() { }
 
-	// RVA: 0x102E654 Offset: 0x102E654 VA: 0x102E654 Slot: 10
+	// RVA: 0x2160A2C Offset: 0x2160A2C VA: 0x2160A2C Slot: 10
 	protected override void OnRectTransformDimensionsChange() { }
 
-	// RVA: 0x102E694 Offset: 0x102E694 VA: 0x102E694 Slot: 39
+	// RVA: 0x2160A6C Offset: 0x2160A6C VA: 0x2160A6C Slot: 39
 	protected virtual void OnTransformChildrenChanged() { }
 
 	// RVA: -1 Offset: -1
 	protected void SetProperty<T>(ref T currentValue, T newValue) { }
 	/* GenericInstMethod :
 	|
-	|-RVA: 0x218B740 Offset: 0x218B740 VA: 0x218B740
+	|-RVA: 0x1C1CAE0 Offset: 0x1C1CAE0 VA: 0x1C1CAE0
 	|-LayoutGroup.SetProperty<bool>
 	|
-	|-RVA: 0x218B7CC Offset: 0x218B7CC VA: 0x218B7CC
+	|-RVA: 0x1C1CB6C Offset: 0x1C1CB6C VA: 0x1C1CB6C
 	|-LayoutGroup.SetProperty<int>
 	|
-	|-RVA: 0x218B858 Offset: 0x218B858 VA: 0x218B858
+	|-RVA: 0x1C1CBF8 Offset: 0x1C1CBF8 VA: 0x1C1CBF8
 	|-LayoutGroup.SetProperty<object>
 	|-LayoutGroup.SetProperty<RectOffset>
 	|
-	|-RVA: 0x218B8D4 Offset: 0x218B8D4 VA: 0x218B8D4
+	|-RVA: 0x1C1CC74 Offset: 0x1C1CC74 VA: 0x1C1CC74
 	|-LayoutGroup.SetProperty<float>
 	|
-	|-RVA: 0x218B968 Offset: 0x218B968 VA: 0x218B968
+	|-RVA: 0x1C1CD08 Offset: 0x1C1CD08 VA: 0x1C1CD08
 	|-LayoutGroup.SetProperty<TextAnchor>
 	|
-	|-RVA: 0x218BA50 Offset: 0x218BA50 VA: 0x218BA50
+	|-RVA: 0x1C1CDF0 Offset: 0x1C1CDF0 VA: 0x1C1CDF0
 	|-LayoutGroup.SetProperty<GridLayoutGroup.Axis>
 	|
-	|-RVA: 0x218BB38 Offset: 0x218BB38 VA: 0x218BB38
+	|-RVA: 0x1C1CED8 Offset: 0x1C1CED8 VA: 0x1C1CED8
 	|-LayoutGroup.SetProperty<GridLayoutGroup.Constraint>
 	|
-	|-RVA: 0x218BC20 Offset: 0x218BC20 VA: 0x218BC20
+	|-RVA: 0x1C1CFC0 Offset: 0x1C1CFC0 VA: 0x1C1CFC0
 	|-LayoutGroup.SetProperty<GridLayoutGroup.Corner>
 	|
-	|-RVA: 0x218BD08 Offset: 0x218BD08 VA: 0x218BD08
+	|-RVA: 0x1C1D0A8 Offset: 0x1C1D0A8 VA: 0x1C1D0A8
 	|-LayoutGroup.SetProperty<Vector2>
 	*/
 
-	// RVA: 0x102E360 Offset: 0x102E360 VA: 0x102E360
+	// RVA: 0x2160738 Offset: 0x2160738 VA: 0x2160738
 	protected void SetDirty() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81BDC Offset: 0xC81BDC VA: 0xC81BDC
-	// RVA: 0x102E698 Offset: 0x102E698 VA: 0x102E698
+	[DebuggerHiddenAttribute] // RVA: 0xC15AB4 Offset: 0xC15AB4 VA: 0xC15AB4
+	// RVA: 0x2160A70 Offset: 0x2160A70 VA: 0x2160A70
 	private IEnumerator DelayedSetDirty(RectTransform rectTransform) { }
 }
 
 // Namespace: 
-[CompilerGeneratedAttribute] // RVA: 0xC7F0D8 Offset: 0xC7F0D8 VA: 0xC7F0D8
+[CompilerGeneratedAttribute] // RVA: 0xC12FB0 Offset: 0xC12FB0 VA: 0xC12FB0
 private sealed class LayoutGroup.<DelayedSetDirty>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 3158
 {
 	// Fields
@@ -827,27 +949,27 @@ private sealed class LayoutGroup.<DelayedSetDirty>c__Iterator0 : IEnumerator, ID
 
 	// Methods
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81FC0 Offset: 0xC81FC0 VA: 0xC81FC0
-	// RVA: 0xFF6844 Offset: 0xFF6844 VA: 0xFF6844
+	[DebuggerHiddenAttribute] // RVA: 0xC15E98 Offset: 0xC15E98 VA: 0xC15E98
+	// RVA: 0x210AEAC Offset: 0x210AEAC VA: 0x210AEAC
 	public void .ctor() { }
 
-	// RVA: 0xFF684C Offset: 0xFF684C VA: 0xFF684C Slot: 5
+	// RVA: 0x210AEB4 Offset: 0x210AEB4 VA: 0x210AEB4 Slot: 5
 	public bool MoveNext() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81FD0 Offset: 0xC81FD0 VA: 0xC81FD0
-	// RVA: 0xFF6D0C Offset: 0xFF6D0C VA: 0xFF6D0C Slot: 8
+	[DebuggerHiddenAttribute] // RVA: 0xC15EA8 Offset: 0xC15EA8 VA: 0xC15EA8
+	// RVA: 0x210B374 Offset: 0x210B374 VA: 0x210B374 Slot: 8
 	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81FE0 Offset: 0xC81FE0 VA: 0xC81FE0
-	// RVA: 0xFF6D14 Offset: 0xFF6D14 VA: 0xFF6D14 Slot: 4
+	[DebuggerHiddenAttribute] // RVA: 0xC15EB8 Offset: 0xC15EB8 VA: 0xC15EB8
+	// RVA: 0x210B37C Offset: 0x210B37C VA: 0x210B37C Slot: 4
 	private object System.Collections.IEnumerator.get_Current() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC81FF0 Offset: 0xC81FF0 VA: 0xC81FF0
-	// RVA: 0xFF6D1C Offset: 0xFF6D1C VA: 0xFF6D1C Slot: 7
+	[DebuggerHiddenAttribute] // RVA: 0xC15EC8 Offset: 0xC15EC8 VA: 0xC15EC8
+	// RVA: 0x210B384 Offset: 0x210B384 VA: 0x210B384 Slot: 7
 	public void Dispose() { }
 
-	[DebuggerHiddenAttribute] // RVA: 0xC82000 Offset: 0xC82000 VA: 0xC82000
-	// RVA: 0xFF6D30 Offset: 0xFF6D30 VA: 0xFF6D30 Slot: 6
+	[DebuggerHiddenAttribute] // RVA: 0xC15ED8 Offset: 0xC15ED8 VA: 0xC15ED8
+	// RVA: 0x210B398 Offset: 0x210B398 VA: 0x210B398 Slot: 6
 	public void Reset() { }
 }
 
@@ -858,17 +980,17 @@ public class LayoutRebuilder : ICanvasElement // TypeDefIndex: 3159
 	private RectTransform m_ToRebuild; // 0x10
 	private int m_CachedHashFromTransform; // 0x18
 	private static ObjectPool<LayoutRebuilder> s_Rebuilders; // 0x0
-	[CompilerGeneratedAttribute] // RVA: 0xC81494 Offset: 0xC81494 VA: 0xC81494
+	[CompilerGeneratedAttribute] // RVA: 0xC1536C Offset: 0xC1536C VA: 0xC1536C
 	private static RectTransform.ReapplyDrivenProperties <>f__mg$cache0; // 0x8
-	[CompilerGeneratedAttribute] // RVA: 0xC814A4 Offset: 0xC814A4 VA: 0xC814A4
+	[CompilerGeneratedAttribute] // RVA: 0xC1537C Offset: 0xC1537C VA: 0xC1537C
 	private static Predicate<Component> <>f__am$cache0; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xC814B4 Offset: 0xC814B4 VA: 0xC814B4
+	[CompilerGeneratedAttribute] // RVA: 0xC1538C Offset: 0xC1538C VA: 0xC1538C
 	private static UnityAction<Component> <>f__am$cache1; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xC814C4 Offset: 0xC814C4 VA: 0xC814C4
+	[CompilerGeneratedAttribute] // RVA: 0xC1539C Offset: 0xC1539C VA: 0xC1539C
 	private static UnityAction<Component> <>f__am$cache2; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xC814D4 Offset: 0xC814D4 VA: 0xC814D4
+	[CompilerGeneratedAttribute] // RVA: 0xC153AC Offset: 0xC153AC VA: 0xC153AC
 	private static UnityAction<Component> <>f__am$cache3; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xC814E4 Offset: 0xC814E4 VA: 0xC814E4
+	[CompilerGeneratedAttribute] // RVA: 0xC153BC Offset: 0xC153BC VA: 0xC153BC
 	private static UnityAction<Component> <>f__am$cache4; // 0x30
 
 	// Properties
@@ -876,125 +998,3 @@ public class LayoutRebuilder : ICanvasElement // TypeDefIndex: 3159
 
 	// Methods
 
-	// RVA: 0xFF6D98 Offset: 0xFF6D98 VA: 0xFF6D98
-	private static void .cctor() { }
-
-	// RVA: 0xFF6EA4 Offset: 0xFF6EA4 VA: 0xFF6EA4
-	public void .ctor() { }
-
-	// RVA: 0xFF6EAC Offset: 0xFF6EAC VA: 0xFF6EAC
-	private void Initialize(RectTransform controller) { }
-
-	// RVA: 0xFF6EF0 Offset: 0xFF6EF0 VA: 0xFF6EF0
-	private void Clear() { }
-
-	// RVA: 0xFF6EFC Offset: 0xFF6EFC VA: 0xFF6EFC
-	private static void ReapplyDrivenProperties(RectTransform driven) { }
-
-	// RVA: 0xFF6F60 Offset: 0xFF6F60 VA: 0xFF6F60 Slot: 5
-	public Transform get_transform() { }
-
-	// RVA: 0xFF6F68 Offset: 0xFF6F68 VA: 0xFF6F68 Slot: 8
-	public bool IsDestroyed() { }
-
-	// RVA: 0xFF6FD8 Offset: 0xFF6FD8 VA: 0xFF6FD8
-	private static void StripDisabledBehavioursFromList(List<Component> components) { }
-
-	// RVA: 0xFF70E8 Offset: 0xFF70E8 VA: 0xFF70E8
-	public static void ForceRebuildLayoutImmediate(RectTransform layoutRoot) { }
-
-	// RVA: 0xFF71E4 Offset: 0xFF71E4 VA: 0xFF71E4 Slot: 4
-	public void Rebuild(CanvasUpdate executing) { }
-
-	// RVA: 0xFF77F8 Offset: 0xFF77F8 VA: 0xFF77F8
-	private void PerformLayoutControl(RectTransform rect, UnityAction<Component> action) { }
-
-	// RVA: 0xFF74C4 Offset: 0xFF74C4 VA: 0xFF74C4
-	private void PerformLayoutCalculation(RectTransform rect, UnityAction<Component> action) { }
-
-	// RVA: 0xFF6918 Offset: 0xFF6918 VA: 0xFF6918
-	public static void MarkLayoutForRebuild(RectTransform rect) { }
-
-	// RVA: 0xFF7B74 Offset: 0xFF7B74 VA: 0xFF7B74
-	private static bool ValidController(RectTransform layoutRoot, List<Component> comps) { }
-
-	// RVA: 0xFF7D8C Offset: 0xFF7D8C VA: 0xFF7D8C
-	private static void MarkLayoutRootForRebuild(RectTransform controller) { }
-
-	// RVA: 0xFF7F08 Offset: 0xFF7F08 VA: 0xFF7F08 Slot: 6
-	public void LayoutComplete() { }
-
-	// RVA: 0xFF7F94 Offset: 0xFF7F94 VA: 0xFF7F94 Slot: 7
-	public void GraphicUpdateComplete() { }
-
-	// RVA: 0xFF7F98 Offset: 0xFF7F98 VA: 0xFF7F98 Slot: 2
-	public override int GetHashCode() { }
-
-	// RVA: 0xFF7FA0 Offset: 0xFF7FA0 VA: 0xFF7FA0 Slot: 0
-	public override bool Equals(object obj) { }
-
-	// RVA: 0xFF7FF8 Offset: 0xFF7FF8 VA: 0xFF7FF8 Slot: 3
-	public override string ToString() { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC81BEC Offset: 0xC81BEC VA: 0xC81BEC
-	// RVA: 0xFF8070 Offset: 0xFF8070 VA: 0xFF8070
-	private static void <s_Rebuilders>m__0(LayoutRebuilder x) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC81BFC Offset: 0xC81BFC VA: 0xC81BFC
-	// RVA: 0xFF809C Offset: 0xFF809C VA: 0xFF809C
-	private static bool <StripDisabledBehavioursFromList>m__1(Component e) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC81C0C Offset: 0xC81C0C VA: 0xC81C0C
-	// RVA: 0xFF8130 Offset: 0xFF8130 VA: 0xFF8130
-	private static void <Rebuild>m__2(Component e) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC81C1C Offset: 0xC81C1C VA: 0xC81C1C
-	// RVA: 0xFF81FC Offset: 0xFF81FC VA: 0xFF81FC
-	private static void <Rebuild>m__3(Component e) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC81C2C Offset: 0xC81C2C VA: 0xC81C2C
-	// RVA: 0xFF82C8 Offset: 0xFF82C8 VA: 0xFF82C8
-	private static void <Rebuild>m__4(Component e) { }
-
-	[CompilerGeneratedAttribute] // RVA: 0xC81C3C Offset: 0xC81C3C VA: 0xC81C3C
-	// RVA: 0xFF8398 Offset: 0xFF8398 VA: 0xFF8398
-	private static void <Rebuild>m__5(Component e) { }
-}
-
-// Namespace: UnityEngine.UI
-public static class LayoutUtility // TypeDefIndex: 3160
-{
-	// Fields
-	[CompilerGeneratedAttribute] // RVA: 0xC814F4 Offset: 0xC814F4 VA: 0xC814F4
-	private static Func<ILayoutElement, float> <>f__am$cache0; // 0x0
-	[CompilerGeneratedAttribute] // RVA: 0xC81504 Offset: 0xC81504 VA: 0xC81504
-	private static Func<ILayoutElement, float> <>f__am$cache1; // 0x8
-	[CompilerGeneratedAttribute] // RVA: 0xC81514 Offset: 0xC81514 VA: 0xC81514
-	private static Func<ILayoutElement, float> <>f__am$cache2; // 0x10
-	[CompilerGeneratedAttribute] // RVA: 0xC81524 Offset: 0xC81524 VA: 0xC81524
-	private static Func<ILayoutElement, float> <>f__am$cache3; // 0x18
-	[CompilerGeneratedAttribute] // RVA: 0xC81534 Offset: 0xC81534 VA: 0xC81534
-	private static Func<ILayoutElement, float> <>f__am$cache4; // 0x20
-	[CompilerGeneratedAttribute] // RVA: 0xC81544 Offset: 0xC81544 VA: 0xC81544
-	private static Func<ILayoutElement, float> <>f__am$cache5; // 0x28
-	[CompilerGeneratedAttribute] // RVA: 0xC81554 Offset: 0xC81554 VA: 0xC81554
-	private static Func<ILayoutElement, float> <>f__am$cache6; // 0x30
-	[CompilerGeneratedAttribute] // RVA: 0xC81564 Offset: 0xC81564 VA: 0xC81564
-	private static Func<ILayoutElement, float> <>f__am$cache7; // 0x38
-
-	// Methods
-
-	// RVA: 0xFF8468 Offset: 0xFF8468 VA: 0xFF8468
-	public static float GetMinSize(RectTransform rect, int axis) { }
-
-	// RVA: 0xFF85F0 Offset: 0xFF85F0 VA: 0xFF85F0
-	public static float GetPreferredSize(RectTransform rect, int axis) { }
-
-	// RVA: 0xFF88C4 Offset: 0xFF88C4 VA: 0xFF88C4
-	public static float GetFlexibleSize(RectTransform rect, int axis) { }
-
-	// RVA: 0xFF8474 Offset: 0xFF8474 VA: 0xFF8474
-	public static float GetMinWidth(RectTransform rect) { }
-
-	// RVA: 0xFF85FC Offset: 0xFF85FC VA: 0xFF85FC
-	public static float GetPreferredWidth(RectTransform rect) { }

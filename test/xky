@@ -1,4 +1,126 @@
 
+	// RVA: 0x1CF63C0 Offset: 0x1CF63C0 VA: 0x1CF63C0 Slot: 9
+	public virtual byte[] DecodeCiphertext(long seqNo, byte type, byte[] ciphertext, int offset, int len) { }
+
+	// RVA: 0x1CF696C Offset: 0x1CF696C VA: 0x1CF696C Slot: 10
+	protected virtual byte[] GetAdditionalData(long seqNo, byte type, int len) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public interface TlsAgreementCredentials : TlsCredentials // TypeDefIndex: 4959
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract byte[] GenerateAgreement(AsymmetricKeyParameter peerPublicKey);
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public interface TlsAuthentication // TypeDefIndex: 4960
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void NotifyServerCertificate(Certificate serverCertificate);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract TlsCredentials GetClientCredentials(TlsContext context, CertificateRequest certificateRequest);
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public class TlsBlockCipher : TlsCipher // TypeDefIndex: 4961
+{
+	// Fields
+	protected readonly TlsContext context; // 0x10
+	protected readonly byte[] randomData; // 0x18
+	protected readonly bool useExplicitIV; // 0x20
+	protected readonly bool encryptThenMac; // 0x21
+	protected readonly IBlockCipher encryptCipher; // 0x28
+	protected readonly IBlockCipher decryptCipher; // 0x30
+	protected readonly TlsMac mWriteMac; // 0x38
+	protected readonly TlsMac mReadMac; // 0x40
+
+	// Properties
+	public virtual TlsMac WriteMac { get; }
+	public virtual TlsMac ReadMac { get; }
+
+	// Methods
+
+	// RVA: 0x1CEB15C Offset: 0x1CEB15C VA: 0x1CEB15C
+	public void .ctor(TlsContext context, IBlockCipher clientWriteCipher, IBlockCipher serverWriteCipher, IDigest clientWriteDigest, IDigest serverWriteDigest, int cipherKeySize) { }
+
+	// RVA: 0x1CF6E94 Offset: 0x1CF6E94 VA: 0x1CF6E94 Slot: 7
+	public virtual TlsMac get_WriteMac() { }
+
+	// RVA: 0x1CF6E9C Offset: 0x1CF6E9C VA: 0x1CF6E9C Slot: 8
+	public virtual TlsMac get_ReadMac() { }
+
+	// RVA: 0x1CF6EA4 Offset: 0x1CF6EA4 VA: 0x1CF6EA4 Slot: 9
+	public virtual int GetPlaintextLimit(int ciphertextLimit) { }
+
+	// RVA: 0x1CF6FCC Offset: 0x1CF6FCC VA: 0x1CF6FCC Slot: 10
+	public virtual byte[] EncodePlaintext(long seqNo, byte type, byte[] plaintext, int offset, int len) { }
+
+	// RVA: 0x1CF7650 Offset: 0x1CF7650 VA: 0x1CF7650 Slot: 11
+	public virtual byte[] DecodeCiphertext(long seqNo, byte type, byte[] ciphertext, int offset, int len) { }
+
+	// RVA: 0x1CF7ACC Offset: 0x1CF7ACC VA: 0x1CF7ACC Slot: 12
+	protected virtual int CheckPaddingConstantTime(byte[] buf, int off, int len, int blockSize, int macSize) { }
+
+	// RVA: 0x1CF7CC0 Offset: 0x1CF7CC0 VA: 0x1CF7CC0 Slot: 13
+	protected virtual int ChooseExtraPadBlocks(SecureRandom r, int max) { }
+
+	// RVA: 0x1CF7D2C Offset: 0x1CF7D2C VA: 0x1CF7D2C Slot: 14
+	protected virtual int LowestBitSet(int x) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public interface TlsCipher // TypeDefIndex: 4962
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract int GetPlaintextLimit(int ciphertextLimit);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract byte[] EncodePlaintext(long seqNo, byte type, byte[] plaintext, int offset, int len);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract byte[] DecodeCiphertext(long seqNo, byte type, byte[] ciphertext, int offset, int len);
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public interface TlsCipherFactory // TypeDefIndex: 4963
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract TlsCipher CreateCipher(TlsContext context, int encryptionAlgorithm, int macAlgorithm);
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public interface TlsClient : TlsPeer // TypeDefIndex: 4964
+{
+	// Properties
+	public abstract List<string> HostNames { get; set; }
+	public abstract ProtocolVersion ClientHelloRecordLayerVersion { get; }
+	public abstract ProtocolVersion ClientVersion { get; }
+	public abstract bool IsFallback { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract List<string> get_HostNames();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void set_HostNames(List<string> value);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void Init(TlsClientContext context);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract TlsSession GetSessionToResume();
+
 	// RVA: -1 Offset: -1 Slot: 4
 	public abstract ProtocolVersion get_ClientHelloRecordLayerVersion();
 
@@ -60,10 +182,10 @@ internal class TlsClientContextImpl : AbstractTlsContext, TlsClientContext, TlsC
 
 	// Methods
 
-	// RVA: 0x2674B34 Offset: 0x2674B34 VA: 0x2674B34
+	// RVA: 0x1CF7D50 Offset: 0x1CF7D50 VA: 0x1CF7D50
 	internal void .ctor(SecureRandom secureRandom, SecurityParameters securityParameters) { }
 
-	// RVA: 0x2674BB4 Offset: 0x2674BB4 VA: 0x2674BB4 Slot: 17
+	// RVA: 0x1CF7DD0 Offset: 0x1CF7DD0 VA: 0x1CF7DD0 Slot: 17
 	public override bool get_IsServer() { }
 }
 
@@ -86,49 +208,49 @@ public class TlsClientProtocol : TlsProtocol // TypeDefIndex: 4967
 
 	// Methods
 
-	// RVA: 0x2674BBC Offset: 0x2674BBC VA: 0x2674BBC
+	// RVA: 0x1CF7DD8 Offset: 0x1CF7DD8 VA: 0x1CF7DD8
 	public void .ctor(Stream stream, SecureRandom secureRandom) { }
 
-	// RVA: 0x2674C4C Offset: 0x2674C4C VA: 0x2674C4C
+	// RVA: 0x1CF7E68 Offset: 0x1CF7E68 VA: 0x1CF7E68
 	public void .ctor(Stream input, Stream output, SecureRandom secureRandom) { }
 
-	// RVA: 0x2674DCC Offset: 0x2674DCC VA: 0x2674DCC
+	// RVA: 0x1CF7FE8 Offset: 0x1CF7FE8 VA: 0x1CF7FE8
 	public void .ctor(SecureRandom secureRandom) { }
 
-	// RVA: 0x2674F6C Offset: 0x2674F6C VA: 0x2674F6C Slot: 45
+	// RVA: 0x1CF8188 Offset: 0x1CF8188 VA: 0x1CF8188 Slot: 45
 	public virtual void Connect(TlsClient tlsClient) { }
 
-	// RVA: 0x26754BC Offset: 0x26754BC VA: 0x26754BC Slot: 12
+	// RVA: 0x1CF86D8 Offset: 0x1CF86D8 VA: 0x1CF86D8 Slot: 12
 	protected override void CleanupHandshake() { }
 
-	// RVA: 0x2675558 Offset: 0x2675558 VA: 0x2675558 Slot: 4
+	// RVA: 0x1CF8774 Offset: 0x1CF8774 VA: 0x1CF8774 Slot: 4
 	protected override TlsContext get_Context() { }
 
-	// RVA: 0x2675560 Offset: 0x2675560 VA: 0x2675560 Slot: 5
+	// RVA: 0x1CF877C Offset: 0x1CF877C VA: 0x1CF877C Slot: 5
 	internal override AbstractTlsContext get_ContextAdmin() { }
 
-	// RVA: 0x2675568 Offset: 0x2675568 VA: 0x2675568 Slot: 6
+	// RVA: 0x1CF8784 Offset: 0x1CF8784 VA: 0x1CF8784 Slot: 6
 	protected override TlsPeer get_Peer() { }
 
-	// RVA: 0x2675570 Offset: 0x2675570 VA: 0x2675570 Slot: 8
+	// RVA: 0x1CF878C Offset: 0x1CF878C VA: 0x1CF878C Slot: 8
 	protected override void HandleHandshakeMessage(byte type, byte[] data) { }
 
-	// RVA: 0x26770D4 Offset: 0x26770D4 VA: 0x26770D4 Slot: 46
+	// RVA: 0x1CFA2EC Offset: 0x1CFA2EC VA: 0x1CFA2EC Slot: 46
 	protected virtual void HandleSupplementalData(IList serverSupplementalData) { }
 
-	// RVA: 0x26772AC Offset: 0x26772AC VA: 0x26772AC Slot: 47
+	// RVA: 0x1CFA4C4 Offset: 0x1CFA4C4 VA: 0x1CFA4C4 Slot: 47
 	protected virtual void ReceiveNewSessionTicketMessage(MemoryStream buf) { }
 
-	// RVA: 0x26773AC Offset: 0x26773AC VA: 0x26773AC Slot: 48
+	// RVA: 0x1CFA5C4 Offset: 0x1CFA5C4 VA: 0x1CFA5C4 Slot: 48
 	protected virtual void ReceiveServerHelloMessage(MemoryStream buf) { }
 
-	// RVA: 0x26786A4 Offset: 0x26786A4 VA: 0x26786A4 Slot: 49
+	// RVA: 0x1CFB8C0 Offset: 0x1CFB8C0 VA: 0x1CFB8C0 Slot: 49
 	protected virtual void SendCertificateVerifyMessage(DigitallySigned certificateVerify) { }
 
-	// RVA: 0x2678880 Offset: 0x2678880 VA: 0x2678880 Slot: 50
+	// RVA: 0x1CFB964 Offset: 0x1CFB964 VA: 0x1CFB964 Slot: 50
 	protected virtual void SendClientHelloMessage() { }
 
-	// RVA: 0x2678F78 Offset: 0x2678F78 VA: 0x2678F78 Slot: 51
+	// RVA: 0x1CFC01C Offset: 0x1CFC01C VA: 0x1CFC01C Slot: 51
 	protected virtual void SendClientKeyExchangeMessage() { }
 }
 
@@ -215,16 +337,16 @@ public class TlsDeflateCompression : TlsCompression // TypeDefIndex: 4971
 
 	// Methods
 
-	// RVA: 0x267B410 Offset: 0x267B410 VA: 0x267B410
+	// RVA: 0x1CFE3AC Offset: 0x1CFE3AC VA: 0x1CFE3AC
 	public void .ctor() { }
 
-	// RVA: 0x267B418 Offset: 0x267B418 VA: 0x267B418
+	// RVA: 0x1CFE3B4 Offset: 0x1CFE3B4 VA: 0x1CFE3B4
 	public void .ctor(int level) { }
 
-	// RVA: 0x267B4D8 Offset: 0x267B4D8 VA: 0x267B4D8 Slot: 6
+	// RVA: 0x1CFE474 Offset: 0x1CFE474 VA: 0x1CFE474 Slot: 6
 	public virtual Stream Compress(Stream output) { }
 
-	// RVA: 0x267B5B4 Offset: 0x267B5B4 VA: 0x267B5B4 Slot: 7
+	// RVA: 0x1CFE550 Offset: 0x1CFE550 VA: 0x1CFE550 Slot: 7
 	public virtual Stream Decompress(Stream output) { }
 }
 
@@ -233,10 +355,10 @@ protected class TlsDeflateCompression.DeflateOutputStream : ZOutputStream // Typ
 {
 	// Methods
 
-	// RVA: 0x267B570 Offset: 0x267B570 VA: 0x267B570
+	// RVA: 0x1CFE50C Offset: 0x1CFE50C VA: 0x1CFE50C
 	public void .ctor(Stream output, ZStream z, bool compress) { }
 
-	// RVA: 0x267B648 Offset: 0x267B648 VA: 0x267B648 Slot: 18
+	// RVA: 0x1CFE5E4 Offset: 0x1CFE5E4 VA: 0x1CFE5E4 Slot: 18
 	public override void Flush() { }
 }
 
@@ -248,19 +370,19 @@ public class TlsDheKeyExchange : TlsDHKeyExchange // TypeDefIndex: 4973
 
 	// Methods
 
-	// RVA: 0x267B64C Offset: 0x267B64C VA: 0x267B64C
+	// RVA: 0x1CED914 Offset: 0x1CED914 VA: 0x1CED914
 	public void .ctor(int keyExchange, IList supportedSignatureAlgorithms, DHParameters dhParameters) { }
 
-	// RVA: 0x267B650 Offset: 0x267B650 VA: 0x267B650 Slot: 23
+	// RVA: 0x1CFE5E8 Offset: 0x1CFE5E8 VA: 0x1CFE5E8 Slot: 23
 	public override void ProcessServerCredentials(TlsCredentials serverCredentials) { }
 
-	// RVA: 0x267B7E4 Offset: 0x267B7E4 VA: 0x267B7E4 Slot: 25
+	// RVA: 0x1CFE77C Offset: 0x1CFE77C VA: 0x1CFE77C Slot: 25
 	public override byte[] GenerateServerKeyExchange() { }
 
-	// RVA: 0x267BCC0 Offset: 0x267BCC0 VA: 0x267BCC0 Slot: 27
+	// RVA: 0x1CFEC50 Offset: 0x1CFEC50 VA: 0x1CFEC50 Slot: 27
 	public override void ProcessServerKeyExchange(Stream input) { }
 
-	// RVA: 0x267BFA4 Offset: 0x267BFA4 VA: 0x267BFA4 Slot: 37
+	// RVA: 0x1CFEF34 Offset: 0x1CFEF34 VA: 0x1CFEF34 Slot: 37
 	protected virtual ISigner InitVerifyer(TlsSigner tlsSigner, SignatureAndHashAlgorithm algorithm, SecurityParameters securityParameters) { }
 }
 
@@ -281,43 +403,43 @@ public class TlsDHKeyExchange : AbstractTlsKeyExchange // TypeDefIndex: 4974
 
 	// Methods
 
-	// RVA: 0x2679074 Offset: 0x2679074 VA: 0x2679074
+	// RVA: 0x1CED784 Offset: 0x1CED784 VA: 0x1CED784
 	public void .ctor(int keyExchange, IList supportedSignatureAlgorithms, DHParameters dhParameters) { }
 
-	// RVA: 0x2679188 Offset: 0x2679188 VA: 0x2679188 Slot: 20
+	// RVA: 0x1CFC124 Offset: 0x1CFC124 VA: 0x1CFC124 Slot: 20
 	public override void Init(TlsContext context) { }
 
-	// RVA: 0x2679264 Offset: 0x2679264 VA: 0x2679264 Slot: 21
+	// RVA: 0x1CFC200 Offset: 0x1CFC200 VA: 0x1CFC200 Slot: 21
 	public override void SkipServerCredentials() { }
 
-	// RVA: 0x26792CC Offset: 0x26792CC VA: 0x26792CC Slot: 22
+	// RVA: 0x1CFC268 Offset: 0x1CFC268 VA: 0x1CFC268 Slot: 22
 	public override void ProcessServerCertificate(Certificate serverCertificate) { }
 
-	// RVA: 0x26796C8 Offset: 0x26796C8 VA: 0x26796C8 Slot: 24
+	// RVA: 0x1CFC664 Offset: 0x1CFC664 VA: 0x1CFC664 Slot: 24
 	public override bool get_RequiresServerKeyExchange() { }
 
-	// RVA: 0x26796F0 Offset: 0x26796F0 VA: 0x26796F0 Slot: 28
+	// RVA: 0x1CFC68C Offset: 0x1CFC68C VA: 0x1CFC68C Slot: 28
 	public override void ValidateCertificateRequest(CertificateRequest certificateRequest) { }
 
-	// RVA: 0x26797E8 Offset: 0x26797E8 VA: 0x26797E8 Slot: 30
+	// RVA: 0x1CFC784 Offset: 0x1CFC784 VA: 0x1CFC784 Slot: 30
 	public override void ProcessClientCredentials(TlsCredentials clientCredentials) { }
 
-	// RVA: 0x267990C Offset: 0x267990C VA: 0x267990C Slot: 32
+	// RVA: 0x1CFC8A8 Offset: 0x1CFC8A8 VA: 0x1CFC8A8 Slot: 32
 	public override void GenerateClientKeyExchange(Stream output) { }
 
-	// RVA: 0x2679BE4 Offset: 0x2679BE4 VA: 0x2679BE4 Slot: 31
+	// RVA: 0x1CFCB80 Offset: 0x1CFCB80 VA: 0x1CFCB80 Slot: 31
 	public override void ProcessClientCertificate(Certificate clientCertificate) { }
 
-	// RVA: 0x2679BE8 Offset: 0x2679BE8 VA: 0x2679BE8 Slot: 33
+	// RVA: 0x1CFCB84 Offset: 0x1CFCB84 VA: 0x1CFCB84 Slot: 33
 	public override void ProcessClientKeyExchange(Stream input) { }
 
-	// RVA: 0x2679CA0 Offset: 0x2679CA0 VA: 0x2679CA0 Slot: 34
+	// RVA: 0x1CFCC3C Offset: 0x1CFCC3C VA: 0x1CFCC3C Slot: 34
 	public override byte[] GeneratePremasterSecret() { }
 
-	// RVA: 0x2679E78 Offset: 0x2679E78 VA: 0x2679E78 Slot: 35
+	// RVA: 0x1CFCE14 Offset: 0x1CFCE14 VA: 0x1CFCE14 Slot: 35
 	protected virtual int get_MinimumPrimeBits() { }
 
-	// RVA: 0x2679E80 Offset: 0x2679E80 VA: 0x2679E80 Slot: 36
+	// RVA: 0x1CFCE1C Offset: 0x1CFCE1C VA: 0x1CFCE1C Slot: 36
 	protected virtual DHParameters ValidateDHParameters(DHParameters parameters) { }
 }
 
@@ -339,76 +461,76 @@ public abstract class TlsDHUtilities // TypeDefIndex: 4975
 
 	// Methods
 
-	// RVA: 0x267A120 Offset: 0x267A120 VA: 0x267A120
+	// RVA: 0x1CFD0BC Offset: 0x1CFD0BC VA: 0x1CFD0BC
 	protected void .ctor() { }
 
-	// RVA: 0x267A128 Offset: 0x267A128 VA: 0x267A128
+	// RVA: 0x1CFD0C4 Offset: 0x1CFD0C4 VA: 0x1CFD0C4
 	private static BigInteger FromHex(string hex) { }
 
-	// RVA: 0x267A1C4 Offset: 0x267A1C4 VA: 0x267A1C4
+	// RVA: 0x1CFD160 Offset: 0x1CFD160 VA: 0x1CFD160
 	private static DHParameters FromSafeP(string hexP) { }
 
-	// RVA: 0x267A290 Offset: 0x267A290 VA: 0x267A290
+	// RVA: 0x1CFD22C Offset: 0x1CFD22C VA: 0x1CFD22C
 	public static void AddNegotiatedDheGroupsClientExtension(IDictionary extensions, byte[] dheGroups) { }
 
-	// RVA: 0x267A488 Offset: 0x267A488 VA: 0x267A488
+	// RVA: 0x1CFD424 Offset: 0x1CFD424 VA: 0x1CFD424
 	public static void AddNegotiatedDheGroupsServerExtension(IDictionary extensions, byte dheGroup) { }
 
-	// RVA: 0x267A64C Offset: 0x267A64C VA: 0x267A64C
+	// RVA: 0x1CFD5E8 Offset: 0x1CFD5E8 VA: 0x1CFD5E8
 	public static byte[] GetNegotiatedDheGroupsClientExtension(IDictionary extensions) { }
 
-	// RVA: 0x267A888 Offset: 0x267A888 VA: 0x267A888
+	// RVA: 0x1CFD824 Offset: 0x1CFD824 VA: 0x1CFD824
 	public static short GetNegotiatedDheGroupsServerExtension(IDictionary extensions) { }
 
-	// RVA: 0x267A3D4 Offset: 0x267A3D4 VA: 0x267A3D4
+	// RVA: 0x1CFD370 Offset: 0x1CFD370 VA: 0x1CFD370
 	public static byte[] CreateNegotiatedDheGroupsClientExtension(byte[] dheGroups) { }
 
-	// RVA: 0x267A5CC Offset: 0x267A5CC VA: 0x267A5CC
+	// RVA: 0x1CFD568 Offset: 0x1CFD568 VA: 0x1CFD568
 	public static byte[] CreateNegotiatedDheGroupsServerExtension(byte dheGroup) { }
 
-	// RVA: 0x267A724 Offset: 0x267A724 VA: 0x267A724
+	// RVA: 0x1CFD6C0 Offset: 0x1CFD6C0 VA: 0x1CFD6C0
 	public static byte[] ReadNegotiatedDheGroupsClientExtension(byte[] extensionData) { }
 
-	// RVA: 0x267A964 Offset: 0x267A964 VA: 0x267A964
+	// RVA: 0x1CFD900 Offset: 0x1CFD900 VA: 0x1CFD900
 	public static byte ReadNegotiatedDheGroupsServerExtension(byte[] extensionData) { }
 
-	// RVA: 0x267AA1C Offset: 0x267AA1C VA: 0x267AA1C
+	// RVA: 0x1CFD9B8 Offset: 0x1CFD9B8 VA: 0x1CFD9B8
 	public static DHParameters GetParametersForDHEGroup(short dheGroup) { }
 
-	// RVA: 0x267AB74 Offset: 0x267AB74 VA: 0x267AB74
+	// RVA: 0x1CFDB10 Offset: 0x1CFDB10 VA: 0x1CFDB10
 	public static bool ContainsDheCipherSuites(int[] cipherSuites) { }
 
-	// RVA: 0x267AD5C Offset: 0x267AD5C VA: 0x267AD5C
+	// RVA: 0x1CFDCF8 Offset: 0x1CFDCF8 VA: 0x1CFDCF8
 	public static bool IsDheCipherSuite(int cipherSuite) { }
 
-	// RVA: 0x267AE7C Offset: 0x267AE7C VA: 0x267AE7C
+	// RVA: 0x1CFDE18 Offset: 0x1CFDE18 VA: 0x1CFDE18
 	public static bool AreCompatibleParameters(DHParameters a, DHParameters b) { }
 
-	// RVA: 0x2679DCC Offset: 0x2679DCC VA: 0x2679DCC
+	// RVA: 0x1CFCD68 Offset: 0x1CFCD68 VA: 0x1CFCD68
 	public static byte[] CalculateDHBasicAgreement(DHPublicKeyParameters publicKey, DHPrivateKeyParameters privateKey) { }
 
-	// RVA: 0x267B000 Offset: 0x267B000 VA: 0x267B000
+	// RVA: 0x1CFDF9C Offset: 0x1CFDF9C VA: 0x1CFDF9C
 	public static AsymmetricCipherKeyPair GenerateDHKeyPair(SecureRandom random, DHParameters dhParams) { }
 
-	// RVA: 0x2679A1C Offset: 0x2679A1C VA: 0x2679A1C
+	// RVA: 0x1CFC9B8 Offset: 0x1CFC9B8 VA: 0x1CFC9B8
 	public static DHPrivateKeyParameters GenerateEphemeralClientKeyExchange(SecureRandom random, DHParameters dhParams, Stream output) { }
 
-	// RVA: 0x267B0C4 Offset: 0x267B0C4 VA: 0x267B0C4
+	// RVA: 0x1CFE060 Offset: 0x1CFE060 VA: 0x1CFE060
 	public static DHPrivateKeyParameters GenerateEphemeralServerKeyExchange(SecureRandom random, DHParameters dhParams, Stream output) { }
 
-	// RVA: 0x2679F78 Offset: 0x2679F78 VA: 0x2679F78
+	// RVA: 0x1CFCF14 Offset: 0x1CFCF14 VA: 0x1CFCF14
 	public static DHParameters ValidateDHParameters(DHParameters parameters) { }
 
-	// RVA: 0x266EF2C Offset: 0x266EF2C VA: 0x266EF2C
+	// RVA: 0x1CF329C Offset: 0x1CF329C VA: 0x1CF329C
 	public static DHPublicKeyParameters ValidateDHPublicKey(DHPublicKeyParameters key) { }
 
-	// RVA: 0x266EE90 Offset: 0x266EE90 VA: 0x266EE90
+	// RVA: 0x1CF3200 Offset: 0x1CF3200 VA: 0x1CF3200
 	public static BigInteger ReadDHParameter(Stream input) { }
 
-	// RVA: 0x266ED04 Offset: 0x266ED04 VA: 0x266ED04
+	// RVA: 0x1CF3074 Offset: 0x1CF3074 VA: 0x1CF3074
 	public static void WriteDHParameter(BigInteger x, Stream output) { }
 
-	// RVA: 0x267B2B4 Offset: 0x267B2B4 VA: 0x267B2B4
+	// RVA: 0x1CFE250 Offset: 0x1CFE250 VA: 0x1CFE250
 	private static void .cctor() { }
 }
 
@@ -420,25 +542,25 @@ public abstract class TlsDsaSigner : AbstractTlsSigner // TypeDefIndex: 4976
 
 	// Methods
 
-	// RVA: 0x267C20C Offset: 0x267C20C VA: 0x267C20C
+	// RVA: 0x1CFF19C Offset: 0x1CFF19C VA: 0x1CFF19C
 	protected void .ctor() { }
 
-	// RVA: 0x267C214 Offset: 0x267C214 VA: 0x267C214 Slot: 16
+	// RVA: 0x1CFF1A4 Offset: 0x1CFF1A4 VA: 0x1CFF1A4 Slot: 16
 	public override byte[] GenerateRawSignature(SignatureAndHashAlgorithm algorithm, AsymmetricKeyParameter privateKey, byte[] hash) { }
 
-	// RVA: 0x267C4D8 Offset: 0x267C4D8 VA: 0x267C4D8 Slot: 18
+	// RVA: 0x1CFF468 Offset: 0x1CFF468 VA: 0x1CFF468 Slot: 18
 	public override bool VerifyRawSignature(SignatureAndHashAlgorithm algorithm, byte[] sigBytes, AsymmetricKeyParameter publicKey, byte[] hash) { }
 
-	// RVA: 0x267C6FC Offset: 0x267C6FC VA: 0x267C6FC Slot: 20
+	// RVA: 0x1CFF68C Offset: 0x1CFF68C VA: 0x1CFF68C Slot: 20
 	public override ISigner CreateSigner(SignatureAndHashAlgorithm algorithm, AsymmetricKeyParameter privateKey) { }
 
-	// RVA: 0x267C71C Offset: 0x267C71C VA: 0x267C71C Slot: 22
+	// RVA: 0x1CFF6AC Offset: 0x1CFF6AC VA: 0x1CFF6AC Slot: 22
 	public override ISigner CreateVerifyer(SignatureAndHashAlgorithm algorithm, AsymmetricKeyParameter publicKey) { }
 
-	// RVA: 0x267C73C Offset: 0x267C73C VA: 0x267C73C Slot: 24
+	// RVA: 0x1CFF6CC Offset: 0x1CFF6CC VA: 0x1CFF6CC Slot: 24
 	protected virtual ICipherParameters MakeInitParameters(bool forSigning, ICipherParameters cp) { }
 
-	// RVA: 0x267C744 Offset: 0x267C744 VA: 0x267C744 Slot: 25
+	// RVA: 0x1CFF6D4 Offset: 0x1CFF6D4 VA: 0x1CFF6D4 Slot: 25
 	protected virtual ISigner MakeSigner(SignatureAndHashAlgorithm algorithm, bool raw, bool forSigning, ICipherParameters cp) { }
 
 	// RVA: -1 Offset: -1 Slot: 26
@@ -456,16 +578,16 @@ public class TlsDssSigner : TlsDsaSigner // TypeDefIndex: 4977
 
 	// Methods
 
-	// RVA: 0x2679180 Offset: 0x2679180 VA: 0x2679180
+	// RVA: 0x1CFC11C Offset: 0x1CFC11C VA: 0x1CFC11C
 	public void .ctor() { }
 
-	// RVA: 0x267C9A8 Offset: 0x267C9A8 VA: 0x267C9A8 Slot: 23
+	// RVA: 0x1CFF938 Offset: 0x1CFF938 VA: 0x1CFF938 Slot: 23
 	public override bool IsValidPublicKey(AsymmetricKeyParameter publicKey) { }
 
-	// RVA: 0x267CA28 Offset: 0x267CA28 VA: 0x267CA28 Slot: 27
+	// RVA: 0x1CFF9B8 Offset: 0x1CFF9B8 VA: 0x1CFF9B8 Slot: 27
 	protected override IDsa CreateDsaImpl(byte hashAlgorithm) { }
 
-	// RVA: 0x267CAE0 Offset: 0x267CAE0 VA: 0x267CAE0 Slot: 26
+	// RVA: 0x1CFFA70 Offset: 0x1CFFA70 VA: 0x1CFFA70 Slot: 26
 	protected override byte get_SignatureAlgorithm() { }
 }
 
@@ -477,127 +599,127 @@ public abstract class TlsEccUtilities // TypeDefIndex: 4978
 
 	// Methods
 
-	// RVA: 0x267F5F8 Offset: 0x267F5F8 VA: 0x267F5F8
+	// RVA: 0x1D02464 Offset: 0x1D02464 VA: 0x1D02464
 	protected void .ctor() { }
 
-	// RVA: 0x267F600 Offset: 0x267F600 VA: 0x267F600
+	// RVA: 0x1D0246C Offset: 0x1D0246C VA: 0x1D0246C
 	public static void AddSupportedEllipticCurvesExtension(IDictionary extensions, int[] namedCurves) { }
 
-	// RVA: 0x267F7CC Offset: 0x267F7CC VA: 0x267F7CC
+	// RVA: 0x1D02638 Offset: 0x1D02638 VA: 0x1D02638
 	public static void AddSupportedPointFormatsExtension(IDictionary extensions, byte[] ecPointFormats) { }
 
-	// RVA: 0x267F97C Offset: 0x267F97C VA: 0x267F97C
+	// RVA: 0x1D027E8 Offset: 0x1D027E8 VA: 0x1D027E8
 	public static int[] GetSupportedEllipticCurvesExtension(IDictionary extensions) { }
 
-	// RVA: 0x267FB90 Offset: 0x267FB90 VA: 0x267FB90
+	// RVA: 0x1D029FC Offset: 0x1D029FC VA: 0x1D029FC
 	public static byte[] GetSupportedPointFormatsExtension(IDictionary extensions) { }
 
-	// RVA: 0x267F71C Offset: 0x267F71C VA: 0x267F71C
+	// RVA: 0x1D02588 Offset: 0x1D02588 VA: 0x1D02588
 	public static byte[] CreateSupportedEllipticCurvesExtension(int[] namedCurves) { }
 
-	// RVA: 0x267F8E8 Offset: 0x267F8E8 VA: 0x267F8E8
+	// RVA: 0x1D02754 Offset: 0x1D02754 VA: 0x1D02754
 	public static byte[] CreateSupportedPointFormatsExtension(byte[] ecPointFormats) { }
 
-	// RVA: 0x267FA24 Offset: 0x267FA24 VA: 0x267FA24
+	// RVA: 0x1D02890 Offset: 0x1D02890 VA: 0x1D02890
 	public static int[] ReadSupportedEllipticCurvesExtension(byte[] extensionData) { }
 
-	// RVA: 0x267FC38 Offset: 0x267FC38 VA: 0x267FC38
+	// RVA: 0x1D02AA4 Offset: 0x1D02AA4 VA: 0x1D02AA4
 	public static byte[] ReadSupportedPointFormatsExtension(byte[] extensionData) { }
 
-	// RVA: 0x267FDD0 Offset: 0x267FDD0 VA: 0x267FDD0
+	// RVA: 0x1D02C3C Offset: 0x1D02C3C VA: 0x1D02C3C
 	public static string GetNameOfNamedCurve(int namedCurve) { }
 
-	// RVA: 0x267FF34 Offset: 0x267FF34 VA: 0x267FF34
+	// RVA: 0x1D02DA0 Offset: 0x1D02DA0 VA: 0x1D02DA0
 	public static ECDomainParameters GetParametersForNamedCurve(int namedCurve) { }
 
-	// RVA: 0x268008C Offset: 0x268008C VA: 0x268008C
+	// RVA: 0x1D02EF8 Offset: 0x1D02EF8 VA: 0x1D02EF8
 	public static bool HasAnySupportedNamedCurves() { }
 
-	// RVA: 0x268010C Offset: 0x268010C VA: 0x268010C
+	// RVA: 0x1D02F78 Offset: 0x1D02F78 VA: 0x1D02F78
 	public static bool ContainsEccCipherSuites(int[] cipherSuites) { }
 
-	// RVA: 0x26802A4 Offset: 0x26802A4 VA: 0x26802A4
+	// RVA: 0x1D03110 Offset: 0x1D03110 VA: 0x1D03110
 	public static bool IsEccCipherSuite(int cipherSuite) { }
 
-	// RVA: 0x2680370 Offset: 0x2680370 VA: 0x2680370
+	// RVA: 0x1D031DC Offset: 0x1D031DC VA: 0x1D031DC
 	public static bool AreOnSameCurve(ECDomainParameters a, ECDomainParameters b) { }
 
-	// RVA: 0x267FEA0 Offset: 0x267FEA0 VA: 0x267FEA0
+	// RVA: 0x1D02D0C Offset: 0x1D02D0C VA: 0x1D02D0C
 	public static bool IsSupportedNamedCurve(int namedCurve) { }
 
-	// RVA: 0x2680384 Offset: 0x2680384 VA: 0x2680384
+	// RVA: 0x1D031F0 Offset: 0x1D031F0 VA: 0x1D031F0
 	public static bool IsCompressionPreferred(byte[] ecPointFormats, byte compressionFormat) { }
 
-	// RVA: 0x268040C Offset: 0x268040C VA: 0x268040C
+	// RVA: 0x1D03278 Offset: 0x1D03278 VA: 0x1D03278
 	public static byte[] SerializeECFieldElement(int fieldSize, BigInteger x) { }
 
-	// RVA: 0x2680428 Offset: 0x2680428 VA: 0x2680428
+	// RVA: 0x1D03294 Offset: 0x1D03294 VA: 0x1D03294
 	public static byte[] SerializeECPoint(byte[] ecPointFormats, ECPoint point) { }
 
-	// RVA: 0x2680520 Offset: 0x2680520 VA: 0x2680520
+	// RVA: 0x1D0338C Offset: 0x1D0338C VA: 0x1D0338C
 	public static byte[] SerializeECPublicKey(byte[] ecPointFormats, ECPublicKeyParameters keyParameters) { }
 
-	// RVA: 0x26805B4 Offset: 0x26805B4 VA: 0x26805B4
+	// RVA: 0x1D03420 Offset: 0x1D03420 VA: 0x1D03420
 	public static BigInteger DeserializeECFieldElement(int fieldSize, byte[] encoding) { }
 
-	// RVA: 0x268068C Offset: 0x268068C VA: 0x268068C
+	// RVA: 0x1D034F8 Offset: 0x1D034F8 VA: 0x1D034F8
 	public static ECPoint DeserializeECPoint(byte[] ecPointFormats, ECCurve curve, byte[] encoding) { }
 
-	// RVA: 0x267DD64 Offset: 0x267DD64 VA: 0x267DD64
+	// RVA: 0x1D00BDC Offset: 0x1D00BDC VA: 0x1D00BDC
 	public static ECPublicKeyParameters DeserializeECPublicKey(byte[] ecPointFormats, ECDomainParameters curve_params, byte[] encoding) { }
 
-	// RVA: 0x267E6B0 Offset: 0x267E6B0 VA: 0x267E6B0
+	// RVA: 0x1D01528 Offset: 0x1D01528 VA: 0x1D01528
 	public static byte[] CalculateECDHBasicAgreement(ECPublicKeyParameters publicKey, ECPrivateKeyParameters privateKey) { }
 
-	// RVA: 0x26807A0 Offset: 0x26807A0 VA: 0x26807A0
+	// RVA: 0x1D0360C Offset: 0x1D0360C VA: 0x1D0360C
 	public static AsymmetricCipherKeyPair GenerateECKeyPair(SecureRandom random, ECDomainParameters ecParams) { }
 
-	// RVA: 0x267E24C Offset: 0x267E24C VA: 0x267E24C
+	// RVA: 0x1D010C4 Offset: 0x1D010C4 VA: 0x1D010C4
 	public static ECPrivateKeyParameters GenerateEphemeralClientKeyExchange(SecureRandom random, byte[] ecPointFormats, ECDomainParameters ecParams, Stream output) { }
 
-	// RVA: 0x267D2F0 Offset: 0x267D2F0 VA: 0x267D2F0
+	// RVA: 0x1D00168 Offset: 0x1D00168 VA: 0x1D00168
 	internal static ECPrivateKeyParameters GenerateEphemeralServerKeyExchange(SecureRandom random, int[] namedCurves, byte[] ecPointFormats, Stream output) { }
 
-	// RVA: 0x267D148 Offset: 0x267D148 VA: 0x267D148
+	// RVA: 0x1CFFFC0 Offset: 0x1CFFFC0 VA: 0x1CFFFC0
 	public static ECPublicKeyParameters ValidateECPublicKey(ECPublicKeyParameters key) { }
 
-	// RVA: 0x2681074 Offset: 0x2681074 VA: 0x2681074
+	// RVA: 0x1D03EE0 Offset: 0x1D03EE0 VA: 0x1D03EE0
 	public static int ReadECExponent(int fieldSize, Stream input) { }
 
-	// RVA: 0x2681204 Offset: 0x2681204 VA: 0x2681204
+	// RVA: 0x1D04070 Offset: 0x1D04070 VA: 0x1D04070
 	public static BigInteger ReadECFieldElement(int fieldSize, Stream input) { }
 
-	// RVA: 0x2681168 Offset: 0x2681168 VA: 0x2681168
+	// RVA: 0x1D03FD4 Offset: 0x1D03FD4 VA: 0x1D03FD4
 	public static BigInteger ReadECParameter(Stream input) { }
 
-	// RVA: 0x267D664 Offset: 0x267D664 VA: 0x267D664
+	// RVA: 0x1D004DC Offset: 0x1D004DC VA: 0x1D004DC
 	public static ECDomainParameters ReadECParameters(int[] namedCurves, byte[] ecPointFormats, Stream input) { }
 
-	// RVA: 0x26812AC Offset: 0x26812AC VA: 0x26812AC
+	// RVA: 0x1D04118 Offset: 0x1D04118 VA: 0x1D04118
 	private static void CheckNamedCurve(int[] namedCurves, int namedCurve) { }
 
-	// RVA: 0x2681348 Offset: 0x2681348 VA: 0x2681348
+	// RVA: 0x1D041B4 Offset: 0x1D041B4 VA: 0x1D041B4
 	public static void WriteECExponent(int k, Stream output) { }
 
-	// RVA: 0x268147C Offset: 0x268147C VA: 0x268147C
+	// RVA: 0x1D042E8 Offset: 0x1D042E8 VA: 0x1D042E8
 	public static void WriteECFieldElement(ECFieldElement x, Stream output) { }
 
-	// RVA: 0x268151C Offset: 0x268151C VA: 0x268151C
+	// RVA: 0x1D04388 Offset: 0x1D04388 VA: 0x1D04388
 	public static void WriteECFieldElement(int fieldSize, BigInteger x, Stream output) { }
 
-	// RVA: 0x26813F0 Offset: 0x26813F0 VA: 0x26813F0
+	// RVA: 0x1D0425C Offset: 0x1D0425C VA: 0x1D0425C
 	public static void WriteECParameter(BigInteger x, Stream output) { }
 
-	// RVA: 0x268091C Offset: 0x268091C VA: 0x268091C
+	// RVA: 0x1D03788 Offset: 0x1D03788 VA: 0x1D03788
 	public static void WriteExplicitECParameters(byte[] ecPointFormats, ECDomainParameters ecParameters, Stream output) { }
 
-	// RVA: 0x268086C Offset: 0x268086C VA: 0x268086C
+	// RVA: 0x1D036D8 Offset: 0x1D036D8 VA: 0x1D036D8
 	public static void WriteECPoint(byte[] ecPointFormats, ECPoint point, Stream output) { }
 
-	// RVA: 0x2680F98 Offset: 0x2680F98 VA: 0x2680F98
+	// RVA: 0x1D03E04 Offset: 0x1D03E04 VA: 0x1D03E04
 	public static void WriteNamedECParameters(int namedCurve, Stream output) { }
 
-	// RVA: 0x26815E0 Offset: 0x26815E0 VA: 0x26815E0
+	// RVA: 0x1D0444C Offset: 0x1D0444C VA: 0x1D0444C
 	private static void .cctor() { }
 }
 
@@ -609,25 +731,25 @@ public class TlsECDheKeyExchange : TlsECDHKeyExchange // TypeDefIndex: 4979
 
 	// Methods
 
-	// RVA: 0x267E780 Offset: 0x267E780 VA: 0x267E780
+	// RVA: 0x1CEDB64 Offset: 0x1CEDB64 VA: 0x1CEDB64
 	public void .ctor(int keyExchange, IList supportedSignatureAlgorithms, int[] namedCurves, byte[] clientECPointFormats, byte[] serverECPointFormats) { }
 
-	// RVA: 0x267E784 Offset: 0x267E784 VA: 0x267E784 Slot: 23
+	// RVA: 0x1D015F8 Offset: 0x1D015F8 VA: 0x1D015F8 Slot: 23
 	public override void ProcessServerCredentials(TlsCredentials serverCredentials) { }
 
-	// RVA: 0x267E918 Offset: 0x267E918 VA: 0x267E918 Slot: 25
+	// RVA: 0x1D0178C Offset: 0x1D0178C VA: 0x1D0178C Slot: 25
 	public override byte[] GenerateServerKeyExchange() { }
 
-	// RVA: 0x267EDC0 Offset: 0x267EDC0 VA: 0x267EDC0 Slot: 27
+	// RVA: 0x1D01C2C Offset: 0x1D01C2C VA: 0x1D01C2C Slot: 27
 	public override void ProcessServerKeyExchange(Stream input) { }
 
-	// RVA: 0x267F0BC Offset: 0x267F0BC VA: 0x267F0BC Slot: 28
+	// RVA: 0x1D01F28 Offset: 0x1D01F28 VA: 0x1D01F28 Slot: 28
 	public override void ValidateCertificateRequest(CertificateRequest certificateRequest) { }
 
-	// RVA: 0x267F1C0 Offset: 0x267F1C0 VA: 0x267F1C0 Slot: 30
+	// RVA: 0x1D0202C Offset: 0x1D0202C VA: 0x1D0202C Slot: 30
 	public override void ProcessClientCredentials(TlsCredentials clientCredentials) { }
 
-	// RVA: 0x267F250 Offset: 0x267F250 VA: 0x267F250 Slot: 35
+	// RVA: 0x1D020BC Offset: 0x1D020BC VA: 0x1D020BC Slot: 35
 	protected virtual ISigner InitVerifyer(TlsSigner tlsSigner, SignatureAndHashAlgorithm algorithm, SecurityParameters securityParameters) { }
 }
 
@@ -649,43 +771,43 @@ public class TlsECDHKeyExchange : AbstractTlsKeyExchange // TypeDefIndex: 4980
 
 	// Methods
 
-	// RVA: 0x267CAE8 Offset: 0x267CAE8 VA: 0x267CAE8
+	// RVA: 0x1CED9A8 Offset: 0x1CED9A8 VA: 0x1CED9A8
 	public void .ctor(int keyExchange, IList supportedSignatureAlgorithms, int[] namedCurves, byte[] clientECPointFormats, byte[] serverECPointFormats) { }
 
-	// RVA: 0x267CC08 Offset: 0x267CC08 VA: 0x267CC08 Slot: 20
+	// RVA: 0x1CFFA80 Offset: 0x1CFFA80 VA: 0x1CFFA80 Slot: 20
 	public override void Init(TlsContext context) { }
 
-	// RVA: 0x267CCE4 Offset: 0x267CCE4 VA: 0x267CCE4 Slot: 21
+	// RVA: 0x1CFFB5C Offset: 0x1CFFB5C VA: 0x1CFFB5C Slot: 21
 	public override void SkipServerCredentials() { }
 
-	// RVA: 0x267CD68 Offset: 0x267CD68 VA: 0x267CD68 Slot: 22
+	// RVA: 0x1CFFBE0 Offset: 0x1CFFBE0 VA: 0x1CFFBE0 Slot: 22
 	public override void ProcessServerCertificate(Certificate serverCertificate) { }
 
-	// RVA: 0x267D14C Offset: 0x267D14C VA: 0x267D14C Slot: 24
+	// RVA: 0x1CFFFC4 Offset: 0x1CFFFC4 VA: 0x1CFFFC4 Slot: 24
 	public override bool get_RequiresServerKeyExchange() { }
 
-	// RVA: 0x267D178 Offset: 0x267D178 VA: 0x267D178 Slot: 25
+	// RVA: 0x1CFFFF0 Offset: 0x1CFFFF0 VA: 0x1CFFFF0 Slot: 25
 	public override byte[] GenerateServerKeyExchange() { }
 
-	// RVA: 0x267D548 Offset: 0x267D548 VA: 0x267D548 Slot: 27
+	// RVA: 0x1D003C0 Offset: 0x1D003C0 VA: 0x1D003C0 Slot: 27
 	public override void ProcessServerKeyExchange(Stream input) { }
 
-	// RVA: 0x267DEE4 Offset: 0x267DEE4 VA: 0x267DEE4 Slot: 28
+	// RVA: 0x1D00D5C Offset: 0x1D00D5C VA: 0x1D00D5C Slot: 28
 	public override void ValidateCertificateRequest(CertificateRequest certificateRequest) { }
 
-	// RVA: 0x267DFE0 Offset: 0x267DFE0 VA: 0x267DFE0 Slot: 30
+	// RVA: 0x1D00E58 Offset: 0x1D00E58 VA: 0x1D00E58 Slot: 30
 	public override void ProcessClientCredentials(TlsCredentials clientCredentials) { }
 
-	// RVA: 0x267E110 Offset: 0x267E110 VA: 0x267E110 Slot: 32
+	// RVA: 0x1D00F88 Offset: 0x1D00F88 VA: 0x1D00F88 Slot: 32
 	public override void GenerateClientKeyExchange(Stream output) { }
 
-	// RVA: 0x267E420 Offset: 0x267E420 VA: 0x267E420 Slot: 31
+	// RVA: 0x1D01298 Offset: 0x1D01298 VA: 0x1D01298 Slot: 31
 	public override void ProcessClientCertificate(Certificate clientCertificate) { }
 
-	// RVA: 0x267E4A4 Offset: 0x267E4A4 VA: 0x267E4A4 Slot: 33
+	// RVA: 0x1D0131C Offset: 0x1D0131C VA: 0x1D0131C Slot: 33
 	public override void ProcessClientKeyExchange(Stream input) { }
 
-	// RVA: 0x267E584 Offset: 0x267E584 VA: 0x267E584 Slot: 34
+	// RVA: 0x1D013FC Offset: 0x1D013FC VA: 0x1D013FC Slot: 34
 	public override byte[] GeneratePremasterSecret() { }
 }
 
@@ -697,16 +819,16 @@ public class TlsECDsaSigner : TlsDsaSigner // TypeDefIndex: 4981
 
 	// Methods
 
-	// RVA: 0x267CC00 Offset: 0x267CC00 VA: 0x267CC00
+	// RVA: 0x1CFFA78 Offset: 0x1CFFA78 VA: 0x1CFFA78
 	public void .ctor() { }
 
-	// RVA: 0x267F4B8 Offset: 0x267F4B8 VA: 0x267F4B8 Slot: 23
+	// RVA: 0x1D02324 Offset: 0x1D02324 VA: 0x1D02324 Slot: 23
 	public override bool IsValidPublicKey(AsymmetricKeyParameter publicKey) { }
 
-	// RVA: 0x267F538 Offset: 0x267F538 VA: 0x267F538 Slot: 27
+	// RVA: 0x1D023A4 Offset: 0x1D023A4 VA: 0x1D023A4 Slot: 27
 	protected override IDsa CreateDsaImpl(byte hashAlgorithm) { }
 
-	// RVA: 0x267F5F0 Offset: 0x267F5F0 VA: 0x267F5F0 Slot: 26
+	// RVA: 0x1D0245C Offset: 0x1D0245C VA: 0x1D0245C Slot: 26
 	protected override byte get_SignatureAlgorithm() { }
 }
 
@@ -724,112 +846,112 @@ public abstract class TlsExtensionsUtilities // TypeDefIndex: 4983
 {
 	// Methods
 
-	// RVA: 0x2681F7C Offset: 0x2681F7C VA: 0x2681F7C
+	// RVA: 0x1D04DE8 Offset: 0x1D04DE8 VA: 0x1D04DE8
 	protected void .ctor() { }
 
-	// RVA: 0x2681F84 Offset: 0x2681F84 VA: 0x2681F84
+	// RVA: 0x1D04DF0 Offset: 0x1D04DF0 VA: 0x1D04DF0
 	public static IDictionary EnsureExtensionsInitialised(IDictionary extensions) { }
 
-	// RVA: 0x2681FFC Offset: 0x2681FFC VA: 0x2681FFC
+	// RVA: 0x1D04E68 Offset: 0x1D04E68 VA: 0x1D04E68
 	public static void AddEncryptThenMacExtension(IDictionary extensions) { }
 
-	// RVA: 0x26820F0 Offset: 0x26820F0 VA: 0x26820F0
+	// RVA: 0x1D04F5C Offset: 0x1D04F5C VA: 0x1D04F5C
 	public static void AddExtendedMasterSecretExtension(IDictionary extensions) { }
 
-	// RVA: 0x26821E4 Offset: 0x26821E4 VA: 0x26821E4
+	// RVA: 0x1D05050 Offset: 0x1D05050 VA: 0x1D05050
 	public static void AddHeartbeatExtension(IDictionary extensions, HeartbeatExtension heartbeatExtension) { }
 
-	// RVA: 0x26823A4 Offset: 0x26823A4 VA: 0x26823A4
+	// RVA: 0x1D05210 Offset: 0x1D05210 VA: 0x1D05210
 	public static void AddMaxFragmentLengthExtension(IDictionary extensions, byte maxFragmentLength) { }
 
-	// RVA: 0x268251C Offset: 0x268251C VA: 0x268251C
+	// RVA: 0x1D05388 Offset: 0x1D05388 VA: 0x1D05388
 	public static void AddPaddingExtension(IDictionary extensions, int dataLength) { }
 
-	// RVA: 0x2682690 Offset: 0x2682690 VA: 0x2682690
+	// RVA: 0x1D054FC Offset: 0x1D054FC VA: 0x1D054FC
 	public static void AddServerNameExtension(IDictionary extensions, ServerNameList serverNameList) { }
 
-	// RVA: 0x268284C Offset: 0x268284C VA: 0x268284C
+	// RVA: 0x1D056B8 Offset: 0x1D056B8 VA: 0x1D056B8
 	public static void AddStatusRequestExtension(IDictionary extensions, CertificateStatusRequest statusRequest) { }
 
-	// RVA: 0x2682A0C Offset: 0x2682A0C VA: 0x2682A0C
+	// RVA: 0x1D05878 Offset: 0x1D05878 VA: 0x1D05878
 	public static void AddTruncatedHMacExtension(IDictionary extensions) { }
 
-	// RVA: 0x2682B00 Offset: 0x2682B00 VA: 0x2682B00
+	// RVA: 0x1D0596C Offset: 0x1D0596C VA: 0x1D0596C
 	public static HeartbeatExtension GetHeartbeatExtension(IDictionary extensions) { }
 
-	// RVA: 0x2682C68 Offset: 0x2682C68 VA: 0x2682C68
+	// RVA: 0x1D05AD4 Offset: 0x1D05AD4 VA: 0x1D05AD4
 	public static short GetMaxFragmentLengthExtension(IDictionary extensions) { }
 
-	// RVA: 0x2682DA4 Offset: 0x2682DA4 VA: 0x2682DA4
+	// RVA: 0x1D05C10 Offset: 0x1D05C10 VA: 0x1D05C10
 	public static int GetPaddingExtension(IDictionary extensions) { }
 
-	// RVA: 0x2682F18 Offset: 0x2682F18 VA: 0x2682F18
+	// RVA: 0x1D05D84 Offset: 0x1D05D84 VA: 0x1D05D84
 	public static ServerNameList GetServerNameExtension(IDictionary extensions) { }
 
-	// RVA: 0x2683080 Offset: 0x2683080 VA: 0x2683080
+	// RVA: 0x1D05EEC Offset: 0x1D05EEC VA: 0x1D05EEC
 	public static CertificateStatusRequest GetStatusRequestExtension(IDictionary extensions) { }
 
-	// RVA: 0x2678344 Offset: 0x2678344 VA: 0x2678344
+	// RVA: 0x1CFB560 Offset: 0x1CFB560 VA: 0x1CFB560
 	public static bool HasEncryptThenMacExtension(IDictionary extensions) { }
 
-	// RVA: 0x26783C0 Offset: 0x26783C0 VA: 0x26783C0
+	// RVA: 0x1CFB5DC Offset: 0x1CFB5DC VA: 0x1CFB5DC
 	public static bool HasExtendedMasterSecretExtension(IDictionary extensions) { }
 
-	// RVA: 0x267843C Offset: 0x267843C VA: 0x267843C
+	// RVA: 0x1CFB658 Offset: 0x1CFB658 VA: 0x1CFB658
 	public static bool HasTruncatedHMacExtension(IDictionary extensions) { }
 
-	// RVA: 0x2683234 Offset: 0x2683234 VA: 0x2683234
+	// RVA: 0x1D0609C Offset: 0x1D0609C VA: 0x1D0609C
 	public static byte[] CreateEmptyExtensionData() { }
 
-	// RVA: 0x26820EC Offset: 0x26820EC VA: 0x26820EC
+	// RVA: 0x1D04F58 Offset: 0x1D04F58 VA: 0x1D04F58
 	public static byte[] CreateEncryptThenMacExtension() { }
 
-	// RVA: 0x26821E0 Offset: 0x26821E0 VA: 0x26821E0
+	// RVA: 0x1D0504C Offset: 0x1D0504C VA: 0x1D0504C
 	public static byte[] CreateExtendedMasterSecretExtension() { }
 
-	// RVA: 0x26822DC Offset: 0x26822DC VA: 0x26822DC
+	// RVA: 0x1D05148 Offset: 0x1D05148 VA: 0x1D05148
 	public static byte[] CreateHeartbeatExtension(HeartbeatExtension heartbeatExtension) { }
 
-	// RVA: 0x268249C Offset: 0x268249C VA: 0x268249C
+	// RVA: 0x1D05308 Offset: 0x1D05308 VA: 0x1D05308
 	public static byte[] CreateMaxFragmentLengthExtension(byte maxFragmentLength) { }
 
-	// RVA: 0x2682614 Offset: 0x2682614 VA: 0x2682614
+	// RVA: 0x1D05480 Offset: 0x1D05480 VA: 0x1D05480
 	public static byte[] CreatePaddingExtension(int dataLength) { }
 
-	// RVA: 0x2682784 Offset: 0x2682784 VA: 0x2682784
+	// RVA: 0x1D055F0 Offset: 0x1D055F0 VA: 0x1D055F0
 	public static byte[] CreateServerNameExtension(ServerNameList serverNameList) { }
 
-	// RVA: 0x2682944 Offset: 0x2682944 VA: 0x2682944
+	// RVA: 0x1D057B0 Offset: 0x1D057B0 VA: 0x1D057B0
 	public static byte[] CreateStatusRequestExtension(CertificateStatusRequest statusRequest) { }
 
-	// RVA: 0x2682AFC Offset: 0x2682AFC VA: 0x2682AFC
+	// RVA: 0x1D05968 Offset: 0x1D05968 VA: 0x1D05968
 	public static byte[] CreateTruncatedHMacExtension() { }
 
-	// RVA: 0x268329C Offset: 0x268329C VA: 0x268329C
+	// RVA: 0x1D06104 Offset: 0x1D06104 VA: 0x1D06104
 	private static bool ReadEmptyExtensionData(byte[] extensionData) { }
 
-	// RVA: 0x26831EC Offset: 0x26831EC VA: 0x26831EC
+	// RVA: 0x1D06054 Offset: 0x1D06054 VA: 0x1D06054
 	public static bool ReadEncryptThenMacExtension(byte[] extensionData) { }
 
-	// RVA: 0x2683204 Offset: 0x2683204 VA: 0x2683204
+	// RVA: 0x1D0606C Offset: 0x1D0606C VA: 0x1D0606C
 	public static bool ReadExtendedMasterSecretExtension(byte[] extensionData) { }
 
-	// RVA: 0x2682B80 Offset: 0x2682B80 VA: 0x2682B80
+	// RVA: 0x1D059EC Offset: 0x1D059EC VA: 0x1D059EC
 	public static HeartbeatExtension ReadHeartbeatExtension(byte[] extensionData) { }
 
-	// RVA: 0x2682CEC Offset: 0x2682CEC VA: 0x2682CEC
+	// RVA: 0x1D05B58 Offset: 0x1D05B58 VA: 0x1D05B58
 	public static short ReadMaxFragmentLengthExtension(byte[] extensionData) { }
 
-	// RVA: 0x2682E28 Offset: 0x2682E28 VA: 0x2682E28
+	// RVA: 0x1D05C94 Offset: 0x1D05C94 VA: 0x1D05C94
 	public static int ReadPaddingExtension(byte[] extensionData) { }
 
-	// RVA: 0x2682F98 Offset: 0x2682F98 VA: 0x2682F98
+	// RVA: 0x1D05E04 Offset: 0x1D05E04 VA: 0x1D05E04
 	public static ServerNameList ReadServerNameExtension(byte[] extensionData) { }
 
-	// RVA: 0x2683100 Offset: 0x2683100 VA: 0x2683100
+	// RVA: 0x1D05F6C Offset: 0x1D05F6C VA: 0x1D05F6C
 	public static CertificateStatusRequest ReadStatusRequestExtension(byte[] extensionData) { }
 
-	// RVA: 0x268321C Offset: 0x268321C VA: 0x268321C
+	// RVA: 0x1D06084 Offset: 0x1D06084 VA: 0x1D06084
 	public static bool ReadTruncatedHMacExtension(byte[] extensionData) { }
 }
 
@@ -844,13 +966,13 @@ public class TlsFatalAlert : IOException // TypeDefIndex: 4984
 
 	// Methods
 
-	// RVA: 0x266BF88 Offset: 0x266BF88 VA: 0x266BF88
+	// RVA: 0x1CE894C Offset: 0x1CE894C VA: 0x1CE894C
 	public void .ctor(byte alertDescription) { }
 
-	// RVA: 0x26724B8 Offset: 0x26724B8 VA: 0x26724B8
+	// RVA: 0x1CF6370 Offset: 0x1CF6370 VA: 0x1CF6370
 	public void .ctor(byte alertDescription, Exception alertCause) { }
 
-	// RVA: 0x2683350 Offset: 0x2683350 VA: 0x2683350 Slot: 12
+	// RVA: 0x1D061B8 Offset: 0x1D061B8 VA: 0x1D061B8 Slot: 12
 	public virtual byte get_AlertDescription() { }
 }
 
@@ -876,125 +998,3 @@ public interface TlsHandshakeHash : IDigest // TypeDefIndex: 4985
 
 	// RVA: -1 Offset: -1 Slot: 5
 	public abstract IDigest ForkPrfHash();
-
-	// RVA: -1 Offset: -1 Slot: 6
-	public abstract byte[] GetFinalHash(byte hashAlgorithm);
-}
-
-// Namespace: Org.BouncyCastle.Crypto.Tls
-public interface TlsKeyExchange // TypeDefIndex: 4986
-{
-	// Properties
-	public abstract bool RequiresServerKeyExchange { get; }
-
-	// Methods
-
-	// RVA: -1 Offset: -1 Slot: 0
-	public abstract void Init(TlsContext context);
-
-	// RVA: -1 Offset: -1 Slot: 1
-	public abstract void SkipServerCredentials();
-
-	// RVA: -1 Offset: -1 Slot: 2
-	public abstract void ProcessServerCredentials(TlsCredentials serverCredentials);
-
-	// RVA: -1 Offset: -1 Slot: 3
-	public abstract void ProcessServerCertificate(Certificate serverCertificate);
-
-	// RVA: -1 Offset: -1 Slot: 4
-	public abstract bool get_RequiresServerKeyExchange();
-
-	// RVA: -1 Offset: -1 Slot: 5
-	public abstract byte[] GenerateServerKeyExchange();
-
-	// RVA: -1 Offset: -1 Slot: 6
-	public abstract void SkipServerKeyExchange();
-
-	// RVA: -1 Offset: -1 Slot: 7
-	public abstract void ProcessServerKeyExchange(Stream input);
-
-	// RVA: -1 Offset: -1 Slot: 8
-	public abstract void ValidateCertificateRequest(CertificateRequest certificateRequest);
-
-	// RVA: -1 Offset: -1 Slot: 9
-	public abstract void SkipClientCredentials();
-
-	// RVA: -1 Offset: -1 Slot: 10
-	public abstract void ProcessClientCredentials(TlsCredentials clientCredentials);
-
-	// RVA: -1 Offset: -1 Slot: 11
-	public abstract void ProcessClientCertificate(Certificate clientCertificate);
-
-	// RVA: -1 Offset: -1 Slot: 12
-	public abstract void GenerateClientKeyExchange(Stream output);
-
-	// RVA: -1 Offset: -1 Slot: 13
-	public abstract void ProcessClientKeyExchange(Stream input);
-
-	// RVA: -1 Offset: -1 Slot: 14
-	public abstract byte[] GeneratePremasterSecret();
-}
-
-// Namespace: Org.BouncyCastle.Crypto.Tls
-public class TlsMac // TypeDefIndex: 4987
-{
-	// Fields
-	protected readonly TlsContext context; // 0x10
-	protected readonly byte[] secret; // 0x18
-	protected readonly IMac mac; // 0x20
-	protected readonly int digestBlockSize; // 0x28
-	protected readonly int digestOverhead; // 0x2C
-	protected readonly int macLength; // 0x30
-
-	// Properties
-	public virtual byte[] MacSecret { get; }
-	public virtual int Size { get; }
-
-	// Methods
-
-	// RVA: 0x26738B4 Offset: 0x26738B4 VA: 0x26738B4
-	public void .ctor(TlsContext context, IDigest digest, byte[] key, int keyOff, int keyLen) { }
-
-	// RVA: 0x2683358 Offset: 0x2683358 VA: 0x2683358 Slot: 4
-	public virtual byte[] get_MacSecret() { }
-
-	// RVA: 0x2683360 Offset: 0x2683360 VA: 0x2683360 Slot: 5
-	public virtual int get_Size() { }
-
-	// RVA: 0x2683368 Offset: 0x2683368 VA: 0x2683368 Slot: 6
-	public virtual byte[] CalculateMac(long seqNo, byte type, byte[] message, int offset, int length) { }
-
-	// RVA: 0x26836AC Offset: 0x26836AC VA: 0x26836AC Slot: 7
-	public virtual byte[] CalculateMacConstantTime(long seqNo, byte type, byte[] message, int offset, int length, int fullLength, byte[] dummyData) { }
-
-	// RVA: 0x2683980 Offset: 0x2683980 VA: 0x2683980 Slot: 8
-	protected virtual int GetDigestBlockCount(int inputLength) { }
-
-	// RVA: 0x2683990 Offset: 0x2683990 VA: 0x2683990 Slot: 9
-	protected virtual byte[] Truncate(byte[] bs) { }
-}
-
-// Namespace: Org.BouncyCastle.Crypto.Tls
-public class TlsNullCipher : TlsCipher // TypeDefIndex: 4988
-{
-	// Fields
-	protected readonly TlsContext context; // 0x10
-	protected readonly TlsMac writeMac; // 0x18
-	protected readonly TlsMac readMac; // 0x20
-
-	// Methods
-
-	// RVA: 0x266D76C Offset: 0x266D76C VA: 0x266D76C
-	public void .ctor(TlsContext context) { }
-
-	// RVA: 0x26839E0 Offset: 0x26839E0 VA: 0x26839E0
-	public void .ctor(TlsContext context, IDigest clientWriteDigest, IDigest serverWriteDigest) { }
-
-	// RVA: 0x2683E78 Offset: 0x2683E78 VA: 0x2683E78 Slot: 7
-	public virtual int GetPlaintextLimit(int ciphertextLimit) { }
-
-	// RVA: 0x2683EB0 Offset: 0x2683EB0 VA: 0x2683EB0 Slot: 8
-	public virtual byte[] EncodePlaintext(long seqNo, byte type, byte[] plaintext, int offset, int len) { }
-
-	// RVA: 0x2683FDC Offset: 0x2683FDC VA: 0x2683FDC Slot: 9
-	public virtual byte[] DecodeCiphertext(long seqNo, byte type, byte[] ciphertext, int offset, int len) { }
