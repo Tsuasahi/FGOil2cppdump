@@ -1,0 +1,1000 @@
+	public void Open(string title, string scrollMessage, string footMessage, string decideTxt, string cancleTxt, ScrollConfirmDialog.ClickDelegate func) { }
+
+	// RVA: 0x1B17910 Offset: 0x1B17910 VA: 0x1B17910
+	public void OpenDecideDlg(string title, string scrollMessage, string footMessage, string decideTxt, string cancleTxt, ScrollConfirmDialog.ClickDelegate func, SeManager.SystemSeKind decideSe = 8, float offY = 0) { }
+
+	// RVA: 0x1B17D0C Offset: 0x1B17D0C VA: 0x1B17D0C
+	public void OpenItemIconDlg(string title, string scrollMessage, QuestConsumeItemEntity itemConsumeEnt, string rearScrollMessage, string footMessage, string decideTxt, string cancleTxt, ScrollConfirmDialog.ClickDelegate func, SeManager.SystemSeKind decideSe = 8) { }
+
+	// RVA: 0x1B18328 Offset: 0x1B18328 VA: 0x1B18328
+	public void OpenNoticeDlg(string title, string scrollMessage, string footMessage, string cancleTxt, ScrollConfirmDialog.ClickDelegate func, float offY = 0) { }
+
+	// RVA: 0x1B18438 Offset: 0x1B18438 VA: 0x1B18438
+	public void OpenImageDlg(string title, string imageName, string footMessage, string decideTxt, string cancleTxt, ScrollConfirmDialog.ClickDelegate func, SeManager.SystemSeKind decideSe = 8) { }
+
+	// RVA: 0x1B187EC Offset: 0x1B187EC VA: 0x1B187EC
+	protected void EndOpen() { }
+
+	// RVA: 0x1B187F8 Offset: 0x1B187F8 VA: 0x1B187F8
+	public void Close() { }
+
+	// RVA: 0x1B18800 Offset: 0x1B18800 VA: 0x1B18800
+	public void Close(Action callback) { }
+
+	// RVA: 0x1B1888C Offset: 0x1B1888C VA: 0x1B1888C
+	protected void EndClose() { }
+
+	// RVA: 0x1B188F0 Offset: 0x1B188F0 VA: 0x1B188F0
+	public void OnClickDecide() { }
+
+	// RVA: 0x1B18C70 Offset: 0x1B18C70 VA: 0x1B18C70
+	public void OnClickDecide2() { }
+
+	// RVA: 0x1B18D90 Offset: 0x1B18D90 VA: 0x1B18D90
+	public void OnClickCancel() { }
+
+	// RVA: 0x1B18EB0 Offset: 0x1B18EB0 VA: 0x1B18EB0
+	public void OnClickClose() { }
+
+	// RVA: 0x1B17290 Offset: 0x1B17290 VA: 0x1B17290
+	private void ResetScrollPosition(float offY = 0) { }
+
+	// RVA: 0x1B1715C Offset: 0x1B1715C VA: 0x1B1715C
+	private void SetTitleText(string title) { }
+
+	// RVA: 0x1B16CBC Offset: 0x1B16CBC VA: 0x1B16CBC
+	private void SetDecideButtonActive(bool isActive) { }
+
+	// RVA: 0x1B16D6C Offset: 0x1B16D6C VA: 0x1B16D6C
+	private void SetCanelButtonPositionX(float x) { }
+
+	// RVA: 0x1B18F44 Offset: 0x1B18F44 VA: 0x1B18F44 Slot: 6
+	protected override string get_closeBtnPath() { }
+
+	// RVA: 0x1B18F8C Offset: 0x1B18F8C VA: 0x1B18F8C
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public sealed class ScrollConfirmDialog.ClickDelegate : MulticastDelegate // TypeDefIndex: 11220
+{
+	// Methods
+
+	// RVA: 0x1B1900C Offset: 0x1B1900C VA: 0x1B1900C
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1B18A44 Offset: 0x1B18A44 VA: 0x1B18A44 Slot: 11
+	public virtual void Invoke(bool isDecide) { }
+
+	// RVA: 0x1B1901C Offset: 0x1B1901C VA: 0x1B1901C Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool isDecide, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1B190AC Offset: 0x1B190AC VA: 0x1B190AC Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class ScrPlayerBP : MonoBehaviour // TypeDefIndex: 11221
+{
+	// Fields
+	private static readonly string RP_OVER_TXT_COLOR_STR; // 0x0
+	private static readonly int RP_COUNT_STOP; // 0x8
+	private static readonly string[] RP_FRAME_SP; // 0x10
+	private static readonly int[] RP_GRID_WIDTH; // 0x18
+	private static readonly int[] RP_FRAME_DEPTH; // 0x20
+	[SerializeField] // RVA: 0xCEA384 Offset: 0xCEA384 VA: 0xCEA384
+	private UISprite mRpRecoverBtnSp; // 0x18
+	private bool mIsEnableRpRecoverBtn; // 0x20
+	[SerializeField] // RVA: 0xCEA394 Offset: 0xCEA394 VA: 0xCEA394
+	private UIGrid rpGrid; // 0x28
+	[SerializeField] // RVA: 0xCEA3A4 Offset: 0xCEA3A4 VA: 0xCEA3A4
+	private UISprite rpFrameL; // 0x30
+	[SerializeField] // RVA: 0xCEA3B4 Offset: 0xCEA3B4 VA: 0xCEA3B4
+	private UISprite rpFrameR; // 0x38
+	[SerializeField] // RVA: 0xCEA3C4 Offset: 0xCEA3C4 VA: 0xCEA3C4
+	private UILabel mcRpStrP; // 0x40
+	[SerializeField] // RVA: 0xCEA3D4 Offset: 0xCEA3D4 VA: 0xCEA3D4
+	private UILabel mcRpTimeP; // 0x48
+	[SerializeField] // RVA: 0xCEA3E4 Offset: 0xCEA3E4 VA: 0xCEA3E4
+	private PlayerStatusRaidPointComponent raidPointPrefab; // 0x50
+	private List<PlayerStatusRaidPointComponent> raidPointComponents; // 0x58
+	private float initPosRpFrameR; // 0x60
+	private int oldRp; // 0x64
+	private bool isBPEvent; // 0x68
+	private UserGameEntity userGameEntity; // 0x70
+	private Action mRecoverAct; // 0x78
+
+	// Methods
+
+	// RVA: 0x143EBF4 Offset: 0x143EBF4 VA: 0x143EBF4
+	public void .ctor() { }
+
+	// RVA: 0x143EC64 Offset: 0x143EC64 VA: 0x143EC64
+	public void SetRecoverAct(Action act) { }
+
+	// RVA: 0x143EC6C Offset: 0x143EC6C VA: 0x143EC6C
+	private void Awake() { }
+
+	// RVA: 0x143ED34 Offset: 0x143ED34 VA: 0x143ED34
+	public void SetupDispRaidPoint(UserGameEntity userGame) { }
+
+	// RVA: 0x143F22C Offset: 0x143F22C VA: 0x143F22C
+	public void UpdateRpStatus() { }
+
+	// RVA: 0x143F598 Offset: 0x143F598 VA: 0x143F598
+	public void UpdateRpTimeStr() { }
+
+	// RVA: 0x143F5D4 Offset: 0x143F5D4 VA: 0x143F5D4
+	private string mfGetRpRecoverTimeStr() { }
+
+	// RVA: 0x143F69C Offset: 0x143F69C VA: 0x143F69C
+	private string GetTimeStr(long time) { }
+
+	// RVA: 0x143ECB8 Offset: 0x143ECB8 VA: 0x143ECB8
+	public void SetRpRecoverBtnEnable(bool is_enable) { }
+
+	// RVA: 0x143F778 Offset: 0x143F778 VA: 0x143F778
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class ScrPlayerStatus : MonoBehaviour // TypeDefIndex: 11222
+{
+	// Fields
+	private static readonly float MV_SPD_TIME; // 0x0
+	private static readonly float FRAME_OUT_POS_X; // 0x4
+	private static readonly string AP_OVER_TXT_COLOR_STR; // 0x8
+	private static readonly string RP_OVER_TXT_COLOR_STR; // 0x10
+	private static readonly float MAX_LEVEL_BASE_POS_X; // 0x18
+	private static readonly float MAX_LEVEL_BASE_POS_Y; // 0x1C
+	private static readonly int RP_COUNT_STOP; // 0x20
+	private static readonly string LOCATION_TOS_AGREED_KEY; // 0x28
+	private static readonly int NOTICE_NUMBER_BADGE_DEPTH; // 0x30
+	private static readonly int NOTICE_NUMBER_BADGE_WIDTH; // 0x34
+	private static readonly int NOTICE_NUMBER_BADGE_HEIGHT; // 0x38
+	private static readonly int NOTICE_NUMBER_BADGE_FONT_SIZE; // 0x3C
+	private static readonly int NOTICE_NUMBER_LABEL_WIDTH; // 0x40
+	private static readonly string MASTER_MISSION_ICON_LIMITED_PREFIX; // 0x48
+	private static readonly int CMD_SPELL_SCROLLVIEW_DEPTH; // 0x50
+	private static readonly float SPELL_WINDOW_ALPHA_TIME; // 0x54
+	private static readonly int STONE_COUNT_MAX_WIDTH; // 0x58
+	private PlayMakerFSM mTargetFsm; // 0x18
+	public GameObject mcFaceObjP; // 0x20
+	public UILabel mcLevelStrP; // 0x28
+	public UILabel mcLevelMaxP; // 0x30
+	public UISlider mcExpSldP; // 0x38
+	public UILabel mcApStrP; // 0x40
+	public UILabel mcApTimeP; // 0x48
+	public UISlider mcApSldP; // 0x50
+	public UISlider mcApSldP2; // 0x58
+	public CommandSpellIconComponent commandSpellComp; // 0x60
+	public BoxCollider commandSpellButtonCollider; // 0x68
+	public GiftButtonCtrl mcGiftButtonP; // 0x70
+	[SerializeField] // RVA: 0xCEA3F4 Offset: 0xCEA3F4 VA: 0xCEA3F4
+	private GameObject mNoticeNumberPrefab; // 0x78
+	[SerializeField] // RVA: 0xCEA404 Offset: 0xCEA404 VA: 0xCEA404
+	private GameObject cNoticeNumberPrefab; // 0x80
+	private NoticeNumberComponent mGiftNoticeNumber; // 0x88
+	private NoticeNumberComponent mMasterMissionNoticeNumber; // 0x90
+	private NoticeNumberComponent mCompleteMissionNoticeNumber; // 0x98
+	[SerializeField] // RVA: 0xCEA414 Offset: 0xCEA414 VA: 0xCEA414
+	private UISprite mApRecoverBtnSp; // 0xA0
+	private bool mIsEnableApRecoverBtn; // 0xA8
+	[SerializeField] // RVA: 0xCEA424 Offset: 0xCEA424 VA: 0xCEA424
+	private UISprite mRpRecoverBtnSp; // 0xB0
+	private bool mIsEnableRpRecoverBtn; // 0xB8
+	[SerializeField] // RVA: 0xCEA434 Offset: 0xCEA434 VA: 0xCEA434
+	private ScrPlayerBP rpRoot; // 0xC0
+	[SerializeField] // RVA: 0xCEA444 Offset: 0xCEA444 VA: 0xCEA444
+	private BaseDialog nextExpDialog; // 0xC8
+	[SerializeField] // RVA: 0xCEA454 Offset: 0xCEA454 VA: 0xCEA454
+	private UILabel nextExpValLabel; // 0xD0
+	[SerializeField] // RVA: 0xCEA464 Offset: 0xCEA464 VA: 0xCEA464
+	private GameObject nextExpOpenBtnObj; // 0xD8
+	private long nextExpVal; // 0xE0
+	private bool isDisableCloseNextExpBtn; // 0xE8
+	[SerializeField] // RVA: 0xCEA474 Offset: 0xCEA474 VA: 0xCEA474
+	private GameObject masterFaceBtnObj; // 0xF0
+	[SerializeField] // RVA: 0xCEA484 Offset: 0xCEA484 VA: 0xCEA484
+	private GameObject commandSpellWindowRoot; // 0xF8
+	[SerializeField] // RVA: 0xCEA494 Offset: 0xCEA494 VA: 0xCEA494
+	private GameObject commandSpellWindowPrefab; // 0x100
+	[SerializeField] // RVA: 0xCEA4A4 Offset: 0xCEA4A4 VA: 0xCEA4A4
+	private BoxCollider masterMissionBtnColl; // 0x108
+	[SerializeField] // RVA: 0xCEA4B4 Offset: 0xCEA4B4 VA: 0xCEA4B4
+	private TweenPosition masterMissionTween; // 0x110
+	[SerializeField] // RVA: 0xCEA4C4 Offset: 0xCEA4C4 VA: 0xCEA4C4
+	private GameObject masterMissionNoticeRoot; // 0x118
+	[SerializeField] // RVA: 0xCEA4D4 Offset: 0xCEA4D4 VA: 0xCEA4D4
+	private UIWidget masterMissionAlertPanel; // 0x120
+	[SerializeField] // RVA: 0xCEA4E4 Offset: 0xCEA4E4 VA: 0xCEA4E4
+	private GameObject masterMissionAlertRoot; // 0x128
+	[SerializeField] // RVA: 0xCEA4F4 Offset: 0xCEA4F4 VA: 0xCEA4F4
+	private GameObject masterMissionAlertTexts; // 0x130
+	[SerializeField] // RVA: 0xCEA504 Offset: 0xCEA504 VA: 0xCEA504
+	private UILabel masterMissionAlertNumLb; // 0x138
+	[SerializeField] // RVA: 0xCEA514 Offset: 0xCEA514 VA: 0xCEA514
+	private UILabel masterMissionAlertUnitLb; // 0x140
+	[SerializeField] // RVA: 0xCEA524 Offset: 0xCEA524 VA: 0xCEA524
+	private GameObject masterMissionAlertTitleLb; // 0x148
+	[SerializeField] // RVA: 0xCEA534 Offset: 0xCEA534 VA: 0xCEA534
+	private UILabel masterMissionAlertMsgLb; // 0x150
+	[SerializeField] // RVA: 0xCEA544 Offset: 0xCEA544 VA: 0xCEA544
+	private GameObject masterMissionCountRoot; // 0x158
+	[SerializeField] // RVA: 0xCEA554 Offset: 0xCEA554 VA: 0xCEA554
+	private UILabel masterMissionCountNumLb; // 0x160
+	[SerializeField] // RVA: 0xCEA564 Offset: 0xCEA564 VA: 0xCEA564
+	private UILabel masterMissionCountNumLb2; // 0x168
+	[SerializeField] // RVA: 0xCEA574 Offset: 0xCEA574 VA: 0xCEA574
+	private GameObject masterMissionDailyBgObj; // 0x170
+	[SerializeField] // RVA: 0xCEA584 Offset: 0xCEA584 VA: 0xCEA584
+	private BoxCollider masterMissionDailyBgColl; // 0x178
+	[SerializeField] // RVA: 0xCEA594 Offset: 0xCEA594 VA: 0xCEA594
+	private GameObject masterMissionWeeklyBgObj; // 0x180
+	[SerializeField] // RVA: 0xCEA5A4 Offset: 0xCEA5A4 VA: 0xCEA5A4
+	private BoxCollider masterMissionWeeklyBgColl; // 0x188
+	[SerializeField] // RVA: 0xCEA5B4 Offset: 0xCEA5B4 VA: 0xCEA5B4
+	private GameObject masterMissionLimitedBgObj; // 0x190
+	[SerializeField] // RVA: 0xCEA5C4 Offset: 0xCEA5C4 VA: 0xCEA5C4
+	private BoxCollider masterMissionLimitedBgColl; // 0x198
+	[SerializeField] // RVA: 0xCEA5D4 Offset: 0xCEA5D4 VA: 0xCEA5D4
+	private UISprite masterMissionLimitedBgSp; // 0x1A0
+	[SerializeField] // RVA: 0xCEA5E4 Offset: 0xCEA5E4 VA: 0xCEA5E4
+	private GameObject completeMissionIcon; // 0x1A8
+	[SerializeField] // RVA: 0xCEA5F4 Offset: 0xCEA5F4 VA: 0xCEA5F4
+	private CompleteMissionSprite completeMissionIconSprite; // 0x1B0
+	[SerializeField] // RVA: 0xCEA604 Offset: 0xCEA604 VA: 0xCEA604
+	private BoxCollider completeMissionBtnColl; // 0x1B8
+	[SerializeField] // RVA: 0xCEA614 Offset: 0xCEA614 VA: 0xCEA614
+	private GameObject completeMissionNoticeRoot; // 0x1C0
+	[SerializeField] // RVA: 0xCEA624 Offset: 0xCEA624 VA: 0xCEA624
+	private GameObject completeMissionAlertRoot; // 0x1C8
+	[SerializeField] // RVA: 0xCEA634 Offset: 0xCEA634 VA: 0xCEA634
+	private GameObject completeMissionAlertTexts; // 0x1D0
+	[SerializeField] // RVA: 0xCEA644 Offset: 0xCEA644 VA: 0xCEA644
+	private UILabel completeMissionAlertNumLb; // 0x1D8
+	[SerializeField] // RVA: 0xCEA654 Offset: 0xCEA654 VA: 0xCEA654
+	private UILabel completeMissionAlertUnitLb; // 0x1E0
+	[SerializeField] // RVA: 0xCEA664 Offset: 0xCEA664 VA: 0xCEA664
+	private UILabel completeMissionAlertTitleLb; // 0x1E8
+	[SerializeField] // RVA: 0xCEA674 Offset: 0xCEA674 VA: 0xCEA674
+	private UILabel completeMissionAlertMsgLb; // 0x1F0
+	[SerializeField] // RVA: 0xCEA684 Offset: 0xCEA684 VA: 0xCEA684
+	private GameObject completeMissionCountRoot; // 0x1F8
+	[SerializeField] // RVA: 0xCEA694 Offset: 0xCEA694 VA: 0xCEA694
+	private UILabel completeMissionCountNumLb; // 0x200
+	[SerializeField] // RVA: 0xCEA6A4 Offset: 0xCEA6A4 VA: 0xCEA6A4
+	private UILabel completeMissionCountNumLb2; // 0x208
+	[SerializeField] // RVA: 0xCEA6B4 Offset: 0xCEA6B4 VA: 0xCEA6B4
+	private UILabel completeMissionCountMsgLb; // 0x210
+	[SerializeField] // RVA: 0xCEA6C4 Offset: 0xCEA6C4 VA: 0xCEA6C4
+	private GameObject mLocationBtnRoot; // 0x218
+	[SerializeField] // RVA: 0xCEA6D4 Offset: 0xCEA6D4 VA: 0xCEA6D4
+	private UISprite masterIconBG; // 0x220
+	[SerializeField] // RVA: 0xCEA6E4 Offset: 0xCEA6E4 VA: 0xCEA6E4
+	private UserGradeComponent masterIconGrade; // 0x228
+	[SerializeField] // RVA: 0xCEA6F4 Offset: 0xCEA6F4 VA: 0xCEA6F4
+	private UILabel stoneCountNumLb; // 0x230
+	[SerializeField] // RVA: 0xCEA704 Offset: 0xCEA704 VA: 0xCEA704
+	private UILabel stoneFragmentCountNumLb; // 0x238
+	private bool mtIsUpdate; // 0x240
+	private bool isUpdateFaceTexture; // 0x241
+	private long miMasterUserEquipID; // 0x248
+	private Gender.Type meMasterGender; // 0x250
+	private UIMasterFaceTexture mcMasterCurTexP; // 0x258
+	private int miLevel; // 0x260
+	private float mfExpPar; // 0x264
+	private int miApNow; // 0x268
+	private int miApMax; // 0x26C
+	private float mfApPar; // 0x270
+	private float mfApParOld; // 0x274
+	private float ApRecoverStrUpdateTimer; // 0x278
+	private float ApRecoverStrAlpha; // 0x27C
+	private bool isDispMax; // 0x280
+	private int oldRp; // 0x284
+	private bool isBPEvent; // 0x288
+	private int miSpellNow; // 0x28C
+	private int miSpellMax; // 0x290
+	private CommandSpellWindowComponent commandSpellWindow; // 0x298
+	private int miGiftCount; // 0x2A0
+	private long mstMissionStartsAt; // 0x2A8
+	private bool isMstMissionRotation; // 0x2B0
+	private string mstMissionTimeNumStr; // 0x2B8
+	private string completeMissionTimeNumStr; // 0x2C0
+	private string mstMissionTimeCntStr; // 0x2C8
+	private string completeMissionTimeCntStr; // 0x2D0
+	private float mstMissionIconUpdateTimer; // 0x2D8
+	private float mstMissionIconTargetAlpha; // 0x2DC
+	private int currentMissionIndex; // 0x2E0
+	private List<ScrPlayerStatus.MasterMissionInfoItem> currentMissionList; // 0x2E8
+	private List<ScrPlayerStatus.MasterMissionInfoItem> currentCompleteMissionList; // 0x2F0
+	private long[] mNextLocationEventTerm; // 0x2F8
+	private bool mIsAcceptedLocationEvent; // 0x300
+	private UserGameEntity userGameEntity; // 0x308
+	private int CommandSpellRest; // 0x310
+	private float mFrameInPosX; // 0x314
+	private bool isLocationBusy; // 0x318
+	private bool doRequestQTreeReset; // 0x319
+	private Action mRecoverAct; // 0x320
+	private Action mAfterCloseMasterMission; // 0x328
+	private Action mAfterCloseCompleteMission; // 0x330
+	[CompilerGeneratedAttribute] // RVA: 0xCEA714 Offset: 0xCEA714 VA: 0xCEA714
+	private static Action <>f__am$cache0; // 0x60
+	[CompilerGeneratedAttribute] // RVA: 0xCEA724 Offset: 0xCEA724 VA: 0xCEA724
+	private static Action <>f__am$cache1; // 0x68
+	[CompilerGeneratedAttribute] // RVA: 0xCEA734 Offset: 0xCEA734 VA: 0xCEA734
+	private static Action <>f__am$cache2; // 0x70
+	[CompilerGeneratedAttribute] // RVA: 0xCEA744 Offset: 0xCEA744 VA: 0xCEA744
+	private static Comparison<ScrPlayerStatus.MasterMissionInfoItem> <>f__am$cache3; // 0x78
+	[CompilerGeneratedAttribute] // RVA: 0xCEA754 Offset: 0xCEA754 VA: 0xCEA754
+	private static Comparison<ScrPlayerStatus.MasterMissionInfoItem> <>f__am$cache4; // 0x80
+	[CompilerGeneratedAttribute] // RVA: 0xCEA764 Offset: 0xCEA764 VA: 0xCEA764
+	private static Action <>f__am$cache5; // 0x88
+
+	// Methods
+
+	// RVA: 0x143F974 Offset: 0x143F974 VA: 0x143F974
+	public void .ctor() { }
+
+	// RVA: 0x143F9B0 Offset: 0x143F9B0 VA: 0x143F9B0
+	public void SetCloseGiftAct(Func<bool, bool> act) { }
+
+	// RVA: 0x143F9E8 Offset: 0x143F9E8 VA: 0x143F9E8
+	public void SetRecoverAct(Action act) { }
+
+	// RVA: 0x143F9F0 Offset: 0x143F9F0 VA: 0x143F9F0
+	private void Awake() { }
+
+	// RVA: 0x143FC08 Offset: 0x143FC08 VA: 0x143FC08
+	private void Start() { }
+
+	// RVA: 0x143FC98 Offset: 0x143FC98 VA: 0x143FC98
+	public void SetAllParam(UserGameEntity entity) { }
+
+	// RVA: 0x144042C Offset: 0x144042C VA: 0x144042C
+	private void Update() { }
+
+	// RVA: 0x1440FD4 Offset: 0x1440FD4 VA: 0x1440FD4
+	private void OnDestroy() { }
+
+	// RVA: 0x14410B0 Offset: 0x14410B0 VA: 0x14410B0
+	public void cbfSlide_In() { }
+
+	// RVA: 0x1441218 Offset: 0x1441218 VA: 0x1441218
+	public void cbfSlide_Out() { }
+
+	// RVA: 0x1441268 Offset: 0x1441268 VA: 0x1441268
+	public void cbfGift_Push() { }
+
+	// RVA: 0x14413E8 Offset: 0x14413E8 VA: 0x14413E8
+	public void OpenMasterMission(Action callback, MasterMissionComponent.Type typeIndex = -1) { }
+
+	// RVA: 0x1441544 Offset: 0x1441544 VA: 0x1441544
+	public void OnClickMasterMissionBtn() { }
+
+	// RVA: 0x14416C4 Offset: 0x14416C4 VA: 0x14416C4
+	public void OpenCompleteMission(Action callback, CompleteMissionComponent.Type typeIndex = 0) { }
+
+	// RVA: 0x1441820 Offset: 0x1441820 VA: 0x1441820
+	public void OnClickCompleteMissionBtn() { }
+
+	// RVA: 0x1441B94 Offset: 0x1441B94 VA: 0x1441B94
+	public void OnClickDailyMissionInfoBtn() { }
+
+	// RVA: 0x1441D14 Offset: 0x1441D14 VA: 0x1441D14
+	public void OnClickWeeklyMissionInfoBtn() { }
+
+	// RVA: 0x1441E94 Offset: 0x1441E94 VA: 0x1441E94
+	public void OnClickLimitedMissionInfoBtn() { }
+
+	// RVA: 0x1442014 Offset: 0x1442014 VA: 0x1442014
+	public void OnClickApRecoverBtn() { }
+
+	// RVA: 0x144210C Offset: 0x144210C VA: 0x144210C
+	public void OnClickRpRecoverBtn() { }
+
+	// RVA: 0x1442204 Offset: 0x1442204 VA: 0x1442204
+	public void OnClickMasterFaceBtn() { }
+
+	// RVA: 0x1442384 Offset: 0x1442384 VA: 0x1442384
+	public void OnClickSpellBtn() { }
+
+	// RVA: 0x1442434 Offset: 0x1442434 VA: 0x1442434
+	public void OnCloseSpellWindow() { }
+
+	// RVA: 0x1442504 Offset: 0x1442504 VA: 0x1442504
+	public bool IsCommandSpellActive() { }
+
+	// RVA: 0x1441350 Offset: 0x1441350 VA: 0x1441350
+	public bool IsTouchable() { }
+
+	// RVA: 0x1442564 Offset: 0x1442564 VA: 0x1442564
+	public void OpenMasterProfile() { }
+
+	// RVA: 0x144277C Offset: 0x144277C VA: 0x144277C
+	public void ExitMasterProfile() { }
+
+	// RVA: 0x144285C Offset: 0x144285C VA: 0x144285C
+	public void OnClickOpenNextExp() { }
+
+	// RVA: 0x1442960 Offset: 0x1442960 VA: 0x1442960
+	public void OnClickCloseNextExp() { }
+
+	// RVA: 0x1442AB0 Offset: 0x1442AB0 VA: 0x1442AB0
+	public void OnClickLocation() { }
+
+	// RVA: 0x1442B44 Offset: 0x1442B44 VA: 0x1442B44
+	private void ShowEnabledRuntimePermissionDialog() { }
+
+	// RVA: 0x1442CA8 Offset: 0x1442CA8 VA: 0x1442CA8
+	private void ShowDisabledRuntimePermissionDialog() { }
+
+	// RVA: 0x1443330 Offset: 0x1443330 VA: 0x1443330
+	private void OnPermissionResult(string message) { }
+
+	// RVA: 0x1442DAC Offset: 0x1442DAC VA: 0x1442DAC
+	private void SetLocationCheck() { }
+
+	// RVA: 0x14433D8 Offset: 0x14433D8 VA: 0x14433D8
+	private void locationRequest(EventEntity eventEnt) { }
+
+	// RVA: 0x14434C8 Offset: 0x14434C8 VA: 0x14434C8
+	private void EndLocationRequest(string result) { }
+
+	// RVA: 0x14437F0 Offset: 0x14437F0 VA: 0x14437F0
+	public bool IsLocationBusy() { }
+
+	// RVA: 0x1441100 Offset: 0x1441100 VA: 0x1441100
+	private void mfCallFsmEvent(string sEventStr) { }
+
+	// RVA: 0x14437F8 Offset: 0x14437F8 VA: 0x14437F8
+	private void mfSetFsmValueInt(string sValueStr, int iValueInt) { }
+
+	// RVA: 0x1443954 Offset: 0x1443954 VA: 0x1443954
+	private int mfGetFsmValueInt(string sValueStr) { }
+
+	// RVA: 0x1443AA0 Offset: 0x1443AA0 VA: 0x1443AA0
+	public void cbfStatus_Init(GameObject oFsmObject) { }
+
+	// RVA: 0x1443B58 Offset: 0x1443B58 VA: 0x1443B58
+	private void SetupGradeIcon() { }
+
+	// RVA: 0x1443C7C Offset: 0x1443C7C VA: 0x1443C7C
+	public void SetupDispRaidPoint() { }
+
+	// RVA: 0x1443D8C Offset: 0x1443D8C VA: 0x1443D8C
+	protected void ExitMasterMission(bool isDecide) { }
+
+	// RVA: 0x1443E6C Offset: 0x1443E6C VA: 0x1443E6C
+	protected void ExitCompleteMission(bool isDecide) { }
+
+	// RVA: 0x1443B00 Offset: 0x1443B00 VA: 0x1443B00
+	public void mfInitUserData() { }
+
+	// RVA: 0x1443F58 Offset: 0x1443F58 VA: 0x1443F58
+	public void mfFaceMngCallback() { }
+
+	// RVA: 0x14408F4 Offset: 0x14408F4 VA: 0x14408F4
+	private void UpdateAp() { }
+
+	// RVA: 0x144417C Offset: 0x144417C VA: 0x144417C
+	private void UpdateApStatus() { }
+
+	// RVA: 0x1444524 Offset: 0x1444524 VA: 0x1444524
+	public void InitApRecoverLb() { }
+
+	// RVA: 0x14405A8 Offset: 0x14405A8 VA: 0x14405A8
+	public void mfUpdatePrams() { }
+
+	// RVA: 0x1444538 Offset: 0x1444538 VA: 0x1444538
+	private void ResetMasterFaceTexture() { }
+
+	// RVA: 0x144443C Offset: 0x144443C VA: 0x144443C
+	private string mfGetApRecoverTimeStr(bool isGetMax = False) { }
+
+	// RVA: 0x1445420 Offset: 0x1445420 VA: 0x1445420
+	private string GetTimeApRecoverStr(long time, bool isGetMax) { }
+
+	// RVA: 0x1445660 Offset: 0x1445660 VA: 0x1445660
+	private string GetTimeCommandSpellRecoverStr(long time) { }
+
+	// RVA: 0x144573C Offset: 0x144573C VA: 0x144573C
+	private string mfGetCommandSpellRecoverTimeStr() { }
+
+	// RVA: 0x1444710 Offset: 0x1444710 VA: 0x1444710
+	private void mfCheckMasterMission() { }
+
+	// RVA: 0x1444F08 Offset: 0x1444F08 VA: 0x1444F08
+	private void mfCheckCompleteMission() { }
+
+	// RVA: 0x14463C8 Offset: 0x14463C8 VA: 0x14463C8
+	public void UpdateCompleteMissionIconUI() { }
+
+	// RVA: 0x1445854 Offset: 0x1445854 VA: 0x1445854
+	private ScrPlayerStatus.MasterMissionInfoItem GetDailyMissionInfoItem(MstMissionEntity mstMissionEntity) { }
+
+	// RVA: 0x1445BD8 Offset: 0x1445BD8 VA: 0x1445BD8
+	private void SortLimitedMstMissionViewList(ref List<ScrPlayerStatus.MasterMissionInfoItem> list) { }
+
+	// RVA: 0x14459D8 Offset: 0x14459D8 VA: 0x14459D8
+	private int GetMissionClearCount(EventMissionEntity[] eventMissionList, MasterMissionComponent.Type type) { }
+
+	// RVA: 0x1446154 Offset: 0x1446154 VA: 0x1446154
+	private int GetMissionClearCount(EventMissionEntity[] eventMissionList, CompleteMissionComponent.Type type) { }
+
+	// RVA: 0x14463D4 Offset: 0x14463D4 VA: 0x14463D4
+	private void HideMstMissionIconLb() { }
+
+	// RVA: 0x144648C Offset: 0x144648C VA: 0x144648C
+	private void ShowCompleteMissionContents(bool value) { }
+
+	// RVA: 0x1446020 Offset: 0x1446020 VA: 0x1446020
+	public void InitMstMissionLb() { }
+
+	// RVA: 0x1446304 Offset: 0x1446304 VA: 0x1446304
+	public void InitCompleteMissionLb() { }
+
+	// RVA: 0x1440B54 Offset: 0x1440B54 VA: 0x1440B54
+	private void UpdateMstMissionLb() { }
+
+	// RVA: 0x14469D4 Offset: 0x14469D4 VA: 0x14469D4
+	private void ChangeViewMstMissionLb(ScrPlayerStatus.MasterMissionInfoItem mstMissionInfo) { }
+
+	// RVA: 0x144708C Offset: 0x144708C VA: 0x144708C
+	private void ChangeViewCompleteMissionLb(ScrPlayerStatus.MasterMissionInfoItem mstMissionInfo) { }
+
+	// RVA: 0x144675C Offset: 0x144675C VA: 0x144675C
+	private void UpdateDailyMissionInfoItem(int index = -1) { }
+
+	// RVA: 0x1447604 Offset: 0x1447604 VA: 0x1447604
+	private int GetNextMstMissionIndex(int startIndex) { }
+
+	// RVA: 0x1446624 Offset: 0x1446624 VA: 0x1446624
+	private int GetFirstMstMissionIndex(MissionType.Type targetType) { }
+
+	// RVA: 0x1446514 Offset: 0x1446514 VA: 0x1446514
+	private int GetEnabledMstMissionCount() { }
+
+	// RVA: 0x1447724 Offset: 0x1447724 VA: 0x1447724
+	private bool IsEnabledMstMission(ScrPlayerStatus.MasterMissionInfoItem missionInfo, long nowTime) { }
+
+	// RVA: 0x14477F4 Offset: 0x14477F4 VA: 0x14477F4
+	public long GetMstMissionStarts() { }
+
+	// RVA: 0x1443F4C Offset: 0x1443F4C VA: 0x1443F4C
+	public void mfSetIsUpdate(bool isUpdate) { }
+
+	// RVA: 0x143FF08 Offset: 0x143FF08 VA: 0x143FF08
+	public void mfSetFaceID(long equipID, Gender.Type genderType) { }
+
+	// RVA: 0x143FF00 Offset: 0x143FF00 VA: 0x143FF00
+	public void mfSetLevel(int iLevel) { }
+
+	// RVA: 0x143FF34 Offset: 0x143FF34 VA: 0x143FF34
+	public void mfSetAp(int iApNow, int iApMax) { }
+
+	// RVA: 0x143FF60 Offset: 0x143FF60 VA: 0x143FF60
+	public void mfSetSpell(int iSpellNow, int iSpellMax) { }
+
+	// RVA: 0x1447828 Offset: 0x1447828 VA: 0x1447828
+	public void mfSetGiftCount(int iGiftCount) { }
+
+	// RVA: 0x14401A4 Offset: 0x14401A4 VA: 0x14401A4
+	public void mfSetStoneAndFragment() { }
+
+	// RVA: 0x14478B0 Offset: 0x14478B0 VA: 0x14478B0
+	private void mfSetLocationEventTime(long now) { }
+
+	// RVA: 0x1440D8C Offset: 0x1440D8C VA: 0x1440D8C
+	private void checkLocationEventBtnShows(long now) { }
+
+	// RVA: 0x1447CA0 Offset: 0x1447CA0 VA: 0x1447CA0
+	private void SetLocationEventBtnShow(bool onOff) { }
+
+	// RVA: 0x143FB10 Offset: 0x143FB10 VA: 0x143FB10
+	public void SetApRecoverBtnEnable(bool is_enable) { }
+
+	// RVA: 0x143FB8C Offset: 0x143FB8C VA: 0x143FB8C
+	public void SetRpRecoverBtnEnable(bool is_enable) { }
+
+	// RVA: 0x1447CD8 Offset: 0x1447CD8 VA: 0x1447CD8
+	public void DisableAllBtn() { }
+
+	// RVA: 0x1447EC4 Offset: 0x1447EC4 VA: 0x1447EC4
+	public void EnableAllBtn() { }
+
+	// RVA: 0x14480B0 Offset: 0x14480B0 VA: 0x14480B0
+	private void UpdatePanel() { }
+
+	// RVA: 0x1448168 Offset: 0x1448168 VA: 0x1448168
+	public void FrameIn(bool is_force = False) { }
+
+	// RVA: 0x143FB04 Offset: 0x143FB04 VA: 0x143FB04
+	public void FrameOut(bool is_force = False) { }
+
+	// RVA: 0x14481A0 Offset: 0x14481A0 VA: 0x14481A0
+	private void FrameInOut(bool is_framein, bool is_force = False) { }
+
+	// RVA: 0x144847C Offset: 0x144847C VA: 0x144847C
+	private void FrameInOutEnd() { }
+
+	// RVA: 0x14484D4 Offset: 0x14484D4 VA: 0x14484D4
+	public bool IsBPActive() { }
+
+	// RVA: 0x14474F4 Offset: 0x14474F4 VA: 0x14474F4
+	private void UpdateCompleteMissionIconVisibility() { }
+
+	// RVA: 0x144851C Offset: 0x144851C VA: 0x144851C
+	private static void .cctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41024 Offset: 0xD41024 VA: 0xD41024
+	// RVA: 0x1448680 Offset: 0x1448680 VA: 0x1448680
+	private void <OpenMasterMission>m__0() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41034 Offset: 0xD41034 VA: 0xD41034
+	// RVA: 0x144868C Offset: 0x144868C VA: 0x144868C
+	private void <OnClickMasterMissionBtn>m__1() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41044 Offset: 0xD41044 VA: 0xD41044
+	// RVA: 0x1448698 Offset: 0x1448698 VA: 0x1448698
+	private void <OpenCompleteMission>m__2() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41054 Offset: 0xD41054 VA: 0xD41054
+	// RVA: 0x14486A4 Offset: 0x14486A4 VA: 0x14486A4
+	private static void <OnClickCompleteMissionBtn>m__3() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41064 Offset: 0xD41064 VA: 0xD41064
+	// RVA: 0x14486A8 Offset: 0x14486A8 VA: 0x14486A8
+	private void <OnClickCompleteMissionBtn>m__4() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41074 Offset: 0xD41074 VA: 0xD41074
+	// RVA: 0x14486B4 Offset: 0x14486B4 VA: 0x14486B4
+	private void <OnClickDailyMissionInfoBtn>m__5() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41084 Offset: 0xD41084 VA: 0xD41084
+	// RVA: 0x14486C0 Offset: 0x14486C0 VA: 0x14486C0
+	private void <OnClickWeeklyMissionInfoBtn>m__6() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41094 Offset: 0xD41094 VA: 0xD41094
+	// RVA: 0x14486CC Offset: 0x14486CC VA: 0x14486CC
+	private void <OnClickLimitedMissionInfoBtn>m__7() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD410A4 Offset: 0xD410A4 VA: 0xD410A4
+	// RVA: 0x14486D8 Offset: 0x14486D8 VA: 0x14486D8
+	private void <OnClickApRecoverBtn>m__8(RecoverDlgComponent.Result result) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD410B4 Offset: 0xD410B4 VA: 0xD410B4
+	// RVA: 0x144875C Offset: 0x144875C VA: 0x144875C
+	private void <OnClickRpRecoverBtn>m__9(RecoverDlgComponent.Result result) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD410C4 Offset: 0xD410C4 VA: 0xD410C4
+	// RVA: 0x14487E0 Offset: 0x14487E0 VA: 0x14487E0
+	private void <OnClickMasterFaceBtn>m__A() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD410D4 Offset: 0xD410D4 VA: 0xD410D4
+	// RVA: 0x14487E4 Offset: 0x14487E4 VA: 0x14487E4
+	private static void <OpenMasterProfile>m__B() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD410E4 Offset: 0xD410E4 VA: 0xD410E4
+	// RVA: 0x14487E8 Offset: 0x14487E8 VA: 0x14487E8
+	private void <ExitMasterProfile>m__C() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD410F4 Offset: 0xD410F4 VA: 0xD410F4
+	// RVA: 0x14489A4 Offset: 0x14489A4 VA: 0x14489A4
+	private void <OnClickOpenNextExp>m__D() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41104 Offset: 0xD41104 VA: 0xD41104
+	// RVA: 0x14489AC Offset: 0x14489AC VA: 0x14489AC
+	private static void <OnClickCloseNextExp>m__E() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41114 Offset: 0xD41114 VA: 0xD41114
+	// RVA: 0x14489B0 Offset: 0x14489B0 VA: 0x14489B0
+	private void <ShowDisabledRuntimePermissionDialog>m__F(bool result) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41124 Offset: 0xD41124 VA: 0xD41124
+	// RVA: 0x1448A78 Offset: 0x1448A78 VA: 0x1448A78
+	private void <EndLocationRequest>m__10() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41134 Offset: 0xD41134 VA: 0xD41134
+	// RVA: 0x1448A80 Offset: 0x1448A80 VA: 0x1448A80
+	private void <EndLocationRequest>m__11(bool isDecide) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41144 Offset: 0xD41144 VA: 0xD41144
+	// RVA: 0x1448B74 Offset: 0x1448B74 VA: 0x1448B74
+	private void <ExitMasterMission>m__12() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41154 Offset: 0xD41154 VA: 0xD41154
+	// RVA: 0x1448CB4 Offset: 0x1448CB4 VA: 0x1448CB4
+	private void <ExitCompleteMission>m__13() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41164 Offset: 0xD41164 VA: 0xD41164
+	// RVA: 0x1448E30 Offset: 0x1448E30 VA: 0x1448E30
+	private static int <SortLimitedMstMissionViewList>m__14(ScrPlayerStatus.MasterMissionInfoItem a, ScrPlayerStatus.MasterMissionInfoItem b) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41174 Offset: 0xD41174 VA: 0xD41174
+	// RVA: 0x1448E90 Offset: 0x1448E90 VA: 0x1448E90
+	private static int <SortLimitedMstMissionViewList>m__15(ScrPlayerStatus.MasterMissionInfoItem a, ScrPlayerStatus.MasterMissionInfoItem b) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41184 Offset: 0xD41184 VA: 0xD41184
+	// RVA: 0x1448EF0 Offset: 0x1448EF0 VA: 0x1448EF0
+	private static void <ExitMasterProfile>m__16() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41194 Offset: 0xD41194 VA: 0xD41194
+	// RVA: 0x1448EF4 Offset: 0x1448EF4 VA: 0x1448EF4
+	private void <ExitMasterMission>m__17() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD411A4 Offset: 0xD411A4 VA: 0xD411A4
+	// RVA: 0x1448F00 Offset: 0x1448F00 VA: 0x1448F00
+	private void <ExitCompleteMission>m__18() { }
+}
+
+// Namespace: 
+public enum ScrPlayerStatus.enSpell // TypeDefIndex: 11223
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScrPlayerStatus.enSpell Zero = 0;
+	public const ScrPlayerStatus.enSpell One = 1;
+	public const ScrPlayerStatus.enSpell Two = 2;
+	public const ScrPlayerStatus.enSpell Tree = 3;
+	public const ScrPlayerStatus.enSpell enMAX = 4;
+}
+
+// Namespace: 
+private enum ScrPlayerStatus.MstMissionState // TypeDefIndex: 11224
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScrPlayerStatus.MstMissionState Weekly = 0;
+	public const ScrPlayerStatus.MstMissionState Limited = 1;
+}
+
+// Namespace: 
+public class ScrPlayerStatus.MasterMissionInfoItem // TypeDefIndex: 11225
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xCEA774 Offset: 0xCEA774 VA: 0xCEA774
+	[DebuggerBrowsableAttribute] // RVA: 0xCEA774 Offset: 0xCEA774 VA: 0xCEA774
+	private MstMissionEntity <MstMissionEntity>k__BackingField; // 0x10
+	[CompilerGeneratedAttribute] // RVA: 0xCEA7B0 Offset: 0xCEA7B0 VA: 0xCEA7B0
+	[DebuggerBrowsableAttribute] // RVA: 0xCEA7B0 Offset: 0xCEA7B0 VA: 0xCEA7B0
+	private int <MissionCount>k__BackingField; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xCEA7EC Offset: 0xCEA7EC VA: 0xCEA7EC
+	[DebuggerBrowsableAttribute] // RVA: 0xCEA7EC Offset: 0xCEA7EC VA: 0xCEA7EC
+	private int <MissionClearCount>k__BackingField; // 0x1C
+	[CompilerGeneratedAttribute] // RVA: 0xCEA828 Offset: 0xCEA828 VA: 0xCEA828
+	[DebuggerBrowsableAttribute] // RVA: 0xCEA828 Offset: 0xCEA828 VA: 0xCEA828
+	private int <MissionAchiveCount>k__BackingField; // 0x20
+
+	// Properties
+	public MstMissionEntity MstMissionEntity { get; set; }
+	public int MissionCount { get; set; }
+	public int MissionClearCount { get; set; }
+	public int MissionAchiveCount { get; set; }
+
+	// Methods
+
+	// RVA: 0x1445B88 Offset: 0x1445B88 VA: 0x1445B88
+	public void .ctor(MstMissionEntity mstMission, int missionCnt, int clearCnt, int achiveCnt) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD411B4 Offset: 0xD411B4 VA: 0xD411B4
+	// RVA: 0x14463CC Offset: 0x14463CC VA: 0x14463CC
+	public MstMissionEntity get_MstMissionEntity() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD411C4 Offset: 0xD411C4 VA: 0xD411C4
+	// RVA: 0x1449768 Offset: 0x1449768 VA: 0x1449768
+	private void set_MstMissionEntity(MstMissionEntity value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD411D4 Offset: 0xD411D4 VA: 0xD411D4
+	// RVA: 0x144771C Offset: 0x144771C VA: 0x144771C
+	public int get_MissionCount() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD411E4 Offset: 0xD411E4 VA: 0xD411E4
+	// RVA: 0x1449770 Offset: 0x1449770 VA: 0x1449770
+	private void set_MissionCount(int value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD411F4 Offset: 0xD411F4 VA: 0xD411F4
+	// RVA: 0x14459D0 Offset: 0x14459D0 VA: 0x14459D0
+	public int get_MissionClearCount() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41204 Offset: 0xD41204 VA: 0xD41204
+	// RVA: 0x1449778 Offset: 0x1449778 VA: 0x1449778
+	private void set_MissionClearCount(int value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41214 Offset: 0xD41214 VA: 0xD41214
+	// RVA: 0x1447714 Offset: 0x1447714 VA: 0x1447714
+	public int get_MissionAchiveCount() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD41224 Offset: 0xD41224 VA: 0xD41224
+	// RVA: 0x1449780 Offset: 0x1449780 VA: 0x1449780
+	private void set_MissionAchiveCount(int value) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1E40 Offset: 0xCB1E40 VA: 0xCB1E40
+private sealed class ScrPlayerStatus.<ShowEnabledRuntimePermissionDialog>c__AnonStorey0 // TypeDefIndex: 11226
+{
+	// Fields
+	internal string permissionName; // 0x10
+	internal ScrPlayerStatus $this; // 0x18
+
+	// Methods
+
+	// RVA: 0x1442DA4 Offset: 0x1442DA4 VA: 0x1442DA4
+	public void .ctor() { }
+
+	// RVA: 0x1449040 Offset: 0x1449040 VA: 0x1449040
+	internal void <>m__0(bool result) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1E50 Offset: 0xCB1E50 VA: 0xCB1E50
+private sealed class ScrPlayerStatus.<SetLocationCheck>c__AnonStorey1 // TypeDefIndex: 11227
+{
+	// Fields
+	internal EventEntity[] list; // 0x10
+	internal ScrPlayerStatus $this; // 0x18
+
+	// Methods
+
+	// RVA: 0x14433D0 Offset: 0x14433D0 VA: 0x14433D0
+	public void .ctor() { }
+
+	// RVA: 0x1448F0C Offset: 0x1448F0C VA: 0x1448F0C
+	internal void <>m__0() { }
+
+	// RVA: 0x1448F38 Offset: 0x1448F38 VA: 0x1448F38
+	internal void <>m__1(bool isDecide) { }
+
+	// RVA: 0x1449014 Offset: 0x1449014 VA: 0x1449014
+	internal void <>m__2() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1E60 Offset: 0xCB1E60 VA: 0xCB1E60
+private sealed class ScrPlayerStatus.<locationRequest>c__AnonStorey2 // TypeDefIndex: 11228
+{
+	// Fields
+	internal EventEntity eventEnt; // 0x10
+	internal ScrPlayerStatus $this; // 0x18
+
+	// Methods
+
+	// RVA: 0x14434C0 Offset: 0x14434C0 VA: 0x14434C0
+	public void .ctor() { }
+
+	// RVA: 0x1449128 Offset: 0x1449128 VA: 0x1449128
+	internal void <>m__0(GeoLocation.ResultState result, LocationInfo locInfo) { }
+
+	// RVA: 0x14495D4 Offset: 0x14495D4 VA: 0x14495D4
+	internal void <>m__1(bool isDecide) { }
+
+	// RVA: 0x1449688 Offset: 0x1449688 VA: 0x1449688
+	internal void <>m__2(bool isDecide) { }
+
+	// RVA: 0x144973C Offset: 0x144973C VA: 0x144973C
+	internal void <>m__3() { }
+}
+
+// Namespace: 
+public class ScrTerminalListTop : MonoBehaviour // TypeDefIndex: 11229
+{
+	// Fields
+	public const int EVENT_BANNER_MAX = 1;
+	public const bool SVT_TREASURE_DVC_BASE_RESULT = True;
+	private static readonly int WAR_CLEAR_TITLE_SIZE; // 0x0
+	private static readonly int VOTE_QUEST_CONFIRM_MESSAGE_WIDTH; // 0x4
+	private static readonly string TERMINAL_DIALOG_MESSAGES_KEY; // 0x8
+	private static readonly string FSM_VAR_MOVIE_FILE_NAME; // 0x10
+	private static readonly string FSM_VAR_MOVIE_FILE_NAME_SUFFIX; // 0x18
+	private static readonly string ITEM_GET_ASSET_NAME; // 0x20
+	private static readonly string ITEM_GET_EFFECT_NAME; // 0x28
+	private static readonly string TOKEN_GET_ASSET_NAME; // 0x30
+	private static readonly string TOKEN_GET_EFFECT_NAME; // 0x38
+	private static readonly string WAR_BOARD_ITEM_GET_ASSET_NAME; // 0x40
+	private static readonly string WAR_BOARD_ITEM_GET_EFFECT_NAME; // 0x48
+	private static readonly string HARVEST_GET_ASSET_NAME; // 0x50
+	private static readonly string HARVEST_GET_EFFECT_NAME; // 0x58
+	private static readonly string PROLOGUE_MOVIE_MASTER_NAME; // 0x60
+	private static readonly string PROLOGUE_MOVIE_AFTER_QUEST_CLEAR_MASTER_NAME; // 0x68
+	private static readonly string TREASURE_GET_NORMAL; // 0x70
+	private static readonly string BEFORE_TERMINAL_MESSAGE_KEY; // 0x78
+	private static readonly string QUEST_CLEAR_BEFORE_TERMINAL_MESSAGE_PREFIX; // 0x80
+	public static readonly string NOTICE_LAST_MODIFIED_KEY; // 0x88
+	public static readonly int TAREINAL_LIST_DEFAULT_DEPTH; // 0x90
+	private PlayMakerFSM mTargetFsm; // 0x18
+	private List<MapControl.QuestInfo> areaQuestInfoList; // 0x20
+	private List<MapControl.QuestInfo> mapQuestInfoList; // 0x28
+	private List<MapControl.QuestInfo> storyQuestInfoList; // 0x30
+	private List<ScrTerminalListTop.CaldeaFolderInfo> caldeaFolderInfoList; // 0x38
+	private int questStoryPlayableCount; // 0x40
+	[SerializeField] // RVA: 0xCEA864 Offset: 0xCEA864 VA: 0xCEA864
+	private MapCamera mapCamera; // 0x48
+	private List<ScrTerminalListTop.AdditionalDlgMessage> qcChangeMessages; // 0x50
+	public ScrPlayerStatus mPlayerStatus; // 0x58
+	public TitleInfoControl mTitleInfo; // 0x60
+	public GameObject mActionPanel; // 0x68
+	public BoxCollider mActionBgColl; // 0x70
+	private AssetData treasureGetAssetData; // 0x78
+	private Dictionary<int, AssetData> itemGetAssetDatas; // 0x80
+	private GameObject treasureGetInstance; // 0x88
+	private List<GameObject> itemGetEffectInstances; // 0x90
+	private QuestRewardItemAction friendPointBoostItemAction; // 0x98
+	private QuestRewardTokenAction boardGameTokenAction; // 0xA0
+	private int boardGameTokenEffectId; // 0xA8
+	private QuestRewardHarvestAction harvestAction; // 0xB0
+	private int harvestEffectId; // 0xB8
+	public StandFigureSlideComponent mTerminalServant; // 0xC0
+	[SerializeField] // RVA: 0xCEA874 Offset: 0xCEA874 VA: 0xCEA874
+	private TerminalSceneComponent mTerminalScene; // 0xC8
+	[SerializeField] // RVA: 0xCEA884 Offset: 0xCEA884 VA: 0xCEA884
+	private ScrTerminalMap mTerminalMap; // 0xD0
+	[SerializeField] // RVA: 0xCEA894 Offset: 0xCEA894 VA: 0xCEA894
+	private QuestAfterActionDialog questAfterDialog; // 0xD8
+	[SerializeField] // RVA: 0xCEA8A4 Offset: 0xCEA8A4 VA: 0xCEA8A4
+	private ScrollConfirmDialog scrollConfirmDialog; // 0xE0
+	[SerializeField] // RVA: 0xCEA8B4 Offset: 0xCEA8B4 VA: 0xCEA8B4
+	private CostumeOpenConfirmDialog costumeOpenConfirmDialog; // 0xE8
+	[SerializeField] // RVA: 0xCEA8C4 Offset: 0xCEA8C4 VA: 0xCEA8C4
+	private ScrollConfirmDialog questOpenConfirmDialog; // 0xF0
+	[SerializeField] // RVA: 0xCEA8D4 Offset: 0xCEA8D4 VA: 0xCEA8D4
+	private UIButton helpButton; // 0xF8
+	[SerializeField] // RVA: 0xCEA8E4 Offset: 0xCEA8E4 VA: 0xCEA8E4
+	private QuestBoardListViewManager mQuestBoardListViewManager; // 0x100
+	private Action mQuestClickAct; // 0x108
+	private bool mIsFadedBuffer; // 0x110
+	private bool mIsRecreatedQuestBoard; // 0x111
+	private int topLastIdx; // 0x114
+	private List<int> eventSvtIdGotList; // 0x118
+	private WarAddEntity mFolderBgchanges; // 0x120
+	private bool ClearCheckForBGChanges; // 0x128
+	private ScrTerminalListTop.CaldeaFolderInfo showingFolderWar; // 0x130
+	private Action mCallBeforeFadein; // 0x138
+	private BattleSetupInfo mBattleSetupinfo; // 0x140
+	private int[] mSelectableQuests; // 0x148
+	private int mSelectableRouteQuestId; // 0x150
+	private int originQuestId; // 0x154
+	private bool isTreasureEffect; // 0x158
+	private string useTreasureGetEffectName; // 0x160
+	private int useItemIconId; // 0x168
+	private bool isPlayedScript; // 0x16C
+	private ActionChain occurenceChain; // 0x170
+	private Dictionary<int, int> lastSelectedQuestDic; // 0x178
+	public static readonly int AREA_BOARD_FORCE_DISP_START_COND_WAR_ID; // 0x94
+	public static readonly int AREA_BOARD_FORCE_DISP_END_COND_WAR_ID; // 0x98
+	private static readonly int AREA_BOARD_FORCE_DISP_TARGET_WAR_ID; // 0x9C
+	private int oldFriendShipRank; // 0x180
+	private QuestRewardBoxAction questRewardBoxAction; // 0x188
+	private QuestRewardItemAction questRewardItemAction; // 0x190
+	private ServantRewardAction questRewardServantAction; // 0x198
+	private static readonly int TERMINAL_EFFECT_APPEAR_COND_WAR_ID; // 0xA0
+	private static readonly int TERMINAL_EFFECT_APPEAR_TARGET_WAR_ID; // 0xA4
+	public readonly int TERMINAL_EFFECT_APPEAR_EFFECT_ID; // 0x1A0
+	private static readonly int TERMINAL_EFFECT_APPEAR_PLAYING_LIST_DEPTH; // 0xA8
+	private static readonly int TERMINAL_EFFECT_BOARD_DISAPPEAR_TARGET_WAR_ID; // 0xAC
+	private static readonly int TERMINAL_EFFECT_BOARD_TRUE_APPEAR_TARGET_WAR_ID; // 0xB0
+	public readonly int TERMINAL_EFFECT_BOARD_DISAPPEAR_EFFECT_ID; // 0x1A4
+	private static readonly int TERMINAL_EFFECT_DISAPPEAR_DIALOG_MESSAGE_FONT_SIZE; // 0xB4
+	private static readonly int TERMINAL_EFFECT_DISAPPEAR_DIALOG_MESSAGE_POS_Y; // 0xB8
+	private static readonly int TERMINAL_EFFECT_DISAPPEAR_DIALOG_BUTTON_POS_Y; // 0xBC
+	public int playTerminalTopEffectWarId; // 0x1A8
+	[CompilerGeneratedAttribute] // RVA: 0xCEA8F4 Offset: 0xCEA8F4 VA: 0xCEA8F4
+	private static Action <>f__am$cache0; // 0xC0
+	[CompilerGeneratedAttribute] // RVA: 0xCEA904 Offset: 0xCEA904 VA: 0xCEA904
+	private static Action <>f__am$cache1; // 0xC8
+	[CompilerGeneratedAttribute] // RVA: 0xCEA914 Offset: 0xCEA914 VA: 0xCEA914
+	private static Action <>f__am$cache2; // 0xD0
+	[CompilerGeneratedAttribute] // RVA: 0xCEA924 Offset: 0xCEA924 VA: 0xCEA924
+	private static Predicate<ScrTerminalListTop.CaldeaFolderInfo> <>f__am$cache3; // 0xD8
+	[CompilerGeneratedAttribute] // RVA: 0xCEA934 Offset: 0xCEA934 VA: 0xCEA934
+	private static Action<Action> <>f__am$cache4; // 0xE0
+	[CompilerGeneratedAttribute] // RVA: 0xCEA944 Offset: 0xCEA944 VA: 0xCEA944
+	private static Action<Action> <>f__am$cache5; // 0xE8
+	[CompilerGeneratedAttribute] // RVA: 0xCEA954 Offset: 0xCEA954 VA: 0xCEA954
+	private static Action <>f__am$cache6; // 0xF0
+	[CompilerGeneratedAttribute] // RVA: 0xCEA964 Offset: 0xCEA964 VA: 0xCEA964
+	private static Action <>f__am$cache7; // 0xF8
+	[CompilerGeneratedAttribute] // RVA: 0xCEA974 Offset: 0xCEA974 VA: 0xCEA974
+	private static Action <>f__am$cache8; // 0x100
+	[CompilerGeneratedAttribute] // RVA: 0xCEA984 Offset: 0xCEA984 VA: 0xCEA984
+	private static Action <>f__am$cache9; // 0x108

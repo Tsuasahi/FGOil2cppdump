@@ -1,0 +1,1000 @@
+	public ObjectRecordStatus Status; // 0x10
+	public object OriginalObject; // 0x18
+	public object ObjectInstance; // 0x20
+	public long ObjectID; // 0x28
+	public SerializationInfo Info; // 0x30
+	public long IdOfContainingObj; // 0x38
+	public ISerializationSurrogate Surrogate; // 0x40
+	public ISurrogateSelector SurrogateSelector; // 0x48
+	public MemberInfo Member; // 0x50
+	public int[] ArrayIndex; // 0x58
+	public BaseFixupRecord FixupChainAsContainer; // 0x60
+	public BaseFixupRecord FixupChainAsRequired; // 0x68
+	public ObjectRecord Next; // 0x70
+
+	// Properties
+	public bool IsInstanceReady { get; }
+	public bool IsUnsolvedObjectReference { get; }
+	public bool IsRegistered { get; }
+	public bool HasPendingFixups { get; }
+
+	// Methods
+
+	// RVA: 0x115D0AC Offset: 0x115D0AC VA: 0x115D0AC
+	public void .ctor() { }
+
+	// RVA: 0x115E008 Offset: 0x115E008 VA: 0x115E008
+	public void SetMemberValue(ObjectManager manager, MemberInfo member, object value) { }
+
+	// RVA: 0x115B8A4 Offset: 0x115B8A4 VA: 0x115B8A4
+	public void SetArrayValue(ObjectManager manager, object value, int[] indices) { }
+
+	// RVA: 0x115E1D8 Offset: 0x115E1D8 VA: 0x115E1D8
+	public void SetMemberValue(ObjectManager manager, string memberName, object value) { }
+
+	// RVA: 0x115E29C Offset: 0x115E29C VA: 0x115E29C
+	public bool get_IsInstanceReady() { }
+
+	// RVA: 0x115C03C Offset: 0x115C03C VA: 0x115C03C
+	public bool get_IsUnsolvedObjectReference() { }
+
+	// RVA: 0x115D0B4 Offset: 0x115D0B4 VA: 0x115D0B4
+	public bool get_IsRegistered() { }
+
+	// RVA: 0x115C04C Offset: 0x115C04C VA: 0x115C04C
+	public bool DoFixups(bool asContainer, ObjectManager manager, bool strict) { }
+
+	// RVA: 0x115E3A8 Offset: 0x115E3A8 VA: 0x115E3A8
+	public void RemoveFixup(BaseFixupRecord fixupToRemove, bool asContainer) { }
+
+	// RVA: 0x115E328 Offset: 0x115E328 VA: 0x115E328
+	private void UnchainFixup(BaseFixupRecord fixup, BaseFixupRecord prevFixup, bool asContainer) { }
+
+	// RVA: 0x115D704 Offset: 0x115D704 VA: 0x115D704
+	public void ChainFixup(BaseFixupRecord fixup, bool asContainer) { }
+
+	// RVA: 0x115C1B8 Offset: 0x115C1B8 VA: 0x115C1B8
+	public bool LoadData(ObjectManager manager, ISurrogateSelector selector, StreamingContext context) { }
+
+	// RVA: 0x115E318 Offset: 0x115E318 VA: 0x115E318
+	public bool get_HasPendingFixups() { }
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC350B0 Offset: 0xC350B0 VA: 0xC350B0
+[AttributeUsageAttribute] // RVA: 0xC350B0 Offset: 0xC350B0 VA: 0xC350B0
+public sealed class OnDeserializedAttribute : Attribute // TypeDefIndex: 676
+{}
+
+// Namespace: System.Runtime.Serialization
+[AttributeUsageAttribute] // RVA: 0xC35104 Offset: 0xC35104 VA: 0xC35104
+[ComVisibleAttribute] // RVA: 0xC35104 Offset: 0xC35104 VA: 0xC35104
+public sealed class OnDeserializingAttribute : Attribute // TypeDefIndex: 677
+{}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC35158 Offset: 0xC35158 VA: 0xC35158
+[AttributeUsageAttribute] // RVA: 0xC35158 Offset: 0xC35158 VA: 0xC35158
+public sealed class OnSerializedAttribute : Attribute // TypeDefIndex: 678
+{}
+
+// Namespace: System.Runtime.Serialization
+[AttributeUsageAttribute] // RVA: 0xC351AC Offset: 0xC351AC VA: 0xC351AC
+[ComVisibleAttribute] // RVA: 0xC351AC Offset: 0xC351AC VA: 0xC351AC
+public sealed class OnSerializingAttribute : Attribute // TypeDefIndex: 679
+{}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC35200 Offset: 0xC35200 VA: 0xC35200
+[Serializable]
+public abstract class SerializationBinder // TypeDefIndex: 680
+{
+	// Methods
+
+	// RVA: 0x115E430 Offset: 0x115E430 VA: 0x115E430
+	protected void .ctor() { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract Type BindToType(string assemblyName, string typeName);
+}
+
+// Namespace: System.Runtime.Serialization
+internal sealed class SerializationCallbacks // TypeDefIndex: 681
+{
+	// Fields
+	private readonly ArrayList onSerializingList; // 0x10
+	private readonly ArrayList onSerializedList; // 0x18
+	private readonly ArrayList onDeserializingList; // 0x20
+	private readonly ArrayList onDeserializedList; // 0x28
+	private static Hashtable cache; // 0x0
+	private static object cache_lock; // 0x8
+
+	// Properties
+	public bool HasSerializedCallbacks { get; }
+	public bool HasDeserializedCallbacks { get; }
+
+	// Methods
+
+	// RVA: 0x115E438 Offset: 0x115E438 VA: 0x115E438
+	public void .ctor(Type type) { }
+
+	// RVA: 0x115E818 Offset: 0x115E818 VA: 0x115E818
+	private static void .cctor() { }
+
+	// RVA: 0x115E8AC Offset: 0x115E8AC VA: 0x115E8AC
+	public bool get_HasSerializedCallbacks() { }
+
+	// RVA: 0x115CE5C Offset: 0x115CE5C VA: 0x115CE5C
+	public bool get_HasDeserializedCallbacks() { }
+
+	// RVA: 0x115E56C Offset: 0x115E56C VA: 0x115E56C
+	private static ArrayList GetMethodsByAttribute(Type type, Type attr) { }
+
+	// RVA: 0x115E8BC Offset: 0x115E8BC VA: 0x115E8BC
+	private static void Invoke(ArrayList list, object target, StreamingContext context) { }
+
+	// RVA: 0x115EEC8 Offset: 0x115EEC8 VA: 0x115EEC8
+	public void RaiseOnSerializing(object target, StreamingContext contex) { }
+
+	// RVA: 0x115EF58 Offset: 0x115EF58 VA: 0x115EF58
+	public void RaiseOnSerialized(object target, StreamingContext contex) { }
+
+	// RVA: 0x115D584 Offset: 0x115D584 VA: 0x115D584
+	public void RaiseOnDeserializing(object target, StreamingContext contex) { }
+
+	// RVA: 0x115D614 Offset: 0x115D614 VA: 0x115D614
+	public void RaiseOnDeserialized(object target, StreamingContext contex) { }
+
+	// RVA: 0x115CAF4 Offset: 0x115CAF4 VA: 0x115CAF4
+	public static SerializationCallbacks GetSerializationCallbacks(Type t) { }
+}
+
+// Namespace: 
+public sealed class SerializationCallbacks.CallbackHandler : MulticastDelegate // TypeDefIndex: 682
+{
+	// Methods
+
+	// RVA: 0x115EFE8 Offset: 0x115EFE8 VA: 0x115EFE8
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x115EC84 Offset: 0x115EC84 VA: 0x115EC84 Slot: 11
+	public virtual void Invoke(StreamingContext context) { }
+
+	// RVA: 0x115EFF8 Offset: 0x115EFF8 VA: 0x115EFF8 Slot: 12
+	public virtual IAsyncResult BeginInvoke(StreamingContext context, AsyncCallback callback, object object) { }
+
+	// RVA: 0x115F084 Offset: 0x115F084 VA: 0x115F084 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC35214 Offset: 0xC35214 VA: 0xC35214
+public struct SerializationEntry // TypeDefIndex: 683
+{
+	// Fields
+	private string name; // 0x0
+	private Type objectType; // 0x8
+	private object value; // 0x10
+
+	// Properties
+	public string Name { get; }
+	public Type ObjectType { get; }
+	public object Value { get; }
+
+	// Methods
+
+	// RVA: 0xBBB810 Offset: 0xBBB810 VA: 0xBBB810
+	internal void .ctor(string name, Type type, object value) { }
+
+	// RVA: 0xBBB81C Offset: 0xBBB81C VA: 0xBBB81C
+	public string get_Name() { }
+
+	// RVA: 0xBBB824 Offset: 0xBBB824 VA: 0xBBB824
+	public Type get_ObjectType() { }
+
+	// RVA: 0xBBB82C Offset: 0xBBB82C VA: 0xBBB82C
+	public object get_Value() { }
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC35228 Offset: 0xC35228 VA: 0xC35228
+[Serializable]
+public class SerializationException : SystemException // TypeDefIndex: 684
+{
+	// Methods
+
+	// RVA: 0x115F0B4 Offset: 0x115F0B4 VA: 0x115F0B4
+	public void .ctor() { }
+
+	// RVA: 0x11539C0 Offset: 0x11539C0 VA: 0x11539C0
+	public void .ctor(string message) { }
+
+	// RVA: 0x115F108 Offset: 0x115F108 VA: 0x115F108
+	public void .ctor(string message, Exception innerException) { }
+
+	// RVA: 0x115F110 Offset: 0x115F110 VA: 0x115F110
+	protected void .ctor(SerializationInfo info, StreamingContext context) { }
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC3523C Offset: 0xC3523C VA: 0xC3523C
+public sealed class SerializationInfo // TypeDefIndex: 685
+{
+	// Fields
+	private Hashtable serialized; // 0x10
+	private ArrayList values; // 0x18
+	private string assemblyName; // 0x20
+	private string fullTypeName; // 0x28
+	private IFormatterConverter converter; // 0x30
+
+	// Properties
+	public string AssemblyName { get; }
+	public string FullTypeName { get; }
+	public int MemberCount { get; }
+
+	// Methods
+
+	[CLSCompliantAttribute] // RVA: 0xC3936C Offset: 0xC3936C VA: 0xC3936C
+	// RVA: 0x11546FC Offset: 0x11546FC VA: 0x11546FC
+	public void .ctor(Type type, IFormatterConverter converter) { }
+
+	// RVA: 0x115B138 Offset: 0x115B138 VA: 0x115B138
+	public string get_AssemblyName() { }
+
+	// RVA: 0x115B140 Offset: 0x115B140 VA: 0x115B140
+	public string get_FullTypeName() { }
+
+	// RVA: 0x115AF9C Offset: 0x115AF9C VA: 0x115AF9C
+	public int get_MemberCount() { }
+
+	// RVA: 0x1156194 Offset: 0x1156194 VA: 0x1156194
+	public void AddValue(string name, object value, Type type) { }
+
+	// RVA: 0x115F118 Offset: 0x115F118 VA: 0x115F118
+	public object GetValue(string name, Type type) { }
+
+	// RVA: 0x115F364 Offset: 0x115F364 VA: 0x115F364
+	public void SetType(Type type) { }
+
+	// RVA: 0x115AFD4 Offset: 0x115AFD4 VA: 0x115AFD4
+	public SerializationInfoEnumerator GetEnumerator() { }
+
+	// RVA: 0x115F490 Offset: 0x115F490 VA: 0x115F490
+	public void AddValue(string name, short value) { }
+
+	// RVA: 0x115F554 Offset: 0x115F554 VA: 0x115F554
+	public void AddValue(string name, int value) { }
+
+	// RVA: 0x115F618 Offset: 0x115F618 VA: 0x115F618
+	public void AddValue(string name, bool value) { }
+
+	// RVA: 0x115F6DC Offset: 0x115F6DC VA: 0x115F6DC
+	public void AddValue(string name, DateTime value) { }
+
+	// RVA: 0x115F7AC Offset: 0x115F7AC VA: 0x115F7AC
+	public void AddValue(string name, float value) { }
+
+	[CLSCompliantAttribute] // RVA: 0xC39380 Offset: 0xC39380 VA: 0xC39380
+	// RVA: 0x115F870 Offset: 0x115F870 VA: 0x115F870
+	public void AddValue(string name, uint value) { }
+
+	// RVA: 0x115F934 Offset: 0x115F934 VA: 0x115F934
+	public void AddValue(string name, long value) { }
+
+	[CLSCompliantAttribute] // RVA: 0xC39394 Offset: 0xC39394 VA: 0xC39394
+	// RVA: 0x115F9F8 Offset: 0x115F9F8 VA: 0x115F9F8
+	public void AddValue(string name, ulong value) { }
+
+	// RVA: 0x115FABC Offset: 0x115FABC VA: 0x115FABC
+	public void AddValue(string name, object value) { }
+
+	// RVA: 0x115FB78 Offset: 0x115FB78 VA: 0x115FB78
+	public bool GetBoolean(string name) { }
+
+	// RVA: 0x115FC8C Offset: 0x115FC8C VA: 0x115FC8C
+	public short GetInt16(string name) { }
+
+	// RVA: 0x115FDA0 Offset: 0x115FDA0 VA: 0x115FDA0
+	public int GetInt32(string name) { }
+
+	// RVA: 0x115FEB4 Offset: 0x115FEB4 VA: 0x115FEB4
+	public long GetInt64(string name) { }
+
+	// RVA: 0x115FFC8 Offset: 0x115FFC8 VA: 0x115FFC8
+	public string GetString(string name) { }
+
+	[CLSCompliantAttribute] // RVA: 0xC393A8 Offset: 0xC393A8 VA: 0xC393A8
+	// RVA: 0x11600F0 Offset: 0x11600F0 VA: 0x11600F0
+	public uint GetUInt32(string name) { }
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC35250 Offset: 0xC35250 VA: 0xC35250
+public sealed class SerializationInfoEnumerator : IEnumerator // TypeDefIndex: 686
+{
+	// Fields
+	private IEnumerator enumerator; // 0x10
+
+	// Properties
+	private object System.Collections.IEnumerator.Current { get; }
+	public SerializationEntry Current { get; }
+	public string Name { get; }
+	public Type ObjectType { get; }
+	public object Value { get; }
+
+	// Methods
+
+	// RVA: 0x115F444 Offset: 0x115F444 VA: 0x115F444
+	internal void .ctor(ArrayList list) { }
+
+	// RVA: 0x1160204 Offset: 0x1160204 VA: 0x1160204 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	// RVA: 0x11602B8 Offset: 0x11602B8 VA: 0x11602B8
+	public SerializationEntry get_Current() { }
+
+	// RVA: 0x115B05C Offset: 0x115B05C VA: 0x115B05C
+	public string get_Name() { }
+
+	// RVA: 0x115B038 Offset: 0x115B038 VA: 0x115B038
+	public Type get_ObjectType() { }
+
+	// RVA: 0x115B7EC Offset: 0x115B7EC VA: 0x115B7EC
+	public object get_Value() { }
+
+	// RVA: 0x115B080 Offset: 0x115B080 VA: 0x115B080 Slot: 5
+	public bool MoveNext() { }
+
+	// RVA: 0x116039C Offset: 0x116039C VA: 0x116039C Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: System.Runtime.Serialization
+public sealed class SerializationObjectManager // TypeDefIndex: 687
+{
+	// Fields
+	private readonly StreamingContext context; // 0x10
+	private readonly Hashtable seen; // 0x20
+	private SerializationCallbacks.CallbackHandler callbacks; // 0x28
+
+	// Methods
+
+	// RVA: 0x1156524 Offset: 0x1156524 VA: 0x1156524
+	public void .ctor(StreamingContext context) { }
+
+	// RVA: 0x1157D18 Offset: 0x1157D18 VA: 0x1157D18
+	public void RegisterObject(object obj) { }
+
+	// RVA: 0x115692C Offset: 0x115692C VA: 0x115692C
+	public void RaiseOnSerializedEvent() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC35264 Offset: 0xC35264 VA: 0xC35264
+private sealed class SerializationObjectManager.<RegisterObject>c__AnonStorey3 // TypeDefIndex: 688
+{
+	// Fields
+	internal SerializationCallbacks sc; // 0x10
+	internal object obj; // 0x18
+
+	// Methods
+
+	// RVA: 0x1160454 Offset: 0x1160454 VA: 0x1160454
+	public void .ctor() { }
+
+	// RVA: 0x116045C Offset: 0x116045C VA: 0x116045C
+	internal void <>m__2(StreamingContext ctx) { }
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC35274 Offset: 0xC35274 VA: 0xC35274
+[Serializable]
+public struct StreamingContext // TypeDefIndex: 689
+{
+	// Fields
+	private StreamingContextStates state; // 0x0
+	private object additional; // 0x8
+
+	// Properties
+	public object Context { get; }
+	public StreamingContextStates State { get; }
+
+	// Methods
+
+	// RVA: 0xBBB8A4 Offset: 0xBBB8A4 VA: 0xBBB8A4
+	public void .ctor(StreamingContextStates state) { }
+
+	// RVA: 0xBBB8B0 Offset: 0xBBB8B0 VA: 0xBBB8B0
+	public void .ctor(StreamingContextStates state, object additional) { }
+
+	// RVA: 0xBBB8BC Offset: 0xBBB8BC VA: 0xBBB8BC
+	public object get_Context() { }
+
+	// RVA: 0xBBB8C4 Offset: 0xBBB8C4 VA: 0xBBB8C4
+	public StreamingContextStates get_State() { }
+
+	// RVA: 0xBBB8CC Offset: 0xBBB8CC VA: 0xBBB8CC Slot: 0
+	public override bool Equals(object obj) { }
+
+	// RVA: 0xBBB8D4 Offset: 0xBBB8D4 VA: 0xBBB8D4 Slot: 2
+	public override int GetHashCode() { }
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC35288 Offset: 0xC35288 VA: 0xC35288
+[FlagsAttribute] // RVA: 0xC35288 Offset: 0xC35288 VA: 0xC35288
+[Serializable]
+public enum StreamingContextStates // TypeDefIndex: 690
+{
+	// Fields
+	public int value__; // 0x0
+	public const StreamingContextStates CrossProcess = 1;
+	public const StreamingContextStates CrossMachine = 2;
+	public const StreamingContextStates File = 4;
+	public const StreamingContextStates Persistence = 8;
+	public const StreamingContextStates Remoting = 16;
+	public const StreamingContextStates Other = 32;
+	public const StreamingContextStates Clone = 64;
+	public const StreamingContextStates CrossAppDomain = 128;
+	public const StreamingContextStates All = 255;
+}
+
+// Namespace: System.Security.AccessControl
+[MonoTODOAttribute] // RVA: 0xC352C4 Offset: 0xC352C4 VA: 0xC352C4
+public abstract class CommonObjectSecurity : ObjectSecurity // TypeDefIndex: 691
+{}
+
+// Namespace: System.Security.AccessControl
+public sealed class CryptoKeySecurity : NativeObjectSecurity // TypeDefIndex: 692
+{}
+
+// Namespace: System.Security.AccessControl
+public abstract class NativeObjectSecurity : CommonObjectSecurity // TypeDefIndex: 693
+{}
+
+// Namespace: System.Security.AccessControl
+public abstract class ObjectSecurity // TypeDefIndex: 694
+{}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+[MonoTODOAttribute] // RVA: 0xC352FC Offset: 0xC352FC VA: 0xC352FC
+[ComVisibleAttribute] // RVA: 0xC352FC Offset: 0xC352FC VA: 0xC352FC
+[Serializable]
+public class X509Certificate : ISerializable, IDeserializationCallback // TypeDefIndex: 695
+{
+	// Fields
+	private X509Certificate x509; // 0x10
+	private bool hideDates; // 0x18
+	private byte[] cachedCertificateHash; // 0x20
+	private string issuer_name; // 0x28
+	private string subject_name; // 0x30
+
+	// Properties
+	public string Issuer { get; }
+	public string Subject { get; }
+	[ComVisibleAttribute] // RVA: 0xC3B2F0 Offset: 0xC3B2F0 VA: 0xC3B2F0
+	public IntPtr Handle { get; }
+
+	// Methods
+
+	// RVA: 0x11CE0C8 Offset: 0x11CE0C8 VA: 0x11CE0C8
+	internal void .ctor(byte[] data, bool dates) { }
+
+	// RVA: 0x11CE12C Offset: 0x11CE12C VA: 0x11CE12C
+	public void .ctor(byte[] data) { }
+
+	// RVA: 0x11CE134 Offset: 0x11CE134 VA: 0x11CE134
+	public void .ctor(IntPtr handle) { }
+
+	// RVA: 0x11CE1F4 Offset: 0x11CE1F4 VA: 0x11CE1F4
+	public void .ctor(X509Certificate cert) { }
+
+	// RVA: 0x11CE2D8 Offset: 0x11CE2D8 VA: 0x11CE2D8
+	public void .ctor() { }
+
+	// RVA: 0x11CE2E0 Offset: 0x11CE2E0 VA: 0x11CE2E0
+	public void .ctor(byte[] rawData, string password) { }
+
+	[MonoTODOAttribute] // RVA: 0xC393BC Offset: 0xC393BC VA: 0xC393BC
+	// RVA: 0x11CE330 Offset: 0x11CE330 VA: 0x11CE330
+	public void .ctor(byte[] rawData, SecureString password) { }
+
+	// RVA: 0x11CE380 Offset: 0x11CE380 VA: 0x11CE380
+	public void .ctor(byte[] rawData, string password, X509KeyStorageFlags keyStorageFlags) { }
+
+	[MonoTODOAttribute] // RVA: 0xC393F4 Offset: 0xC393F4 VA: 0xC393F4
+	// RVA: 0x11CE3D4 Offset: 0x11CE3D4 VA: 0x11CE3D4
+	public void .ctor(byte[] rawData, SecureString password, X509KeyStorageFlags keyStorageFlags) { }
+
+	// RVA: 0x11CE428 Offset: 0x11CE428 VA: 0x11CE428
+	public void .ctor(string fileName) { }
+
+	// RVA: 0x11CE46C Offset: 0x11CE46C VA: 0x11CE46C
+	public void .ctor(string fileName, string password) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3942C Offset: 0xC3942C VA: 0xC3942C
+	// RVA: 0x11CE4BC Offset: 0x11CE4BC VA: 0x11CE4BC
+	public void .ctor(string fileName, SecureString password) { }
+
+	// RVA: 0x11CE50C Offset: 0x11CE50C VA: 0x11CE50C
+	public void .ctor(string fileName, string password, X509KeyStorageFlags keyStorageFlags) { }
+
+	[MonoTODOAttribute] // RVA: 0xC39464 Offset: 0xC39464 VA: 0xC39464
+	// RVA: 0x11CE560 Offset: 0x11CE560 VA: 0x11CE560
+	public void .ctor(string fileName, SecureString password, X509KeyStorageFlags keyStorageFlags) { }
+
+	// RVA: 0x11CE5B4 Offset: 0x11CE5B4 VA: 0x11CE5B4
+	public void .ctor(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0x11CE704 Offset: 0x11CE704 VA: 0x11CE704 Slot: 5
+	private void System.Runtime.Serialization.IDeserializationCallback.OnDeserialization(object sender) { }
+
+	// RVA: 0x11CE708 Offset: 0x11CE708 VA: 0x11CE708 Slot: 4
+	private void System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0x11CE79C Offset: 0x11CE79C VA: 0x11CE79C
+	private string tostr(byte[] data) { }
+
+	// RVA: 0x11CE8B0 Offset: 0x11CE8B0 VA: 0x11CE8B0
+	public static X509Certificate CreateFromCertFile(string filename) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3949C Offset: 0xC3949C VA: 0xC3949C
+	// RVA: 0x11CEAB0 Offset: 0x11CEAB0 VA: 0x11CEAB0
+	public static X509Certificate CreateFromSignedFile(string filename) { }
+
+	// RVA: 0x11CED6C Offset: 0x11CED6C VA: 0x11CED6C
+	private void InitFromHandle(IntPtr handle) { }
+
+	// RVA: 0x11CEEA8 Offset: 0x11CEEA8 VA: 0x11CEEA8 Slot: 6
+	public virtual bool Equals(X509Certificate other) { }
+
+	// RVA: 0x11CF0A0 Offset: 0x11CF0A0 VA: 0x11CF0A0 Slot: 7
+	public virtual byte[] GetCertHash() { }
+
+	// RVA: 0x11CF19C Offset: 0x11CF19C VA: 0x11CF19C Slot: 8
+	public virtual string GetCertHashString() { }
+
+	// RVA: 0x11CF1BC Offset: 0x11CF1BC VA: 0x11CF1BC Slot: 9
+	public virtual string GetEffectiveDateString() { }
+
+	// RVA: 0x11CF2AC Offset: 0x11CF2AC VA: 0x11CF2AC Slot: 10
+	public virtual string GetExpirationDateString() { }
+
+	// RVA: 0x11CF39C Offset: 0x11CF39C VA: 0x11CF39C Slot: 11
+	public virtual string GetFormat() { }
+
+	// RVA: 0x11CF3E4 Offset: 0x11CF3E4 VA: 0x11CF3E4 Slot: 2
+	public override int GetHashCode() { }
+
+	[ObsoleteAttribute] // RVA: 0xC394D4 Offset: 0xC394D4 VA: 0xC394D4
+	// RVA: 0x11CF4E0 Offset: 0x11CF4E0 VA: 0x11CF4E0 Slot: 12
+	public virtual string GetIssuerName() { }
+
+	// RVA: 0x11CF588 Offset: 0x11CF588 VA: 0x11CF588 Slot: 13
+	public virtual string GetKeyAlgorithm() { }
+
+	// RVA: 0x11CF630 Offset: 0x11CF630 VA: 0x11CF630 Slot: 14
+	public virtual byte[] GetKeyAlgorithmParameters() { }
+
+	// RVA: 0x11CF6EC Offset: 0x11CF6EC VA: 0x11CF6EC Slot: 15
+	public virtual string GetKeyAlgorithmParametersString() { }
+
+	[ObsoleteAttribute] // RVA: 0xC3950C Offset: 0xC3950C VA: 0xC3950C
+	// RVA: 0x11CF710 Offset: 0x11CF710 VA: 0x11CF710 Slot: 16
+	public virtual string GetName() { }
+
+	// RVA: 0x11CF7B8 Offset: 0x11CF7B8 VA: 0x11CF7B8 Slot: 17
+	public virtual byte[] GetPublicKey() { }
+
+	// RVA: 0x11CF860 Offset: 0x11CF860 VA: 0x11CF860 Slot: 18
+	public virtual string GetPublicKeyString() { }
+
+	// RVA: 0x11CF884 Offset: 0x11CF884 VA: 0x11CF884 Slot: 19
+	public virtual byte[] GetRawCertData() { }
+
+	// RVA: 0x11CF92C Offset: 0x11CF92C VA: 0x11CF92C Slot: 20
+	public virtual string GetRawCertDataString() { }
+
+	// RVA: 0x11CF9DC Offset: 0x11CF9DC VA: 0x11CF9DC Slot: 21
+	public virtual byte[] GetSerialNumber() { }
+
+	// RVA: 0x11CFA84 Offset: 0x11CFA84 VA: 0x11CFA84 Slot: 22
+	public virtual string GetSerialNumberString() { }
+
+	// RVA: 0x11CFABC Offset: 0x11CFABC VA: 0x11CFABC Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0x11CFAC4 Offset: 0x11CFAC4 VA: 0x11CFAC4 Slot: 23
+	public virtual string ToString(bool fVerbose) { }
+
+	// RVA: 0x11CE924 Offset: 0x11CE924 VA: 0x11CE924
+	private static byte[] Load(string fileName) { }
+
+	// RVA: 0x11CFDF0 Offset: 0x11CFDF0 VA: 0x11CFDF0
+	public string get_Issuer() { }
+
+	// RVA: 0x11CFCEC Offset: 0x11CFCEC VA: 0x11CFCEC
+	public string get_Subject() { }
+
+	// RVA: 0x11CFEF4 Offset: 0x11CFEF4 VA: 0x11CFEF4
+	public IntPtr get_Handle() { }
+
+	[ComVisibleAttribute] // RVA: 0xC39544 Offset: 0xC39544 VA: 0xC39544
+	// RVA: 0x11CFF34 Offset: 0x11CFF34 VA: 0x11CFF34 Slot: 0
+	public override bool Equals(object obj) { }
+
+	[MonoTODOAttribute] // RVA: 0xC39558 Offset: 0xC39558 VA: 0xC39558
+	[ComVisibleAttribute] // RVA: 0xC39558 Offset: 0xC39558 VA: 0xC39558
+	// RVA: 0x11CFFDC Offset: 0x11CFFDC VA: 0x11CFFDC Slot: 24
+	public virtual byte[] Export(X509ContentType contentType) { }
+
+	[ComVisibleAttribute] // RVA: 0xC395A8 Offset: 0xC395A8 VA: 0xC395A8
+	[MonoTODOAttribute] // RVA: 0xC395A8 Offset: 0xC395A8 VA: 0xC395A8
+	// RVA: 0x11D02C8 Offset: 0x11D02C8 VA: 0x11D02C8 Slot: 25
+	public virtual byte[] Export(X509ContentType contentType, string password) { }
+
+	[MonoTODOAttribute] // RVA: 0xC395F8 Offset: 0xC395F8 VA: 0xC395F8
+	// RVA: 0x11D0378 Offset: 0x11D0378 VA: 0x11D0378 Slot: 26
+	public virtual byte[] Export(X509ContentType contentType, SecureString password) { }
+
+	// RVA: 0x11CFFE4 Offset: 0x11CFFE4 VA: 0x11CFFE4
+	internal byte[] Export(X509ContentType contentType, byte[] password) { }
+
+	[ComVisibleAttribute] // RVA: 0xC39630 Offset: 0xC39630 VA: 0xC39630
+	// RVA: 0x11D03B4 Offset: 0x11D03B4 VA: 0x11D03B4 Slot: 27
+	public virtual void Import(byte[] rawData) { }
+
+	[ComVisibleAttribute] // RVA: 0xC39644 Offset: 0xC39644 VA: 0xC39644
+	[MonoTODOAttribute] // RVA: 0xC39644 Offset: 0xC39644 VA: 0xC39644
+	// RVA: 0x11D03CC Offset: 0x11D03CC VA: 0x11D03CC Slot: 28
+	public virtual void Import(byte[] rawData, string password, X509KeyStorageFlags keyStorageFlags) { }
+
+	[MonoTODOAttribute] // RVA: 0xC39694 Offset: 0xC39694 VA: 0xC39694
+	// RVA: 0x11D0794 Offset: 0x11D0794 VA: 0x11D0794 Slot: 29
+	public virtual void Import(byte[] rawData, SecureString password, X509KeyStorageFlags keyStorageFlags) { }
+
+	[ComVisibleAttribute] // RVA: 0xC396CC Offset: 0xC396CC VA: 0xC396CC
+	// RVA: 0x11D07A8 Offset: 0x11D07A8 VA: 0x11D07A8 Slot: 30
+	public virtual void Import(string fileName) { }
+
+	[ComVisibleAttribute] // RVA: 0xC396E0 Offset: 0xC396E0 VA: 0xC396E0
+	[MonoTODOAttribute] // RVA: 0xC396E0 Offset: 0xC396E0 VA: 0xC396E0
+	// RVA: 0x11D07E8 Offset: 0x11D07E8 VA: 0x11D07E8 Slot: 31
+	public virtual void Import(string fileName, string password, X509KeyStorageFlags keyStorageFlags) { }
+
+	[MonoTODOAttribute] // RVA: 0xC39730 Offset: 0xC39730 VA: 0xC39730
+	// RVA: 0x11D0838 Offset: 0x11D0838 VA: 0x11D0838 Slot: 32
+	public virtual void Import(string fileName, SecureString password, X509KeyStorageFlags keyStorageFlags) { }
+
+	[ComVisibleAttribute] // RVA: 0xC39768 Offset: 0xC39768 VA: 0xC39768
+	// RVA: 0x11D087C Offset: 0x11D087C VA: 0x11D087C Slot: 33
+	public virtual void Reset() { }
+}
+
+// Namespace: 
+internal struct X509Certificate.CertificateContext // TypeDefIndex: 696
+{
+	// Fields
+	public uint dwCertEncodingType; // 0x0
+	public IntPtr pbCertEncoded; // 0x8
+	public uint cbCertEncoded; // 0x10
+	public IntPtr pCertInfo; // 0x18
+	public IntPtr hCertStore; // 0x20
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+[ComVisibleAttribute] // RVA: 0xC3534C Offset: 0xC3534C VA: 0xC3534C
+public enum X509ContentType // TypeDefIndex: 697
+{
+	// Fields
+	public int value__; // 0x0
+	public const X509ContentType Unknown = 0;
+	public const X509ContentType Cert = 1;
+	public const X509ContentType SerializedCert = 2;
+	public const X509ContentType Pfx = 3;
+	public const X509ContentType SerializedStore = 4;
+	public const X509ContentType Pkcs7 = 5;
+	public const X509ContentType Authenticode = 6;
+	public const X509ContentType Pkcs12 = 3;
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+[ComVisibleAttribute] // RVA: 0xC35360 Offset: 0xC35360 VA: 0xC35360
+[FlagsAttribute] // RVA: 0xC35360 Offset: 0xC35360 VA: 0xC35360
+[Serializable]
+public enum X509KeyStorageFlags // TypeDefIndex: 698
+{
+	// Fields
+	public int value__; // 0x0
+	public const X509KeyStorageFlags DefaultKeySet = 0;
+	public const X509KeyStorageFlags UserKeySet = 1;
+	public const X509KeyStorageFlags MachineKeySet = 2;
+	public const X509KeyStorageFlags Exportable = 4;
+	public const X509KeyStorageFlags UserProtected = 8;
+	public const X509KeyStorageFlags PersistKeySet = 16;
+}
+
+// Namespace: System.Security.Cryptography
+[ComVisibleAttribute] // RVA: 0xC3539C Offset: 0xC3539C VA: 0xC3539C
+public abstract class AsymmetricAlgorithm : IDisposable // TypeDefIndex: 699
+{
+	// Fields
+	protected int KeySizeValue; // 0x10
+	protected KeySizes[] LegalKeySizesValue; // 0x18
+
+	// Properties
+	public abstract string KeyExchangeAlgorithm { get; }
+	public virtual int KeySize { get; set; }
+	public virtual KeySizes[] LegalKeySizes { get; }
+	public abstract string SignatureAlgorithm { get; }
+
+	// Methods
+
+	// RVA: 0x116388C Offset: 0x116388C VA: 0x116388C
+	protected void .ctor() { }
+
+	// RVA: 0x1163894 Offset: 0x1163894 VA: 0x1163894 Slot: 4
+	private void System.IDisposable.Dispose() { }
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract string get_KeyExchangeAlgorithm();
+
+	// RVA: 0x11638C8 Offset: 0x11638C8 VA: 0x11638C8 Slot: 6
+	public virtual int get_KeySize() { }
+
+	// RVA: 0x11638D0 Offset: 0x11638D0 VA: 0x11638D0 Slot: 7
+	public virtual void set_KeySize(int value) { }
+
+	// RVA: 0x11639BC Offset: 0x11639BC VA: 0x11639BC Slot: 8
+	public virtual KeySizes[] get_LegalKeySizes() { }
+
+	// RVA: -1 Offset: -1 Slot: 9
+	public abstract string get_SignatureAlgorithm();
+
+	// RVA: 0x11639C4 Offset: 0x11639C4 VA: 0x11639C4
+	public void Clear() { }
+
+	// RVA: -1 Offset: -1 Slot: 10
+	protected abstract void Dispose(bool disposing);
+
+	// RVA: -1 Offset: -1 Slot: 11
+	public abstract void FromXmlString(string xmlString);
+
+	// RVA: -1 Offset: -1 Slot: 12
+	public abstract string ToXmlString(bool includePrivateParameters);
+
+	// RVA: 0x11639D4 Offset: 0x11639D4 VA: 0x11639D4
+	public static AsymmetricAlgorithm Create() { }
+
+	// RVA: 0x1163A1C Offset: 0x1163A1C VA: 0x1163A1C
+	public static AsymmetricAlgorithm Create(string algName) { }
+
+	// RVA: 0x1163B74 Offset: 0x1163B74 VA: 0x1163B74
+	internal static byte[] GetNamedParam(string xml, string param) { }
+}
+
+// Namespace: System.Security.Cryptography
+[ComVisibleAttribute] // RVA: 0xC353B0 Offset: 0xC353B0 VA: 0xC353B0
+public abstract class AsymmetricKeyExchangeDeformatter // TypeDefIndex: 700
+{
+	// Properties
+	public abstract string Parameters { get; set; }
+
+	// Methods
+
+	// RVA: 0x1163D24 Offset: 0x1163D24 VA: 0x1163D24
+	protected void .ctor() { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract string get_Parameters();
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract void set_Parameters(string value);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract byte[] DecryptKeyExchange(byte[] rgb);
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract void SetKey(AsymmetricAlgorithm key);
+}
+
+// Namespace: System.Security.Cryptography
+[ComVisibleAttribute] // RVA: 0xC353C4 Offset: 0xC353C4 VA: 0xC353C4
+public abstract class AsymmetricKeyExchangeFormatter // TypeDefIndex: 701
+{
+	// Properties
+	public abstract string Parameters { get; }
+
+	// Methods
+
+	// RVA: 0x1163D2C Offset: 0x1163D2C VA: 0x1163D2C
+	protected void .ctor() { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract string get_Parameters();
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract byte[] CreateKeyExchange(byte[] data);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract byte[] CreateKeyExchange(byte[] data, Type symAlgType);
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract void SetKey(AsymmetricAlgorithm key);
+}
+
+// Namespace: System.Security.Cryptography
+[ComVisibleAttribute] // RVA: 0xC353D8 Offset: 0xC353D8 VA: 0xC353D8
+public abstract class AsymmetricSignatureDeformatter // TypeDefIndex: 702
+{
+	// Methods
+
+	// RVA: 0x1163D34 Offset: 0x1163D34 VA: 0x1163D34
+	protected void .ctor() { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void SetHashAlgorithm(string strName);
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract void SetKey(AsymmetricAlgorithm key);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract bool VerifySignature(byte[] rgbHash, byte[] rgbSignature);
+
+	// RVA: 0x1163D3C Offset: 0x1163D3C VA: 0x1163D3C Slot: 7
+	public virtual bool VerifySignature(HashAlgorithm hash, byte[] rgbSignature) { }
+}
+
+// Namespace: System.Security.Cryptography
+[ComVisibleAttribute] // RVA: 0xC353EC Offset: 0xC353EC VA: 0xC353EC
+public abstract class AsymmetricSignatureFormatter // TypeDefIndex: 703
+{
+	// Methods
+
+	// RVA: 0x1163E1C Offset: 0x1163E1C VA: 0x1163E1C
+	protected void .ctor() { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void SetHashAlgorithm(string strName);
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract void SetKey(AsymmetricAlgorithm key);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract byte[] CreateSignature(byte[] rgbHash);
+
+	// RVA: 0x1163E24 Offset: 0x1163E24 VA: 0x1163E24 Slot: 7
+	public virtual byte[] CreateSignature(HashAlgorithm hash) { }
+}
+
+// Namespace: System.Security.Cryptography
+internal static class Base64Constants // TypeDefIndex: 704
+{
+	// Fields
+	public static readonly byte[] EncodeTable; // 0x0
+	public static readonly byte[] DecodeTable; // 0x8
+
+	// Methods
+
+	// RVA: 0x1163EFC Offset: 0x1163EFC VA: 0x1163EFC
+	private static void .cctor() { }
+}
+
+// Namespace: System.Security.Cryptography
+[ComVisibleAttribute] // RVA: 0xC35400 Offset: 0xC35400 VA: 0xC35400
+[Serializable]
+public enum CipherMode // TypeDefIndex: 705
+{
+	// Fields
+	public int value__; // 0x0
+	public const CipherMode CBC = 1;
+	public const CipherMode ECB = 2;
+	public const CipherMode OFB = 3;
+	public const CipherMode CFB = 4;
+	public const CipherMode CTS = 5;
+}
+
+// Namespace: System.Security.Cryptography
+[ComVisibleAttribute] // RVA: 0xC35414 Offset: 0xC35414 VA: 0xC35414
+public sealed class CryptoAPITransform : IDisposable, ICryptoTransform // TypeDefIndex: 706
+{
+	// Fields
+	private bool m_disposed; // 0x10
+
+	// Properties
+	public bool CanReuseTransform { get; }
+	public bool CanTransformMultipleBlocks { get; }
+	public int InputBlockSize { get; }
+	public IntPtr KeyHandle { get; }
+	public int OutputBlockSize { get; }
+
+	// Methods
+
+	// RVA: 0x1163FB0 Offset: 0x1163FB0 VA: 0x1163FB0
+	internal void .ctor() { }
+
+	// RVA: 0x1163FD8 Offset: 0x1163FD8 VA: 0x1163FD8 Slot: 4
+	private void System.IDisposable.Dispose() { }
+
+	// RVA: 0x1164008 Offset: 0x1164008 VA: 0x1164008 Slot: 5
+	public bool get_CanReuseTransform() { }
+
+	// RVA: 0x1164010 Offset: 0x1164010 VA: 0x1164010 Slot: 6
+	public bool get_CanTransformMultipleBlocks() { }
+
+	// RVA: 0x1164018 Offset: 0x1164018 VA: 0x1164018 Slot: 7
+	public int get_InputBlockSize() { }
+
+	// RVA: 0x1164020 Offset: 0x1164020 VA: 0x1164020
+	public IntPtr get_KeyHandle() { }
+
+	// RVA: 0x1164060 Offset: 0x1164060 VA: 0x1164060 Slot: 8
+	public int get_OutputBlockSize() { }
+
+	// RVA: 0x1164068 Offset: 0x1164068 VA: 0x1164068
+	public void Clear() { }
+
+	// RVA: 0x1163FF0 Offset: 0x1163FF0 VA: 0x1163FF0
+	private void Dispose(bool disposing) { }
+
+	// RVA: 0x1164080 Offset: 0x1164080 VA: 0x1164080 Slot: 9
+	public int TransformBlock(byte[] inputBuffer, int inputOffset, int inputCount, byte[] outputBuffer, int outputOffset) { }
+
+	// RVA: 0x1164088 Offset: 0x1164088 VA: 0x1164088 Slot: 10
+	public byte[] TransformFinalBlock(byte[] inputBuffer, int inputOffset, int inputCount) { }
+
+	[ComVisibleAttribute] // RVA: 0xC3977C Offset: 0xC3977C VA: 0xC3977C
+	// RVA: 0x1164090 Offset: 0x1164090 VA: 0x1164090
+	public void Reset() { }
+}
+
+// Namespace: System.Security.Cryptography
+[ComVisibleAttribute] // RVA: 0xC35428 Offset: 0xC35428 VA: 0xC35428
+public class CryptoConfig // TypeDefIndex: 707
+{
+	// Fields
+	private const string defaultNamespace = "System.Security.Cryptography.";
+	private const string defaultSHA1 = "System.Security.Cryptography.SHA1CryptoServiceProvider";
+	private const string defaultMD5 = "System.Security.Cryptography.MD5CryptoServiceProvider";
+	private const string defaultSHA256 = "System.Security.Cryptography.SHA256Managed";
+	private const string defaultSHA384 = "System.Security.Cryptography.SHA384Managed";
+	private const string defaultSHA512 = "System.Security.Cryptography.SHA512Managed";
+	private const string defaultRSA = "System.Security.Cryptography.RSACryptoServiceProvider";
+	private const string defaultDSA = "System.Security.Cryptography.DSACryptoServiceProvider";
+	private const string defaultDES = "System.Security.Cryptography.DESCryptoServiceProvider";
+	private const string default3DES = "System.Security.Cryptography.TripleDESCryptoServiceProvider";
+	private const string defaultRC2 = "System.Security.Cryptography.RC2CryptoServiceProvider";
+	private const string defaultAES = "System.Security.Cryptography.RijndaelManaged";
+	private const string defaultRNG = "System.Security.Cryptography.RNGCryptoServiceProvider";
+	private const string defaultHMAC = "System.Security.Cryptography.HMACSHA1";
+	private const string defaultMAC3DES = "System.Security.Cryptography.MACTripleDES";
+	private const string defaultDSASigDesc = "System.Security.Cryptography.DSASignatureDescription";
+	private const string defaultRSASigDesc = "System.Security.Cryptography.RSAPKCS1SHA1SignatureDescription";
+	private const string defaultRIPEMD160 = "System.Security.Cryptography.RIPEMD160Managed";
+	private const string defaultHMACMD5 = "System.Security.Cryptography.HMACMD5";
+	private const string defaultHMACRIPEMD160 = "System.Security.Cryptography.HMACRIPEMD160";
+	private const string defaultHMACSHA256 = "System.Security.Cryptography.HMACSHA256";
+	private const string defaultHMACSHA384 = "System.Security.Cryptography.HMACSHA384";
+	private const string defaultHMACSHA512 = "System.Security.Cryptography.HMACSHA512";
+	private const string defaultC14N = "System.Security.Cryptography.Xml.XmlDsigC14NTransform, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string defaultC14NWithComments = "System.Security.Cryptography.Xml.XmlDsigC14NWithCommentsTransform, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string defaultBase64 = "System.Security.Cryptography.Xml.XmlDsigBase64Transform, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string defaultXPath = "System.Security.Cryptography.Xml.XmlDsigXPathTransform, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string defaultXslt = "System.Security.Cryptography.Xml.XmlDsigXsltTransform, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string defaultEnveloped = "System.Security.Cryptography.Xml.XmlDsigEnvelopedSignatureTransform, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string defaultXmlDecryption = "System.Security.Cryptography.Xml.XmlDecryptionTransform, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string defaultExcC14N = "System.Security.Cryptography.Xml.XmlDsigExcC14NTransform, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string defaultExcC14NWithComments = "System.Security.Cryptography.Xml.XmlDsigExcC14NWithCommentsTransform, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string defaultX509Data = "System.Security.Cryptography.Xml.KeyInfoX509Data, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string defaultKeyName = "System.Security.Cryptography.Xml.KeyInfoName, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string defaultKeyValueDSA = "System.Security.Cryptography.Xml.DSAKeyValue, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string defaultKeyValueRSA = "System.Security.Cryptography.Xml.RSAKeyValue, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string defaultRetrievalMethod = "System.Security.Cryptography.Xml.KeyInfoRetrievalMethod, System.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a";
+	private const string managedSHA1 = "System.Security.Cryptography.SHA1Managed";
+	private const string oidSHA1 = "1.3.14.3.2.26";
+	private const string oidMD5 = "1.2.840.113549.2.5";
+	private const string oidSHA256 = "2.16.840.1.101.3.4.2.1";
+	private const string oidSHA384 = "2.16.840.1.101.3.4.2.2";
+	private const string oidSHA512 = "2.16.840.1.101.3.4.2.3";
+	private const string oidDSA = "1.2.840.10040.4.1";
+	private const string oidDES = "1.3.14.3.2.7";

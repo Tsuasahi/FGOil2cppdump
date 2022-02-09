@@ -1,0 +1,1000 @@
+	public const ServantStatusCharaGraphListViewItemDraw.DispMode INVISIBLE = 0;
+	public const ServantStatusCharaGraphListViewItemDraw.DispMode INVALID = 1;
+	public const ServantStatusCharaGraphListViewItemDraw.DispMode VALID = 2;
+	public const ServantStatusCharaGraphListViewItemDraw.DispMode INPUT = 3;
+}
+
+// Namespace: 
+public class ServantStatusCharaGraphListViewManager : ListViewManager // TypeDefIndex: 5699
+{
+	// Fields
+	[SerializeField] // RVA: 0xCBB14C Offset: 0xCBB14C VA: 0xCBB14C
+	private ServantStatusCharaGraphViewer charaGraphViewer; // 0x138
+	[SerializeField] // RVA: 0xCBB15C Offset: 0xCBB15C VA: 0xCBB15C
+	protected ServantStatusDialog servantStatusDialog; // 0x140
+	[SerializeField] // RVA: 0xCBB16C Offset: 0xCBB16C VA: 0xCBB16C
+	protected UISprite dragBackSprite; // 0x148
+	[SerializeField] // RVA: 0xCBB17C Offset: 0xCBB17C VA: 0xCBB17C
+	protected UILabel debugScaleLabel; // 0x150
+	protected Camera camera; // 0x158
+	protected float baseScale; // 0x160
+	protected bool isOldMousePosition; // 0x164
+	protected Vector2 oldMousePosition; // 0x168
+	protected bool isTouchScale; // 0x170
+	protected float baseTouchScale; // 0x174
+	protected float baseTouchSqrMagnitude; // 0x178
+	protected int oldTouchCount; // 0x17C
+	protected Vector2 oldTouchPosition; // 0x180
+	private int manualSelectedIndex; // 0x188
+	protected ServantStatusCharaGraphListViewManager.InitMode initMode; // 0x18C
+	[CompilerGeneratedAttribute] // RVA: 0xCBB18C Offset: 0xCBB18C VA: 0xCBB18C
+	[DebuggerBrowsableAttribute] // RVA: 0xCBB18C Offset: 0xCBB18C VA: 0xCBB18C
+	private ServantStatusCharaGraphListViewManager.CallbackFunc callbackFunc; // 0x190
+	[CompilerGeneratedAttribute] // RVA: 0xCBB1C8 Offset: 0xCBB1C8 VA: 0xCBB1C8
+	[DebuggerBrowsableAttribute] // RVA: 0xCBB1C8 Offset: 0xCBB1C8 VA: 0xCBB1C8
+	private Action callbackFunc2; // 0x198
+	protected int callbackCount; // 0x1A0
+	protected UIDragDropListViewBackMask backMask; // 0x1A8
+	protected ServantStatusCharaGraphListViewObject actionObject; // 0x1B0
+	[CompilerGeneratedAttribute] // RVA: 0xCBB204 Offset: 0xCBB204 VA: 0xCBB204
+	private static Func<ListViewItem, ServantStatusCharaGraphListViewItem> <>f__am$cache0; // 0x0
+
+	// Properties
+	public List<ServantStatusCharaGraphListViewObject> ObjectList { get; }
+	public List<ServantStatusCharaGraphListViewObject> ClippingObjectList { get; }
+
+	// Methods
+
+	// RVA: 0x1DE9FA4 Offset: 0x1DE9FA4 VA: 0x1DE9FA4
+	public void .ctor() { }
+
+	// RVA: 0x1DE9FB4 Offset: 0x1DE9FB4 VA: 0x1DE9FB4
+	protected void add_callbackFunc(ServantStatusCharaGraphListViewManager.CallbackFunc value) { }
+
+	// RVA: 0x1DEA0A4 Offset: 0x1DEA0A4 VA: 0x1DEA0A4
+	protected void remove_callbackFunc(ServantStatusCharaGraphListViewManager.CallbackFunc value) { }
+
+	// RVA: 0x1DEA194 Offset: 0x1DEA194 VA: 0x1DEA194
+	protected void add_callbackFunc2(Action value) { }
+
+	// RVA: 0x1DEA284 Offset: 0x1DEA284 VA: 0x1DEA284
+	protected void remove_callbackFunc2(Action value) { }
+
+	// RVA: 0x1DEA374 Offset: 0x1DEA374 VA: 0x1DEA374
+	public List<ServantStatusCharaGraphListViewObject> get_ObjectList() { }
+
+	// RVA: 0x1DEA540 Offset: 0x1DEA540 VA: 0x1DEA540
+	public List<ServantStatusCharaGraphListViewObject> get_ClippingObjectList() { }
+
+	// RVA: 0x1DEA820 Offset: 0x1DEA820 VA: 0x1DEA820
+	public void CreateList(ServantStatusListViewItem mainInfo) { }
+
+	// RVA: 0x1DEAED8 Offset: 0x1DEAED8 VA: 0x1DEAED8
+	public void DestroyList() { }
+
+	// RVA: 0x1DEAF6C Offset: 0x1DEAF6C VA: 0x1DEAF6C
+	public ServantStatusCharaGraphListViewItem GetSelectItem() { }
+
+	// RVA: 0x1DEB0B4 Offset: 0x1DEB0B4 VA: 0x1DEB0B4
+	public ServantStatusCharaGraphListViewItem GetManualSelectItem(ServantStatusListViewItem mainInfo) { }
+
+	// RVA: 0x1DEB00C Offset: 0x1DEB00C VA: 0x1DEB00C
+	public ServantStatusCharaGraphListViewItem GetItem(int index) { }
+
+	// RVA: 0x1DEB1E0 Offset: 0x1DEB1E0 VA: 0x1DEB1E0 Slot: 4
+	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
+
+	// RVA: 0x1DEB31C Offset: 0x1DEB31C VA: 0x1DEB31C
+	public void SetMode(ServantStatusCharaGraphListViewManager.InitMode mode, ServantStatusCharaGraphListViewManager.CallbackFunc callback) { }
+
+	// RVA: 0x1DEB394 Offset: 0x1DEB394 VA: 0x1DEB394
+	public void SetMode(ServantStatusCharaGraphListViewManager.InitMode mode, Action callback) { }
+
+	// RVA: 0x1DEB324 Offset: 0x1DEB324 VA: 0x1DEB324
+	public void SetMode(ServantStatusCharaGraphListViewManager.InitMode mode) { }
+
+	// RVA: 0x1DEB590 Offset: 0x1DEB590 VA: 0x1DEB590
+	protected void RequestListObject(ServantStatusCharaGraphListViewObject.InitMode mode, float delay) { }
+
+	// RVA: 0x1DEB39C Offset: 0x1DEB39C VA: 0x1DEB39C
+	protected void RequestListObject(ServantStatusCharaGraphListViewObject.InitMode mode) { }
+
+	// RVA: 0x1DEB8B4 Offset: 0x1DEB8B4 VA: 0x1DEB8B4
+	protected void OnMoveEnd() { }
+
+	// RVA: 0x1DEB980 Offset: 0x1DEB980 VA: 0x1DEB980
+	private void OnModifyViewerCenter(ServantStatusCharaGraphListViewItem item) { }
+
+	// RVA: 0x1DEBB8C Offset: 0x1DEBB8C VA: 0x1DEBB8C
+	protected void OnClickListView(ListViewObject obj) { }
+
+	// RVA: 0x1DEBF90 Offset: 0x1DEBF90 VA: 0x1DEBF90
+	protected void OnEndMaxim() { }
+
+	// RVA: 0x1DEC1E8 Offset: 0x1DEC1E8 VA: 0x1DEC1E8
+	public Vector3 GetWorldPosition(Vector2 screenPos, Camera cam) { }
+
+	// RVA: 0x1DEC308 Offset: 0x1DEC308 VA: 0x1DEC308
+	public Vector2 GetSreenPosition(Vector3 worldPos, Camera cam) { }
+
+	// RVA: 0x1DEC430 Offset: 0x1DEC430 VA: 0x1DEC430
+	protected void OnDragUpdate() { }
+
+	// RVA: 0x1DED660 Offset: 0x1DED660 VA: 0x1DED660
+	protected void OnClickMaxim() { }
+
+	// RVA: 0x1DED7FC Offset: 0x1DED7FC VA: 0x1DED7FC
+	protected void OnEndFadeoutFrame() { }
+
+	// RVA: 0x1DED8B4 Offset: 0x1DED8B4 VA: 0x1DED8B4
+	protected void OnClickFadeoutFrame() { }
+
+	// RVA: 0x1DEDFC0 Offset: 0x1DEDFC0 VA: 0x1DEDFC0
+	protected void OnEndUsually() { }
+
+	// RVA: 0x1DEE000 Offset: 0x1DEE000 VA: 0x1DEE000
+	protected void OnEndAnother() { }
+
+	// RVA: 0x1DEE0B8 Offset: 0x1DEE0B8 VA: 0x1DEE0B8
+	protected void OnClickExViewer() { }
+
+	// RVA: 0x1DEE4BC Offset: 0x1DEE4BC VA: 0x1DEE4BC
+	public void SetVisibleHighPriorityObject(bool isVisible) { }
+
+	// RVA: 0x1DEE5F0 Offset: 0x1DEE5F0 VA: 0x1DEE5F0
+	public void DragBackOff() { }
+
+	// RVA: 0x1DEE63C Offset: 0x1DEE63C VA: 0x1DEE63C
+	public void DragBackFadein(float duration) { }
+
+	// RVA: 0x1DEE6C4 Offset: 0x1DEE6C4 VA: 0x1DEE6C4
+	public void DragBackFadeout(float duration) { }
+
+	// RVA: 0x1DEAD78 Offset: 0x1DEAD78 VA: 0x1DEAD78
+	public void SetEnableScroll(ServantStatusListViewItem statusItem) { }
+
+	// RVA: 0x1DEE74C Offset: 0x1DEE74C VA: 0x1DEE74C
+	public void OnModifySvtRndomOwnSetting(ServantStatusListViewItem mainInfo) { }
+
+	// RVA: 0x1DEEA48 Offset: 0x1DEEA48 VA: 0x1DEEA48
+	public void OnModifyOptionRndomOwnSetting(ServantStatusListViewItem mainInfo) { }
+
+	// RVA: 0x1DEE850 Offset: 0x1DEE850 VA: 0x1DEE850
+	private void ChangeImageImmediately(ServantStatusListViewItem mainInfo) { }
+
+	// RVA: 0x1DEEB4C Offset: 0x1DEEB4C VA: 0x1DEEB4C
+	private void AfterScrollCallback() { }
+
+	// RVA: 0x1DEED98 Offset: 0x1DEED98 VA: 0x1DEED98
+	private void OnFinishedChangeCharaGraph() { }
+
+	// RVA: 0x1DEEBCC Offset: 0x1DEEBCC VA: 0x1DEEBCC
+	private void ChangeServantProfile() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD358D8 Offset: 0xD358D8 VA: 0xD358D8
+	// RVA: 0x1DEEEF0 Offset: 0x1DEEEF0 VA: 0x1DEEEF0
+	private static ServantStatusCharaGraphListViewItem <OnClickListView>m__0(ListViewItem x) { }
+}
+
+// Namespace: 
+public enum ServantStatusCharaGraphListViewManager.Kind // TypeDefIndex: 5700
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantStatusCharaGraphListViewManager.Kind NORMAL = 0;
+}
+
+// Namespace: 
+public enum ServantStatusCharaGraphListViewManager.InitMode // TypeDefIndex: 5701
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantStatusCharaGraphListViewManager.InitMode NONE = 0;
+	public const ServantStatusCharaGraphListViewManager.InitMode VALID = 1;
+	public const ServantStatusCharaGraphListViewManager.InitMode INPUT = 2;
+}
+
+// Namespace: 
+public sealed class ServantStatusCharaGraphListViewManager.CallbackFunc : MulticastDelegate // TypeDefIndex: 5702
+{
+	// Methods
+
+	// RVA: 0x1DEEF70 Offset: 0x1DEEF70 VA: 0x1DEEF70
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1DEEF80 Offset: 0x1DEEF80 VA: 0x1DEEF80 Slot: 11
+	public virtual void Invoke(int result) { }
+
+	// RVA: 0x1DEF1AC Offset: 0x1DEF1AC VA: 0x1DEF1AC Slot: 12
+	public virtual IAsyncResult BeginInvoke(int result, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1DEF238 Offset: 0x1DEF238 VA: 0x1DEF238 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class ServantStatusCharaGraphListViewObject : ListViewObject // TypeDefIndex: 5703
+{
+	// Fields
+	protected static readonly int CardHeight; // 0x0
+	protected static readonly int CardWidth; // 0x4
+	protected static readonly float MAXIM_IN_SPEED; // 0x8
+	protected static readonly float MAXIM_OUT_SPEED; // 0xC
+	protected static readonly float ZOOM_SCALE; // 0x10
+	protected ServantStatusCharaGraphListViewObject.State state; // 0x6C
+	[CompilerGeneratedAttribute] // RVA: 0xCBB214 Offset: 0xCBB214 VA: 0xCBB214
+	[DebuggerBrowsableAttribute] // RVA: 0xCBB214 Offset: 0xCBB214 VA: 0xCBB214
+	private Action callbackFunc; // 0x70
+	protected ServantStatusCharaGraphListViewItemDraw itemDraw; // 0x78
+	protected ServantStatusCharaGraphListViewItemDraw.DispMode dispMode; // 0x80
+	protected GameObject dragObject; // 0x88
+	protected Rect dragObjectRect; // 0x90
+
+	// Methods
+
+	// RVA: 0x1DEF244 Offset: 0x1DEF244 VA: 0x1DEF244
+	public void .ctor() { }
+
+	// RVA: 0x1DEF2AC Offset: 0x1DEF2AC VA: 0x1DEF2AC
+	protected void add_callbackFunc(Action value) { }
+
+	// RVA: 0x1DEF398 Offset: 0x1DEF398 VA: 0x1DEF398
+	protected void remove_callbackFunc(Action value) { }
+
+	// RVA: 0x1DEBA8C Offset: 0x1DEBA8C VA: 0x1DEBA8C
+	public GameObject GetDragObject() { }
+
+	// RVA: 0x1DED580 Offset: 0x1DED580 VA: 0x1DED580
+	public Rect GetDragObjectRange() { }
+
+	// RVA: 0x1DEF484 Offset: 0x1DEF484 VA: 0x1DEF484
+	protected void Awake() { }
+
+	// RVA: 0x1DEF4F8 Offset: 0x1DEF4F8 VA: 0x1DEF4F8
+	private void OnDestroy() { }
+
+	// RVA: 0x1DEA79C Offset: 0x1DEA79C VA: 0x1DEA79C
+	public ServantStatusCharaGraphListViewItem GetItem() { }
+
+	// RVA: 0x1DEF5A4 Offset: 0x1DEF5A4 VA: 0x1DEF5A4 Slot: 6
+	public override void SetItem(ListViewItem item, ListViewItemSeed seed) { }
+
+	// RVA: 0x1DEF5B0 Offset: 0x1DEF5B0 VA: 0x1DEF5B0 Slot: 8
+	public override GameObject CreateDragObject() { }
+
+	// RVA: 0x1DEF638 Offset: 0x1DEF638 VA: 0x1DEF638
+	private bool CheckViewerObject(ServantStatusCharaGraphListViewObject.InitMode mode) { }
+
+	// RVA: 0x1DEF648 Offset: 0x1DEF648 VA: 0x1DEF648
+	public void Init(ServantStatusCharaGraphListViewObject.InitMode initMode, Action callbackFunc, float delay, Vector3 position) { }
+
+	// RVA: 0x1DEB798 Offset: 0x1DEB798 VA: 0x1DEB798
+	public void Init(ServantStatusCharaGraphListViewObject.InitMode initMode, Action callbackFunc, float delay) { }
+
+	// RVA: 0x1DEB82C Offset: 0x1DEB82C VA: 0x1DEB82C
+	public void Init(ServantStatusCharaGraphListViewObject.InitMode initMode, Action callbackFunc) { }
+
+	// RVA: 0x1DEB298 Offset: 0x1DEB298 VA: 0x1DEB298
+	public void Init(ServantStatusCharaGraphListViewObject.InitMode initMode) { }
+
+	// RVA: 0x1DEFC84 Offset: 0x1DEFC84 VA: 0x1DEFC84
+	protected void SetupDisp(bool hideFrame = False) { }
+
+	// RVA: 0x1DEFF40 Offset: 0x1DEFF40 VA: 0x1DEFF40
+	private Rect GetDragObjectRect() { }
+
+	// RVA: 0x1DF0000 Offset: 0x1DF0000 VA: 0x1DF0000
+	private void GetMaximTransformValues(out Vector3 localScale, out Vector3 localEulerAngle) { }
+
+	// RVA: 0x1DEFB0C Offset: 0x1DEFB0C VA: 0x1DEFB0C
+	private void EventMaximStartViewer() { }
+
+	// RVA: 0x1DEFBFC Offset: 0x1DEFBFC VA: 0x1DEFBFC
+	private void EventFadeoutFrameStartViewer() { }
+
+	// RVA: 0x1DEFC04 Offset: 0x1DEFC04 VA: 0x1DEFC04
+	private void EventExViewer() { }
+
+	// RVA: 0x1DEF91C Offset: 0x1DEF91C VA: 0x1DEF91C
+	private void EventMaximStart(float delay) { }
+
+	// RVA: 0x1DF0400 Offset: 0x1DF0400 VA: 0x1DF0400
+	private void EventMaximMove() { }
+
+	// RVA: 0x1DF020C Offset: 0x1DF020C VA: 0x1DF020C
+	private void EventMaximMove2() { }
+
+	// RVA: 0x1DEF9F4 Offset: 0x1DEF9F4 VA: 0x1DEF9F4
+	private void EventFadeoutFrameStart(float delay) { }
+
+	// RVA: 0x1DF06A0 Offset: 0x1DF06A0 VA: 0x1DF06A0
+	private void EventFadeoutFrameMove() { }
+
+	// RVA: 0x1DF0274 Offset: 0x1DF0274 VA: 0x1DF0274
+	private void EventFadeoutFrameMove(ServantStatusCharaGraphListViewObject target) { }
+
+	// RVA: 0x1DF070C Offset: 0x1DF070C VA: 0x1DF070C
+	private void EventFadeoutFrameMove2() { }
+
+	// RVA: 0x1DEFA80 Offset: 0x1DEFA80 VA: 0x1DEFA80
+	private void EventUsuallyStart(float delay) { }
+
+	// RVA: 0x1DF075C Offset: 0x1DF075C VA: 0x1DF075C
+	private void EventUsuallyMove() { }
+
+	// RVA: 0x1DF0AC8 Offset: 0x1DF0AC8 VA: 0x1DF0AC8
+	private void EventUsuallyMove2() { }
+
+	// RVA: 0x1DF0734 Offset: 0x1DF0734 VA: 0x1DF0734
+	protected void EventMoveEnd() { }
+
+	// RVA: 0x1DEBA94 Offset: 0x1DEBA94 VA: 0x1DEBA94
+	public void ChangeDisplay(ServantStatusCharaGraphListViewItem item) { }
+
+	// RVA: 0x1DF0BE0 Offset: 0x1DF0BE0 VA: 0x1DF0BE0 Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0x1DEE310 Offset: 0x1DEE310 VA: 0x1DEE310
+	public void SetItemDataType(ServantStatusCharaGraphListViewItem.ItemDataType dispType) { }
+
+	// RVA: 0x1DEDEF0 Offset: 0x1DEDEF0 VA: 0x1DEDEF0
+	public void SetDragObjectItemDataType(ServantStatusCharaGraphListViewItem item) { }
+
+	// RVA: 0x1DEFE04 Offset: 0x1DEFE04 VA: 0x1DEFE04
+	private bool IsExpandImage(ServantStatusCharaGraphListViewItem item) { }
+
+	// RVA: 0x1DF0CB0 Offset: 0x1DF0CB0 VA: 0x1DF0CB0
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public enum ServantStatusCharaGraphListViewObject.InitMode // TypeDefIndex: 5704
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantStatusCharaGraphListViewObject.InitMode INVISIBLE = 0;
+	public const ServantStatusCharaGraphListViewObject.InitMode INVALID = 1;
+	public const ServantStatusCharaGraphListViewObject.InitMode VALID = 2;
+	public const ServantStatusCharaGraphListViewObject.InitMode INPUT = 3;
+	public const ServantStatusCharaGraphListViewObject.InitMode MAXIM = 4;
+	public const ServantStatusCharaGraphListViewObject.InitMode FADEOUT_FRAME = 5;
+	public const ServantStatusCharaGraphListViewObject.InitMode USUALLY = 6;
+	public const ServantStatusCharaGraphListViewObject.InitMode VIEWER = 7;
+	public const ServantStatusCharaGraphListViewObject.InitMode VIEWER_HIDE_FRAME = 8;
+	public const ServantStatusCharaGraphListViewObject.InitMode VIEWER_FADEOUT_FRAME = 9;
+	public const ServantStatusCharaGraphListViewObject.InitMode VIEWER_EX = 10;
+}
+
+// Namespace: 
+protected enum ServantStatusCharaGraphListViewObject.State // TypeDefIndex: 5705
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantStatusCharaGraphListViewObject.State INIT = 0;
+	public const ServantStatusCharaGraphListViewObject.State IDLE = 1;
+	public const ServantStatusCharaGraphListViewObject.State MOVE = 2;
+	public const ServantStatusCharaGraphListViewObject.State INPUT = 3;
+}
+
+// Namespace: 
+public class ServantStatusCharaGraphViewer : MonoBehaviour // TypeDefIndex: 5706
+{
+	// Fields
+	[SerializeField] // RVA: 0xCBB250 Offset: 0xCBB250 VA: 0xCBB250
+	private UIPanel listViewPanel; // 0x18
+	[SerializeField] // RVA: 0xCBB260 Offset: 0xCBB260 VA: 0xCBB260
+	private UIPanel dragObjRootPanel; // 0x20
+	[SerializeField] // RVA: 0xCBB270 Offset: 0xCBB270 VA: 0xCBB270
+	private ServantStatusCharaGraphViewerListViewManager viewerListViewManager; // 0x28
+	private ServantStatusCharaGraphViewer.DispType currentDispType; // 0x30
+	[CompilerGeneratedAttribute] // RVA: 0xCBB280 Offset: 0xCBB280 VA: 0xCBB280
+	[DebuggerBrowsableAttribute] // RVA: 0xCBB280 Offset: 0xCBB280 VA: 0xCBB280
+	private bool <IsAbleToSwitchDispMode>k__BackingField; // 0x34
+
+	// Properties
+	public bool IsAbleToSwitchDispMode { get; set; }
+
+	// Methods
+
+	// RVA: 0x1DF0D40 Offset: 0x1DF0D40 VA: 0x1DF0D40
+	public void .ctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD358E8 Offset: 0xD358E8 VA: 0xD358E8
+	// RVA: 0x1DF0D48 Offset: 0x1DF0D48 VA: 0x1DF0D48
+	private void set_IsAbleToSwitchDispMode(bool value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD358F8 Offset: 0xD358F8 VA: 0xD358F8
+	// RVA: 0x1DEC124 Offset: 0x1DEC124 VA: 0x1DEC124
+	public bool get_IsAbleToSwitchDispMode() { }
+
+	// RVA: 0x1DEDE20 Offset: 0x1DEDE20 VA: 0x1DEDE20
+	public ServantStatusCharaGraphListViewItem GetCenterItem() { }
+
+	// RVA: 0x1DED58C Offset: 0x1DED58C VA: 0x1DED58C
+	public bool IsAbleToPinch() { }
+
+	// RVA: 0x1DEBDC8 Offset: 0x1DEBDC8 VA: 0x1DEBDC8
+	public void Setup(int currentIndex, ServantStatusCharaGraphListViewItem[] items) { }
+
+	// RVA: 0x1DEC13C Offset: 0x1DEC13C VA: 0x1DEC13C
+	public void SetModifyScrollViewCenter(ServantStatusCharaGraphViewerListViewIndicator.OnModifyCenterEvent onModifyScrollViewCenter) { }
+
+	// RVA: 0x1DED7C0 Offset: 0x1DED7C0 VA: 0x1DED7C0
+	public void FadeoutFrameScrollViewObjects(float delay) { }
+
+	// RVA: 0x1DEDEBC Offset: 0x1DEDEBC VA: 0x1DEDEBC
+	public void SetItemDataType(ServantStatusCharaGraphListViewItem.ItemDataType dispType) { }
+
+	// RVA: 0x1DEDF88 Offset: 0x1DEDF88 VA: 0x1DEDF88
+	public void DeactivateScrollViewObjects() { }
+
+	// RVA: 0x1DEBE44 Offset: 0x1DEBE44 VA: 0x1DEBE44
+	public void SetDispType(ServantStatusCharaGraphViewer.DispType dispType) { }
+
+	// RVA: 0x1DED658 Offset: 0x1DED658 VA: 0x1DED658
+	public ServantStatusCharaGraphViewer.DispType GetDispType() { }
+}
+
+// Namespace: 
+public enum ServantStatusCharaGraphViewer.DispType // TypeDefIndex: 5707
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantStatusCharaGraphViewer.DispType NONE = 0;
+	public const ServantStatusCharaGraphViewer.DispType DRAG_OBJ = 1;
+	public const ServantStatusCharaGraphViewer.DispType SCROLL_VIEW = 2;
+}
+
+// Namespace: 
+public class ServantStatusCharaGraphViewerListViewIndicator : ListViewIndicator // TypeDefIndex: 5708
+{
+	// Fields
+	private ServantStatusCharaGraphViewerListViewIndicator.OnModifyCenterEvent onModifyCenterItem; // 0x18
+
+	// Methods
+
+	// RVA: 0x1DF1308 Offset: 0x1DF1308 VA: 0x1DF1308
+	public void .ctor() { }
+
+	// RVA: 0x1DF1310 Offset: 0x1DF1310 VA: 0x1DF1310
+	public void Init(ServantStatusCharaGraphViewerListViewIndicator.OnModifyCenterEvent onModifyCenter) { }
+
+	// RVA: 0x1DF1318 Offset: 0x1DF1318 VA: 0x1DF1318 Slot: 5
+	public override void OnModifyCenterItem(ListViewManager manager, ListViewItem item, bool isTop, bool isBottom, bool isLeft, bool isRight) { }
+}
+
+// Namespace: 
+public sealed class ServantStatusCharaGraphViewerListViewIndicator.OnModifyCenterEvent : MulticastDelegate // TypeDefIndex: 5709
+{
+	// Methods
+
+	// RVA: 0x1DEC12C Offset: 0x1DEC12C VA: 0x1DEC12C
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1DF13C0 Offset: 0x1DF13C0 VA: 0x1DF13C0 Slot: 11
+	public virtual void Invoke(ServantStatusCharaGraphListViewItem item) { }
+
+	// RVA: 0x1DF1760 Offset: 0x1DF1760 VA: 0x1DF1760 Slot: 12
+	public virtual IAsyncResult BeginInvoke(ServantStatusCharaGraphListViewItem item, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1DF1784 Offset: 0x1DF1784 VA: 0x1DF1784 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class ServantStatusCharaGraphViewerListViewManager : ListViewManager // TypeDefIndex: 5710
+{
+	// Fields
+	[SerializeField] // RVA: 0xCBB2BC Offset: 0xCBB2BC VA: 0xCBB2BC
+	private UIDragScrollView dragScrollView; // 0x138
+	protected ServantStatusCharaGraphViewerListViewManager.InitMode initMode; // 0x140
+	private ServantStatusCharaGraphViewerListViewManager.Phase currentPhase; // 0x144
+	private ServantStatusCharaGraphListViewItem.ItemDataType itemDataType; // 0x148
+
+	// Properties
+	public Vector2 CenterPosition { get; }
+	public List<ServantStatusCharaGraphListViewObject> ObjectList { get; }
+	public List<ServantStatusCharaGraphListViewObject> ClippingObjectList { get; }
+
+	// Methods
+
+	// RVA: 0x1DF1790 Offset: 0x1DF1790 VA: 0x1DF1790
+	public void .ctor() { }
+
+	// RVA: 0x1DF0D54 Offset: 0x1DF0D54 VA: 0x1DF0D54
+	public Vector2 get_CenterPosition() { }
+
+	// RVA: 0x1DF1798 Offset: 0x1DF1798 VA: 0x1DF1798
+	public List<ServantStatusCharaGraphListViewObject> get_ObjectList() { }
+
+	// RVA: 0x1DF1964 Offset: 0x1DF1964 VA: 0x1DF1964
+	public List<ServantStatusCharaGraphListViewObject> get_ClippingObjectList() { }
+
+	// RVA: 0x1DF129C Offset: 0x1DF129C VA: 0x1DF129C
+	public void DestroyList() { }
+
+	// RVA: 0x1DF0DCC Offset: 0x1DF0DCC VA: 0x1DF0DCC
+	public void CreateList(int currentIndex, ServantStatusCharaGraphListViewItem[] items) { }
+
+	// RVA: 0x1DF0F50 Offset: 0x1DF0F50 VA: 0x1DF0F50
+	public void SetModifyScrollViewCenter(ServantStatusCharaGraphViewerListViewIndicator.OnModifyCenterEvent onModifyScrollViewCenter) { }
+
+	// RVA: 0x1DF12A8 Offset: 0x1DF12A8 VA: 0x1DF12A8
+	public void SetEnableScroll(bool flag) { }
+
+	// RVA: 0x1DF1BC0 Offset: 0x1DF1BC0 VA: 0x1DF1BC0
+	public bool IsActiveScroll() { }
+
+	// RVA: 0x1DF1BF0 Offset: 0x1DF1BF0 VA: 0x1DF1BF0 Slot: 4
+	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
+
+	// RVA: 0x1DF1CD4 Offset: 0x1DF1CD4 VA: 0x1DF1CD4
+	public void SetMode(ServantStatusCharaGraphViewerListViewManager.InitMode mode) { }
+
+	// RVA: 0x1DF1D38 Offset: 0x1DF1D38 VA: 0x1DF1D38
+	protected void RequestListObject(ServantStatusCharaGraphListViewObject.InitMode mode, float delay = 0) { }
+
+	// RVA: 0x1DF1F0C Offset: 0x1DF1F0C VA: 0x1DF1F0C
+	protected void OnMoveEnd() { }
+
+	// RVA: 0x1DF1020 Offset: 0x1DF1020 VA: 0x1DF1020
+	public void PlayFadeOutObjectFrame(float delay) { }
+
+	// RVA: 0x1DF1168 Offset: 0x1DF1168 VA: 0x1DF1168
+	public void SetItemDataType(ServantStatusCharaGraphListViewItem.ItemDataType dispType) { }
+}
+
+// Namespace: 
+public enum ServantStatusCharaGraphViewerListViewManager.InitMode // TypeDefIndex: 5711
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantStatusCharaGraphViewerListViewManager.InitMode NONE = 0;
+	public const ServantStatusCharaGraphViewerListViewManager.InitMode VALID = 1;
+	public const ServantStatusCharaGraphViewerListViewManager.InitMode INPUT = 2;
+}
+
+// Namespace: 
+private enum ServantStatusCharaGraphViewerListViewManager.Phase // TypeDefIndex: 5712
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantStatusCharaGraphViewerListViewManager.Phase NORMAL = 0;
+	public const ServantStatusCharaGraphViewerListViewManager.Phase HIDE_FRAME = 1;
+}
+
+// Namespace: 
+public class ServantStatusDialog : BaseMonoBehaviour // TypeDefIndex: 5713
+{
+	// Fields
+	protected const int BATTLE_IMAGE_LIMIT_COUNT = 3;
+	protected const int CONFIRM_DIALOG_MESSAGE_FONT_SIZE = 26;
+	protected readonly Vector3 CHARA_BASE_POSITION; // 0x18
+	private static readonly string PUSH_BUTTON_DISABLED_COLOR_CODE; // 0x0
+	[SerializeField] // RVA: 0xCBB2CC Offset: 0xCBB2CC VA: 0xCBB2CC
+	protected TitleInfoControl titleInfo; // 0x28
+	[SerializeField] // RVA: 0xCBB2DC Offset: 0xCBB2DC VA: 0xCBB2DC
+	protected GameObject baseObject; // 0x30
+	[SerializeField] // RVA: 0xCBB2EC Offset: 0xCBB2EC VA: 0xCBB2EC
+	protected GameObject statusTabBase; // 0x38
+	[SerializeField] // RVA: 0xCBB2FC Offset: 0xCBB2FC VA: 0xCBB2FC
+	protected GameObject profileTabBase; // 0x40
+	[SerializeField] // RVA: 0xCBB30C Offset: 0xCBB30C VA: 0xCBB30C
+	protected GameObject battleTabBase; // 0x48
+	[SerializeField] // RVA: 0xCBB31C Offset: 0xCBB31C VA: 0xCBB31C
+	protected GameObject voiceTabBase; // 0x50
+	[SerializeField] // RVA: 0xCBB32C Offset: 0xCBB32C VA: 0xCBB32C
+	protected UISprite statusTitleSprite; // 0x58
+	[SerializeField] // RVA: 0xCBB33C Offset: 0xCBB33C VA: 0xCBB33C
+	protected UISprite profileTitleSprite; // 0x60
+	[SerializeField] // RVA: 0xCBB34C Offset: 0xCBB34C VA: 0xCBB34C
+	protected UISprite battleTitleSprite; // 0x68
+	[SerializeField] // RVA: 0xCBB35C Offset: 0xCBB35C VA: 0xCBB35C
+	protected UISprite voiceTitleSprite; // 0x70
+	[SerializeField] // RVA: 0xCBB36C Offset: 0xCBB36C VA: 0xCBB36C
+	protected UISprite statusSprite; // 0x78
+	[SerializeField] // RVA: 0xCBB37C Offset: 0xCBB37C VA: 0xCBB37C
+	protected UISprite profileSprite; // 0x80
+	[SerializeField] // RVA: 0xCBB38C Offset: 0xCBB38C VA: 0xCBB38C
+	protected UISprite battleSprite; // 0x88
+	[SerializeField] // RVA: 0xCBB39C Offset: 0xCBB39C VA: 0xCBB39C
+	protected UISprite voiceSprite; // 0x90
+	[SerializeField] // RVA: 0xCBB3AC Offset: 0xCBB3AC VA: 0xCBB3AC
+	protected UICommonButton statusButton; // 0x98
+	[SerializeField] // RVA: 0xCBB3BC Offset: 0xCBB3BC VA: 0xCBB3BC
+	protected UICommonButton profileButton; // 0xA0
+	[SerializeField] // RVA: 0xCBB3CC Offset: 0xCBB3CC VA: 0xCBB3CC
+	protected UICommonButton battleButton; // 0xA8
+	[SerializeField] // RVA: 0xCBB3DC Offset: 0xCBB3DC VA: 0xCBB3DC
+	protected UICommonButton voiceButton; // 0xB0
+	[SerializeField] // RVA: 0xCBB3EC Offset: 0xCBB3EC VA: 0xCBB3EC
+	protected ShiningIconComponent profileNewIcon; // 0xB8
+	[SerializeField] // RVA: 0xCBB3FC Offset: 0xCBB3FC VA: 0xCBB3FC
+	protected ServantStatusListViewManager statusTabListViewManager; // 0xC0
+	[SerializeField] // RVA: 0xCBB40C Offset: 0xCBB40C VA: 0xCBB40C
+	protected ServantStatusFlavorTextListViewManager profileTabListViewManager; // 0xC8
+	[SerializeField] // RVA: 0xCBB41C Offset: 0xCBB41C VA: 0xCBB41C
+	protected ServantStatusBattleListViewManager battleTabListViewManager; // 0xD0
+	[SerializeField] // RVA: 0xCBB42C Offset: 0xCBB42C VA: 0xCBB42C
+	protected ServantStatusVoiceListViewManager voiceTabListViewManager; // 0xD8
+	[SerializeField] // RVA: 0xCBB43C Offset: 0xCBB43C VA: 0xCBB43C
+	protected UIRangeLabel servantNameRangeLabel; // 0xE0
+	[SerializeField] // RVA: 0xCBB44C Offset: 0xCBB44C VA: 0xCBB44C
+	protected UILabel servantClassNameLabel; // 0xE8
+	[SerializeField] // RVA: 0xCBB45C Offset: 0xCBB45C VA: 0xCBB45C
+	protected UILabel battleExplanationLabel; // 0xF0
+	[SerializeField] // RVA: 0xCBB46C Offset: 0xCBB46C VA: 0xCBB46C
+	protected GameObject markBase; // 0xF8
+	[SerializeField] // RVA: 0xCBB47C Offset: 0xCBB47C VA: 0xCBB47C
+	protected UISprite lockSprite; // 0x100
+	[SerializeField] // RVA: 0xCBB48C Offset: 0xCBB48C VA: 0xCBB48C
+	protected UISprite choiceSprite; // 0x108
+	[SerializeField] // RVA: 0xCBB49C Offset: 0xCBB49C VA: 0xCBB49C
+	protected UICommonButton favoriteButton; // 0x110
+	[SerializeField] // RVA: 0xCBB4AC Offset: 0xCBB4AC VA: 0xCBB4AC
+	protected UISprite favoriteSprite; // 0x118
+	[SerializeField] // RVA: 0xCBB4BC Offset: 0xCBB4BC VA: 0xCBB4BC
+	protected UISprite equipSprite; // 0x120
+	[SerializeField] // RVA: 0xCBB4CC Offset: 0xCBB4CC VA: 0xCBB4CC
+	protected UICommonButton pushButton; // 0x128
+	[SerializeField] // RVA: 0xCBB4DC Offset: 0xCBB4DC VA: 0xCBB4DC
+	protected UISprite pushSprite; // 0x130
+	[SerializeField] // RVA: 0xCBB4EC Offset: 0xCBB4EC VA: 0xCBB4EC
+	protected ServantStatusCharaGraphListViewManager charaGraphListViewManager; // 0x138
+	[SerializeField] // RVA: 0xCBB4FC Offset: 0xCBB4FC VA: 0xCBB4FC
+	protected ServantStatusBattleConfirmDialog servantStatusBattleConfirmDialog; // 0x140
+	[SerializeField] // RVA: 0xCBB50C Offset: 0xCBB50C VA: 0xCBB50C
+	protected Camera battleChrCamera; // 0x148
+	[SerializeField] // RVA: 0xCBB51C Offset: 0xCBB51C VA: 0xCBB51C
+	protected UISprite bgTxtSprite; // 0x150
+	[SerializeField] // RVA: 0xCBB52C Offset: 0xCBB52C VA: 0xCBB52C
+	private NoticeNumberComponent noticeNumber; // 0x158
+	[SerializeField] // RVA: 0xCBB53C Offset: 0xCBB53C VA: 0xCBB53C
+	private GameObject inputLockPanel; // 0x160
+	[SerializeField] // RVA: 0xCBB54C Offset: 0xCBB54C VA: 0xCBB54C
+	private GameObject battleMaskBase; // 0x168
+	[SerializeField] // RVA: 0xCBB55C Offset: 0xCBB55C VA: 0xCBB55C
+	private UILabel battleMaskInfoLabel; // 0x170
+	protected GameObject battleChr; // 0x178
+	protected ServantStatusDialog.EndDelegate callbackFunc; // 0x180
+	protected ServantStatusDialog.FormationEndDelegate formationCallbackFunc; // 0x188
+	protected ServantStatusDialog.ResultDelegate resultCallbackFunc; // 0x190
+	protected ServantStatusDialog.EndIndividualityDelegate individualityCallbackFunc; // 0x198
+	protected Action openCallbackFunc; // 0x1A0
+	protected int questId; // 0x1A8
+	protected ServantStatusDialog.Kind kind; // 0x1AC
+	protected ServantStatusDialog.TabKind tabKind; // 0x1B0
+	protected bool isInitTab; // 0x1B4
+	protected bool[] tabInitList; // 0x1B8
+	protected int[] profileNewIdList; // 0x1C0
+	protected int[] profileNewPriorityList; // 0x1C8
+	protected bool isUseFavorite; // 0x1D0
+	protected bool isUsePush; // 0x1D1
+	protected List<ServantCommentEntity> newProfileList; // 0x1D8
+	protected ServantStatusListViewItem mainInfo; // 0x1E0
+	protected bool isModify; // 0x1E8
+	protected bool isInit; // 0x1E9
+	protected bool isExit; // 0x1EA
+	protected bool isBgmLow; // 0x1EB
+	protected bool isSceneActive; // 0x1EC
+	protected bool isIndividualityChange; // 0x1ED
+	protected string statusLoadAsset; // 0x1F0
+	protected string cardLoadAsset; // 0x1F8
+	protected string loadVoiceData; // 0x200
+	protected int[] changeSvtVoiceIdList; // 0x208
+	protected List<string> requestVoiceDataList; // 0x210
+	protected List<string> voiceDataList; // 0x218
+	protected SePlayer voicePlayer; // 0x220
+	protected ServantVoiceData[] voicePlayList; // 0x228
+	protected int voicePlayNum; // 0x230
+	protected string voicePlayAssetName; // 0x238
+	protected int voiceListIndex; // 0x240
+	protected string battleLoadAsset; // 0x248
+	protected bool isBattlePlay; // 0x250
+	protected BattleFBXComponent battleActor; // 0x258
+	protected bool isBattleResourceLoading; // 0x260
+	protected string defaultAnimationName; // 0x268
+	protected int confirmDispLv; // 0x270
+	protected bool needAutoScroll; // 0x274
+	private const float yTransparenceValue = 5000;
+	private ServantStatusDialog.MaskType currentMaskType; // 0x278
+
+	// Methods
+
+	// RVA: 0x1DF1FB0 Offset: 0x1DF1FB0 VA: 0x1DF1FB0
+	public void .ctor() { }
+
+	// RVA: 0x1DF20B0 Offset: 0x1DF20B0 VA: 0x1DF20B0
+	public void Open(ServantStatusDialog.Kind kind, PartyListViewItem partyItem, int member, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF2360 Offset: 0x1DF2360 VA: 0x1DF2360
+	public void Open(ServantStatusDialog.Kind kind, PartyListViewItem partyItem, int member, ServantStatusDialog.FormationEndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF240C Offset: 0x1DF240C VA: 0x1DF240C
+	public void Open(ServantStatusDialog.Kind kind, WarBoardPartyListViewItem partyItem, int member, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF24B4 Offset: 0x1DF24B4 VA: 0x1DF24B4
+	public void Open(ServantStatusDialog.Kind kind, long userSvtId, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF269C Offset: 0x1DF269C VA: 0x1DF269C
+	public void Open(ServantStatusDialog.Kind kind, long userSvtId, ServantStatusDialog.FormationEndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF2888 Offset: 0x1DF2888 VA: 0x1DF2888
+	public void Open(ServantStatusDialog.Kind kind, long userSvtId, ServantStatusDialog.EndIndividualityDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF2A6C Offset: 0x1DF2A6C VA: 0x1DF2A6C
+	public void Open(ServantStatusDialog.Kind kind, long userSvtId, ServantStatusDialog.ResultDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF25A8 Offset: 0x1DF25A8 VA: 0x1DF25A8
+	public void Open(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF2790 Offset: 0x1DF2790 VA: 0x1DF2790
+	public void Open(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, ServantStatusDialog.FormationEndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF297C Offset: 0x1DF297C VA: 0x1DF297C
+	public void Open(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, ServantStatusDialog.EndIndividualityDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF2B60 Offset: 0x1DF2B60 VA: 0x1DF2B60
+	public void Open(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, ServantStatusDialog.ResultDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF2CB8 Offset: 0x1DF2CB8 VA: 0x1DF2CB8
+	public void Open(ServantStatusDialog.Kind kind, long userSvtId, long[] equipIdList, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF2D84 Offset: 0x1DF2D84 VA: 0x1DF2D84
+	public void Open(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, long[] equipIdList, QuestRestrictionInfo questRestrictionInfo, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF2E88 Offset: 0x1DF2E88 VA: 0x1DF2E88
+	public void Open(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, long[] equipIdList, QuestRestrictionInfo questRestrictionInfo, ServantStatusDialog.EndIndividualityDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF2F88 Offset: 0x1DF2F88 VA: 0x1DF2F88
+	public void Open(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, long[] equipIdList, QuestRestrictionInfo questRestrictionInfo, ServantStatusDialog.ResultDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF3090 Offset: 0x1DF3090 VA: 0x1DF3090
+	public void Open(ServantStatusDialog.Kind kind, long userSvtId, bool isUse, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF3164 Offset: 0x1DF3164 VA: 0x1DF3164
+	public void Open(ServantStatusDialog.Kind kind, UserServantEntity userSvtEntity, bool isUse, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF3208 Offset: 0x1DF3208 VA: 0x1DF3208
+	public void Open(ServantStatusDialog.Kind kind, UserServantCollectionEntity userSvtCollectionEntity, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF32CC Offset: 0x1DF32CC VA: 0x1DF32CC
+	public void Open(ServantStatusDialog.Kind kind, UserServantCollectionEntity userSvtCollectionEntity, int imageLimitCount, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF33A0 Offset: 0x1DF33A0 VA: 0x1DF33A0
+	public void Open(ServantStatusDialog.Kind kind, UserServantCollectionEntity userSvtCollectionEntity, ServantStatusDialog.ResultDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF3468 Offset: 0x1DF3468 VA: 0x1DF3468
+	public void Open(ServantStatusDialog.Kind kind, ServantLeaderInfo servantLeaderInfo, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF3504 Offset: 0x1DF3504 VA: 0x1DF3504
+	public void Open(ServantStatusDialog.Kind kind, EquipTargetInfo equipTargetInfo, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF35A0 Offset: 0x1DF35A0 VA: 0x1DF35A0
+	public void Open(ServantStatusDialog.Kind kind, CommandCodeEntity commandCodeEntity, bool isUse, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF3644 Offset: 0x1DF3644 VA: 0x1DF3644
+	public void Open(ServantStatusDialog.Kind kind, UserCommandCodeEntity userCommandCodeEntity, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF36D8 Offset: 0x1DF36D8 VA: 0x1DF36D8
+	public void Open(ServantStatusDialog.Kind kind, UserCommandCodeEntity userCommandCodeEntity, ServantStatusDialog.EndIndividualityDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF3768 Offset: 0x1DF3768 VA: 0x1DF3768
+	public void Open(ServantStatusDialog.Kind kind, UserCommandCodeCollectionEntity userCommandCodeCollectionEntity, ServantStatusDialog.EndDelegate callback, Action openCallback) { }
+
+	// RVA: 0x1DF2C58 Offset: 0x1DF2C58 VA: 0x1DF2C58
+	private bool GetEnableTdSpeedFromKind() { }
+
+	// RVA: 0x1DF2C88 Offset: 0x1DF2C88 VA: 0x1DF2C88
+	private bool GetEnableBattleVoiceFromKind() { }
+
+	// RVA: 0x1DF2158 Offset: 0x1DF2158 VA: 0x1DF2158
+	protected void Init() { }
+
+	// RVA: 0x1DF38AC Offset: 0x1DF38AC VA: 0x1DF38AC
+	protected void EndInitLoad() { }
+
+	// RVA: 0x1DF6B30 Offset: 0x1DF6B30 VA: 0x1DF6B30
+	private void SetupBattleMask(ServantStatusListViewItem item) { }
+
+	// RVA: 0x1DF6CE0 Offset: 0x1DF6CE0 VA: 0x1DF6CE0
+	protected void CancelInput() { }
+
+	// RVA: 0x1DF706C Offset: 0x1DF706C VA: 0x1DF706C
+	protected void EndLoadInit() { }
+
+	// RVA: 0x1DF6974 Offset: 0x1DF6974 VA: 0x1DF6974
+	protected void StartStatusLoad() { }
+
+	// RVA: 0x1DF7274 Offset: 0x1DF7274 VA: 0x1DF7274
+	protected void EndStatusLoad(AssetData data) { }
+
+	// RVA: 0x1DF733C Offset: 0x1DF733C VA: 0x1DF733C
+	protected void EndStatusLoad2(AssetData data) { }
+
+	// RVA: 0x1DF7468 Offset: 0x1DF7468 VA: 0x1DF7468
+	protected void BattleAssetLoadError() { }
+
+	// RVA: 0x1DF7508 Offset: 0x1DF7508 VA: 0x1DF7508
+	protected void InitBattleActor() { }
+
+	// RVA: 0x1DF7600 Offset: 0x1DF7600 VA: 0x1DF7600
+	protected bool StartBattleLoad() { }
+
+	// RVA: 0x1DF7980 Offset: 0x1DF7980 VA: 0x1DF7980
+	protected void EndLoadBattle(AssetData data) { }
+
+	// RVA: 0x1DF78E8 Offset: 0x1DF78E8 VA: 0x1DF78E8
+	protected void EndLoadBattle() { }
+
+	// RVA: 0x1DF44E0 Offset: 0x1DF44E0 VA: 0x1DF44E0
+	private void SetProfileTabBadgeIcon() { }
+
+	// RVA: 0x1DF37FC Offset: 0x1DF37FC VA: 0x1DF37FC
+	private void SetActiveInputLockPanel(bool flag) { }
+
+	// RVA: 0x1DF7A08 Offset: 0x1DF7A08 VA: 0x1DF7A08
+	protected void PlayBattleEffect(bool noupdate = False) { }
+
+	// RVA: 0x1DF8680 Offset: 0x1DF8680 VA: 0x1DF8680
+	protected void ChangeBattleResource(int dispLv) { }
+
+	// RVA: 0x1DF8A28 Offset: 0x1DF8A28 VA: 0x1DF8A28
+	protected void EndBattleConfirm(bool isDecide) { }
+
+	// RVA: 0x1DF8AD0 Offset: 0x1DF8AD0 VA: 0x1DF8AD0
+	protected void SetChangeBattleResource(bool isModifyInfo) { }
+
+	// RVA: 0x1DF8F84 Offset: 0x1DF8F84 VA: 0x1DF8F84
+	protected void EndLoadChangeBattleResource(AssetData data) { }
+
+	// RVA: 0x1DF8E18 Offset: 0x1DF8E18 VA: 0x1DF8E18
+	protected void EndChangeBattleResource() { }
+
+	// RVA: 0x1DF8FF4 Offset: 0x1DF8FF4 VA: 0x1DF8FF4
+	protected string GetVoiceAssetName(ServantStatusDialog.VoiceAssetType assetType, int svtId, int limitCount, int seqId = 0) { }
+
+	// RVA: 0x1DF91BC Offset: 0x1DF91BC VA: 0x1DF91BC
+	protected bool StartVoiceLoad() { }
+
+	// RVA: 0x1DF9AA4 Offset: 0x1DF9AA4 VA: 0x1DF9AA4
+	protected void EndLoadVoice() { }
+
+	// RVA: 0x1DF9C48 Offset: 0x1DF9C48 VA: 0x1DF9C48
+	protected void StopVoice() { }
+
+	// RVA: 0x1DF9D64 Offset: 0x1DF9D64 VA: 0x1DF9D64
+	protected bool PlayVoice(string assetName, ServantVoiceData[] voicePlayList, int listIndex = -1) { }
+
+	// RVA: 0x1DF9F28 Offset: 0x1DF9F28 VA: 0x1DF9F28
+	protected void EndWaitVoice() { }
+
+	// RVA: 0x1DFA088 Offset: 0x1DFA088 VA: 0x1DFA088
+	protected void EndPlayVoice() { }
+
+	// RVA: 0x1DFA1DC Offset: 0x1DFA1DC VA: 0x1DFA1DC
+	protected bool PlayBattleVoice(int svtId, int limitCount, List<ServantVoiceData[]> voicePlayListList, int listIndex = -1) { }
+
+	// RVA: 0x1DFA2B0 Offset: 0x1DFA2B0 VA: 0x1DFA2B0
+	protected bool PlayNpVoice(int svtId, int limitCount, List<ServantVoiceData[]> voicePlayListList, int listIndex = -1) { }
+
+	// RVA: 0x1DFA384 Offset: 0x1DFA384 VA: 0x1DFA384
+	protected bool PlayChrVoice(int svtId, int limitCount, ServantVoiceData[] voicePlayList, int listIndex = -1) { }
+
+	// RVA: 0x1DFA3D8 Offset: 0x1DFA3D8 VA: 0x1DFA3D8
+	protected bool PlayChrVoice(int svtId, int limitCount, List<ServantVoiceData[]> voicePlayListList, int listIndex = -1) { }
+
+	// RVA: 0x1DFA4AC Offset: 0x1DFA4AC VA: 0x1DFA4AC
+	public void Close(Action callback) { }
+
+	// RVA: 0x1DFA884 Offset: 0x1DFA884 VA: 0x1DFA884
+	public ServantStatusDialog.TabKind GetTabKind() { }
+
+	// RVA: 0x1DF4D8C Offset: 0x1DF4D8C VA: 0x1DF4D8C
+	protected void SetTabKind(ServantStatusDialog.TabKind kind) { }
+
+	// RVA: 0x1DFA88C Offset: 0x1DFA88C VA: 0x1DFA88C
+	private void ChangeBattleActorSelectIndex() { }
+
+	// RVA: 0x1DF45D4 Offset: 0x1DF45D4 VA: 0x1DF45D4
+	protected void SetMark() { }
+
+	// RVA: 0x1DF7164 Offset: 0x1DF7164 VA: 0x1DF7164
+	protected void InitList() { }
+
+	// RVA: 0x1DFAA80 Offset: 0x1DFAA80 VA: 0x1DFAA80
+	protected void QuitList() { }
+
+	// RVA: 0x1DEE4F0 Offset: 0x1DEE4F0 VA: 0x1DEE4F0
+	public void SetVisibleHighPriorityObject(bool isVisible) { }
+
+	// RVA: 0x1DFAB9C Offset: 0x1DFAB9C VA: 0x1DFAB9C
+	protected void OnSelectStatus(ServantStatusListViewManager.ResultKind result, int id) { }
+
+	// RVA: 0x1DFCB78 Offset: 0x1DFCB78 VA: 0x1DFCB78
+	protected void EndOpenEquipStatus() { }
+
+	// RVA: 0x1DFCBB0 Offset: 0x1DFCBB0 VA: 0x1DFCBB0
+	protected void OnSelectEquipStatus(bool isDecide) { }
+
+	// RVA: 0x1DFCCAC Offset: 0x1DFCCAC VA: 0x1DFCCAC
+	protected void EndCloseSelectEquipStatus() { }
+
+	// RVA: 0x1DFCD40 Offset: 0x1DFCD40 VA: 0x1DFCD40
+	protected void EndOpenCommandCodeStatus() { }
+
+	// RVA: 0x1DFCD78 Offset: 0x1DFCD78 VA: 0x1DFCD78
+	protected void OnSelectCommandCodeStatus(bool isDecide) { }
+
+	// RVA: 0x1DFCE74 Offset: 0x1DFCE74 VA: 0x1DFCE74
+	protected void EndCloseSelectCommandCodeStatus() { }
+
+	// RVA: 0x1DFCF08 Offset: 0x1DFCF08 VA: 0x1DFCF08
+	protected void OnSelectFlavor(int result) { }
+
+	// RVA: 0x1DFCF9C Offset: 0x1DFCF9C VA: 0x1DFCF9C
+	protected void OnSelectCharaGraph(int result) { }
+
+	// RVA: 0x1DFCFA0 Offset: 0x1DFCFA0 VA: 0x1DFCFA0
+	protected void OnSelectVoice(ServantStatusVoiceListViewManager.ResultKind kind, int result) { }
+
+	// RVA: 0x1DFD654 Offset: 0x1DFD654 VA: 0x1DFD654
+	public void OnClickCancel() { }
+
+	// RVA: 0x1DFE3C0 Offset: 0x1DFE3C0 VA: 0x1DFE3C0
+	private void OnDestroy() { }
+
+	// RVA: 0x1DFD6E0 Offset: 0x1DFD6E0 VA: 0x1DFD6E0
+	protected void Exit() { }
+
+	// RVA: 0x1DFE58C Offset: 0x1DFE58C VA: 0x1DFE58C
+	protected void EndeCardFavoriteRequest(string result) { }
+
+	// RVA: 0x1DFE45C Offset: 0x1DFE45C VA: 0x1DFE45C
+	protected void EndeRequest() { }
+
+	// RVA: 0x1DFEA6C Offset: 0x1DFEA6C VA: 0x1DFEA6C
+	public void OnclickRandomLimitCountBattleMask() { }
+
+	// RVA: 0x1DFC8B0 Offset: 0x1DFC8B0 VA: 0x1DFC8B0
+	public void OnclickRandomLimitCountMask(ServantStatusDialog.MaskType maskType) { }
+
+	// RVA: 0x1DFEA74 Offset: 0x1DFEA74 VA: 0x1DFEA74
+	protected void EndRandomLimitCountConfirm(bool isDecide) { }
+
+	// RVA: 0x1DFEBA0 Offset: 0x1DFEBA0 VA: 0x1DFEBA0
+	public void OnClickTabStatus() { }
+
+	// RVA: 0x1DFEC30 Offset: 0x1DFEC30 VA: 0x1DFEC30
+	public void OnClickTabProfile() { }
+
+	// RVA: 0x1DFECC0 Offset: 0x1DFECC0 VA: 0x1DFECC0
+	public void OnClickTabBattle() { }
+
+	// RVA: 0x1DFED50 Offset: 0x1DFED50 VA: 0x1DFED50
+	public void OnClickTabVoice() { }
+
+	// RVA: 0x1DFEDE0 Offset: 0x1DFEDE0 VA: 0x1DFEDE0
+	protected void OnSelectBattle(int result) { }
+
+	// RVA: 0x1DFEEE8 Offset: 0x1DFEEE8 VA: 0x1DFEEE8
+	protected void ChangeCommandResource(int dispLv) { }
+
+	// RVA: 0x1DFF170 Offset: 0x1DFF170 VA: 0x1DFF170
+	protected void ChangeTreasureDeviceSpeed(int type) { }
+
+	// RVA: 0x1DFF248 Offset: 0x1DFF248 VA: 0x1DFF248
+	protected void ChangeBattleVoice(int type) { }
+
+	// RVA: 0x1DFF320 Offset: 0x1DFF320 VA: 0x1DFF320
+	protected void EndCardLoad(AssetData data) { }
+
+	// RVA: 0x1DFB2B0 Offset: 0x1DFB2B0 VA: 0x1DFB2B0
+	public void OnClickCommandCharaLevel(int dispLv) { }
+
+	// RVA: 0x1DFB3D0 Offset: 0x1DFB3D0 VA: 0x1DFB3D0
+	public void OnClickCommandCharaCostume(int costumeIndex) { }
+
+	// RVA: 0x1DFF444 Offset: 0x1DFF444 VA: 0x1DFF444
+	protected void ChangeFaceResource(int dispLv) { }
+

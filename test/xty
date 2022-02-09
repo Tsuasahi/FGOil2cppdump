@@ -1,0 +1,1000 @@
+	// RVA: 0x16FE26C Offset: 0x16FE26C VA: 0x16FE26C
+	public void OpenConfirmGroupSummon(int groupId, int price, int haveStoneNum, int haveFreeStoneNum, int haveChargeStoneNum, int afterStoneNum, int afterFreeStoneNum, int afterChargeStoneNum, SummonConfirmDlgComponent.CallbackFunc callback) { }
+
+	// RVA: 0x16FE074 Offset: 0x16FE074 VA: 0x16FE074
+	private void setBtnInfoActive() { }
+
+	// RVA: 0x16FEC38 Offset: 0x16FEC38 VA: 0x16FEC38
+	protected void EndOpen() { }
+
+	// RVA: 0x16FEC3C Offset: 0x16FEC3C VA: 0x16FEC3C
+	public void Close() { }
+
+	// RVA: 0x16FEC44 Offset: 0x16FEC44 VA: 0x16FEC44
+	public void Close(Action callback) { }
+
+	// RVA: 0x16FECCC Offset: 0x16FECCC VA: 0x16FECCC
+	protected void EndClose() { }
+
+	// RVA: 0x16FED30 Offset: 0x16FED30 VA: 0x16FED30
+	protected void Callback(bool result) { }
+
+	// RVA: 0x16FEF80 Offset: 0x16FEF80 VA: 0x16FEF80
+	public void OnClickDecide() { }
+
+	// RVA: 0x16FEFA4 Offset: 0x16FEFA4 VA: 0x16FEFA4
+	public void OnClickCancel() { }
+
+	// RVA: 0x16FEFC8 Offset: 0x16FEFC8 VA: 0x16FEFC8
+	public void setTutorial(bool isTutorial) { }
+
+	// RVA: 0x16FF004 Offset: 0x16FF004 VA: 0x16FF004
+	public void OnClickSetting() { }
+
+	// RVA: 0x16FF0E8 Offset: 0x16FF0E8 VA: 0x16FF0E8
+	private void settingResult(bool res) { }
+
+	// RVA: 0x16FF198 Offset: 0x16FF198 VA: 0x16FF198
+	private void OnEnable() { }
+
+	// RVA: 0x16FF240 Offset: 0x16FF240 VA: 0x16FF240
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public sealed class SummonConfirmDlgComponent.CallbackFunc : MulticastDelegate // TypeDefIndex: 10700
+{
+	// Methods
+
+	// RVA: 0x16FF2A4 Offset: 0x16FF2A4 VA: 0x16FF2A4
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x16FED54 Offset: 0x16FED54 VA: 0x16FED54 Slot: 11
+	public virtual void Invoke(bool result) { }
+
+	// RVA: 0x16FF2B4 Offset: 0x16FF2B4 VA: 0x16FF2B4 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
+
+	// RVA: 0x16FF344 Offset: 0x16FF344 VA: 0x16FF344 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+protected enum SummonConfirmDlgComponent.State // TypeDefIndex: 10701
+{
+	// Fields
+	public int value__; // 0x0
+	public const SummonConfirmDlgComponent.State INIT = 0;
+	public const SummonConfirmDlgComponent.State SHORT_SERVANT = 1;
+	public const SummonConfirmDlgComponent.State SHORT_STONE = 2;
+	public const SummonConfirmDlgComponent.State SHORT_POINT = 3;
+	public const SummonConfirmDlgComponent.State CONFIRM_STONE = 4;
+	public const SummonConfirmDlgComponent.State CONFIRM_TICKET = 5;
+	public const SummonConfirmDlgComponent.State CONFIRM_POINT = 6;
+	public const SummonConfirmDlgComponent.State CONFIRM_FREE = 7;
+}
+
+// Namespace: 
+public class SummonControl : BaseMonoBehaviour // TypeDefIndex: 10702
+{
+	// Fields
+	public static readonly int FRIEND_POINT_SUMMON_ID; // 0x0
+	public readonly Rect TUTORIAL_SUMMON_ARROW_RECT; // 0x18
+	public readonly Vector2 TUTORIAL_SUMMON_ARROW_POS; // 0x28
+	public readonly Rect TUTORIAL_MENU_ARROW_RECT; // 0x30
+	public readonly Vector2 TUTORIAL_MENU_ARROW_POS; // 0x40
+	public readonly Rect TUTORIAL_FORMATION_ARROW_RECT; // 0x48
+	public readonly Vector2 TUTORIAL_FORMATION_ARROW_POS; // 0x58
+	private readonly string DETAIL_SCRIPT_IDS; // 0x60
+	private readonly string DETAIL_SCRIPT_TYPE; // 0x68
+	protected static readonly float COLOR_VAL; // 0x4
+	protected static readonly string MAINTAIN_IMG; // 0x8
+	private static readonly string ARROW_SPRITE_NAME; // 0x10
+	public GameObject bgRoot; // 0x70
+	public PlayMakerFSM fsm; // 0x78
+	public TitleInfoControl titleInfo; // 0x80
+	public GameObject maskBgObject; // 0x88
+	public GameObject slideIndexPrefab; // 0x90
+	public UIGrid sliderGrid; // 0x98
+	public UICenterOnChild centerChild; // 0xA0
+	public GameObject noneGachaInfo; // 0xA8
+	public SummonConfirmDlgComponent confirmDlgInfo; // 0xB0
+	public SummonCautionDlgComponent cautionDlgInfo; // 0xB8
+	public SummonInfoDlgComponent infoDlgInfo; // 0xC0
+	public SummonLimitWarningDlgComponent limitWarningDlgInfo; // 0xC8
+	public Transform summonInstance; // 0xD0
+	public SummonResultComponent summonResultInfo; // 0xD8
+	public GameObject summonBannerInfo; // 0xE0
+	public UIButton leftArrowBtn; // 0xE8
+	public UIButton rightArrowBtn; // 0xF0
+	[SerializeField] // RVA: 0xCE4F14 Offset: 0xCE4F14 VA: 0xCE4F14
+	private UISprite leftArrowSprite; // 0xF8
+	[SerializeField] // RVA: 0xCE4F24 Offset: 0xCE4F24 VA: 0xCE4F24
+	private UISprite rightArrowSprite; // 0x100
+	public UIPanel indexPanel; // 0x108
+	public GameObject summonBannerPrefab; // 0x110
+	public UIScrollView summonBannerScrollView; // 0x118
+	public UIWrapContent bannerLoopCtr; // 0x120
+	[SerializeField] // RVA: 0xCE4F34 Offset: 0xCE4F34 VA: 0xCE4F34
+	private GameObject summonMBannerPrefab; // 0x128
+	[SerializeField] // RVA: 0xCE4F44 Offset: 0xCE4F44 VA: 0xCE4F44
+	private GameObject summonMBannerObject; // 0x130
+	[SerializeField] // RVA: 0xCE4F54 Offset: 0xCE4F54 VA: 0xCE4F54
+	private UIScrollView summonMBannerScrollView; // 0x138
+	[SerializeField] // RVA: 0xCE4F64 Offset: 0xCE4F64 VA: 0xCE4F64
+	private UIWrapContent summonMBannerLoopCtr; // 0x140
+	[SerializeField] // RVA: 0xCE4F74 Offset: 0xCE4F74 VA: 0xCE4F74
+	private UISprite summonMBannerLineSprite; // 0x148
+	[SerializeField] // RVA: 0xCE4F84 Offset: 0xCE4F84 VA: 0xCE4F84
+	private UISprite summonMBannerBgSprite; // 0x150
+	[SerializeField] // RVA: 0xCE4F94 Offset: 0xCE4F94 VA: 0xCE4F94
+	private UICenterOnChild summonMBannerCenterChild; // 0x158
+	[SerializeField] // RVA: 0xCE4FA4 Offset: 0xCE4FA4 VA: 0xCE4FA4
+	private UIButton summonMBannerLeftArrowBtn; // 0x160
+	[SerializeField] // RVA: 0xCE4FB4 Offset: 0xCE4FB4 VA: 0xCE4FB4
+	private UIButton summonMBannerRightArrowBtn; // 0x168
+	[SerializeField] // RVA: 0xCE4FC4 Offset: 0xCE4FC4 VA: 0xCE4FC4
+	private UISprite summonMBannerLeftArrowSprite; // 0x170
+	[SerializeField] // RVA: 0xCE4FD4 Offset: 0xCE4FD4 VA: 0xCE4FD4
+	private UISprite summonMBannerRightArrowSprite; // 0x178
+	private List<SummonMiniBannerComponent> summonMBannerInfoList; // 0x180
+	private SummonMiniBannerComponent currentSummonMBannerComponent; // 0x188
+	private bool isDragging; // 0x190
+	private bool isNotCenterOnSync; // 0x191
+	public SummonInfoControl summonInfoCtr; // 0x198
+	public GameObject currentResourceInfo; // 0x1A0
+	public UISprite stoneNumInfo; // 0x1A8
+	public UISprite pointNumInfo; // 0x1B0
+	public UILabel currentStoneNumLb; // 0x1B8
+	public UILabel currentPointNumLb; // 0x1C0
+	public GameObject detailInfo; // 0x1C8
+	public GameObject helpImgInfo; // 0x1D0
+	public GameObject maskObject; // 0x1D8
+	public GameObject summonHelpInfo; // 0x1E0
+	public UILabel summonHelpLabel; // 0x1E8
+	[SerializeField] // RVA: 0xCE4FE4 Offset: 0xCE4FE4 VA: 0xCE4FE4
+	private ServantCoinConfirmDialog overflowSvtCoinInfo; // 0x1F0
+	public AutomaticSaleDlgComponent automaticSaleDlgComponent; // 0x1F8
+	private Vector3 center; // 0x200
+	private UserGameEntity userGameEntity; // 0x210
+	private GachaEntity[] payGachaList; // 0x218
+	private GachaEntity pointGachaData; // 0x220
+	private List<VaildGachaInfo> vaildGachaList; // 0x228
+	private GachaMaster gachaMst; // 0x230
+	private bool isDailyGacha; // 0x238
+	private GachaRqParamData gachaParamData; // 0x240
+	private int haveStone; // 0x248
+	private int haveFreeStone; // 0x24C
+	private int haveChargeStone; // 0x250
+	private int needStone; // 0x254
+	private int haveTicketNum; // 0x258
+	private int afterTicketNum; // 0x25C
+	private int friendPoint; // 0x260
+	private int needPoint; // 0x264
+	private GachaInfos[] gachaResInfoList; // 0x268
+	private int[] canRankUpClassIds; // 0x270
+	private GetSvtCoin[] overflowSvtCoinInfos; // 0x278
+	private int[] extraGiftIds; // 0x280
+	private int resType; // 0x288
+	private int getSvtIdx; // 0x28C
+	private VaildGachaInfo currentGachaInfo; // 0x290
+	private int currentIdx; // 0x298
+	private int currentMoveIdx; // 0x29C
+	private List<GachaBannerComponent> bannerInfoList; // 0x2A0
+	private GachaBannerComponent currentBannerComp; // 0x2A8
+	private int summonType; // 0x2B0
+	private long summonSceneInTime; // 0x2B8
+	private List<int> befSvtList; // 0x2C0
+	private bool isDoneTutorial; // 0x2C8
+	private bool isDoneSecTutorial; // 0x2C9
+	private bool isDoneSvtEqTutorial; // 0x2CA
+	private SummonEffectComponent summonComp; // 0x2D0
+	private Vector3 initBannerPos; // 0x2D8
+	private string assetPath; // 0x2E8
+	private AssetData bannerAssetData; // 0x2F0
+	private GachaEntity[] useGachaData; // 0x2F8
+	private List<VaildGachaInfo> useSummonList; // 0x300
+	private GachaSubEntity gachaSubEntity; // 0x308
+	private int npEnhanceSvtId; // 0x310
+	private bool isResult; // 0x314
+	[SerializeField] // RVA: 0xCE4FF4 Offset: 0xCE4FF4 VA: 0xCE4FF4
+	private GameObject tutorialArrowObj; // 0x318
+	[SerializeField] // RVA: 0xCE5004 Offset: 0xCE5004 VA: 0xCE5004
+	private SummonHistoryDialog historyDialog; // 0x320
+	private SummonControl.TUTORIAL_KIND tutorialKind; // 0x328
+	private int mBannerSpringPanelRetryCount; // 0x32C
+	private ServantAssetArgs battleAssetArgs; // 0x330
+	[CompilerGeneratedAttribute] // RVA: 0xCE5014 Offset: 0xCE5014 VA: 0xCE5014
+	private static Action <>f__am$cache0; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xCE5024 Offset: 0xCE5024 VA: 0xCE5024
+	private static Action <>f__am$cache1; // 0x20
+	[CompilerGeneratedAttribute] // RVA: 0xCE5034 Offset: 0xCE5034 VA: 0xCE5034
+	private static Comparison<EventTutorialEntity> <>f__am$cache2; // 0x28
+	[CompilerGeneratedAttribute] // RVA: 0xCE5044 Offset: 0xCE5044 VA: 0xCE5044
+	private static Func<string, int> <>f__mg$cache0; // 0x30
+	[CompilerGeneratedAttribute] // RVA: 0xCE5054 Offset: 0xCE5054 VA: 0xCE5054
+	private static Action <>f__am$cache3; // 0x38
+	[CompilerGeneratedAttribute] // RVA: 0xCE5064 Offset: 0xCE5064 VA: 0xCE5064
+	private static Action <>f__am$cache4; // 0x40
+	[CompilerGeneratedAttribute] // RVA: 0xCE5074 Offset: 0xCE5074 VA: 0xCE5074
+	private static Action <>f__am$cache5; // 0x48
+
+	// Properties
+	public Vector2 TUTORIAL_MENU_ARROW_POS_FS { get; }
+	public Rect TUTORIAL_MENU_ARROW_RECT_FS { get; }
+	public Vector2 TUTORIAL_FORMATION_ARROW_POS_FS { get; }
+	public Rect TUTORIAL_FORMATION_ARROW_RECT_FS { get; }
+	public bool IsResult { get; set; }
+	public GachaRqParamData GetNowGachaParamData { get; }
+
+	// Methods
+
+	// RVA: 0x16FF350 Offset: 0x16FF350 VA: 0x16FF350
+	public void .ctor() { }
+
+	// RVA: 0x16FF56C Offset: 0x16FF56C VA: 0x16FF56C
+	private float FSMenuOffsetX() { }
+
+	// RVA: 0x16FF5D8 Offset: 0x16FF5D8 VA: 0x16FF5D8
+	private float FSMenuOffsetY() { }
+
+	// RVA: 0x16FF5E4 Offset: 0x16FF5E4 VA: 0x16FF5E4
+	public Vector2 get_TUTORIAL_MENU_ARROW_POS_FS() { }
+
+	// RVA: 0x16FF67C Offset: 0x16FF67C VA: 0x16FF67C
+	public Rect get_TUTORIAL_MENU_ARROW_RECT_FS() { }
+
+	// RVA: 0x16FF710 Offset: 0x16FF710 VA: 0x16FF710
+	public Vector2 get_TUTORIAL_FORMATION_ARROW_POS_FS() { }
+
+	// RVA: 0x16FF724 Offset: 0x16FF724 VA: 0x16FF724
+	public Rect get_TUTORIAL_FORMATION_ARROW_RECT_FS() { }
+
+	// RVA: 0x16FF770 Offset: 0x16FF770 VA: 0x16FF770
+	public bool get_IsResult() { }
+
+	// RVA: 0x16FF778 Offset: 0x16FF778 VA: 0x16FF778
+	public void set_IsResult(bool value) { }
+
+	// RVA: 0x16FF784 Offset: 0x16FF784 VA: 0x16FF784
+	public void checkSummonTutorial() { }
+
+	// RVA: 0x17002D8 Offset: 0x17002D8 VA: 0x17002D8
+	public void returnTutorial() { }
+
+	// RVA: 0x16FFF10 Offset: 0x16FFF10 VA: 0x16FFF10
+	private void setTutorialCtrEnable(bool isEnable) { }
+
+	// RVA: 0x17000F8 Offset: 0x17000F8 VA: 0x17000F8
+	private void setEnableTutorialBtn(bool isTutorial) { }
+
+	// RVA: 0x16FFB30 Offset: 0x16FFB30 VA: 0x16FFB30
+	private void progTutorial() { }
+
+	// RVA: 0x17002E4 Offset: 0x17002E4 VA: 0x17002E4
+	private void openSummonExeArrow() { }
+
+	// RVA: 0x1700388 Offset: 0x1700388 VA: 0x1700388
+	private void openAfterSummonInfo() { }
+
+	// RVA: 0x17005B0 Offset: 0x17005B0 VA: 0x17005B0
+	private void exeFormation() { }
+
+	// RVA: 0x170076C Offset: 0x170076C VA: 0x170076C
+	private void openSvtEqInfo() { }
+
+	// RVA: 0x1700B60 Offset: 0x1700B60 VA: 0x1700B60
+	public void setSummonData() { }
+
+	// RVA: 0x1701710 Offset: 0x1701710 VA: 0x1701710
+	private void LoadBannerEnd(AssetData data) { }
+
+	// RVA: 0x1702E70 Offset: 0x1702E70 VA: 0x1702E70
+	private void releaseBannerData() { }
+
+	// RVA: 0x1702EEC Offset: 0x1702EEC VA: 0x1702EEC
+	public void quit() { }
+
+	// RVA: 0x1702C6C Offset: 0x1702C6C VA: 0x1702C6C
+	private void ResetArrowTween() { }
+
+	// RVA: 0x17010E8 Offset: 0x17010E8 VA: 0x17010E8
+	private void setUserResourceDisp() { }
+
+	// RVA: 0x17012EC Offset: 0x17012EC VA: 0x17012EC
+	private void checkValidGachaList() { }
+
+	// RVA: 0x17033FC Offset: 0x17033FC VA: 0x17033FC
+	private bool CheckStoryGachaAdjustData(out StoryGachaAdjustData adjustData, int gachaId) { }
+
+	// RVA: 0x1703638 Offset: 0x1703638 VA: 0x1703638
+	private bool checkIsMaxDrawNum(UserGachaEntity drawUsrGachaEnt, GachaEntity drawGachaEnt) { }
+
+	// RVA: 0x1703A94 Offset: 0x1703A94 VA: 0x1703A94
+	private bool checkIsDrawGroupSummon(GachaEntity drawGachaEnt, int groupId) { }
+
+	// RVA: 0x1703498 Offset: 0x1703498 VA: 0x1703498
+	private UserGachaEntity getUserGachaData(int gachaId) { }
+
+	// RVA: 0x17035C8 Offset: 0x17035C8 VA: 0x17035C8
+	private GachaEntity getCurrentGachaData(int gachaId) { }
+
+	// RVA: 0x1703748 Offset: 0x1703748 VA: 0x1703748
+	private void setVaildInfoList(GachaEntity data, StoryGachaAdjustData adjustData) { }
+
+	// RVA: 0x1703C18 Offset: 0x1703C18 VA: 0x1703C18
+	private void setUseData(VaildGachaInfo info) { }
+
+	// RVA: 0x1703D98 Offset: 0x1703D98 VA: 0x1703D98
+	private int SlotCompare(VaildGachaInfo a, VaildGachaInfo b) { }
+
+	// RVA: 0x1701890 Offset: 0x1701890 VA: 0x1701890
+	private void createSummonInfo() { }
+
+	// RVA: 0x17029E8 Offset: 0x17029E8 VA: 0x17029E8
+	private GameObject searchBannerImg(string searchTarget) { }
+
+	// RVA: 0x1704358 Offset: 0x1704358 VA: 0x1704358
+	private void setCenter() { }
+
+	// RVA: 0x1704550 Offset: 0x1704550 VA: 0x1704550
+	private void OnDragStarted() { }
+
+	// RVA: 0x17045F0 Offset: 0x17045F0 VA: 0x17045F0
+	private void OnCenterOnChildFinished() { }
+
+	// RVA: 0x17048E4 Offset: 0x17048E4 VA: 0x17048E4
+	private void OnCenterOnChildFinishedMBanner() { }
+
+	// RVA: 0x1704AC4 Offset: 0x1704AC4 VA: 0x1704AC4
+	private void SetBannerCenter() { }
+
+	// RVA: 0x1703E18 Offset: 0x1703E18 VA: 0x1703E18
+	private void UpdateSummonInfoControlLayout() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD3F06C Offset: 0xD3F06C VA: 0xD3F06C
+	// RVA: 0x1704DE4 Offset: 0x1704DE4 VA: 0x1704DE4
+	private IEnumerator CoWaitCreatedMBannerSpringPanel() { }
+
+	// RVA: 0x1704E5C Offset: 0x1704E5C VA: 0x1704E5C
+	public void OnClickMiniBanner(int moveIdx) { }
+
+	// RVA: 0x1700130 Offset: 0x1700130 VA: 0x1700130
+	private void showHelpImg() { }
+
+	// RVA: 0x170508C Offset: 0x170508C VA: 0x170508C
+	public void onClickChangeBanner() { }
+
+	// RVA: 0x17052D8 Offset: 0x17052D8 VA: 0x17052D8
+	public void onClickLeftChangeBanner() { }
+
+	// RVA: 0x1705510 Offset: 0x1705510 VA: 0x1705510
+	public void setChangeSummonInfo() { }
+
+	// RVA: 0x1704038 Offset: 0x1704038 VA: 0x1704038
+	private void setResourceInfo() { }
+
+	// RVA: 0x1703EFC Offset: 0x1703EFC VA: 0x1703EFC
+	private void setSliderIcon(int idx) { }
+
+	// RVA: 0x1702B38 Offset: 0x1702B38 VA: 0x1702B38
+	public void setPositionByWarId() { }
+
+	// RVA: 0x170564C Offset: 0x170564C VA: 0x170564C
+	public void setDispRePosition(int currentIdx) { }
+
+	// RVA: 0x1703080 Offset: 0x1703080 VA: 0x1703080
+	public void clearBannerList() { }
+
+	// RVA: 0x170571C Offset: 0x170571C VA: 0x170571C
+	private void exeSummon(GachaRqParamData paramData) { }
+
+	// RVA: 0x1705804 Offset: 0x1705804 VA: 0x1705804
+	public void checkUserServantNum() { }
+
+	// RVA: 0x1705BBC Offset: 0x1705BBC VA: 0x1705BBC
+	private void closeShotSvtFrameDlg(ServantFrameShortDlgComponent.resultClicked res) { }
+
+	// RVA: 0x1705E8C Offset: 0x1705E8C VA: 0x1705E8C
+	private void closeShotSvtEqFrameDlg(ServantFrameShortDlgComponent.resultClicked res) { }
+
+	// RVA: 0x1706180 Offset: 0x1706180 VA: 0x1706180
+	private void closeShotCommandCodeFrameDlg(ServantFrameShortDlgComponent.resultClicked res) { }
+
+	// RVA: 0x1706308 Offset: 0x1706308 VA: 0x1706308
+	public void showSvtFramePurchase() { }
+
+	// RVA: 0x17063DC Offset: 0x17063DC VA: 0x17063DC
+	private void endPurchaseSvtFrame(ServantFramePurchaseMenu.Result result) { }
+
+	// RVA: 0x17064D0 Offset: 0x17064D0 VA: 0x17064D0
+	public void showSvtEqFramePurchase() { }
+
+	// RVA: 0x17065A4 Offset: 0x17065A4 VA: 0x17065A4
+	private void endPurchaseSvtEqFrame(ServantEquipFramePurchaseMenu.Result result) { }
+
+	// RVA: 0x1706698 Offset: 0x1706698 VA: 0x1706698
+	public void checkGachaResource() { }
+
+	// RVA: 0x17067DC Offset: 0x17067DC VA: 0x17067DC
+	public void checkUsrFriendPoint() { }
+
+	// RVA: 0x1706940 Offset: 0x1706940 VA: 0x1706940
+	private void closeShotPointDlg(bool res) { }
+
+	// RVA: 0x17069EC Offset: 0x17069EC VA: 0x17069EC
+	public void checkUsrStoneNum() { }
+
+	// RVA: 0x1706BD4 Offset: 0x1706BD4 VA: 0x1706BD4
+	private void closeShotStoneDlg(bool res) { }
+
+	// RVA: 0x1706CC8 Offset: 0x1706CC8 VA: 0x1706CC8
+	public void showStonePurchase() { }
+
+	// RVA: 0x1706D70 Offset: 0x1706D70 VA: 0x1706D70
+	private void endPurchaseStone(StonePurchaseMenu.Result result) { }
+
+	// RVA: 0x1706E70 Offset: 0x1706E70 VA: 0x1706E70
+	public void showConfirmDlg() { }
+
+	// RVA: 0x1706E78 Offset: 0x1706E78 VA: 0x1706E78
+	public void showConfirmDlg(bool beforeDetailFlag) { }
+
+	// RVA: 0x1707888 Offset: 0x1707888 VA: 0x1707888
+	private bool CheckGachaNum(int[] ids) { }
+
+	// RVA: 0x1707A44 Offset: 0x1707A44 VA: 0x1707A44
+	private bool CheckFriendPointSummonUpdate() { }
+
+	// RVA: 0x1707C00 Offset: 0x1707C00 VA: 0x1707C00
+	private bool CheckQpManaOverCheck() { }
+
+	// RVA: 0x17080C8 Offset: 0x17080C8 VA: 0x17080C8
+	private void autoSellSettingChange() { }
+
+	// RVA: 0x1708170 Offset: 0x1708170 VA: 0x1708170
+	private void autoSellSettingChange2() { }
+
+	// RVA: 0x1707F14 Offset: 0x1707F14 VA: 0x1707F14
+	private void friendPointSummonConfirm() { }
+
+	// RVA: 0x17081D0 Offset: 0x17081D0 VA: 0x17081D0
+	private void GoFriendPointSummon() { }
+
+	// RVA: 0x1708120 Offset: 0x1708120 VA: 0x1708120
+	private void friendPointQpManaCheck() { }
+
+	// RVA: 0x17083B4 Offset: 0x17083B4 VA: 0x17083B4
+	private void friendSummonConfirmResult(bool res) { }
+
+	// RVA: 0x17084A0 Offset: 0x17084A0 VA: 0x17084A0
+	private void SummonSceneRefresh() { }
+
+	// RVA: 0x1708548 Offset: 0x1708548 VA: 0x1708548
+	private void ConfirmMessageOpen(bool result) { }
+
+	// RVA: 0x1708718 Offset: 0x1708718 VA: 0x1708718
+	private void confirmResult(bool res) { }
+
+	// RVA: 0x1708824 Offset: 0x1708824 VA: 0x1708824
+	private void confirmCautionResult(bool res) { }
+
+	// RVA: 0x1707914 Offset: 0x1707914 VA: 0x1707914
+	private void BeforeConfirmMessageOpen() { }
+
+	// RVA: 0x1708930 Offset: 0x1708930 VA: 0x1708930
+	private void beforeConfirmCautionResult() { }
+
+	// RVA: 0x1708200 Offset: 0x1708200 VA: 0x1708200
+	private void loadAssetsForSummon() { }
+
+	// RVA: 0x17089C4 Offset: 0x17089C4 VA: 0x17089C4
+	public void requestGachaDraw() { }
+
+	// RVA: 0x1708CF0 Offset: 0x1708CF0 VA: 0x1708CF0
+	private void callbackGachaDraw(string result) { }
+
+	// RVA: 0x1708F14 Offset: 0x1708F14 VA: 0x1708F14
+	public void procTutorialFlg() { }
+
+	// RVA: 0x1709010 Offset: 0x1709010 VA: 0x1709010
+	private void callbackTutorialSet(string result) { }
+
+	// RVA: 0x1709074 Offset: 0x1709074 VA: 0x1709074
+	public void SetDispBgParts(bool isDisp) { }
+
+	// RVA: 0x17093D8 Offset: 0x17093D8 VA: 0x17093D8
+	public void showSummonEffect() { }
+
+	// RVA: 0x17094B8 Offset: 0x17094B8 VA: 0x17094B8
+	private bool IsRankUpClassId(int classId) { }
+
+	// RVA: 0x170953C Offset: 0x170953C VA: 0x170953C
+	public void setDispSummonForm() { }
+
+	// RVA: 0x1709540 Offset: 0x1709540 VA: 0x1709540
+	public void checkGetSvtNum() { }
+
+	// RVA: 0x17095C4 Offset: 0x17095C4 VA: 0x17095C4
+	public void checkIsNewSvt() { }
+
+	// RVA: 0x17096F8 Offset: 0x17096F8 VA: 0x17096F8
+	private bool isMultipleCheck(int svtId, int max) { }
+
+	// RVA: 0x170979C Offset: 0x170979C VA: 0x170979C
+	public void showSvtTalk() { }
+
+	// RVA: 0x1709BB4 Offset: 0x1709BB4 VA: 0x1709BB4
+	private void close() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD3F07C Offset: 0xD3F07C VA: 0xD3F07C
+	// RVA: 0x1709BE0 Offset: 0x1709BE0 VA: 0x1709BE0
+	protected IEnumerator WaitBattleChrLoad() { }
+
+	// RVA: 0x1709C58 Offset: 0x1709C58 VA: 0x1709C58
+	public void fadeOut() { }
+
+	// RVA: 0x1709C5C Offset: 0x1709C5C VA: 0x1709C5C
+	private bool isSvtEqSummonResult() { }
+
+	// RVA: 0x1709DA8 Offset: 0x1709DA8 VA: 0x1709DA8
+	public void showServantDialog() { }
+
+	// RVA: 0x170A15C Offset: 0x170A15C VA: 0x170A15C
+	public void DialogCallBack(bool flg) { }
+
+	// RVA: 0x170A23C Offset: 0x170A23C VA: 0x170A23C
+	public void EndCloseDialogCallBack() { }
+
+	// RVA: 0x170A2A0 Offset: 0x170A2A0 VA: 0x170A2A0
+	public void checkIsNewSvtMulti() { }
+
+	// RVA: 0x170A35C Offset: 0x170A35C VA: 0x170A35C
+	public void showSummonResultInfo() { }
+
+	// RVA: 0x170A5E4 Offset: 0x170A5E4 VA: 0x170A5E4
+	public void setSummonResultList() { }
+
+	// RVA: 0x170A858 Offset: 0x170A858 VA: 0x170A858
+	public void closeResultList() { }
+
+	// RVA: 0x170A85C Offset: 0x170A85C VA: 0x170A85C
+	public void checkIsNewSvtNum() { }
+
+	// RVA: 0x170AA24 Offset: 0x170AA24 VA: 0x170AA24
+	private bool checkOverlapSvt(int svtId) { }
+
+	// RVA: 0x170AAF4 Offset: 0x170AAF4 VA: 0x170AAF4
+	public void incereIdx() { }
+
+	// RVA: 0x170AB04 Offset: 0x170AB04 VA: 0x170AB04
+	public void CheckIncIdx() { }
+
+	// RVA: 0x170ABA4 Offset: 0x170ABA4 VA: 0x170ABA4
+	public void setResultListType() { }
+
+	// RVA: 0x1703338 Offset: 0x1703338 VA: 0x1703338
+	public void clearResultList() { }
+
+	// RVA: 0x170AC58 Offset: 0x170AC58 VA: 0x170AC58
+	public void resetResultList() { }
+
+	// RVA: 0x170ADB4 Offset: 0x170ADB4 VA: 0x170ADB4
+	private bool isEnhanceTresureDevice(out int svtId) { }
+
+	// RVA: 0x170AEE8 Offset: 0x170AEE8 VA: 0x170AEE8
+	public void checkEnhanceTresureDeviceNotNewSvt() { }
+
+	// RVA: 0x170B0D0 Offset: 0x170B0D0 VA: 0x170B0D0
+	public void checkEnhanceTresureDeviceSingle() { }
+
+	// RVA: 0x170AF68 Offset: 0x170AF68 VA: 0x170AF68
+	public void checkEnhanceTresureDevice() { }
+
+	// RVA: 0x170B2DC Offset: 0x170B2DC VA: 0x170B2DC
+	public void executeEnhanceTresureDevice() { }
+
+	// RVA: 0x170B388 Offset: 0x170B388 VA: 0x170B388
+	public void resetMainDisp() { }
+
+	// RVA: 0x170B750 Offset: 0x170B750 VA: 0x170B750
+	private void reDispSummonBannerList() { }
+
+	// RVA: 0x170BD8C Offset: 0x170BD8C VA: 0x170BD8C
+	private int getFriendPointIndex() { }
+
+	// RVA: 0x170BE5C Offset: 0x170BE5C VA: 0x170BE5C
+	private int searchExtraGroupIdIndex(int extraGroupId) { }
+
+	// RVA: 0x170BA58 Offset: 0x170BA58 VA: 0x170BA58
+	private bool checkMaxDrawNum() { }
+
+	// RVA: 0x170B924 Offset: 0x170B924 VA: 0x170B924
+	private bool resetSummonVaildData() { }
+
+	// RVA: 0x170BAE0 Offset: 0x170BAE0 VA: 0x170BAE0
+	private void deleteBannerList() { }
+
+	// RVA: 0x1700FC0 Offset: 0x1700FC0 VA: 0x1700FC0
+	private void setDispSummonInfo(bool isDisp) { }
+
+	// RVA: 0x170BFD0 Offset: 0x170BFD0 VA: 0x170BFD0
+	public void resetStoneInfo() { }
+
+	// RVA: 0x170C008 Offset: 0x170C008 VA: 0x170C008
+	public void resetMaxSvtInfo() { }
+
+	// RVA: 0x170C034 Offset: 0x170C034 VA: 0x170C034
+	public void OnClickBack() { }
+
+	// RVA: 0x170C098 Offset: 0x170C098 VA: 0x170C098
+	public void OnEndSummonEffect() { }
+
+	// RVA: 0x170C180 Offset: 0x170C180 VA: 0x170C180
+	public void OnClickSummonDetail() { }
+
+	// RVA: 0x170C210 Offset: 0x170C210 VA: 0x170C210
+	public void OnClickHelp() { }
+
+	// RVA: 0x170C314 Offset: 0x170C314 VA: 0x170C314
+	public void OnClickHisotry() { }
+
+	// RVA: 0x170C410 Offset: 0x170C410 VA: 0x170C410
+	private void OnClickHelpClose() { }
+
+	// RVA: 0x170C444 Offset: 0x170C444 VA: 0x170C444
+	private void limitQpConfirmResult(SummonLimitWarningDlgComponent.Result res) { }
+
+	// RVA: 0x170C648 Offset: 0x170C648 VA: 0x170C648
+	private void limitManaConfirmResult(SummonLimitWarningDlgComponent.Result res) { }
+
+	// RVA: 0x170C71C Offset: 0x170C71C VA: 0x170C71C
+	public GachaRqParamData get_GetNowGachaParamData() { }
+
+	// RVA: 0x170C724 Offset: 0x170C724 VA: 0x170C724
+	public void SetGachaTime(int num, PayType.Type type) { }
+
+	// RVA: 0x170C7A8 Offset: 0x170C7A8 VA: 0x170C7A8
+	public void CheckReturnTransition() { }
+
+	// RVA: 0x170C824 Offset: 0x170C824 VA: 0x170C824
+	private static void .cctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F08C Offset: 0xD3F08C VA: 0xD3F08C
+	// RVA: 0x170C8B4 Offset: 0x170C8B4 VA: 0x170C8B4
+	private static void <openAfterSummonInfo>m__0() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F09C Offset: 0xD3F09C VA: 0xD3F09C
+	// RVA: 0x170C8E0 Offset: 0x170C8E0 VA: 0x170C8E0
+	private void <openAfterSummonInfo>m__1() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F0AC Offset: 0xD3F0AC VA: 0xD3F0AC
+	// RVA: 0x170C994 Offset: 0x170C994 VA: 0x170C994
+	private static void <exeFormation>m__2() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F0BC Offset: 0xD3F0BC VA: 0xD3F0BC
+	// RVA: 0x170C9A4 Offset: 0x170C9A4 VA: 0x170C9A4
+	private void <exeFormation>m__3() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F0CC Offset: 0xD3F0CC VA: 0xD3F0CC
+	// RVA: 0x170CA58 Offset: 0x170CA58 VA: 0x170CA58
+	private static int <openSvtEqInfo>m__4(EventTutorialEntity a, EventTutorialEntity b) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F0DC Offset: 0xD3F0DC VA: 0xD3F0DC
+	// RVA: 0x170CA98 Offset: 0x170CA98 VA: 0x170CA98
+	private void <setUserResourceDisp>m__5(int stoneCount) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F0EC Offset: 0xD3F0EC VA: 0xD3F0EC
+	// RVA: 0x170CB60 Offset: 0x170CB60 VA: 0x170CB60
+	private void <setChangeSummonInfo>m__6() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F0FC Offset: 0xD3F0FC VA: 0xD3F0FC
+	// RVA: 0x170CB9C Offset: 0x170CB9C VA: 0x170CB9C
+	private void <SummonSceneRefresh>m__7() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F10C Offset: 0xD3F10C VA: 0xD3F10C
+	// RVA: 0x170CC3C Offset: 0x170CC3C VA: 0x170CC3C
+	private void <loadAssetsForSummon>m__8() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F11C Offset: 0xD3F11C VA: 0xD3F11C
+	// RVA: 0x170CCA0 Offset: 0x170CCA0 VA: 0x170CCA0
+	private void <showSummonEffect>m__9() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F12C Offset: 0xD3F12C VA: 0xD3F12C
+	// RVA: 0x170D7D4 Offset: 0x170D7D4 VA: 0x170D7D4
+	private void <showSvtTalk>m__A() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F13C Offset: 0xD3F13C VA: 0xD3F13C
+	// RVA: 0x170D838 Offset: 0x170D838 VA: 0x170D838
+	private static void <showServantDialog>m__B() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F14C Offset: 0xD3F14C VA: 0xD3F14C
+	// RVA: 0x170D83C Offset: 0x170D83C VA: 0x170D83C
+	private void <DialogCallBack>m__C() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F15C Offset: 0xD3F15C VA: 0xD3F15C
+	// RVA: 0x170D944 Offset: 0x170D944 VA: 0x170D944
+	private void <showSummonResultInfo>m__D() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F16C Offset: 0xD3F16C VA: 0xD3F16C
+	// RVA: 0x170DA54 Offset: 0x170DA54 VA: 0x170DA54
+	private static void <setSummonResultList>m__E() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F17C Offset: 0xD3F17C VA: 0xD3F17C
+	// RVA: 0x170DA58 Offset: 0x170DA58 VA: 0x170DA58
+	private void <resetResultList>m__F() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F18C Offset: 0xD3F18C VA: 0xD3F18C
+	// RVA: 0x170DB7C Offset: 0x170DB7C VA: 0x170DB7C
+	private void <executeEnhanceTresureDevice>m__10(bool isDecide) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F19C Offset: 0xD3F19C VA: 0xD3F19C
+	// RVA: 0x170DC54 Offset: 0x170DC54 VA: 0x170DC54
+	private void <OnEndSummonEffect>m__11() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F1AC Offset: 0xD3F1AC VA: 0xD3F1AC
+	// RVA: 0x170DCB8 Offset: 0x170DCB8 VA: 0x170DCB8
+	private void <OnClickHisotry>m__12(string result) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F1BC Offset: 0xD3F1BC VA: 0xD3F1BC
+	// RVA: 0x170DCF0 Offset: 0x170DCF0 VA: 0x170DCF0
+	private void <openAfterSummonInfo>m__13() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F1CC Offset: 0xD3F1CC VA: 0xD3F1CC
+	// RVA: 0x170DCFC Offset: 0x170DCFC VA: 0x170DCFC
+	private void <exeFormation>m__14() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3F1DC Offset: 0xD3F1DC VA: 0xD3F1DC
+	// RVA: 0x170DD74 Offset: 0x170DD74 VA: 0x170DD74
+	private static void <showSummonResultInfo>m__15() { }
+}
+
+// Namespace: 
+public enum SummonControl.TUTORIAL_KIND // TypeDefIndex: 10703
+{
+	// Fields
+	public int value__; // 0x0
+	public const SummonControl.TUTORIAL_KIND NONE = 0;
+	public const SummonControl.TUTORIAL_KIND TUTORIAL1_MSG = 1;
+	public const SummonControl.TUTORIAL_KIND TUTORIAL2_MSG = 2;
+	public const SummonControl.TUTORIAL_KIND EXE_FORMATION = 3;
+	public const SummonControl.TUTORIAL_KIND TUTORIAL3_MSG = 4;
+	public const SummonControl.TUTORIAL_KIND SVTEQ_TUTORIAL_MSG = 5;
+}
+
+// Namespace: 
+public enum SummonControl.GACHATYPE // TypeDefIndex: 10704
+{
+	// Fields
+	public int value__; // 0x0
+	public const SummonControl.GACHATYPE PAYGACHA = 1;
+	public const SummonControl.GACHATYPE FREEGACHA = 3;
+	public const SummonControl.GACHATYPE TICKETGACHA = 5;
+	public const SummonControl.GACHATYPE CHARGE_STONE = 7;
+}
+
+// Namespace: 
+protected enum SummonControl.QUESTTYPE // TypeDefIndex: 10705
+{
+	// Fields
+	public int value__; // 0x0
+	public const SummonControl.QUESTTYPE FRIENDSHIP = 3;
+	public const SummonControl.QUESTTYPE HEROBALLAD = 6;
+}
+
+// Namespace: 
+public class SummonControl.resData // TypeDefIndex: 10706
+{
+	// Fields
+	public GachaInfos[] gachaInfos; // 0x10
+	public int[] canRankUpClassIds; // 0x18
+	public GetSvtCoin[] overflowSvtCoinInfos; // 0x20
+	public int[] extraGiftIds; // 0x28
+
+	// Methods
+
+	// RVA: 0x170E53C Offset: 0x170E53C VA: 0x170E53C
+	public void .ctor() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1630 Offset: 0xCB1630 VA: 0xCB1630
+private sealed class SummonControl.<openSvtEqInfo>c__AnonStorey2 // TypeDefIndex: 10707
+{
+	// Fields
+	internal List<EventTutorialEntity> tutoList; // 0x10
+	internal SummonControl $this; // 0x18
+
+	// Methods
+
+	// RVA: 0x1700B58 Offset: 0x1700B58 VA: 0x1700B58
+	public void .ctor() { }
+
+	// RVA: 0x170E394 Offset: 0x170E394 VA: 0x170E394
+	internal void <>m__0() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1640 Offset: 0xCB1640 VA: 0xCB1640
+private sealed class SummonControl.<CoWaitCreatedMBannerSpringPanel>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 10708
+{
+	// Fields
+	internal SpringPanel <spring>__0; // 0x10
+	internal SummonControl $this; // 0x18
+	internal object $current; // 0x20
+	internal bool $disposing; // 0x28
+	internal int $PC; // 0x2C
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49E34 Offset: 0xD49E34 VA: 0xD49E34
+	// RVA: 0x1704E54 Offset: 0x1704E54 VA: 0x1704E54
+	public void .ctor() { }
+
+	// RVA: 0x170DD78 Offset: 0x170DD78 VA: 0x170DD78 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49E44 Offset: 0xD49E44 VA: 0xD49E44
+	// RVA: 0x170DFBC Offset: 0x170DFBC VA: 0x170DFBC Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49E54 Offset: 0xD49E54 VA: 0xD49E54
+	// RVA: 0x170DFC4 Offset: 0x170DFC4 VA: 0x170DFC4 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49E64 Offset: 0xD49E64 VA: 0xD49E64
+	// RVA: 0x170DFCC Offset: 0x170DFCC VA: 0x170DFCC Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49E74 Offset: 0xD49E74 VA: 0xD49E74
+	// RVA: 0x170DFE0 Offset: 0x170DFE0 VA: 0x170DFE0 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1650 Offset: 0xCB1650 VA: 0xCB1650
+private sealed class SummonControl.<WaitBattleChrLoad>c__Iterator1 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 10709
+{
+	// Fields
+	internal WaitForEndOfFrame <wait>__0; // 0x10
+	internal SummonControl $this; // 0x18
+	internal object $current; // 0x20
+	internal bool $disposing; // 0x28
+	internal int $PC; // 0x2C
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49E84 Offset: 0xD49E84 VA: 0xD49E84
+	// RVA: 0x1709C50 Offset: 0x1709C50 VA: 0x1709C50
+	public void .ctor() { }
+
+	// RVA: 0x170E048 Offset: 0x170E048 VA: 0x170E048 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49E94 Offset: 0xD49E94 VA: 0xD49E94
+	// RVA: 0x170E1E0 Offset: 0x170E1E0 VA: 0x170E1E0 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49EA4 Offset: 0xD49EA4 VA: 0xD49EA4
+	// RVA: 0x170E1E8 Offset: 0x170E1E8 VA: 0x170E1E8 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49EB4 Offset: 0xD49EB4 VA: 0xD49EB4
+	// RVA: 0x170E1F0 Offset: 0x170E1F0 VA: 0x170E1F0 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49EC4 Offset: 0xD49EC4 VA: 0xD49EC4
+	// RVA: 0x170E204 Offset: 0x170E204 VA: 0x170E204 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1660 Offset: 0xCB1660 VA: 0xCB1660
+private sealed class SummonControl.<checkEnhanceTresureDeviceSingle>c__AnonStorey3 // TypeDefIndex: 10710
+{
+	// Fields
+	internal int svtId; // 0x10
+	internal SummonControl $this; // 0x18
+
+	// Methods
+
+	// RVA: 0x170B2CC Offset: 0x170B2CC VA: 0x170B2CC
+	public void .ctor() { }
+
+	// RVA: 0x170E300 Offset: 0x170E300 VA: 0x170E300
+	internal void <>m__0() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1670 Offset: 0xCB1670 VA: 0xCB1670
+private sealed class SummonControl.<checkEnhanceTresureDevice>c__AnonStorey4 // TypeDefIndex: 10711
+{
+	// Fields
+	internal int svtId; // 0x10
+	internal SummonControl $this; // 0x18
+
+	// Methods
+
+	// RVA: 0x170B2D4 Offset: 0x170B2D4 VA: 0x170B2D4
+	public void .ctor() { }
+
+	// RVA: 0x170E26C Offset: 0x170E26C VA: 0x170E26C
+	internal void <>m__0() { }
+}
+
+// Namespace: 
+public class SummonServantListViewItem : ListViewItem // TypeDefIndex: 10712
+{
+	// Fields
+	private string name; // 0x70
+	private int svtId; // 0x78
+	private int usrSvtId; // 0x7C
+	private bool isNew; // 0x80
+	private bool isRankUp; // 0x81
+	private int noticeNo; // 0x84
+	private bool select; // 0x88
+	private bool commandCode; // 0x89
+
+	// Properties
+	public string ServantName { get; set; }
+	public int ServantId { get; set; }
+	public int UserSvtId { get; }
+	public bool IsRankUp { get; set; }
+	public bool IsNew { get; set; }
+	public int NoticeNo { get; set; }
+	public bool IsSelectItem { get; set; }
+	public bool isCommandCode { get; }
+
+	// Methods
+
+	// RVA: 0x1DBA7F0 Offset: 0x1DBA7F0 VA: 0x1DBA7F0
+	public void .ctor(int index, bool commandCode, int svtId, int usrSvtId, bool isNew = True, bool isRankUp = False, int noticeNo = 0) { }
+
+	// RVA: 0x1DBA9AC Offset: 0x1DBA9AC VA: 0x1DBA9AC Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x1DBA9B4 Offset: 0x1DBA9B4 VA: 0x1DBA9B4
+	public string get_ServantName() { }
+
+	// RVA: 0x1DBA9BC Offset: 0x1DBA9BC VA: 0x1DBA9BC
+	public void set_ServantName(string value) { }
+
+	// RVA: 0x1DBA9C4 Offset: 0x1DBA9C4 VA: 0x1DBA9C4
+	public int get_ServantId() { }
+
+	// RVA: 0x1DBA9CC Offset: 0x1DBA9CC VA: 0x1DBA9CC
+	public void set_ServantId(int value) { }
+
+	// RVA: 0x1DBA9D4 Offset: 0x1DBA9D4 VA: 0x1DBA9D4
+	public int get_UserSvtId() { }
+
+	// RVA: 0x1DBA9DC Offset: 0x1DBA9DC VA: 0x1DBA9DC
+	public bool get_IsRankUp() { }
+
+	// RVA: 0x1DBA9E4 Offset: 0x1DBA9E4 VA: 0x1DBA9E4
+	public void set_IsRankUp(bool value) { }
+
+	// RVA: 0x1DBA9F0 Offset: 0x1DBA9F0 VA: 0x1DBA9F0
+	public bool get_IsNew() { }
+
+	// RVA: 0x1DBA9F8 Offset: 0x1DBA9F8 VA: 0x1DBA9F8
+	public void set_IsNew(bool value) { }
+
+	// RVA: 0x1DBAA04 Offset: 0x1DBAA04 VA: 0x1DBAA04
+	public int get_NoticeNo() { }
+
+	// RVA: 0x1DBAA0C Offset: 0x1DBAA0C VA: 0x1DBAA0C
+	public void set_NoticeNo(int value) { }
+
+	// RVA: 0x1DBAA14 Offset: 0x1DBAA14 VA: 0x1DBAA14
+	public bool get_IsSelectItem() { }
+
+	// RVA: 0x1DBAA1C Offset: 0x1DBAA1C VA: 0x1DBAA1C

@@ -1,0 +1,1000 @@
+	private const int Z_BUF_ERROR = -5;
+	private const int Z_VERSION_ERROR = -6;
+	private const int INIT_STATE = 42;
+	private const int BUSY_STATE = 113;
+	private const int FINISH_STATE = 666;
+	private const int Z_DEFLATED = 8;
+	private const int STORED_BLOCK = 0;
+	private const int STATIC_TREES = 1;
+	private const int DYN_TREES = 2;
+	private const int Z_BINARY = 0;
+	private const int Z_ASCII = 1;
+	private const int Z_UNKNOWN = 2;
+	private const int Buf_size = 16;
+	private const int REP_3_6 = 16;
+	private const int REPZ_3_10 = 17;
+	private const int REPZ_11_138 = 18;
+	private const int MIN_MATCH = 3;
+	private const int MAX_MATCH = 258;
+	private const int MIN_LOOKAHEAD = 262;
+	private const int MAX_BITS = 15;
+	private const int D_CODES = 30;
+	private const int BL_CODES = 19;
+	private const int LENGTH_CODES = 29;
+	private const int LITERALS = 256;
+	private const int L_CODES = 286;
+	private const int HEAP_SIZE = 573;
+	private const int END_BLOCK = 256;
+	internal ZStream strm; // 0x10
+	internal int status; // 0x18
+	internal byte[] pending_buf; // 0x20
+	internal int pending_buf_size; // 0x28
+	internal int pending_out; // 0x2C
+	internal int pending; // 0x30
+	internal int noheader; // 0x34
+	internal byte data_type; // 0x38
+	internal byte method; // 0x39
+	internal int last_flush; // 0x3C
+	internal int w_size; // 0x40
+	internal int w_bits; // 0x44
+	internal int w_mask; // 0x48
+	internal byte[] window; // 0x50
+	internal int window_size; // 0x58
+	internal short[] prev; // 0x60
+	internal short[] head; // 0x68
+	internal int ins_h; // 0x70
+	internal int hash_size; // 0x74
+	internal int hash_bits; // 0x78
+	internal int hash_mask; // 0x7C
+	internal int hash_shift; // 0x80
+	internal int block_start; // 0x84
+	internal int match_length; // 0x88
+	internal int prev_match; // 0x8C
+	internal int match_available; // 0x90
+	internal int strstart; // 0x94
+	internal int match_start; // 0x98
+	internal int lookahead; // 0x9C
+	internal int prev_length; // 0xA0
+	internal int max_chain_length; // 0xA4
+	internal int max_lazy_match; // 0xA8
+	internal int level; // 0xAC
+	internal int strategy; // 0xB0
+	internal int good_match; // 0xB4
+	internal int nice_match; // 0xB8
+	internal short[] dyn_ltree; // 0xC0
+	internal short[] dyn_dtree; // 0xC8
+	internal short[] bl_tree; // 0xD0
+	internal ZTree l_desc; // 0xD8
+	internal ZTree d_desc; // 0xE0
+	internal ZTree bl_desc; // 0xE8
+	internal short[] bl_count; // 0xF0
+	internal int[] heap; // 0xF8
+	internal int heap_len; // 0x100
+	internal int heap_max; // 0x104
+	internal byte[] depth; // 0x108
+	internal int l_buf; // 0x110
+	internal int lit_bufsize; // 0x114
+	internal int last_lit; // 0x118
+	internal int d_buf; // 0x11C
+	internal int opt_len; // 0x120
+	internal int static_len; // 0x124
+	internal int matches; // 0x128
+	internal int last_eob_len; // 0x12C
+	internal uint bi_buf; // 0x130
+	internal int bi_valid; // 0x134
+
+	// Methods
+
+	// RVA: 0x2398D48 Offset: 0x2398D48 VA: 0x2398D48
+	private static void .cctor() { }
+
+	// RVA: 0x2399730 Offset: 0x2399730 VA: 0x2399730
+	internal void .ctor() { }
+
+	// RVA: 0x2399854 Offset: 0x2399854 VA: 0x2399854
+	internal void lm_init() { }
+
+	// RVA: 0x2399ACC Offset: 0x2399ACC VA: 0x2399ACC
+	internal void tr_init() { }
+
+	// RVA: 0x2399BF0 Offset: 0x2399BF0 VA: 0x2399BF0
+	internal void init_block() { }
+
+	// RVA: 0x2399D20 Offset: 0x2399D20 VA: 0x2399D20
+	internal void pqdownheap(short[] tree, int k) { }
+
+	// RVA: 0x2399FB0 Offset: 0x2399FB0 VA: 0x2399FB0
+	internal static bool smaller(short[] tree, int n, int m, byte[] depth) { }
+
+	// RVA: 0x239A0C8 Offset: 0x239A0C8 VA: 0x239A0C8
+	internal void scan_tree(short[] tree, int max_code) { }
+
+	// RVA: 0x239A364 Offset: 0x239A364 VA: 0x239A364
+	internal int build_bl_tree() { }
+
+	// RVA: 0x239AD4C Offset: 0x239AD4C VA: 0x239AD4C
+	internal void send_all_trees(int lcodes, int dcodes, int blcodes) { }
+
+	// RVA: 0x239AFD8 Offset: 0x239AFD8 VA: 0x239AFD8
+	internal void send_tree(short[] tree, int max_code) { }
+
+	// RVA: 0x239B27C Offset: 0x239B27C VA: 0x239B27C
+	internal void put_byte(byte[] p, int start, int len) { }
+
+	// RVA: 0x239B2C8 Offset: 0x239B2C8 VA: 0x239B2C8
+	internal void put_byte(byte c) { }
+
+	// RVA: 0x239B32C Offset: 0x239B32C VA: 0x239B32C
+	internal void put_short(int w) { }
+
+	// RVA: 0x239B3D8 Offset: 0x239B3D8 VA: 0x239B3D8
+	internal void putShortMSB(int b) { }
+
+	// RVA: 0x239B1E8 Offset: 0x239B1E8 VA: 0x239B1E8
+	internal void send_code(int c, short[] tree) { }
+
+	// RVA: 0x239AEC8 Offset: 0x239AEC8 VA: 0x239AEC8
+	internal void send_bits(int val, int length) { }
+
+	// RVA: 0x239B484 Offset: 0x239B484 VA: 0x239B484
+	internal void _tr_align() { }
+
+	// RVA: 0x239B6A8 Offset: 0x239B6A8 VA: 0x239B6A8
+	internal bool _tr_tally(int dist, int lc) { }
+
+	// RVA: 0x239BB00 Offset: 0x239BB00 VA: 0x239BB00
+	internal void compress_block(short[] ltree, short[] dtree) { }
+
+	// RVA: 0x239BEA8 Offset: 0x239BEA8 VA: 0x239BEA8
+	internal void set_data_type() { }
+
+	// RVA: 0x239B57C Offset: 0x239B57C VA: 0x239B57C
+	internal void bi_flush() { }
+
+	// RVA: 0x239BFC0 Offset: 0x239BFC0 VA: 0x239BFC0
+	internal void bi_windup() { }
+
+	// RVA: 0x239C0B8 Offset: 0x239C0B8 VA: 0x239C0B8
+	internal void copy_block(int buf, int len, bool header) { }
+
+	// RVA: 0x239C140 Offset: 0x239C140 VA: 0x239C140
+	internal void flush_block_only(bool eof) { }
+
+	// RVA: 0x239C594 Offset: 0x239C594 VA: 0x239C594
+	internal int deflate_stored(int flush) { }
+
+	// RVA: 0x239C9CC Offset: 0x239C9CC VA: 0x239C9CC
+	internal void _tr_stored_block(int buf, int stored_len, bool eof) { }
+
+	// RVA: 0x239C1B8 Offset: 0x239C1B8 VA: 0x239C1B8
+	internal void _tr_flush_block(int buf, int stored_len, bool eof) { }
+
+	// RVA: 0x239C6D4 Offset: 0x239C6D4 VA: 0x239C6D4
+	internal void fill_window() { }
+
+	// RVA: 0x239CAF8 Offset: 0x239CAF8 VA: 0x239CAF8
+	internal int deflate_fast(int flush) { }
+
+	// RVA: 0x239D8B0 Offset: 0x239D8B0 VA: 0x239D8B0
+	internal int deflate_slow(int flush) { }
+
+	// RVA: 0x239D040 Offset: 0x239D040 VA: 0x239D040
+	internal int longest_match(int cur_match) { }
+
+	// RVA: 0x239DE70 Offset: 0x239DE70 VA: 0x239DE70
+	internal int deflateInit(ZStream strm, int level, int bits) { }
+
+	// RVA: 0x239E048 Offset: 0x239E048 VA: 0x239E048
+	internal int deflateInit(ZStream strm, int level) { }
+
+	// RVA: 0x239DE88 Offset: 0x239DE88 VA: 0x239DE88
+	internal int deflateInit2(ZStream strm, int level, int method, int windowBits, int memLevel, int strategy) { }
+
+	// RVA: 0x239E05C Offset: 0x239E05C VA: 0x239E05C
+	internal int deflateReset(ZStream strm) { }
+
+	// RVA: 0x239E124 Offset: 0x239E124 VA: 0x239E124
+	internal int deflateEnd() { }
+
+	// RVA: 0x239E168 Offset: 0x239E168 VA: 0x239E168
+	internal int deflateParams(ZStream strm, int _level, int _strategy) { }
+
+	// RVA: 0x239E4AC Offset: 0x239E4AC VA: 0x239E4AC
+	internal int deflateSetDictionary(ZStream strm, byte[] dictionary, int dictLength) { }
+
+	// RVA: 0x239E73C Offset: 0x239E73C VA: 0x239E73C
+	internal int deflate(ZStream strm, int flush) { }
+}
+
+// Namespace: 
+internal class Deflate.Config // TypeDefIndex: 5228
+{
+	// Fields
+	internal int good_length; // 0x10
+	internal int max_lazy; // 0x14
+	internal int nice_length; // 0x18
+	internal int max_chain; // 0x1C
+	internal int func; // 0x20
+
+	// Methods
+
+	// RVA: 0x23996DC Offset: 0x23996DC VA: 0x23996DC
+	internal void .ctor(int good_length, int max_lazy, int nice_length, int max_chain, int func) { }
+}
+
+// Namespace: Org.BouncyCastle.Utilities.Zlib
+internal sealed class InfBlocks // TypeDefIndex: 5229
+{
+	// Fields
+	private const int MANY = 1440;
+	private static readonly int[] inflate_mask; // 0x0
+	private static readonly int[] border; // 0x8
+	private const int Z_OK = 0;
+	private const int Z_STREAM_END = 1;
+	private const int Z_NEED_DICT = 2;
+	private const int Z_ERRNO = -1;
+	private const int Z_STREAM_ERROR = -2;
+	private const int Z_DATA_ERROR = -3;
+	private const int Z_MEM_ERROR = -4;
+	private const int Z_BUF_ERROR = -5;
+	private const int Z_VERSION_ERROR = -6;
+	private const int TYPE = 0;
+	private const int LENS = 1;
+	private const int STORED = 2;
+	private const int TABLE = 3;
+	private const int BTREE = 4;
+	private const int DTREE = 5;
+	private const int CODES = 6;
+	private const int DRY = 7;
+	private const int DONE = 8;
+	private const int BAD = 9;
+	internal int mode; // 0x10
+	internal int left; // 0x14
+	internal int table; // 0x18
+	internal int index; // 0x1C
+	internal int[] blens; // 0x20
+	internal int[] bb; // 0x28
+	internal int[] tb; // 0x30
+	internal InfCodes codes; // 0x38
+	private int last; // 0x40
+	internal int bitk; // 0x44
+	internal int bitb; // 0x48
+	internal int[] hufts; // 0x50
+	internal byte[] window; // 0x58
+	internal int end; // 0x60
+	internal int read; // 0x64
+	internal int write; // 0x68
+	internal object checkfn; // 0x70
+	internal long check; // 0x78
+	internal InfTree inftree; // 0x80
+
+	// Methods
+
+	// RVA: 0x239EBDC Offset: 0x239EBDC VA: 0x239EBDC
+	internal void .ctor(ZStream z, object checkfn, int w) { }
+
+	// RVA: 0x239ECFC Offset: 0x239ECFC VA: 0x239ECFC
+	internal void reset(ZStream z, long[] c) { }
+
+	// RVA: 0x239EDA8 Offset: 0x239EDA8 VA: 0x239EDA8
+	internal int proc(ZStream z, int r) { }
+
+	// RVA: 0x23A2294 Offset: 0x23A2294 VA: 0x23A2294
+	internal void free(ZStream z) { }
+
+	// RVA: 0x23A22BC Offset: 0x23A22BC VA: 0x23A22BC
+	internal void set_dictionary(byte[] d, int start, int n) { }
+
+	// RVA: 0x23A2300 Offset: 0x23A2300 VA: 0x23A2300
+	internal int sync_point() { }
+
+	// RVA: 0x23A052C Offset: 0x23A052C VA: 0x23A052C
+	internal int inflate_flush(ZStream z, int r) { }
+
+	// RVA: 0x23A2310 Offset: 0x23A2310 VA: 0x23A2310
+	private static void .cctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Utilities.Zlib
+internal sealed class InfCodes // TypeDefIndex: 5230
+{
+	// Fields
+	private static readonly int[] inflate_mask; // 0x0
+	private const int Z_OK = 0;
+	private const int Z_STREAM_END = 1;
+	private const int Z_NEED_DICT = 2;
+	private const int Z_ERRNO = -1;
+	private const int Z_STREAM_ERROR = -2;
+	private const int Z_DATA_ERROR = -3;
+	private const int Z_MEM_ERROR = -4;
+	private const int Z_BUF_ERROR = -5;
+	private const int Z_VERSION_ERROR = -6;
+	private const int START = 0;
+	private const int LEN = 1;
+	private const int LENEXT = 2;
+	private const int DIST = 3;
+	private const int DISTEXT = 4;
+	private const int COPY = 5;
+	private const int LIT = 6;
+	private const int WASH = 7;
+	private const int END = 8;
+	private const int BADCODE = 9;
+	private int mode; // 0x10
+	private int len; // 0x14
+	private int[] tree; // 0x18
+	private int tree_index; // 0x20
+	private int need; // 0x24
+	private int lit; // 0x28
+	private int get; // 0x2C
+	private int dist; // 0x30
+	private byte lbits; // 0x34
+	private byte dbits; // 0x35
+	private int[] ltree; // 0x38
+	private int ltree_index; // 0x40
+	private int[] dtree; // 0x48
+	private int dtree_index; // 0x50
+
+	// Methods
+
+	// RVA: 0x239ECEC Offset: 0x239ECEC VA: 0x239ECEC
+	internal void .ctor() { }
+
+	// RVA: 0x23A0888 Offset: 0x23A0888 VA: 0x23A0888
+	internal void init(int bl, int bd, int[] tl, int tl_index, int[] td, int td_index, ZStream z) { }
+
+	// RVA: 0x23A0C90 Offset: 0x23A0C90 VA: 0x23A0C90
+	internal int proc(InfBlocks s, ZStream z, int r) { }
+
+	// RVA: 0x239EDA4 Offset: 0x239EDA4 VA: 0x239EDA4
+	internal void free(ZStream z) { }
+
+	// RVA: 0x23A23C4 Offset: 0x23A23C4 VA: 0x23A23C4
+	internal int inflate_fast(int bl, int bd, int[] tl, int tl_index, int[] td, int td_index, InfBlocks s, ZStream z) { }
+
+	// RVA: 0x23A3554 Offset: 0x23A3554 VA: 0x23A3554
+	private static void .cctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Utilities.Zlib
+internal sealed class Inflate // TypeDefIndex: 5231
+{
+	// Fields
+	private const int MAX_WBITS = 15;
+	private const int PRESET_DICT = 32;
+	internal const int Z_NO_FLUSH = 0;
+	internal const int Z_PARTIAL_FLUSH = 1;
+	internal const int Z_SYNC_FLUSH = 2;
+	internal const int Z_FULL_FLUSH = 3;
+	internal const int Z_FINISH = 4;
+	private const int Z_DEFLATED = 8;
+	private const int Z_OK = 0;
+	private const int Z_STREAM_END = 1;
+	private const int Z_NEED_DICT = 2;
+	private const int Z_ERRNO = -1;
+	private const int Z_STREAM_ERROR = -2;
+	private const int Z_DATA_ERROR = -3;
+	private const int Z_MEM_ERROR = -4;
+	private const int Z_BUF_ERROR = -5;
+	private const int Z_VERSION_ERROR = -6;
+	private const int METHOD = 0;
+	private const int FLAG = 1;
+	private const int DICT4 = 2;
+	private const int DICT3 = 3;
+	private const int DICT2 = 4;
+	private const int DICT1 = 5;
+	private const int DICT0 = 6;
+	private const int BLOCKS = 7;
+	private const int CHECK4 = 8;
+	private const int CHECK3 = 9;
+	private const int CHECK2 = 10;
+	private const int CHECK1 = 11;
+	private const int DONE = 12;
+	private const int BAD = 13;
+	internal int mode; // 0x10
+	internal int method; // 0x14
+	internal long[] was; // 0x18
+	internal long need; // 0x20
+	internal int marker; // 0x28
+	internal int nowrap; // 0x2C
+	internal int wbits; // 0x30
+	internal InfBlocks blocks; // 0x38
+	private static readonly byte[] mark; // 0x0
+
+	// Methods
+
+	// RVA: 0x23A4704 Offset: 0x23A4704 VA: 0x23A4704
+	public void .ctor() { }
+
+	// RVA: 0x23A4764 Offset: 0x23A4764 VA: 0x23A4764
+	internal int inflateReset(ZStream z) { }
+
+	// RVA: 0x23A47E4 Offset: 0x23A47E4 VA: 0x23A47E4
+	internal int inflateEnd(ZStream z) { }
+
+	// RVA: 0x23A4820 Offset: 0x23A4820 VA: 0x23A4820
+	internal int inflateInit(ZStream z, int w) { }
+
+	// RVA: 0x23A491C Offset: 0x23A491C VA: 0x23A491C
+	internal int inflate(ZStream z, int f) { }
+
+	// RVA: 0x23A52CC Offset: 0x23A52CC VA: 0x23A52CC
+	internal int inflateSetDictionary(ZStream z, byte[] dictionary, int dictLength) { }
+
+	// RVA: 0x23A5424 Offset: 0x23A5424 VA: 0x23A5424
+	internal int inflateSync(ZStream z) { }
+
+	// RVA: 0x23A5670 Offset: 0x23A5670 VA: 0x23A5670
+	internal int inflateSyncPoint(ZStream z) { }
+
+	// RVA: 0x23A569C Offset: 0x23A569C VA: 0x23A569C
+	private static void .cctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Utilities.Zlib
+internal sealed class InfTree // TypeDefIndex: 5232
+{
+	// Fields
+	private const int MANY = 1440;
+	private const int Z_OK = 0;
+	private const int Z_STREAM_END = 1;
+	private const int Z_NEED_DICT = 2;
+	private const int Z_ERRNO = -1;
+	private const int Z_STREAM_ERROR = -2;
+	private const int Z_DATA_ERROR = -3;
+	private const int Z_MEM_ERROR = -4;
+	private const int Z_BUF_ERROR = -5;
+	private const int Z_VERSION_ERROR = -6;
+	private const int fixed_bl = 9;
+	private const int fixed_bd = 5;
+	private static readonly int[] fixed_tl; // 0x0
+	private static readonly int[] fixed_td; // 0x8
+	private static readonly int[] cplens; // 0x10
+	private static readonly int[] cplext; // 0x18
+	private static readonly int[] cpdist; // 0x20
+	private static readonly int[] cpdext; // 0x28
+	private const int BMAX = 15;
+	private int[] hn; // 0x10
+	private int[] v; // 0x18
+	private int[] c; // 0x20
+	private int[] r; // 0x28
+	private int[] u; // 0x30
+	private int[] x; // 0x38
+
+	// Methods
+
+	// RVA: 0x239ECF4 Offset: 0x239ECF4 VA: 0x239ECF4
+	public void .ctor() { }
+
+	// RVA: 0x23A35D0 Offset: 0x23A35D0 VA: 0x23A35D0
+	private int huft_build(int[] b, int bindex, int n, int s, int[] d, int[] e, int[] t, int[] m, int[] hp, int[] hn, int[] v) { }
+
+	// RVA: 0x23A08AC Offset: 0x23A08AC VA: 0x23A08AC
+	internal int inflate_trees_bits(int[] c, int[] bb, int[] tb, int[] hp, ZStream z) { }
+
+	// RVA: 0x23A0A04 Offset: 0x23A0A04 VA: 0x23A0A04
+	internal int inflate_trees_dynamic(int nl, int nd, int[] c, int[] bl, int[] bd, int[] tl, int[] td, int[] hp, ZStream z) { }
+
+	// RVA: 0x23A06E8 Offset: 0x23A06E8 VA: 0x23A06E8
+	internal static int inflate_trees_fixed(int[] bl, int[] bd, int[][] tl, int[][] td, ZStream z) { }
+
+	// RVA: 0x23A4380 Offset: 0x23A4380 VA: 0x23A4380
+	private void initWorkArea(int vsize) { }
+
+	// RVA: 0x23A4590 Offset: 0x23A4590 VA: 0x23A4590
+	private static void .cctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Utilities.Zlib
+public sealed class JZlib // TypeDefIndex: 5233
+{
+	// Fields
+	private const string _version = "1.0.7";
+	public const int Z_NO_COMPRESSION = 0;
+	public const int Z_BEST_SPEED = 1;
+	public const int Z_BEST_COMPRESSION = 9;
+	public const int Z_DEFAULT_COMPRESSION = -1;
+	public const int Z_FILTERED = 1;
+	public const int Z_HUFFMAN_ONLY = 2;
+	public const int Z_DEFAULT_STRATEGY = 0;
+	public const int Z_NO_FLUSH = 0;
+	public const int Z_PARTIAL_FLUSH = 1;
+	public const int Z_SYNC_FLUSH = 2;
+	public const int Z_FULL_FLUSH = 3;
+	public const int Z_FINISH = 4;
+	public const int Z_OK = 0;
+	public const int Z_STREAM_END = 1;
+	public const int Z_NEED_DICT = 2;
+	public const int Z_ERRNO = -1;
+	public const int Z_STREAM_ERROR = -2;
+	public const int Z_DATA_ERROR = -3;
+	public const int Z_MEM_ERROR = -4;
+	public const int Z_BUF_ERROR = -5;
+	public const int Z_VERSION_ERROR = -6;
+
+	// Methods
+
+	// RVA: 0x23A5750 Offset: 0x23A5750 VA: 0x23A5750
+	public void .ctor() { }
+
+	// RVA: 0x23A5758 Offset: 0x23A5758 VA: 0x23A5758
+	public static string version() { }
+}
+
+// Namespace: Org.BouncyCastle.Utilities.Zlib
+internal sealed class StaticTree // TypeDefIndex: 5234
+{
+	// Fields
+	private const int MAX_BITS = 15;
+	private const int BL_CODES = 19;
+	private const int D_CODES = 30;
+	private const int LITERALS = 256;
+	private const int LENGTH_CODES = 29;
+	private const int L_CODES = 286;
+	internal const int MAX_BL_BITS = 7;
+	internal static readonly short[] static_ltree; // 0x0
+	internal static readonly short[] static_dtree; // 0x8
+	internal static readonly StaticTree static_l_desc; // 0x10
+	internal static readonly StaticTree static_d_desc; // 0x18
+	internal static readonly StaticTree static_bl_desc; // 0x20
+	internal short[] static_tree; // 0x10
+	internal int[] extra_bits; // 0x18
+	internal int extra_base; // 0x20
+	internal int elems; // 0x24
+	internal int max_length; // 0x28
+
+	// Methods
+
+	// RVA: 0x23A57A0 Offset: 0x23A57A0 VA: 0x23A57A0
+	internal void .ctor(short[] static_tree, int[] extra_bits, int extra_base, int elems, int max_length) { }
+
+	// RVA: 0x23A57F4 Offset: 0x23A57F4 VA: 0x23A57F4
+	private static void .cctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Utilities.Zlib
+public class ZOutputStream : Stream // TypeDefIndex: 5235
+{
+	// Fields
+	private const int BufferSize = 512;
+	protected ZStream z; // 0x10
+	protected int flushLevel; // 0x18
+	protected byte[] buf; // 0x20
+	protected byte[] buf1; // 0x28
+	protected bool compress; // 0x30
+	protected Stream output; // 0x38
+	protected bool closed; // 0x40
+
+	// Properties
+	public sealed override bool CanRead { get; }
+	public sealed override bool CanSeek { get; }
+	public sealed override bool CanWrite { get; }
+	public virtual int FlushMode { get; set; }
+	public sealed override long Length { get; }
+	public sealed override long Position { get; set; }
+	public virtual long TotalIn { get; }
+	public virtual long TotalOut { get; }
+
+	// Methods
+
+	// RVA: 0x23A599C Offset: 0x23A599C VA: 0x23A599C
+	public void .ctor(Stream output) { }
+
+	// RVA: 0x23A59D0 Offset: 0x23A59D0 VA: 0x23A59D0
+	public void .ctor(Stream output, bool nowrap) { }
+
+	// RVA: 0x23A5A7C Offset: 0x23A5A7C VA: 0x23A5A7C
+	public void .ctor(Stream output, ZStream z) { }
+
+	// RVA: 0x23A5BF4 Offset: 0x23A5BF4 VA: 0x23A5BF4
+	public void .ctor(Stream output, int level) { }
+
+	// RVA: 0x23A5BFC Offset: 0x23A5BFC VA: 0x23A5BFC
+	public void .ctor(Stream output, int level, bool nowrap) { }
+
+	// RVA: 0x23A5A04 Offset: 0x23A5A04 VA: 0x23A5A04
+	private static ZStream GetDefaultZStream(bool nowrap) { }
+
+	// RVA: 0x23A5D08 Offset: 0x23A5D08 VA: 0x23A5D08 Slot: 5
+	public sealed override bool get_CanRead() { }
+
+	// RVA: 0x23A5D10 Offset: 0x23A5D10 VA: 0x23A5D10 Slot: 6
+	public sealed override bool get_CanSeek() { }
+
+	// RVA: 0x23A5D18 Offset: 0x23A5D18 VA: 0x23A5D18 Slot: 7
+	public sealed override bool get_CanWrite() { }
+
+	// RVA: 0x23A5D28 Offset: 0x23A5D28 VA: 0x23A5D28 Slot: 13
+	public override void Close() { }
+
+	// RVA: 0x23A5D68 Offset: 0x23A5D68 VA: 0x23A5D68
+	private void DoClose() { }
+
+	// RVA: 0x23A5F34 Offset: 0x23A5F34 VA: 0x23A5F34 Slot: 29
+	public virtual void End() { }
+
+	// RVA: 0x23A6088 Offset: 0x23A6088 VA: 0x23A6088 Slot: 30
+	public virtual void Finish() { }
+
+	// RVA: 0x23A62FC Offset: 0x23A62FC VA: 0x23A62FC Slot: 18
+	public override void Flush() { }
+
+	// RVA: 0x23A6334 Offset: 0x23A6334 VA: 0x23A6334 Slot: 31
+	public virtual int get_FlushMode() { }
+
+	// RVA: 0x23A633C Offset: 0x23A633C VA: 0x23A633C Slot: 32
+	public virtual void set_FlushMode(int value) { }
+
+	// RVA: 0x23A6344 Offset: 0x23A6344 VA: 0x23A6344 Slot: 9
+	public sealed override long get_Length() { }
+
+	// RVA: 0x23A63AC Offset: 0x23A63AC VA: 0x23A63AC Slot: 10
+	public sealed override long get_Position() { }
+
+	// RVA: 0x23A6414 Offset: 0x23A6414 VA: 0x23A6414 Slot: 11
+	public sealed override void set_Position(long value) { }
+
+	// RVA: 0x23A647C Offset: 0x23A647C VA: 0x23A647C Slot: 19
+	public sealed override int Read(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x23A64E4 Offset: 0x23A64E4 VA: 0x23A64E4 Slot: 21
+	public sealed override long Seek(long offset, SeekOrigin origin) { }
+
+	// RVA: 0x23A654C Offset: 0x23A654C VA: 0x23A654C Slot: 22
+	public sealed override void SetLength(long value) { }
+
+	// RVA: 0x23A65B4 Offset: 0x23A65B4 VA: 0x23A65B4 Slot: 33
+	public virtual long get_TotalIn() { }
+
+	// RVA: 0x23A65E0 Offset: 0x23A65E0 VA: 0x23A65E0 Slot: 34
+	public virtual long get_TotalOut() { }
+
+	// RVA: 0x23A660C Offset: 0x23A660C VA: 0x23A660C Slot: 23
+	public override void Write(byte[] b, int off, int len) { }
+
+	// RVA: 0x23A6898 Offset: 0x23A6898 VA: 0x23A6898 Slot: 24
+	public override void WriteByte(byte b) { }
+}
+
+// Namespace: Org.BouncyCastle.Utilities.Zlib
+public sealed class ZStream // TypeDefIndex: 5236
+{
+	// Fields
+	private const int MAX_WBITS = 15;
+	private const int DEF_WBITS = 15;
+	private const int Z_NO_FLUSH = 0;
+	private const int Z_PARTIAL_FLUSH = 1;
+	private const int Z_SYNC_FLUSH = 2;
+	private const int Z_FULL_FLUSH = 3;
+	private const int Z_FINISH = 4;
+	private const int MAX_MEM_LEVEL = 9;
+	private const int Z_OK = 0;
+	private const int Z_STREAM_END = 1;
+	private const int Z_NEED_DICT = 2;
+	private const int Z_ERRNO = -1;
+	private const int Z_STREAM_ERROR = -2;
+	private const int Z_DATA_ERROR = -3;
+	private const int Z_MEM_ERROR = -4;
+	private const int Z_BUF_ERROR = -5;
+	private const int Z_VERSION_ERROR = -6;
+	public byte[] next_in; // 0x10
+	public int next_in_index; // 0x18
+	public int avail_in; // 0x1C
+	public long total_in; // 0x20
+	public byte[] next_out; // 0x28
+	public int next_out_index; // 0x30
+	public int avail_out; // 0x34
+	public long total_out; // 0x38
+	public string msg; // 0x40
+	internal Deflate dstate; // 0x48
+	internal Inflate istate; // 0x50
+	internal int data_type; // 0x58
+	public long adler; // 0x60
+	internal Adler32 _adler; // 0x68
+
+	// Methods
+
+	// RVA: 0x23A5B80 Offset: 0x23A5B80 VA: 0x23A5B80
+	public void .ctor() { }
+
+	// RVA: 0x23A5BE8 Offset: 0x23A5BE8 VA: 0x23A5BE8
+	public int inflateInit() { }
+
+	// RVA: 0x23A5CFC Offset: 0x23A5CFC VA: 0x23A5CFC
+	public int inflateInit(bool nowrap) { }
+
+	// RVA: 0x23A6908 Offset: 0x23A6908 VA: 0x23A6908
+	public int inflateInit(int w) { }
+
+	// RVA: 0x23A6910 Offset: 0x23A6910 VA: 0x23A6910
+	public int inflateInit(int w, bool nowrap) { }
+
+	// RVA: 0x23A62DC Offset: 0x23A62DC VA: 0x23A62DC
+	public int inflate(int f) { }
+
+	// RVA: 0x23A6018 Offset: 0x23A6018 VA: 0x23A6018
+	public int inflateEnd() { }
+
+	// RVA: 0x23A699C Offset: 0x23A699C VA: 0x23A699C
+	public int inflateSync() { }
+
+	// RVA: 0x23A69B4 Offset: 0x23A69B4 VA: 0x23A69B4
+	public int inflateSetDictionary(byte[] dictionary, int dictLength) { }
+
+	// RVA: 0x23A69DC Offset: 0x23A69DC VA: 0x23A69DC
+	public int deflateInit(int level) { }
+
+	// RVA: 0x23A5CF0 Offset: 0x23A5CF0 VA: 0x23A5CF0
+	public int deflateInit(int level, bool nowrap) { }
+
+	// RVA: 0x23A69E8 Offset: 0x23A69E8 VA: 0x23A69E8
+	public int deflateInit(int level, int bits) { }
+
+	// RVA: 0x23A69F0 Offset: 0x23A69F0 VA: 0x23A69F0
+	public int deflateInit(int level, int bits, bool nowrap) { }
+
+	// RVA: 0x239E488 Offset: 0x239E488 VA: 0x239E488
+	public int deflate(int flush) { }
+
+	// RVA: 0x23A5FC0 Offset: 0x23A5FC0 VA: 0x23A5FC0
+	public int deflateEnd() { }
+
+	// RVA: 0x23A6A98 Offset: 0x23A6A98 VA: 0x23A6A98
+	public int deflateParams(int level, int strategy) { }
+
+	// RVA: 0x23A6AC4 Offset: 0x23A6AC4 VA: 0x23A6AC4
+	public int deflateSetDictionary(byte[] dictionary, int dictLength) { }
+
+	// RVA: 0x239C3A8 Offset: 0x239C3A8 VA: 0x239C3A8
+	internal void flush_pending() { }
+
+	// RVA: 0x239CA24 Offset: 0x239CA24 VA: 0x239CA24
+	internal int read_buf(byte[] buf, int start, int size) { }
+
+	// RVA: 0x23A6074 Offset: 0x23A6074 VA: 0x23A6074
+	public void free() { }
+}
+
+// Namespace: Org.BouncyCastle.Utilities.Zlib
+internal sealed class ZTree // TypeDefIndex: 5237
+{
+	// Fields
+	private const int MAX_BITS = 15;
+	private const int BL_CODES = 19;
+	private const int D_CODES = 30;
+	private const int LITERALS = 256;
+	private const int LENGTH_CODES = 29;
+	private const int L_CODES = 286;
+	private const int HEAP_SIZE = 573;
+	internal const int MAX_BL_BITS = 7;
+	internal const int END_BLOCK = 256;
+	internal const int REP_3_6 = 16;
+	internal const int REPZ_3_10 = 17;
+	internal const int REPZ_11_138 = 18;
+	internal static readonly int[] extra_lbits; // 0x0
+	internal static readonly int[] extra_dbits; // 0x8
+	internal static readonly int[] extra_blbits; // 0x10
+	internal static readonly byte[] bl_order; // 0x18
+	internal const int Buf_size = 16;
+	internal const int DIST_CODE_LEN = 512;
+	internal static readonly byte[] _dist_code; // 0x20
+	internal static readonly byte[] _length_code; // 0x28
+	internal static readonly int[] base_length; // 0x30
+	internal static readonly int[] base_dist; // 0x38
+	internal short[] dyn_tree; // 0x10
+	internal int max_code; // 0x18
+	internal StaticTree stat_desc; // 0x20
+
+	// Methods
+
+	// RVA: 0x239984C Offset: 0x239984C VA: 0x239984C
+	public void .ctor() { }
+
+	// RVA: 0x239BA24 Offset: 0x239BA24 VA: 0x239BA24
+	internal static int d_code(int dist) { }
+
+	// RVA: 0x23A6AF0 Offset: 0x23A6AF0 VA: 0x23A6AF0
+	internal void gen_bitlen(Deflate s) { }
+
+	// RVA: 0x239A4E4 Offset: 0x239A4E4 VA: 0x239A4E4
+	internal void build_tree(Deflate s) { }
+
+	// RVA: 0x23A714C Offset: 0x23A714C VA: 0x23A714C
+	internal static void gen_codes(short[] tree, int max_code, short[] bl_count) { }
+
+	// RVA: 0x23A7358 Offset: 0x23A7358 VA: 0x23A7358
+	internal static int bi_reverse(int code, int len) { }
+
+	// RVA: 0x23A7380 Offset: 0x23A7380 VA: 0x23A7380
+	private static void .cctor() { }
+}
+
+// Namespace: Org.BouncyCastle.X509.Extension
+public class X509ExtensionUtilities // TypeDefIndex: 5238
+{
+	// Methods
+
+	// RVA: 0x23A755C Offset: 0x23A755C VA: 0x23A755C
+	public void .ctor() { }
+
+	// RVA: 0x23A7564 Offset: 0x23A7564 VA: 0x23A7564
+	public static Asn1Object FromExtensionValue(Asn1OctetString extensionValue) { }
+
+	// RVA: 0x23A759C Offset: 0x23A759C VA: 0x23A759C
+	public static ICollection GetIssuerAlternativeNames(X509Certificate cert) { }
+
+	// RVA: 0x23A8260 Offset: 0x23A8260 VA: 0x23A8260
+	public static ICollection GetSubjectAlternativeNames(X509Certificate cert) { }
+
+	// RVA: 0x23A7628 Offset: 0x23A7628 VA: 0x23A7628
+	private static ICollection GetAlternativeName(Asn1OctetString extVal) { }
+}
+
+// Namespace: Org.BouncyCastle.X509
+public interface IX509Extension // TypeDefIndex: 5239
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract ISet GetCriticalExtensionOids();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract ISet GetNonCriticalExtensionOids();
+
+	[ObsoleteAttribute] // RVA: 0xD34EB8 Offset: 0xD34EB8 VA: 0xD34EB8
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract Asn1OctetString GetExtensionValue(string oid);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract Asn1OctetString GetExtensionValue(DerObjectIdentifier oid);
+}
+
+// Namespace: Org.BouncyCastle.X509
+internal class PemParser // TypeDefIndex: 5240
+{
+	// Fields
+	private readonly string _header1; // 0x10
+	private readonly string _header2; // 0x18
+	private readonly string _footer1; // 0x20
+	private readonly string _footer2; // 0x28
+
+	// Methods
+
+	// RVA: 0x23A82EC Offset: 0x23A82EC VA: 0x23A82EC
+	internal void .ctor(string type) { }
+
+	// RVA: 0x23A83EC Offset: 0x23A83EC VA: 0x23A83EC
+	private string ReadLine(Stream inStream) { }
+
+	// RVA: 0x23A84FC Offset: 0x23A84FC VA: 0x23A84FC
+	internal Asn1Sequence ReadPemObject(Stream inStream) { }
+}
+
+// Namespace: Org.BouncyCastle.X509
+public class X509Certificate : X509ExtensionBase // TypeDefIndex: 5241
+{
+	// Fields
+	private readonly X509CertificateStructure c; // 0x10
+	private readonly BasicConstraints basicConstraints; // 0x18
+	private readonly bool[] keyUsage; // 0x20
+	private bool hashValueSet; // 0x28
+	private int hashValue; // 0x2C
+
+	// Properties
+	public virtual X509CertificateStructure CertificateStructure { get; }
+	public virtual bool IsValidNow { get; }
+	public virtual int Version { get; }
+	public virtual BigInteger SerialNumber { get; }
+	public virtual X509Name IssuerDN { get; }
+	public virtual X509Name SubjectDN { get; }
+	public virtual DateTime NotBefore { get; }
+	public virtual DateTime NotAfter { get; }
+	public virtual string SigAlgName { get; }
+	public virtual string SigAlgOid { get; }
+	public virtual DerBitString IssuerUniqueID { get; }
+	public virtual DerBitString SubjectUniqueID { get; }
+
+	// Methods
+
+	// RVA: 0x23A8728 Offset: 0x23A8728 VA: 0x23A8728
+	protected void .ctor() { }
+
+	// RVA: 0x23A8730 Offset: 0x23A8730 VA: 0x23A8730
+	public void .ctor(X509CertificateStructure c) { }
+
+	// RVA: 0x23A8B3C Offset: 0x23A8B3C VA: 0x23A8B3C Slot: 13
+	public virtual X509CertificateStructure get_CertificateStructure() { }
+
+	// RVA: 0x23A8B44 Offset: 0x23A8B44 VA: 0x23A8B44 Slot: 14
+	public virtual bool get_IsValidNow() { }
+
+	// RVA: 0x23A8BCC Offset: 0x23A8BCC VA: 0x23A8BCC Slot: 15
+	public virtual bool IsValid(DateTime time) { }
+
+	// RVA: 0x23A8C64 Offset: 0x23A8C64 VA: 0x23A8C64 Slot: 16
+	public virtual void CheckValidity() { }
+
+	// RVA: 0x23A8CEC Offset: 0x23A8CEC VA: 0x23A8CEC Slot: 17
+	public virtual void CheckValidity(DateTime time) { }
+
+	// RVA: 0x23A8EFC Offset: 0x23A8EFC VA: 0x23A8EFC Slot: 18
+	public virtual int get_Version() { }
+
+	// RVA: 0x23A8F2C Offset: 0x23A8F2C VA: 0x23A8F2C Slot: 19
+	public virtual BigInteger get_SerialNumber() { }
+
+	// RVA: 0x23A8F74 Offset: 0x23A8F74 VA: 0x23A8F74 Slot: 20
+	public virtual X509Name get_IssuerDN() { }
+
+	// RVA: 0x23A8FA4 Offset: 0x23A8FA4 VA: 0x23A8FA4 Slot: 21
+	public virtual X509Name get_SubjectDN() { }
+
+	// RVA: 0x23A8FD4 Offset: 0x23A8FD4 VA: 0x23A8FD4 Slot: 22
+	public virtual DateTime get_NotBefore() { }
+
+	// RVA: 0x23A901C Offset: 0x23A901C VA: 0x23A901C Slot: 23
+	public virtual DateTime get_NotAfter() { }
+
+	// RVA: 0x23A9064 Offset: 0x23A9064 VA: 0x23A9064 Slot: 24
+	public virtual byte[] GetTbsCertificate() { }
+
+	// RVA: 0x23A90AC Offset: 0x23A90AC VA: 0x23A90AC Slot: 25
+	public virtual byte[] GetSignature() { }
+
+	// RVA: 0x23A90DC Offset: 0x23A90DC VA: 0x23A90DC Slot: 26
+	public virtual string get_SigAlgName() { }
+
+	// RVA: 0x23A9184 Offset: 0x23A9184 VA: 0x23A9184 Slot: 27
+	public virtual string get_SigAlgOid() { }
+
+	// RVA: 0x23A91E8 Offset: 0x23A91E8 VA: 0x23A91E8 Slot: 28
+	public virtual byte[] GetSigAlgParams() { }
+
+	// RVA: 0x23A9298 Offset: 0x23A9298 VA: 0x23A9298 Slot: 29
+	public virtual DerBitString get_IssuerUniqueID() { }
+
+	// RVA: 0x23A92E0 Offset: 0x23A92E0 VA: 0x23A92E0 Slot: 30
+	public virtual DerBitString get_SubjectUniqueID() { }
+
+	// RVA: 0x23A9328 Offset: 0x23A9328 VA: 0x23A9328 Slot: 31
+	public virtual bool[] GetKeyUsage() { }
+
+	// RVA: 0x23A93F4 Offset: 0x23A93F4 VA: 0x23A93F4 Slot: 32
+	public virtual IList GetExtendedKeyUsage() { }
+
+	// RVA: 0x23A98B8 Offset: 0x23A98B8 VA: 0x23A98B8 Slot: 33
+	public virtual int GetBasicConstraints() { }
+
+	// RVA: 0x23A9950 Offset: 0x23A9950 VA: 0x23A9950 Slot: 34
+	public virtual ICollection GetSubjectAlternativeNames() { }
+
+	// RVA: 0x23A99AC Offset: 0x23A99AC VA: 0x23A99AC Slot: 35
+	public virtual ICollection GetIssuerAlternativeNames() { }
+
+	// RVA: 0x23A9A08 Offset: 0x23A9A08 VA: 0x23A9A08 Slot: 36
+	protected virtual ICollection GetAlternativeNames(string oid) { }
+
+	// RVA: 0x23A9D44 Offset: 0x23A9D44 VA: 0x23A9D44 Slot: 8
+	protected override X509Extensions GetX509Extensions() { }
+
+	// RVA: 0x23A9DC4 Offset: 0x23A9DC4 VA: 0x23A9DC4 Slot: 37
+	public virtual AsymmetricKeyParameter GetPublicKey() { }
+
+	// RVA: 0x23A9DFC Offset: 0x23A9DFC VA: 0x23A9DFC Slot: 38
+	public virtual byte[] GetEncoded() { }
+
+	// RVA: 0x23A9E2C Offset: 0x23A9E2C VA: 0x23A9E2C Slot: 0
+	public override bool Equals(object obj) { }
+
+	// RVA: 0x23A9F08 Offset: 0x23A9F08 VA: 0x23A9F08 Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0x23A9FAC Offset: 0x23A9FAC VA: 0x23A9FAC Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0x23AAFCC Offset: 0x23AAFCC VA: 0x23AAFCC Slot: 39
+	public virtual void Verify(AsymmetricKeyParameter key) { }
+
+	// RVA: 0x23AB074 Offset: 0x23AB074 VA: 0x23AB074 Slot: 40
+	public virtual void Verify(IVerifierFactoryProvider verifierProvider) { }
+
+	// RVA: 0x23AB16C Offset: 0x23AB16C VA: 0x23AB16C Slot: 41

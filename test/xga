@@ -1,0 +1,1000 @@
+
+// Namespace: System.Text.RegularExpressions
+[Serializable]
+public class Match : Group // TypeDefIndex: 1690
+{
+	// Fields
+	private Regex regex; // 0x30
+	private IMachine machine; // 0x38
+	private int text_length; // 0x40
+	private GroupCollection groups; // 0x48
+	private static Match empty; // 0x0
+
+	// Properties
+	public static Match Empty { get; }
+	public virtual GroupCollection Groups { get; }
+	internal Regex Regex { get; }
+
+	// Methods
+
+	// RVA: 0xF83FC4 Offset: 0xF83FC4 VA: 0xF83FC4
+	private void .ctor() { }
+
+	// RVA: 0xF82860 Offset: 0xF82860 VA: 0xF82860
+	internal void .ctor(Regex regex, IMachine machine, string text, int text_length, int n_groups, int index, int length) { }
+
+	// RVA: 0xF82914 Offset: 0xF82914 VA: 0xF82914
+	internal void .ctor(Regex regex, IMachine machine, string text, int text_length, int n_groups, int index, int length, int n_caps) { }
+
+	// RVA: 0xF84078 Offset: 0xF84078 VA: 0xF84078
+	private static void .cctor() { }
+
+	// RVA: 0xF7E838 Offset: 0xF7E838 VA: 0xF7E838
+	public static Match get_Empty() { }
+
+	// RVA: 0xF840D8 Offset: 0xF840D8 VA: 0xF840D8 Slot: 4
+	public virtual GroupCollection get_Groups() { }
+
+	// RVA: 0xF7C578 Offset: 0xF7C578 VA: 0xF7C578
+	public Match NextMatch() { }
+
+	// RVA: 0xF7E8A0 Offset: 0xF7E8A0 VA: 0xF7E8A0
+	internal Regex get_Regex() { }
+}
+
+// Namespace: System.Text.RegularExpressions
+[DefaultMemberAttribute] // RVA: 0xC3CD64 Offset: 0xC3CD64 VA: 0xC3CD64
+[Serializable]
+public class MatchCollection : ICollection, IEnumerable // TypeDefIndex: 1691
+{
+	// Fields
+	private Match current; // 0x10
+	private ArrayList list; // 0x18
+
+	// Properties
+	public int Count { get; }
+	public bool IsSynchronized { get; }
+	public virtual Match Item { get; }
+	public object SyncRoot { get; }
+	private ICollection FullList { get; }
+
+	// Methods
+
+	// RVA: 0xF840E0 Offset: 0xF840E0 VA: 0xF840E0
+	internal void .ctor(Match start) { }
+
+	// RVA: 0xF8415C Offset: 0xF8415C VA: 0xF8415C Slot: 4
+	public int get_Count() { }
+
+	// RVA: 0xF842AC Offset: 0xF842AC VA: 0xF842AC Slot: 5
+	public bool get_IsSynchronized() { }
+
+	// RVA: 0xF842B4 Offset: 0xF842B4 VA: 0xF842B4 Slot: 9
+	public virtual Match get_Item(int i) { }
+
+	// RVA: 0xF84538 Offset: 0xF84538 VA: 0xF84538 Slot: 6
+	public object get_SyncRoot() { }
+
+	// RVA: 0xF84540 Offset: 0xF84540 VA: 0xF84540 Slot: 7
+	public void CopyTo(Array array, int index) { }
+
+	// RVA: 0xF84614 Offset: 0xF84614 VA: 0xF84614 Slot: 8
+	public IEnumerator GetEnumerator() { }
+
+	// RVA: 0xF84434 Offset: 0xF84434 VA: 0xF84434
+	private bool TryToGet(int i) { }
+
+	// RVA: 0xF84214 Offset: 0xF84214 VA: 0xF84214
+	private ICollection get_FullList() { }
+}
+
+// Namespace: 
+private class MatchCollection.Enumerator : IEnumerator // TypeDefIndex: 1692
+{
+	// Fields
+	private int index; // 0x10
+	private MatchCollection coll; // 0x18
+
+	// Properties
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	// RVA: 0xF846C4 Offset: 0xF846C4 VA: 0xF846C4
+	internal void .ctor(MatchCollection coll) { }
+
+	// RVA: 0xF846F8 Offset: 0xF846F8 VA: 0xF846F8 Slot: 6
+	private void System.Collections.IEnumerator.Reset() { }
+
+	// RVA: 0xF84704 Offset: 0xF84704 VA: 0xF84704 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	// RVA: 0xF84914 Offset: 0xF84914 VA: 0xF84914 Slot: 5
+	private bool System.Collections.IEnumerator.MoveNext() { }
+}
+
+// Namespace: System.Text.RegularExpressions
+[Serializable]
+public class Regex : ISerializable // TypeDefIndex: 1693
+{
+	// Fields
+	private static FactoryCache cache; // 0x0
+	private IMachineFactory machineFactory; // 0x10
+	private IDictionary mapping; // 0x18
+	private int group_count; // 0x20
+	private int gap; // 0x24
+	private bool refsInitialized; // 0x28
+	private string[] group_names; // 0x30
+	private int[] group_numbers; // 0x38
+	protected internal string pattern; // 0x40
+	protected internal RegexOptions roptions; // 0x48
+	[MonoTODOAttribute] // RVA: 0xC3D164 Offset: 0xC3D164 VA: 0xC3D164
+	internal Dictionary<string, int> capnames; // 0x50
+	[MonoTODOAttribute] // RVA: 0xC3D174 Offset: 0xC3D174 VA: 0xC3D174
+	internal Dictionary<int, int> caps; // 0x58
+	[MonoTODOAttribute] // RVA: 0xC3D184 Offset: 0xC3D184 VA: 0xC3D184
+	protected internal int capsize; // 0x60
+	[MonoTODOAttribute] // RVA: 0xC3D194 Offset: 0xC3D194 VA: 0xC3D194
+	protected internal string[] capslist; // 0x68
+
+	// Properties
+	public RegexOptions Options { get; }
+	public bool RightToLeft { get; }
+	internal int GroupCount { get; }
+	internal int Gap { get; }
+	private int[] GroupNumbers { get; }
+
+	// Methods
+
+	// RVA: 0xF85FD8 Offset: 0xF85FD8 VA: 0xF85FD8
+	protected void .ctor() { }
+
+	// RVA: 0xF85FE0 Offset: 0xF85FE0 VA: 0xF85FE0
+	public void .ctor(string pattern) { }
+
+	// RVA: 0xF85FE8 Offset: 0xF85FE8 VA: 0xF85FE8
+	public void .ctor(string pattern, RegexOptions options) { }
+
+	// RVA: 0xF863F0 Offset: 0xF863F0 VA: 0xF863F0
+	protected void .ctor(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0xF864E8 Offset: 0xF864E8 VA: 0xF864E8
+	private static void .cctor() { }
+
+	// RVA: 0xF86554 Offset: 0xF86554 VA: 0xF86554 Slot: 4
+	private void System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0xF86698 Offset: 0xF86698 VA: 0xF86698
+	public static bool IsMatch(string input, string pattern, RegexOptions options) { }
+
+	// RVA: 0xF86764 Offset: 0xF86764 VA: 0xF86764
+	public static Match Match(string input, string pattern) { }
+
+	// RVA: 0xF867DC Offset: 0xF867DC VA: 0xF867DC
+	public static Match Match(string input, string pattern, RegexOptions options) { }
+
+	// RVA: 0xF868A8 Offset: 0xF868A8 VA: 0xF868A8
+	public static string Replace(string input, string pattern, MatchEvaluator evaluator) { }
+
+	// RVA: 0xF86928 Offset: 0xF86928 VA: 0xF86928
+	public static string Replace(string input, string pattern, MatchEvaluator evaluator, RegexOptions options) { }
+
+	// RVA: 0xF86A18 Offset: 0xF86A18 VA: 0xF86A18
+	public static string Replace(string input, string pattern, string replacement) { }
+
+	// RVA: 0xF86A98 Offset: 0xF86A98 VA: 0xF86A98
+	public static string Replace(string input, string pattern, string replacement, RegexOptions options) { }
+
+	// RVA: 0xF860C0 Offset: 0xF860C0 VA: 0xF860C0
+	private static void validate_options(RegexOptions options) { }
+
+	// RVA: 0xF86160 Offset: 0xF86160 VA: 0xF86160
+	private void Init() { }
+
+	// RVA: 0xF86B88 Offset: 0xF86B88 VA: 0xF86B88
+	private void InitNewRegex() { }
+
+	// RVA: 0xF86E30 Offset: 0xF86E30 VA: 0xF86E30
+	private static IMachineFactory CreateMachineFactory(string pattern, RegexOptions options) { }
+
+	// RVA: 0xF86690 Offset: 0xF86690 VA: 0xF86690
+	public RegexOptions get_Options() { }
+
+	// RVA: 0xF7BB24 Offset: 0xF7BB24 VA: 0xF7BB24
+	public bool get_RightToLeft() { }
+
+	// RVA: 0xF7EB74 Offset: 0xF7EB74 VA: 0xF7EB74
+	public int GroupNumberFromName(string name) { }
+
+	// RVA: 0xF7E8A8 Offset: 0xF7E8A8 VA: 0xF7E8A8
+	internal int GetGroupIndex(int number) { }
+
+	// RVA: 0xF87C34 Offset: 0xF87C34 VA: 0xF87C34
+	private int default_startat(string input) { }
+
+	// RVA: 0xF8671C Offset: 0xF8671C VA: 0xF8671C
+	public bool IsMatch(string input) { }
+
+	// RVA: 0xF87C54 Offset: 0xF87C54 VA: 0xF87C54
+	public bool IsMatch(string input, int startat) { }
+
+	// RVA: 0xF86860 Offset: 0xF86860 VA: 0xF86860
+	public Match Match(string input) { }
+
+	// RVA: 0xF87C80 Offset: 0xF87C80 VA: 0xF87C80
+	public Match Match(string input, int startat) { }
+
+	// RVA: 0xF87EB4 Offset: 0xF87EB4 VA: 0xF87EB4
+	public MatchCollection Matches(string input) { }
+
+	// RVA: 0xF87EFC Offset: 0xF87EFC VA: 0xF87EFC
+	public MatchCollection Matches(string input, int startat) { }
+
+	// RVA: 0xF869BC Offset: 0xF869BC VA: 0xF869BC
+	public string Replace(string input, MatchEvaluator evaluator) { }
+
+	// RVA: 0xF87F84 Offset: 0xF87F84 VA: 0xF87F84
+	public string Replace(string input, MatchEvaluator evaluator, int count, int startat) { }
+
+	// RVA: 0xF86B2C Offset: 0xF86B2C VA: 0xF86B2C
+	public string Replace(string input, string replacement) { }
+
+	// RVA: 0xF88220 Offset: 0xF88220 VA: 0xF88220
+	public string Replace(string input, string replacement, int count, int startat) { }
+
+	// RVA: 0xF883E0 Offset: 0xF883E0 VA: 0xF883E0 Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0xF883E8 Offset: 0xF883E8 VA: 0xF883E8
+	internal int get_GroupCount() { }
+
+	// RVA: 0xF84070 Offset: 0xF84070 VA: 0xF84070
+	internal int get_Gap() { }
+
+	// RVA: 0xF87E00 Offset: 0xF87E00 VA: 0xF87E00
+	private IMachine CreateMachine() { }
+
+	// RVA: 0xF87734 Offset: 0xF87734 VA: 0xF87734
+	private static string[] GetGroupNamesArray(int groupCount, IDictionary mapping) { }
+
+	// RVA: 0xF87AD0 Offset: 0xF87AD0 VA: 0xF87AD0
+	private int[] get_GroupNumbers() { }
+}
+
+// Namespace: 
+private class Regex.Adapter // TypeDefIndex: 1694
+{
+	// Fields
+	private MatchEvaluator ev; // 0x10
+
+	// Methods
+
+	// RVA: 0xF881F4 Offset: 0xF881F4 VA: 0xF881F4
+	public void .ctor(MatchEvaluator ev) { }
+
+	// RVA: 0xF883F0 Offset: 0xF883F0 VA: 0xF883F0
+	public void Evaluate(Match m, StringBuilder sb) { }
+}
+
+// Namespace: System.Text.RegularExpressions
+[FlagsAttribute] // RVA: 0xC3CD9C Offset: 0xC3CD9C VA: 0xC3CD9C
+public enum RegexOptions // TypeDefIndex: 1695
+{
+	// Fields
+	public int value__; // 0x0
+	public const RegexOptions None = 0;
+	public const RegexOptions IgnoreCase = 1;
+	public const RegexOptions Multiline = 2;
+	public const RegexOptions ExplicitCapture = 4;
+	public const RegexOptions Singleline = 16;
+	public const RegexOptions IgnorePatternWhitespace = 32;
+	public const RegexOptions RightToLeft = 64;
+	public const RegexOptions ECMAScript = 256;
+	public const RegexOptions CultureInvariant = 512;
+}
+
+// Namespace: System.Text.RegularExpressions
+internal enum OpCode // TypeDefIndex: 1696
+{
+	// Fields
+	public ushort value__; // 0x0
+	public const OpCode False = 0;
+	public const OpCode True = 1;
+	public const OpCode Position = 2;
+	public const OpCode String = 3;
+	public const OpCode Reference = 4;
+	public const OpCode Character = 5;
+	public const OpCode Category = 6;
+	public const OpCode NotCategory = 7;
+	public const OpCode Range = 8;
+	public const OpCode Set = 9;
+	public const OpCode In = 10;
+	public const OpCode Open = 11;
+	public const OpCode Close = 12;
+	public const OpCode Balance = 13;
+	public const OpCode BalanceStart = 14;
+	public const OpCode IfDefined = 15;
+	public const OpCode Sub = 16;
+	public const OpCode Test = 17;
+	public const OpCode Branch = 18;
+	public const OpCode Jump = 19;
+	public const OpCode Repeat = 20;
+	public const OpCode Until = 21;
+	public const OpCode FastRepeat = 22;
+	public const OpCode Anchor = 23;
+	public const OpCode Info = 24;
+}
+
+// Namespace: System.Text.RegularExpressions
+[FlagsAttribute] // RVA: 0xC3CDAC Offset: 0xC3CDAC VA: 0xC3CDAC
+internal enum OpFlags // TypeDefIndex: 1697
+{
+	// Fields
+	public ushort value__; // 0x0
+	public const OpFlags None = 0;
+	public const OpFlags Negate = 256;
+	public const OpFlags IgnoreCase = 512;
+	public const OpFlags RightToLeft = 1024;
+	public const OpFlags Lazy = 2048;
+}
+
+// Namespace: System.Text.RegularExpressions
+internal enum Position // TypeDefIndex: 1698
+{
+	// Fields
+	public ushort value__; // 0x0
+	public const Position Any = 0;
+	public const Position Start = 1;
+	public const Position StartOfString = 2;
+	public const Position StartOfLine = 3;
+	public const Position StartOfScan = 4;
+	public const Position End = 5;
+	public const Position EndOfString = 6;
+	public const Position EndOfLine = 7;
+	public const Position Boundary = 8;
+	public const Position NonBoundary = 9;
+}
+
+// Namespace: System.Text.RegularExpressions
+internal interface IMachine // TypeDefIndex: 1699
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract Match Scan(Regex regex, string text, int start, int end);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract string Replace(Regex regex, string input, string replacement, int count, int startat);
+}
+
+// Namespace: System.Text.RegularExpressions
+internal interface IMachineFactory // TypeDefIndex: 1700
+{
+	// Properties
+	public abstract IDictionary Mapping { get; set; }
+	public abstract int GroupCount { get; }
+	public abstract int Gap { get; set; }
+	public abstract string[] NamesMapping { get; set; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IMachine NewInstance();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract IDictionary get_Mapping();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void set_Mapping(IDictionary value);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract int get_GroupCount();
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract int get_Gap();
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract void set_Gap(int value);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract string[] get_NamesMapping();
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract void set_NamesMapping(string[] value);
+}
+
+// Namespace: System.Text.RegularExpressions
+internal class FactoryCache // TypeDefIndex: 1701
+{
+	// Fields
+	private int capacity; // 0x10
+	private Hashtable factories; // 0x18
+	private MRUList mru_list; // 0x20
+
+	// Methods
+
+	// RVA: 0xF7D91C Offset: 0xF7D91C VA: 0xF7D91C
+	public void .ctor(int capacity) { }
+
+	// RVA: 0xF7D9E8 Offset: 0xF7D9E8 VA: 0xF7D9E8
+	public void Add(string pattern, RegexOptions options, IMachineFactory factory) { }
+
+	// RVA: 0xF7DB74 Offset: 0xF7DB74 VA: 0xF7DB74
+	private void Cleanup() { }
+
+	// RVA: 0xF7DE94 Offset: 0xF7DE94 VA: 0xF7DE94
+	public IMachineFactory Lookup(string pattern, RegexOptions options) { }
+}
+
+// Namespace: 
+private class FactoryCache.Key // TypeDefIndex: 1702
+{
+	// Fields
+	public string pattern; // 0x10
+	public RegexOptions options; // 0x18
+
+	// Methods
+
+	// RVA: 0xF7DB38 Offset: 0xF7DB38 VA: 0xF7DB38
+	public void .ctor(string pattern, RegexOptions options) { }
+
+	// RVA: 0xF7E078 Offset: 0xF7E078 VA: 0xF7E078 Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0xF7E0B8 Offset: 0xF7E0B8 VA: 0xF7E0B8 Slot: 0
+	public override bool Equals(object o) { }
+
+	// RVA: 0xF7E17C Offset: 0xF7E17C VA: 0xF7E17C Slot: 3
+	public override string ToString() { }
+}
+
+// Namespace: System.Text.RegularExpressions
+internal class MRUList // TypeDefIndex: 1703
+{
+	// Fields
+	private MRUList.Node head; // 0x10
+	private MRUList.Node tail; // 0x18
+
+	// Methods
+
+	// RVA: 0xF7D9C0 Offset: 0xF7D9C0 VA: 0xF7D9C0
+	public void .ctor() { }
+
+	// RVA: 0xF7DCD8 Offset: 0xF7DCD8 VA: 0xF7DCD8
+	public void Use(object o) { }
+
+	// RVA: 0xF7DE5C Offset: 0xF7DE5C VA: 0xF7DE5C
+	public object Evict() { }
+}
+
+// Namespace: 
+private class MRUList.Node // TypeDefIndex: 1704
+{
+	// Fields
+	public object value; // 0x10
+	public MRUList.Node previous; // 0x18
+	public MRUList.Node next; // 0x20
+
+	// Methods
+
+	// RVA: 0xF83F98 Offset: 0xF83F98 VA: 0xF83F98
+	public void .ctor(object value) { }
+}
+
+// Namespace: System.Text.RegularExpressions
+internal enum Category // TypeDefIndex: 1705
+{
+	// Fields
+	public ushort value__; // 0x0
+	public const Category None = 0;
+	public const Category Any = 1;
+	public const Category AnySingleline = 2;
+	public const Category Word = 3;
+	public const Category Digit = 4;
+	public const Category WhiteSpace = 5;
+	public const Category EcmaAny = 6;
+	public const Category EcmaAnySingleline = 7;
+	public const Category EcmaWord = 8;
+	public const Category EcmaDigit = 9;
+	public const Category EcmaWhiteSpace = 10;
+	public const Category UnicodeL = 11;
+	public const Category UnicodeM = 12;
+	public const Category UnicodeN = 13;
+	public const Category UnicodeZ = 14;
+	public const Category UnicodeP = 15;
+	public const Category UnicodeS = 16;
+	public const Category UnicodeC = 17;
+	public const Category UnicodeLu = 18;
+	public const Category UnicodeLl = 19;
+	public const Category UnicodeLt = 20;
+	public const Category UnicodeLm = 21;
+	public const Category UnicodeLo = 22;
+	public const Category UnicodeMn = 23;
+	public const Category UnicodeMe = 24;
+	public const Category UnicodeMc = 25;
+	public const Category UnicodeNd = 26;
+	public const Category UnicodeNl = 27;
+	public const Category UnicodeNo = 28;
+	public const Category UnicodeZs = 29;
+	public const Category UnicodeZl = 30;
+	public const Category UnicodeZp = 31;
+	public const Category UnicodePd = 32;
+	public const Category UnicodePs = 33;
+	public const Category UnicodePi = 34;
+	public const Category UnicodePe = 35;
+	public const Category UnicodePf = 36;
+	public const Category UnicodePc = 37;
+	public const Category UnicodePo = 38;
+	public const Category UnicodeSm = 39;
+	public const Category UnicodeSc = 40;
+	public const Category UnicodeSk = 41;
+	public const Category UnicodeSo = 42;
+	public const Category UnicodeCc = 43;
+	public const Category UnicodeCf = 44;
+	public const Category UnicodeCo = 45;
+	public const Category UnicodeCs = 46;
+	public const Category UnicodeCn = 47;
+	public const Category UnicodeBasicLatin = 48;
+	public const Category UnicodeLatin1Supplement = 49;
+	public const Category UnicodeLatinExtendedA = 50;
+	public const Category UnicodeLatinExtendedB = 51;
+	public const Category UnicodeIPAExtensions = 52;
+	public const Category UnicodeSpacingModifierLetters = 53;
+	public const Category UnicodeCombiningDiacriticalMarks = 54;
+	public const Category UnicodeGreek = 55;
+	public const Category UnicodeCyrillic = 56;
+	public const Category UnicodeArmenian = 57;
+	public const Category UnicodeHebrew = 58;
+	public const Category UnicodeArabic = 59;
+	public const Category UnicodeSyriac = 60;
+	public const Category UnicodeThaana = 61;
+	public const Category UnicodeDevanagari = 62;
+	public const Category UnicodeBengali = 63;
+	public const Category UnicodeGurmukhi = 64;
+	public const Category UnicodeGujarati = 65;
+	public const Category UnicodeOriya = 66;
+	public const Category UnicodeTamil = 67;
+	public const Category UnicodeTelugu = 68;
+	public const Category UnicodeKannada = 69;
+	public const Category UnicodeMalayalam = 70;
+	public const Category UnicodeSinhala = 71;
+	public const Category UnicodeThai = 72;
+	public const Category UnicodeLao = 73;
+	public const Category UnicodeTibetan = 74;
+	public const Category UnicodeMyanmar = 75;
+	public const Category UnicodeGeorgian = 76;
+	public const Category UnicodeHangulJamo = 77;
+	public const Category UnicodeEthiopic = 78;
+	public const Category UnicodeCherokee = 79;
+	public const Category UnicodeUnifiedCanadianAboriginalSyllabics = 80;
+	public const Category UnicodeOgham = 81;
+	public const Category UnicodeRunic = 82;
+	public const Category UnicodeKhmer = 83;
+	public const Category UnicodeMongolian = 84;
+	public const Category UnicodeLatinExtendedAdditional = 85;
+	public const Category UnicodeGreekExtended = 86;
+	public const Category UnicodeGeneralPunctuation = 87;
+	public const Category UnicodeSuperscriptsandSubscripts = 88;
+	public const Category UnicodeCurrencySymbols = 89;
+	public const Category UnicodeCombiningMarksforSymbols = 90;
+	public const Category UnicodeLetterlikeSymbols = 91;
+	public const Category UnicodeNumberForms = 92;
+	public const Category UnicodeArrows = 93;
+	public const Category UnicodeMathematicalOperators = 94;
+	public const Category UnicodeMiscellaneousTechnical = 95;
+	public const Category UnicodeControlPictures = 96;
+	public const Category UnicodeOpticalCharacterRecognition = 97;
+	public const Category UnicodeEnclosedAlphanumerics = 98;
+	public const Category UnicodeBoxDrawing = 99;
+	public const Category UnicodeBlockElements = 100;
+	public const Category UnicodeGeometricShapes = 101;
+	public const Category UnicodeMiscellaneousSymbols = 102;
+	public const Category UnicodeDingbats = 103;
+	public const Category UnicodeBraillePatterns = 104;
+	public const Category UnicodeCJKRadicalsSupplement = 105;
+	public const Category UnicodeKangxiRadicals = 106;
+	public const Category UnicodeIdeographicDescriptionCharacters = 107;
+	public const Category UnicodeCJKSymbolsandPunctuation = 108;
+	public const Category UnicodeHiragana = 109;
+	public const Category UnicodeKatakana = 110;
+	public const Category UnicodeBopomofo = 111;
+	public const Category UnicodeHangulCompatibilityJamo = 112;
+	public const Category UnicodeKanbun = 113;
+	public const Category UnicodeBopomofoExtended = 114;
+	public const Category UnicodeEnclosedCJKLettersandMonths = 115;
+	public const Category UnicodeCJKCompatibility = 116;
+	public const Category UnicodeCJKUnifiedIdeographsExtensionA = 117;
+	public const Category UnicodeCJKUnifiedIdeographs = 118;
+	public const Category UnicodeYiSyllables = 119;
+	public const Category UnicodeYiRadicals = 120;
+	public const Category UnicodeHangulSyllables = 121;
+	public const Category UnicodeHighSurrogates = 122;
+	public const Category UnicodeHighPrivateUseSurrogates = 123;
+	public const Category UnicodeLowSurrogates = 124;
+	public const Category UnicodePrivateUse = 125;
+	public const Category UnicodeCJKCompatibilityIdeographs = 126;
+	public const Category UnicodeAlphabeticPresentationForms = 127;
+	public const Category UnicodeArabicPresentationFormsA = 128;
+	public const Category UnicodeCombiningHalfMarks = 129;
+	public const Category UnicodeCJKCompatibilityForms = 130;
+	public const Category UnicodeSmallFormVariants = 131;
+	public const Category UnicodeArabicPresentationFormsB = 132;
+	public const Category UnicodeSpecials = 133;
+	public const Category UnicodeHalfwidthandFullwidthForms = 134;
+	public const Category UnicodeOldItalic = 135;
+	public const Category UnicodeGothic = 136;
+	public const Category UnicodeDeseret = 137;
+	public const Category UnicodeByzantineMusicalSymbols = 138;
+	public const Category UnicodeMusicalSymbols = 139;
+	public const Category UnicodeMathematicalAlphanumericSymbols = 140;
+	public const Category UnicodeCJKUnifiedIdeographsExtensionB = 141;
+	public const Category UnicodeCJKCompatibilityIdeographsSupplement = 142;
+	public const Category UnicodeTags = 143;
+	public const Category LastValue = 144;
+}
+
+// Namespace: System.Text.RegularExpressions
+internal class CategoryUtils // TypeDefIndex: 1706
+{
+	// Methods
+
+	// RVA: 0xF7CD8C Offset: 0xF7CD8C VA: 0xF7CD8C
+	public static Category CategoryFromName(string name) { }
+
+	// RVA: 0xF7CF5C Offset: 0xF7CF5C VA: 0xF7CF5C
+	public static bool IsCategory(Category cat, char c) { }
+
+	// RVA: 0xF7D89C Offset: 0xF7D89C VA: 0xF7D89C
+	private static bool IsCategory(UnicodeCategory uc, char c) { }
+}
+
+// Namespace: System.Text.RegularExpressions
+internal abstract class LinkRef // TypeDefIndex: 1707
+{
+	// Methods
+
+	// RVA: 0xF83E50 Offset: 0xF83E50 VA: 0xF83E50
+	protected void .ctor() { }
+}
+
+// Namespace: System.Text.RegularExpressions
+internal interface ICompiler // TypeDefIndex: 1708
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IMachineFactory GetMachineFactory();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void EmitFalse();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void EmitTrue();
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract void EmitCharacter(char c, bool negate, bool ignore, bool reverse);
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void EmitCategory(Category cat, bool negate, bool reverse);
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract void EmitNotCategory(Category cat, bool negate, bool reverse);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract void EmitRange(char lo, char hi, bool negate, bool ignore, bool reverse);
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract void EmitSet(char lo, BitArray set, bool negate, bool ignore, bool reverse);
+
+	// RVA: -1 Offset: -1 Slot: 8
+	public abstract void EmitString(string str, bool ignore, bool reverse);
+
+	// RVA: -1 Offset: -1 Slot: 9
+	public abstract void EmitPosition(Position pos);
+
+	// RVA: -1 Offset: -1 Slot: 10
+	public abstract void EmitOpen(int gid);
+
+	// RVA: -1 Offset: -1 Slot: 11
+	public abstract void EmitClose(int gid);
+
+	// RVA: -1 Offset: -1 Slot: 12
+	public abstract void EmitBalanceStart(int gid, int balance, bool capture, LinkRef tail);
+
+	// RVA: -1 Offset: -1 Slot: 13
+	public abstract void EmitBalance();
+
+	// RVA: -1 Offset: -1 Slot: 14
+	public abstract void EmitReference(int gid, bool ignore, bool reverse);
+
+	// RVA: -1 Offset: -1 Slot: 15
+	public abstract void EmitIfDefined(int gid, LinkRef tail);
+
+	// RVA: -1 Offset: -1 Slot: 16
+	public abstract void EmitSub(LinkRef tail);
+
+	// RVA: -1 Offset: -1 Slot: 17
+	public abstract void EmitTest(LinkRef yes, LinkRef tail);
+
+	// RVA: -1 Offset: -1 Slot: 18
+	public abstract void EmitBranch(LinkRef next);
+
+	// RVA: -1 Offset: -1 Slot: 19
+	public abstract void EmitJump(LinkRef target);
+
+	// RVA: -1 Offset: -1 Slot: 20
+	public abstract void EmitRepeat(int min, int max, bool lazy, LinkRef until);
+
+	// RVA: -1 Offset: -1 Slot: 21
+	public abstract void EmitUntil(LinkRef repeat);
+
+	// RVA: -1 Offset: -1 Slot: 22
+	public abstract void EmitIn(LinkRef tail);
+
+	// RVA: -1 Offset: -1 Slot: 23
+	public abstract void EmitInfo(int count, int min, int max);
+
+	// RVA: -1 Offset: -1 Slot: 24
+	public abstract void EmitFastRepeat(int min, int max, bool lazy, LinkRef tail);
+
+	// RVA: -1 Offset: -1 Slot: 25
+	public abstract void EmitAnchor(bool reverse, int offset, LinkRef tail);
+
+	// RVA: -1 Offset: -1 Slot: 26
+	public abstract void EmitBranchEnd();
+
+	// RVA: -1 Offset: -1 Slot: 27
+	public abstract void EmitAlternationEnd();
+
+	// RVA: -1 Offset: -1 Slot: 28
+	public abstract LinkRef NewLink();
+
+	// RVA: -1 Offset: -1 Slot: 29
+	public abstract void ResolveLink(LinkRef link);
+}
+
+// Namespace: System.Text.RegularExpressions
+internal class InterpreterFactory : IMachineFactory // TypeDefIndex: 1709
+{
+	// Fields
+	private IDictionary mapping; // 0x10
+	private ushort[] pattern; // 0x18
+	private string[] namesMapping; // 0x20
+	private int gap; // 0x28
+
+	// Properties
+	public int GroupCount { get; }
+	public int Gap { get; set; }
+	public IDictionary Mapping { get; set; }
+	public string[] NamesMapping { get; set; }
+
+	// Methods
+
+	// RVA: 0xF82A20 Offset: 0xF82A20 VA: 0xF82A20
+	public void .ctor(ushort[] pattern) { }
+
+	// RVA: 0xF82A4C Offset: 0xF82A4C VA: 0xF82A4C Slot: 4
+	public IMachine NewInstance() { }
+
+	// RVA: 0xF82AB0 Offset: 0xF82AB0 VA: 0xF82AB0 Slot: 7
+	public int get_GroupCount() { }
+
+	// RVA: 0xF82AF8 Offset: 0xF82AF8 VA: 0xF82AF8 Slot: 8
+	public int get_Gap() { }
+
+	// RVA: 0xF82B00 Offset: 0xF82B00 VA: 0xF82B00 Slot: 9
+	public void set_Gap(int value) { }
+
+	// RVA: 0xF82B08 Offset: 0xF82B08 VA: 0xF82B08 Slot: 5
+	public IDictionary get_Mapping() { }
+
+	// RVA: 0xF82B10 Offset: 0xF82B10 VA: 0xF82B10 Slot: 6
+	public void set_Mapping(IDictionary value) { }
+
+	// RVA: 0xF82B18 Offset: 0xF82B18 VA: 0xF82B18 Slot: 10
+	public string[] get_NamesMapping() { }
+
+	// RVA: 0xF82B20 Offset: 0xF82B20 VA: 0xF82B20 Slot: 11
+	public void set_NamesMapping(string[] value) { }
+}
+
+// Namespace: System.Text.RegularExpressions
+internal class PatternCompiler : ICompiler // TypeDefIndex: 1710
+{
+	// Fields
+	private ArrayList pgm; // 0x10
+
+	// Properties
+	private int CurrentAddress { get; }
+
+	// Methods
+
+	// RVA: 0xF84AB0 Offset: 0xF84AB0 VA: 0xF84AB0
+	public void .ctor() { }
+
+	// RVA: 0xF84B1C Offset: 0xF84B1C VA: 0xF84B1C
+	public static ushort EncodeOp(OpCode op, OpFlags flags) { }
+
+	// RVA: 0xF84B28 Offset: 0xF84B28 VA: 0xF84B28 Slot: 4
+	public IMachineFactory GetMachineFactory() { }
+
+	// RVA: 0xF84BF4 Offset: 0xF84BF4 VA: 0xF84BF4 Slot: 5
+	public void EmitFalse() { }
+
+	// RVA: 0xF84C00 Offset: 0xF84C00 VA: 0xF84C00 Slot: 6
+	public void EmitTrue() { }
+
+	// RVA: 0xF84C08 Offset: 0xF84C08 VA: 0xF84C08
+	private void EmitCount(int count) { }
+
+	// RVA: 0xF84CC4 Offset: 0xF84CC4 VA: 0xF84CC4 Slot: 7
+	public void EmitCharacter(char c, bool negate, bool ignore, bool reverse) { }
+
+	// RVA: 0xF84DD4 Offset: 0xF84DD4 VA: 0xF84DD4 Slot: 8
+	public void EmitCategory(Category cat, bool negate, bool reverse) { }
+
+	// RVA: 0xF84E1C Offset: 0xF84E1C VA: 0xF84E1C Slot: 9
+	public void EmitNotCategory(Category cat, bool negate, bool reverse) { }
+
+	// RVA: 0xF84E64 Offset: 0xF84E64 VA: 0xF84E64 Slot: 10
+	public void EmitRange(char lo, char hi, bool negate, bool ignore, bool reverse) { }
+
+	// RVA: 0xF84ED0 Offset: 0xF84ED0 VA: 0xF84ED0 Slot: 11
+	public void EmitSet(char lo, BitArray set, bool negate, bool ignore, bool reverse) { }
+
+	// RVA: 0xF85008 Offset: 0xF85008 VA: 0xF85008 Slot: 12
+	public void EmitString(string str, bool ignore, bool reverse) { }
+
+	// RVA: 0xF850DC Offset: 0xF850DC VA: 0xF850DC Slot: 13
+	public void EmitPosition(Position pos) { }
+
+	// RVA: 0xF8510C Offset: 0xF8510C VA: 0xF8510C Slot: 14
+	public void EmitOpen(int gid) { }
+
+	// RVA: 0xF8513C Offset: 0xF8513C VA: 0xF8513C Slot: 15
+	public void EmitClose(int gid) { }
+
+	// RVA: 0xF8516C Offset: 0xF8516C VA: 0xF8516C Slot: 16
+	public void EmitBalanceStart(int gid, int balance, bool capture, LinkRef tail) { }
+
+	// RVA: 0xF85430 Offset: 0xF85430 VA: 0xF85430 Slot: 17
+	public void EmitBalance() { }
+
+	// RVA: 0xF85438 Offset: 0xF85438 VA: 0xF85438 Slot: 18
+	public void EmitReference(int gid, bool ignore, bool reverse) { }
+
+	// RVA: 0xF85480 Offset: 0xF85480 VA: 0xF85480 Slot: 19
+	public void EmitIfDefined(int gid, LinkRef tail) { }
+
+	// RVA: 0xF854D4 Offset: 0xF854D4 VA: 0xF854D4 Slot: 20
+	public void EmitSub(LinkRef tail) { }
+
+	// RVA: 0xF8550C Offset: 0xF8550C VA: 0xF8550C Slot: 21
+	public void EmitTest(LinkRef yes, LinkRef tail) { }
+
+	// RVA: 0xF85568 Offset: 0xF85568 VA: 0xF85568 Slot: 22
+	public void EmitBranch(LinkRef next) { }
+
+	// RVA: 0xF855A0 Offset: 0xF855A0 VA: 0xF855A0 Slot: 23
+	public void EmitJump(LinkRef target) { }
+
+	// RVA: 0xF855D8 Offset: 0xF855D8 VA: 0xF855D8 Slot: 24
+	public void EmitRepeat(int min, int max, bool lazy, LinkRef until) { }
+
+	// RVA: 0xF8566C Offset: 0xF8566C VA: 0xF8566C Slot: 25
+	public void EmitUntil(LinkRef repeat) { }
+
+	// RVA: 0xF85818 Offset: 0xF85818 VA: 0xF85818 Slot: 28
+	public void EmitFastRepeat(int min, int max, bool lazy, LinkRef tail) { }
+
+	// RVA: 0xF858AC Offset: 0xF858AC VA: 0xF858AC Slot: 26
+	public void EmitIn(LinkRef tail) { }
+
+	// RVA: 0xF858E4 Offset: 0xF858E4 VA: 0xF858E4 Slot: 29
+	public void EmitAnchor(bool reverse, int offset, LinkRef tail) { }
+
+	// RVA: 0xF85948 Offset: 0xF85948 VA: 0xF85948 Slot: 27
+	public void EmitInfo(int count, int min, int max) { }
+
+	// RVA: 0xF859C4 Offset: 0xF859C4 VA: 0xF859C4 Slot: 32
+	public LinkRef NewLink() { }
+
+	// RVA: 0xF85694 Offset: 0xF85694 VA: 0xF85694 Slot: 33
+	public void ResolveLink(LinkRef lref) { }
+
+	// RVA: 0xF85A6C Offset: 0xF85A6C VA: 0xF85A6C Slot: 30
+	public void EmitBranchEnd() { }
+
+	// RVA: 0xF85A70 Offset: 0xF85A70 VA: 0xF85A70 Slot: 31
+	public void EmitAlternationEnd() { }
+
+	// RVA: 0xF84D94 Offset: 0xF84D94 VA: 0xF84D94
+	private static OpFlags MakeFlags(bool negate, bool ignore, bool reverse, bool lazy) { }
+
+	// RVA: 0xF84BFC Offset: 0xF84BFC VA: 0xF84BFC
+	private void Emit(OpCode op) { }
+
+	// RVA: 0xF84DC8 Offset: 0xF84DC8 VA: 0xF84DC8
+	private void Emit(OpCode op, OpFlags flags) { }
+
+	// RVA: 0xF84C34 Offset: 0xF84C34 VA: 0xF84C34
+	private void Emit(ushort word) { }
+
+	// RVA: 0xF85A28 Offset: 0xF85A28 VA: 0xF85A28
+	private int get_CurrentAddress() { }
+
+	// RVA: 0xF851F8 Offset: 0xF851F8 VA: 0xF851F8
+	private void BeginLink(LinkRef lref) { }
+
+	// RVA: 0xF852FC Offset: 0xF852FC VA: 0xF852FC
+	private void EmitLink(LinkRef lref) { }
+}
+
+// Namespace: 
+private class PatternCompiler.PatternLinkStack : LinkStack // TypeDefIndex: 1711
+{
+	// Fields
+	private PatternCompiler.PatternLinkStack.Link link; // 0x18
+
+	// Properties
+	public int BaseAddress { set; }
+	public int OffsetAddress { get; set; }
+
+	// Methods
+
+	// RVA: 0xF85A1C Offset: 0xF85A1C VA: 0xF85A1C
+	public void .ctor() { }
+
+	// RVA: 0xF85A74 Offset: 0xF85A74 VA: 0xF85A74
+	public void set_BaseAddress(int value) { }
+
+	// RVA: 0xF85A20 Offset: 0xF85A20 VA: 0xF85A20
+	public int get_OffsetAddress() { }
+
+	// RVA: 0xF85A7C Offset: 0xF85A7C VA: 0xF85A7C
+	public void set_OffsetAddress(int value) { }
+
+	// RVA: 0xF85A60 Offset: 0xF85A60 VA: 0xF85A60
+	public int GetOffset(int target_addr) { }
+
+	// RVA: 0xF85A84 Offset: 0xF85A84 VA: 0xF85A84 Slot: 4
+	protected override object GetCurrent() { }
+
+	// RVA: 0xF85AE8 Offset: 0xF85AE8 VA: 0xF85AE8 Slot: 5
+	protected override void SetCurrent(object l) { }
+}
+
+// Namespace: 
+private struct PatternCompiler.PatternLinkStack.Link // TypeDefIndex: 1712
+{
+	// Fields
+	public int base_addr; // 0x0
+	public int offset_addr; // 0x4
+}
+
+// Namespace: System.Text.RegularExpressions
+internal abstract class LinkStack : LinkRef // TypeDefIndex: 1713
+{
+	// Fields
+	private Stack stack; // 0x10
+
+	// Methods
+
+	// RVA: 0xF83E58 Offset: 0xF83E58 VA: 0xF83E58
+	public void .ctor() { }
+
+	// RVA: 0xF83EC4 Offset: 0xF83EC4 VA: 0xF83EC4
+	public void Push() { }
+
+	// RVA: 0xF83F10 Offset: 0xF83F10 VA: 0xF83F10
+	public bool Pop() { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	protected abstract object GetCurrent();
+
+	// RVA: -1 Offset: -1 Slot: 5
+	protected abstract void SetCurrent(object l);
+}
+
+// Namespace: System.Text.RegularExpressions
+internal struct Mark // TypeDefIndex: 1714

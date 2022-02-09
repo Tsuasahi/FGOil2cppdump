@@ -1,0 +1,1000 @@
+
+	// RVA: 0xFE10DC Offset: 0xFE10DC VA: 0xFE10DC
+	public AbstractSplineSolver get_SplineSolver() { }
+
+	// RVA: 0xFE10E4 Offset: 0xFE10E4 VA: 0xFE10E4
+	private void set_SplineSolver(AbstractSplineSolver value) { }
+
+	// RVA: 0xFE10EC Offset: 0xFE10EC VA: 0xFE10EC
+	public void BuildFromKeyframes(List<SplineKeyframe> keyframes) { }
+
+	// RVA: 0xFE148C Offset: 0xFE148C VA: 0xFE148C
+	public Vector3 GetPositionOnPath(float time) { }
+
+	// RVA: 0xFE1560 Offset: 0xFE1560 VA: 0xFE1560
+	public void OnDrawGizmos() { }
+
+	// RVA: 0xFE163C Offset: 0xFE163C VA: 0xFE163C
+	public void .ctor() { }
+}
+
+// Namespace: WellFired
+[Serializable]
+public class SplineKeyframe : ScriptableObject // TypeDefIndex: 3759
+{
+	// Fields
+	[SerializeField] // RVA: 0xC8A0A8 Offset: 0xC8A0A8 VA: 0xC8A0A8
+	private Vector3 position; // 0x18
+
+	// Properties
+	public Vector3 Position { get; set; }
+
+	// Methods
+
+	// RVA: 0xFDC2EC Offset: 0xFDC2EC VA: 0xFDC2EC
+	public Vector3 get_Position() { }
+
+	// RVA: 0xFDC370 Offset: 0xFDC370 VA: 0xFDC370
+	public void set_Position(Vector3 value) { }
+
+	// RVA: 0xFDC2F8 Offset: 0xFDC2F8 VA: 0xFDC2F8
+	public void .ctor() { }
+}
+
+// Namespace: WellFired
+public enum SplineOrientationMode // TypeDefIndex: 3760
+{
+	// Fields
+	public int value__; // 0x0
+	public const SplineOrientationMode ManualOrientation = 0;
+	public const SplineOrientationMode LookAtTransform = 1;
+	public const SplineOrientationMode LookAhead = 2;
+}
+
+// Namespace: WellFired
+public abstract class AbstractSplineSolver : ScriptableObject // TypeDefIndex: 3761
+{
+	// Fields
+	public const int TOTAL_SUBDIVISIONS_PER_NODE = 5;
+	[SerializeField] // RVA: 0xC8A0B8 Offset: 0xC8A0B8 VA: 0xC8A0B8
+	protected List<SplineKeyframe> nodes; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xC8A0C8 Offset: 0xC8A0C8 VA: 0xC8A0C8
+	private float <PathLength>k__BackingField; // 0x20
+	protected Dictionary<float, float> segmentTimeForDistance; // 0x28
+
+	// Properties
+	public List<SplineKeyframe> Nodes { get; set; }
+	[SerializeField] // RVA: 0xC8A5A8 Offset: 0xC8A5A8 VA: 0xC8A5A8
+	protected float PathLength { get; set; }
+
+	// Methods
+
+	// RVA: 0xFDA814 Offset: 0xFDA814 VA: 0xFDA814
+	public List<SplineKeyframe> get_Nodes() { }
+
+	// RVA: 0xFDA81C Offset: 0xFDA81C VA: 0xFDA81C
+	public void set_Nodes(List<SplineKeyframe> value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8A518 Offset: 0xC8A518 VA: 0xC8A518
+	// RVA: 0xFDA824 Offset: 0xFDA824 VA: 0xFDA824
+	protected float get_PathLength() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8A528 Offset: 0xC8A528 VA: 0xC8A528
+	// RVA: 0xFDA82C Offset: 0xFDA82C VA: 0xFDA82C
+	protected void set_PathLength(float value) { }
+
+	// RVA: 0xFDA834 Offset: 0xFDA834 VA: 0xFDA834
+	private void OnEnable() { }
+
+	// RVA: 0xFDA8A4 Offset: 0xFDA8A4 VA: 0xFDA8A4 Slot: 4
+	public virtual void Build() { }
+
+	// RVA: 0xFDAA78 Offset: 0xFDAA78 VA: 0xFDAA78 Slot: 5
+	public virtual Vector3 GetPositionOnPath(float time) { }
+
+	// RVA: 0xFDACA0 Offset: 0xFDACA0 VA: 0xFDACA0
+	public void Reverse() { }
+
+	// RVA: 0xFDAD00 Offset: 0xFDAD00 VA: 0xFDAD00
+	public void OnInternalDrawGizmos(Color splineColor, float displayResolution) { }
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract void Display(Color splineColor);
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract void Close();
+
+	// RVA: -1 Offset: -1 Slot: 8
+	public abstract Vector3 GetPosition(float time);
+
+	// RVA: 0xFDAF60 Offset: 0xFDAF60 VA: 0xFDAF60
+	protected void .ctor() { }
+}
+
+// Namespace: WellFired
+[Serializable]
+public class CatmullRomSplineSolver : AbstractSplineSolver // TypeDefIndex: 3762
+{
+	// Methods
+
+	// RVA: 0xFDBB38 Offset: 0xFDBB38 VA: 0xFDBB38
+	public void .ctor(List<SplineKeyframe> nodes) { }
+
+	// RVA: 0xFDBB64 Offset: 0xFDBB64 VA: 0xFDBB64 Slot: 7
+	public override void Close() { }
+
+	// RVA: 0xFDC37C Offset: 0xFDC37C VA: 0xFDC37C Slot: 8
+	public override Vector3 GetPosition(float time) { }
+
+	// RVA: 0xFDC828 Offset: 0xFDC828 VA: 0xFDC828 Slot: 6
+	public override void Display(Color splineColor) { }
+}
+
+// Namespace: WellFired
+[Serializable]
+public class CubicBezierSplineSolver : AbstractSplineSolver // TypeDefIndex: 3763
+{
+	// Methods
+
+	// RVA: 0xFDCB38 Offset: 0xFDCB38 VA: 0xFDCB38
+	public void .ctor(List<SplineKeyframe> nodes) { }
+
+	// RVA: 0xFDCB64 Offset: 0xFDCB64 VA: 0xFDCB64 Slot: 7
+	public override void Close() { }
+
+	// RVA: 0xFDCB68 Offset: 0xFDCB68 VA: 0xFDCB68 Slot: 8
+	public override Vector3 GetPosition(float time) { }
+
+	// RVA: 0xFDCDA0 Offset: 0xFDCDA0 VA: 0xFDCDA0 Slot: 6
+	public override void Display(Color splineColor) { }
+}
+
+// Namespace: WellFired
+[Serializable]
+public class LinearSplineSolver : AbstractSplineSolver // TypeDefIndex: 3764
+{
+	// Fields
+	private Dictionary<int, float> segmentStartLocations; // 0x30
+	private Dictionary<int, float> segmentDistances; // 0x38
+	private int currentSegment; // 0x40
+
+	// Methods
+
+	// RVA: 0xFDD228 Offset: 0xFDD228 VA: 0xFDD228 Slot: 4
+	public override void Build() { }
+
+	// RVA: 0xFDD4E8 Offset: 0xFDD4E8 VA: 0xFDD4E8 Slot: 7
+	public override void Close() { }
+
+	// RVA: 0xFDD6AC Offset: 0xFDD6AC VA: 0xFDD6AC Slot: 8
+	public override Vector3 GetPosition(float time) { }
+
+	// RVA: 0xFDD6B8 Offset: 0xFDD6B8 VA: 0xFDD6B8 Slot: 5
+	public override Vector3 GetPositionOnPath(float time) { }
+
+	// RVA: 0xFDDA38 Offset: 0xFDDA38 VA: 0xFDDA38 Slot: 6
+	public override void Display(Color splineColor) { }
+
+	// RVA: 0xFDDA3C Offset: 0xFDDA3C VA: 0xFDDA3C
+	public void .ctor() { }
+}
+
+// Namespace: WellFired
+[Serializable]
+public class QuadraticSplineSolver : AbstractSplineSolver // TypeDefIndex: 3765
+{
+	// Methods
+
+	// RVA: 0xFDF460 Offset: 0xFDF460 VA: 0xFDF460
+	protected float quadBezierLength(Vector3 startPoint, Vector3 controlPoint, Vector3 endPoint) { }
+
+	// RVA: 0xFDF908 Offset: 0xFDF908 VA: 0xFDF908 Slot: 7
+	public override void Close() { }
+
+	// RVA: 0xFDF90C Offset: 0xFDF90C VA: 0xFDF90C Slot: 8
+	public override Vector3 GetPosition(float time) { }
+
+	// RVA: 0xFDFAC4 Offset: 0xFDFAC4 VA: 0xFDFAC4 Slot: 6
+	public override void Display(Color splineColor) { }
+
+	// RVA: 0xFDFD68 Offset: 0xFDFD68 VA: 0xFDFD68
+	public void .ctor() { }
+}
+
+// Namespace: WellFired
+[Serializable]
+public class USTimelineAnimation : USTimelineBase // TypeDefIndex: 3766
+{
+	// Fields
+	private Dictionary<int, List<AnimatorClipInfo>> initialAnimationInfo; // 0x28
+	private Dictionary<int, AnimatorStateInfo> initialAnimatorStateInfo; // 0x30
+	[SerializeField] // RVA: 0xC8A0D8 Offset: 0xC8A0D8 VA: 0xC8A0D8
+	private List<AnimationTrack> animationsTracks; // 0x38
+	[SerializeField] // RVA: 0xC8A0E8 Offset: 0xC8A0E8 VA: 0xC8A0E8
+	private Animator animator; // 0x40
+	[SerializeField] // RVA: 0xC8A0F8 Offset: 0xC8A0F8 VA: 0xC8A0F8
+	private USTimelineAnimationEditorRunner editorRunner; // 0x48
+	[SerializeField] // RVA: 0xC8A108 Offset: 0xC8A108 VA: 0xC8A108
+	private USTimelineAnimationGameRunner gameRunner; // 0x50
+	[SerializeField] // RVA: 0xC8A118 Offset: 0xC8A118 VA: 0xC8A118
+	private AnimationTimelineController animationTimelineController; // 0x58
+	[SerializeField] // RVA: 0xC8A128 Offset: 0xC8A128 VA: 0xC8A128
+	private Vector3 sourcePosition; // 0x60
+	[SerializeField] // RVA: 0xC8A138 Offset: 0xC8A138 VA: 0xC8A138
+	private Quaternion sourceOrientation; // 0x6C
+	[SerializeField] // RVA: 0xC8A148 Offset: 0xC8A148 VA: 0xC8A148
+	private float sourceSpeed; // 0x7C
+	private bool previousEnabled; // 0x80
+
+	// Properties
+	public List<AnimationTrack> AnimationTracks { get; set; }
+	private Animator Animator { get; }
+	private USTimelineAnimationEditorRunner EditorRunner { get; }
+	private USTimelineAnimationGameRunner GameRunner { get; }
+
+	// Methods
+
+	// RVA: 0xFEF610 Offset: 0xFEF610 VA: 0xFEF610
+	public List<AnimationTrack> get_AnimationTracks() { }
+
+	// RVA: 0xFEF618 Offset: 0xFEF618 VA: 0xFEF618
+	private void set_AnimationTracks(List<AnimationTrack> value) { }
+
+	// RVA: 0xFEF620 Offset: 0xFEF620 VA: 0xFEF620
+	private Animator get_Animator() { }
+
+	// RVA: 0xFEF6CC Offset: 0xFEF6CC VA: 0xFEF6CC
+	private USTimelineAnimationEditorRunner get_EditorRunner() { }
+
+	// RVA: 0xFEF7A8 Offset: 0xFEF7A8 VA: 0xFEF7A8
+	private USTimelineAnimationGameRunner get_GameRunner() { }
+
+	// RVA: 0xFEF884 Offset: 0xFEF884 VA: 0xFEF884 Slot: 5
+	public override void StartTimeline() { }
+
+	// RVA: 0xFEFCE8 Offset: 0xFEFCE8 VA: 0xFEFCE8 Slot: 4
+	public override void StopTimeline() { }
+
+	// RVA: 0xFF022C Offset: 0xFF022C VA: 0xFF022C Slot: 6
+	public override void EndTimeline() { }
+
+	// RVA: 0xFEFECC Offset: 0xFEFECC VA: 0xFEFECC
+	public void ResetAnimation() { }
+
+	// RVA: 0xFF0270 Offset: 0xFF0270 VA: 0xFF0270 Slot: 10
+	public override void Process(float sequenceTime, float playbackRate) { }
+
+	// RVA: 0xFF0BAC Offset: 0xFF0BAC VA: 0xFF0BAC Slot: 7
+	public override void PauseTimeline() { }
+
+	// RVA: 0xFF0C10 Offset: 0xFF0C10 VA: 0xFF0C10
+	public void AddTrack(AnimationTrack animationTrack) { }
+
+	// RVA: 0xFF0C80 Offset: 0xFF0C80 VA: 0xFF0C80
+	public void RemoveTrack(AnimationTrack animationTrack) { }
+
+	// RVA: 0xFF0CF0 Offset: 0xFF0CF0 VA: 0xFF0CF0
+	public void SetTracks(List<AnimationTrack> animationTracks) { }
+
+	// RVA: 0xFF0CF8 Offset: 0xFF0CF8 VA: 0xFF0CF8
+	public void .ctor() { }
+}
+
+// Namespace: WellFired
+[Serializable]
+public class USTimelineAnimationEditorRunner : ScriptableObject // TypeDefIndex: 3767
+{
+	// Fields
+	[SerializeField] // RVA: 0xC8A158 Offset: 0xC8A158 VA: 0xC8A158
+	private Animator animator; // 0x18
+	[SerializeField] // RVA: 0xC8A168 Offset: 0xC8A168 VA: 0xC8A168
+	private USTimelineAnimation animationTimeline; // 0x20
+	[SerializeField] // RVA: 0xC8A178 Offset: 0xC8A178 VA: 0xC8A178
+	private List<AnimationClipData> allClips; // 0x28
+	private List<AnimationClipData> cachedRunningClips; // 0x30
+	private float previousTime; // 0x38
+
+	// Properties
+	private Animator Animator { get; set; }
+	private USTimelineAnimation AnimationTimeline { get; set; }
+
+	// Methods
+
+	// RVA: 0xFF0DC0 Offset: 0xFF0DC0 VA: 0xFF0DC0
+	private Animator get_Animator() { }
+
+	// RVA: 0xFEF798 Offset: 0xFEF798 VA: 0xFEF798
+	public void set_Animator(Animator value) { }
+
+	// RVA: 0xFF0DC8 Offset: 0xFF0DC8 VA: 0xFF0DC8
+	private USTimelineAnimation get_AnimationTimeline() { }
+
+	// RVA: 0xFEF7A0 Offset: 0xFEF7A0 VA: 0xFEF7A0
+	public void set_AnimationTimeline(USTimelineAnimation value) { }
+
+	// RVA: 0xFF0224 Offset: 0xFF0224 VA: 0xFF0224
+	public void Stop() { }
+
+	// RVA: 0xFF02B4 Offset: 0xFF02B4 VA: 0xFF02B4
+	public void Process(float sequenceTime, float playbackRate) { }
+
+	// RVA: 0xFF0BD8 Offset: 0xFF0BD8 VA: 0xFF0BD8
+	public void PauseTimeline() { }
+
+	// RVA: 0xFF0DD0 Offset: 0xFF0DD0 VA: 0xFF0DD0
+	private void PlayClip(AnimationClipData clipToPlay, int layer, float sequenceTime) { }
+
+	// RVA: 0xFF0F34 Offset: 0xFF0F34 VA: 0xFF0F34
+	public void .ctor() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC897E4 Offset: 0xC897E4 VA: 0xC897E4
+[Serializable]
+private sealed class USTimelineAnimationEditorRunner.<>c // TypeDefIndex: 3768
+{
+	// Fields
+	public static readonly USTimelineAnimationEditorRunner.<>c <>9; // 0x0
+	public static Comparison<AnimationClipData> <>9__12_0; // 0x8
+
+	// Methods
+
+	// RVA: 0xFF0FC4 Offset: 0xFF0FC4 VA: 0xFF0FC4
+	private static void .cctor() { }
+
+	// RVA: 0xFF1028 Offset: 0xFF1028 VA: 0xFF1028
+	public void .ctor() { }
+
+	// RVA: 0xFF1030 Offset: 0xFF1030 VA: 0xFF1030
+	internal int <Process>b__12_0(AnimationClipData x, AnimationClipData y) { }
+}
+
+// Namespace: WellFired
+[Serializable]
+public class USTimelineAnimationGameRunner : ScriptableObject // TypeDefIndex: 3769
+{
+	// Fields
+	[SerializeField] // RVA: 0xC8A188 Offset: 0xC8A188 VA: 0xC8A188
+	private Animator animator; // 0x18
+	[SerializeField] // RVA: 0xC8A198 Offset: 0xC8A198 VA: 0xC8A198
+	private USTimelineAnimation animationTimeline; // 0x20
+	[SerializeField] // RVA: 0xC8A1A8 Offset: 0xC8A1A8 VA: 0xC8A1A8
+	private List<AnimationClipData> allClips; // 0x28
+	[SerializeField] // RVA: 0xC8A1B8 Offset: 0xC8A1B8 VA: 0xC8A1B8
+	private List<AnimationClipData> notRunningClips; // 0x30
+	[SerializeField] // RVA: 0xC8A1C8 Offset: 0xC8A1C8 VA: 0xC8A1C8
+	private List<AnimationClipData> runningClips; // 0x38
+	[SerializeField] // RVA: 0xC8A1D8 Offset: 0xC8A1D8 VA: 0xC8A1D8
+	private List<AnimationClipData> finishedClips; // 0x40
+	[SerializeField] // RVA: 0xC8A1E8 Offset: 0xC8A1E8 VA: 0xC8A1E8
+	private List<AnimationClipData> newProcessingClips; // 0x48
+
+	// Properties
+	private Animator Animator { get; set; }
+	private USTimelineAnimation AnimationTimeline { get; set; }
+
+	// Methods
+
+	// RVA: 0xFF108C Offset: 0xFF108C VA: 0xFF108C
+	private Animator get_Animator() { }
+
+	// RVA: 0xFEF874 Offset: 0xFEF874 VA: 0xFEF874
+	public void set_Animator(Animator value) { }
+
+	// RVA: 0xFF1094 Offset: 0xFF1094 VA: 0xFF1094
+	private USTimelineAnimation get_AnimationTimeline() { }
+
+	// RVA: 0xFEF87C Offset: 0xFEF87C VA: 0xFEF87C
+	public void set_AnimationTimeline(USTimelineAnimation value) { }
+
+	// RVA: 0xFF014C Offset: 0xFF014C VA: 0xFF014C
+	public void Stop() { }
+
+	// RVA: 0xFF07AC Offset: 0xFF07AC VA: 0xFF07AC
+	public void Process(float sequenceTime, float playbackRate) { }
+
+	// RVA: 0xFF0C0C Offset: 0xFF0C0C VA: 0xFF0C0C
+	public void PauseTimeline() { }
+
+	// RVA: 0xFF1234 Offset: 0xFF1234 VA: 0xFF1234
+	private void SortNewProcessingClips(float sequenceTime) { }
+
+	// RVA: 0xFF109C Offset: 0xFF109C VA: 0xFF109C
+	private void SortClipsAtTime(float sequenceTime, IEnumerable<AnimationClipData> sortInto, AnimationClipData.StateCheck stateCheck) { }
+
+	// RVA: 0xFF1F18 Offset: 0xFF1F18 VA: 0xFF1F18
+	private void PlayClip(AnimationClipData clipToPlay, int layer, float sequenceTime) { }
+
+	// RVA: 0xFF1770 Offset: 0xFF1770 VA: 0xFF1770
+	private void SanityCheckClipData() { }
+
+	// RVA: 0xFF2084 Offset: 0xFF2084 VA: 0xFF2084
+	public void .ctor() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC897F4 Offset: 0xC897F4 VA: 0xC897F4
+[Serializable]
+private sealed class USTimelineAnimationGameRunner.<>c // TypeDefIndex: 3770
+{
+	// Fields
+	public static readonly USTimelineAnimationGameRunner.<>c <>9; // 0x0
+	public static Func<AnimationClipData, float> <>9__16_0; // 0x8
+	public static Func<AnimationTrack, IEnumerable<AnimationClipData>> <>9__19_0; // 0x10
+
+	// Methods
+
+	// RVA: 0xFF215C Offset: 0xFF215C VA: 0xFF215C
+	private static void .cctor() { }
+
+	// RVA: 0xFF21C0 Offset: 0xFF21C0 VA: 0xFF21C0
+	public void .ctor() { }
+
+	// RVA: 0xFF21C8 Offset: 0xFF21C8 VA: 0xFF21C8
+	internal float <SortNewProcessingClips>b__16_0(AnimationClipData processingClip) { }
+
+	// RVA: 0xFF21F4 Offset: 0xFF21F4 VA: 0xFF21F4
+	internal IEnumerable<AnimationClipData> <SanityCheckClipData>b__19_0(AnimationTrack animationTrack) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC89804 Offset: 0xC89804 VA: 0xC89804
+private sealed class USTimelineAnimationGameRunner.<>c__DisplayClass19_0 // TypeDefIndex: 3771
+{
+	// Fields
+	public AnimationClipData clip; // 0x10
+
+	// Methods
+
+	// RVA: 0xFF207C Offset: 0xFF207C VA: 0xFF207C
+	public void .ctor() { }
+
+	// RVA: 0xFF2220 Offset: 0xFF2220 VA: 0xFF2220
+	internal bool <SanityCheckClipData>b__1(AnimationClipData element) { }
+
+	// RVA: 0xFF229C Offset: 0xFF229C VA: 0xFF229C
+	internal bool <SanityCheckClipData>b__2(AnimationClipData element) { }
+
+	// RVA: 0xFF2318 Offset: 0xFF2318 VA: 0xFF2318
+	internal bool <SanityCheckClipData>b__3(AnimationClipData element) { }
+}
+
+// Namespace: WellFired
+public class USTimelineBase : MonoBehaviour // TypeDefIndex: 3772
+{
+	// Fields
+	private USTimelineContainer timelineContainer; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xC8A1F8 Offset: 0xC8A1F8 VA: 0xC8A1F8
+	private bool <ShouldRenderGizmos>k__BackingField; // 0x20
+
+	// Properties
+	public Transform AffectedObject { get; }
+	public USTimelineContainer TimelineContainer { get; }
+	public USSequencer Sequence { get; }
+	public bool ShouldRenderGizmos { get; set; }
+
+	// Methods
+
+	// RVA: 0xFEDDCC Offset: 0xFEDDCC VA: 0xFEDDCC
+	public Transform get_AffectedObject() { }
+
+	// RVA: 0xFE2758 Offset: 0xFE2758 VA: 0xFE2758
+	public USTimelineContainer get_TimelineContainer() { }
+
+	// RVA: 0xFE2684 Offset: 0xFE2684 VA: 0xFE2684
+	public USSequencer get_Sequence() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8A538 Offset: 0xC8A538 VA: 0xC8A538
+	// RVA: 0xFF2458 Offset: 0xFF2458 VA: 0xFF2458
+	public bool get_ShouldRenderGizmos() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8A548 Offset: 0xC8A548 VA: 0xC8A548
+	// RVA: 0xFF2460 Offset: 0xFF2460 VA: 0xFF2460
+	public void set_ShouldRenderGizmos(bool value) { }
+
+	// RVA: 0xFF246C Offset: 0xFF246C VA: 0xFF246C Slot: 4
+	public virtual void StopTimeline() { }
+
+	// RVA: 0xFF2470 Offset: 0xFF2470 VA: 0xFF2470 Slot: 5
+	public virtual void StartTimeline() { }
+
+	// RVA: 0xFF026C Offset: 0xFF026C VA: 0xFF026C Slot: 6
+	public virtual void EndTimeline() { }
+
+	// RVA: 0xFF2474 Offset: 0xFF2474 VA: 0xFF2474 Slot: 7
+	public virtual void PauseTimeline() { }
+
+	// RVA: 0xFF2478 Offset: 0xFF2478 VA: 0xFF2478 Slot: 8
+	public virtual void ResumeTimeline() { }
+
+	// RVA: 0xFF247C Offset: 0xFF247C VA: 0xFF247C Slot: 9
+	public virtual void SkipTimelineTo(float time) { }
+
+	// RVA: 0xFF2480 Offset: 0xFF2480 VA: 0xFF2480 Slot: 10
+	public virtual void Process(float sequencerTime, float playbackRate) { }
+
+	// RVA: 0xFF2484 Offset: 0xFF2484 VA: 0xFF2484 Slot: 11
+	public virtual void ManuallySetTime(float sequencerTime) { }
+
+	// RVA: 0xFF2488 Offset: 0xFF2488 VA: 0xFF2488 Slot: 12
+	public virtual void LateBindAffectedObjectInScene(Transform newAffectedObject) { }
+
+	// RVA: 0xFF248C Offset: 0xFF248C VA: 0xFF248C Slot: 13
+	public virtual string GetJson() { }
+
+	// RVA: 0xFF24F4 Offset: 0xFF24F4 VA: 0xFF24F4 Slot: 14
+	public virtual void ResetCachedData() { }
+
+	// RVA: 0xFF0DB8 Offset: 0xFF0DB8 VA: 0xFF0DB8
+	public void .ctor() { }
+}
+
+// Namespace: WellFired
+[ExecuteInEditMode] // RVA: 0xC89814 Offset: 0xC89814 VA: 0xC89814
+public class USTimelineContainer : MonoBehaviour // TypeDefIndex: 3773
+{
+	// Fields
+	[SerializeField] // RVA: 0xC8A208 Offset: 0xC8A208 VA: 0xC8A208
+	private Transform affectedObject; // 0x18
+	[SerializeField] // RVA: 0xC8A218 Offset: 0xC8A218 VA: 0xC8A218
+	private string affectedObjectPath; // 0x20
+	[SerializeField] // RVA: 0xC8A228 Offset: 0xC8A228 VA: 0xC8A228
+	private int index; // 0x28
+	private USSequencer sequence; // 0x30
+	private USTimelineBase[] timelines; // 0x38
+
+	// Properties
+	public Transform AffectedObject { get; set; }
+	public USSequencer Sequence { get; }
+	public USTimelineBase[] Timelines { get; }
+	public int Index { get; set; }
+	public string AffectedObjectPath { get; set; }
+
+	// Methods
+
+	// RVA: 0xFF24FC Offset: 0xFF24FC VA: 0xFF24FC
+	public static int Comparer(USTimelineContainer a, USTimelineContainer b) { }
+
+	// RVA: 0xFE28F0 Offset: 0xFE28F0 VA: 0xFE28F0
+	public Transform get_AffectedObject() { }
+
+	// RVA: 0xFEE170 Offset: 0xFEE170 VA: 0xFEE170
+	public void set_AffectedObject(Transform value) { }
+
+	// RVA: 0xFF2394 Offset: 0xFF2394 VA: 0xFF2394
+	public USSequencer get_Sequence() { }
+
+	// RVA: 0xFED0CC Offset: 0xFED0CC VA: 0xFED0CC
+	public USTimelineBase[] get_Timelines() { }
+
+	// RVA: 0xFEE21C Offset: 0xFEE21C VA: 0xFEE21C
+	public int get_Index() { }
+
+	// RVA: 0xFEE224 Offset: 0xFEE224 VA: 0xFEE224
+	public void set_Index(int value) { }
+
+	// RVA: 0xFF263C Offset: 0xFF263C VA: 0xFF263C
+	public string get_AffectedObjectPath() { }
+
+	// RVA: 0xFF2644 Offset: 0xFF2644 VA: 0xFF2644
+	private void set_AffectedObjectPath(string value) { }
+
+	// RVA: 0xFF264C Offset: 0xFF264C VA: 0xFF264C
+	private void Start() { }
+
+	// RVA: 0xFF2848 Offset: 0xFF2848 VA: 0xFF2848
+	public void AddNewTimeline(USTimelineBase timeline) { }
+
+	// RVA: 0xFED1D0 Offset: 0xFED1D0 VA: 0xFED1D0
+	public void ProcessTimelines(float sequencerTime, float playbackRate) { }
+
+	// RVA: 0xFEEC4C Offset: 0xFEEC4C VA: 0xFEEC4C
+	public void SkipTimelineTo(float sequencerTime) { }
+
+	// RVA: 0xFED12C Offset: 0xFED12C VA: 0xFED12C
+	public void ManuallySetTime(float sequencerTime) { }
+
+	// RVA: 0xFF2554 Offset: 0xFF2554 VA: 0xFF2554
+	public void RenameTimelineContainer() { }
+
+	// RVA: 0xFEEE5C Offset: 0xFEEE5C VA: 0xFEEE5C
+	public void ResetCachedData() { }
+
+	// RVA: 0xFF2898 Offset: 0xFF2898 VA: 0xFF2898
+	public void .ctor() { }
+}
+
+// Namespace: WellFired
+public class USTimelineEvent : USTimelineBase // TypeDefIndex: 3774
+{
+	// Fields
+	private float elapsedTime; // 0x24
+	private USEventBase[] cachedEvents; // 0x28
+
+	// Properties
+	public int EventCount { get; }
+	public USEventBase[] Events { get; }
+
+	// Methods
+
+	// RVA: 0xFF28A8 Offset: 0xFF28A8 VA: 0xFF28A8
+	public int get_EventCount() { }
+
+	// RVA: 0xFEDB94 Offset: 0xFEDB94 VA: 0xFEDB94
+	public USEventBase[] get_Events() { }
+
+	// RVA: 0xFF28DC Offset: 0xFF28DC VA: 0xFF28DC
+	public USEventBase Event(int index) { }
+
+	// RVA: 0xFF2AA4 Offset: 0xFF2AA4 VA: 0xFF2AA4 Slot: 4
+	public override void StopTimeline() { }
+
+	// RVA: 0xFF2DF8 Offset: 0xFF2DF8 VA: 0xFF2DF8 Slot: 7
+	public override void PauseTimeline() { }
+
+	// RVA: 0xFF2E84 Offset: 0xFF2E84 VA: 0xFF2E84 Slot: 8
+	public override void ResumeTimeline() { }
+
+	// RVA: 0xFF2F74 Offset: 0xFF2F74 VA: 0xFF2F74 Slot: 9
+	public override void SkipTimelineTo(float time) { }
+
+	// RVA: 0xFF33D4 Offset: 0xFF33D4 VA: 0xFF33D4 Slot: 10
+	public override void Process(float sequencerTime, float playbackRate) { }
+
+	// RVA: 0xFF360C Offset: 0xFF360C VA: 0xFF360C
+	private void FireEvent(USEventBase baseEvent, float prevElapsedTime, float elapsedTime) { }
+
+	// RVA: 0xFF36E8 Offset: 0xFF36E8 VA: 0xFF36E8
+	private void FireEventReverse(USEventBase baseEvent, float prevElapsedTime, float elapsedTime) { }
+
+	// RVA: 0xFF36EC Offset: 0xFF36EC VA: 0xFF36EC
+	private void FireEventCommon(USEventBase baseEvent, float sequencerTime, float prevElapsedTime, float elapsedTime) { }
+
+	// RVA: 0xFF38B8 Offset: 0xFF38B8 VA: 0xFF38B8 Slot: 11
+	public override void ManuallySetTime(float sequencerTime) { }
+
+	// RVA: 0xFF3CDC Offset: 0xFF3CDC VA: 0xFF3CDC
+	public void AddNewEvent(USEventBase sequencerEvent) { }
+
+	// RVA: 0xFF3DB0 Offset: 0xFF3DB0 VA: 0xFF3DB0
+	public void RemoveAndDestroyEvent(Transform sequencerEvent) { }
+
+	// RVA: 0xFF3D44 Offset: 0xFF3D44 VA: 0xFF3D44
+	public void SortEvents() { }
+
+	// RVA: 0xFF3EB4 Offset: 0xFF3EB4 VA: 0xFF3EB4 Slot: 14
+	public override void ResetCachedData() { }
+
+	// RVA: 0xFF3EC0 Offset: 0xFF3EC0 VA: 0xFF3EC0
+	public void .ctor() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC89824 Offset: 0xC89824 VA: 0xC89824
+private sealed class USTimelineEvent.<>c__DisplayClass7_0 // TypeDefIndex: 3775
+{
+	// Fields
+	public float prevElapsedTime; // 0x10
+
+	// Methods
+
+	// RVA: 0xFF2DF0 Offset: 0xFF2DF0 VA: 0xFF2DF0
+	public void .ctor() { }
+
+	// RVA: 0xFF3FEC Offset: 0xFF3FEC VA: 0xFF3FEC
+	internal bool <StopTimeline>b__0(USEventBase e) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC89834 Offset: 0xC89834 VA: 0xC89834
+[Serializable]
+private sealed class USTimelineEvent.<>c // TypeDefIndex: 3776
+{
+	// Fields
+	public static readonly USTimelineEvent.<>c <>9; // 0x0
+	public static Comparison<USEventBase> <>9__11_0; // 0x8
+	public static Comparison<USEventBase> <>9__11_1; // 0x10
+
+	// Methods
+
+	// RVA: 0xFF3EC8 Offset: 0xFF3EC8 VA: 0xFF3EC8
+	private static void .cctor() { }
+
+	// RVA: 0xFF3F2C Offset: 0xFF3F2C VA: 0xFF3F2C
+	public void .ctor() { }
+
+	// RVA: 0xFF3F34 Offset: 0xFF3F34 VA: 0xFF3F34
+	internal int <Process>b__11_0(USEventBase a, USEventBase b) { }
+
+	// RVA: 0xFF3F90 Offset: 0xFF3F90 VA: 0xFF3F90
+	internal int <Process>b__11_1(USEventBase a, USEventBase b) { }
+}
+
+// Namespace: WellFired
+[Serializable]
+public class USTimelineObjectPath : USTimelineBase // TypeDefIndex: 3777
+{
+	// Fields
+	[SerializeField] // RVA: 0xC8A238 Offset: 0xC8A238 VA: 0xC8A238
+	private Easing.EasingType easingType; // 0x24
+	[SerializeField] // RVA: 0xC8A248 Offset: 0xC8A248 VA: 0xC8A248
+	private ShakeType shakeType; // 0x28
+	[SerializeField] // RVA: 0xC8A258 Offset: 0xC8A258 VA: 0xC8A258
+	private SplineOrientationMode splineOrientationMode; // 0x2C
+	[SerializeField] // RVA: 0xC8A268 Offset: 0xC8A268 VA: 0xC8A268
+	private Transform lookAtTarget; // 0x30
+	[SerializeField] // RVA: 0xC8A278 Offset: 0xC8A278 VA: 0xC8A278
+	private string lookAtTargetPath; // 0x38
+	[SerializeField] // RVA: 0xC8A288 Offset: 0xC8A288 VA: 0xC8A288
+	private Vector3 sourcePosition; // 0x40
+	[SerializeField] // RVA: 0xC8A298 Offset: 0xC8A298 VA: 0xC8A298
+	private Quaternion sourceRotation; // 0x4C
+	[SerializeField] // RVA: 0xC8A2A8 Offset: 0xC8A2A8 VA: 0xC8A2A8
+	private Spline objectSpline; // 0x60
+	[SerializeField] // RVA: 0xC8A2B8 Offset: 0xC8A2B8 VA: 0xC8A2B8
+	private float startTime; // 0x68
+	[SerializeField] // RVA: 0xC8A2C8 Offset: 0xC8A2C8 VA: 0xC8A2C8
+	private float endTime; // 0x6C
+	[SerializeField] // RVA: 0xC8A2D8 Offset: 0xC8A2D8 VA: 0xC8A2D8
+	private List<SplineKeyframe> keyframes; // 0x70
+	[SerializeField] // RVA: 0xC8A2E8 Offset: 0xC8A2E8 VA: 0xC8A2E8
+	private Shake Shake; // 0x78
+	[SerializeField] // RVA: 0xC8A2F8 Offset: 0xC8A2F8 VA: 0xC8A2F8
+	private float shakeSpeedPosition; // 0x80
+	[SerializeField] // RVA: 0xC8A308 Offset: 0xC8A308 VA: 0xC8A308
+	private Vector3 shakeRangePosition; // 0x84
+	[SerializeField] // RVA: 0xC8A318 Offset: 0xC8A318 VA: 0xC8A318
+	private float shakeSpeedRotation; // 0x90
+	[SerializeField] // RVA: 0xC8A328 Offset: 0xC8A328 VA: 0xC8A328
+	private Vector3 shakeRangeRotation; // 0x94
+	[SerializeField] // RVA: 0xC8A338 Offset: 0xC8A338 VA: 0xC8A338
+	private int seed; // 0xA0
+	private LerpedQuaternion SmoothedQuaternion; // 0xA4
+
+	// Properties
+	public Easing.EasingType EasingType { get; set; }
+	public ShakeType ShakeType { get; set; }
+	public SplineOrientationMode SplineOrientationMode { get; set; }
+	public Transform LookAtTarget { get; set; }
+	public Vector3 SourcePosition { get; set; }
+	public Quaternion SourceRotation { get; set; }
+	public Spline ObjectSpline { get; set; }
+	public float StartTime { get; set; }
+	public float EndTime { get; set; }
+	private int Seed { get; set; }
+	public List<SplineKeyframe> Keyframes { get; set; }
+	public SplineKeyframe FirstNode { get; set; }
+	public SplineKeyframe LastNode { get; set; }
+	public Color PathColor { get; set; }
+	public float DisplayResolution { get; set; }
+
+	// Methods
+
+	// RVA: 0xFF4028 Offset: 0xFF4028 VA: 0xFF4028
+	public Easing.EasingType get_EasingType() { }
+
+	// RVA: 0xFF4030 Offset: 0xFF4030 VA: 0xFF4030
+	public void set_EasingType(Easing.EasingType value) { }
+
+	// RVA: 0xFF4038 Offset: 0xFF4038 VA: 0xFF4038
+	public ShakeType get_ShakeType() { }
+
+	// RVA: 0xFF4040 Offset: 0xFF4040 VA: 0xFF4040
+	public void set_ShakeType(ShakeType value) { }
+
+	// RVA: 0xFF4048 Offset: 0xFF4048 VA: 0xFF4048
+	public SplineOrientationMode get_SplineOrientationMode() { }
+
+	// RVA: 0xFF4050 Offset: 0xFF4050 VA: 0xFF4050
+	public void set_SplineOrientationMode(SplineOrientationMode value) { }
+
+	// RVA: 0xFF4058 Offset: 0xFF4058 VA: 0xFF4058
+	public Transform get_LookAtTarget() { }
+
+	// RVA: 0xFF4060 Offset: 0xFF4060 VA: 0xFF4060
+	public void set_LookAtTarget(Transform value) { }
+
+	// RVA: 0xFF408C Offset: 0xFF408C VA: 0xFF408C
+	public Vector3 get_SourcePosition() { }
+
+	// RVA: 0xFF4098 Offset: 0xFF4098 VA: 0xFF4098
+	public void set_SourcePosition(Vector3 value) { }
+
+	// RVA: 0xFF40A4 Offset: 0xFF40A4 VA: 0xFF40A4
+	public Quaternion get_SourceRotation() { }
+
+	// RVA: 0xFF40B0 Offset: 0xFF40B0 VA: 0xFF40B0
+	public void set_SourceRotation(Quaternion value) { }
+
+	// RVA: 0xFF40BC Offset: 0xFF40BC VA: 0xFF40BC
+	public Spline get_ObjectSpline() { }
+
+	// RVA: 0xFF40C4 Offset: 0xFF40C4 VA: 0xFF40C4
+	public void set_ObjectSpline(Spline value) { }
+
+	// RVA: 0xFF40CC Offset: 0xFF40CC VA: 0xFF40CC
+	public float get_StartTime() { }
+
+	// RVA: 0xFF40D4 Offset: 0xFF40D4 VA: 0xFF40D4
+	public void set_StartTime(float value) { }
+
+	// RVA: 0xFF40DC Offset: 0xFF40DC VA: 0xFF40DC
+	public float get_EndTime() { }
+
+	// RVA: 0xFF40E4 Offset: 0xFF40E4 VA: 0xFF40E4
+	public void set_EndTime(float value) { }
+
+	// RVA: 0xFF40EC Offset: 0xFF40EC VA: 0xFF40EC
+	private int get_Seed() { }
+
+	// RVA: 0xFF40F4 Offset: 0xFF40F4 VA: 0xFF40F4
+	public void set_Seed(int value) { }
+
+	// RVA: 0xFF40FC Offset: 0xFF40FC VA: 0xFF40FC
+	public List<SplineKeyframe> get_Keyframes() { }
+
+	// RVA: 0xFF4104 Offset: 0xFF4104 VA: 0xFF4104
+	private void set_Keyframes(List<SplineKeyframe> value) { }
+
+	// RVA: 0xFF4140 Offset: 0xFF4140 VA: 0xFF4140
+	public SplineKeyframe get_FirstNode() { }
+
+	// RVA: 0xFF41C4 Offset: 0xFF41C4 VA: 0xFF41C4
+	private void set_FirstNode(SplineKeyframe value) { }
+
+	// RVA: 0xFF41C8 Offset: 0xFF41C8 VA: 0xFF41C8
+	public SplineKeyframe get_LastNode() { }
+
+	// RVA: 0xFF429C Offset: 0xFF429C VA: 0xFF429C
+	private void set_LastNode(SplineKeyframe value) { }
+
+	// RVA: 0xFF42A0 Offset: 0xFF42A0 VA: 0xFF42A0
+	public Color get_PathColor() { }
+
+	// RVA: 0xFF42D0 Offset: 0xFF42D0 VA: 0xFF42D0
+	public void set_PathColor(Color value) { }
+
+	// RVA: 0xFF4320 Offset: 0xFF4320 VA: 0xFF4320
+	public float get_DisplayResolution() { }
+
+	// RVA: 0xFF434C Offset: 0xFF434C VA: 0xFF434C
+	public void set_DisplayResolution(float value) { }
+
+	// RVA: 0xFF4384 Offset: 0xFF4384 VA: 0xFF4384
+	private void OnEnable() { }
+
+	// RVA: 0xFF4398 Offset: 0xFF4398 VA: 0xFF4398
+	public void SetKeyframes(List<SplineKeyframe> keyframes) { }
+
+	// RVA: 0xFF4388 Offset: 0xFF4388 VA: 0xFF4388
+	public void Build() { }
+
+	// RVA: 0xFF45EC Offset: 0xFF45EC VA: 0xFF45EC
+	public void BuildShake() { }
+
+	// RVA: 0xFF4670 Offset: 0xFF4670 VA: 0xFF4670
+	public void AddKeyframe(SplineKeyframe keyframe) { }
+
+	// RVA: 0xFF46E8 Offset: 0xFF46E8 VA: 0xFF46E8
+	public void AddAfterKeyframe(SplineKeyframe keyframe, int index) { }
+
+	// RVA: 0xFF4768 Offset: 0xFF4768 VA: 0xFF4768
+	public void AddBeforeKeyframe(SplineKeyframe keyframe, int index) { }
+
+	// RVA: 0xFF47E8 Offset: 0xFF47E8 VA: 0xFF47E8
+	public void AlterKeyframe(Vector3 position, int keyframeIndex) { }
+
+	// RVA: 0xFF4890 Offset: 0xFF4890 VA: 0xFF4890
+	public void RemoveKeyframe(SplineKeyframe keyframe) { }
+
+	// RVA: 0xFF410C Offset: 0xFF410C VA: 0xFF410C
+	public void BuildCurveFromKeyframes() { }
+
+	// RVA: 0xFF43C0 Offset: 0xFF43C0 VA: 0xFF43C0
+	private void CreateEmpty() { }
+
+	// RVA: 0xFF4908 Offset: 0xFF4908 VA: 0xFF4908
+	public void SetStartingOrientation() { }
+
+	// RVA: 0xFF4BF0 Offset: 0xFF4BF0 VA: 0xFF4BF0 Slot: 5
+	public override void StartTimeline() { }
+
+	// RVA: 0xFF4D0C Offset: 0xFF4D0C VA: 0xFF4D0C Slot: 4
+	public override void StopTimeline() { }
+
+	// RVA: 0xFF4DCC Offset: 0xFF4DCC VA: 0xFF4DCC Slot: 9
+	public override void SkipTimelineTo(float time) { }
+
+	// RVA: 0xFF4DDC Offset: 0xFF4DDC VA: 0xFF4DDC Slot: 10
+	public override void Process(float sequencerTime, float playbackRate) { }
+
+	// RVA: 0xFF56CC Offset: 0xFF56CC VA: 0xFF56CC
+	private void OnDrawGizmos() { }
+
+	// RVA: 0xFEDBF4 Offset: 0xFEDBF4 VA: 0xFEDBF4
+	public void FixupAdditionalObjects() { }
+
+	// RVA: 0xFF56E4 Offset: 0xFF56E4 VA: 0xFF56E4
+	public void RecordAdditionalObjects() { }
+
+	// RVA: 0xFF5768 Offset: 0xFF5768 VA: 0xFF5768
+	public void .ctor() { }
+}
+
+// Namespace: WellFired
+[ExecuteInEditMode] // RVA: 0xC89844 Offset: 0xC89844 VA: 0xC89844
+[Serializable]
+public class USTimelineObserver : USTimelineBase // TypeDefIndex: 3778
+{
+	// Fields
+	[SerializeField] // RVA: 0xC8A348 Offset: 0xC8A348 VA: 0xC8A348
+	public List<USObserverKeyframe> observerKeyframes; // 0x28
+	[SerializeField] // RVA: 0xC8A358 Offset: 0xC8A358 VA: 0xC8A358
+	private List<USTimelineObserver.SnapShotEntry> currentSnapshots; // 0x30
+	private List<Camera> camerasAtLastSnapShot; // 0x38
+	public LayerMask layersToIgnore; // 0x40
+	[CompilerGeneratedAttribute] // RVA: 0xC8A368 Offset: 0xC8A368 VA: 0xC8A368
+	private USObserverKeyframe <CurrentlyActiveKeyframe>k__BackingField; // 0x48
+
+	// Properties
+	public USObserverKeyframe CurrentlyActiveKeyframe { get; set; }
+
+	// Methods
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8A558 Offset: 0xC8A558 VA: 0xC8A558
+	// RVA: 0x134FFCC Offset: 0x134FFCC VA: 0x134FFCC
+	public USObserverKeyframe get_CurrentlyActiveKeyframe() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8A568 Offset: 0xC8A568 VA: 0xC8A568
+	// RVA: 0x134FFD4 Offset: 0x134FFD4 VA: 0x134FFD4
+	public void set_CurrentlyActiveKeyframe(USObserverKeyframe value) { }
+
+	// RVA: 0x134FFDC Offset: 0x134FFDC VA: 0x134FFDC
+	private int KeyframeComparer(USObserverKeyframe a, USObserverKeyframe b) { }
+
+	// RVA: 0x135013C Offset: 0x135013C VA: 0x135013C Slot: 4
+	public override void StopTimeline() { }
+
+	// RVA: 0x1350428 Offset: 0x1350428 VA: 0x1350428 Slot: 7
+	public override void PauseTimeline() { }
+
+	// RVA: 0x135042C Offset: 0x135042C VA: 0x135042C Slot: 8
+	public override void ResumeTimeline() { }
+
+	// RVA: 0x1350430 Offset: 0x1350430 VA: 0x1350430 Slot: 5
+	public override void StartTimeline() { }
+
+	// RVA: 0x13507F8 Offset: 0x13507F8 VA: 0x13507F8
+	private void DisableAllCameras() { }
+
+	// RVA: 0x1350AD0 Offset: 0x1350AD0 VA: 0x1350AD0 Slot: 11
+	public override void ManuallySetTime(float sequencerTime) { }
+
+	// RVA: 0x1350AE0 Offset: 0x1350AE0 VA: 0x1350AE0 Slot: 9
+	public override void SkipTimelineTo(float time) { }
+
+	// RVA: 0x1350AF0 Offset: 0x1350AF0 VA: 0x1350AF0 Slot: 10
+	public override void Process(float sequencerTime, float playbackRate) { }
+
+	// RVA: 0x1351328 Offset: 0x1351328 VA: 0x1351328
+	private USObserverKeyframe KeyframeBefore(USObserverKeyframe currentlyActiveKeyframe) { }
+
+	// RVA: 0x1351568 Offset: 0x1351568 VA: 0x1351568
+	private List<USObserverKeyframe> CollectAllKeyframesBetween(USObserverKeyframe prevKeyframe, USObserverKeyframe currentKeyframe) { }
+
+	// RVA: 0x13518E0 Offset: 0x13518E0 VA: 0x13518E0
+	private void Update() { }
+
+	// RVA: 0x1351AB8 Offset: 0x1351AB8 VA: 0x1351AB8
+	public USObserverKeyframe AddKeyframe(USObserverKeyframe keyframe) { }
+
+	// RVA: 0x13504EC Offset: 0x13504EC VA: 0x13504EC
+	private void SortKeyframes() { }
+
+	// RVA: 0x1351BA4 Offset: 0x1351BA4 VA: 0x1351BA4
+	public void RemoveKeyframe(USObserverKeyframe keyframe) { }
+
+	// RVA: 0x1351C84 Offset: 0x1351C84 VA: 0x1351C84
+	public void SetKeyframes(List<USObserverKeyframe> keyframes) { }
+
+	// RVA: 0x1351C8C Offset: 0x1351C8C VA: 0x1351C8C

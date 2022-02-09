@@ -1,0 +1,1000 @@
+	// RVA: 0xF3E434 Offset: 0xF3E434 VA: 0xF3E434
+	public void .ctor() { }
+
+	// RVA: 0xF3E630 Offset: 0xF3E630 VA: 0xF3E630 Slot: 6
+	public TimeSpan get_CurrentLeaseTime() { }
+
+	// RVA: 0xF3E6B0 Offset: 0xF3E6B0 VA: 0xF3E6B0 Slot: 7
+	public LeaseState get_CurrentState() { }
+
+	// RVA: 0xF3E6B8 Offset: 0xF3E6B8 VA: 0xF3E6B8
+	public void Activate() { }
+
+	// RVA: 0xF3E6C4 Offset: 0xF3E6C4 VA: 0xF3E6C4 Slot: 8
+	public void set_InitialLeaseTime(TimeSpan value) { }
+
+	// RVA: 0xF3E840 Offset: 0xF3E840 VA: 0xF3E840 Slot: 9
+	public TimeSpan get_RenewOnCallTime() { }
+
+	// RVA: 0xF3E848 Offset: 0xF3E848 VA: 0xF3E848 Slot: 10
+	public void set_RenewOnCallTime(TimeSpan value) { }
+
+	// RVA: 0xF3E94C Offset: 0xF3E94C VA: 0xF3E94C Slot: 11
+	public void set_SponsorshipTimeout(TimeSpan value) { }
+
+	// RVA: 0xF3EA50 Offset: 0xF3EA50 VA: 0xF3EA50 Slot: 12
+	public TimeSpan Renew(TimeSpan renewalTime) { }
+
+	// RVA: 0xF3EAF0 Offset: 0xF3EAF0 VA: 0xF3EAF0 Slot: 13
+	public void Unregister(ISponsor obj) { }
+
+	// RVA: 0xF3EC20 Offset: 0xF3EC20 VA: 0xF3EC20
+	internal void UpdateState() { }
+
+	// RVA: 0xF3ED70 Offset: 0xF3ED70 VA: 0xF3ED70
+	private void CheckNextSponsor() { }
+
+	// RVA: 0xF3F044 Offset: 0xF3F044 VA: 0xF3F044
+	private void ProcessSponsorResponse(object state, bool timedOut) { }
+}
+
+// Namespace: 
+private sealed class Lease.RenewalDelegate : MulticastDelegate // TypeDefIndex: 547
+{
+	// Methods
+
+	// RVA: 0xF3F010 Offset: 0xF3F010 VA: 0xF3F010
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0xF3F2EC Offset: 0xF3F2EC VA: 0xF3F2EC Slot: 11
+	public virtual TimeSpan Invoke(ILease lease) { }
+
+	// RVA: 0xF3F020 Offset: 0xF3F020 VA: 0xF3F020 Slot: 12
+	public virtual IAsyncResult BeginInvoke(ILease lease, AsyncCallback callback, object object) { }
+
+	// RVA: 0xF3F2B0 Offset: 0xF3F2B0 VA: 0xF3F2B0 Slot: 13
+	public virtual TimeSpan EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: System.Runtime.Remoting.Lifetime
+internal class LeaseManager // TypeDefIndex: 548
+{
+	// Fields
+	private ArrayList _objects; // 0x10
+	private Timer _timer; // 0x18
+
+	// Methods
+
+	// RVA: 0xF3F690 Offset: 0xF3F690 VA: 0xF3F690
+	public void .ctor() { }
+
+	// RVA: 0xF3F6F8 Offset: 0xF3F6F8 VA: 0xF3F6F8
+	public void SetPollTime(TimeSpan timeSpan) { }
+
+	// RVA: 0xF3F7C4 Offset: 0xF3F7C4 VA: 0xF3F7C4
+	public void TrackLifetime(ServerIdentity identity) { }
+
+	// RVA: 0xF3F8EC Offset: 0xF3F8EC VA: 0xF3F8EC
+	public void StartManager() { }
+
+	// RVA: 0xF3FA34 Offset: 0xF3FA34 VA: 0xF3FA34
+	public void StopManager() { }
+
+	// RVA: 0xF3FA68 Offset: 0xF3FA68 VA: 0xF3FA68
+	public void ManageLeases(object state) { }
+}
+
+// Namespace: System.Runtime.Remoting.Lifetime
+internal class LeaseSink : IMessageSink // TypeDefIndex: 549
+{
+	// Fields
+	private IMessageSink _nextSink; // 0x10
+
+	// Methods
+
+	// RVA: 0xF3A8D0 Offset: 0xF3A8D0 VA: 0xF3A8D0
+	public void .ctor(IMessageSink nextSink) { }
+
+	// RVA: 0xF3FD40 Offset: 0xF3FD40 VA: 0xF3FD40 Slot: 4
+	public IMessage SyncProcessMessage(IMessage msg) { }
+
+	// RVA: 0xF400FC Offset: 0xF400FC VA: 0xF400FC Slot: 5
+	public IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink) { }
+
+	// RVA: 0xF3FE0C Offset: 0xF3FE0C VA: 0xF3FE0C
+	private void RenewLease(IMessage msg) { }
+}
+
+// Namespace: System.Runtime.Remoting.Lifetime
+[ComVisibleAttribute] // RVA: 0xC349BC Offset: 0xC349BC VA: 0xC349BC
+[Serializable]
+public enum LeaseState // TypeDefIndex: 550
+{
+	// Fields
+	public int value__; // 0x0
+	public const LeaseState Null = 0;
+	public const LeaseState Initial = 1;
+	public const LeaseState Active = 2;
+	public const LeaseState Renewing = 3;
+	public const LeaseState Expired = 4;
+}
+
+// Namespace: System.Runtime.Remoting.Lifetime
+[ComVisibleAttribute] // RVA: 0xC349D0 Offset: 0xC349D0 VA: 0xC349D0
+public sealed class LifetimeServices // TypeDefIndex: 551
+{
+	// Fields
+	private static TimeSpan _leaseManagerPollTime; // 0x0
+	private static TimeSpan _leaseTime; // 0x8
+	private static TimeSpan _renewOnCallTime; // 0x10
+	private static TimeSpan _sponsorshipTimeout; // 0x18
+	private static LeaseManager _leaseManager; // 0x20
+
+	// Properties
+	public static TimeSpan LeaseManagerPollTime { get; set; }
+	public static TimeSpan LeaseTime { get; set; }
+	public static TimeSpan RenewOnCallTime { get; set; }
+	public static TimeSpan SponsorshipTimeout { get; set; }
+
+	// Methods
+
+	// RVA: 0xF401D4 Offset: 0xF401D4 VA: 0xF401D4
+	private static void .cctor() { }
+
+	// RVA: 0xF3F9CC Offset: 0xF3F9CC VA: 0xF3F9CC
+	public static TimeSpan get_LeaseManagerPollTime() { }
+
+	// RVA: 0xF381CC Offset: 0xF381CC VA: 0xF381CC
+	public static void set_LeaseManagerPollTime(TimeSpan value) { }
+
+	// RVA: 0xF3E4F8 Offset: 0xF3E4F8 VA: 0xF3E4F8
+	public static TimeSpan get_LeaseTime() { }
+
+	// RVA: 0xF38088 Offset: 0xF38088 VA: 0xF38088
+	public static void set_LeaseTime(TimeSpan value) { }
+
+	// RVA: 0xF3E560 Offset: 0xF3E560 VA: 0xF3E560
+	public static TimeSpan get_RenewOnCallTime() { }
+
+	// RVA: 0xF38160 Offset: 0xF38160 VA: 0xF38160
+	public static void set_RenewOnCallTime(TimeSpan value) { }
+
+	// RVA: 0xF3E5C8 Offset: 0xF3E5C8 VA: 0xF3E5C8
+	public static TimeSpan get_SponsorshipTimeout() { }
+
+	// RVA: 0xF380F4 Offset: 0xF380F4 VA: 0xF380F4
+	public static void set_SponsorshipTimeout(TimeSpan value) { }
+
+	// RVA: 0xF402C8 Offset: 0xF402C8 VA: 0xF402C8
+	internal static void TrackLifetime(ServerIdentity identity) { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+internal enum ArgInfoType // TypeDefIndex: 552
+{
+	// Fields
+	public byte value__; // 0x0
+	public const ArgInfoType In = 0;
+	public const ArgInfoType Out = 1;
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+internal class ArgInfo // TypeDefIndex: 553
+{
+	// Fields
+	private int[] _paramMap; // 0x10
+	private int _inoutArgCount; // 0x18
+	private MethodBase _method; // 0x20
+
+	// Methods
+
+	// RVA: 0xF40348 Offset: 0xF40348 VA: 0xF40348
+	public void .ctor(MethodBase method, ArgInfoType type) { }
+
+	// RVA: 0xF405B0 Offset: 0xF405B0 VA: 0xF405B0
+	public int GetInOutArgCount() { }
+
+	// RVA: 0xF405B8 Offset: 0xF405B8 VA: 0xF405B8
+	public object[] GetInOutArgs(object[] args) { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[ComVisibleAttribute] // RVA: 0xC349E4 Offset: 0xC349E4 VA: 0xC349E4
+public class AsyncResult : IAsyncResult, IMessageSink // TypeDefIndex: 554
+{
+	// Fields
+	private object async_state; // 0x10
+	private WaitHandle handle; // 0x18
+	private object async_delegate; // 0x20
+	private IntPtr data; // 0x28
+	private object object_data; // 0x30
+	private bool sync_completed; // 0x38
+	private bool completed; // 0x39
+	private bool endinvoke_called; // 0x3A
+	private object async_callback; // 0x40
+	private ExecutionContext current; // 0x48
+	private ExecutionContext original; // 0x50
+	private int gchandle; // 0x58
+	private MonoMethodMessage call_message; // 0x60
+	private IMessageCtrl message_ctrl; // 0x68
+	private IMessage reply_message; // 0x70
+
+	// Properties
+	public virtual object AsyncState { get; }
+	public virtual WaitHandle AsyncWaitHandle { get; }
+	public virtual bool CompletedSynchronously { get; }
+	public virtual bool IsCompleted { get; }
+	public bool EndInvokeCalled { get; set; }
+	public virtual object AsyncDelegate { get; }
+	public IMessageSink NextSink { get; }
+	internal MonoMethodMessage CallMessage { get; set; }
+
+	// Methods
+
+	// RVA: 0xF40710 Offset: 0xF40710 VA: 0xF40710
+	internal void .ctor() { }
+
+	// RVA: 0xF40718 Offset: 0xF40718 VA: 0xF40718 Slot: 10
+	public virtual object get_AsyncState() { }
+
+	// RVA: 0xF40720 Offset: 0xF40720 VA: 0xF40720 Slot: 11
+	public virtual WaitHandle get_AsyncWaitHandle() { }
+
+	// RVA: 0xF40800 Offset: 0xF40800 VA: 0xF40800 Slot: 12
+	public virtual bool get_CompletedSynchronously() { }
+
+	// RVA: 0xF40808 Offset: 0xF40808 VA: 0xF40808 Slot: 13
+	public virtual bool get_IsCompleted() { }
+
+	// RVA: 0xF40810 Offset: 0xF40810 VA: 0xF40810
+	public bool get_EndInvokeCalled() { }
+
+	// RVA: 0xF40818 Offset: 0xF40818 VA: 0xF40818
+	public void set_EndInvokeCalled(bool value) { }
+
+	// RVA: 0xF40824 Offset: 0xF40824 VA: 0xF40824 Slot: 14
+	public virtual object get_AsyncDelegate() { }
+
+	// RVA: 0xF4082C Offset: 0xF4082C VA: 0xF4082C Slot: 15
+	public IMessageSink get_NextSink() { }
+
+	// RVA: 0xF40834 Offset: 0xF40834 VA: 0xF40834 Slot: 16
+	public virtual IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink) { }
+
+	// RVA: 0xF4089C Offset: 0xF4089C VA: 0xF4089C Slot: 17
+	public virtual IMessage GetReplyMessage() { }
+
+	// RVA: 0xF408A4 Offset: 0xF408A4 VA: 0xF408A4 Slot: 18
+	public virtual void SetMessageCtrl(IMessageCtrl mc) { }
+
+	// RVA: 0xF408AC Offset: 0xF408AC VA: 0xF408AC
+	internal void SetCompletedSynchronously(bool completed) { }
+
+	// RVA: 0xF408B8 Offset: 0xF408B8 VA: 0xF408B8
+	internal IMessage EndInvoke() { }
+
+	// RVA: 0xF40938 Offset: 0xF40938 VA: 0xF40938 Slot: 19
+	public virtual IMessage SyncProcessMessage(IMessage msg) { }
+
+	// RVA: 0xF40B64 Offset: 0xF40B64 VA: 0xF40B64
+	internal MonoMethodMessage get_CallMessage() { }
+
+	// RVA: 0xF40B6C Offset: 0xF40B6C VA: 0xF40B6C
+	internal void set_CallMessage(MonoMethodMessage value) { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+internal class CADArgHolder // TypeDefIndex: 555
+{
+	// Fields
+	public int index; // 0x10
+
+	// Methods
+
+	// RVA: 0xF40B74 Offset: 0xF40B74 VA: 0xF40B74
+	public void .ctor(int i) { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+internal class CADObjRef // TypeDefIndex: 556
+{
+	// Fields
+	private ObjRef objref; // 0x10
+	public int SourceDomain; // 0x18
+
+	// Properties
+	public string TypeName { get; }
+	public string URI { get; }
+
+	// Methods
+
+	// RVA: 0xE9B478 Offset: 0xE9B478 VA: 0xE9B478
+	public void .ctor(ObjRef o, int sourceDomain) { }
+
+	// RVA: 0xE9B4B4 Offset: 0xE9B4B4 VA: 0xE9B4B4
+	public string get_TypeName() { }
+
+	// RVA: 0xE9B584 Offset: 0xE9B584 VA: 0xE9B584
+	public string get_URI() { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+internal class CADMessageBase // TypeDefIndex: 557
+{
+	// Fields
+	protected object[] _args; // 0x10
+	protected byte[] _serializedArgs; // 0x18
+	protected int _propertyCount; // 0x20
+	protected CADArgHolder _callContext; // 0x28
+
+	// Methods
+
+	// RVA: 0xF40BA0 Offset: 0xF40BA0 VA: 0xF40BA0
+	public void .ctor() { }
+
+	// RVA: 0xF40BA8 Offset: 0xF40BA8 VA: 0xF40BA8
+	internal static int MarshalProperties(IDictionary dict, ref ArrayList args) { }
+
+	// RVA: 0xF4123C Offset: 0xF4123C VA: 0xF4123C
+	internal static void UnmarshalProperties(IDictionary dict, int count, ArrayList args) { }
+
+	// RVA: 0xF4139C Offset: 0xF4139C VA: 0xF4139C
+	private static bool IsPossibleToIgnoreMarshal(object obj) { }
+
+	// RVA: 0xF41624 Offset: 0xF41624 VA: 0xF41624
+	protected object MarshalArgument(object arg, ref ArrayList args) { }
+
+	// RVA: 0xF41808 Offset: 0xF41808 VA: 0xF41808
+	protected object UnmarshalArgument(object arg, ArrayList args) { }
+
+	// RVA: 0xF41E68 Offset: 0xF41E68 VA: 0xF41E68
+	internal object[] MarshalArguments(object[] arguments, ref ArrayList args) { }
+
+	// RVA: 0xF41FB0 Offset: 0xF41FB0 VA: 0xF41FB0
+	internal object[] UnmarshalArguments(object[] arguments, ArrayList args) { }
+
+	// RVA: 0xF420F8 Offset: 0xF420F8 VA: 0xF420F8
+	protected void SaveLogicalCallContext(IMethodMessage msg, ref ArrayList serializeList) { }
+
+	// RVA: 0xF42378 Offset: 0xF42378 VA: 0xF42378
+	internal LogicalCallContext GetLogicalCallContext(ArrayList args) { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+internal class CADMethodCallMessage : CADMessageBase // TypeDefIndex: 558
+{
+	// Fields
+	private string _uri; // 0x30
+	internal RuntimeMethodHandle MethodHandle; // 0x38
+	internal string FullTypeName; // 0x40
+
+	// Properties
+	internal string Uri { get; }
+	internal int PropertiesCount { get; }
+
+	// Methods
+
+	// RVA: 0xF42458 Offset: 0xF42458 VA: 0xF42458
+	internal void .ctor(IMethodCallMessage callMsg) { }
+
+	// RVA: 0xF427D0 Offset: 0xF427D0 VA: 0xF427D0
+	internal string get_Uri() { }
+
+	// RVA: 0xF33AB0 Offset: 0xF33AB0 VA: 0xF33AB0
+	internal static CADMethodCallMessage Create(IMessage callMsg) { }
+
+	// RVA: 0xF427D8 Offset: 0xF427D8 VA: 0xF427D8
+	internal ArrayList GetArguments() { }
+
+	// RVA: 0xF42900 Offset: 0xF42900 VA: 0xF42900
+	internal object[] GetArgs(ArrayList args) { }
+
+	// RVA: 0xF42914 Offset: 0xF42914 VA: 0xF42914
+	internal int get_PropertiesCount() { }
+
+	// RVA: 0xF4291C Offset: 0xF4291C VA: 0xF4291C
+	private static Type[] GetSignature(MethodBase methodBase, bool load) { }
+
+	// RVA: 0xF42B10 Offset: 0xF42B10 VA: 0xF42B10
+	internal MethodBase GetMethod() { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+internal class CADMethodReturnMessage : CADMessageBase // TypeDefIndex: 559
+{
+	// Fields
+	private object _returnValue; // 0x30
+	private CADArgHolder _exception; // 0x38
+
+	// Properties
+	internal int PropertiesCount { get; }
+
+	// Methods
+
+	// RVA: 0xE9ADB8 Offset: 0xE9ADB8 VA: 0xE9ADB8
+	internal void .ctor(IMethodReturnMessage retMsg) { }
+
+	// RVA: 0xE9B194 Offset: 0xE9B194 VA: 0xE9B194
+	internal static CADMethodReturnMessage Create(IMessage callMsg) { }
+
+	// RVA: 0xE9B218 Offset: 0xE9B218 VA: 0xE9B218
+	internal ArrayList GetArguments() { }
+
+	// RVA: 0xE9B344 Offset: 0xE9B344 VA: 0xE9B344
+	internal object[] GetArgs(ArrayList args) { }
+
+	// RVA: 0xE9B35C Offset: 0xE9B35C VA: 0xE9B35C
+	internal object GetReturnValue(ArrayList args) { }
+
+	// RVA: 0xE9B374 Offset: 0xE9B374 VA: 0xE9B374
+	internal Exception GetException(ArrayList args) { }
+
+	// RVA: 0xE9B470 Offset: 0xE9B470 VA: 0xE9B470
+	internal int get_PropertiesCount() { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[ComVisibleAttribute] // RVA: 0xC349F8 Offset: 0xC349F8 VA: 0xC349F8
+[Serializable]
+public sealed class CallContext // TypeDefIndex: 560
+{
+	// Fields
+	[ThreadStaticAttribute] // RVA: 0xC37718 Offset: 0xC37718 VA: 0xC37718
+	private static Hashtable datastore; // 0x80000000
+
+	// Methods
+
+	// RVA: 0xE9B5B8 Offset: 0xE9B5B8 VA: 0xE9B5B8
+	private void .ctor() { }
+
+	// RVA: 0xE9B5C0 Offset: 0xE9B5C0 VA: 0xE9B5C0
+	internal static LogicalCallContext CreateLogicalCallContext(bool createEmpty) { }
+
+	// RVA: 0xE9BAD0 Offset: 0xE9BAD0 VA: 0xE9BAD0
+	internal static object SetCurrentCallContext(LogicalCallContext ctx) { }
+
+	// RVA: 0xE9BC64 Offset: 0xE9BC64 VA: 0xE9BC64
+	internal static void RestoreCallContext(object oldContext) { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[ComVisibleAttribute] // RVA: 0xC34A0C Offset: 0xC34A0C VA: 0xC34A0C
+public interface ILogicalThreadAffinative // TypeDefIndex: 561
+{}
+
+// Namespace: System.Runtime.Remoting.Messaging
+internal class ClientContextTerminatorSink : IMessageSink // TypeDefIndex: 562
+{
+	// Fields
+	private Context _context; // 0x10
+
+	// Methods
+
+	// RVA: 0xE9BF8C Offset: 0xE9BF8C VA: 0xE9BF8C
+	public void .ctor(Context ctx) { }
+
+	// RVA: 0xE9BFB8 Offset: 0xE9BFB8 VA: 0xE9BFB8 Slot: 4
+	public IMessage SyncProcessMessage(IMessage msg) { }
+
+	// RVA: 0xE9C64C Offset: 0xE9C64C VA: 0xE9C64C Slot: 5
+	public IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink) { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+internal class ClientContextReplySink : IMessageSink // TypeDefIndex: 563
+{
+	// Fields
+	private IMessageSink _replySink; // 0x10
+	private Context _context; // 0x18
+
+	// Methods
+
+	// RVA: 0xE9BDC4 Offset: 0xE9BDC4 VA: 0xE9BDC4
+	public void .ctor(Context ctx, IMessageSink replySink) { }
+
+	// RVA: 0xE9BDFC Offset: 0xE9BDFC VA: 0xE9BDFC Slot: 4
+	public IMessage SyncProcessMessage(IMessage msg) { }
+
+	// RVA: 0xE9BF24 Offset: 0xE9BF24 VA: 0xE9BF24 Slot: 5
+	public IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink) { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[ComVisibleAttribute] // RVA: 0xC34A20 Offset: 0xC34A20 VA: 0xC34A20
+[CLSCompliantAttribute] // RVA: 0xC34A20 Offset: 0xC34A20 VA: 0xC34A20
+[Serializable]
+public class ConstructionCall : MethodCall, IConstructionCallMessage, IMessage, IMethodCallMessage, IMethodMessage // TypeDefIndex: 564
+{
+	// Fields
+	private IActivator _activator; // 0x68
+	private object[] _activationAttributes; // 0x70
+	private IList _contextProperties; // 0x78
+	private Type _activationType; // 0x80
+	private string _activationTypeName; // 0x88
+	private bool _isContextOk; // 0x90
+	private RemotingProxy _sourceProxy; // 0x98
+	[CompilerGeneratedAttribute] // RVA: 0xC37728 Offset: 0xC37728 VA: 0xC37728
+	private static Dictionary<string, int> <>f__switch$map20; // 0x0
+
+	// Properties
+	internal bool IsContextOk { get; set; }
+	public Type ActivationType { get; }
+	public string ActivationTypeName { get; }
+	public IActivator Activator { get; set; }
+	public object[] CallSiteActivationAttributes { get; }
+	public IList ContextProperties { get; }
+	public override IDictionary Properties { get; }
+	internal RemotingProxy SourceProxy { get; }
+
+	// Methods
+
+	// RVA: 0xE9C8FC Offset: 0xE9C8FC VA: 0xE9C8FC
+	internal void .ctor(Type type) { }
+
+	// RVA: 0xE9C95C Offset: 0xE9C95C VA: 0xE9C95C
+	internal void .ctor(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0xE9CA54 Offset: 0xE9CA54 VA: 0xE9CA54 Slot: 22
+	internal override void InitDictionary() { }
+
+	// RVA: 0xE9CBAC Offset: 0xE9CBAC VA: 0xE9CBAC
+	internal bool get_IsContextOk() { }
+
+	// RVA: 0xE9CBB4 Offset: 0xE9CBB4 VA: 0xE9CBB4
+	internal void set_IsContextOk(bool value) { }
+
+	// RVA: 0xE9CBC0 Offset: 0xE9CBC0 VA: 0xE9CBC0 Slot: 25
+	public Type get_ActivationType() { }
+
+	// RVA: 0xE9CC58 Offset: 0xE9CC58 VA: 0xE9CC58 Slot: 26
+	public string get_ActivationTypeName() { }
+
+	// RVA: 0xE9CC60 Offset: 0xE9CC60 VA: 0xE9CC60 Slot: 27
+	public IActivator get_Activator() { }
+
+	// RVA: 0xE9CC68 Offset: 0xE9CC68 VA: 0xE9CC68 Slot: 28
+	public void set_Activator(IActivator value) { }
+
+	// RVA: 0xE9CC70 Offset: 0xE9CC70 VA: 0xE9CC70 Slot: 29
+	public object[] get_CallSiteActivationAttributes() { }
+
+	// RVA: 0xE9CC78 Offset: 0xE9CC78 VA: 0xE9CC78
+	internal void SetActivationAttributes(object[] attributes) { }
+
+	// RVA: 0xE9CC80 Offset: 0xE9CC80 VA: 0xE9CC80 Slot: 30
+	public IList get_ContextProperties() { }
+
+	// RVA: 0xE9CCEC Offset: 0xE9CCEC VA: 0xE9CCEC Slot: 19
+	internal override void InitMethodProperty(string key, object value) { }
+
+	// RVA: 0xE9D788 Offset: 0xE9D788 VA: 0xE9D788 Slot: 20
+	public override void GetObjectData(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0xE9DDF8 Offset: 0xE9DDF8 VA: 0xE9DDF8 Slot: 21
+	public override IDictionary get_Properties() { }
+
+	// RVA: 0xE9DE70 Offset: 0xE9DE70 VA: 0xE9DE70
+	internal RemotingProxy get_SourceProxy() { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+internal class ConstructionCallDictionary : MethodDictionary // TypeDefIndex: 565
+{
+	// Fields
+	public static string[] InternalKeys; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC37738 Offset: 0xC37738 VA: 0xC37738
+	private static Dictionary<string, int> <>f__switch$map23; // 0x8
+	[CompilerGeneratedAttribute] // RVA: 0xC37748 Offset: 0xC37748 VA: 0xC37748
+	private static Dictionary<string, int> <>f__switch$map24; // 0x10
+
+	// Methods
+
+	// RVA: 0xE9CAE4 Offset: 0xE9CAE4 VA: 0xE9CAE4
+	public void .ctor(IConstructionCallMessage message) { }
+
+	// RVA: 0xE9DEAC Offset: 0xE9DEAC VA: 0xE9DEAC
+	private static void .cctor() { }
+
+	// RVA: 0xE9E2B4 Offset: 0xE9E2B4 VA: 0xE9E2B4 Slot: 21
+	protected override object GetMethodProperty(string key) { }
+
+	// RVA: 0xE9F314 Offset: 0xE9F314 VA: 0xE9F314 Slot: 22
+	protected override void SetMethodProperty(string key, object value) { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[CLSCompliantAttribute] // RVA: 0xC34A60 Offset: 0xC34A60 VA: 0xC34A60
+[ComVisibleAttribute] // RVA: 0xC34A60 Offset: 0xC34A60 VA: 0xC34A60
+[Serializable]
+public class ConstructionResponse : MethodResponse, IConstructionReturnMessage, IMessage, IMethodMessage, IMethodReturnMessage // TypeDefIndex: 566
+{
+	// Properties
+	public override IDictionary Properties { get; }
+
+	// Methods
+
+	// RVA: 0xE9FC40 Offset: 0xE9FC40 VA: 0xE9FC40
+	internal void .ctor(object resultObject, LogicalCallContext callCtx, IMethodCallMessage msg) { }
+
+	// RVA: 0xE9FD3C Offset: 0xE9FD3C VA: 0xE9FD3C
+	internal void .ctor(Exception e, IMethodCallMessage msg) { }
+
+	// RVA: 0xE9FE60 Offset: 0xE9FE60 VA: 0xE9FE60
+	internal void .ctor(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0xE9FF38 Offset: 0xE9FF38 VA: 0xE9FF38 Slot: 23
+	public override IDictionary get_Properties() { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[Serializable]
+internal class EnvoyTerminatorSink : IMessageSink // TypeDefIndex: 567
+{
+	// Fields
+	public static EnvoyTerminatorSink Instance; // 0x0
+
+	// Methods
+
+	// RVA: 0xE9FFDC Offset: 0xE9FFDC VA: 0xE9FFDC
+	public void .ctor() { }
+
+	// RVA: 0xE9FFE4 Offset: 0xE9FFE4 VA: 0xE9FFE4
+	private static void .cctor() { }
+
+	// RVA: 0xEA0048 Offset: 0xEA0048 VA: 0xEA0048 Slot: 4
+	public IMessage SyncProcessMessage(IMessage msg) { }
+
+	// RVA: 0xEA013C Offset: 0xEA013C VA: 0xEA013C Slot: 5
+	public IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink) { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[Serializable]
+internal class ErrorMessage : IMessage, IMethodCallMessage, IMethodMessage // TypeDefIndex: 568
+{
+	// Fields
+	private string _uri; // 0x10
+
+	// Properties
+	public int ArgCount { get; }
+	public object[] Args { get; }
+	public MethodBase MethodBase { get; }
+	public string MethodName { get; }
+	public object MethodSignature { get; }
+	public virtual IDictionary Properties { get; }
+	public string TypeName { get; }
+	public string Uri { get; }
+	public LogicalCallContext LogicalCallContext { get; }
+
+	// Methods
+
+	// RVA: 0xEA0244 Offset: 0xEA0244 VA: 0xEA0244
+	public void .ctor() { }
+
+	// RVA: 0xEA029C Offset: 0xEA029C VA: 0xEA029C Slot: 5
+	public int get_ArgCount() { }
+
+	// RVA: 0xEA02A4 Offset: 0xEA02A4 VA: 0xEA02A4 Slot: 6
+	public object[] get_Args() { }
+
+	// RVA: 0xEA02AC Offset: 0xEA02AC VA: 0xEA02AC Slot: 8
+	public MethodBase get_MethodBase() { }
+
+	// RVA: 0xEA02B4 Offset: 0xEA02B4 VA: 0xEA02B4 Slot: 9
+	public string get_MethodName() { }
+
+	// RVA: 0xEA02FC Offset: 0xEA02FC VA: 0xEA02FC Slot: 10
+	public object get_MethodSignature() { }
+
+	// RVA: 0xEA0304 Offset: 0xEA0304 VA: 0xEA0304 Slot: 14
+	public virtual IDictionary get_Properties() { }
+
+	// RVA: 0xEA030C Offset: 0xEA030C VA: 0xEA030C Slot: 11
+	public string get_TypeName() { }
+
+	// RVA: 0xEA0354 Offset: 0xEA0354 VA: 0xEA0354 Slot: 12
+	public string get_Uri() { }
+
+	// RVA: 0xEA035C Offset: 0xEA035C VA: 0xEA035C Slot: 13
+	public object GetArg(int arg_num) { }
+
+	// RVA: 0xEA0364 Offset: 0xEA0364 VA: 0xEA0364 Slot: 7
+	public LogicalCallContext get_LogicalCallContext() { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[ComVisibleAttribute] // RVA: 0xC34AA0 Offset: 0xC34AA0 VA: 0xC34AA0
+[Serializable]
+public class Header // TypeDefIndex: 569
+{
+	// Fields
+	public string HeaderNamespace; // 0x10
+	public bool MustUnderstand; // 0x18
+	public string Name; // 0x20
+	public object Value; // 0x28
+
+	// Methods
+
+	// RVA: 0xEA036C Offset: 0xEA036C VA: 0xEA036C
+	public void .ctor(string _Name, object _Value) { }
+
+	// RVA: 0xEA03B0 Offset: 0xEA03B0 VA: 0xEA03B0
+	public void .ctor(string _Name, object _Value, bool _MustUnderstand) { }
+
+	// RVA: 0xEA03F8 Offset: 0xEA03F8 VA: 0xEA03F8
+	public void .ctor(string _Name, object _Value, bool _MustUnderstand, string _HeaderNamespace) { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+internal interface IInternalMessage // TypeDefIndex: 570
+{
+	// Properties
+	public abstract Identity TargetIdentity { get; set; }
+	public abstract string Uri { get; set; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract Identity get_TargetIdentity();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void set_TargetIdentity(Identity value);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract string get_Uri();
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract void set_Uri(string value);
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[ComVisibleAttribute] // RVA: 0xC34AB4 Offset: 0xC34AB4 VA: 0xC34AB4
+public interface IMessage // TypeDefIndex: 571
+{
+	// Properties
+	public abstract IDictionary Properties { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IDictionary get_Properties();
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[ComVisibleAttribute] // RVA: 0xC34AC8 Offset: 0xC34AC8 VA: 0xC34AC8
+public interface IMessageCtrl // TypeDefIndex: 572
+{}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[ComVisibleAttribute] // RVA: 0xC34ADC Offset: 0xC34ADC VA: 0xC34ADC
+public interface IMessageSink // TypeDefIndex: 573
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IMessage SyncProcessMessage(IMessage msg);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink);
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[ComVisibleAttribute] // RVA: 0xC34AF0 Offset: 0xC34AF0 VA: 0xC34AF0
+public interface IMethodCallMessage : IMessage, IMethodMessage // TypeDefIndex: 574
+{}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[ComVisibleAttribute] // RVA: 0xC34B04 Offset: 0xC34B04 VA: 0xC34B04
+public interface IMethodMessage : IMessage // TypeDefIndex: 575
+{
+	// Properties
+	public abstract int ArgCount { get; }
+	public abstract object[] Args { get; }
+	public abstract LogicalCallContext LogicalCallContext { get; }
+	public abstract MethodBase MethodBase { get; }
+	public abstract string MethodName { get; }
+	public abstract object MethodSignature { get; }
+	public abstract string TypeName { get; }
+	public abstract string Uri { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract int get_ArgCount();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract object[] get_Args();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract LogicalCallContext get_LogicalCallContext();
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract MethodBase get_MethodBase();
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract string get_MethodName();
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract object get_MethodSignature();
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract string get_TypeName();
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract string get_Uri();
+
+	// RVA: -1 Offset: -1 Slot: 8
+	public abstract object GetArg(int argNum);
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[ComVisibleAttribute] // RVA: 0xC34B18 Offset: 0xC34B18 VA: 0xC34B18
+public interface IMethodReturnMessage : IMessage, IMethodMessage // TypeDefIndex: 576
+{
+	// Properties
+	public abstract Exception Exception { get; }
+	public abstract int OutArgCount { get; }
+	public abstract object[] OutArgs { get; }
+	public abstract object ReturnValue { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract Exception get_Exception();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract int get_OutArgCount();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract object[] get_OutArgs();
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract object get_ReturnValue();
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[ComVisibleAttribute] // RVA: 0xC34B2C Offset: 0xC34B2C VA: 0xC34B2C
+public interface IRemotingFormatter : IFormatter // TypeDefIndex: 577
+{}
+
+// Namespace: System.Runtime.Remoting.Messaging
+internal interface ISerializationRootObject // TypeDefIndex: 578
+{}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[ComVisibleAttribute] // RVA: 0xC34B40 Offset: 0xC34B40 VA: 0xC34B40
+[Serializable]
+public sealed class LogicalCallContext : ICloneable, ISerializable // TypeDefIndex: 579
+{
+	// Fields
+	private Hashtable _data; // 0x10
+	private CallContextRemotingData _remotingData; // 0x18
+
+	// Properties
+	public bool HasInfo { get; }
+	internal Hashtable Datastore { get; }
+
+	// Methods
+
+	// RVA: 0xE9B9CC Offset: 0xE9B9CC VA: 0xE9B9CC
+	internal void .ctor() { }
+
+	// RVA: 0xEA0830 Offset: 0xEA0830 VA: 0xEA0830
+	internal void .ctor(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0xE9BC2C Offset: 0xE9BC2C VA: 0xE9BC2C
+	public bool get_HasInfo() { }
+
+	// RVA: 0xEA0A30 Offset: 0xEA0A30 VA: 0xEA0A30 Slot: 5
+	public void GetObjectData(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0xE9BA34 Offset: 0xE9BA34 VA: 0xE9BA34
+	public void SetData(string name, object data) { }
+
+	// RVA: 0xEA0D68 Offset: 0xEA0D68 VA: 0xEA0D68 Slot: 4
+	public object Clone() { }
+
+	// RVA: 0xE9BC5C Offset: 0xE9BC5C VA: 0xE9BC5C
+	internal Hashtable get_Datastore() { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[Serializable]
+internal class CallContextRemotingData : ICloneable // TypeDefIndex: 580
+{
+	// Fields
+	private string _logicalCallID; // 0x10
+
+	// Methods
+
+	// RVA: 0xE9BD48 Offset: 0xE9BD48 VA: 0xE9BD48
+	public void .ctor() { }
+
+	// RVA: 0xE9BD50 Offset: 0xE9BD50 VA: 0xE9BD50 Slot: 4
+	public object Clone() { }
+}
+
+// Namespace: System.Runtime.Remoting.Messaging
+[CLSCompliantAttribute] // RVA: 0xC34B54 Offset: 0xC34B54 VA: 0xC34B54
+[ComVisibleAttribute] // RVA: 0xC34B54 Offset: 0xC34B54 VA: 0xC34B54
+[Serializable]
+public class MethodCall : ISerializable, IInternalMessage, IMessage, IMethodCallMessage, IMethodMessage, ISerializationRootObject // TypeDefIndex: 581
+{
+	// Fields
+	private string _uri; // 0x10
+	private string _typeName; // 0x18
+	private string _methodName; // 0x20
+	private object[] _args; // 0x28
+	private Type[] _methodSignature; // 0x30
+	private MethodBase _methodBase; // 0x38
+	private LogicalCallContext _callContext; // 0x40
+	private Identity _targetIdentity; // 0x48
+	private Type[] _genericArguments; // 0x50
+	protected IDictionary ExternalProperties; // 0x58
+	protected IDictionary InternalProperties; // 0x60
+	[CompilerGeneratedAttribute] // RVA: 0xC37758 Offset: 0xC37758 VA: 0xC37758
+	private static Dictionary<string, int> <>f__switch$map1F; // 0x0
+
+	// Properties
+	private string System.Runtime.Remoting.Messaging.IInternalMessage.Uri { get; set; }
+	private Identity System.Runtime.Remoting.Messaging.IInternalMessage.TargetIdentity { get; set; }
+	public int ArgCount { get; }
+	public object[] Args { get; }
+	public LogicalCallContext LogicalCallContext { get; }
+	public MethodBase MethodBase { get; }
+	public string MethodName { get; }
+	public object MethodSignature { get; }
+	public virtual IDictionary Properties { get; }
+	public string TypeName { get; }
+	public string Uri { get; set; }
+	private Type[] GenericArguments { get; }
+
+	// Methods
+
+	// RVA: 0xEA1128 Offset: 0xEA1128 VA: 0xEA1128
+	public void .ctor(Header[] h1) { }
+
+	// RVA: 0xE9C960 Offset: 0xE9C960 VA: 0xE9C960
+	internal void .ctor(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0xEA1B64 Offset: 0xEA1B64 VA: 0xEA1B64
+	internal void .ctor(CADMethodCallMessage msg) { }
+
+	// RVA: 0xE9C954 Offset: 0xE9C954 VA: 0xE9C954
+	internal void .ctor() { }
+
+	// RVA: 0xEA1D50 Offset: 0xEA1D50 VA: 0xEA1D50 Slot: 7
+	private string System.Runtime.Remoting.Messaging.IInternalMessage.get_Uri() { }
+
+	// RVA: 0xEA1D60 Offset: 0xEA1D60 VA: 0xEA1D60 Slot: 8
+	private void System.Runtime.Remoting.Messaging.IInternalMessage.set_Uri(string value) { }
+
+	// RVA: 0xEA1D70 Offset: 0xEA1D70 VA: 0xEA1D70 Slot: 5
+	private Identity System.Runtime.Remoting.Messaging.IInternalMessage.get_TargetIdentity() { }
+
+	// RVA: 0xEA1D78 Offset: 0xEA1D78 VA: 0xEA1D78 Slot: 6
+	private void System.Runtime.Remoting.Messaging.IInternalMessage.set_TargetIdentity(Identity value) { }
+
+	// RVA: 0xE9D168 Offset: 0xE9D168 VA: 0xE9D168 Slot: 19
+	internal virtual void InitMethodProperty(string key, object value) { }
+
+	// RVA: 0xE9D95C Offset: 0xE9D95C VA: 0xE9D95C Slot: 20
+	public virtual void GetObjectData(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0xEA1D80 Offset: 0xEA1D80 VA: 0xEA1D80 Slot: 10
+	public int get_ArgCount() { }
+
+	// RVA: 0xEA1DAC Offset: 0xEA1DAC VA: 0xEA1DAC Slot: 11
+	public object[] get_Args() { }
+
+	// RVA: 0xEA1DB4 Offset: 0xEA1DB4 VA: 0xEA1DB4 Slot: 12
+	public LogicalCallContext get_LogicalCallContext() { }
+
+	// RVA: 0xEA1E1C Offset: 0xEA1E1C VA: 0xEA1E1C Slot: 13
+	public MethodBase get_MethodBase() { }
+
+	// RVA: 0xEA1E4C Offset: 0xEA1E4C VA: 0xEA1E4C Slot: 14
+	public string get_MethodName() { }
+
+	// RVA: 0xEA1E94 Offset: 0xEA1E94 VA: 0xEA1E94 Slot: 15
+	public object get_MethodSignature() { }

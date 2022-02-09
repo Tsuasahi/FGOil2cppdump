@@ -1,0 +1,1000 @@
+	public abstract IActivator NextActivator { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IActivator get_NextActivator();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract IConstructionReturnMessage Activate(IConstructionCallMessage msg);
+}
+
+// Namespace: System.Runtime.Remoting.Activation
+[ComVisibleAttribute] // RVA: 0xC346FC Offset: 0xC346FC VA: 0xC346FC
+public interface IConstructionCallMessage : IMessage, IMethodCallMessage, IMethodMessage // TypeDefIndex: 503
+{
+	// Properties
+	public abstract Type ActivationType { get; }
+	public abstract string ActivationTypeName { get; }
+	public abstract IActivator Activator { get; set; }
+	public abstract object[] CallSiteActivationAttributes { get; }
+	public abstract IList ContextProperties { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract Type get_ActivationType();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract string get_ActivationTypeName();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract IActivator get_Activator();
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract void set_Activator(IActivator value);
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract object[] get_CallSiteActivationAttributes();
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract IList get_ContextProperties();
+}
+
+// Namespace: System.Runtime.Remoting.Activation
+[ComVisibleAttribute] // RVA: 0xC34710 Offset: 0xC34710 VA: 0xC34710
+public interface IConstructionReturnMessage : IMessage, IMethodMessage, IMethodReturnMessage // TypeDefIndex: 504
+{}
+
+// Namespace: System.Runtime.Remoting.Activation
+internal class RemoteActivationAttribute : Attribute, IContextAttribute // TypeDefIndex: 505
+{
+	// Fields
+	private IList _contextProperties; // 0x10
+
+	// Methods
+
+	// RVA: 0xF2D44C Offset: 0xF2D44C VA: 0xF2D44C
+	public void .ctor(IList contextProperties) { }
+
+	// RVA: 0xF2D478 Offset: 0xF2D478 VA: 0xF2D478 Slot: 8
+	public bool IsContextOK(Context ctx, IConstructionCallMessage ctor) { }
+
+	// RVA: 0xF2D480 Offset: 0xF2D480 VA: 0xF2D480 Slot: 7
+	public void GetPropertiesForNewContext(IConstructionCallMessage ctor) { }
+}
+
+// Namespace: System.Runtime.Remoting.Activation
+internal class RemoteActivator : MarshalByRefObject, IActivator // TypeDefIndex: 506
+{
+	// Properties
+	public IActivator NextActivator { get; }
+
+	// Methods
+
+	// RVA: 0xF2D818 Offset: 0xF2D818 VA: 0xF2D818 Slot: 7
+	public IConstructionReturnMessage Activate(IConstructionCallMessage msg) { }
+
+	// RVA: 0xF2DCF4 Offset: 0xF2DCF4 VA: 0xF2DCF4 Slot: 5
+	public override object InitializeLifetimeService() { }
+
+	// RVA: 0xF2E000 Offset: 0xF2E000 VA: 0xF2E000 Slot: 6
+	public IActivator get_NextActivator() { }
+}
+
+// Namespace: System.Runtime.Remoting.Activation
+[ComVisibleAttribute] // RVA: 0xC34724 Offset: 0xC34724 VA: 0xC34724
+[Serializable]
+public sealed class UrlAttribute : ContextAttribute // TypeDefIndex: 507
+{
+	// Fields
+	private string url; // 0x18
+
+	// Properties
+	public string UrlValue { get; }
+
+	// Methods
+
+	// RVA: 0xF2ADDC Offset: 0xF2ADDC VA: 0xF2ADDC
+	public string get_UrlValue() { }
+
+	// RVA: 0xF2E068 Offset: 0xF2E068 VA: 0xF2E068 Slot: 0
+	public override bool Equals(object o) { }
+
+	// RVA: 0xF2E114 Offset: 0xF2E114 VA: 0xF2E114 Slot: 2
+	public override int GetHashCode() { }
+
+	[ComVisibleAttribute] // RVA: 0xC3923C Offset: 0xC3923C VA: 0xC3923C
+	// RVA: 0xF2E144 Offset: 0xF2E144 VA: 0xF2E144 Slot: 14
+	public override void GetPropertiesForNewContext(IConstructionCallMessage ctorMsg) { }
+
+	[ComVisibleAttribute] // RVA: 0xC39250 Offset: 0xC39250 VA: 0xC39250
+	// RVA: 0xF2E148 Offset: 0xF2E148 VA: 0xF2E148 Slot: 15
+	public override bool IsContextOK(Context ctx, IConstructionCallMessage msg) { }
+}
+
+// Namespace: System.Runtime.Remoting
+[Serializable]
+internal class ChannelInfo : IChannelInfo // TypeDefIndex: 508
+{
+	// Fields
+	private object[] channelData; // 0x10
+
+	// Properties
+	public object[] ChannelData { get; }
+
+	// Methods
+
+	// RVA: 0xF2ED34 Offset: 0xF2ED34 VA: 0xF2ED34
+	public void .ctor() { }
+
+	// RVA: 0xF2F1D8 Offset: 0xF2F1D8 VA: 0xF2F1D8
+	public void .ctor(object remoteChannelData) { }
+
+	// RVA: 0xF2F2A0 Offset: 0xF2F2A0 VA: 0xF2F2A0 Slot: 4
+	public object[] get_ChannelData() { }
+}
+
+// Namespace: System.Runtime.Remoting.Channels
+[ComVisibleAttribute] // RVA: 0xC34738 Offset: 0xC34738 VA: 0xC34738
+public sealed class ChannelServices // TypeDefIndex: 509
+{
+	// Fields
+	private static ArrayList registeredChannels; // 0x0
+	private static ArrayList delayedClientChannels; // 0x8
+	private static CrossContextChannel _crossContextSink; // 0x10
+	internal static string CrossContextUrl; // 0x18
+	private static IList oldStartModeTypes; // 0x20
+
+	// Properties
+	internal static CrossContextChannel CrossContextChannel { get; }
+
+	// Methods
+
+	// RVA: 0xF2F704 Offset: 0xF2F704 VA: 0xF2F704
+	private static void .cctor() { }
+
+	// RVA: 0xF2F8AC Offset: 0xF2F8AC VA: 0xF2F8AC
+	internal static CrossContextChannel get_CrossContextChannel() { }
+
+	// RVA: 0xF2F914 Offset: 0xF2F914 VA: 0xF2F914
+	internal static IMessageSink CreateClientChannelSinkChain(string url, object remoteChannelData, out string objectUri) { }
+
+	// RVA: 0xF30214 Offset: 0xF30214 VA: 0xF30214
+	internal static IMessageSink CreateClientChannelSinkChain(IChannelSender sender, string url, object[] channelDataArray, out string objectUri) { }
+
+	[ObsoleteAttribute] // RVA: 0xC39264 Offset: 0xC39264 VA: 0xC39264
+	// RVA: 0xF3040C Offset: 0xF3040C VA: 0xF3040C
+	public static void RegisterChannel(IChannel chnl) { }
+
+	// RVA: 0xF30474 Offset: 0xF30474 VA: 0xF30474
+	public static void RegisterChannel(IChannel chnl, bool ensureSecurity) { }
+
+	// RVA: 0xF30E44 Offset: 0xF30E44 VA: 0xF30E44
+	internal static void RegisterChannelConfig(ChannelData channel) { }
+
+	// RVA: 0xF31CBC Offset: 0xF31CBC VA: 0xF31CBC
+	private static object CreateProvider(ProviderData prov) { }
+
+	// RVA: 0xF320F0 Offset: 0xF320F0 VA: 0xF320F0
+	public static IMessage SyncDispatchMessage(IMessage msg) { }
+
+	// RVA: 0xF321C8 Offset: 0xF321C8 VA: 0xF321C8
+	private static ReturnMessage CheckIncomingMessage(IMessage msg) { }
+
+	// RVA: 0xF32524 Offset: 0xF32524 VA: 0xF32524
+	internal static IMessage CheckReturnMessage(IMessage callMsg, IMessage retMsg) { }
+
+	// RVA: 0xF32C30 Offset: 0xF32C30 VA: 0xF32C30
+	private static bool IsLocalCall(IMessage callMsg) { }
+
+	// RVA: 0xF2EDA8 Offset: 0xF2EDA8 VA: 0xF2EDA8
+	internal static object[] GetCurrentChannelInfo() { }
+}
+
+// Namespace: System.Runtime.Remoting.Channels
+[Serializable]
+internal class CrossAppDomainData // TypeDefIndex: 510
+{
+	// Fields
+	private object _ContextID; // 0x10
+	private int _DomainID; // 0x18
+	private string _processGuid; // 0x20
+
+	// Properties
+	internal int DomainID { get; }
+	internal string ProcessID { get; }
+
+	// Methods
+
+	// RVA: 0xF32E98 Offset: 0xF32E98 VA: 0xF32E98
+	internal void .ctor(int domainId) { }
+
+	// RVA: 0xF330DC Offset: 0xF330DC VA: 0xF330DC
+	internal int get_DomainID() { }
+
+	// RVA: 0xF330D4 Offset: 0xF330D4 VA: 0xF330D4
+	internal string get_ProcessID() { }
+}
+
+// Namespace: System.Runtime.Remoting.Channels
+[Serializable]
+internal class CrossAppDomainChannel : IChannel, IChannelReceiver, IChannelSender // TypeDefIndex: 511
+{
+	// Fields
+	private static object s_lock; // 0x0
+
+	// Properties
+	public virtual string ChannelName { get; }
+	public virtual int ChannelPriority { get; }
+	public virtual object ChannelData { get; }
+
+	// Methods
+
+	// RVA: 0xF32C38 Offset: 0xF32C38 VA: 0xF32C38
+	public void .ctor() { }
+
+	// RVA: 0xF32C40 Offset: 0xF32C40 VA: 0xF32C40
+	private static void .cctor() { }
+
+	// RVA: 0xF32CAC Offset: 0xF32CAC VA: 0xF32CAC
+	internal static void RegisterCrossAppDomainChannel() { }
+
+	// RVA: 0xF32DBC Offset: 0xF32DBC VA: 0xF32DBC Slot: 9
+	public virtual string get_ChannelName() { }
+
+	// RVA: 0xF32E04 Offset: 0xF32E04 VA: 0xF32E04 Slot: 10
+	public virtual int get_ChannelPriority() { }
+
+	// RVA: 0xF32E0C Offset: 0xF32E0C VA: 0xF32E0C Slot: 11
+	public virtual object get_ChannelData() { }
+
+	// RVA: 0xF32F3C Offset: 0xF32F3C VA: 0xF32F3C Slot: 12
+	public virtual void StartListening(object data) { }
+
+	// RVA: 0xF32F40 Offset: 0xF32F40 VA: 0xF32F40 Slot: 13
+	public virtual IMessageSink CreateMessageSink(string url, object data, out string uri) { }
+}
+
+// Namespace: System.Runtime.Remoting.Channels
+[MonoTODOAttribute] // RVA: 0xC3474C Offset: 0xC3474C VA: 0xC3474C
+internal class CrossAppDomainSink : IMessageSink // TypeDefIndex: 512
+{
+	// Fields
+	private static Hashtable s_sinks; // 0x0
+	private static MethodInfo processMessageMethod; // 0x8
+	private int _domainID; // 0x10
+
+	// Properties
+	internal int TargetDomainId { get; }
+
+	// Methods
+
+	// RVA: 0xF333D4 Offset: 0xF333D4 VA: 0xF333D4
+	internal void .ctor(int domainID) { }
+
+	// RVA: 0xF33400 Offset: 0xF33400 VA: 0xF33400
+	private static void .cctor() { }
+
+	// RVA: 0xF330E4 Offset: 0xF330E4 VA: 0xF330E4
+	internal static CrossAppDomainSink GetSink(int domainID) { }
+
+	// RVA: 0xF334D8 Offset: 0xF334D8 VA: 0xF334D8
+	internal int get_TargetDomainId() { }
+
+	// RVA: 0xF334E0 Offset: 0xF334E0 VA: 0xF334E0
+	private static CrossAppDomainSink.ProcessMessageRes ProcessMessageInDomain(byte[] arrRequest, CADMethodCallMessage cadMsg) { }
+
+	// RVA: 0xF33664 Offset: 0xF33664 VA: 0xF33664 Slot: 6
+	public virtual IMessage SyncProcessMessage(IMessage msgRequest) { }
+
+	// RVA: 0xF33B34 Offset: 0xF33B34 VA: 0xF33B34 Slot: 7
+	public virtual IMessageCtrl AsyncProcessMessage(IMessage reqMsg, IMessageSink replySink) { }
+
+	// RVA: 0xF33BE4 Offset: 0xF33BE4 VA: 0xF33BE4
+	public void SendAsyncMessage(object data) { }
+}
+
+// Namespace: 
+private struct CrossAppDomainSink.ProcessMessageRes // TypeDefIndex: 513
+{
+	// Fields
+	public byte[] arrResponse; // 0x0
+	public CADMethodReturnMessage cadMrm; // 0x8
+}
+
+// Namespace: System.Runtime.Remoting.Channels
+internal class CADSerializer // TypeDefIndex: 514
+{
+	// Methods
+
+	// RVA: 0xF2F2E0 Offset: 0xF2F2E0 VA: 0xF2F2E0
+	internal static IMessage DeserializeMessage(MemoryStream mem, IMethodCallMessage msg) { }
+
+	// RVA: 0xF2F43C Offset: 0xF2F43C VA: 0xF2F43C
+	internal static MemoryStream SerializeMessage(IMessage msg) { }
+
+	// RVA: 0xF2F548 Offset: 0xF2F548 VA: 0xF2F548
+	internal static MemoryStream SerializeObject(object obj) { }
+
+	// RVA: 0xF2F654 Offset: 0xF2F654 VA: 0xF2F654
+	internal static object DeserializeObject(MemoryStream mem) { }
+}
+
+// Namespace: System.Runtime.Remoting.Channels
+internal class AsyncRequest // TypeDefIndex: 515
+{
+	// Fields
+	internal IMessageSink ReplySink; // 0x10
+	internal IMessage MsgRequest; // 0x18
+
+	// Methods
+
+	// RVA: 0xF2F2A8 Offset: 0xF2F2A8 VA: 0xF2F2A8
+	public void .ctor(IMessage msgRequest, IMessageSink replySink) { }
+}
+
+// Namespace: System.Runtime.Remoting.Channels
+[ComVisibleAttribute] // RVA: 0xC34784 Offset: 0xC34784 VA: 0xC34784
+public interface IChannel // TypeDefIndex: 516
+{
+	// Properties
+	public abstract string ChannelName { get; }
+	public abstract int ChannelPriority { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract string get_ChannelName();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract int get_ChannelPriority();
+}
+
+// Namespace: System.Runtime.Remoting.Channels
+[DefaultMemberAttribute] // RVA: 0xC34798 Offset: 0xC34798 VA: 0xC34798
+[ComVisibleAttribute] // RVA: 0xC34798 Offset: 0xC34798 VA: 0xC34798
+public interface IChannelDataStore // TypeDefIndex: 517
+{}
+
+// Namespace: System.Runtime.Remoting.Channels
+[ComVisibleAttribute] // RVA: 0xC347E8 Offset: 0xC347E8 VA: 0xC347E8
+public interface IChannelReceiver : IChannel // TypeDefIndex: 518
+{
+	// Properties
+	public abstract object ChannelData { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract object get_ChannelData();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void StartListening(object data);
+}
+
+// Namespace: System.Runtime.Remoting.Channels
+[ComVisibleAttribute] // RVA: 0xC347FC Offset: 0xC347FC VA: 0xC347FC
+public interface IChannelSender : IChannel // TypeDefIndex: 519
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IMessageSink CreateMessageSink(string url, object remoteChannelData, out string objectURI);
+}
+
+// Namespace: System.Runtime.Remoting.Channels
+[ComVisibleAttribute] // RVA: 0xC34810 Offset: 0xC34810 VA: 0xC34810
+public interface IClientChannelSinkProvider // TypeDefIndex: 520
+{
+	// Properties
+	public abstract IClientChannelSinkProvider Next { set; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void set_Next(IClientChannelSinkProvider value);
+}
+
+// Namespace: System.Runtime.Remoting.Channels
+public interface ISecurableChannel // TypeDefIndex: 521
+{
+	// Properties
+	public abstract bool IsSecured { set; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void set_IsSecured(bool value);
+}
+
+// Namespace: System.Runtime.Remoting.Channels
+[ComVisibleAttribute] // RVA: 0xC34824 Offset: 0xC34824 VA: 0xC34824
+public interface IServerChannelSinkProvider // TypeDefIndex: 522
+{
+	// Properties
+	public abstract IServerChannelSinkProvider Next { set; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void set_Next(IServerChannelSinkProvider value);
+}
+
+// Namespace: System.Runtime.Remoting.Channels
+[ComVisibleAttribute] // RVA: 0xC34838 Offset: 0xC34838 VA: 0xC34838
+public class SinkProviderData // TypeDefIndex: 523
+{
+	// Fields
+	private string sinkName; // 0x10
+	private ArrayList children; // 0x18
+	private Hashtable properties; // 0x20
+
+	// Properties
+	public IList Children { get; }
+	public IDictionary Properties { get; }
+
+	// Methods
+
+	// RVA: 0xF33D64 Offset: 0xF33D64 VA: 0xF33D64
+	public void .ctor(string name) { }
+
+	// RVA: 0xF33E00 Offset: 0xF33E00 VA: 0xF33E00
+	public IList get_Children() { }
+
+	// RVA: 0xF33E08 Offset: 0xF33E08 VA: 0xF33E08
+	public IDictionary get_Properties() { }
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+[ComVisibleAttribute] // RVA: 0xC3484C Offset: 0xC3484C VA: 0xC3484C
+public class Context // TypeDefIndex: 524
+{
+	// Fields
+	private int domain_id; // 0x10
+	private int context_id; // 0x14
+	private UIntPtr static_data; // 0x18
+	private static IMessageSink default_server_context_sink; // 0x0
+	private IMessageSink server_context_sink_chain; // 0x20
+	private IMessageSink client_context_sink_chain; // 0x28
+	private object[] datastore; // 0x30
+	private ArrayList context_properties; // 0x38
+	private bool frozen; // 0x40
+	private static int global_count; // 0x8
+	private static Hashtable namedSlots; // 0x10
+	private static DynamicPropertyCollection global_dynamic_properties; // 0x18
+	private DynamicPropertyCollection context_dynamic_properties; // 0x48
+	private ContextCallbackObject callback_object; // 0x50
+
+	// Properties
+	public static Context DefaultContext { get; }
+	public virtual int ContextID { get; }
+	public virtual IContextProperty[] ContextProperties { get; }
+	internal bool IsDefaultContext { get; }
+	internal bool NeedsContextSink { get; }
+	internal static bool HasGlobalDynamicSinks { get; }
+	internal bool HasDynamicSinks { get; }
+	internal bool HasExitSinks { get; }
+
+	// Methods
+
+	// RVA: 0xF38600 Offset: 0xF38600 VA: 0xF38600
+	public void .ctor() { }
+
+	// RVA: 0xF386B0 Offset: 0xF386B0 VA: 0xF386B0
+	private static void .cctor() { }
+
+	// RVA: 0xF3871C Offset: 0xF3871C VA: 0xF3871C Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0xF38724 Offset: 0xF38724 VA: 0xF38724
+	public static Context get_DefaultContext() { }
+
+	// RVA: 0xF3872C Offset: 0xF3872C VA: 0xF3872C Slot: 4
+	public virtual int get_ContextID() { }
+
+	// RVA: 0xF38734 Offset: 0xF38734 VA: 0xF38734 Slot: 5
+	public virtual IContextProperty[] get_ContextProperties() { }
+
+	// RVA: 0xF38860 Offset: 0xF38860 VA: 0xF38860
+	internal bool get_IsDefaultContext() { }
+
+	// RVA: 0xF38870 Offset: 0xF38870 VA: 0xF38870
+	internal bool get_NeedsContextSink() { }
+
+	// RVA: 0xF389C8 Offset: 0xF389C8 VA: 0xF389C8
+	public static bool RegisterDynamicProperty(IDynamicProperty prop, ContextBoundObject obj, Context ctx) { }
+
+	// RVA: 0xF38F2C Offset: 0xF38F2C VA: 0xF38F2C
+	public static bool UnregisterDynamicProperty(string name, ContextBoundObject obj, Context ctx) { }
+
+	// RVA: 0xF38A58 Offset: 0xF38A58 VA: 0xF38A58
+	private static DynamicPropertyCollection GetDynamicPropertyCollection(ContextBoundObject obj, Context ctx) { }
+
+	// RVA: 0xF39274 Offset: 0xF39274 VA: 0xF39274
+	internal static void NotifyGlobalDynamicSinks(bool start, IMessage req_msg, bool client_site, bool async) { }
+
+	// RVA: 0xF39A04 Offset: 0xF39A04 VA: 0xF39A04
+	internal static bool get_HasGlobalDynamicSinks() { }
+
+	// RVA: 0xF39AD0 Offset: 0xF39AD0 VA: 0xF39AD0
+	internal void NotifyDynamicSinks(bool start, IMessage req_msg, bool client_site, bool async) { }
+
+	// RVA: 0xF39B78 Offset: 0xF39B78 VA: 0xF39B78
+	internal bool get_HasDynamicSinks() { }
+
+	// RVA: 0xF39BCC Offset: 0xF39BCC VA: 0xF39BCC
+	internal bool get_HasExitSinks() { }
+
+	// RVA: 0xF39FF0 Offset: 0xF39FF0 VA: 0xF39FF0 Slot: 6
+	public virtual IContextProperty GetProperty(string name) { }
+
+	// RVA: 0xF3A3AC Offset: 0xF3A3AC VA: 0xF3A3AC Slot: 7
+	public virtual void SetProperty(IContextProperty prop) { }
+
+	// RVA: 0xF3A508 Offset: 0xF3A508 VA: 0xF3A508 Slot: 8
+	public virtual void Freeze() { }
+
+	// RVA: 0xF3A82C Offset: 0xF3A82C VA: 0xF3A82C Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0xF2C634 Offset: 0xF2C634 VA: 0xF2C634
+	internal IMessageSink GetServerContextSinkChain() { }
+
+	// RVA: 0xF39C88 Offset: 0xF39C88 VA: 0xF39C88
+	internal IMessageSink GetClientContextSinkChain() { }
+
+	// RVA: 0xF33FC0 Offset: 0xF33FC0 VA: 0xF33FC0
+	internal IMessageSink CreateServerObjectSinkChain(MarshalByRefObject obj, bool forceInternalExecute) { }
+
+	// RVA: 0xF3A8FC Offset: 0xF3A8FC VA: 0xF3A8FC
+	internal IMessageSink CreateEnvoySink(MarshalByRefObject serverObject) { }
+
+	// RVA: 0xF2D444 Offset: 0xF2D444 VA: 0xF2D444
+	internal static Context SwitchToContext(Context newContext) { }
+
+	// RVA: 0xF2CB98 Offset: 0xF2CB98 VA: 0xF2CB98
+	internal static Context CreateNewContext(IConstructionCallMessage msg) { }
+
+	// RVA: 0xF3AC70 Offset: 0xF3AC70 VA: 0xF3AC70
+	public void DoCallBack(CrossContextDelegate deleg) { }
+
+	// RVA: 0xF3ADA8 Offset: 0xF3ADA8 VA: 0xF3ADA8
+	public static LocalDataStoreSlot AllocateDataSlot() { }
+
+	// RVA: 0xF3AE08 Offset: 0xF3AE08 VA: 0xF3AE08
+	public static LocalDataStoreSlot AllocateNamedDataSlot(string name) { }
+
+	// RVA: 0xF3AF50 Offset: 0xF3AF50 VA: 0xF3AF50
+	public static void FreeNamedDataSlot(string name) { }
+
+	// RVA: 0xF3B098 Offset: 0xF3B098 VA: 0xF3B098
+	public static object GetData(LocalDataStoreSlot slot) { }
+
+	// RVA: 0xF3B200 Offset: 0xF3B200 VA: 0xF3B200
+	public static LocalDataStoreSlot GetNamedDataSlot(string name) { }
+
+	// RVA: 0xF3B384 Offset: 0xF3B384 VA: 0xF3B384
+	public static void SetData(LocalDataStoreSlot slot, object data) { }
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+internal class DynamicPropertyCollection // TypeDefIndex: 525
+{
+	// Fields
+	private ArrayList _properties; // 0x10
+
+	// Properties
+	public bool HasProperties { get; }
+
+	// Methods
+
+	// RVA: 0xF3920C Offset: 0xF3920C VA: 0xF3920C
+	public void .ctor() { }
+
+	// RVA: 0xF38984 Offset: 0xF38984 VA: 0xF38984
+	public bool get_HasProperties() { }
+
+	// RVA: 0xF38C70 Offset: 0xF38C70 VA: 0xF38C70
+	public bool RegisterDynamicProperty(IDynamicProperty prop) { }
+
+	// RVA: 0xF38FBC Offset: 0xF38FBC VA: 0xF38FBC
+	public bool UnregisterDynamicProperty(string name) { }
+
+	// RVA: 0xF393B0 Offset: 0xF393B0 VA: 0xF393B0
+	public void NotifyMessage(bool start, IMessage msg, bool client_site, bool async) { }
+
+	// RVA: 0xF3C570 Offset: 0xF3C570 VA: 0xF3C570
+	private int FindProperty(string name) { }
+}
+
+// Namespace: 
+private class DynamicPropertyCollection.DynamicPropertyReg // TypeDefIndex: 526
+{
+	// Fields
+	public IDynamicProperty Property; // 0x10
+	public IDynamicMessageSink Sink; // 0x18
+
+	// Methods
+
+	// RVA: 0xF3C7DC Offset: 0xF3C7DC VA: 0xF3C7DC
+	public void .ctor() { }
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+internal class ContextCallbackObject : ContextBoundObject // TypeDefIndex: 527
+{
+	// Methods
+
+	// RVA: 0xF3AD9C Offset: 0xF3AD9C VA: 0xF3AD9C
+	public void .ctor() { }
+
+	// RVA: 0xF3ADA4 Offset: 0xF3ADA4 VA: 0xF3ADA4
+	public void DoCallBack(CrossContextDelegate deleg) { }
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+[ComVisibleAttribute] // RVA: 0xC34860 Offset: 0xC34860 VA: 0xC34860
+[AttributeUsageAttribute] // RVA: 0xC34860 Offset: 0xC34860 VA: 0xC34860
+[Serializable]
+public class ContextAttribute : Attribute, IContextAttribute, IContextProperty // TypeDefIndex: 528
+{
+	// Fields
+	protected string AttributeName; // 0x10
+
+	// Properties
+	public virtual string Name { get; }
+
+	// Methods
+
+	// RVA: 0xF3B5AC Offset: 0xF3B5AC VA: 0xF3B5AC
+	public void .ctor(string name) { }
+
+	// RVA: 0xF3B5D8 Offset: 0xF3B5D8 VA: 0xF3B5D8 Slot: 12
+	public virtual string get_Name() { }
+
+	// RVA: 0xF3B5E0 Offset: 0xF3B5E0 VA: 0xF3B5E0 Slot: 0
+	public override bool Equals(object o) { }
+
+	// RVA: 0xF3B6AC Offset: 0xF3B6AC VA: 0xF3B6AC Slot: 13
+	public virtual void Freeze(Context newContext) { }
+
+	// RVA: 0xF3B6B0 Offset: 0xF3B6B0 VA: 0xF3B6B0 Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0xF3B6C4 Offset: 0xF3B6C4 VA: 0xF3B6C4 Slot: 14
+	public virtual void GetPropertiesForNewContext(IConstructionCallMessage ctorMsg) { }
+
+	// RVA: 0xF3B83C Offset: 0xF3B83C VA: 0xF3B83C Slot: 15
+	public virtual bool IsContextOK(Context ctx, IConstructionCallMessage ctorMsg) { }
+
+	// RVA: 0xF3B9A0 Offset: 0xF3B9A0 VA: 0xF3B9A0 Slot: 16
+	public virtual bool IsNewContextOK(Context newCtx) { }
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+internal class CrossContextChannel : IMessageSink // TypeDefIndex: 529
+{
+	// Methods
+
+	// RVA: 0xF2F8A4 Offset: 0xF2F8A4 VA: 0xF2F8A4
+	public void .ctor() { }
+
+	// RVA: 0xF3270C Offset: 0xF3270C VA: 0xF3270C Slot: 4
+	public IMessage SyncProcessMessage(IMessage msg) { }
+
+	// RVA: 0xF3B9A8 Offset: 0xF3B9A8 VA: 0xF3B9A8 Slot: 5
+	public IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink) { }
+}
+
+// Namespace: 
+private class CrossContextChannel.ContextRestoreSink : IMessageSink // TypeDefIndex: 530
+{
+	// Fields
+	private IMessageSink _next; // 0x10
+	private Context _context; // 0x18
+	private IMessage _call; // 0x20
+
+	// Methods
+
+	// RVA: 0xF3BF28 Offset: 0xF3BF28 VA: 0xF3BF28
+	public void .ctor(IMessageSink next, Context context, IMessage call) { }
+
+	// RVA: 0xF3BF68 Offset: 0xF3BF68 VA: 0xF3BF68 Slot: 4
+	public IMessage SyncProcessMessage(IMessage msg) { }
+
+	// RVA: 0xF3C2B8 Offset: 0xF3C2B8 VA: 0xF3C2B8 Slot: 5
+	public IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink) { }
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+[ComVisibleAttribute] // RVA: 0xC348A0 Offset: 0xC348A0 VA: 0xC348A0
+public interface IContextAttribute // TypeDefIndex: 531
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void GetPropertiesForNewContext(IConstructionCallMessage msg);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract bool IsContextOK(Context ctx, IConstructionCallMessage msg);
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+[ComVisibleAttribute] // RVA: 0xC348B4 Offset: 0xC348B4 VA: 0xC348B4
+public interface IContextProperty // TypeDefIndex: 532
+{
+	// Properties
+	public abstract string Name { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract string get_Name();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void Freeze(Context newContext);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract bool IsNewContextOK(Context newCtx);
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+[ComVisibleAttribute] // RVA: 0xC348C8 Offset: 0xC348C8 VA: 0xC348C8
+public interface IContributeClientContextSink // TypeDefIndex: 533
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IMessageSink GetClientContextSink(IMessageSink nextSink);
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+[ComVisibleAttribute] // RVA: 0xC348DC Offset: 0xC348DC VA: 0xC348DC
+public interface IContributeDynamicSink // TypeDefIndex: 534
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IDynamicMessageSink GetDynamicSink();
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+[ComVisibleAttribute] // RVA: 0xC348F0 Offset: 0xC348F0 VA: 0xC348F0
+public interface IContributeEnvoySink // TypeDefIndex: 535
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IMessageSink GetEnvoySink(MarshalByRefObject obj, IMessageSink nextSink);
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+[ComVisibleAttribute] // RVA: 0xC34904 Offset: 0xC34904 VA: 0xC34904
+public interface IContributeObjectSink // TypeDefIndex: 536
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IMessageSink GetObjectSink(MarshalByRefObject obj, IMessageSink nextSink);
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+[ComVisibleAttribute] // RVA: 0xC34918 Offset: 0xC34918 VA: 0xC34918
+public interface IContributeServerContextSink // TypeDefIndex: 537
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IMessageSink GetServerContextSink(IMessageSink nextSink);
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+[ComVisibleAttribute] // RVA: 0xC3492C Offset: 0xC3492C VA: 0xC3492C
+public interface IDynamicMessageSink // TypeDefIndex: 538
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void ProcessMessageFinish(IMessage replyMsg, bool bCliSide, bool bAsync);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void ProcessMessageStart(IMessage reqMsg, bool bCliSide, bool bAsync);
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+[ComVisibleAttribute] // RVA: 0xC34940 Offset: 0xC34940 VA: 0xC34940
+public interface IDynamicProperty // TypeDefIndex: 539
+{
+	// Properties
+	public abstract string Name { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract string get_Name();
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+[ComVisibleAttribute] // RVA: 0xC34954 Offset: 0xC34954 VA: 0xC34954
+[AttributeUsageAttribute] // RVA: 0xC34954 Offset: 0xC34954 VA: 0xC34954
+[Serializable]
+public class SynchronizationAttribute : ContextAttribute, IContributeClientContextSink, IContributeServerContextSink // TypeDefIndex: 540
+{
+	// Fields
+	private bool _bReEntrant; // 0x18
+	private int _flavor; // 0x1C
+	private int _lockCount; // 0x20
+	private Mutex _mutex; // 0x28
+	private Thread _ownerThread; // 0x30
+
+	// Properties
+	public virtual bool IsReEntrant { get; }
+	public virtual bool Locked { set; }
+
+	// Methods
+
+	// RVA: 0xF3C7E4 Offset: 0xF3C7E4 VA: 0xF3C7E4
+	public void .ctor() { }
+
+	// RVA: 0xF3C7F0 Offset: 0xF3C7F0 VA: 0xF3C7F0
+	public void .ctor(int flag, bool reEntrant) { }
+
+	// RVA: 0xF3C8EC Offset: 0xF3C8EC VA: 0xF3C8EC Slot: 19
+	public virtual bool get_IsReEntrant() { }
+
+	// RVA: 0xF3C8F4 Offset: 0xF3C8F4 VA: 0xF3C8F4 Slot: 20
+	public virtual void set_Locked(bool value) { }
+
+	// RVA: 0xF3CBB8 Offset: 0xF3CBB8 VA: 0xF3CBB8
+	internal void AcquireLock() { }
+
+	// RVA: 0xF3CAA8 Offset: 0xF3CAA8 VA: 0xF3CAA8
+	internal void ReleaseLock() { }
+
+	[ComVisibleAttribute] // RVA: 0xC3929C Offset: 0xC3929C VA: 0xC3929C
+	// RVA: 0xF3CCB0 Offset: 0xF3CCB0 VA: 0xF3CCB0 Slot: 14
+	public override void GetPropertiesForNewContext(IConstructionCallMessage ctorMsg) { }
+
+	// RVA: 0xF3CE08 Offset: 0xF3CE08 VA: 0xF3CE08 Slot: 21
+	public virtual IMessageSink GetClientContextSink(IMessageSink nextSink) { }
+
+	// RVA: 0xF3CEB0 Offset: 0xF3CEB0 VA: 0xF3CEB0 Slot: 22
+	public virtual IMessageSink GetServerContextSink(IMessageSink nextSink) { }
+
+	[ComVisibleAttribute] // RVA: 0xC392B0 Offset: 0xC392B0 VA: 0xC392B0
+	// RVA: 0xF3CF58 Offset: 0xF3CF58 VA: 0xF3CF58 Slot: 15
+	public override bool IsContextOK(Context ctx, IConstructionCallMessage msg) { }
+
+	// RVA: 0xF3D04C Offset: 0xF3D04C VA: 0xF3D04C
+	internal static void ExitContext() { }
+
+	// RVA: 0xF3D174 Offset: 0xF3D174 VA: 0xF3D174
+	internal static void EnterContext() { }
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+internal class SynchronizedClientContextSink : IMessageSink // TypeDefIndex: 541
+{
+	// Fields
+	private IMessageSink _next; // 0x10
+	private SynchronizationAttribute _att; // 0x18
+
+	// Methods
+
+	// RVA: 0xF3CE78 Offset: 0xF3CE78 VA: 0xF3CE78
+	public void .ctor(IMessageSink next, SynchronizationAttribute att) { }
+
+	// RVA: 0xF3D29C Offset: 0xF3D29C VA: 0xF3D29C Slot: 5
+	public IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink) { }
+
+	// RVA: 0xF3D430 Offset: 0xF3D430 VA: 0xF3D430 Slot: 4
+	public IMessage SyncProcessMessage(IMessage msg) { }
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+internal class SynchronizedServerContextSink : IMessageSink // TypeDefIndex: 542
+{
+	// Fields
+	private IMessageSink _next; // 0x10
+	private SynchronizationAttribute _att; // 0x18
+
+	// Methods
+
+	// RVA: 0xF3CF20 Offset: 0xF3CF20 VA: 0xF3CF20
+	public void .ctor(IMessageSink next, SynchronizationAttribute att) { }
+
+	// RVA: 0xF3D7F8 Offset: 0xF3D7F8 VA: 0xF3D7F8 Slot: 5
+	public IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink) { }
+
+	// RVA: 0xF3D914 Offset: 0xF3D914 VA: 0xF3D914 Slot: 4
+	public IMessage SyncProcessMessage(IMessage msg) { }
+}
+
+// Namespace: System.Runtime.Remoting.Contexts
+internal class SynchronizedContextReplySink : IMessageSink // TypeDefIndex: 543
+{
+	// Fields
+	private IMessageSink _next; // 0x10
+	private bool _newLock; // 0x18
+	private SynchronizationAttribute _att; // 0x20
+
+	// Methods
+
+	// RVA: 0xF3D3E8 Offset: 0xF3D3E8 VA: 0xF3D3E8
+	public void .ctor(IMessageSink next, SynchronizationAttribute att, bool newLock) { }
+
+	// RVA: 0xF3D5F8 Offset: 0xF3D5F8 VA: 0xF3D5F8 Slot: 5
+	public IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink) { }
+
+	// RVA: 0xF3D660 Offset: 0xF3D660 VA: 0xF3D660 Slot: 4
+	public IMessage SyncProcessMessage(IMessage msg) { }
+}
+
+// Namespace: System.Runtime.Remoting.Lifetime
+[ComVisibleAttribute] // RVA: 0xC34994 Offset: 0xC34994 VA: 0xC34994
+public interface ILease // TypeDefIndex: 544
+{
+	// Properties
+	public abstract TimeSpan CurrentLeaseTime { get; }
+	public abstract LeaseState CurrentState { get; }
+	public abstract TimeSpan InitialLeaseTime { set; }
+	public abstract TimeSpan RenewOnCallTime { get; set; }
+	public abstract TimeSpan SponsorshipTimeout { set; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract TimeSpan get_CurrentLeaseTime();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract LeaseState get_CurrentState();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void set_InitialLeaseTime(TimeSpan value);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract TimeSpan get_RenewOnCallTime();
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void set_RenewOnCallTime(TimeSpan value);
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract void set_SponsorshipTimeout(TimeSpan value);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract TimeSpan Renew(TimeSpan renewalTime);
+}
+
+// Namespace: System.Runtime.Remoting.Lifetime
+[ComVisibleAttribute] // RVA: 0xC349A8 Offset: 0xC349A8 VA: 0xC349A8
+public interface ISponsor // TypeDefIndex: 545
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract TimeSpan Renewal(ILease lease);
+}
+
+// Namespace: System.Runtime.Remoting.Lifetime
+internal class Lease : MarshalByRefObject, ILease // TypeDefIndex: 546
+{
+	// Fields
+	private DateTime _leaseExpireTime; // 0x18
+	private LeaseState _currentState; // 0x28
+	private TimeSpan _initialLeaseTime; // 0x30
+	private TimeSpan _renewOnCallTime; // 0x38
+	private TimeSpan _sponsorshipTimeout; // 0x40
+	private ArrayList _sponsors; // 0x48
+	private Queue _renewingSponsors; // 0x50
+	private Lease.RenewalDelegate _renewalDelegate; // 0x58
+
+	// Properties
+	public TimeSpan CurrentLeaseTime { get; }
+	public LeaseState CurrentState { get; }
+	public TimeSpan InitialLeaseTime { set; }
+	public TimeSpan RenewOnCallTime { get; set; }
+	public TimeSpan SponsorshipTimeout { set; }
+
+	// Methods
+

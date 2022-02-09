@@ -1,0 +1,1000 @@
+	private static AndroidJavaClass GetUnityPlayerClass() { }
+
+	// RVA: 0x130BB74 Offset: 0x130BB74 VA: 0x130BB74
+	internal static AndroidJavaObject GetCurrentActivity() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+[ExtensionAttribute] // RVA: 0xC86D48 Offset: 0xC86D48 VA: 0xC86D48
+public static class ReflectionUtils // TypeDefIndex: 3428
+{
+	// Methods
+
+	[ExtensionAttribute] // RVA: 0xC87AE8 Offset: 0xC87AE8 VA: 0xC87AE8
+	// RVA: 0x22BC9A0 Offset: 0x22BC9A0 VA: 0x22BC9A0
+	internal static bool HasMethodInInterface(object objectToCheck, string methodName) { }
+
+	[ExtensionAttribute] // RVA: 0xC87AF8 Offset: 0xC87AF8 VA: 0xC87AF8
+	// RVA: 0x22CD410 Offset: 0x22CD410 VA: 0x22CD410
+	private static MethodInfo GetMethod(object objectToCheck, string methodName) { }
+
+	[ExtensionAttribute] // RVA: 0xC87B08 Offset: 0xC87B08 VA: 0xC87B08
+	// RVA: 0x22BCB80 Offset: 0x22BCB80 VA: 0x22BCB80
+	internal static void InvokeMethod(object objectToCheck, string methodName, object[] parameters) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+public class FakeGooglePlayStoreConfiguration : IGooglePlayConfiguration, IStoreConfiguration // TypeDefIndex: 3429
+{
+	// Methods
+
+	// RVA: 0x22B929C Offset: 0x22B929C VA: 0x22B929C
+	public void .ctor() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+public class FakeGooglePlayStoreExtensions : IGooglePlayStoreExtensions, IStoreExtension // TypeDefIndex: 3430
+{
+	// Methods
+
+	// RVA: 0x22B92A4 Offset: 0x22B92A4 VA: 0x22B92A4 Slot: 4
+	public void RestoreTransactions(Action<bool> callback) { }
+
+	// RVA: 0x22B92A8 Offset: 0x22B92A8 VA: 0x22B92A8
+	public void .ctor() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+public class GooglePlayConfiguration : IGooglePlayConfiguration, IStoreConfiguration // TypeDefIndex: 3431
+{
+	// Fields
+	private Action m_InitializationConnectionLister; // 0x10
+	private IGooglePlayConfigurationInternal m_GooglePlayConfigurationInternal; // 0x18
+
+	// Methods
+
+	// RVA: 0x22BD52C Offset: 0x22BD52C VA: 0x22BD52C
+	internal void SetGooglePlayConfigurationInternal(IGooglePlayConfigurationInternal googlePlayConfigurationInternal) { }
+
+	// RVA: 0x22BD5F0 Offset: 0x22BD5F0 VA: 0x22BD5F0
+	public void NotifyInitializationConnectionFailed() { }
+
+	// RVA: 0x22BD604 Offset: 0x22BD604 VA: 0x22BD604
+	public void .ctor() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GooglePlayConfigurationInternal : IGooglePlayConfigurationInternal // TypeDefIndex: 3432
+{
+	// Fields
+	private GooglePlayConfiguration m_GooglePlayConfiguration; // 0x10
+
+	// Methods
+
+	// RVA: 0x22BD60C Offset: 0x22BD60C VA: 0x22BD60C Slot: 4
+	public void SetGooglePlayConfiguration(GooglePlayConfiguration googlePlayConfiguration) { }
+
+	// RVA: 0x22BD614 Offset: 0x22BD614 VA: 0x22BD614 Slot: 5
+	public void NotifyInitializationConnectionFailed() { }
+
+	// RVA: 0x22BD630 Offset: 0x22BD630 VA: 0x22BD630
+	public void .ctor() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GooglePlayPurchaseCallback : IGooglePurchaseCallback // TypeDefIndex: 3433
+{
+	// Fields
+	private IStoreCallback m_StoreCallback; // 0x10
+	private IGooglePlayStoreExtensionsInternal m_GooglePlayStoreExtensions; // 0x18
+
+	// Methods
+
+	// RVA: 0x22BD6B4 Offset: 0x22BD6B4 VA: 0x22BD6B4 Slot: 4
+	public void SetStoreCallback(IStoreCallback storeCallback) { }
+
+	// RVA: 0x22BD6BC Offset: 0x22BD6BC VA: 0x22BD6BC Slot: 5
+	public void SetStoreExtension(IGooglePlayStoreExtensionsInternal extensions) { }
+
+	// RVA: 0x22BD6C4 Offset: 0x22BD6C4 VA: 0x22BD6C4 Slot: 6
+	public void OnPurchaseSuccessful(string sku, string receipt, string purchaseToken) { }
+
+	// RVA: 0x22BD7B0 Offset: 0x22BD7B0 VA: 0x22BD7B0 Slot: 7
+	public void OnPurchaseFailed(PurchaseFailureDescription purchaseFailureDescription) { }
+
+	// RVA: 0x22BD880 Offset: 0x22BD880 VA: 0x22BD880 Slot: 8
+	public void NotifyDeferredPurchase(string sku, string receipt, string purchaseToken) { }
+
+	// RVA: 0x22BD96C Offset: 0x22BD96C VA: 0x22BD96C Slot: 9
+	public void NotifyDeferredProrationUpgradeDowngradeSubscription(string sku) { }
+
+	// RVA: 0x22BDA3C Offset: 0x22BDA3C VA: 0x22BDA3C
+	public void .ctor() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GooglePlayStore : AbstractStore // TypeDefIndex: 3434
+{
+	// Fields
+	private IGooglePlayStoreRetrieveProductsService m_RetrieveProductsService; // 0x10
+	private IGooglePlayStorePurchaseService m_StorePurchaseService; // 0x18
+	private IGoogleFetchPurchases m_FetchPurchases; // 0x20
+	private IGooglePlayStoreFinishTransactionService m_FinishTransactionService; // 0x28
+	private IGooglePurchaseCallback m_GooglePurchaseCallback; // 0x30
+	private IGooglePlayStoreExtensionsInternal m_GooglePlayStoreExtensions; // 0x38
+	private IUtil m_Util; // 0x40
+
+	// Methods
+
+	// RVA: 0x22BDA44 Offset: 0x22BDA44 VA: 0x22BDA44
+	public void .ctor(IGooglePlayStoreRetrieveProductsService retrieveProductsService, IGooglePlayStorePurchaseService storePurchaseService, IGoogleFetchPurchases fetchPurchases, IGooglePlayStoreFinishTransactionService transactionService, IGooglePurchaseCallback googlePurchaseCallback, IGooglePlayStoreExtensionsInternal googlePlayStoreExtensions, IUtil util) { }
+
+	// RVA: 0x22BDAAC Offset: 0x22BDAAC VA: 0x22BDAAC Slot: 8
+	public override void Initialize(IStoreCallback callback) { }
+
+	// RVA: 0x22BDDBC Offset: 0x22BDDBC VA: 0x22BDDBC Slot: 9
+	public override void RetrieveProducts(ReadOnlyCollection<ProductDefinition> products) { }
+
+	// RVA: 0x22BDE84 Offset: 0x22BDE84 VA: 0x22BDE84 Slot: 10
+	public override void Purchase(ProductDefinition product, string dummy) { }
+
+	// RVA: 0x22BDF48 Offset: 0x22BDF48 VA: 0x22BDF48 Slot: 11
+	public override void FinishTransaction(ProductDefinition product, string transactionId) { }
+
+	// RVA: 0x22BE018 Offset: 0x22BE018 VA: 0x22BE018
+	public void OnPause(bool isPaused) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GooglePlayStoreExtensions : IGooglePlayStoreExtensions, IStoreExtension, IGooglePlayStoreExtensionsInternal // TypeDefIndex: 3435
+{
+	// Fields
+	private IGooglePlayStoreService m_GooglePlayStoreService; // 0x10
+	private IGooglePlayStoreFinishTransactionService m_GooglePlayStoreFinishTransactionService; // 0x18
+	private IStoreCallback m_StoreCallback; // 0x20
+	private GooglePlayStoreExtensionsInternal m_GooglePlayStoreExtensionsInternal; // 0x28
+	private Action<Product> m_DeferredPurchaseAction; // 0x30
+	private Action<Product> m_DeferredProrationUpgradeDowngradeSubscriptionAction; // 0x38
+
+	// Methods
+
+	// RVA: 0x22BE16C Offset: 0x22BE16C VA: 0x22BE16C
+	internal void .ctor(IGooglePlayStoreService googlePlayStoreService, IGooglePlayStoreFinishTransactionService googlePlayStoreFinishTransactionService, GooglePlayStoreExtensionsInternal googlePlayStoreExtensionsInternal) { }
+
+	// RVA: 0x22BE1C4 Offset: 0x22BE1C4 VA: 0x22BE1C4 Slot: 4
+	public void RestoreTransactions(Action<bool> callback) { }
+
+	// RVA: 0x22BE2F4 Offset: 0x22BE2F4 VA: 0x22BE2F4 Slot: 5
+	public void SetStoreCallback(IStoreCallback storeCallback) { }
+
+	// RVA: 0x22BE2FC Offset: 0x22BE2FC VA: 0x22BE2FC Slot: 6
+	public void NotifyDeferredPurchase(string productId, string receipt, string transactionId) { }
+
+	// RVA: 0x22BE43C Offset: 0x22BE43C VA: 0x22BE43C Slot: 7
+	public void NotifyDeferredProrationUpgradeDowngradeSubscription(string productId) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC86D58 Offset: 0xC86D58 VA: 0xC86D58
+private sealed class GooglePlayStoreExtensions.<>c__DisplayClass9_0 // TypeDefIndex: 3436
+{
+	// Fields
+	public Action<bool> callback; // 0x10
+
+	// Methods
+
+	// RVA: 0x22BE2EC Offset: 0x22BE2EC VA: 0x22BE2EC
+	public void .ctor() { }
+
+	// RVA: 0x22BE4C8 Offset: 0x22BE4C8 VA: 0x22BE4C8
+	internal void <RestoreTransactions>b__0(List<GooglePurchase> purchase) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GooglePlayStoreExtensionsInternal : IGooglePlayStoreExtensionsInternal // TypeDefIndex: 3437
+{
+	// Fields
+	private GooglePlayStoreExtensions m_GooglePlayStoreExtensions; // 0x10
+
+	// Methods
+
+	// RVA: 0x22BE1BC Offset: 0x22BE1BC VA: 0x22BE1BC
+	public void SetGooglePlayStoreExtensions(GooglePlayStoreExtensions googlePlayStoreExtensions) { }
+
+	// RVA: 0x22BE54C Offset: 0x22BE54C VA: 0x22BE54C Slot: 4
+	public void SetStoreCallback(IStoreCallback storeCallback) { }
+
+	// RVA: 0x22BE55C Offset: 0x22BE55C VA: 0x22BE55C Slot: 5
+	public void NotifyDeferredPurchase(string productId, string receipt, string transactionId) { }
+
+	// RVA: 0x22BE56C Offset: 0x22BE56C VA: 0x22BE56C Slot: 6
+	public void NotifyDeferredProrationUpgradeDowngradeSubscription(string productId) { }
+
+	// RVA: 0x22BE57C Offset: 0x22BE57C VA: 0x22BE57C
+	public void .ctor() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+[ExtensionAttribute] // RVA: 0xC86D68 Offset: 0xC86D68 VA: 0xC86D68
+public static class StoreCallbackExtensionMethods // TypeDefIndex: 3438
+{
+	// Methods
+
+	[ExtensionAttribute] // RVA: 0xC87B18 Offset: 0xC87B18 VA: 0xC87B18
+	// RVA: 0x13058A4 Offset: 0x13058A4 VA: 0x13058A4
+	public static Product FindProductById(IStoreCallback storeCallback, string sku) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal enum GoogleBillingConnectionState // TypeDefIndex: 3439
+{
+	// Fields
+	public int value__; // 0x0
+	public const GoogleBillingConnectionState Disconnected = 0;
+	public const GoogleBillingConnectionState Connecting = 1;
+	public const GoogleBillingConnectionState Connected = 2;
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GoogleCachedQuerySkuDetailsService : IGoogleCachedQuerySkuDetailsService // TypeDefIndex: 3440
+{
+	// Fields
+	private HashSet<AndroidJavaObject> m_CachedQueriedSkus; // 0x10
+
+	// Methods
+
+	// RVA: 0x22BB870 Offset: 0x22BB870 VA: 0x22BB870 Slot: 4
+	public HashSet<AndroidJavaObject> GetCachedQueriedSkus() { }
+
+	// RVA: 0x22BB878 Offset: 0x22BB878 VA: 0x22BB878
+	private bool ContainsSku(string sku) { }
+
+	// RVA: 0x22BB944 Offset: 0x22BB944 VA: 0x22BB944 Slot: 5
+	public void AddCachedQueriedSkus(List<AndroidJavaObject> queriedSkus) { }
+
+	// RVA: 0x22BBB10 Offset: 0x22BBB10 VA: 0x22BBB10
+	private void UpdateCachedQueriedSku(string queriedSku, AndroidJavaObject queriedSkuDetails) { }
+
+	// RVA: 0x22BBBDC Offset: 0x22BBBDC VA: 0x22BBBDC
+	public void .ctor() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC86D78 Offset: 0xC86D78 VA: 0xC86D78
+private sealed class GoogleCachedQuerySkuDetailsService.<>c__DisplayClass2_0 // TypeDefIndex: 3441
+{
+	// Fields
+	public string sku; // 0x10
+
+	// Methods
+
+	// RVA: 0x22BB93C Offset: 0x22BB93C VA: 0x22BB93C
+	public void .ctor() { }
+
+	// RVA: 0x22BBC4C Offset: 0x22BBC4C VA: 0x22BBC4C
+	internal bool <ContainsSku>b__0(AndroidJavaObject skuDetails) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC86D88 Offset: 0xC86D88 VA: 0xC86D88
+private sealed class GoogleCachedQuerySkuDetailsService.<>c__DisplayClass4_0 // TypeDefIndex: 3442
+{
+	// Fields
+	public string queriedSku; // 0x10
+
+	// Methods
+
+	// RVA: 0x22BBBD4 Offset: 0x22BBBD4 VA: 0x22BBBD4
+	public void .ctor() { }
+
+	// RVA: 0x22BBD18 Offset: 0x22BBD18 VA: 0x22BBD18
+	internal bool <UpdateCachedQueriedSku>b__0(AndroidJavaObject skuDetails) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GoogleFinishTransactionService : IGoogleFinishTransactionService // TypeDefIndex: 3443
+{
+	// Fields
+	private IGoogleBillingClient m_BillingClient; // 0x10
+	private IGoogleQueryPurchasesService m_GoogleQueryPurchasesService; // 0x18
+
+	// Methods
+
+	// RVA: 0x22BCD04 Offset: 0x22BCD04 VA: 0x22BCD04
+	internal void .ctor(IGoogleBillingClient billingClient, IGoogleQueryPurchasesService googleQueryPurchasesService) { }
+
+	// RVA: 0x22BCD3C Offset: 0x22BCD3C VA: 0x22BCD3C Slot: 4
+	public void FinishTransaction(ProductDefinition product, string purchaseToken, Action<ProductDefinition, GooglePurchase, GoogleBillingResult, string> onConsume, Action<ProductDefinition, GooglePurchase, GoogleBillingResult> onAcknowledge) { }
+
+	// RVA: 0x22BCEC8 Offset: 0x22BCEC8 VA: 0x22BCEC8
+	private static Func<GooglePurchase, bool> PurchaseNeedsAcknowledgement(ProductDefinition product) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC86D98 Offset: 0xC86D98 VA: 0xC86D98
+private sealed class GoogleFinishTransactionService.<>c__DisplayClass3_0 // TypeDefIndex: 3444
+{
+	// Fields
+	public ProductDefinition product; // 0x10
+	public GoogleFinishTransactionService <>4__this; // 0x18
+	public string purchaseToken; // 0x20
+	public Action<ProductDefinition, GooglePurchase, GoogleBillingResult, string> onConsume; // 0x28
+	public Action<ProductDefinition, GooglePurchase, GoogleBillingResult> onAcknowledge; // 0x30
+
+	// Methods
+
+	// RVA: 0x22BCEC0 Offset: 0x22BCEC0 VA: 0x22BCEC0
+	public void .ctor() { }
+
+	// RVA: 0x22BCF74 Offset: 0x22BCF74 VA: 0x22BCF74
+	internal void <FinishTransaction>b__0(List<GooglePurchase> purchases) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC86DA8 Offset: 0xC86DA8 VA: 0xC86DA8
+private sealed class GoogleFinishTransactionService.<>c__DisplayClass4_0 // TypeDefIndex: 3445
+{
+	// Fields
+	public ProductDefinition product; // 0x10
+
+	// Methods
+
+	// RVA: 0x22BCF6C Offset: 0x22BCF6C VA: 0x22BCF6C
+	public void .ctor() { }
+
+	// RVA: 0x22BD3B0 Offset: 0x22BD3B0 VA: 0x22BD3B0
+	internal bool <PurchaseNeedsAcknowledgement>b__0(GooglePurchase purchase) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GoogleLastKnownProductService : IGoogleLastKnownProductService // TypeDefIndex: 3446
+{
+	// Fields
+	private string m_LastKnownProductId; // 0x10
+	private int m_LastKnownProrationMode; // 0x18
+
+	// Methods
+
+	// RVA: 0x22BD490 Offset: 0x22BD490 VA: 0x22BD490 Slot: 4
+	public string GetLastKnownProductId() { }
+
+	// RVA: 0x22BD498 Offset: 0x22BD498 VA: 0x22BD498 Slot: 5
+	public void SetLastKnownProductId(string lastKnownProductId) { }
+
+	// RVA: 0x22BD4A0 Offset: 0x22BD4A0 VA: 0x22BD4A0 Slot: 6
+	public int GetLastKnownProrationMode() { }
+
+	// RVA: 0x22BD4A8 Offset: 0x22BD4A8 VA: 0x22BD4A8 Slot: 7
+	public void SetLastKnownProrationMode(int lastKnownProrationMode) { }
+
+	// RVA: 0x22BD4B0 Offset: 0x22BD4B0 VA: 0x22BD4B0
+	public void .ctor() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GooglePlayProrationMode // TypeDefIndex: 3447
+{
+	// Fields
+	internal static readonly int k_NullProrationMode; // 0x0
+	internal static readonly int k_UnknownProrationMode; // 0x4
+	internal static readonly int k_ImmediateWithoutProration; // 0x8
+	internal static readonly int k_DeferredProrationMode; // 0xC
+
+	// Methods
+
+	// RVA: 0x22BD638 Offset: 0x22BD638 VA: 0x22BD638
+	private static void .cctor() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GooglePlayStoreService : IGooglePlayStoreService // TypeDefIndex: 3448
+{
+	// Fields
+	private GoogleBillingConnectionState m_GoogleConnectionState; // 0x10
+	private IGoogleBillingClient m_BillingClient; // 0x18
+	private IBillingClientStateListener m_BillingClientStateListener; // 0x20
+	private IQuerySkuDetailsService m_QuerySkuDetailsService; // 0x28
+	private Queue<ProductDescriptionQuery> m_ProductsToQuery; // 0x30
+	private Queue<Action<List<GooglePurchase>>> m_OnPurchaseSucceededQueue; // 0x38
+	private IGooglePurchaseService m_GooglePurchaseService; // 0x40
+	private IGoogleFinishTransactionService m_GoogleFinishTransactionService; // 0x48
+	private IGoogleQueryPurchasesService m_GoogleQueryPurchasesService; // 0x50
+	private IGooglePriceChangeService m_GooglePriceChangeService; // 0x58
+	private IGoogleLastKnownProductService m_GoogleLastKnownProductService; // 0x60
+
+	// Methods
+
+	// RVA: 0x22BF8A0 Offset: 0x22BF8A0 VA: 0x22BF8A0
+	internal void .ctor(IGoogleBillingClient billingClient, IQuerySkuDetailsService querySkuDetailsService, IGooglePurchaseService purchaseService, IGoogleFinishTransactionService finishTransactionService, IGoogleQueryPurchasesService queryPurchasesService, IBillingClientStateListener billingClientStateListener, IGooglePriceChangeService priceChangeService, IGoogleLastKnownProductService lastKnownProductService) { }
+
+	// RVA: 0x22BF998 Offset: 0x22BF998 VA: 0x22BF998
+	private void InitConnectionWithGooglePlay() { }
+
+	// RVA: 0x22BFB30 Offset: 0x22BFB30 VA: 0x22BFB30
+	private void StartConnection() { }
+
+	// RVA: 0x22BFBF8 Offset: 0x22BFBF8 VA: 0x22BFBF8 Slot: 8
+	public void ResumeConnection() { }
+
+	// RVA: 0x22BFC08 Offset: 0x22BFC08 VA: 0x22BFC08
+	private void OnConnected() { }
+
+	// RVA: 0x22BFC34 Offset: 0x22BFC34 VA: 0x22BFC34
+	private void DequeueQueryProducts() { }
+
+	// RVA: 0x22BFFF0 Offset: 0x22BFFF0 VA: 0x22BFFF0
+	private void DequeueFetchPurchases() { }
+
+	// RVA: 0x22C0194 Offset: 0x22C0194 VA: 0x22C0194
+	private void OnDisconnected() { }
+
+	// RVA: 0x22C019C Offset: 0x22C019C VA: 0x22C019C Slot: 4
+	public void RetrieveProducts(ReadOnlyCollection<ProductDefinition> products, Action<List<ProductDescription>> onProductsReceived, Action onRetrieveProductFailed) { }
+
+	// RVA: 0x22C033C Offset: 0x22C033C VA: 0x22C033C Slot: 5
+	public void Purchase(ProductDefinition product) { }
+
+	// RVA: 0x22C03C0 Offset: 0x22C03C0 VA: 0x22C03C0 Slot: 9
+	public void Purchase(ProductDefinition product, Product oldProduct, int desiredProrationMode) { }
+
+	// RVA: 0x22C05B8 Offset: 0x22C05B8 VA: 0x22C05B8 Slot: 6
+	public void FinishTransaction(ProductDefinition product, string purchaseToken, Action<ProductDefinition, GooglePurchase, GoogleBillingResult, string> onConsume, Action<ProductDefinition, GooglePurchase, GoogleBillingResult> onAcknowledge) { }
+
+	// RVA: 0x22C0090 Offset: 0x22C0090 VA: 0x22C0090 Slot: 7
+	public void FetchPurchases(Action<List<GooglePurchase>> onQueryPurchaseSucceed) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GooglePriceChangeService : IGooglePriceChangeService // TypeDefIndex: 3449
+{
+	// Fields
+	private IGoogleBillingClient m_BillingClient; // 0x10
+	private QuerySkuDetailsService m_QuerySkuDetailsService; // 0x18
+
+	// Methods
+
+	// RVA: 0x22C07B0 Offset: 0x22C07B0 VA: 0x22C07B0
+	internal void .ctor(IGoogleBillingClient billingClient, IGoogleCachedQuerySkuDetailsService cachedQuerySkuDetailsService) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GooglePurchaseService : IGooglePurchaseService // TypeDefIndex: 3450
+{
+	// Fields
+	private IGoogleBillingClient m_BillingClient; // 0x10
+	private IGooglePurchaseCallback m_GooglePurchaseCallback; // 0x18
+	private IQuerySkuDetailsService m_QuerySkuDetailsService; // 0x20
+
+	// Methods
+
+	// RVA: 0x22C0920 Offset: 0x22C0920 VA: 0x22C0920
+	internal void .ctor(IGoogleBillingClient billingClient, IGooglePurchaseCallback googlePurchaseCallback, IQuerySkuDetailsService querySkuDetailsService) { }
+
+	// RVA: 0x22C0960 Offset: 0x22C0960 VA: 0x22C0960 Slot: 4
+	public void Purchase(ProductDefinition product, Product oldProduct, int desiredProrationMode) { }
+
+	// RVA: 0x22C0AF4 Offset: 0x22C0AF4 VA: 0x22C0AF4
+	private void OnQuerySkuDetailsResponse(List<AndroidJavaObject> skus, ProductDefinition productToBuy, Product oldProduct, int desiredProrationMode) { }
+
+	// RVA: 0x22C0D7C Offset: 0x22C0D7C VA: 0x22C0D7C
+	private static void VerifyAndWarnIfMoreThanOneSku(List<AndroidJavaObject> skus, AndroidJavaObject sku) { }
+
+	// RVA: 0x22C0E7C Offset: 0x22C0E7C VA: 0x22C0E7C
+	private void HandleBillingFlowResult(GoogleBillingResult billingResult, AndroidJavaObject sku) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC86DB8 Offset: 0xC86DB8 VA: 0xC86DB8
+private sealed class GooglePurchaseService.<>c__DisplayClass4_0 // TypeDefIndex: 3451
+{
+	// Fields
+	public GooglePurchaseService <>4__this; // 0x10
+	public ProductDefinition product; // 0x18
+	public Product oldProduct; // 0x20
+	public int desiredProrationMode; // 0x28
+
+	// Methods
+
+	// RVA: 0x22C0AEC Offset: 0x22C0AEC VA: 0x22C0AEC
+	public void .ctor() { }
+
+	// RVA: 0x22C1070 Offset: 0x22C1070 VA: 0x22C1070
+	internal void <Purchase>b__0(List<AndroidJavaObject> skus) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GoogleQueryPurchasesService : IGoogleQueryPurchasesService // TypeDefIndex: 3452
+{
+	// Fields
+	private IGoogleBillingClient m_BillingClient; // 0x10
+	private IGoogleCachedQuerySkuDetailsService m_CachedQuerySkuDetailsService; // 0x18
+
+	// Methods
+
+	// RVA: 0x22C25C4 Offset: 0x22C25C4 VA: 0x22C25C4
+	internal void .ctor(IGoogleBillingClient billingClient, IGoogleCachedQuerySkuDetailsService cachedQuerySkuDetailsService) { }
+
+	// RVA: 0x22C25FC Offset: 0x22C25FC VA: 0x22C25FC Slot: 4
+	public void QueryPurchases(Action<List<GooglePurchase>> onQueryPurchaseSucceed) { }
+
+	// RVA: 0x22C2904 Offset: 0x22C2904 VA: 0x22C2904
+	private static void HandleOnQueryPurchaseReceived(Action<List<GooglePurchase>> onQueryPurchaseSucceed, List<GooglePurchase> googlePurchasesInSubs, List<GooglePurchase> googlePurchasesInApps) { }
+
+	// RVA: 0x22C2750 Offset: 0x22C2750 VA: 0x22C2750
+	private GooglePurchaseResult QueryPurchasesWithSkuType(string skuType) { }
+
+	// RVA: 0x22C284C Offset: 0x22C284C VA: 0x22C284C
+	private void HandleGooglePurchaseResult(GooglePurchaseResult purchaseResult, Action<List<GooglePurchase>> onPurchaseResult) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC86DC8 Offset: 0xC86DC8 VA: 0xC86DC8
+private sealed class GoogleQueryPurchasesService.<>c__DisplayClass3_0 // TypeDefIndex: 3453
+{
+	// Fields
+	public GoogleQueryPurchasesService <>4__this; // 0x10
+	public Action<List<GooglePurchase>> onQueryPurchaseSucceed; // 0x18
+
+	// Methods
+
+	// RVA: 0x22C26E0 Offset: 0x22C26E0 VA: 0x22C26E0
+	public void .ctor() { }
+
+	// RVA: 0x22C2A9C Offset: 0x22C2A9C VA: 0x22C2A9C
+	internal void <QueryPurchases>b__0(List<GooglePurchase> googlePurchasesInSubs) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC86DD8 Offset: 0xC86DD8 VA: 0xC86DD8
+private sealed class GoogleQueryPurchasesService.<>c__DisplayClass3_1 // TypeDefIndex: 3454
+{
+	// Fields
+	public List<GooglePurchase> googlePurchasesInSubs; // 0x10
+	public GoogleQueryPurchasesService.<>c__DisplayClass3_0 CS$<>8__locals1; // 0x18
+
+	// Methods
+
+	// RVA: 0x22C2BA0 Offset: 0x22C2BA0 VA: 0x22C2BA0
+	public void .ctor() { }
+
+	// RVA: 0x22C2C10 Offset: 0x22C2C10 VA: 0x22C2C10
+	internal void <QueryPurchases>b__1(List<GooglePurchase> googlePurchasesInApps) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class QuerySkuDetailsService : IQuerySkuDetailsService // TypeDefIndex: 3455
+{
+	// Fields
+	private List<AndroidJavaClass> m_CachedQueriedSku; // 0x10
+	private IGoogleBillingClient m_BillingClient; // 0x18
+	private IGoogleCachedQuerySkuDetailsService m_GoogleCachedQuerySkuDetailsService; // 0x20
+	private int m_NumberReceivedCallbacks; // 0x28
+	private List<AndroidJavaObject> m_QueriedSkuDetails; // 0x30
+
+	// Methods
+
+	// RVA: 0x22CC51C Offset: 0x22CC51C VA: 0x22CC51C
+	private static AndroidJavaClass GetSkuDetailsParamClass() { }
+
+	// RVA: 0x22C0834 Offset: 0x22C0834 VA: 0x22C0834
+	internal void .ctor(IGoogleBillingClient billingClient, IGoogleCachedQuerySkuDetailsService googleCachedQuerySkuDetailsService) { }
+
+	// RVA: 0x22CC584 Offset: 0x22CC584 VA: 0x22CC584 Slot: 4
+	public void QueryAsyncSku(ProductDefinition product, Action<List<AndroidJavaObject>> onSkuDetailsResponse) { }
+
+	// RVA: 0x22CC6B0 Offset: 0x22CC6B0 VA: 0x22CC6B0 Slot: 5
+	public void QueryAsyncSku(ReadOnlyCollection<ProductDefinition> products, Action<List<ProductDescription>> onSkuDetailsResponse) { }
+
+	// RVA: 0x22CC674 Offset: 0x22CC674 VA: 0x22CC674 Slot: 6
+	public void QueryAsyncSku(ReadOnlyCollection<ProductDefinition> products, Action<List<AndroidJavaObject>> onSkuDetailsResponse) { }
+
+	// RVA: 0x22CC784 Offset: 0x22CC784 VA: 0x22CC784
+	private void QueryInAppsAsync(ReadOnlyCollection<ProductDefinition> products, Action<List<AndroidJavaObject>> onSkuDetailsResponse) { }
+
+	// RVA: 0x22CC958 Offset: 0x22CC958 VA: 0x22CC958
+	private void QuerySubsAsync(ReadOnlyCollection<ProductDefinition> products, Action<List<AndroidJavaObject>> onSkuDetailsResponse) { }
+
+	// RVA: 0x22CCB2C Offset: 0x22CCB2C VA: 0x22CCB2C
+	private void QuerySkuDetails(List<string> skus, string type, Action<List<AndroidJavaObject>> onSkuDetailsResponse) { }
+
+	// RVA: 0x22CCED0 Offset: 0x22CCED0 VA: 0x22CCED0
+	private void ConsolidateOnSkuDetailsReceived(AndroidJavaObject javaBillingResult, AndroidJavaObject skuDetails, Action<List<AndroidJavaObject>> onSkuDetailsResponse) { }
+
+	// RVA: 0x22CD04C Offset: 0x22CD04C VA: 0x22CD04C
+	private void AddToQueriedSkuDetails(AndroidJavaObject skusDetails) { }
+
+	// RVA: 0x22CD204 Offset: 0x22CD204 VA: 0x22CD204
+	private void Clear() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC86DE8 Offset: 0xC86DE8 VA: 0xC86DE8
+private sealed class QuerySkuDetailsService.<>c__DisplayClass12_0 // TypeDefIndex: 3456
+{
+	// Fields
+	public Action<List<ProductDescription>> onSkuDetailsResponse; // 0x10
+
+	// Methods
+
+	// RVA: 0x22CC77C Offset: 0x22CC77C VA: 0x22CC77C
+	public void .ctor() { }
+
+	// RVA: 0x22CD3B4 Offset: 0x22CD3B4 VA: 0x22CD3B4
+	internal void <QueryAsyncSku>b__0(List<AndroidJavaObject> skus) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC86DF8 Offset: 0xC86DF8 VA: 0xC86DF8
+[Serializable]
+private sealed class QuerySkuDetailsService.<>c // TypeDefIndex: 3457
+{
+	// Fields
+	public static readonly QuerySkuDetailsService.<>c <>9; // 0x0
+	public static Func<ProductDefinition, bool> <>9__14_0; // 0x8
+	public static Func<ProductDefinition, string> <>9__14_1; // 0x10
+	public static Func<ProductDefinition, bool> <>9__15_0; // 0x18
+	public static Func<ProductDefinition, string> <>9__15_1; // 0x20
+
+	// Methods
+
+	// RVA: 0x22CD270 Offset: 0x22CD270 VA: 0x22CD270
+	private static void .cctor() { }
+
+	// RVA: 0x22CD2D4 Offset: 0x22CD2D4 VA: 0x22CD2D4
+	public void .ctor() { }
+
+	// RVA: 0x22CD2DC Offset: 0x22CD2DC VA: 0x22CD2DC
+	internal bool <QueryInAppsAsync>b__14_0(ProductDefinition product) { }
+
+	// RVA: 0x22CD318 Offset: 0x22CD318 VA: 0x22CD318
+	internal string <QueryInAppsAsync>b__14_1(ProductDefinition product) { }
+
+	// RVA: 0x22CD348 Offset: 0x22CD348 VA: 0x22CD348
+	internal bool <QuerySubsAsync>b__15_0(ProductDefinition product) { }
+
+	// RVA: 0x22CD384 Offset: 0x22CD384 VA: 0x22CD384
+	internal string <QuerySubsAsync>b__15_1(ProductDefinition product) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC86E08 Offset: 0xC86E08 VA: 0xC86E08
+private sealed class QuerySkuDetailsService.<>c__DisplayClass16_0 // TypeDefIndex: 3458
+{
+	// Fields
+	public QuerySkuDetailsService <>4__this; // 0x10
+	public Action<List<AndroidJavaObject>> onSkuDetailsResponse; // 0x18
+
+	// Methods
+
+	// RVA: 0x22CCE40 Offset: 0x22CCE40 VA: 0x22CCE40
+	public void .ctor() { }
+
+	// RVA: 0x22CD3C8 Offset: 0x22CD3C8 VA: 0x22CD3C8
+	internal void <QuerySkuDetails>b__0(AndroidJavaObject billingResult, AndroidJavaObject skuDetails) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal interface IGoogleCachedQuerySkuDetailsService // TypeDefIndex: 3459
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract HashSet<AndroidJavaObject> GetCachedQueriedSkus();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void AddCachedQueriedSkus(List<AndroidJavaObject> queriedSkus);
+}
+
+// Namespace: UnityEngine.Purchasing
+internal interface IGooglePriceChangeService // TypeDefIndex: 3460
+{}
+
+// Namespace: UnityEngine.Purchasing
+internal class BillingClientStateListener : AndroidJavaProxy, IBillingClientStateListener // TypeDefIndex: 3461
+{
+	// Fields
+	private const string k_AndroidBillingClientStateListenerClassName = "com.android.billingclient.api.BillingClientStateListener";
+	private Action m_OnConnected; // 0x20
+	private Action m_Disconnect; // 0x28
+
+	// Methods
+
+	// RVA: 0x22B54F0 Offset: 0x22B54F0 VA: 0x22B54F0
+	internal void .ctor() { }
+
+	// RVA: 0x22B5564 Offset: 0x22B5564 VA: 0x22B5564 Slot: 9
+	public void RegisterOnConnected(Action onConnected) { }
+
+	// RVA: 0x22B556C Offset: 0x22B556C VA: 0x22B556C Slot: 10
+	public void RegisterOnDisconnected(Action onDisconnected) { }
+
+	[PreserveAttribute] // RVA: 0xC87B28 Offset: 0xC87B28 VA: 0xC87B28
+	// RVA: 0x22B5574 Offset: 0x22B5574 VA: 0x22B5574
+	private void onBillingSetupFinished(AndroidJavaObject billingResult) { }
+
+	[PreserveAttribute] // RVA: 0xC87B38 Offset: 0xC87B38 VA: 0xC87B38
+	// RVA: 0x22B5750 Offset: 0x22B5750 VA: 0x22B5750
+	private void onBillingServiceDisconnected() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GoogleAcknowledgePurchaseListener : AndroidJavaProxy // TypeDefIndex: 3462
+{
+	// Fields
+	private const string k_AndroidAcknowledgePurchaseResponseListenerClassName = "com.android.billingclient.api.AcknowledgePurchaseResponseListener";
+	private Action<ProductDefinition, GooglePurchase, GoogleBillingResult> m_OnAcknowledgePurchaseResponse; // 0x20
+	private ProductDefinition m_Product; // 0x28
+	private GooglePurchase m_Purchase; // 0x30
+
+	// Methods
+
+	// RVA: 0x22BB734 Offset: 0x22BB734 VA: 0x22BB734
+	internal void .ctor(ProductDefinition product, GooglePurchase purchase, Action<ProductDefinition, GooglePurchase, GoogleBillingResult> onAcknowledgePurchaseResponseAction) { }
+
+	[PreserveAttribute] // RVA: 0xC87B48 Offset: 0xC87B48 VA: 0xC87B48
+	// RVA: 0x22BB7D0 Offset: 0x22BB7D0 VA: 0x22BB7D0
+	private void onAcknowledgePurchaseResponse(AndroidJavaObject billingResult) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GoogleConsumeResponseListener : AndroidJavaProxy // TypeDefIndex: 3463
+{
+	// Fields
+	private const string k_AndroidConsumeResponseListenerClassName = "com.android.billingclient.api.ConsumeResponseListener";
+	private ProductDefinition m_Product; // 0x20
+	private GooglePurchase m_Purchase; // 0x28
+	private Action<ProductDefinition, GooglePurchase, GoogleBillingResult, string> m_OnConsumeResponse; // 0x30
+
+	// Methods
+
+	// RVA: 0x22BBDE4 Offset: 0x22BBDE4 VA: 0x22BBDE4
+	internal void .ctor(ProductDefinition product, GooglePurchase purchase, Action<ProductDefinition, GooglePurchase, GoogleBillingResult, string> onConsumeResponseAction) { }
+
+	[PreserveAttribute] // RVA: 0xC87B58 Offset: 0xC87B58 VA: 0xC87B58
+	// RVA: 0x22BBE80 Offset: 0x22BBE80 VA: 0x22BBE80
+	private void onConsumeResponse(AndroidJavaObject billingResult, string purchaseToken) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GooglePriceChangeConfirmationListener : AndroidJavaProxy // TypeDefIndex: 3464
+{
+	// Fields
+	private const string k_AndroidPriceChangeConfirmationListenerClassName = "com.android.billingclient.api.PriceChangeConfirmationListener";
+	private Action<GoogleBillingResult> m_OnPriceChangeConfirmationResult; // 0x20
+
+	// Methods
+
+	// RVA: 0x22C069C Offset: 0x22C069C VA: 0x22C069C
+	internal void .ctor(Action<GoogleBillingResult> onPriceChangeConfirmationResult) { }
+
+	[PreserveAttribute] // RVA: 0xC87B68 Offset: 0xC87B68 VA: 0xC87B68
+	// RVA: 0x22C0724 Offset: 0x22C0724 VA: 0x22C0724
+	private void onPriceChangeConfirmationResult(AndroidJavaObject javaBillingResult) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GooglePurchaseUpdatedListener : AndroidJavaProxy, IGooglePurchaseUpdatedListener // TypeDefIndex: 3465
+{
+	// Fields
+	private const string k_AndroidPurchaseListenerClassName = "com.android.billingclient.api.PurchasesUpdatedListener";
+	private IGoogleLastKnownProductService m_LastKnownProductService; // 0x20
+	private IGooglePurchaseCallback m_GooglePurchaseCallback; // 0x28
+	private IGoogleCachedQuerySkuDetailsService m_GoogleCachedQuerySkuDetailsService; // 0x30
+
+	// Methods
+
+	// RVA: 0x22C10C8 Offset: 0x22C10C8 VA: 0x22C10C8
+	internal void .ctor(IGoogleLastKnownProductService googleLastKnownProductService, IGooglePurchaseCallback googlePurchaseCallback, IGoogleCachedQuerySkuDetailsService googleCachedQuerySkuDetailsService) { }
+
+	[PreserveAttribute] // RVA: 0xC87B78 Offset: 0xC87B78 VA: 0xC87B78
+	// RVA: 0x22C1164 Offset: 0x22C1164 VA: 0x22C1164
+	private void onPurchasesUpdated(AndroidJavaObject billingResult, AndroidJavaObject purchasesList) { }
+
+	// RVA: 0x22C12A8 Offset: 0x22C12A8 VA: 0x22C12A8
+	private void HandleResultOkCases(GoogleBillingResult result, AndroidJavaObject purchasesList) { }
+
+	// RVA: 0x22C1698 Offset: 0x22C1698 VA: 0x22C1698
+	private void HandleErrorCases(GoogleBillingResult billingResult, AndroidJavaObject purchasesList) { }
+
+	// RVA: 0x22C13E0 Offset: 0x22C13E0 VA: 0x22C13E0
+	private void ApplyOnPurchases(AndroidJavaObject purchasesList, Action<GooglePurchase> action) { }
+
+	// RVA: 0x22C1D08 Offset: 0x22C1D08 VA: 0x22C1D08
+	private void ApplyOnPurchases(AndroidJavaObject purchasesList, GoogleBillingResult billingResult, Action<GooglePurchase, string> action) { }
+
+	// RVA: 0x22C1ADC Offset: 0x22C1ADC VA: 0x22C1ADC
+	private bool IsLastProrationModeDeferred() { }
+
+	// RVA: 0x22C1F70 Offset: 0x22C1F70 VA: 0x22C1F70
+	private void OnPurchaseOk(GooglePurchase googlePurchase) { }
+
+	// RVA: 0x22C1BD4 Offset: 0x22C1BD4 VA: 0x22C1BD4
+	private void OnDeferredProrationUpgradeDowngradeSubscriptionOk() { }
+
+	// RVA: 0x22C2270 Offset: 0x22C2270 VA: 0x22C2270
+	private void OnPurchaseCanceled(GooglePurchase googlePurchase) { }
+
+	// RVA: 0x22C2378 Offset: 0x22C2378 VA: 0x22C2378
+	private void OnPurchaseAlreadyOwned(GooglePurchase googlePurchase) { }
+
+	// RVA: 0x22C2480 Offset: 0x22C2480 VA: 0x22C2480
+	private void OnPurchaseFailed(GooglePurchase googlePurchase, string debugMessage) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class SkuDetailsResponseListener : AndroidJavaProxy // TypeDefIndex: 3466
+{
+	// Fields
+	private const string k_AndroidSkuDetailsResponseListenerClassName = "com.android.billingclient.api.SkuDetailsResponseListener";
+	private Action<AndroidJavaObject, AndroidJavaObject> m_OnSkuDetailsResponse; // 0x20
+
+	// Methods
+
+	// RVA: 0x22CCE48 Offset: 0x22CCE48 VA: 0x22CCE48
+	internal void .ctor(Action<AndroidJavaObject, AndroidJavaObject> onSkuDetailsResponseAction) { }
+
+	[PreserveAttribute] // RVA: 0xC87B88 Offset: 0xC87B88 VA: 0xC87B88
+	// RVA: 0x22CE9B0 Offset: 0x22CE9B0 VA: 0x22CE9B0
+	private void onSkuDetailsResponse(AndroidJavaObject billingResult, AndroidJavaObject skuDetails) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+public interface IGooglePlayConfiguration : IStoreConfiguration // TypeDefIndex: 3467
+{}
+
+// Namespace: UnityEngine.Purchasing
+internal interface IGooglePlayConfigurationInternal // TypeDefIndex: 3468
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void SetGooglePlayConfiguration(GooglePlayConfiguration googlePlayConfiguration);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void NotifyInitializationConnectionFailed();
+}
+
+// Namespace: UnityEngine.Purchasing
+public interface IGooglePlayStoreExtensions : IStoreExtension // TypeDefIndex: 3469
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void RestoreTransactions(Action<bool> callback);
+}
+
+// Namespace: UnityEngine.Purchasing
+internal interface IGooglePlayStoreExtensionsInternal // TypeDefIndex: 3470
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void SetStoreCallback(IStoreCallback storeCallback);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void NotifyDeferredPurchase(string productId, string receipt, string transactionId);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void NotifyDeferredProrationUpgradeDowngradeSubscription(string productId);
+}
+
+// Namespace: UnityEngine.Purchasing
+internal interface IGoogleFetchPurchases // TypeDefIndex: 3471
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void SetStoreCallback(IStoreCallback storeCallback);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void FetchPurchases();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void FetchPurchases(Action<List<Product>> onQueryPurchaseSucceed);
+}
+
+// Namespace: UnityEngine.Purchasing
+internal interface IGooglePlayStoreFinishTransactionService // TypeDefIndex: 3472
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void SetStoreCallback(IStoreCallback storeCallback);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void FinishTransaction(ProductDefinition product, string purchaseToken);
+}
+
+// Namespace: UnityEngine.Purchasing
+internal interface IGooglePlayStorePurchaseService // TypeDefIndex: 3473
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void Purchase(ProductDefinition product);
+}
+
+// Namespace: UnityEngine.Purchasing
+internal interface IGooglePlayStoreRetrieveProductsService // TypeDefIndex: 3474
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void SetStoreCallback(IStoreCallback storeCallback);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void RetrieveProducts(ReadOnlyCollection<ProductDefinition> products);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void ResumeConnection();
+}
+
+// Namespace: UnityEngine.Purchasing
+public class GoogleProductMetadata : ProductMetadata // TypeDefIndex: 3475
+{
+	// Fields
+	[DebuggerBrowsableAttribute] // RVA: 0xC8706C Offset: 0xC8706C VA: 0xC8706C
+	[CompilerGeneratedAttribute] // RVA: 0xC8706C Offset: 0xC8706C VA: 0xC8706C
+	private string <originalJson>k__BackingField; // 0x40
+	[DebuggerBrowsableAttribute] // RVA: 0xC870A8 Offset: 0xC870A8 VA: 0xC870A8
+	[CompilerGeneratedAttribute] // RVA: 0xC870A8 Offset: 0xC870A8 VA: 0xC870A8
+	private string <subscriptionPeriod>k__BackingField; // 0x48
+	[CompilerGeneratedAttribute] // RVA: 0xC870E4 Offset: 0xC870E4 VA: 0xC870E4
+	[DebuggerBrowsableAttribute] // RVA: 0xC870E4 Offset: 0xC870E4 VA: 0xC870E4
+	private string <freeTrialPeriod>k__BackingField; // 0x50
+	[CompilerGeneratedAttribute] // RVA: 0xC87120 Offset: 0xC87120 VA: 0xC87120
+	[DebuggerBrowsableAttribute] // RVA: 0xC87120 Offset: 0xC87120 VA: 0xC87120
+	private string <introductoryPrice>k__BackingField; // 0x58
+	[DebuggerBrowsableAttribute] // RVA: 0xC8715C Offset: 0xC8715C VA: 0xC8715C
+	[CompilerGeneratedAttribute] // RVA: 0xC8715C Offset: 0xC8715C VA: 0xC8715C
+	private string <introductoryPricePeriod>k__BackingField; // 0x60
+	[DebuggerBrowsableAttribute] // RVA: 0xC87198 Offset: 0xC87198 VA: 0xC87198
+	[CompilerGeneratedAttribute] // RVA: 0xC87198 Offset: 0xC87198 VA: 0xC87198
+	private int <introductoryPriceCycles>k__BackingField; // 0x68
+
+	// Properties
+	internal string originalJson { set; }
+	internal string subscriptionPeriod { set; }
+	internal string freeTrialPeriod { set; }
+	internal string introductoryPrice { set; }
+	internal string introductoryPricePeriod { set; }
+	internal int introductoryPriceCycles { set; }
+
+	// Methods
+
+	[CompilerGeneratedAttribute] // RVA: 0xC87B98 Offset: 0xC87B98 VA: 0xC87B98
+	// RVA: 0x22C08E8 Offset: 0x22C08E8 VA: 0x22C08E8
+	internal void set_originalJson(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC87BA8 Offset: 0xC87BA8 VA: 0xC87BA8
+	// RVA: 0x22C08F0 Offset: 0x22C08F0 VA: 0x22C08F0
+	internal void set_subscriptionPeriod(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC87BB8 Offset: 0xC87BB8 VA: 0xC87BB8
+	// RVA: 0x22C08F8 Offset: 0x22C08F8 VA: 0x22C08F8
+	internal void set_freeTrialPeriod(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC87BC8 Offset: 0xC87BC8 VA: 0xC87BC8
+	// RVA: 0x22C0900 Offset: 0x22C0900 VA: 0x22C0900
+	internal void set_introductoryPrice(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC87BD8 Offset: 0xC87BD8 VA: 0xC87BD8
+	// RVA: 0x22C0908 Offset: 0x22C0908 VA: 0x22C0908
+	internal void set_introductoryPricePeriod(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC87BE8 Offset: 0xC87BE8 VA: 0xC87BE8
+	// RVA: 0x22C0910 Offset: 0x22C0910 VA: 0x22C0910
+	internal void set_introductoryPriceCycles(int value) { }
+
+	// RVA: 0x22C0918 Offset: 0x22C0918 VA: 0x22C0918
+	internal void .ctor(string priceString, string title, string description, string currencyCode, Decimal localizedPrice) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class GoogleFetchPurchases : IGoogleFetchPurchases // TypeDefIndex: 3476
+{
+	// Fields
+	private IGooglePlayStoreService m_GooglePlayStoreService; // 0x10
+	private IGooglePlayStoreFinishTransactionService m_TransactionService; // 0x18
+	private IStoreCallback m_StoreCallback; // 0x20
+

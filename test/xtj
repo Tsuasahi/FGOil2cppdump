@@ -1,0 +1,1000 @@
+
+	// RVA: 0x1F3F978 Offset: 0x1F3F978 VA: 0x1F3F978
+	public void OnClickItemEquip2() { }
+
+	// RVA: 0x1F3F980 Offset: 0x1F3F980 VA: 0x1F3F980
+	public void OnLongPressItemEquip2() { }
+
+	// RVA: 0x1F3F988 Offset: 0x1F3F988 VA: 0x1F3F988
+	public void OnClickItemEquip3() { }
+
+	// RVA: 0x1F3F990 Offset: 0x1F3F990 VA: 0x1F3F990
+	public void OnLongPressItemEquip3() { }
+
+	// RVA: 0x1F3F998 Offset: 0x1F3F998 VA: 0x1F3F998
+	public void OnClickItemEquip4() { }
+
+	// RVA: 0x1F3F9A0 Offset: 0x1F3F9A0 VA: 0x1F3F9A0
+	public void OnLongPressItemEquip4() { }
+
+	// RVA: 0x1F3F9A8 Offset: 0x1F3F9A8 VA: 0x1F3F9A8
+	public void OnClickItemEquip5() { }
+
+	// RVA: 0x1F3F9B0 Offset: 0x1F3F9B0 VA: 0x1F3F9B0
+	public void OnLongPressItemEquip5() { }
+
+	// RVA: 0x1F3F9B8 Offset: 0x1F3F9B8 VA: 0x1F3F9B8
+	public void OnClickItemEquip6() { }
+
+	// RVA: 0x1F3F9C0 Offset: 0x1F3F9C0 VA: 0x1F3F9C0
+	public void OnLongPressItemEquip6() { }
+}
+
+// Namespace: 
+public enum PartyListViewObject.InitMode // TypeDefIndex: 10373
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyListViewObject.InitMode INVISIBLE = 0;
+	public const PartyListViewObject.InitMode INVALID = 1;
+	public const PartyListViewObject.InitMode VALID = 2;
+	public const PartyListViewObject.InitMode INPUT = 3;
+	public const PartyListViewObject.InitMode ORGANIZATION_GUIDE_DECK_EMPTY_SELECT = 4;
+}
+
+// Namespace: 
+protected enum PartyListViewObject.State // TypeDefIndex: 10374
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyListViewObject.State INIT = 0;
+	public const PartyListViewObject.State IDLE = 1;
+	public const PartyListViewObject.State MOVE = 2;
+	public const PartyListViewObject.State INPUT = 3;
+}
+
+// Namespace: 
+public class PartyOrganizationChangeMenu : BaseMenu // TypeDefIndex: 10375
+{
+	// Fields
+	protected static readonly int[] LAYOUT_POS_X_HINT; // 0x0
+	[SerializeField] // RVA: 0xCE0340 Offset: 0xCE0340 VA: 0xCE0340
+	protected PartyOrganizationChangeObject[] partyOrganizationChangeObjectList; // 0x58
+	[SerializeField] // RVA: 0xCE0350 Offset: 0xCE0350 VA: 0xCE0350
+	protected PartyListViewIndicator partyListViewIndicator; // 0x60
+	[SerializeField] // RVA: 0xCE0360 Offset: 0xCE0360 VA: 0xCE0360
+	protected GameObject mainDeckBase; // 0x68
+	[SerializeField] // RVA: 0xCE0370 Offset: 0xCE0370 VA: 0xCE0370
+	protected UICommonButton partyRemoveButton; // 0x70
+	[SerializeField] // RVA: 0xCE0380 Offset: 0xCE0380 VA: 0xCE0380
+	protected UICommonButton partyDecideButton; // 0x78
+	[SerializeField] // RVA: 0xCE0390 Offset: 0xCE0390 VA: 0xCE0390
+	protected UICommonButton partyPointEventButton; // 0x80
+	[SerializeField] // RVA: 0xCE03A0 Offset: 0xCE03A0 VA: 0xCE03A0
+	protected UICommonButton questInfoButton; // 0x88
+	[SerializeField] // RVA: 0xCE03B0 Offset: 0xCE03B0 VA: 0xCE03B0
+	protected GameObject explanationBase; // 0x90
+	[SerializeField] // RVA: 0xCE03C0 Offset: 0xCE03C0 VA: 0xCE03C0
+	protected UILabel explanationLabel; // 0x98
+	[SerializeField] // RVA: 0xCE03D0 Offset: 0xCE03D0 VA: 0xCE03D0
+	protected GameObject titleExplanationBase; // 0xA0
+	[SerializeField] // RVA: 0xCE03E0 Offset: 0xCE03E0 VA: 0xCE03E0
+	protected UIRangeLabel titleExplanationLabel; // 0xA8
+	[SerializeField] // RVA: 0xCE03F0 Offset: 0xCE03F0 VA: 0xCE03F0
+	protected GameObject tutorialMaskBase; // 0xB0
+	[SerializeField] // RVA: 0xCE0400 Offset: 0xCE0400 VA: 0xCE0400
+	protected PartyOrganizationChangeObject tutorialPartyOrganizationChangeEmptyObject; // 0xB8
+	[SerializeField] // RVA: 0xCE0410 Offset: 0xCE0410 VA: 0xCE0410
+	protected UICommonButton tutorialPartyDecideButton; // 0xC0
+	[SerializeField] // RVA: 0xCE0420 Offset: 0xCE0420 VA: 0xCE0420
+	protected FSOffset tutorialAddOffsetFS; // 0xC8
+	[SerializeField] // RVA: 0xCE0430 Offset: 0xCE0430 VA: 0xCE0430
+	protected UICommonButton hintDialogButton; // 0xD0
+	protected PartyOrganizationChangeMenu.Mode mode; // 0xD8
+	protected PartyOrganizationChangeMenu.State state; // 0xDC
+	[CompilerGeneratedAttribute] // RVA: 0xCE0440 Offset: 0xCE0440 VA: 0xCE0440
+	[DebuggerBrowsableAttribute] // RVA: 0xCE0440 Offset: 0xCE0440 VA: 0xCE0440
+	private PartyOrganizationChangeMenu.CallbackFunc callbackFunc; // 0xE0
+	protected Action openCallbackFunc; // 0xE8
+	protected Action closeCallbackFunc; // 0xF0
+	protected PartyListViewItem basePartyItem; // 0xF8
+	protected PartyListViewItem partyItem; // 0x100
+	protected int openSelectMember; // 0x108
+	protected EventUpValSetupInfo setupInfo; // 0x110
+	protected QuestRestrictionInfo questRestrictionInfo; // 0x118
+	private PartyListViewItem.MenuKind menuKind; // 0x120
+
+	// Methods
+
+	// RVA: 0x1F3FC10 Offset: 0x1F3FC10 VA: 0x1F3FC10
+	public void .ctor() { }
+
+	// RVA: 0x1F3FCB8 Offset: 0x1F3FCB8 VA: 0x1F3FCB8
+	protected void add_callbackFunc(PartyOrganizationChangeMenu.CallbackFunc value) { }
+
+	// RVA: 0x1F3FDA4 Offset: 0x1F3FDA4 VA: 0x1F3FDA4
+	protected void remove_callbackFunc(PartyOrganizationChangeMenu.CallbackFunc value) { }
+
+	// RVA: 0x1F3FE90 Offset: 0x1F3FE90 VA: 0x1F3FE90
+	public bool IsThroughSelect() { }
+
+	// RVA: 0x1F3FEA0 Offset: 0x1F3FEA0 VA: 0x1F3FEA0
+	public PartyListViewItem GetBaseItem() { }
+
+	// RVA: 0x1F3FEA8 Offset: 0x1F3FEA8 VA: 0x1F3FEA8
+	public PartyListViewItem GetItem() { }
+
+	// RVA: 0x1F3FEB0 Offset: 0x1F3FEB0 VA: 0x1F3FEB0
+	protected void ClearItem() { }
+
+	// RVA: 0x1F40018 Offset: 0x1F40018 VA: 0x1F40018
+	protected void SetItem(int friendBonusVal) { }
+
+	// RVA: 0x1F40284 Offset: 0x1F40284 VA: 0x1F40284
+	protected void SetInput(bool isInput) { }
+
+	// RVA: 0x1F40420 Offset: 0x1F40420 VA: 0x1F40420
+	public void ModifyItem() { }
+
+	// RVA: 0x1F405F4 Offset: 0x1F405F4 VA: 0x1F405F4
+	public void Init() { }
+
+	// RVA: 0x1F40624 Offset: 0x1F40624 VA: 0x1F40624
+	public void Open(PartyListViewItem.MenuKind kind, PartyOrganizationChangeMenu.Mode tutorialMode, PartyListViewItem basePartyItem, PartyListViewItem partyItem, int selectMember, EventUpValSetupInfo setupInfo, QuestRestrictionInfo questRestrictionInfo, PartyOrganizationChangeMenu.CallbackFunc callback, Action openCallback, int friendBonusVal) { }
+
+	// RVA: 0x1F40C84 Offset: 0x1F40C84 VA: 0x1F40C84
+	protected void EndOpen() { }
+
+	// RVA: 0x1F41330 Offset: 0x1F41330 VA: 0x1F41330
+	protected void EndOpenTutorialArrow() { }
+
+	// RVA: 0x1F41368 Offset: 0x1F41368 VA: 0x1F41368
+	public void Close() { }
+
+	// RVA: 0x1F41370 Offset: 0x1F41370 VA: 0x1F41370
+	public void Close(Action callback) { }
+
+	// RVA: 0x1F41400 Offset: 0x1F41400 VA: 0x1F41400
+	protected void EndClose() { }
+
+	// RVA: 0x1F4095C Offset: 0x1F4095C VA: 0x1F4095C
+	protected void SetupButton(bool isMove) { }
+
+	// RVA: 0x1F41314 Offset: 0x1F41314 VA: 0x1F41314
+	protected void Callback(PartyOrganizationChangeMenu.ResultKind result, int n = -1) { }
+
+	// RVA: 0x1F41844 Offset: 0x1F41844 VA: 0x1F41844
+	public void OnClickDecide() { }
+
+	// RVA: 0x1F4197C Offset: 0x1F4197C VA: 0x1F4197C
+	protected void EndCloseTutorialArrowDecide() { }
+
+	// RVA: 0x1F41A1C Offset: 0x1F41A1C VA: 0x1F41A1C
+	public void OnClickCancel() { }
+
+	// RVA: 0x1F41A54 Offset: 0x1F41A54 VA: 0x1F41A54
+	public void OnClickRemove() { }
+
+	// RVA: 0x1F41A8C Offset: 0x1F41A8C VA: 0x1F41A8C
+	public void OnClickInfomation() { }
+
+	// RVA: 0x1F41B30 Offset: 0x1F41B30 VA: 0x1F41B30
+	public void OnClickPointEvent() { }
+
+	// RVA: 0x1F41BD4 Offset: 0x1F41BD4 VA: 0x1F41BD4
+	public void OnClickQuestInfomation() { }
+
+	// RVA: 0x1F41C78 Offset: 0x1F41C78 VA: 0x1F41C78
+	protected void OnClickItem(PartyOrganizationChangeObject.ResultKind result, int n) { }
+
+	// RVA: 0x1F41CC0 Offset: 0x1F41CC0 VA: 0x1F41CC0
+	protected void OnClickEmptyItem(PartyOrganizationChangeObject.ResultKind result, int n) { }
+
+	// RVA: 0x1F41DC0 Offset: 0x1F41DC0 VA: 0x1F41DC0
+	protected void EndCloseTutorialArrowEmptyItem() { }
+
+	// RVA: 0x1F41450 Offset: 0x1F41450 VA: 0x1F41450
+	private bool IsHintDialog() { }
+
+	// RVA: 0x1F41E60 Offset: 0x1F41E60 VA: 0x1F41E60
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public enum PartyOrganizationChangeMenu.Mode // TypeDefIndex: 10376
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationChangeMenu.Mode NONE = 0;
+	public const PartyOrganizationChangeMenu.Mode SELECT_SERVANT = 1;
+	public const PartyOrganizationChangeMenu.Mode SELECT_EQUIP = 2;
+	public const PartyOrganizationChangeMenu.Mode DETAIL_SERVANT = 3;
+	public const PartyOrganizationChangeMenu.Mode ORGANIZATION_GUIDE_DECK_EMPTY_SELECT = 4;
+	public const PartyOrganizationChangeMenu.Mode ORGANIZATION_GUIDE_DECIDE_SELECT = 5;
+}
+
+// Namespace: 
+public enum PartyOrganizationChangeMenu.ResultKind // TypeDefIndex: 10377
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationChangeMenu.ResultKind CANCEL = 0;
+	public const PartyOrganizationChangeMenu.ResultKind DECIDE = 1;
+	public const PartyOrganizationChangeMenu.ResultKind REMOVE = 2;
+	public const PartyOrganizationChangeMenu.ResultKind INFOMATION = 3;
+	public const PartyOrganizationChangeMenu.ResultKind EVENT_POINT = 4;
+	public const PartyOrganizationChangeMenu.ResultKind SELECT_SERVANT = 5;
+	public const PartyOrganizationChangeMenu.ResultKind SELECT_EQUIP = 6;
+	public const PartyOrganizationChangeMenu.ResultKind QUEST_INFORMATION = 7;
+}
+
+// Namespace: 
+protected enum PartyOrganizationChangeMenu.State // TypeDefIndex: 10378
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationChangeMenu.State INIT = 0;
+	public const PartyOrganizationChangeMenu.State OPEN = 1;
+	public const PartyOrganizationChangeMenu.State INPUT = 2;
+	public const PartyOrganizationChangeMenu.State SELECTED = 3;
+	public const PartyOrganizationChangeMenu.State CLOSE = 4;
+	public const PartyOrganizationChangeMenu.State ENTER = 5;
+	public const PartyOrganizationChangeMenu.State TUTORIAL_OPEN = 6;
+	public const PartyOrganizationChangeMenu.State TUTORIAL = 7;
+	public const PartyOrganizationChangeMenu.State TUTORIAL_CLOSE = 8;
+}
+
+// Namespace: 
+public sealed class PartyOrganizationChangeMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10379
+{
+	// Methods
+
+	// RVA: 0x1F41F14 Offset: 0x1F41F14 VA: 0x1F41F14
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1F41600 Offset: 0x1F41600 VA: 0x1F41600 Slot: 11
+	public virtual void Invoke(PartyOrganizationChangeMenu.ResultKind result, int n) { }
+
+	// RVA: 0x1F41F24 Offset: 0x1F41F24 VA: 0x1F41F24 Slot: 12
+	public virtual IAsyncResult BeginInvoke(PartyOrganizationChangeMenu.ResultKind result, int n, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1F41FCC Offset: 0x1F41FCC VA: 0x1F41FCC Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class PartyOrganizationChangeObject : BaseMonoBehaviour // TypeDefIndex: 10380
+{
+	// Fields
+	protected PartyOrganizationChangeObject.State state; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xCE047C Offset: 0xCE047C VA: 0xCE047C
+	[DebuggerBrowsableAttribute] // RVA: 0xCE047C Offset: 0xCE047C VA: 0xCE047C
+	private PartyOrganizationChangeObject.CallbackFunc callbackFunc; // 0x20
+	protected PartyOrganizationListViewItemDraw itemDraw; // 0x28
+	protected PartyListViewItem partyItem; // 0x30
+	protected int member; // 0x38
+
+	// Methods
+
+	// RVA: 0x1F41FD8 Offset: 0x1F41FD8 VA: 0x1F41FD8
+	public void .ctor() { }
+
+	// RVA: 0x1F41FE0 Offset: 0x1F41FE0 VA: 0x1F41FE0
+	protected void add_callbackFunc(PartyOrganizationChangeObject.CallbackFunc value) { }
+
+	// RVA: 0x1F420CC Offset: 0x1F420CC VA: 0x1F420CC
+	protected void remove_callbackFunc(PartyOrganizationChangeObject.CallbackFunc value) { }
+
+	// RVA: 0x1F421B8 Offset: 0x1F421B8 VA: 0x1F421B8
+	protected void Awake() { }
+
+	// RVA: 0x1F42210 Offset: 0x1F42210 VA: 0x1F42210
+	public void SetVisible(bool isVisible) { }
+
+	// RVA: 0x1F3FF68 Offset: 0x1F3FF68 VA: 0x1F3FF68
+	public void ClearItem() { }
+
+	// RVA: 0x1F40178 Offset: 0x1F40178 VA: 0x1F40178
+	public void SetItem(PartyListViewItem partyItem, int member, PartyOrganizationChangeObject.CallbackFunc callback) { }
+
+	// RVA: 0x1F4050C Offset: 0x1F4050C VA: 0x1F4050C
+	public void ModifyItem() { }
+
+	// RVA: 0x1F4032C Offset: 0x1F4032C VA: 0x1F4032C
+	public void SetInput(bool isInput) { }
+
+	// RVA: 0x1F423D0 Offset: 0x1F423D0 VA: 0x1F423D0
+	public void OnClickItem() { }
+
+	// RVA: 0x1F42714 Offset: 0x1F42714 VA: 0x1F42714
+	public void OnLongPressItem() { }
+
+	// RVA: 0x1F42730 Offset: 0x1F42730 VA: 0x1F42730
+	protected void OpenServantDetail() { }
+
+	// RVA: 0x1F42A3C Offset: 0x1F42A3C VA: 0x1F42A3C
+	protected void EndShowServant(bool isDecide) { }
+
+	// RVA: 0x1F42AF0 Offset: 0x1F42AF0 VA: 0x1F42AF0
+	protected void EndShowServantWithQuest(bool isDecide, int questId) { }
+
+	// RVA: 0x1F42BBC Offset: 0x1F42BBC VA: 0x1F42BBC
+	protected void EndCloseShow() { }
+
+	// RVA: 0x1F42BC0 Offset: 0x1F42BC0 VA: 0x1F42BC0
+	protected void EndCloseShowQuestJump() { }
+
+	// RVA: 0x1F42C2C Offset: 0x1F42C2C VA: 0x1F42C2C
+	public void OnClickItemEquip() { }
+
+	// RVA: 0x1F42D14 Offset: 0x1F42D14 VA: 0x1F42D14
+	public void OnLongPressItemEquip() { }
+
+	// RVA: 0x1F42D30 Offset: 0x1F42D30 VA: 0x1F42D30
+	protected void OpenEquipDetail() { }
+
+	// RVA: 0x1F42FFC Offset: 0x1F42FFC VA: 0x1F42FFC
+	protected void EndShowEquip(bool isDecide) { }
+
+	// RVA: 0x1F430B0 Offset: 0x1F430B0 VA: 0x1F430B0
+	protected void EndCloseShowEquip() { }
+}
+
+// Namespace: 
+public enum PartyOrganizationChangeObject.ResultKind // TypeDefIndex: 10381
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationChangeObject.ResultKind NONE = 0;
+	public const PartyOrganizationChangeObject.ResultKind SELECT_SERVANT = 1;
+	public const PartyOrganizationChangeObject.ResultKind SELECT_EQUIP = 2;
+	public const PartyOrganizationChangeObject.ResultKind MODIFY_STATUS = 3;
+}
+
+// Namespace: 
+protected enum PartyOrganizationChangeObject.State // TypeDefIndex: 10382
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationChangeObject.State INIT = 0;
+	public const PartyOrganizationChangeObject.State IDLE = 1;
+	public const PartyOrganizationChangeObject.State INPUT = 2;
+}
+
+// Namespace: 
+public sealed class PartyOrganizationChangeObject.CallbackFunc : MulticastDelegate // TypeDefIndex: 10383
+{
+	// Methods
+
+	// RVA: 0x1F40168 Offset: 0x1F40168 VA: 0x1F40168
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1F424D0 Offset: 0x1F424D0 VA: 0x1F424D0 Slot: 11
+	public virtual void Invoke(PartyOrganizationChangeObject.ResultKind result, int n) { }
+
+	// RVA: 0x1F430B4 Offset: 0x1F430B4 VA: 0x1F430B4 Slot: 12
+	public virtual IAsyncResult BeginInvoke(PartyOrganizationChangeObject.ResultKind result, int n, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1F4315C Offset: 0x1F4315C VA: 0x1F4315C Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class PartyOrganizationCommandCardMenu : BaseDialog // TypeDefIndex: 10384
+{
+	// Fields
+	[SerializeField] // RVA: 0xCE04B8 Offset: 0xCE04B8 VA: 0xCE04B8
+	protected UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xCE04C8 Offset: 0xCE04C8 VA: 0xCE04C8
+	protected PartyOrganizationConfirmItemDraw[] memberObjectList; // 0x60
+	[SerializeField] // RVA: 0xCE04D8 Offset: 0xCE04D8 VA: 0xCE04D8
+	protected UISprite compatibilitySprite; // 0x68
+	[SerializeField] // RVA: 0xCE04E8 Offset: 0xCE04E8 VA: 0xCE04E8
+	protected UILabel closeLabel; // 0x70
+	[SerializeField] // RVA: 0xCE04F8 Offset: 0xCE04F8 VA: 0xCE04F8
+	protected UICommonButton closeButton; // 0x78
+	protected PartyOrganizationCommandCardMenu.State state; // 0x80
+	[CompilerGeneratedAttribute] // RVA: 0xCE0508 Offset: 0xCE0508 VA: 0xCE0508
+	[DebuggerBrowsableAttribute] // RVA: 0xCE0508 Offset: 0xCE0508 VA: 0xCE0508
+	private PartyOrganizationCommandCardMenu.CallbackFunc callbackFunc; // 0x88
+	protected Action closeCallbackFunc; // 0x90
+
+	// Properties
+	protected override string closeBtnPath { get; }
+
+	// Methods
+
+	// RVA: 0x1F43168 Offset: 0x1F43168 VA: 0x1F43168
+	public void .ctor() { }
+
+	// RVA: 0x1F431E8 Offset: 0x1F431E8 VA: 0x1F431E8
+	protected void add_callbackFunc(PartyOrganizationCommandCardMenu.CallbackFunc value) { }
+
+	// RVA: 0x1F432D4 Offset: 0x1F432D4 VA: 0x1F432D4
+	protected void remove_callbackFunc(PartyOrganizationCommandCardMenu.CallbackFunc value) { }
+
+	// RVA: 0x1F433C0 Offset: 0x1F433C0 VA: 0x1F433C0
+	public void Init() { }
+
+	// RVA: 0x1F434AC Offset: 0x1F434AC VA: 0x1F434AC
+	public void Open(PartyOrganizationCommandCardMenu.Kind kind, PartyListViewItem partyItem, PartyOrganizationCommandCardMenu.CallbackFunc callback) { }
+
+	// RVA: 0x1F446DC Offset: 0x1F446DC VA: 0x1F446DC
+	protected void EndOpen() { }
+
+	// RVA: 0x1F446E8 Offset: 0x1F446E8 VA: 0x1F446E8
+	public void Close() { }
+
+	// RVA: 0x1F446F0 Offset: 0x1F446F0 VA: 0x1F446F0
+	public void Close(Action callback) { }
+
+	// RVA: 0x1F44780 Offset: 0x1F44780 VA: 0x1F44780
+	protected void EndClose() { }
+
+	// RVA: 0x1F447BC Offset: 0x1F447BC VA: 0x1F447BC
+	protected void Callback(bool result) { }
+
+	// RVA: 0x1F44A08 Offset: 0x1F44A08 VA: 0x1F44A08
+	public void OnClickCancel() { }
+
+	// RVA: 0x1F44AA8 Offset: 0x1F44AA8 VA: 0x1F44AA8 Slot: 6
+	protected override string get_closeBtnPath() { }
+}
+
+// Namespace: 
+public enum PartyOrganizationCommandCardMenu.Kind // TypeDefIndex: 10385
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationCommandCardMenu.Kind NORMAL = 0;
+}
+
+// Namespace: 
+protected enum PartyOrganizationCommandCardMenu.State // TypeDefIndex: 10386
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationCommandCardMenu.State INIT = 0;
+	public const PartyOrganizationCommandCardMenu.State OPEN = 1;
+	public const PartyOrganizationCommandCardMenu.State INPUT = 2;
+	public const PartyOrganizationCommandCardMenu.State SELECTED = 3;
+	public const PartyOrganizationCommandCardMenu.State CLOSE = 4;
+}
+
+// Namespace: 
+public sealed class PartyOrganizationCommandCardMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10387
+{
+	// Methods
+
+	// RVA: 0x1F44AF0 Offset: 0x1F44AF0 VA: 0x1F44AF0
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1F447DC Offset: 0x1F447DC VA: 0x1F447DC Slot: 11
+	public virtual void Invoke(bool result) { }
+
+	// RVA: 0x1F44B00 Offset: 0x1F44B00 VA: 0x1F44B00 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1F44B90 Offset: 0x1F44B90 VA: 0x1F44B90 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class PartyOrganizationConfirmCopyMenu : BaseDialog // TypeDefIndex: 10388
+{
+	// Fields
+	[SerializeField] // RVA: 0xCE0544 Offset: 0xCE0544 VA: 0xCE0544
+	protected UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xCE0554 Offset: 0xCE0554 VA: 0xCE0554
+	protected UILabel messageLabel; // 0x60
+	[SerializeField] // RVA: 0xCE0564 Offset: 0xCE0564 VA: 0xCE0564
+	protected UILabel baseDeckTitleLabel; // 0x68
+	[SerializeField] // RVA: 0xCE0574 Offset: 0xCE0574 VA: 0xCE0574
+	protected UILabel editDeckTitleLabel; // 0x70
+	[SerializeField] // RVA: 0xCE0584 Offset: 0xCE0584 VA: 0xCE0584
+	protected DeckListViewItemDraw baseDeckObject; // 0x78
+	[SerializeField] // RVA: 0xCE0594 Offset: 0xCE0594 VA: 0xCE0594
+	protected DeckListViewItemDraw editDeckObject; // 0x80
+	[SerializeField] // RVA: 0xCE05A4 Offset: 0xCE05A4 VA: 0xCE05A4
+	protected UILabel decideLabel; // 0x88
+	[SerializeField] // RVA: 0xCE05B4 Offset: 0xCE05B4 VA: 0xCE05B4
+	protected UILabel cancelLabel; // 0x90
+	[SerializeField] // RVA: 0xCE05C4 Offset: 0xCE05C4 VA: 0xCE05C4
+	protected UICommonButton decideButton; // 0x98
+	[SerializeField] // RVA: 0xCE05D4 Offset: 0xCE05D4 VA: 0xCE05D4
+	protected UICommonButton cancelButton; // 0xA0
+	protected PartyOrganizationConfirmCopyMenu.State state; // 0xA8
+	[CompilerGeneratedAttribute] // RVA: 0xCE05E4 Offset: 0xCE05E4 VA: 0xCE05E4
+	[DebuggerBrowsableAttribute] // RVA: 0xCE05E4 Offset: 0xCE05E4 VA: 0xCE05E4
+	private PartyOrganizationConfirmCopyMenu.CallbackFunc callbackFunc; // 0xB0
+	protected Action closeCallbackFunc; // 0xB8
+
+	// Methods
+
+	// RVA: 0x1F44B9C Offset: 0x1F44B9C VA: 0x1F44B9C
+	public void .ctor() { }
+
+	// RVA: 0x1F44C04 Offset: 0x1F44C04 VA: 0x1F44C04
+	protected void add_callbackFunc(PartyOrganizationConfirmCopyMenu.CallbackFunc value) { }
+
+	// RVA: 0x1F44CF0 Offset: 0x1F44CF0 VA: 0x1F44CF0
+	protected void remove_callbackFunc(PartyOrganizationConfirmCopyMenu.CallbackFunc value) { }
+
+	// RVA: 0x1F44DDC Offset: 0x1F44DDC VA: 0x1F44DDC
+	public void Init() { }
+
+	// RVA: 0x1F44F00 Offset: 0x1F44F00 VA: 0x1F44F00
+	public void Open(PartyOrganizationConfirmCopyMenu.Kind kind, PartyListViewItem basePartyItem, PartyListViewItem editPartyItem, PartyOrganizationConfirmCopyMenu.CallbackFunc callback) { }
+
+	// RVA: 0x1F45284 Offset: 0x1F45284 VA: 0x1F45284
+	protected void EndOpen() { }
+
+	// RVA: 0x1F45290 Offset: 0x1F45290 VA: 0x1F45290
+	public void Close() { }
+
+	// RVA: 0x1F45298 Offset: 0x1F45298 VA: 0x1F45298
+	public void Close(Action callback) { }
+
+	// RVA: 0x1F45328 Offset: 0x1F45328 VA: 0x1F45328
+	protected void EndClose() { }
+
+	// RVA: 0x1F45364 Offset: 0x1F45364 VA: 0x1F45364
+	protected void Callback(bool result) { }
+
+	// RVA: 0x1F455B0 Offset: 0x1F455B0 VA: 0x1F455B0
+	public void OnClickDecide() { }
+
+	// RVA: 0x1F45650 Offset: 0x1F45650 VA: 0x1F45650
+	public void OnClickCancel() { }
+}
+
+// Namespace: 
+public enum PartyOrganizationConfirmCopyMenu.Kind // TypeDefIndex: 10389
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationConfirmCopyMenu.Kind COPY = 0;
+}
+
+// Namespace: 
+protected enum PartyOrganizationConfirmCopyMenu.State // TypeDefIndex: 10390
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationConfirmCopyMenu.State INIT = 0;
+	public const PartyOrganizationConfirmCopyMenu.State OPEN = 1;
+	public const PartyOrganizationConfirmCopyMenu.State INPUT = 2;
+	public const PartyOrganizationConfirmCopyMenu.State SELECTED = 3;
+	public const PartyOrganizationConfirmCopyMenu.State CLOSE = 4;
+}
+
+// Namespace: 
+public sealed class PartyOrganizationConfirmCopyMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10391
+{
+	// Methods
+
+	// RVA: 0x1F456F0 Offset: 0x1F456F0 VA: 0x1F456F0
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1F45384 Offset: 0x1F45384 VA: 0x1F45384 Slot: 11
+	public virtual void Invoke(bool result) { }
+
+	// RVA: 0x1F45700 Offset: 0x1F45700 VA: 0x1F45700 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1F45790 Offset: 0x1F45790 VA: 0x1F45790 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class PartyOrganizationConfirmCostumeMenu : BaseDialog // TypeDefIndex: 10392
+{
+	// Fields
+	[SerializeField] // RVA: 0xCE0620 Offset: 0xCE0620 VA: 0xCE0620
+	protected UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xCE0630 Offset: 0xCE0630 VA: 0xCE0630
+	protected UILabel messageLabel; // 0x60
+	[SerializeField] // RVA: 0xCE0640 Offset: 0xCE0640 VA: 0xCE0640
+	protected GameObject supportMemberBase; // 0x68
+	[SerializeField] // RVA: 0xCE0650 Offset: 0xCE0650 VA: 0xCE0650
+	protected PartyOrganizationConfirmItemDraw[] memberObjectList; // 0x70
+	[SerializeField] // RVA: 0xCE0660 Offset: 0xCE0660 VA: 0xCE0660
+	protected UILabel closeLabel; // 0x78
+	[SerializeField] // RVA: 0xCE0670 Offset: 0xCE0670 VA: 0xCE0670
+	protected UICommonButton closeButton; // 0x80
+	protected PartyOrganizationConfirmCostumeMenu.State state; // 0x88
+	[CompilerGeneratedAttribute] // RVA: 0xCE0680 Offset: 0xCE0680 VA: 0xCE0680
+	[DebuggerBrowsableAttribute] // RVA: 0xCE0680 Offset: 0xCE0680 VA: 0xCE0680
+	private PartyOrganizationConfirmCostumeMenu.CallbackFunc callbackFunc; // 0x90
+	protected Action closeCallbackFunc; // 0x98
+
+	// Methods
+
+	// RVA: 0x1F4579C Offset: 0x1F4579C VA: 0x1F4579C
+	public void .ctor() { }
+
+	// RVA: 0x1F45804 Offset: 0x1F45804 VA: 0x1F45804
+	protected void add_callbackFunc(PartyOrganizationConfirmCostumeMenu.CallbackFunc value) { }
+
+	// RVA: 0x1F458F0 Offset: 0x1F458F0 VA: 0x1F458F0
+	protected void remove_callbackFunc(PartyOrganizationConfirmCostumeMenu.CallbackFunc value) { }
+
+	// RVA: 0x1F459DC Offset: 0x1F459DC VA: 0x1F459DC
+	public void Init() { }
+
+	// RVA: 0x1F45AD4 Offset: 0x1F45AD4 VA: 0x1F45AD4
+	public void Open(PartyOrganizationConfirmCostumeMenu.Kind kind, PartyOrganizationListViewItem item, EventUpValSetupInfo setupInfo, QuestRestrictionInfo questRestrictionInfo, PartyOrganizationConfirmCostumeMenu.CallbackFunc callback) { }
+
+	// RVA: 0x1F4629C Offset: 0x1F4629C VA: 0x1F4629C
+	protected void EndOpen() { }
+
+	// RVA: 0x1F462A8 Offset: 0x1F462A8 VA: 0x1F462A8
+	public void Close() { }
+
+	// RVA: 0x1F462B0 Offset: 0x1F462B0 VA: 0x1F462B0
+	public void Close(Action callback) { }
+
+	// RVA: 0x1F46340 Offset: 0x1F46340 VA: 0x1F46340
+	protected void EndClose() { }
+
+	// RVA: 0x1F4637C Offset: 0x1F4637C VA: 0x1F4637C
+	protected void Callback() { }
+
+	// RVA: 0x1F46598 Offset: 0x1F46598 VA: 0x1F46598
+	public void OnClickClose() { }
+}
+
+// Namespace: 
+public enum PartyOrganizationConfirmCostumeMenu.Kind // TypeDefIndex: 10393
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationConfirmCostumeMenu.Kind FIX_COSTUME = 0;
+}
+
+// Namespace: 
+protected enum PartyOrganizationConfirmCostumeMenu.State // TypeDefIndex: 10394
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationConfirmCostumeMenu.State INIT = 0;
+	public const PartyOrganizationConfirmCostumeMenu.State OPEN = 1;
+	public const PartyOrganizationConfirmCostumeMenu.State INPUT = 2;
+	public const PartyOrganizationConfirmCostumeMenu.State SELECTED = 3;
+	public const PartyOrganizationConfirmCostumeMenu.State CLOSE = 4;
+}
+
+// Namespace: 
+public sealed class PartyOrganizationConfirmCostumeMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10395
+{
+	// Methods
+
+	// RVA: 0x1F46634 Offset: 0x1F46634 VA: 0x1F46634
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1F46398 Offset: 0x1F46398 VA: 0x1F46398 Slot: 11
+	public virtual void Invoke() { }
+
+	// RVA: 0x1F46644 Offset: 0x1F46644 VA: 0x1F46644 Slot: 12
+	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
+
+	// RVA: 0x1F46678 Offset: 0x1F46678 VA: 0x1F46678 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class PartyOrganizationConfirmDeck2Menu : BaseDialog // TypeDefIndex: 10396
+{
+	// Fields
+	[SerializeField] // RVA: 0xCE06BC Offset: 0xCE06BC VA: 0xCE06BC
+	protected UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xCE06CC Offset: 0xCE06CC VA: 0xCE06CC
+	protected UILabel messageLabel; // 0x60
+	[SerializeField] // RVA: 0xCE06DC Offset: 0xCE06DC VA: 0xCE06DC
+	protected UILabel memberTitleLabel; // 0x68
+	[SerializeField] // RVA: 0xCE06EC Offset: 0xCE06EC VA: 0xCE06EC
+	protected UILabel baseTitleLabel; // 0x70
+	[SerializeField] // RVA: 0xCE06FC Offset: 0xCE06FC VA: 0xCE06FC
+	protected PartyOrganizationConfirmItemDraw[] memberObjectList; // 0x78
+	[SerializeField] // RVA: 0xCE070C Offset: 0xCE070C VA: 0xCE070C
+	protected PartyOrganizationConfirmItemDraw[] baseObjectList; // 0x80
+	[SerializeField] // RVA: 0xCE071C Offset: 0xCE071C VA: 0xCE071C
+	protected UILabel decideLabel; // 0x88
+	[SerializeField] // RVA: 0xCE072C Offset: 0xCE072C VA: 0xCE072C
+	protected UILabel cancelLabel; // 0x90
+	[SerializeField] // RVA: 0xCE073C Offset: 0xCE073C VA: 0xCE073C
+	protected UILabel closeLabel; // 0x98
+	[SerializeField] // RVA: 0xCE074C Offset: 0xCE074C VA: 0xCE074C
+	protected UICommonButton decideButton; // 0xA0
+	[SerializeField] // RVA: 0xCE075C Offset: 0xCE075C VA: 0xCE075C
+	protected UICommonButton cancelButton; // 0xA8
+	[SerializeField] // RVA: 0xCE076C Offset: 0xCE076C VA: 0xCE076C
+	protected UICommonButton closeButton; // 0xB0
+	protected PartyOrganizationConfirmDeck2Menu.State state; // 0xB8
+	[CompilerGeneratedAttribute] // RVA: 0xCE077C Offset: 0xCE077C VA: 0xCE077C
+	[DebuggerBrowsableAttribute] // RVA: 0xCE077C Offset: 0xCE077C VA: 0xCE077C
+	private PartyOrganizationConfirmDeck2Menu.CallbackFunc callbackFunc; // 0xC0
+	protected Action closeCallbackFunc; // 0xC8
+
+	// Methods
+
+	// RVA: 0x1F46684 Offset: 0x1F46684 VA: 0x1F46684
+	public void .ctor() { }
+
+	// RVA: 0x1F4674C Offset: 0x1F4674C VA: 0x1F4674C
+	protected void add_callbackFunc(PartyOrganizationConfirmDeck2Menu.CallbackFunc value) { }
+
+	// RVA: 0x1F46838 Offset: 0x1F46838 VA: 0x1F46838
+	protected void remove_callbackFunc(PartyOrganizationConfirmDeck2Menu.CallbackFunc value) { }
+
+	// RVA: 0x1F46924 Offset: 0x1F46924 VA: 0x1F46924
+	public void Init() { }
+
+	// RVA: 0x1F46A74 Offset: 0x1F46A74 VA: 0x1F46A74
+	public void Open(PartyOrganizationConfirmDeck2Menu.Kind kind, PartyListViewItem basePartyItem, PartyListViewItem partyItem, PartyOrganizationConfirmDeck2Menu.CallbackFunc callback) { }
+
+	// RVA: 0x1F475B0 Offset: 0x1F475B0 VA: 0x1F475B0
+	protected void EndOpen() { }
+
+	// RVA: 0x1F475BC Offset: 0x1F475BC VA: 0x1F475BC
+	public void Close() { }
+
+	// RVA: 0x1F475C4 Offset: 0x1F475C4 VA: 0x1F475C4
+	public void Close(Action callback) { }
+
+	// RVA: 0x1F47654 Offset: 0x1F47654 VA: 0x1F47654
+	protected void EndClose() { }
+
+	// RVA: 0x1F47690 Offset: 0x1F47690 VA: 0x1F47690
+	protected void Callback(bool result) { }
+
+	// RVA: 0x1F478DC Offset: 0x1F478DC VA: 0x1F478DC
+	public void OnClickDecide() { }
+
+	// RVA: 0x1F4797C Offset: 0x1F4797C VA: 0x1F4797C
+	public void OnClickCancel() { }
+
+	// RVA: 0x1F47A1C Offset: 0x1F47A1C VA: 0x1F47A1C
+	public void OnClickClose() { }
+}
+
+// Namespace: 
+public enum PartyOrganizationConfirmDeck2Menu.Kind // TypeDefIndex: 10397
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationConfirmDeck2Menu.Kind CANCEL = 0;
+	public const PartyOrganizationConfirmDeck2Menu.Kind EMPTY_DECK_MEMBER = 1;
+	public const PartyOrganizationConfirmDeck2Menu.Kind SHORTAGE_DECK_MEMBER = 2;
+	public const PartyOrganizationConfirmDeck2Menu.Kind SAME_SAERVANT = 3;
+	public const PartyOrganizationConfirmDeck2Menu.Kind REMOVE = 4;
+	public const PartyOrganizationConfirmDeck2Menu.Kind REMOVE_MAIN_DECK = 5;
+	public const PartyOrganizationConfirmDeck2Menu.Kind REMOVE_MAIN_DECK_LEADER = 6;
+	public const PartyOrganizationConfirmDeck2Menu.Kind START_SHORTAGE_DECK_MEMBER = 7;
+	public const PartyOrganizationConfirmDeck2Menu.Kind START_COST_OVER = 8;
+}
+
+// Namespace: 
+protected enum PartyOrganizationConfirmDeck2Menu.State // TypeDefIndex: 10398
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationConfirmDeck2Menu.State INIT = 0;
+	public const PartyOrganizationConfirmDeck2Menu.State OPEN = 1;
+	public const PartyOrganizationConfirmDeck2Menu.State INPUT = 2;
+	public const PartyOrganizationConfirmDeck2Menu.State SELECTED = 3;
+	public const PartyOrganizationConfirmDeck2Menu.State CLOSE = 4;
+}
+
+// Namespace: 
+public sealed class PartyOrganizationConfirmDeck2Menu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10399
+{
+	// Methods
+
+	// RVA: 0x1F47ABC Offset: 0x1F47ABC VA: 0x1F47ABC
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1F476B0 Offset: 0x1F476B0 VA: 0x1F476B0 Slot: 11
+	public virtual void Invoke(bool result) { }
+
+	// RVA: 0x1F47ACC Offset: 0x1F47ACC VA: 0x1F47ACC Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1F47B5C Offset: 0x1F47B5C VA: 0x1F47B5C Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class PartyOrganizationConfirmDeckMenu : BaseDialog // TypeDefIndex: 10400
+{
+	// Fields
+	[SerializeField] // RVA: 0xCE07B8 Offset: 0xCE07B8 VA: 0xCE07B8
+	protected UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xCE07C8 Offset: 0xCE07C8 VA: 0xCE07C8
+	protected UILabel messageLabel; // 0x60
+	[SerializeField] // RVA: 0xCE07D8 Offset: 0xCE07D8 VA: 0xCE07D8
+	protected UILabel nameLabel; // 0x68
+	[SerializeField] // RVA: 0xCE07E8 Offset: 0xCE07E8 VA: 0xCE07E8
+	protected PartyOrganizationConfirmItemDraw[] memberObjectList; // 0x70
+	[SerializeField] // RVA: 0xCE07F8 Offset: 0xCE07F8 VA: 0xCE07F8
+	protected UILabel decideLabel; // 0x78
+	[SerializeField] // RVA: 0xCE0808 Offset: 0xCE0808 VA: 0xCE0808
+	protected UILabel cancelLabel; // 0x80
+	[SerializeField] // RVA: 0xCE0818 Offset: 0xCE0818 VA: 0xCE0818
+	protected UILabel closeLabel; // 0x88
+	[SerializeField] // RVA: 0xCE0828 Offset: 0xCE0828 VA: 0xCE0828
+	protected UICommonButton decideButton; // 0x90
+	[SerializeField] // RVA: 0xCE0838 Offset: 0xCE0838 VA: 0xCE0838
+	protected UICommonButton cancelButton; // 0x98
+	[SerializeField] // RVA: 0xCE0848 Offset: 0xCE0848 VA: 0xCE0848
+	protected UICommonButton closeButton; // 0xA0
+	protected PartyOrganizationConfirmDeckMenu.State state; // 0xA8
+	[CompilerGeneratedAttribute] // RVA: 0xCE0858 Offset: 0xCE0858 VA: 0xCE0858
+	[DebuggerBrowsableAttribute] // RVA: 0xCE0858 Offset: 0xCE0858 VA: 0xCE0858
+	private PartyOrganizationConfirmDeckMenu.CallbackFunc callbackFunc; // 0xB0
+	protected Action closeCallbackFunc; // 0xB8
+
+	// Methods
+
+	// RVA: 0x1F47B68 Offset: 0x1F47B68 VA: 0x1F47B68
+	public void .ctor() { }
+
+	// RVA: 0x1F47C10 Offset: 0x1F47C10 VA: 0x1F47C10
+	protected void add_callbackFunc(PartyOrganizationConfirmDeckMenu.CallbackFunc value) { }
+
+	// RVA: 0x1F47CFC Offset: 0x1F47CFC VA: 0x1F47CFC
+	protected void remove_callbackFunc(PartyOrganizationConfirmDeckMenu.CallbackFunc value) { }
+
+	// RVA: 0x1F47DE8 Offset: 0x1F47DE8 VA: 0x1F47DE8
+	public void Init() { }
+
+	// RVA: 0x1F47F64 Offset: 0x1F47F64 VA: 0x1F47F64
+	public void Open(PartyOrganizationConfirmDeckMenu.Kind kind, PartyListViewItem partyItem, PartyOrganizationConfirmDeckMenu.CallbackFunc callback) { }
+
+	// RVA: 0x1F49570 Offset: 0x1F49570 VA: 0x1F49570
+	protected void EndOpen() { }
+
+	// RVA: 0x1F4957C Offset: 0x1F4957C VA: 0x1F4957C
+	public void Close() { }
+
+	// RVA: 0x1F49584 Offset: 0x1F49584 VA: 0x1F49584
+	public void Close(Action callback) { }
+
+	// RVA: 0x1F49614 Offset: 0x1F49614 VA: 0x1F49614
+	protected void EndClose() { }
+
+	// RVA: 0x1F49650 Offset: 0x1F49650 VA: 0x1F49650
+	protected void Callback(bool result) { }
+
+	// RVA: 0x1F4989C Offset: 0x1F4989C VA: 0x1F4989C
+	public void OnClickDecide() { }
+
+	// RVA: 0x1F4993C Offset: 0x1F4993C VA: 0x1F4993C
+	public void OnClickCancel() { }
+
+	// RVA: 0x1F499DC Offset: 0x1F499DC VA: 0x1F499DC
+	public void OnClickClose() { }
+}
+
+// Namespace: 
+public enum PartyOrganizationConfirmDeckMenu.Kind // TypeDefIndex: 10401
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationConfirmDeckMenu.Kind CANCEL = 0;
+	public const PartyOrganizationConfirmDeckMenu.Kind EMPTY_DECK_MEMBER = 1;
+	public const PartyOrganizationConfirmDeckMenu.Kind SHORTAGE_DECK_MEMBER = 2;
+	public const PartyOrganizationConfirmDeckMenu.Kind LEAVE_SERVANT = 3;
+	public const PartyOrganizationConfirmDeckMenu.Kind FATIGURE_SERVANT = 4;
+	public const PartyOrganizationConfirmDeckMenu.Kind COST_OVER = 5;
+	public const PartyOrganizationConfirmDeckMenu.Kind INIT_ALL = 6;
+	public const PartyOrganizationConfirmDeckMenu.Kind REMOVE_EQUIP = 7;
+	public const PartyOrganizationConfirmDeckMenu.Kind REMOVE_ALL = 8;
+	public const PartyOrganizationConfirmDeckMenu.Kind REMOVE_MAIN_DECK = 9;
+	public const PartyOrganizationConfirmDeckMenu.Kind REMOVE_MAIN_DECK_LEADER = 10;
+	public const PartyOrganizationConfirmDeckMenu.Kind START_SHORTAGE_DECK_MEMBER = 11;
+	public const PartyOrganizationConfirmDeckMenu.Kind START_LEAVE_SERVANT = 12;
+	public const PartyOrganizationConfirmDeckMenu.Kind START_FATIGURE_SERVANT = 13;
+	public const PartyOrganizationConfirmDeckMenu.Kind START_COST_OVER = 14;
+	public const PartyOrganizationConfirmDeckMenu.Kind RESTRICTION_COST_OVER = 15;
+	public const PartyOrganizationConfirmDeckMenu.Kind RESTRICTION = 16;
+	public const PartyOrganizationConfirmDeckMenu.Kind START_RESTRICTION_COST_OVER = 17;
+	public const PartyOrganizationConfirmDeckMenu.Kind START_RESTICTION_UNIQUE_SERVANT = 18;
+	public const PartyOrganizationConfirmDeckMenu.Kind START_RESTICTION_FIXED_SUPPORT_POSITION = 19;
+	public const PartyOrganizationConfirmDeckMenu.Kind START_RESTICTION_FIXED_MY_SERVANT_POSITION = 20;
+	public const PartyOrganizationConfirmDeckMenu.Kind START_RESTRICTION_REQUIRED = 21;
+	public const PartyOrganizationConfirmDeckMenu.Kind START_RESTRICTION = 22;
+}
+
+// Namespace: 
+protected enum PartyOrganizationConfirmDeckMenu.State // TypeDefIndex: 10402
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyOrganizationConfirmDeckMenu.State INIT = 0;
+	public const PartyOrganizationConfirmDeckMenu.State OPEN = 1;
+	public const PartyOrganizationConfirmDeckMenu.State INPUT = 2;
+	public const PartyOrganizationConfirmDeckMenu.State SELECTED = 3;
+	public const PartyOrganizationConfirmDeckMenu.State CLOSE = 4;
+}
+
+// Namespace: 
+public sealed class PartyOrganizationConfirmDeckMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10403
+{
+	// Methods
+
+	// RVA: 0x1F49A7C Offset: 0x1F49A7C VA: 0x1F49A7C
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1F49670 Offset: 0x1F49670 VA: 0x1F49670 Slot: 11
+	public virtual void Invoke(bool result) { }
+
+	// RVA: 0x1F49A8C Offset: 0x1F49A8C VA: 0x1F49A8C Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1F49B1C Offset: 0x1F49B1C VA: 0x1F49B1C Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class PartyOrganizationConfirmItemDraw : MonoBehaviour // TypeDefIndex: 10404
+{
+	// Fields
+	[SerializeField] // RVA: 0xCE0894 Offset: 0xCE0894 VA: 0xCE0894
+	protected UISprite baseSprite; // 0x18
+	[SerializeField] // RVA: 0xCE08A4 Offset: 0xCE08A4 VA: 0xCE08A4
+	protected ServantFaceIconComponent servantFaceIcon; // 0x20
+	[SerializeField] // RVA: 0xCE08B4 Offset: 0xCE08B4 VA: 0xCE08B4
+	protected UISprite memberTypeBaseSprite; // 0x28
+	[SerializeField] // RVA: 0xCE08C4 Offset: 0xCE08C4 VA: 0xCE08C4
+	protected UISprite memberTypeSprite; // 0x30
+	[SerializeField] // RVA: 0xCE08D4 Offset: 0xCE08D4 VA: 0xCE08D4
+	protected UISprite supportSprite; // 0x38
+	[SerializeField] // RVA: 0xCE08E4 Offset: 0xCE08E4 VA: 0xCE08E4
+	protected UISprite typeSprite; // 0x40
+	[SerializeField] // RVA: 0xCE08F4 Offset: 0xCE08F4 VA: 0xCE08F4
+	protected UILabel[] commandLabelList; // 0x48
+	[SerializeField] // RVA: 0xCE0904 Offset: 0xCE0904 VA: 0xCE0904
+	protected UISprite restrictionMaskSprite; // 0x50
+	[SerializeField] // RVA: 0xCE0914 Offset: 0xCE0914 VA: 0xCE0914
+	protected UILabel restrictionMaskMessageText; // 0x58
+	[SerializeField] // RVA: 0xCE0924 Offset: 0xCE0924 VA: 0xCE0924
+	protected GameObject restrictionWarningBase; // 0x60
+	[SerializeField] // RVA: 0xCE0934 Offset: 0xCE0934 VA: 0xCE0934
+	protected FlashingIconComponent restrictionWarningIcon; // 0x68
+	[SerializeField] // RVA: 0xCE0944 Offset: 0xCE0944 VA: 0xCE0944
+	protected UILabel restrictionWarningMessageLabel; // 0x70
+	[SerializeField] // RVA: 0xCE0954 Offset: 0xCE0954 VA: 0xCE0954
+	protected ServantClassCompatibilityIconComponent classCompatibilityIcon; // 0x78
+	protected int restrictionMaskMessageWidth; // 0x80
+	protected int restrictionWarningMessageWidth; // 0x84
+	public static readonly int ICON_OFFSET_SIZE; // 0x0
+
+	// Methods
+
+	// RVA: 0x1F49B28 Offset: 0x1F49B28 VA: 0x1F49B28
+	public void .ctor() { }
+
+	// RVA: 0x1F49B30 Offset: 0x1F49B30 VA: 0x1F49B30
+	protected void Awake() { }
+
+	// RVA: 0x1F436EC Offset: 0x1F436EC VA: 0x1F436EC
+	public void SetItem(PartyOrganizationListViewItem item, PartyOrganizationConfirmItemDraw.DispMode mode) { }
+
+	// RVA: 0x1F4A6D0 Offset: 0x1F4A6D0 VA: 0x1F4A6D0
+	protected void ClearMessage() { }
+
+	// RVA: 0x1F49FD8 Offset: 0x1F49FD8 VA: 0x1F49FD8
+	protected void SetMaskMessage(string message, Color maskColor, bool isScale = False, string maskName) { }
+
+	// RVA: 0x1F4A38C Offset: 0x1F4A38C VA: 0x1F4A38C
+	protected void SetWarningMessage(string message, bool isScale = False) { }
+
+	// RVA: 0x1F4A898 Offset: 0x1F4A898 VA: 0x1F4A898
+	public void SetInput(PartyOrganizationListViewItem item, bool isInput) { }
+
+	// RVA: 0x1F45E60 Offset: 0x1F45E60 VA: 0x1F45E60
+	public static void SetPartyIcon(List<PartyOrganizationListViewItem> itemList, PartyOrganizationConfirmItemDraw[] supportMemberObjectList, GameObject supportMemberBase) { }
+
+	// RVA: 0x1F4A89C Offset: 0x1F4A89C VA: 0x1F4A89C
+	private static void .cctor() { }

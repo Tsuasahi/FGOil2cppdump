@@ -1,0 +1,1000 @@
+	private X509CertificateCollection BuildCertificatesCollection(string storeName) { }
+}
+
+// Namespace: Mono.Security.X509
+internal sealed class X509StoreManager // TypeDefIndex: 149
+{
+	// Fields
+	private static X509Stores _userStore; // 0x0
+	private static X509Stores _machineStore; // 0x8
+
+	// Properties
+	public static X509Stores CurrentUser { get; }
+	public static X509Stores LocalMachine { get; }
+	public static X509CertificateCollection TrustedRootCertificates { get; }
+
+	// Methods
+
+	// RVA: 0x10C699C Offset: 0x10C699C VA: 0x10C699C
+	public static X509Stores get_CurrentUser() { }
+
+	// RVA: 0x10C6AC4 Offset: 0x10C6AC4 VA: 0x10C6AC4
+	public static X509Stores get_LocalMachine() { }
+
+	// RVA: 0x10C6BBC Offset: 0x10C6BBC VA: 0x10C6BBC
+	public static X509CertificateCollection get_TrustedRootCertificates() { }
+}
+
+// Namespace: Mono.Security.X509
+internal class X509Stores // TypeDefIndex: 150
+{
+	// Fields
+	private string _storePath; // 0x10
+	private X509Store _trusted; // 0x18
+
+	// Properties
+	public X509Store TrustedRoot { get; }
+
+	// Methods
+
+	// RVA: 0x10C6A98 Offset: 0x10C6A98 VA: 0x10C6A98
+	internal void .ctor(string path) { }
+
+	// RVA: 0x10C6CE8 Offset: 0x10C6CE8 VA: 0x10C6CE8
+	public X509Store get_TrustedRoot() { }
+}
+
+// Namespace: Mono.Security
+[DefaultMemberAttribute] // RVA: 0xC30200 Offset: 0xC30200 VA: 0xC30200
+internal class ASN1 // TypeDefIndex: 151
+{
+	// Fields
+	private byte m_nTag; // 0x10
+	private byte[] m_aValue; // 0x18
+	private ArrayList elist; // 0x20
+
+	// Properties
+	public int Count { get; }
+	public byte Tag { get; }
+	public int Length { get; }
+	public byte[] Value { get; set; }
+	public ASN1 Item { get; }
+
+	// Methods
+
+	// RVA: 0x128C940 Offset: 0x128C940 VA: 0x128C940
+	public void .ctor(byte tag) { }
+
+	// RVA: 0x128C970 Offset: 0x128C970 VA: 0x128C970
+	public void .ctor(byte tag, byte[] data) { }
+
+	// RVA: 0x128C9AC Offset: 0x128C9AC VA: 0x128C9AC
+	public void .ctor(byte[] data) { }
+
+	// RVA: 0x128CCA0 Offset: 0x128CCA0 VA: 0x128CCA0
+	public int get_Count() { }
+
+	// RVA: 0x128CCBC Offset: 0x128CCBC VA: 0x128CCBC
+	public byte get_Tag() { }
+
+	// RVA: 0x128CCC4 Offset: 0x128CCC4 VA: 0x128CCC4
+	public int get_Length() { }
+
+	// RVA: 0x128CCDC Offset: 0x128CCDC VA: 0x128CCDC
+	public byte[] get_Value() { }
+
+	// RVA: 0x128CDCC Offset: 0x128CDCC VA: 0x128CDCC
+	public void set_Value(byte[] value) { }
+
+	// RVA: 0x128CEA0 Offset: 0x128CEA0 VA: 0x128CEA0
+	private bool CompareArray(byte[] array1, byte[] array2) { }
+
+	// RVA: 0x128CF70 Offset: 0x128CF70 VA: 0x128CF70
+	public bool CompareValue(byte[] value) { }
+
+	// RVA: 0x128CF84 Offset: 0x128CF84 VA: 0x128CF84
+	public ASN1 Add(ASN1 asn1) { }
+
+	// RVA: 0x128D024 Offset: 0x128D024 VA: 0x128D024 Slot: 4
+	public virtual byte[] GetBytes() { }
+
+	// RVA: 0x128CB68 Offset: 0x128CB68 VA: 0x128CB68
+	protected void Decode(byte[] asn1, ref int anPos, int anLength) { }
+
+	// RVA: 0x128D808 Offset: 0x128D808 VA: 0x128D808
+	protected void DecodeTLV(byte[] asn1, ref int pos, out byte tag, out int length, out byte[] content) { }
+
+	// RVA: 0x128D978 Offset: 0x128D978 VA: 0x128D978
+	public ASN1 get_Item(int index) { }
+
+	// RVA: 0x128DB10 Offset: 0x128DB10 VA: 0x128DB10
+	public ASN1 Element(int index, byte anTag) { }
+
+	// RVA: 0x128DCD4 Offset: 0x128DCD4 VA: 0x128DCD4 Slot: 3
+	public override string ToString() { }
+}
+
+// Namespace: Mono.Security
+internal static class ASN1Convert // TypeDefIndex: 152
+{
+	// Methods
+
+	// RVA: 0x128DF88 Offset: 0x128DF88 VA: 0x128DF88
+	public static ASN1 FromInt32(int value) { }
+
+	// RVA: 0x128E120 Offset: 0x128E120 VA: 0x128E120
+	public static ASN1 FromOid(string oid) { }
+
+	// RVA: 0x128E1FC Offset: 0x128E1FC VA: 0x128E1FC
+	public static ASN1 FromUnsignedBigInteger(byte[] big) { }
+
+	// RVA: 0x128E314 Offset: 0x128E314 VA: 0x128E314
+	public static int ToInt32(ASN1 asn1) { }
+
+	// RVA: 0x128E45C Offset: 0x128E45C VA: 0x128E45C
+	public static string ToOid(ASN1 asn1) { }
+
+	// RVA: 0x128E7A8 Offset: 0x128E7A8 VA: 0x128E7A8
+	public static DateTime ToDateTime(ASN1 time) { }
+}
+
+// Namespace: Mono.Security
+internal sealed class BitConverterLE // TypeDefIndex: 153
+{
+	// Methods
+
+	// RVA: 0x1291D98 Offset: 0x1291D98 VA: 0x1291D98
+	private static byte[] GetUIntBytes(byte* bytes) { }
+
+	// RVA: 0x1291F44 Offset: 0x1291F44 VA: 0x1291F44
+	private static byte[] GetULongBytes(byte* bytes) { }
+
+	// RVA: 0x128E0FC Offset: 0x128E0FC VA: 0x128E0FC
+	internal static byte[] GetBytes(int value) { }
+
+	// RVA: 0x1292210 Offset: 0x1292210 VA: 0x1292210
+	internal static byte[] GetBytes(float value) { }
+
+	// RVA: 0x1292234 Offset: 0x1292234 VA: 0x1292234
+	internal static byte[] GetBytes(double value) { }
+
+	// RVA: 0x1292258 Offset: 0x1292258 VA: 0x1292258
+	private static void UShortFromBytes(byte* dst, byte[] src, int startIndex) { }
+
+	// RVA: 0x1292384 Offset: 0x1292384 VA: 0x1292384
+	private static void UIntFromBytes(byte* dst, byte[] src, int startIndex) { }
+
+	// RVA: 0x1292570 Offset: 0x1292570 VA: 0x1292570
+	private static void ULongFromBytes(byte* dst, byte[] src, int startIndex) { }
+
+	// RVA: 0x129269C Offset: 0x129269C VA: 0x129269C
+	internal static short ToInt16(byte[] value, int startIndex) { }
+
+	// RVA: 0x128F2D4 Offset: 0x128F2D4 VA: 0x128F2D4
+	internal static int ToInt32(byte[] value, int startIndex) { }
+
+	// RVA: 0x128F29C Offset: 0x128F29C VA: 0x128F29C
+	internal static ushort ToUInt16(byte[] value, int startIndex) { }
+
+	// RVA: 0x128F30C Offset: 0x128F30C VA: 0x128F30C
+	internal static uint ToUInt32(byte[] value, int startIndex) { }
+
+	// RVA: 0x12926D4 Offset: 0x12926D4 VA: 0x12926D4
+	internal static float ToSingle(byte[] value, int startIndex) { }
+
+	// RVA: 0x129270C Offset: 0x129270C VA: 0x129270C
+	internal static double ToDouble(byte[] value, int startIndex) { }
+}
+
+// Namespace: Mono.Security
+internal sealed class PKCS7 // TypeDefIndex: 154
+{}
+
+// Namespace: 
+public class PKCS7.ContentInfo // TypeDefIndex: 155
+{
+	// Fields
+	private string contentType; // 0x10
+	private ASN1 content; // 0x18
+
+	// Properties
+	public ASN1 ASN1 { get; }
+	public ASN1 Content { get; set; }
+	public string ContentType { get; set; }
+
+	// Methods
+
+	// RVA: 0x124C4C0 Offset: 0x124C4C0 VA: 0x124C4C0
+	public void .ctor() { }
+
+	// RVA: 0x124C530 Offset: 0x124C530 VA: 0x124C530
+	public void .ctor(string oid) { }
+
+	// RVA: 0x124C558 Offset: 0x124C558 VA: 0x124C558
+	public void .ctor(byte[] data) { }
+
+	// RVA: 0x124C5CC Offset: 0x124C5CC VA: 0x124C5CC
+	public void .ctor(ASN1 asn1) { }
+
+	// RVA: 0x124C808 Offset: 0x124C808 VA: 0x124C808
+	public ASN1 get_ASN1() { }
+
+	// RVA: 0x124C8DC Offset: 0x124C8DC VA: 0x124C8DC
+	public ASN1 get_Content() { }
+
+	// RVA: 0x124C8E4 Offset: 0x124C8E4 VA: 0x124C8E4
+	public void set_Content(ASN1 value) { }
+
+	// RVA: 0x124C8EC Offset: 0x124C8EC VA: 0x124C8EC
+	public string get_ContentType() { }
+
+	// RVA: 0x124C8F4 Offset: 0x124C8F4 VA: 0x124C8F4
+	public void set_ContentType(string value) { }
+
+	// RVA: 0x124C80C Offset: 0x124C80C VA: 0x124C80C
+	internal ASN1 GetASN1() { }
+}
+
+// Namespace: 
+public class PKCS7.EncryptedData // TypeDefIndex: 156
+{
+	// Fields
+	private byte _version; // 0x10
+	private PKCS7.ContentInfo _content; // 0x18
+	private PKCS7.ContentInfo _encryptionAlgorithm; // 0x20
+	private byte[] _encrypted; // 0x28
+
+	// Properties
+	public PKCS7.ContentInfo EncryptionAlgorithm { get; }
+	public byte[] EncryptedContent { get; }
+
+	// Methods
+
+	// RVA: 0x124C8FC Offset: 0x124C8FC VA: 0x124C8FC
+	public void .ctor() { }
+
+	// RVA: 0x124C924 Offset: 0x124C924 VA: 0x124C924
+	public void .ctor(ASN1 asn1) { }
+
+	// RVA: 0x124CD00 Offset: 0x124CD00 VA: 0x124CD00
+	public PKCS7.ContentInfo get_EncryptionAlgorithm() { }
+
+	// RVA: 0x124CD08 Offset: 0x124CD08 VA: 0x124CD08
+	public byte[] get_EncryptedContent() { }
+}
+
+// Namespace: 
+public class PKCS7.SignedData // TypeDefIndex: 157
+{
+	// Fields
+	private byte version; // 0x10
+	private string hashAlgorithm; // 0x18
+	private PKCS7.ContentInfo contentInfo; // 0x20
+	private X509CertificateCollection certs; // 0x28
+	private ArrayList crls; // 0x30
+	private PKCS7.SignerInfo signerInfo; // 0x38
+	private bool mda; // 0x40
+	[CompilerGeneratedAttribute] // RVA: 0xC3760C Offset: 0xC3760C VA: 0xC3760C
+	private static Dictionary<string, int> <>f__switch$map16; // 0x0
+
+	// Properties
+	public X509CertificateCollection Certificates { get; }
+	public PKCS7.ContentInfo ContentInfo { get; }
+	public string HashName { set; }
+	public PKCS7.SignerInfo SignerInfo { get; }
+
+	// Methods
+
+	// RVA: 0x124CDD4 Offset: 0x124CDD4 VA: 0x124CDD4
+	public void .ctor(ASN1 asn1) { }
+
+	// RVA: 0x124E040 Offset: 0x124E040 VA: 0x124E040
+	public X509CertificateCollection get_Certificates() { }
+
+	// RVA: 0x124E048 Offset: 0x124E048 VA: 0x124E048
+	public PKCS7.ContentInfo get_ContentInfo() { }
+
+	// RVA: 0x124E004 Offset: 0x124E004 VA: 0x124E004
+	public void set_HashName(string value) { }
+
+	// RVA: 0x124E058 Offset: 0x124E058 VA: 0x124E058
+	public PKCS7.SignerInfo get_SignerInfo() { }
+
+	// RVA: 0x124DD64 Offset: 0x124DD64 VA: 0x124DD64
+	internal string OidToName(string oid) { }
+}
+
+// Namespace: 
+public class PKCS7.SignerInfo // TypeDefIndex: 158
+{
+	// Fields
+	private byte version; // 0x10
+	private string hashAlgorithm; // 0x18
+	private ArrayList authenticatedAttributes; // 0x20
+	private ArrayList unauthenticatedAttributes; // 0x28
+	private byte[] signature; // 0x30
+	private string issuer; // 0x38
+	private byte[] serial; // 0x40
+	private byte[] ski; // 0x48
+
+	// Properties
+	public string IssuerName { get; }
+	public byte[] SerialNumber { get; }
+	public ArrayList AuthenticatedAttributes { get; }
+	public string HashName { get; set; }
+	public byte[] Signature { get; }
+	public ArrayList UnauthenticatedAttributes { get; }
+	public byte Version { get; }
+
+	// Methods
+
+	// RVA: 0x124DCC8 Offset: 0x124DCC8 VA: 0x124DCC8
+	public void .ctor() { }
+
+	// RVA: 0x124D724 Offset: 0x124D724 VA: 0x124D724
+	public void .ctor(ASN1 asn1) { }
+
+	// RVA: 0x124E1A8 Offset: 0x124E1A8 VA: 0x124E1A8
+	public string get_IssuerName() { }
+
+	// RVA: 0x124E1B0 Offset: 0x124E1B0 VA: 0x124E1B0
+	public byte[] get_SerialNumber() { }
+
+	// RVA: 0x124E038 Offset: 0x124E038 VA: 0x124E038
+	public ArrayList get_AuthenticatedAttributes() { }
+
+	// RVA: 0x124DD5C Offset: 0x124DD5C VA: 0x124DD5C
+	public string get_HashName() { }
+
+	// RVA: 0x124E050 Offset: 0x124E050 VA: 0x124E050
+	public void set_HashName(string value) { }
+
+	// RVA: 0x124E27C Offset: 0x124E27C VA: 0x124E27C
+	public byte[] get_Signature() { }
+
+	// RVA: 0x124E348 Offset: 0x124E348 VA: 0x124E348
+	public ArrayList get_UnauthenticatedAttributes() { }
+
+	// RVA: 0x124E350 Offset: 0x124E350 VA: 0x124E350
+	public byte get_Version() { }
+}
+
+// Namespace: Mono.Security
+internal sealed class StrongName // TypeDefIndex: 159
+{
+	// Fields
+	private RSA rsa; // 0x10
+	private byte[] publicKey; // 0x18
+	private byte[] keyToken; // 0x20
+	private string tokenAlgorithm; // 0x28
+	private static object lockObject; // 0x0
+	private static bool initialized; // 0x8
+
+	// Properties
+	public RSA RSA { set; }
+	public byte[] PublicKey { get; }
+	public byte[] PublicKeyToken { get; }
+	public string TokenAlgorithm { get; }
+
+	// Methods
+
+	// RVA: 0x124E358 Offset: 0x124E358 VA: 0x124E358
+	public void .ctor(byte[] data) { }
+
+	// RVA: 0x124E530 Offset: 0x124E530 VA: 0x124E530
+	public void .ctor(RSA rsa) { }
+
+	// RVA: 0x124E5D8 Offset: 0x124E5D8 VA: 0x124E5D8
+	private static void .cctor() { }
+
+	// RVA: 0x124E650 Offset: 0x124E650 VA: 0x124E650
+	private void InvalidateCache() { }
+
+	// RVA: 0x124E524 Offset: 0x124E524 VA: 0x124E524
+	public void set_RSA(RSA value) { }
+
+	// RVA: 0x124E658 Offset: 0x124E658 VA: 0x124E658
+	public byte[] get_PublicKey() { }
+
+	// RVA: 0x124EBA4 Offset: 0x124EBA4 VA: 0x124EBA4
+	public byte[] get_PublicKeyToken() { }
+
+	// RVA: 0x124ED64 Offset: 0x124ED64 VA: 0x124ED64
+	public string get_TokenAlgorithm() { }
+}
+
+// Namespace: Mono.Xml
+internal class SecurityParser : SmallXmlParser, SmallXmlParser.IContentHandler // TypeDefIndex: 160
+{
+	// Fields
+	private SecurityElement root; // 0x68
+	private SecurityElement current; // 0x70
+	private Stack stack; // 0x78
+
+	// Methods
+
+	// RVA: 0x10C6DAC Offset: 0x10C6DAC VA: 0x10C6DAC
+	public void .ctor() { }
+
+	// RVA: 0x10C6EFC Offset: 0x10C6EFC VA: 0x10C6EFC
+	public void LoadXml(string xml) { }
+
+	// RVA: 0x10C71C4 Offset: 0x10C71C4 VA: 0x10C71C4
+	public SecurityElement ToXml() { }
+
+	// RVA: 0x10C71CC Offset: 0x10C71CC VA: 0x10C71CC Slot: 4
+	public void OnStartParsing(SmallXmlParser parser) { }
+
+	// RVA: 0x10C71D0 Offset: 0x10C71D0 VA: 0x10C71D0 Slot: 8
+	public void OnProcessingInstruction(string name, string text) { }
+
+	// RVA: 0x10C71D4 Offset: 0x10C71D4 VA: 0x10C71D4 Slot: 10
+	public void OnIgnorableWhitespace(string s) { }
+
+	// RVA: 0x10C71D8 Offset: 0x10C71D8 VA: 0x10C71D8 Slot: 6
+	public void OnStartElement(string name, SmallXmlParser.IAttrList attrs) { }
+
+	// RVA: 0x10C7508 Offset: 0x10C7508 VA: 0x10C7508 Slot: 7
+	public void OnEndElement(string name) { }
+
+	// RVA: 0x10C75DC Offset: 0x10C75DC VA: 0x10C75DC Slot: 9
+	public void OnChars(string ch) { }
+
+	// RVA: 0x10C7674 Offset: 0x10C7674 VA: 0x10C7674 Slot: 5
+	public void OnEndParsing(SmallXmlParser parser) { }
+}
+
+// Namespace: Mono.Xml
+internal class SmallXmlParser // TypeDefIndex: 161
+{
+	// Fields
+	private SmallXmlParser.IContentHandler handler; // 0x10
+	private TextReader reader; // 0x18
+	private Stack elementNames; // 0x20
+	private Stack xmlSpaces; // 0x28
+	private string xmlSpace; // 0x30
+	private StringBuilder buffer; // 0x38
+	private char[] nameBuffer; // 0x40
+	private bool isWhitespace; // 0x48
+	private SmallXmlParser.AttrListImpl attributes; // 0x50
+	private int line; // 0x58
+	private int column; // 0x5C
+	private bool resetColumn; // 0x60
+	[CompilerGeneratedAttribute] // RVA: 0xC3761C Offset: 0xC3761C VA: 0xC3761C
+	private static Dictionary<string, int> <>f__switch$map18; // 0x0
+
+	// Methods
+
+	// RVA: 0x10C6E14 Offset: 0x10C6E14 VA: 0x10C6E14
+	public void .ctor() { }
+
+	// RVA: 0x10C76F8 Offset: 0x10C76F8 VA: 0x10C76F8
+	private Exception Error(string msg) { }
+
+	// RVA: 0x10C7860 Offset: 0x10C7860 VA: 0x10C7860
+	private Exception UnexpectedEndError() { }
+
+	// RVA: 0x10C796C Offset: 0x10C796C VA: 0x10C796C
+	private bool IsNameChar(char c, bool start) { }
+
+	// RVA: 0x10C7AE8 Offset: 0x10C7AE8 VA: 0x10C7AE8
+	private bool IsWhitespace(int c) { }
+
+	// RVA: 0x10C7B18 Offset: 0x10C7B18 VA: 0x10C7B18
+	public void SkipWhitespaces() { }
+
+	// RVA: 0x10C7BF8 Offset: 0x10C7BF8 VA: 0x10C7BF8
+	private void HandleWhitespaces() { }
+
+	// RVA: 0x10C7B20 Offset: 0x10C7B20 VA: 0x10C7B20
+	public void SkipWhitespaces(bool expected) { }
+
+	// RVA: 0x10C7D64 Offset: 0x10C7D64 VA: 0x10C7D64
+	private int Peek() { }
+
+	// RVA: 0x10C7CE8 Offset: 0x10C7CE8 VA: 0x10C7CE8
+	private int Read() { }
+
+	// RVA: 0x10C7D98 Offset: 0x10C7D98 VA: 0x10C7D98
+	public void Expect(int c) { }
+
+	// RVA: 0x10C7EA8 Offset: 0x10C7EA8 VA: 0x10C7EA8
+	private string ReadUntil(char until, bool handleReferences) { }
+
+	// RVA: 0x10C82EC Offset: 0x10C82EC VA: 0x10C82EC
+	public string ReadName() { }
+
+	// RVA: 0x10C6F98 Offset: 0x10C6F98 VA: 0x10C6F98
+	public void Parse(TextReader input, SmallXmlParser.IContentHandler handler) { }
+
+	// RVA: 0x10C907C Offset: 0x10C907C VA: 0x10C907C
+	private void Cleanup() { }
+
+	// RVA: 0x10C85B0 Offset: 0x10C85B0 VA: 0x10C85B0
+	public void ReadContent() { }
+
+	// RVA: 0x10C8F08 Offset: 0x10C8F08 VA: 0x10C8F08
+	private void HandleBufferedContent() { }
+
+	// RVA: 0x10C9524 Offset: 0x10C9524 VA: 0x10C9524
+	private void ReadCharacters() { }
+
+	// RVA: 0x10C7FDC Offset: 0x10C7FDC VA: 0x10C7FDC
+	private void ReadReference() { }
+
+	// RVA: 0x10C95C8 Offset: 0x10C95C8 VA: 0x10C95C8
+	private int ReadCharacterReference() { }
+
+	// RVA: 0x10C9380 Offset: 0x10C9380 VA: 0x10C9380
+	private void ReadAttribute(SmallXmlParser.AttrListImpl a) { }
+
+	// RVA: 0x10C9184 Offset: 0x10C9184 VA: 0x10C9184
+	private void ReadCDATASection() { }
+
+	// RVA: 0x10C92CC Offset: 0x10C92CC VA: 0x10C92CC
+	private void ReadComment() { }
+}
+
+// Namespace: 
+public interface SmallXmlParser.IContentHandler // TypeDefIndex: 162
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void OnStartParsing(SmallXmlParser parser);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void OnEndParsing(SmallXmlParser parser);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void OnStartElement(string name, SmallXmlParser.IAttrList attrs);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract void OnEndElement(string name);
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void OnProcessingInstruction(string name, string text);
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract void OnChars(string text);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract void OnIgnorableWhitespace(string text);
+}
+
+// Namespace: 
+public interface SmallXmlParser.IAttrList // TypeDefIndex: 163
+{
+	// Properties
+	public abstract int Length { get; }
+	public abstract string[] Names { get; }
+	public abstract string[] Values { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract int get_Length();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract string GetName(int i);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract string GetValue(int i);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract string GetValue(string name);
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract string[] get_Names();
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract string[] get_Values();
+}
+
+// Namespace: 
+private class SmallXmlParser.AttrListImpl : SmallXmlParser.IAttrList // TypeDefIndex: 164
+{
+	// Fields
+	private ArrayList attrNames; // 0x10
+	private ArrayList attrValues; // 0x18
+
+	// Properties
+	public int Length { get; }
+	public string[] Names { get; }
+	public string[] Values { get; }
+
+	// Methods
+
+	// RVA: 0x10C7678 Offset: 0x10C7678 VA: 0x10C7678
+	public void .ctor() { }
+
+	// RVA: 0x10C97D8 Offset: 0x10C97D8 VA: 0x10C97D8 Slot: 4
+	public int get_Length() { }
+
+	// RVA: 0x10C9810 Offset: 0x10C9810 VA: 0x10C9810 Slot: 5
+	public string GetName(int i) { }
+
+	// RVA: 0x10C98E8 Offset: 0x10C98E8 VA: 0x10C98E8 Slot: 6
+	public string GetValue(int i) { }
+
+	// RVA: 0x10C99C0 Offset: 0x10C99C0 VA: 0x10C99C0 Slot: 7
+	public string GetValue(string name) { }
+
+	// RVA: 0x10C9B9C Offset: 0x10C9B9C VA: 0x10C9B9C Slot: 8
+	public string[] get_Names() { }
+
+	// RVA: 0x10C9CBC Offset: 0x10C9CBC VA: 0x10C9CBC Slot: 9
+	public string[] get_Values() { }
+
+	// RVA: 0x10C9124 Offset: 0x10C9124 VA: 0x10C9124
+	internal void Clear() { }
+
+	// RVA: 0x10C96E4 Offset: 0x10C96E4 VA: 0x10C96E4
+	internal void Add(string name, string value) { }
+}
+
+// Namespace: Mono.Xml
+internal class SmallXmlParserException : SystemException // TypeDefIndex: 165
+{
+	// Fields
+	private int line; // 0x60
+	private int column; // 0x64
+
+	// Methods
+
+	// RVA: 0x10C7774 Offset: 0x10C7774 VA: 0x10C7774
+	public void .ctor(string msg, int line, int column) { }
+}
+
+// Namespace: Mono
+internal class Runtime // TypeDefIndex: 166
+{
+	// Methods
+
+	// RVA: 0x128C93C Offset: 0x128C93C VA: 0x128C93C
+	internal static string GetDisplayName() { }
+}
+
+// Namespace: System.Collections.Generic
+internal sealed class CollectionDebuggerView<T> // TypeDefIndex: 167
+{}
+
+// Namespace: System.Collections.Generic
+internal sealed class CollectionDebuggerView<T, U> // TypeDefIndex: 168
+{}
+
+// Namespace: System.Collections.Generic
+[Serializable]
+public abstract class Comparer<T> : IComparer<T>, IComparer // TypeDefIndex: 169
+{
+	// Fields
+	private static readonly Comparer<T> _default; // 0x0
+
+	// Properties
+	public static Comparer<T> Default { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1
+	protected void .ctor() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2538C60 Offset: 0x2538C60 VA: 0x2538C60
+	|-Comparer<AStarSearch.Node>..ctor
+	|
+	|-RVA: 0x2539264 Offset: 0x2539264 VA: 0x2539264
+	|-Comparer<BattleCommandSealStatus.Status>..ctor
+	|
+	|-RVA: 0x2539868 Offset: 0x2539868 VA: 0x2539868
+	|-Comparer<BattleLogic.LOGICTYPE>..ctor
+	|
+	|-RVA: 0x2539E6C Offset: 0x2539E6C VA: 0x2539E6C
+	|-Comparer<BattleLogic.SummonInfo>..ctor
+	|
+	|-RVA: 0x253A470 Offset: 0x253A470 VA: 0x253A470
+	|-Comparer<BattleResultEventItemComponent.EventDropItemInfo>..ctor
+	|
+	|-RVA: 0x253AAA0 Offset: 0x253AAA0 VA: 0x253AAA0
+	|-Comparer<BattleRetryConfirmComponent.RetryConfirmItemStr>..ctor
+	|
+	|-RVA: 0x253B0D0 Offset: 0x253B0D0 VA: 0x253B0D0
+	|-Comparer<BezierControlPointMode>..ctor
+	|
+	|-RVA: 0x253B6D4 Offset: 0x253B6D4 VA: 0x253B6D4
+	|-Comparer<BuffList.ACTION>..ctor
+	|
+	|-RVA: 0x253BCD8 Offset: 0x253BCD8 VA: 0x253BCD8
+	|-Comparer<BuffList.TYPE>..ctor
+	|
+	|-RVA: 0x253C2DC Offset: 0x253C2DC VA: 0x253C2DC
+	|-Comparer<CenterEffectDetailDialog.CenterEffectDetailSkillInfo>..ctor
+	|
+	|-RVA: 0x253C8E0 Offset: 0x253C8E0 VA: 0x253C8E0
+	|-Comparer<CondType.Kind>..ctor
+	|
+	|-RVA: 0x253CEE4 Offset: 0x253CEE4 VA: 0x253CEE4
+	|-Comparer<CriAtomExPlayback>..ctor
+	|
+	|-RVA: 0x253D4E8 Offset: 0x253D4E8 VA: 0x253D4E8
+	|-Comparer<CriDisposableObjectManager.ObjectRef>..ctor
+	|
+	|-RVA: 0x253DB18 Offset: 0x253DB18 VA: 0x253DB18
+	|-Comparer<EventRaceMaster.GroupRankData>..ctor
+	|
+	|-RVA: 0x253E158 Offset: 0x253E158 VA: 0x253E158
+	|-Comparer<EventRewardRootComponent.StateType>..ctor
+	|
+	|-RVA: 0x253E75C Offset: 0x253E75C VA: 0x253E75C
+	|-Comparer<FuncList.TYPE>..ctor
+	|
+	|-RVA: 0x253ED60 Offset: 0x253ED60 VA: 0x253ED60
+	|-Comparer<FunctionCategoryEntity.GroupType>..ctor
+	|
+	|-RVA: 0x253F364 Offset: 0x253F364 VA: 0x253F364
+	|-Comparer<ParamDataType>..ctor
+	|
+	|-RVA: 0x253F968 Offset: 0x253F968 VA: 0x253F968
+	|-Comparer<ListViewSort.FilterKind>..ctor
+	|
+	|-RVA: 0x253FF6C Offset: 0x253FF6C VA: 0x253FF6C
+	|-Comparer<ListViewSort.PresentBoxCategoryFilterKind>..ctor
+	|
+	|-RVA: 0x2540570 Offset: 0x2540570 VA: 0x2540570
+	|-Comparer<ListViewSort.PresentBoxRarityFilterKind>..ctor
+	|
+	|-RVA: 0x2540B74 Offset: 0x2540B74 VA: 0x2540B74
+	|-Comparer<ListViewSort.SortKind>..ctor
+	|
+	|-RVA: 0x2541178 Offset: 0x2541178 VA: 0x2541178
+	|-Comparer<NGuiPlayMakerDelegates>..ctor
+	|
+	|-RVA: 0x254177C Offset: 0x254177C VA: 0x254177C
+	|-Comparer<PointCloudRegognizer.Point>..ctor
+	|
+	|-RVA: 0x2541D8C Offset: 0x2541D8C VA: 0x2541D8C
+	|-Comparer<Rarity.TYPE>..ctor
+	|
+	|-RVA: 0x2542390 Offset: 0x2542390 VA: 0x2542390
+	|-Comparer<ServantStatusListViewItemDraw.Kind>..ctor
+	|
+	|-RVA: 0x2542994 Offset: 0x2542994 VA: 0x2542994
+	|-Comparer<SoundPlayerListViewItem.BgmReleaseData>..ctor
+	|
+	|-RVA: 0x2542F9C Offset: 0x2542F9C VA: 0x2542F9C
+	|-Comparer<SvtClassAttri.TYPE>..ctor
+	|
+	|-RVA: 0x25435A0 Offset: 0x25435A0 VA: 0x25435A0
+	|-Comparer<bool>..ctor
+	|
+	|-RVA: 0x2543BAC Offset: 0x2543BAC VA: 0x2543BAC
+	|-Comparer<byte>..ctor
+	|
+	|-RVA: 0x25441B0 Offset: 0x25441B0 VA: 0x25441B0
+	|-Comparer<KeyValuePair<int, int>>..ctor
+	|
+	|-RVA: 0x25447B4 Offset: 0x25447B4 VA: 0x25447B4
+	|-Comparer<KeyValuePair<int, object>>..ctor
+	|
+	|-RVA: 0x2544DBC Offset: 0x2544DBC VA: 0x2544DBC
+	|-Comparer<KeyValuePair<object, object>>..ctor
+	|
+	|-RVA: 0x25453C4 Offset: 0x25453C4 VA: 0x25453C4
+	|-Comparer<KeyValuePair<object, float>>..ctor
+	|
+	|-RVA: 0x25459CC Offset: 0x25459CC VA: 0x25459CC
+	|-Comparer<DateTime>..ctor
+	|
+	|-RVA: 0x2545FD4 Offset: 0x2545FD4 VA: 0x2545FD4
+	|-Comparer<DateTimeOffset>..ctor
+	|
+	|-RVA: 0x2546614 Offset: 0x2546614 VA: 0x2546614
+	|-Comparer<Decimal>..ctor
+	|
+	|-RVA: 0x2546C1C Offset: 0x2546C1C VA: 0x2546C1C
+	|-Comparer<double>..ctor
+	|
+	|-RVA: 0x254722C Offset: 0x254722C VA: 0x254722C
+	|-Comparer<Guid>..ctor
+	|
+	|-RVA: 0x2547834 Offset: 0x2547834 VA: 0x2547834
+	|-Comparer<int>..ctor
+	|
+	|-RVA: 0x2547E38 Offset: 0x2547E38 VA: 0x2547E38
+	|-Comparer<long>..ctor
+	|
+	|-RVA: 0x254843C Offset: 0x254843C VA: 0x254843C
+	|-Comparer<IntPtr>..ctor
+	|
+	|-RVA: 0x2548A40 Offset: 0x2548A40 VA: 0x2548A40
+	|-Comparer<object>..ctor
+	|
+	|-RVA: 0x25490E8 Offset: 0x25490E8 VA: 0x25490E8
+	|-Comparer<CustomAttributeNamedArgument>..ctor
+	|
+	|-RVA: 0x2549728 Offset: 0x2549728 VA: 0x2549728
+	|-Comparer<CustomAttributeTypedArgument>..ctor
+	|
+	|-RVA: 0x2549D30 Offset: 0x2549D30 VA: 0x2549D30
+	|-Comparer<float>..ctor
+	|
+	|-RVA: 0x254A340 Offset: 0x254A340 VA: 0x254A340
+	|-Comparer<TimeSpan>..ctor
+	|
+	|-RVA: 0x254A944 Offset: 0x254A944 VA: 0x254A944
+	|-Comparer<uint>..ctor
+	|
+	|-RVA: 0x254AF48 Offset: 0x254AF48 VA: 0x254AF48
+	|-Comparer<Target.PlayerTypeFlag>..ctor
+	|
+	|-RVA: 0x254B54C Offset: 0x254B54C VA: 0x254B54C
+	|-Comparer<TaskScheduler.PerformanceQueue>..ctor
+	|
+	|-RVA: 0x254BB54 Offset: 0x254BB54 VA: 0x254BB54
+	|-Comparer<TitleInfoEventItemComponent.DispType>..ctor
+	|
+	|-RVA: 0x254C158 Offset: 0x254C158 VA: 0x254C158
+	|-Comparer<ConstraintSource>..ctor
+	|
+	|-RVA: 0x254C760 Offset: 0x254C760 VA: 0x254C760
+	|-Comparer<AnimatorClipInfo>..ctor
+	|
+	|-RVA: 0x254CD64 Offset: 0x254CD64 VA: 0x254CD64
+	|-Comparer<BeforeRenderHelper.OrderBlock>..ctor
+	|
+	|-RVA: 0x254D36C Offset: 0x254D36C VA: 0x254D36C
+	|-Comparer<Color32>..ctor
+	|
+	|-RVA: 0x254D970 Offset: 0x254D970 VA: 0x254D970
+	|-Comparer<Color>..ctor
+	|
+	|-RVA: 0x254DFA0 Offset: 0x254DFA0 VA: 0x254DFA0
+	|-Comparer<RaycastResult>..ctor
+	|
+	|-RVA: 0x254E5E0 Offset: 0x254E5E0 VA: 0x254E5E0
+	|-Comparer<Rect>..ctor
+	|
+	|-RVA: 0x254EC10 Offset: 0x254EC10 VA: 0x254EC10
+	|-Comparer<RuntimePlatform>..ctor
+	|
+	|-RVA: 0x254F214 Offset: 0x254F214 VA: 0x254F214
+	|-Comparer<Touch>..ctor
+	|
+	|-RVA: 0x254F854 Offset: 0x254F854 VA: 0x254F854
+	|-Comparer<UICharInfo>..ctor
+	|
+	|-RVA: 0x254FE80 Offset: 0x254FE80 VA: 0x254FE80
+	|-Comparer<UILineInfo>..ctor
+	|
+	|-RVA: 0x2550488 Offset: 0x2550488 VA: 0x2550488
+	|-Comparer<UIVertex>..ctor
+	|
+	|-RVA: 0x2550AC8 Offset: 0x2550AC8 VA: 0x2550AC8
+	|-Comparer<UnitySynchronizationContext.WorkRequest>..ctor
+	|
+	|-RVA: 0x2551108 Offset: 0x2551108 VA: 0x2551108
+	|-Comparer<Vector2>..ctor
+	|
+	|-RVA: 0x255171C Offset: 0x255171C VA: 0x255171C
+	|-Comparer<Vector3>..ctor
+	|
+	|-RVA: 0x2551D48 Offset: 0x2551D48 VA: 0x2551D48
+	|-Comparer<Vector4>..ctor
+	|
+	|-RVA: 0x2552378 Offset: 0x2552378 VA: 0x2552378
+	|-Comparer<Voice.BATTLE>..ctor
+	|
+	|-RVA: 0x255297C Offset: 0x255297C VA: 0x255297C
+	|-Comparer<VoiceCondType.Type>..ctor
+	|
+	|-RVA: 0x2552F80 Offset: 0x2552F80 VA: 0x2552F80
+	|-Comparer<WarBoardManager.WarBoardPerformanceQueue>..ctor
+	|
+	|-RVA: 0x2553588 Offset: 0x2553588 VA: 0x2553588
+	|-Comparer<USFGOPlayStandardCutInRandom.CutInData>..ctor
+	*/
+
+	// RVA: -1 Offset: -1
+	private static void .cctor() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2538C8C Offset: 0x2538C8C VA: 0x2538C8C
+	|-Comparer<AStarSearch.Node>..cctor
+	|
+	|-RVA: 0x2539290 Offset: 0x2539290 VA: 0x2539290
+	|-Comparer<BattleCommandSealStatus.Status>..cctor
+	|
+	|-RVA: 0x2539894 Offset: 0x2539894 VA: 0x2539894
+	|-Comparer<BattleLogic.LOGICTYPE>..cctor
+	|
+	|-RVA: 0x2539E98 Offset: 0x2539E98 VA: 0x2539E98
+	|-Comparer<BattleLogic.SummonInfo>..cctor
+	|
+	|-RVA: 0x253A49C Offset: 0x253A49C VA: 0x253A49C
+	|-Comparer<BattleResultEventItemComponent.EventDropItemInfo>..cctor
+	|
+	|-RVA: 0x253AACC Offset: 0x253AACC VA: 0x253AACC
+	|-Comparer<BattleRetryConfirmComponent.RetryConfirmItemStr>..cctor
+	|
+	|-RVA: 0x253B0FC Offset: 0x253B0FC VA: 0x253B0FC
+	|-Comparer<BezierControlPointMode>..cctor
+	|
+	|-RVA: 0x253B700 Offset: 0x253B700 VA: 0x253B700
+	|-Comparer<BuffList.ACTION>..cctor
+	|
+	|-RVA: 0x253BD04 Offset: 0x253BD04 VA: 0x253BD04
+	|-Comparer<BuffList.TYPE>..cctor
+	|
+	|-RVA: 0x253C308 Offset: 0x253C308 VA: 0x253C308
+	|-Comparer<CenterEffectDetailDialog.CenterEffectDetailSkillInfo>..cctor
+	|
+	|-RVA: 0x253C90C Offset: 0x253C90C VA: 0x253C90C
+	|-Comparer<CondType.Kind>..cctor
+	|
+	|-RVA: 0x253CF10 Offset: 0x253CF10 VA: 0x253CF10
+	|-Comparer<CriAtomExPlayback>..cctor
+	|
+	|-RVA: 0x253D514 Offset: 0x253D514 VA: 0x253D514
+	|-Comparer<CriDisposableObjectManager.ObjectRef>..cctor
+	|
+	|-RVA: 0x253DB44 Offset: 0x253DB44 VA: 0x253DB44
+	|-Comparer<EventRaceMaster.GroupRankData>..cctor
+	|
+	|-RVA: 0x253E184 Offset: 0x253E184 VA: 0x253E184
+	|-Comparer<EventRewardRootComponent.StateType>..cctor
+	|
+	|-RVA: 0x253E788 Offset: 0x253E788 VA: 0x253E788
+	|-Comparer<FuncList.TYPE>..cctor
+	|
+	|-RVA: 0x253ED8C Offset: 0x253ED8C VA: 0x253ED8C
+	|-Comparer<FunctionCategoryEntity.GroupType>..cctor
+	|
+	|-RVA: 0x253F390 Offset: 0x253F390 VA: 0x253F390
+	|-Comparer<ParamDataType>..cctor
+	|
+	|-RVA: 0x253F994 Offset: 0x253F994 VA: 0x253F994
+	|-Comparer<ListViewSort.FilterKind>..cctor
+	|
+	|-RVA: 0x253FF98 Offset: 0x253FF98 VA: 0x253FF98
+	|-Comparer<ListViewSort.PresentBoxCategoryFilterKind>..cctor
+	|
+	|-RVA: 0x254059C Offset: 0x254059C VA: 0x254059C
+	|-Comparer<ListViewSort.PresentBoxRarityFilterKind>..cctor
+	|
+	|-RVA: 0x2540BA0 Offset: 0x2540BA0 VA: 0x2540BA0
+	|-Comparer<ListViewSort.SortKind>..cctor
+	|
+	|-RVA: 0x25411A4 Offset: 0x25411A4 VA: 0x25411A4
+	|-Comparer<NGuiPlayMakerDelegates>..cctor
+	|
+	|-RVA: 0x25417A8 Offset: 0x25417A8 VA: 0x25417A8
+	|-Comparer<PointCloudRegognizer.Point>..cctor
+	|
+	|-RVA: 0x2541DB8 Offset: 0x2541DB8 VA: 0x2541DB8
+	|-Comparer<Rarity.TYPE>..cctor
+	|
+	|-RVA: 0x25423BC Offset: 0x25423BC VA: 0x25423BC
+	|-Comparer<ServantStatusListViewItemDraw.Kind>..cctor
+	|
+	|-RVA: 0x25429C0 Offset: 0x25429C0 VA: 0x25429C0
+	|-Comparer<SoundPlayerListViewItem.BgmReleaseData>..cctor
+	|
+	|-RVA: 0x2542FC8 Offset: 0x2542FC8 VA: 0x2542FC8
+	|-Comparer<SvtClassAttri.TYPE>..cctor
+	|
+	|-RVA: 0x25435CC Offset: 0x25435CC VA: 0x25435CC
+	|-Comparer<bool>..cctor
+	|
+	|-RVA: 0x2543BD8 Offset: 0x2543BD8 VA: 0x2543BD8
+	|-Comparer<byte>..cctor
+	|
+	|-RVA: 0x25441DC Offset: 0x25441DC VA: 0x25441DC
+	|-Comparer<KeyValuePair<int, int>>..cctor
+	|
+	|-RVA: 0x25447E0 Offset: 0x25447E0 VA: 0x25447E0
+	|-Comparer<KeyValuePair<int, object>>..cctor
+	|
+	|-RVA: 0x2544DE8 Offset: 0x2544DE8 VA: 0x2544DE8
+	|-Comparer<KeyValuePair<object, object>>..cctor
+	|
+	|-RVA: 0x25453F0 Offset: 0x25453F0 VA: 0x25453F0
+	|-Comparer<KeyValuePair<object, float>>..cctor

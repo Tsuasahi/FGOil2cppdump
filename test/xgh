@@ -1,0 +1,1000 @@
+
+// Namespace: Mono.Security.Protocol.Tls
+internal abstract class Context // TypeDefIndex: 1895
+{
+	// Fields
+	internal const short MAX_FRAGMENT_SIZE = 16384;
+	internal const short TLS1_PROTOCOL_CODE = 769;
+	internal const short SSL3_PROTOCOL_CODE = 768;
+	internal const long UNIX_BASE_TICKS = 621355968000000000;
+	private SecurityProtocolType securityProtocol; // 0x10
+	private byte[] sessionId; // 0x18
+	private SecurityCompressionType compressionMethod; // 0x20
+	private TlsServerSettings serverSettings; // 0x28
+	private TlsClientSettings clientSettings; // 0x30
+	private SecurityParameters current; // 0x38
+	private SecurityParameters negotiating; // 0x40
+	private SecurityParameters read; // 0x48
+	private SecurityParameters write; // 0x50
+	private CipherSuiteCollection supportedCiphers; // 0x58
+	private HandshakeType lastHandshakeMsg; // 0x60
+	private HandshakeState handshakeState; // 0x64
+	private bool abbreviatedHandshake; // 0x68
+	private bool receivedConnectionEnd; // 0x69
+	private bool sentConnectionEnd; // 0x6A
+	private bool protocolNegotiated; // 0x6B
+	private ulong writeSequenceNumber; // 0x70
+	private ulong readSequenceNumber; // 0x78
+	private byte[] clientRandom; // 0x80
+	private byte[] serverRandom; // 0x88
+	private byte[] randomCS; // 0x90
+	private byte[] randomSC; // 0x98
+	private byte[] masterSecret; // 0xA0
+	private byte[] clientWriteKey; // 0xA8
+	private byte[] serverWriteKey; // 0xB0
+	private byte[] clientWriteIV; // 0xB8
+	private byte[] serverWriteIV; // 0xC0
+	private TlsStream handshakeMessages; // 0xC8
+	private RandomNumberGenerator random; // 0xD0
+	private RecordProtocol recordProtocol; // 0xD8
+
+	// Properties
+	public bool AbbreviatedHandshake { get; set; }
+	public bool ProtocolNegotiated { get; set; }
+	public SecurityProtocolType SecurityProtocol { get; set; }
+	public SecurityProtocolType SecurityProtocolFlags { get; }
+	public short Protocol { get; }
+	public byte[] SessionId { get; set; }
+	public SecurityCompressionType CompressionMethod { get; set; }
+	public TlsServerSettings ServerSettings { get; }
+	public TlsClientSettings ClientSettings { get; }
+	public HandshakeType LastHandshakeMsg { get; set; }
+	public HandshakeState HandshakeState { get; set; }
+	public bool ReceivedConnectionEnd { get; set; }
+	public bool SentConnectionEnd { get; set; }
+	public CipherSuiteCollection SupportedCiphers { get; set; }
+	public TlsStream HandshakeMessages { get; }
+	public ulong WriteSequenceNumber { get; set; }
+	public ulong ReadSequenceNumber { get; set; }
+	public byte[] ClientRandom { get; set; }
+	public byte[] ServerRandom { get; set; }
+	public byte[] RandomCS { get; set; }
+	public byte[] RandomSC { get; set; }
+	public byte[] MasterSecret { get; set; }
+	public byte[] ClientWriteKey { get; set; }
+	public byte[] ServerWriteKey { get; set; }
+	public byte[] ClientWriteIV { get; set; }
+	public byte[] ServerWriteIV { get; set; }
+	public RecordProtocol RecordProtocol { get; set; }
+	public SecurityParameters Current { get; }
+	public SecurityParameters Negotiating { get; }
+	public SecurityParameters Read { get; }
+	public SecurityParameters Write { get; }
+
+	// Methods
+
+	// RVA: 0x127539C Offset: 0x127539C VA: 0x127539C
+	public void .ctor(SecurityProtocolType securityProtocolType) { }
+
+	// RVA: 0x12771F8 Offset: 0x12771F8 VA: 0x12771F8
+	public bool get_AbbreviatedHandshake() { }
+
+	// RVA: 0x1277200 Offset: 0x1277200 VA: 0x1277200
+	public void set_AbbreviatedHandshake(bool value) { }
+
+	// RVA: 0x127720C Offset: 0x127720C VA: 0x127720C
+	public bool get_ProtocolNegotiated() { }
+
+	// RVA: 0x1277214 Offset: 0x1277214 VA: 0x1277214
+	public void set_ProtocolNegotiated(bool value) { }
+
+	// RVA: 0x1277220 Offset: 0x1277220 VA: 0x1277220
+	public SecurityProtocolType get_SecurityProtocol() { }
+
+	// RVA: 0x12771F0 Offset: 0x12771F0 VA: 0x12771F0
+	public void set_SecurityProtocol(SecurityProtocolType value) { }
+
+	// RVA: 0x12772D4 Offset: 0x12772D4 VA: 0x12772D4
+	public SecurityProtocolType get_SecurityProtocolFlags() { }
+
+	// RVA: 0x12772DC Offset: 0x12772DC VA: 0x12772DC
+	public short get_Protocol() { }
+
+	// RVA: 0x1276B2C Offset: 0x1276B2C VA: 0x1276B2C
+	public byte[] get_SessionId() { }
+
+	// RVA: 0x1277390 Offset: 0x1277390 VA: 0x1277390
+	public void set_SessionId(byte[] value) { }
+
+	// RVA: 0x1277398 Offset: 0x1277398 VA: 0x1277398
+	public SecurityCompressionType get_CompressionMethod() { }
+
+	// RVA: 0x12773A0 Offset: 0x12773A0 VA: 0x12773A0
+	public void set_CompressionMethod(SecurityCompressionType value) { }
+
+	// RVA: 0x12773A8 Offset: 0x12773A8 VA: 0x12773A8
+	public TlsServerSettings get_ServerSettings() { }
+
+	// RVA: 0x1275470 Offset: 0x1275470 VA: 0x1275470
+	public TlsClientSettings get_ClientSettings() { }
+
+	// RVA: 0x12773B0 Offset: 0x12773B0 VA: 0x12773B0
+	public HandshakeType get_LastHandshakeMsg() { }
+
+	// RVA: 0x1275D98 Offset: 0x1275D98 VA: 0x1275D98
+	public void set_LastHandshakeMsg(HandshakeType value) { }
+
+	// RVA: 0x1275DC0 Offset: 0x1275DC0 VA: 0x1275DC0
+	public HandshakeState get_HandshakeState() { }
+
+	// RVA: 0x1275DC8 Offset: 0x1275DC8 VA: 0x1275DC8
+	public void set_HandshakeState(HandshakeState value) { }
+
+	// RVA: 0x12773B8 Offset: 0x12773B8 VA: 0x12773B8
+	public bool get_ReceivedConnectionEnd() { }
+
+	// RVA: 0x12773C0 Offset: 0x12773C0 VA: 0x12773C0
+	public void set_ReceivedConnectionEnd(bool value) { }
+
+	// RVA: 0x12773CC Offset: 0x12773CC VA: 0x12773CC
+	public bool get_SentConnectionEnd() { }
+
+	// RVA: 0x12773D4 Offset: 0x12773D4 VA: 0x12773D4
+	public void set_SentConnectionEnd(bool value) { }
+
+	// RVA: 0x12773E0 Offset: 0x12773E0 VA: 0x12773E0
+	public CipherSuiteCollection get_SupportedCiphers() { }
+
+	// RVA: 0x12773E8 Offset: 0x12773E8 VA: 0x12773E8
+	public void set_SupportedCiphers(CipherSuiteCollection value) { }
+
+	// RVA: 0x1275DA0 Offset: 0x1275DA0 VA: 0x1275DA0
+	public TlsStream get_HandshakeMessages() { }
+
+	// RVA: 0x12773F0 Offset: 0x12773F0 VA: 0x12773F0
+	public ulong get_WriteSequenceNumber() { }
+
+	// RVA: 0x12773F8 Offset: 0x12773F8 VA: 0x12773F8
+	public void set_WriteSequenceNumber(ulong value) { }
+
+	// RVA: 0x1277400 Offset: 0x1277400 VA: 0x1277400
+	public ulong get_ReadSequenceNumber() { }
+
+	// RVA: 0x1277408 Offset: 0x1277408 VA: 0x1277408
+	public void set_ReadSequenceNumber(ulong value) { }
+
+	// RVA: 0x1277410 Offset: 0x1277410 VA: 0x1277410
+	public byte[] get_ClientRandom() { }
+
+	// RVA: 0x1277418 Offset: 0x1277418 VA: 0x1277418
+	public void set_ClientRandom(byte[] value) { }
+
+	// RVA: 0x1277420 Offset: 0x1277420 VA: 0x1277420
+	public byte[] get_ServerRandom() { }
+
+	// RVA: 0x1277428 Offset: 0x1277428 VA: 0x1277428
+	public void set_ServerRandom(byte[] value) { }
+
+	// RVA: 0x1277430 Offset: 0x1277430 VA: 0x1277430
+	public byte[] get_RandomCS() { }
+
+	// RVA: 0x1277438 Offset: 0x1277438 VA: 0x1277438
+	public void set_RandomCS(byte[] value) { }
+
+	// RVA: 0x1277440 Offset: 0x1277440 VA: 0x1277440
+	public byte[] get_RandomSC() { }
+
+	// RVA: 0x1277448 Offset: 0x1277448 VA: 0x1277448
+	public void set_RandomSC(byte[] value) { }
+
+	// RVA: 0x12771E0 Offset: 0x12771E0 VA: 0x12771E0
+	public byte[] get_MasterSecret() { }
+
+	// RVA: 0x12771E8 Offset: 0x12771E8 VA: 0x12771E8
+	public void set_MasterSecret(byte[] value) { }
+
+	// RVA: 0x1272E68 Offset: 0x1272E68 VA: 0x1272E68
+	public byte[] get_ClientWriteKey() { }
+
+	// RVA: 0x1277450 Offset: 0x1277450 VA: 0x1277450
+	public void set_ClientWriteKey(byte[] value) { }
+
+	// RVA: 0x1272E78 Offset: 0x1272E78 VA: 0x1272E78
+	public byte[] get_ServerWriteKey() { }
+
+	// RVA: 0x1277458 Offset: 0x1277458 VA: 0x1277458
+	public void set_ServerWriteKey(byte[] value) { }
+
+	// RVA: 0x1272E70 Offset: 0x1272E70 VA: 0x1272E70
+	public byte[] get_ClientWriteIV() { }
+
+	// RVA: 0x1277460 Offset: 0x1277460 VA: 0x1277460
+	public void set_ClientWriteIV(byte[] value) { }
+
+	// RVA: 0x1272E80 Offset: 0x1272E80 VA: 0x1272E80
+	public byte[] get_ServerWriteIV() { }
+
+	// RVA: 0x1277468 Offset: 0x1277468 VA: 0x1277468
+	public void set_ServerWriteIV(byte[] value) { }
+
+	// RVA: 0x1277470 Offset: 0x1277470 VA: 0x1277470
+	public RecordProtocol get_RecordProtocol() { }
+
+	// RVA: 0x1277478 Offset: 0x1277478 VA: 0x1277478
+	public void set_RecordProtocol(RecordProtocol value) { }
+
+	// RVA: 0x1277480 Offset: 0x1277480 VA: 0x1277480
+	public int GetUnixTime() { }
+
+	// RVA: 0x1272680 Offset: 0x1272680 VA: 0x1272680
+	public byte[] GetSecureRandomBytes(int count) { }
+
+	// RVA: 0x1275490 Offset: 0x1275490 VA: 0x1275490 Slot: 4
+	public virtual void Clear() { }
+
+	// RVA: 0x1277538 Offset: 0x1277538 VA: 0x1277538 Slot: 5
+	public virtual void ClearKeyInfo() { }
+
+	// RVA: 0x1277668 Offset: 0x1277668 VA: 0x1277668
+	public SecurityProtocolType DecodeProtocolCode(short code) { }
+
+	// RVA: 0x127770C Offset: 0x127770C VA: 0x127770C
+	public void ChangeProtocol(short protocol) { }
+
+	// RVA: 0x1277810 Offset: 0x1277810 VA: 0x1277810
+	public SecurityParameters get_Current() { }
+
+	// RVA: 0x1272E88 Offset: 0x1272E88 VA: 0x1272E88
+	public SecurityParameters get_Negotiating() { }
+
+	// RVA: 0x12778C4 Offset: 0x12778C4 VA: 0x12778C4
+	public SecurityParameters get_Read() { }
+
+	// RVA: 0x12778CC Offset: 0x12778CC VA: 0x12778CC
+	public SecurityParameters get_Write() { }
+
+	// RVA: 0x12778D4 Offset: 0x12778D4 VA: 0x12778D4
+	public void StartSwitchingSecurityParameters(bool client) { }
+
+	// RVA: 0x1277900 Offset: 0x1277900 VA: 0x1277900
+	public void EndSwitchingSecurityParameters(bool client) { }
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+internal class DebugHelper // TypeDefIndex: 1896
+{
+	// Fields
+	private static bool isInitialized; // 0x0
+
+	// Methods
+
+	// RVA: 0x127794C Offset: 0x127794C VA: 0x127794C
+	public void .ctor() { }
+
+	[ConditionalAttribute] // RVA: 0xC40194 Offset: 0xC40194 VA: 0xC40194
+	// RVA: 0x1277954 Offset: 0x1277954 VA: 0x1277954
+	public static void Initialize() { }
+
+	[ConditionalAttribute] // RVA: 0xC401CC Offset: 0xC401CC VA: 0xC401CC
+	// RVA: 0x12779B0 Offset: 0x12779B0 VA: 0x12779B0
+	public static void WriteLine(string format, object[] args) { }
+
+	[ConditionalAttribute] // RVA: 0xC40204 Offset: 0xC40204 VA: 0xC40204
+	// RVA: 0x12779B4 Offset: 0x12779B4 VA: 0x12779B4
+	public static void WriteLine(string message) { }
+
+	[ConditionalAttribute] // RVA: 0xC4023C Offset: 0xC4023C VA: 0xC4023C
+	// RVA: 0x12779B8 Offset: 0x12779B8 VA: 0x12779B8
+	public static void WriteLine(string message, byte[] buffer) { }
+
+	[ConditionalAttribute] // RVA: 0xC40274 Offset: 0xC40274 VA: 0xC40274
+	// RVA: 0x12779BC Offset: 0x12779BC VA: 0x12779BC
+	public static void WriteBuffer(byte[] buffer) { }
+
+	[ConditionalAttribute] // RVA: 0xC402AC Offset: 0xC402AC VA: 0xC402AC
+	// RVA: 0x12779C0 Offset: 0x12779C0 VA: 0x12779C0
+	public static void WriteBuffer(byte[] buffer, int index, int length) { }
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+[Serializable]
+public enum ExchangeAlgorithmType // TypeDefIndex: 1897
+{
+	// Fields
+	public int value__; // 0x0
+	public const ExchangeAlgorithmType DiffieHellman = 0;
+	public const ExchangeAlgorithmType Fortezza = 1;
+	public const ExchangeAlgorithmType None = 2;
+	public const ExchangeAlgorithmType RsaKeyX = 3;
+	public const ExchangeAlgorithmType RsaSign = 4;
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+[Serializable]
+internal enum HandshakeState // TypeDefIndex: 1898
+{
+	// Fields
+	public int value__; // 0x0
+	public const HandshakeState None = 0;
+	public const HandshakeState Started = 1;
+	public const HandshakeState Finished = 2;
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+[Serializable]
+public enum HashAlgorithmType // TypeDefIndex: 1899
+{
+	// Fields
+	public int value__; // 0x0
+	public const HashAlgorithmType Md5 = 0;
+	public const HashAlgorithmType None = 1;
+	public const HashAlgorithmType Sha1 = 2;
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+internal class HttpsClientStream : SslClientStream // TypeDefIndex: 1900
+{
+	// Fields
+	private HttpWebRequest _request; // 0x88
+	private int _status; // 0x90
+	[CompilerGeneratedAttribute] // RVA: 0xC40064 Offset: 0xC40064 VA: 0xC40064
+	private static CertificateSelectionCallback <>f__am$cache2; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC40074 Offset: 0xC40074 VA: 0xC40074
+	private static PrivateKeySelectionCallback <>f__am$cache3; // 0x8
+
+	// Properties
+	public bool TrustFailure { get; }
+
+	// Methods
+
+	// RVA: 0x10EAD50 Offset: 0x10EAD50 VA: 0x10EAD50
+	public void .ctor(Stream stream, X509CertificateCollection clientCertificates, HttpWebRequest request, byte[] buffer) { }
+
+	// RVA: 0x10EB2C4 Offset: 0x10EB2C4 VA: 0x10EB2C4
+	public bool get_TrustFailure() { }
+
+	// RVA: 0x10EB2F0 Offset: 0x10EB2F0 VA: 0x10EB2F0 Slot: 36
+	internal override bool RaiseServerCertificateValidation(X509Certificate certificate, int[] certificateErrors) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC402E4 Offset: 0xC402E4 VA: 0xC402E4
+	// RVA: 0x10EB614 Offset: 0x10EB614 VA: 0x10EB614
+	private static X509Certificate <HttpsClientStream>m__0(X509CertificateCollection clientCerts, X509Certificate serverCertificate, string targetHost, X509CertificateCollection serverRequestedCertificates) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC402F4 Offset: 0xC402F4 VA: 0xC402F4
+	// RVA: 0x10EB660 Offset: 0x10EB660 VA: 0x10EB660
+	private static AsymmetricAlgorithm <HttpsClientStream>m__1(X509Certificate certificate, string targetHost) { }
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+internal abstract class RecordProtocol // TypeDefIndex: 1901
+{
+	// Fields
+	private static ManualResetEvent record_processing; // 0x0
+	protected Stream innerStream; // 0x10
+	protected Context context; // 0x18
+
+	// Properties
+	public Context Context { get; set; }
+
+	// Methods
+
+	// RVA: 0x10EBE24 Offset: 0x10EBE24 VA: 0x10EBE24
+	public void .ctor(Stream innerStream, Context context) { }
+
+	// RVA: 0x10EBE74 Offset: 0x10EBE74 VA: 0x10EBE74
+	private static void .cctor() { }
+
+	// RVA: 0x10EBEE4 Offset: 0x10EBEE4 VA: 0x10EBEE4
+	public Context get_Context() { }
+
+	// RVA: 0x10EBEEC Offset: 0x10EBEEC VA: 0x10EBEEC
+	public void set_Context(Context value) { }
+
+	// RVA: 0x10EBEF4 Offset: 0x10EBEF4 VA: 0x10EBEF4 Slot: 4
+	public virtual void SendRecord(HandshakeType type) { }
+
+	// RVA: -1 Offset: -1 Slot: 5
+	protected abstract void ProcessHandshakeMessage(TlsStream handMsg);
+
+	// RVA: 0x10EC188 Offset: 0x10EC188 VA: 0x10EC188 Slot: 6
+	protected virtual void ProcessChangeCipherSpec() { }
+
+	// RVA: 0x10EC258 Offset: 0x10EC258 VA: 0x10EC258 Slot: 7
+	public virtual HandshakeMessage GetMessage(HandshakeType type) { }
+
+	// RVA: 0x10EC2C0 Offset: 0x10EC2C0 VA: 0x10EC2C0
+	public IAsyncResult BeginReceiveRecord(Stream record, AsyncCallback callback, object state) { }
+
+	// RVA: 0x10EC548 Offset: 0x10EC548 VA: 0x10EC548
+	private void InternalReceiveRecordCallback(IAsyncResult asyncResult) { }
+
+	// RVA: 0x10ED02C Offset: 0x10ED02C VA: 0x10ED02C
+	public byte[] EndReceiveRecord(IAsyncResult asyncResult) { }
+
+	// RVA: 0x10ED32C Offset: 0x10ED32C VA: 0x10ED32C
+	public byte[] ReceiveRecord(Stream record) { }
+
+	// RVA: 0x10ECAF0 Offset: 0x10ECAF0 VA: 0x10ECAF0
+	private byte[] ReadRecordBuffer(int contentType, Stream record) { }
+
+	// RVA: 0x10ED34C Offset: 0x10ED34C VA: 0x10ED34C
+	private byte[] ReadClientHelloV2(Stream record) { }
+
+	// RVA: 0x10ED7E8 Offset: 0x10ED7E8 VA: 0x10ED7E8
+	private byte[] ReadStandardRecordBuffer(Stream record) { }
+
+	// RVA: 0x10ECF14 Offset: 0x10ECF14 VA: 0x10ECF14
+	private void ProcessAlert(AlertLevel alertLevel, AlertDescription alertDesc) { }
+
+	// RVA: 0x10EDDF4 Offset: 0x10EDDF4 VA: 0x10EDDF4
+	public void SendAlert(AlertDescription description) { }
+
+	// RVA: 0x10EDFB4 Offset: 0x10EDFB4 VA: 0x10EDFB4
+	public void SendAlert(AlertLevel level, AlertDescription description) { }
+
+	// RVA: 0x10EDE68 Offset: 0x10EDE68 VA: 0x10EDE68
+	public void SendAlert(Alert alert) { }
+
+	// RVA: 0x10EE060 Offset: 0x10EE060 VA: 0x10EE060
+	public void SendChangeCipherSpec() { }
+
+	// RVA: 0x10EBF24 Offset: 0x10EBF24 VA: 0x10EBF24
+	public IAsyncResult BeginSendRecord(HandshakeType handshakeType, AsyncCallback callback, object state) { }
+
+	// RVA: 0x10EE340 Offset: 0x10EE340 VA: 0x10EE340
+	private void InternalSendRecordCallback(IAsyncResult ar) { }
+
+	// RVA: 0x10EE224 Offset: 0x10EE224 VA: 0x10EE224
+	public IAsyncResult BeginSendRecord(ContentType contentType, byte[] recordData, AsyncCallback callback, object state) { }
+
+	// RVA: 0x10EC054 Offset: 0x10EC054 VA: 0x10EC054
+	public void EndSendRecord(IAsyncResult asyncResult) { }
+
+	// RVA: 0x10EE030 Offset: 0x10EE030 VA: 0x10EE030
+	public void SendRecord(ContentType contentType, byte[] recordData) { }
+
+	// RVA: 0x10EE628 Offset: 0x10EE628 VA: 0x10EE628
+	public byte[] EncodeRecord(ContentType contentType, byte[] recordData) { }
+
+	// RVA: 0x10EE7F8 Offset: 0x10EE7F8 VA: 0x10EE7F8
+	public byte[] EncodeRecord(ContentType contentType, byte[] recordData, int offset, int count) { }
+
+	// RVA: 0x10EEA70 Offset: 0x10EEA70 VA: 0x10EEA70
+	private byte[] encryptRecordFragment(ContentType contentType, byte[] fragment) { }
+
+	// RVA: 0x10ECC40 Offset: 0x10ECC40 VA: 0x10ECC40
+	private byte[] decryptRecordFragment(ContentType contentType, byte[] fragment) { }
+
+	// RVA: 0x10EEC00 Offset: 0x10EEC00 VA: 0x10EEC00
+	private bool Compare(byte[] array1, byte[] array2) { }
+
+	// RVA: 0x10EDA98 Offset: 0x10EDA98 VA: 0x10EDA98
+	private void ProcessCipherSpecV2Buffer(SecurityProtocolType protocol, byte[] buffer) { }
+
+	// RVA: 0x10EECC4 Offset: 0x10EECC4 VA: 0x10EECC4
+	private CipherSuite MapV2CipherCode(string prefix, int code) { }
+}
+
+// Namespace: 
+private class RecordProtocol.ReceiveRecordAsyncResult : IAsyncResult // TypeDefIndex: 1902
+{
+	// Fields
+	private object locker; // 0x10
+	private AsyncCallback _userCallback; // 0x18
+	private object _userState; // 0x20
+	private Exception _asyncException; // 0x28
+	private ManualResetEvent handle; // 0x30
+	private byte[] _resultingBuffer; // 0x38
+	private Stream _record; // 0x40
+	private bool completed; // 0x48
+	private byte[] _initialBuffer; // 0x50
+
+	// Properties
+	public Stream Record { get; }
+	public byte[] ResultingBuffer { get; }
+	public byte[] InitialBuffer { get; }
+	public object AsyncState { get; }
+	public Exception AsyncException { get; }
+	public bool CompletedWithError { get; }
+	public WaitHandle AsyncWaitHandle { get; }
+	public bool CompletedSynchronously { get; }
+	public bool IsCompleted { get; }
+
+	// Methods
+
+	// RVA: 0x10EC4A8 Offset: 0x10EC4A8 VA: 0x10EC4A8
+	public void .ctor(AsyncCallback userCallback, object userState, byte[] initialBuffer, Stream record) { }
+
+	// RVA: 0x10ECAD8 Offset: 0x10ECAD8 VA: 0x10ECAD8
+	public Stream get_Record() { }
+
+	// RVA: 0x10ED324 Offset: 0x10ED324 VA: 0x10ED324
+	public byte[] get_ResultingBuffer() { }
+
+	// RVA: 0x10EC540 Offset: 0x10EC540 VA: 0x10EC540
+	public byte[] get_InitialBuffer() { }
+
+	// RVA: 0x10EEFCC Offset: 0x10EEFCC VA: 0x10EEFCC Slot: 4
+	public object get_AsyncState() { }
+
+	// RVA: 0x10ED31C Offset: 0x10ED31C VA: 0x10ED31C
+	public Exception get_AsyncException() { }
+
+	// RVA: 0x10ED2C0 Offset: 0x10ED2C0 VA: 0x10ED2C0
+	public bool get_CompletedWithError() { }
+
+	// RVA: 0x10ED1E0 Offset: 0x10ED1E0 VA: 0x10ED1E0 Slot: 5
+	public WaitHandle get_AsyncWaitHandle() { }
+
+	// RVA: 0x10EEFD4 Offset: 0x10EEFD4 VA: 0x10EEFD4 Slot: 6
+	public bool get_CompletedSynchronously() { }
+
+	// RVA: 0x10ED1A0 Offset: 0x10ED1A0 VA: 0x10ED1A0 Slot: 7
+	public bool get_IsCompleted() { }
+
+	// RVA: 0x10EEFDC Offset: 0x10EEFDC VA: 0x10EEFDC
+	private void SetComplete(Exception ex, byte[] resultingBuffer) { }
+
+	// RVA: 0x10ED024 Offset: 0x10ED024 VA: 0x10ED024
+	public void SetComplete(Exception ex) { }
+
+	// RVA: 0x10ECAE0 Offset: 0x10ECAE0 VA: 0x10ECAE0
+	public void SetComplete(byte[] resultingBuffer) { }
+
+	// RVA: 0x10EF0BC Offset: 0x10EF0BC VA: 0x10EF0BC
+	public void SetComplete() { }
+}
+
+// Namespace: 
+private class RecordProtocol.SendRecordAsyncResult : IAsyncResult // TypeDefIndex: 1903
+{
+	// Fields
+	private object locker; // 0x10
+	private AsyncCallback _userCallback; // 0x18
+	private object _userState; // 0x20
+	private Exception _asyncException; // 0x28
+	private ManualResetEvent handle; // 0x30
+	private HandshakeMessage _message; // 0x38
+	private bool completed; // 0x40
+
+	// Properties
+	public HandshakeMessage Message { get; }
+	public object AsyncState { get; }
+	public Exception AsyncException { get; }
+	public bool CompletedWithError { get; }
+	public WaitHandle AsyncWaitHandle { get; }
+	public bool CompletedSynchronously { get; }
+	public bool IsCompleted { get; }
+
+	// Methods
+
+	// RVA: 0x10EE194 Offset: 0x10EE194 VA: 0x10EE194
+	public void .ctor(AsyncCallback userCallback, object userState, HandshakeMessage message) { }
+
+	// RVA: 0x10EE540 Offset: 0x10EE540 VA: 0x10EE540
+	public HandshakeMessage get_Message() { }
+
+	// RVA: 0x10EF0C8 Offset: 0x10EF0C8 VA: 0x10EF0C8 Slot: 4
+	public object get_AsyncState() { }
+
+	// RVA: 0x10EE7F0 Offset: 0x10EE7F0 VA: 0x10EE7F0
+	public Exception get_AsyncException() { }
+
+	// RVA: 0x10EE794 Offset: 0x10EE794 VA: 0x10EE794
+	public bool get_CompletedWithError() { }
+
+	// RVA: 0x10EE6B4 Offset: 0x10EE6B4 VA: 0x10EE6B4 Slot: 5
+	public WaitHandle get_AsyncWaitHandle() { }
+
+	// RVA: 0x10EF0D0 Offset: 0x10EF0D0 VA: 0x10EF0D0 Slot: 6
+	public bool get_CompletedSynchronously() { }
+
+	// RVA: 0x10EE674 Offset: 0x10EE674 VA: 0x10EE674 Slot: 7
+	public bool get_IsCompleted() { }
+
+	// RVA: 0x10EE550 Offset: 0x10EE550 VA: 0x10EE550
+	public void SetComplete(Exception ex) { }
+
+	// RVA: 0x10EE548 Offset: 0x10EE548 VA: 0x10EE548
+	public void SetComplete() { }
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+internal class RSASslSignatureDeformatter : AsymmetricSignatureDeformatter // TypeDefIndex: 1904
+{
+	// Fields
+	private RSA key; // 0x10
+	private HashAlgorithm hash; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xC40084 Offset: 0xC40084 VA: 0xC40084
+	private static Dictionary<string, int> <>f__switch$map15; // 0x0
+
+	// Methods
+
+	// RVA: 0x10EB73C Offset: 0x10EB73C VA: 0x10EB73C
+	public void .ctor() { }
+
+	// RVA: 0x10EB744 Offset: 0x10EB744 VA: 0x10EB744
+	public void .ctor(AsymmetricAlgorithm key) { }
+
+	// RVA: 0x10EB77C Offset: 0x10EB77C VA: 0x10EB77C Slot: 6
+	public override bool VerifySignature(byte[] rgbHash, byte[] rgbSignature) { }
+
+	// RVA: 0x10EB8A0 Offset: 0x10EB8A0 VA: 0x10EB8A0 Slot: 4
+	public override void SetHashAlgorithm(string strName) { }
+
+	// RVA: 0x10EB9E8 Offset: 0x10EB9E8 VA: 0x10EB9E8 Slot: 5
+	public override void SetKey(AsymmetricAlgorithm key) { }
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+internal class RSASslSignatureFormatter : AsymmetricSignatureFormatter // TypeDefIndex: 1905
+{
+	// Fields
+	private RSA key; // 0x10
+	private HashAlgorithm hash; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xC40094 Offset: 0xC40094 VA: 0xC40094
+	private static Dictionary<string, int> <>f__switch$map16; // 0x0
+
+	// Methods
+
+	// RVA: 0x10EBAB4 Offset: 0x10EBAB4 VA: 0x10EBAB4
+	public void .ctor() { }
+
+	// RVA: 0x10EBABC Offset: 0x10EBABC VA: 0x10EBABC
+	public void .ctor(AsymmetricAlgorithm key) { }
+
+	// RVA: 0x10EBAF4 Offset: 0x10EBAF4 VA: 0x10EBAF4 Slot: 6
+	public override byte[] CreateSignature(byte[] rgbHash) { }
+
+	// RVA: 0x10EBC10 Offset: 0x10EBC10 VA: 0x10EBC10 Slot: 4
+	public override void SetHashAlgorithm(string strName) { }
+
+	// RVA: 0x10EBD58 Offset: 0x10EBD58 VA: 0x10EBD58 Slot: 5
+	public override void SetKey(AsymmetricAlgorithm key) { }
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+public enum SecurityCompressionType // TypeDefIndex: 1906
+{
+	// Fields
+	public int value__; // 0x0
+	public const SecurityCompressionType None = 0;
+	public const SecurityCompressionType Zlib = 1;
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+internal class SecurityParameters // TypeDefIndex: 1907
+{
+	// Fields
+	private CipherSuite cipher; // 0x10
+	private byte[] clientWriteMAC; // 0x18
+	private byte[] serverWriteMAC; // 0x20
+
+	// Properties
+	public CipherSuite Cipher { get; set; }
+	public byte[] ClientWriteMAC { get; set; }
+	public byte[] ServerWriteMAC { get; set; }
+
+	// Methods
+
+	// RVA: 0x10EF0D8 Offset: 0x10EF0D8 VA: 0x10EF0D8
+	public void .ctor() { }
+
+	// RVA: 0x10E2C3C Offset: 0x10E2C3C VA: 0x10E2C3C
+	public CipherSuite get_Cipher() { }
+
+	// RVA: 0x10E5FD8 Offset: 0x10E5FD8 VA: 0x10E5FD8
+	public void set_Cipher(CipherSuite value) { }
+
+	// RVA: 0x10EF0E0 Offset: 0x10EF0E0 VA: 0x10EF0E0
+	public byte[] get_ClientWriteMAC() { }
+
+	// RVA: 0x10EF0E8 Offset: 0x10EF0E8 VA: 0x10EF0E8
+	public void set_ClientWriteMAC(byte[] value) { }
+
+	// RVA: 0x10EF0F0 Offset: 0x10EF0F0 VA: 0x10EF0F0
+	public byte[] get_ServerWriteMAC() { }
+
+	// RVA: 0x10EF0F8 Offset: 0x10EF0F8 VA: 0x10EF0F8
+	public void set_ServerWriteMAC(byte[] value) { }
+
+	// RVA: 0x10EF100 Offset: 0x10EF100 VA: 0x10EF100
+	public void Clear() { }
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+[FlagsAttribute] // RVA: 0xC3FF44 Offset: 0xC3FF44 VA: 0xC3FF44
+[Serializable]
+public enum SecurityProtocolType // TypeDefIndex: 1908
+{
+	// Fields
+	public int value__; // 0x0
+	public const SecurityProtocolType Default = -1073741824;
+	public const SecurityProtocolType Ssl2 = 12;
+	public const SecurityProtocolType Ssl3 = 48;
+	public const SecurityProtocolType Tls = 192;
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+internal class ServerContext : Context // TypeDefIndex: 1909
+{
+	// Fields
+	private SslServerStream sslStream; // 0xE0
+	private bool request_client_certificate; // 0xE8
+	private bool clientCertificateRequired; // 0xE9
+
+	// Properties
+	public SslServerStream SslStream { get; }
+	public bool ClientCertificateRequired { get; }
+	public bool RequestClientCertificate { get; }
+
+	// Methods
+
+	// RVA: 0x10EF108 Offset: 0x10EF108 VA: 0x10EF108
+	public void .ctor(SslServerStream stream, SecurityProtocolType securityProtocolType, X509Certificate serverCertificate, bool clientCertificateRequired, bool requestClientCertificate) { }
+
+	// RVA: 0x10E7BDC Offset: 0x10E7BDC VA: 0x10E7BDC
+	public SslServerStream get_SslStream() { }
+
+	// RVA: 0x10E7848 Offset: 0x10E7848 VA: 0x10E7848
+	public bool get_ClientCertificateRequired() { }
+
+	// RVA: 0x10EF500 Offset: 0x10EF500 VA: 0x10EF500
+	public bool get_RequestClientCertificate() { }
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+internal class ServerRecordProtocol : RecordProtocol // TypeDefIndex: 1910
+{
+	// Methods
+
+	// RVA: 0x10EF508 Offset: 0x10EF508 VA: 0x10EF508
+	public void .ctor(Stream innerStream, ServerContext context) { }
+
+	// RVA: 0x10EF584 Offset: 0x10EF584 VA: 0x10EF584 Slot: 7
+	public override HandshakeMessage GetMessage(HandshakeType type) { }
+
+	// RVA: 0x10EF7B0 Offset: 0x10EF7B0 VA: 0x10EF7B0 Slot: 5
+	protected override void ProcessHandshakeMessage(TlsStream handMsg) { }
+
+	// RVA: 0x10EF9C8 Offset: 0x10EF9C8 VA: 0x10EF9C8
+	private HandshakeMessage createClientHandshakeMessage(HandshakeType type, byte[] buffer) { }
+
+	// RVA: 0x10EF588 Offset: 0x10EF588 VA: 0x10EF588
+	private HandshakeMessage createServerHandshakeMessage(HandshakeType type) { }
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+public class ValidationResult // TypeDefIndex: 1911
+{
+	// Fields
+	private bool trusted; // 0x10
+	private bool user_denied; // 0x11
+	private int error_code; // 0x14
+
+	// Properties
+	public bool Trusted { get; }
+	public bool UserDenied { get; }
+	public int ErrorCode { get; }
+
+	// Methods
+
+	// RVA: 0x10FA458 Offset: 0x10FA458 VA: 0x10FA458
+	public void .ctor(bool trusted, bool user_denied, int error_code) { }
+
+	// RVA: 0x10E4924 Offset: 0x10E4924 VA: 0x10E4924
+	public bool get_Trusted() { }
+
+	// RVA: 0x10FA4A4 Offset: 0x10FA4A4 VA: 0x10FA4A4
+	public bool get_UserDenied() { }
+
+	// RVA: 0x10E492C Offset: 0x10E492C VA: 0x10E492C
+	public int get_ErrorCode() { }
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+public class SslClientStream : SslStreamBase // TypeDefIndex: 1912
+{
+	// Fields
+	private CertificateValidationCallback ServerCertValidation; // 0x68
+	private CertificateSelectionCallback ClientCertSelection; // 0x70
+	private PrivateKeySelectionCallback PrivateKeySelection; // 0x78
+	private CertificateValidationCallback2 ServerCertValidation2; // 0x80
+
+	// Properties
+	internal Stream InputBuffer { get; }
+	public X509CertificateCollection ClientCertificates { get; }
+	public X509Certificate SelectedClientCertificate { get; }
+	public CertificateValidationCallback ServerCertValidationDelegate { get; set; }
+	public CertificateSelectionCallback ClientCertSelectionDelegate { get; set; }
+	public PrivateKeySelectionCallback PrivateKeyCertSelectionDelegate { get; set; }
+	internal override bool HaveRemoteValidation2Callback { get; }
+
+	// Methods
+
+	// RVA: 0x10F1730 Offset: 0x10F1730 VA: 0x10F1730
+	public void .ctor(Stream stream, string targetHost, bool ownsStream) { }
+
+	// RVA: 0x10F1740 Offset: 0x10F1740 VA: 0x10F1740
+	public void .ctor(Stream stream, string targetHost, X509Certificate clientCertificate) { }
+
+	// RVA: 0x10F1840 Offset: 0x10F1840 VA: 0x10F1840
+	public void .ctor(Stream stream, string targetHost, X509CertificateCollection clientCertificates) { }
+
+	// RVA: 0x10F1854 Offset: 0x10F1854 VA: 0x10F1854
+	public void .ctor(Stream stream, string targetHost, bool ownsStream, SecurityProtocolType securityProtocolType) { }
+
+	// RVA: 0x10EAF4C Offset: 0x10EAF4C VA: 0x10EAF4C
+	public void .ctor(Stream stream, string targetHost, bool ownsStream, SecurityProtocolType securityProtocolType, X509CertificateCollection clientCertificates) { }
+
+	// RVA: 0x10F1AF4 Offset: 0x10F1AF4 VA: 0x10F1AF4
+	internal void add_ServerCertValidation(CertificateValidationCallback value) { }
+
+	// RVA: 0x10F1BB8 Offset: 0x10F1BB8 VA: 0x10F1BB8
+	internal void remove_ServerCertValidation(CertificateValidationCallback value) { }
+
+	// RVA: 0x10EB12C Offset: 0x10EB12C VA: 0x10EB12C
+	internal void add_ClientCertSelection(CertificateSelectionCallback value) { }
+
+	// RVA: 0x10F1C7C Offset: 0x10F1C7C VA: 0x10F1C7C
+	internal void remove_ClientCertSelection(CertificateSelectionCallback value) { }
+
+	// RVA: 0x10EB200 Offset: 0x10EB200 VA: 0x10EB200
+	internal void add_PrivateKeySelection(PrivateKeySelectionCallback value) { }
+
+	// RVA: 0x10F1D40 Offset: 0x10F1D40 VA: 0x10F1D40
+	internal void remove_PrivateKeySelection(PrivateKeySelectionCallback value) { }
+
+	// RVA: 0x10F1E04 Offset: 0x10F1E04 VA: 0x10F1E04
+	public void add_ServerCertValidation2(CertificateValidationCallback2 value) { }
+
+	// RVA: 0x10F1EC8 Offset: 0x10F1EC8 VA: 0x10F1EC8
+	public void remove_ServerCertValidation2(CertificateValidationCallback2 value) { }
+
+	// RVA: 0x10EB118 Offset: 0x10EB118 VA: 0x10EB118
+	internal Stream get_InputBuffer() { }
+
+	// RVA: 0x10F1F8C Offset: 0x10F1F8C VA: 0x10F1F8C
+	public X509CertificateCollection get_ClientCertificates() { }
+
+	// RVA: 0x10F1FD0 Offset: 0x10F1FD0 VA: 0x10F1FD0
+	public X509Certificate get_SelectedClientCertificate() { }
+
+	// RVA: 0x10F201C Offset: 0x10F201C VA: 0x10F201C
+	public CertificateValidationCallback get_ServerCertValidationDelegate() { }
+
+	// RVA: 0x10F2024 Offset: 0x10F2024 VA: 0x10F2024
+	public void set_ServerCertValidationDelegate(CertificateValidationCallback value) { }
+
+	// RVA: 0x10F202C Offset: 0x10F202C VA: 0x10F202C
+	public CertificateSelectionCallback get_ClientCertSelectionDelegate() { }
+
+	// RVA: 0x10F2034 Offset: 0x10F2034 VA: 0x10F2034
+	public void set_ClientCertSelectionDelegate(CertificateSelectionCallback value) { }
+
+	// RVA: 0x10F203C Offset: 0x10F203C VA: 0x10F203C
+	public PrivateKeySelectionCallback get_PrivateKeyCertSelectionDelegate() { }
+
+	// RVA: 0x10F2044 Offset: 0x10F2044 VA: 0x10F2044
+	public void set_PrivateKeyCertSelectionDelegate(PrivateKeySelectionCallback value) { }
+
+	// RVA: 0x10F204C Offset: 0x10F204C VA: 0x10F204C Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x10F22D4 Offset: 0x10F22D4 VA: 0x10F22D4 Slot: 12
+	protected override void Dispose(bool disposing) { }
+
+	// RVA: 0x10F230C Offset: 0x10F230C VA: 0x10F230C Slot: 29
+	internal override IAsyncResult OnBeginNegotiateHandshake(AsyncCallback callback, object state) { }
+
+	// RVA: 0x10F256C Offset: 0x10F256C VA: 0x10F256C
+	private void SafeReceiveRecord(Stream s) { }
+
+	// RVA: 0x10F2634 Offset: 0x10F2634 VA: 0x10F2634 Slot: 30
+	internal override void OnNegotiateHandshakeCallback(IAsyncResult asyncResult) { }
+
+	// RVA: 0x10F2AE8 Offset: 0x10F2AE8 VA: 0x10F2AE8 Slot: 31
+	internal override X509Certificate OnLocalCertificateSelection(X509CertificateCollection clientCertificates, X509Certificate serverCertificate, string targetHost, X509CertificateCollection serverRequestedCertificates) { }
+
+	// RVA: 0x10F2AFC Offset: 0x10F2AFC VA: 0x10F2AFC Slot: 34
+	internal override bool get_HaveRemoteValidation2Callback() { }
+
+	// RVA: 0x10F2B0C Offset: 0x10F2B0C VA: 0x10F2B0C Slot: 33
+	internal override ValidationResult OnRemoteCertificateValidation2(X509CertificateCollection collection) { }
+
+	// RVA: 0x10F2B20 Offset: 0x10F2B20 VA: 0x10F2B20 Slot: 32
+	internal override bool OnRemoteCertificateValidation(X509Certificate certificate, int[] errors) { }
+
+	// RVA: 0x10F2B4C Offset: 0x10F2B4C VA: 0x10F2B4C Slot: 36
+	internal virtual bool RaiseServerCertificateValidation(X509Certificate certificate, int[] certificateErrors) { }
+
+	// RVA: 0x10F2B6C Offset: 0x10F2B6C VA: 0x10F2B6C Slot: 37
+	internal virtual ValidationResult RaiseServerCertificateValidation2(X509CertificateCollection collection) { }
+
+	// RVA: 0x10F2B8C Offset: 0x10F2B8C VA: 0x10F2B8C
+	internal X509Certificate RaiseClientCertificateSelection(X509CertificateCollection clientCertificates, X509Certificate serverCertificate, string targetHost, X509CertificateCollection serverRequestedCertificates) { }
+
+	// RVA: 0x10F2BAC Offset: 0x10F2BAC VA: 0x10F2BAC Slot: 35
+	internal override AsymmetricAlgorithm OnLocalPrivateKeySelection(X509Certificate certificate, string targetHost) { }
+
+	// RVA: 0x10F2BC0 Offset: 0x10F2BC0 VA: 0x10F2BC0
+	internal AsymmetricAlgorithm RaisePrivateKeySelection(X509Certificate certificate, string targetHost) { }
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+internal class SslCipherSuite : CipherSuite // TypeDefIndex: 1913
+{
+	// Fields
+	private const int MacHeaderLength = 11;
+	private byte[] pad1; // 0x80
+	private byte[] pad2; // 0x88
+	private byte[] header; // 0x90
+
+	// Methods
+
+	// RVA: 0x10EFC6C Offset: 0x10EFC6C VA: 0x10EFC6C
+	public void .ctor(short code, string name, CipherAlgorithmType cipherAlgorithmType, HashAlgorithmType hashAlgorithmType, ExchangeAlgorithmType exchangeAlgorithmType, bool exportable, bool blockMode, byte keyMaterialSize, byte expandedKeyMaterialSize, short effectiveKeyBytes, byte ivSize, byte blockSize) { }
+
+	// RVA: 0x10EFE30 Offset: 0x10EFE30 VA: 0x10EFE30 Slot: 5
+	public override byte[] ComputeServerRecordMAC(ContentType contentType, byte[] fragment) { }
+
+	// RVA: 0x10F02E8 Offset: 0x10F02E8 VA: 0x10F02E8 Slot: 4
+	public override byte[] ComputeClientRecordMAC(ContentType contentType, byte[] fragment) { }
+
+	// RVA: 0x10F07A0 Offset: 0x10F07A0 VA: 0x10F07A0 Slot: 6
+	public override void ComputeMasterSecret(byte[] preMasterSecret) { }
+
+	// RVA: 0x10F0BAC Offset: 0x10F0BAC VA: 0x10F0BAC Slot: 7
+	public override void ComputeKeys() { }
+
+	// RVA: 0x10F0968 Offset: 0x10F0968 VA: 0x10F0968
+	private byte[] prf(byte[] secret, string label, byte[] random) { }
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+internal class SslHandshakeHash : HashAlgorithm // TypeDefIndex: 1914
+{
+	// Fields
+	private HashAlgorithm md5; // 0x28
+	private HashAlgorithm sha; // 0x30
+	private bool hashing; // 0x38
+	private byte[] secret; // 0x40
+	private byte[] innerPadMD5; // 0x48
+	private byte[] outerPadMD5; // 0x50
+	private byte[] innerPadSHA; // 0x58
+	private byte[] outerPadSHA; // 0x60
+
+	// Methods
+
+	// RVA: 0x10E295C Offset: 0x10E295C VA: 0x10E295C
+	public void .ctor(byte[] secret) { }
+
+	// RVA: 0x10F2BE0 Offset: 0x10F2BE0 VA: 0x10F2BE0 Slot: 17
+	public override void Initialize() { }
+
+	// RVA: 0x10F2DE8 Offset: 0x10F2DE8 VA: 0x10F2DE8 Slot: 15
+	protected override byte[] HashFinal() { }
+
+	// RVA: 0x10F3250 Offset: 0x10F3250 VA: 0x10F3250 Slot: 14
+	protected override void HashCore(byte[] array, int ibStart, int cbSize) { }
+
+	// RVA: 0x10F32F4 Offset: 0x10F32F4 VA: 0x10F32F4
+	public byte[] CreateSignature(RSA rsa) { }
+
+	// RVA: 0x10E7E94 Offset: 0x10E7E94 VA: 0x10E7E94
+	public bool VerifySignature(RSA rsa, byte[] rgbSignature) { }
+
+	// RVA: 0x10F2C50 Offset: 0x10F2C50 VA: 0x10F2C50
+	private void initializePad() { }
+}
+
+// Namespace: Mono.Security.Protocol.Tls
+public class SslServerStream : SslStreamBase // TypeDefIndex: 1915
+{
+	// Fields
+	private CertificateValidationCallback ClientCertValidation; // 0x68
+	private PrivateKeySelectionCallback PrivateKeySelection; // 0x70
+	private CertificateValidationCallback2 ClientCertValidation2; // 0x78
+
+	// Properties
+	public X509Certificate ClientCertificate { get; }

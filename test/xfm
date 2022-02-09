@@ -1,0 +1,1000 @@
+	public override bool get_IsReadOnly() { }
+
+	// RVA: 0xF68154 Offset: 0xF68154 VA: 0xF68154
+	public static MulticastIPAddressInformationCollection Win32FromMulticast(IntPtr ptr) { }
+
+	// RVA: 0xF6847C Offset: 0xF6847C VA: 0xF6847C
+	public static MulticastIPAddressInformationImplCollection LinuxFromList(List<IPAddress> addresses) { }
+}
+
+// Namespace: System.Net.NetworkInformation
+public enum NetBiosNodeType // TypeDefIndex: 1407
+{
+	// Fields
+	public int value__; // 0x0
+	public const NetBiosNodeType Unknown = 0;
+	public const NetBiosNodeType Broadcast = 1;
+	public const NetBiosNodeType Peer2Peer = 2;
+	public const NetBiosNodeType Mixed = 4;
+	public const NetBiosNodeType Hybrid = 8;
+}
+
+// Namespace: System.Net.NetworkInformation
+public class NetworkAvailabilityEventArgs : EventArgs // TypeDefIndex: 1408
+{
+	// Fields
+	private bool available; // 0x10
+
+	// Properties
+	public bool IsAvailable { get; }
+
+	// Methods
+
+	// RVA: 0xF68E68 Offset: 0xF68E68 VA: 0xF68E68
+	internal void .ctor(bool available) { }
+
+	// RVA: 0xF68EE8 Offset: 0xF68EE8 VA: 0xF68EE8
+	public bool get_IsAvailable() { }
+}
+
+// Namespace: System.Net.NetworkInformation
+public sealed class NetworkChange // TypeDefIndex: 1409
+{
+	// Fields
+	private static NetworkAddressChangedEventHandler NetworkAddressChanged; // 0x0
+	private static NetworkAvailabilityChangedEventHandler NetworkAvailabilityChanged; // 0x8
+
+	// Methods
+
+	// RVA: 0xF68EF0 Offset: 0xF68EF0 VA: 0xF68EF0
+	private void .ctor() { }
+
+	// RVA: 0xF68EF8 Offset: 0xF68EF8 VA: 0xF68EF8
+	public static void add_NetworkAddressChanged(NetworkAddressChangedEventHandler value) { }
+
+	// RVA: 0xF68FD0 Offset: 0xF68FD0 VA: 0xF68FD0
+	public static void remove_NetworkAddressChanged(NetworkAddressChangedEventHandler value) { }
+
+	// RVA: 0xF690A8 Offset: 0xF690A8 VA: 0xF690A8
+	public static void add_NetworkAvailabilityChanged(NetworkAvailabilityChangedEventHandler value) { }
+
+	// RVA: 0xF69180 Offset: 0xF69180 VA: 0xF69180
+	public static void remove_NetworkAvailabilityChanged(NetworkAvailabilityChangedEventHandler value) { }
+}
+
+// Namespace: System.Net.NetworkInformation
+[FlagsAttribute] // RVA: 0xC3C7DC Offset: 0xC3C7DC VA: 0xC3C7DC
+public enum NetworkInformationAccess // TypeDefIndex: 1410
+{
+	// Fields
+	public int value__; // 0x0
+	public const NetworkInformationAccess None = 0;
+	public const NetworkInformationAccess Read = 1;
+	public const NetworkInformationAccess Ping = 4;
+}
+
+// Namespace: System.Net.NetworkInformation
+[Serializable]
+public class NetworkInformationException : Exception // TypeDefIndex: 1411
+{
+	// Fields
+	private int error_code; // 0x60
+
+	// Properties
+	public int ErrorCode { get; }
+
+	// Methods
+
+	// RVA: 0xF64508 Offset: 0xF64508 VA: 0xF64508
+	public void .ctor() { }
+
+	// RVA: 0xF69258 Offset: 0xF69258 VA: 0xF69258
+	public void .ctor(int errorCode) { }
+
+	// RVA: 0xF69284 Offset: 0xF69284 VA: 0xF69284
+	public int get_ErrorCode() { }
+}
+
+// Namespace: System.Net.NetworkInformation
+public abstract class NetworkInterface // TypeDefIndex: 1412
+{
+	// Fields
+	private static Version windowsVer51; // 0x0
+	internal static readonly bool runningOnUnix; // 0x8
+
+	// Properties
+	[MonoTODOAttribute] // RVA: 0xC3F56C Offset: 0xC3F56C VA: 0xC3F56C
+	public static int LoopbackInterfaceIndex { get; }
+	public abstract string Description { get; }
+	public abstract string Id { get; }
+	public abstract bool IsReceiveOnly { get; }
+	public abstract string Name { get; }
+	public abstract NetworkInterfaceType NetworkInterfaceType { get; }
+	public abstract OperationalStatus OperationalStatus { get; }
+	public abstract long Speed { get; }
+	public abstract bool SupportsMulticast { get; }
+
+	// Methods
+
+	// RVA: 0xF6928C Offset: 0xF6928C VA: 0xF6928C
+	protected void .ctor() { }
+
+	// RVA: 0xF69294 Offset: 0xF69294 VA: 0xF69294
+	private static void .cctor() { }
+
+	// RVA: 0xF6933C Offset: 0xF6933C VA: 0xF6933C
+	private static extern int uname(IntPtr buf) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3D7C0 Offset: 0xC3D7C0 VA: 0xC3D7C0
+	// RVA: 0xF693D8 Offset: 0xF693D8 VA: 0xF693D8
+	public static NetworkInterface[] GetAllNetworkInterfaces() { }
+
+	[MonoTODOAttribute] // RVA: 0xC3D7F8 Offset: 0xC3D7F8 VA: 0xC3D7F8
+	// RVA: 0xF697CC Offset: 0xF697CC VA: 0xF697CC
+	public static bool GetIsNetworkAvailable() { }
+
+	// RVA: 0xF697D4 Offset: 0xF697D4 VA: 0xF697D4
+	internal static string ReadLine(string path) { }
+
+	// RVA: 0xF69A68 Offset: 0xF69A68 VA: 0xF69A68
+	public static int get_LoopbackInterfaceIndex() { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract IPInterfaceProperties GetIPProperties();
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract IPv4InterfaceStatistics GetIPv4Statistics();
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract PhysicalAddress GetPhysicalAddress();
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract bool Supports(NetworkInterfaceComponent networkInterfaceComponent);
+
+	// RVA: -1 Offset: -1 Slot: 8
+	public abstract string get_Description();
+
+	// RVA: -1 Offset: -1 Slot: 9
+	public abstract string get_Id();
+
+	// RVA: -1 Offset: -1 Slot: 10
+	public abstract bool get_IsReceiveOnly();
+
+	// RVA: -1 Offset: -1 Slot: 11
+	public abstract string get_Name();
+
+	// RVA: -1 Offset: -1 Slot: 12
+	public abstract NetworkInterfaceType get_NetworkInterfaceType();
+
+	// RVA: -1 Offset: -1 Slot: 13
+	public abstract OperationalStatus get_OperationalStatus();
+
+	// RVA: -1 Offset: -1 Slot: 14
+	public abstract long get_Speed();
+
+	// RVA: -1 Offset: -1 Slot: 15
+	public abstract bool get_SupportsMulticast();
+}
+
+// Namespace: System.Net.NetworkInformation
+internal abstract class UnixNetworkInterface : NetworkInterface // TypeDefIndex: 1413
+{
+	// Fields
+	protected IPv4InterfaceStatistics ipv4stats; // 0x10
+	protected IPInterfaceProperties ipproperties; // 0x18
+	private string name; // 0x20
+	private int index; // 0x28
+	protected List<IPAddress> addresses; // 0x30
+	private byte[] macAddress; // 0x38
+	private NetworkInterfaceType type; // 0x40
+
+	// Properties
+	public override string Description { get; }
+	public override string Id { get; }
+	public override bool IsReceiveOnly { get; }
+	public override string Name { get; }
+	public override NetworkInterfaceType NetworkInterfaceType { get; }
+	[MonoTODOAttribute] // RVA: 0xC3F5A4 Offset: 0xC3F5A4 VA: 0xC3F5A4
+	public override long Speed { get; }
+
+	// Methods
+
+	// RVA: 0xF62988 Offset: 0xF62988 VA: 0xF62988
+	internal void .ctor(string name) { }
+
+	// RVA: 0xF6FD5C Offset: 0xF6FD5C VA: 0xF6FD5C
+	private static extern int if_nametoindex(string ifname) { }
+
+	// RVA: 0xF69B58 Offset: 0xF69B58 VA: 0xF69B58
+	public static int IfNameToIndex(string ifname) { }
+
+	// RVA: 0xF634A8 Offset: 0xF634A8 VA: 0xF634A8
+	internal void AddAddress(IPAddress address) { }
+
+	// RVA: 0xF63518 Offset: 0xF63518 VA: 0xF63518
+	internal void SetLinkLayerInfo(int index, byte[] macAddress, NetworkInterfaceType type) { }
+
+	// RVA: 0xF6FE10 Offset: 0xF6FE10 VA: 0xF6FE10 Slot: 6
+	public override PhysicalAddress GetPhysicalAddress() { }
+
+	// RVA: 0xF6FEA0 Offset: 0xF6FEA0 VA: 0xF6FEA0 Slot: 7
+	public override bool Supports(NetworkInterfaceComponent networkInterfaceComponent) { }
+
+	// RVA: 0xF7008C Offset: 0xF7008C VA: 0xF7008C Slot: 8
+	public override string get_Description() { }
+
+	// RVA: 0xF70094 Offset: 0xF70094 VA: 0xF70094 Slot: 9
+	public override string get_Id() { }
+
+	// RVA: 0xF7009C Offset: 0xF7009C VA: 0xF7009C Slot: 10
+	public override bool get_IsReceiveOnly() { }
+
+	// RVA: 0xF700A4 Offset: 0xF700A4 VA: 0xF700A4 Slot: 11
+	public override string get_Name() { }
+
+	// RVA: 0xF700AC Offset: 0xF700AC VA: 0xF700AC Slot: 12
+	public override NetworkInterfaceType get_NetworkInterfaceType() { }
+
+	// RVA: 0xF700B4 Offset: 0xF700B4 VA: 0xF700B4 Slot: 14
+	public override long get_Speed() { }
+}
+
+// Namespace: System.Net.NetworkInformation
+internal class LinuxNetworkInterface : UnixNetworkInterface // TypeDefIndex: 1414
+{
+	// Fields
+	private const int AF_INET = 2;
+	private const int AF_INET6 = 10;
+	private const int AF_PACKET = 17;
+	private NetworkInterfaceType type; // 0x44
+	private string iface_path; // 0x48
+	private string iface_operstate_path; // 0x50
+	private string iface_flags_path; // 0x58
+	[CompilerGeneratedAttribute] // RVA: 0xC3CF44 Offset: 0xC3CF44 VA: 0xC3CF44
+	private static Dictionary<string, int> <>f__switch$map3; // 0x0
+
+	// Properties
+	internal string IfacePath { get; }
+	public override OperationalStatus OperationalStatus { get; }
+	public override bool SupportsMulticast { get; }
+
+	// Methods
+
+	// RVA: 0xF600C8 Offset: 0xF600C8 VA: 0xF600C8
+	private void .ctor(string name) { }
+
+	// RVA: 0xF601A0 Offset: 0xF601A0 VA: 0xF601A0
+	private static void .cctor() { }
+
+	// RVA: 0xF5FC1C Offset: 0xF5FC1C VA: 0xF5FC1C
+	internal string get_IfacePath() { }
+
+	// RVA: 0xF601A4 Offset: 0xF601A4 VA: 0xF601A4
+	private static void InitializeInterfaceAddresses() { }
+
+	// RVA: 0xF601A8 Offset: 0xF601A8 VA: 0xF601A8
+	private static int GetInterfaceAddresses(out IntPtr ifap) { }
+
+	// RVA: 0xF601AC Offset: 0xF601AC VA: 0xF601AC
+	private static void FreeInterfaceAddresses(IntPtr ifap) { }
+
+	// RVA: 0xF601B0 Offset: 0xF601B0 VA: 0xF601B0
+	public static NetworkInterface[] ImplGetAllNetworkInterfaces() { }
+
+	// RVA: 0xF60D80 Offset: 0xF60D80 VA: 0xF60D80 Slot: 4
+	public override IPInterfaceProperties GetIPProperties() { }
+
+	// RVA: 0xF60DFC Offset: 0xF60DFC VA: 0xF60DFC Slot: 5
+	public override IPv4InterfaceStatistics GetIPv4Statistics() { }
+
+	// RVA: 0xF60E6C Offset: 0xF60E6C VA: 0xF60E6C Slot: 13
+	public override OperationalStatus get_OperationalStatus() { }
+
+	// RVA: 0xF611B8 Offset: 0xF611B8 VA: 0xF611B8 Slot: 15
+	public override bool get_SupportsMulticast() { }
+}
+
+// Namespace: System.Net.NetworkInformation
+internal class MacOsNetworkInterface : UnixNetworkInterface // TypeDefIndex: 1415
+{
+	// Fields
+	private const int AF_INET = 2;
+	private const int AF_INET6 = 30;
+	private const int AF_LINK = 18;
+
+	// Properties
+	public override OperationalStatus OperationalStatus { get; }
+	public override bool SupportsMulticast { get; }
+
+	// Methods
+
+	// RVA: 0xF62984 Offset: 0xF62984 VA: 0xF62984
+	private void .ctor(string name) { }
+
+	// RVA: 0xF62A2C Offset: 0xF62A2C VA: 0xF62A2C
+	private static extern int getifaddrs(out IntPtr ifap) { }
+
+	// RVA: 0xF62AC8 Offset: 0xF62AC8 VA: 0xF62AC8
+	private static extern void freeifaddrs(IntPtr ifap) { }
+
+	// RVA: 0xF62B64 Offset: 0xF62B64 VA: 0xF62B64
+	public static NetworkInterface[] ImplGetAllNetworkInterfaces() { }
+
+	// RVA: 0xF63528 Offset: 0xF63528 VA: 0xF63528 Slot: 4
+	public override IPInterfaceProperties GetIPProperties() { }
+
+	// RVA: 0xF635A4 Offset: 0xF635A4 VA: 0xF635A4 Slot: 5
+	public override IPv4InterfaceStatistics GetIPv4Statistics() { }
+
+	// RVA: 0xF63614 Offset: 0xF63614 VA: 0xF63614 Slot: 13
+	public override OperationalStatus get_OperationalStatus() { }
+
+	// RVA: 0xF6361C Offset: 0xF6361C VA: 0xF6361C Slot: 15
+	public override bool get_SupportsMulticast() { }
+}
+
+// Namespace: System.Net.NetworkInformation
+internal class Win32NetworkInterface2 : NetworkInterface // TypeDefIndex: 1416
+{
+	// Fields
+	private Win32_IP_ADAPTER_ADDRESSES addr; // 0x10
+	private Win32_MIB_IFROW mib4; // 0x18
+	private Win32_MIB_IFROW mib6; // 0x88
+	private Win32IPv4InterfaceStatistics ip4stats; // 0xF8
+	private IPInterfaceProperties ip_if_props; // 0x100
+
+	// Properties
+	public override string Description { get; }
+	public override string Id { get; }
+	public override bool IsReceiveOnly { get; }
+	public override string Name { get; }
+	public override NetworkInterfaceType NetworkInterfaceType { get; }
+	public override OperationalStatus OperationalStatus { get; }
+	public override long Speed { get; }
+	public override bool SupportsMulticast { get; }
+
+	// Methods
+
+	// RVA: 0xF74440 Offset: 0xF74440 VA: 0xF74440
+	private void .ctor(Win32_IP_ADAPTER_ADDRESSES addr) { }
+
+	// RVA: 0xF746D4 Offset: 0xF746D4 VA: 0xF746D4
+	private static extern int GetAdaptersInfo(byte[] info, ref int size) { }
+
+	// RVA: 0xF74794 Offset: 0xF74794 VA: 0xF74794
+	private static extern int GetAdaptersAddresses(uint family, uint flags, IntPtr reserved, byte[] info, ref int size) { }
+
+	// RVA: 0xF745DC Offset: 0xF745DC VA: 0xF745DC
+	private static extern int GetIfEntry(ref Win32_MIB_IFROW row) { }
+
+	// RVA: 0xF69698 Offset: 0xF69698 VA: 0xF69698
+	public static NetworkInterface[] ImplGetAllNetworkInterfaces() { }
+
+	// RVA: 0xF73064 Offset: 0xF73064 VA: 0xF73064
+	public static Win32_IP_ADAPTER_INFO GetAdapterInfoByIndex(int index) { }
+
+	// RVA: 0xF74A64 Offset: 0xF74A64 VA: 0xF74A64
+	private static Win32_IP_ADAPTER_INFO[] GetAdaptersInfo() { }
+
+	// RVA: 0xF74874 Offset: 0xF74874 VA: 0xF74874
+	private static Win32_IP_ADAPTER_ADDRESSES[] GetAdaptersAddresses() { }
+
+	// RVA: 0xF74C48 Offset: 0xF74C48 VA: 0xF74C48 Slot: 4
+	public override IPInterfaceProperties GetIPProperties() { }
+
+	// RVA: 0xF74C50 Offset: 0xF74C50 VA: 0xF74C50 Slot: 5
+	public override IPv4InterfaceStatistics GetIPv4Statistics() { }
+
+	// RVA: 0xF74C58 Offset: 0xF74C58 VA: 0xF74C58 Slot: 6
+	public override PhysicalAddress GetPhysicalAddress() { }
+
+	// RVA: 0xF74D20 Offset: 0xF74D20 VA: 0xF74D20 Slot: 7
+	public override bool Supports(NetworkInterfaceComponent networkInterfaceComponent) { }
+
+	// RVA: 0xF74D50 Offset: 0xF74D50 VA: 0xF74D50 Slot: 8
+	public override string get_Description() { }
+
+	// RVA: 0xF74D7C Offset: 0xF74D7C VA: 0xF74D7C Slot: 9
+	public override string get_Id() { }
+
+	// RVA: 0xF74DA8 Offset: 0xF74DA8 VA: 0xF74DA8 Slot: 10
+	public override bool get_IsReceiveOnly() { }
+
+	// RVA: 0xF74DE4 Offset: 0xF74DE4 VA: 0xF74DE4 Slot: 11
+	public override string get_Name() { }
+
+	// RVA: 0xF74E10 Offset: 0xF74E10 VA: 0xF74E10 Slot: 12
+	public override NetworkInterfaceType get_NetworkInterfaceType() { }
+
+	// RVA: 0xF74E3C Offset: 0xF74E3C VA: 0xF74E3C Slot: 13
+	public override OperationalStatus get_OperationalStatus() { }
+
+	// RVA: 0xF74E68 Offset: 0xF74E68 VA: 0xF74E68 Slot: 14
+	public override long get_Speed() { }
+
+	// RVA: 0xF74E84 Offset: 0xF74E84 VA: 0xF74E84 Slot: 15
+	public override bool get_SupportsMulticast() { }
+}
+
+// Namespace: System.Net.NetworkInformation
+public enum NetworkInterfaceComponent // TypeDefIndex: 1417
+{
+	// Fields
+	public int value__; // 0x0
+	public const NetworkInterfaceComponent IPv4 = 0;
+	public const NetworkInterfaceComponent IPv6 = 1;
+}
+
+// Namespace: System.Net.NetworkInformation
+public enum NetworkInterfaceType // TypeDefIndex: 1418
+{
+	// Fields
+	public int value__; // 0x0
+	public const NetworkInterfaceType Unknown = 1;
+	public const NetworkInterfaceType Ethernet = 6;
+	public const NetworkInterfaceType TokenRing = 9;
+	public const NetworkInterfaceType Fddi = 15;
+	public const NetworkInterfaceType BasicIsdn = 20;
+	public const NetworkInterfaceType PrimaryIsdn = 21;
+	public const NetworkInterfaceType Ppp = 23;
+	public const NetworkInterfaceType Loopback = 24;
+	public const NetworkInterfaceType Ethernet3Megabit = 26;
+	public const NetworkInterfaceType Slip = 28;
+	public const NetworkInterfaceType Atm = 37;
+	public const NetworkInterfaceType GenericModem = 48;
+	public const NetworkInterfaceType FastEthernetT = 62;
+	public const NetworkInterfaceType Isdn = 63;
+	public const NetworkInterfaceType FastEthernetFx = 69;
+	public const NetworkInterfaceType Wireless80211 = 71;
+	public const NetworkInterfaceType AsymmetricDsl = 94;
+	public const NetworkInterfaceType RateAdaptDsl = 95;
+	public const NetworkInterfaceType SymmetricDsl = 96;
+	public const NetworkInterfaceType VeryHighSpeedDsl = 97;
+	public const NetworkInterfaceType IPOverAtm = 114;
+	public const NetworkInterfaceType GigabitEthernet = 117;
+	public const NetworkInterfaceType Tunnel = 131;
+	public const NetworkInterfaceType MultiRateSymmetricDsl = 143;
+	public const NetworkInterfaceType HighPerformanceSerialBus = 144;
+}
+
+// Namespace: System.Net.NetworkInformation
+public enum OperationalStatus // TypeDefIndex: 1419
+{
+	// Fields
+	public int value__; // 0x0
+	public const OperationalStatus Up = 1;
+	public const OperationalStatus Down = 2;
+	public const OperationalStatus Testing = 3;
+	public const OperationalStatus Unknown = 4;
+	public const OperationalStatus Dormant = 5;
+	public const OperationalStatus NotPresent = 6;
+	public const OperationalStatus LowerLayerDown = 7;
+}
+
+// Namespace: System.Net.NetworkInformation
+public class PhysicalAddress // TypeDefIndex: 1420
+{
+	// Fields
+	private const int numberOfBytes = 6;
+	public static readonly PhysicalAddress None; // 0x0
+	private byte[] bytes; // 0x10
+
+	// Methods
+
+	// RVA: 0xF69B5C Offset: 0xF69B5C VA: 0xF69B5C
+	public void .ctor(byte[] address) { }
+
+	// RVA: 0xF69B88 Offset: 0xF69B88 VA: 0xF69B88
+	private static void .cctor() { }
+
+	// RVA: 0xF69C14 Offset: 0xF69C14 VA: 0xF69C14
+	internal static PhysicalAddress ParseEthernet(string address) { }
+
+	// RVA: 0xF69DB4 Offset: 0xF69DB4 VA: 0xF69DB4
+	public static PhysicalAddress Parse(string address) { }
+
+	// RVA: 0xF6A1C8 Offset: 0xF6A1C8 VA: 0xF6A1C8
+	private static byte GetValue(char c) { }
+
+	// RVA: 0xF6A298 Offset: 0xF6A298 VA: 0xF6A298 Slot: 0
+	public override bool Equals(object comparand) { }
+
+	// RVA: 0xF6A410 Offset: 0xF6A410 VA: 0xF6A410 Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0xF6A574 Offset: 0xF6A574 VA: 0xF6A574
+	public byte[] GetAddressBytes() { }
+
+	// RVA: 0xF6A57C Offset: 0xF6A57C VA: 0xF6A57C Slot: 3
+	public override string ToString() { }
+}
+
+// Namespace: System.Net.NetworkInformation
+[MonoTODOAttribute] // RVA: 0xC3C7EC Offset: 0xC3C7EC VA: 0xC3C7EC
+public class Ping : Component, IDisposable // TypeDefIndex: 1421
+{
+	// Fields
+	private const int DefaultCount = 1;
+	private const int default_timeout = 4000;
+	private const int identifier = 1;
+	private const uint linux_cap_version = 537333798;
+	private static readonly string[] PingBinPaths; // 0x0
+	private static readonly string PingBinPath; // 0x8
+	private static readonly byte[] default_buffer; // 0x10
+	private static bool canSendPrivileged; // 0x18
+	private BackgroundWorker worker; // 0x30
+	private object user_async_state; // 0x38
+	private PingCompletedEventHandler PingCompleted; // 0x40
+
+	// Methods
+
+	// RVA: 0xF6A6D0 Offset: 0xF6A6D0 VA: 0xF6A6D0
+	public void .ctor() { }
+
+	// RVA: 0xF6A6D8 Offset: 0xF6A6D8 VA: 0xF6A6D8
+	private static void .cctor() { }
+
+	// RVA: 0xF6AC24 Offset: 0xF6AC24 VA: 0xF6AC24
+	public void add_PingCompleted(PingCompletedEventHandler value) { }
+
+	// RVA: 0xF6ACE8 Offset: 0xF6ACE8 VA: 0xF6ACE8
+	public void remove_PingCompleted(PingCompletedEventHandler value) { }
+
+	// RVA: 0xF6ADAC Offset: 0xF6ADAC VA: 0xF6ADAC Slot: 6
+	private void System.IDisposable.Dispose() { }
+
+	// RVA: 0xF6ADB0 Offset: 0xF6ADB0 VA: 0xF6ADB0
+	private static extern int capget(ref Ping.cap_user_header_t header, ref Ping.cap_user_data_t data) { }
+
+	// RVA: 0xF6AA30 Offset: 0xF6AA30 VA: 0xF6AA30
+	private static void CheckLinuxCapabilities() { }
+
+	// RVA: 0xF6AE5C Offset: 0xF6AE5C VA: 0xF6AE5C
+	protected void OnPingCompleted(PingCompletedEventArgs e) { }
+
+	// RVA: 0xF6B258 Offset: 0xF6B258 VA: 0xF6B258
+	public PingReply Send(IPAddress address) { }
+
+	// RVA: 0xF6B260 Offset: 0xF6B260 VA: 0xF6B260
+	public PingReply Send(IPAddress address, int timeout) { }
+
+	// RVA: 0xF6B2E8 Offset: 0xF6B2E8 VA: 0xF6B2E8
+	public PingReply Send(IPAddress address, int timeout, byte[] buffer) { }
+
+	// RVA: 0xF6B534 Offset: 0xF6B534 VA: 0xF6B534
+	public PingReply Send(string hostNameOrAddress) { }
+
+	// RVA: 0xF6B53C Offset: 0xF6B53C VA: 0xF6B53C
+	public PingReply Send(string hostNameOrAddress, int timeout) { }
+
+	// RVA: 0xF6B5C4 Offset: 0xF6B5C4 VA: 0xF6B5C4
+	public PingReply Send(string hostNameOrAddress, int timeout, byte[] buffer) { }
+
+	// RVA: 0xF6B658 Offset: 0xF6B658 VA: 0xF6B658
+	public PingReply Send(string hostNameOrAddress, int timeout, byte[] buffer, PingOptions options) { }
+
+	// RVA: 0xF6B71C Offset: 0xF6B71C VA: 0xF6B71C
+	private static IPAddress GetNonLoopbackIP() { }
+
+	// RVA: 0xF6B38C Offset: 0xF6B38C VA: 0xF6B38C
+	public PingReply Send(IPAddress address, int timeout, byte[] buffer, PingOptions options) { }
+
+	// RVA: 0xF6B868 Offset: 0xF6B868 VA: 0xF6B868
+	private PingReply SendPrivileged(IPAddress address, int timeout, byte[] buffer, PingOptions options) { }
+
+	// RVA: 0xF6C124 Offset: 0xF6C124 VA: 0xF6C124
+	private PingReply SendUnprivileged(IPAddress address, int timeout, byte[] buffer, PingOptions options) { }
+
+	// RVA: 0xF6D0F0 Offset: 0xF6D0F0 VA: 0xF6D0F0
+	public void SendAsync(IPAddress address, int timeout, byte[] buffer, object userToken) { }
+
+	// RVA: 0xF6D3D4 Offset: 0xF6D3D4 VA: 0xF6D3D4
+	public void SendAsync(IPAddress address, int timeout, object userToken) { }
+
+	// RVA: 0xF6D450 Offset: 0xF6D450 VA: 0xF6D450
+	public void SendAsync(IPAddress address, object userToken) { }
+
+	// RVA: 0xF6D458 Offset: 0xF6D458 VA: 0xF6D458
+	public void SendAsync(string hostNameOrAddress, int timeout, byte[] buffer, object userToken) { }
+
+	// RVA: 0xF6D4F4 Offset: 0xF6D4F4 VA: 0xF6D4F4
+	public void SendAsync(string hostNameOrAddress, int timeout, byte[] buffer, PingOptions options, object userToken) { }
+
+	// RVA: 0xF6D5E0 Offset: 0xF6D5E0 VA: 0xF6D5E0
+	public void SendAsync(string hostNameOrAddress, int timeout, object userToken) { }
+
+	// RVA: 0xF6D678 Offset: 0xF6D678 VA: 0xF6D678
+	public void SendAsync(string hostNameOrAddress, object userToken) { }
+
+	// RVA: 0xF6D1B0 Offset: 0xF6D1B0 VA: 0xF6D1B0
+	public void SendAsync(IPAddress address, int timeout, byte[] buffer, PingOptions options, object userToken) { }
+
+	// RVA: 0xF6D690 Offset: 0xF6D690 VA: 0xF6D690
+	public void SendAsyncCancel() { }
+
+	// RVA: 0xF6CC0C Offset: 0xF6CC0C VA: 0xF6CC0C
+	private string BuildPingArgs(IPAddress address, int timeout, PingOptions options) { }
+}
+
+// Namespace: 
+private struct Ping.cap_user_header_t // TypeDefIndex: 1422
+{
+	// Fields
+	public uint version; // 0x0
+	public int pid; // 0x4
+}
+
+// Namespace: 
+private struct Ping.cap_user_data_t // TypeDefIndex: 1423
+{
+	// Fields
+	public uint effective; // 0x0
+	public uint permitted; // 0x4
+	public uint inheritable; // 0x8
+}
+
+// Namespace: 
+private class Ping.IcmpMessage // TypeDefIndex: 1424
+{
+	// Fields
+	private byte[] bytes; // 0x10
+
+	// Properties
+	public byte Type { get; }
+	public byte Code { get; }
+	public byte Identifier { get; }
+	public byte Sequence { get; }
+	public byte[] Data { get; }
+	public IPStatus IPStatus { get; }
+
+	// Methods
+
+	// RVA: 0xF6C968 Offset: 0xF6C968 VA: 0xF6C968
+	public void .ctor(byte[] bytes, int offset, int size) { }
+
+	// RVA: 0xF6C6C0 Offset: 0xF6C6C0 VA: 0xF6C6C0
+	public void .ctor(byte type, byte code, short identifier, short sequence, byte[] data) { }
+
+	// RVA: 0xF6CA88 Offset: 0xF6CA88 VA: 0xF6CA88
+	public byte get_Type() { }
+
+	// RVA: 0xF6DB08 Offset: 0xF6DB08 VA: 0xF6DB08
+	public byte get_Code() { }
+
+	// RVA: 0xF6CA04 Offset: 0xF6CA04 VA: 0xF6CA04
+	public byte get_Identifier() { }
+
+	// RVA: 0xF6DB50 Offset: 0xF6DB50 VA: 0xF6DB50
+	public byte get_Sequence() { }
+
+	// RVA: 0xF6CACC Offset: 0xF6CACC VA: 0xF6CACC
+	public byte[] get_Data() { }
+
+	// RVA: 0xF6C90C Offset: 0xF6C90C VA: 0xF6C90C
+	public byte[] GetBytes() { }
+
+	// RVA: 0xF6DA40 Offset: 0xF6DA40 VA: 0xF6DA40
+	private static ushort ComputeChecksum(byte[] data) { }
+
+	// RVA: 0xF6CB64 Offset: 0xF6CB64 VA: 0xF6CB64
+	public IPStatus get_IPStatus() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC3C824 Offset: 0xC3C824 VA: 0xC3C824
+private sealed class Ping.<SendAsync>c__AnonStorey6 // TypeDefIndex: 1425
+{
+	// Fields
+	internal IPAddress address; // 0x10
+	internal int timeout; // 0x18
+	internal byte[] buffer; // 0x20
+	internal PingOptions options; // 0x28
+	internal Ping <>f__this; // 0x30
+
+	// Methods
+
+	// RVA: 0xF6D688 Offset: 0xF6D688 VA: 0xF6D688
+	public void .ctor() { }
+
+	// RVA: 0xF6D720 Offset: 0xF6D720 VA: 0xF6D720
+	internal void <>m__5(object o, DoWorkEventArgs ea) { }
+
+	// RVA: 0xF6D8A0 Offset: 0xF6D8A0 VA: 0xF6D8A0
+	internal void <>m__6(object o, RunWorkerCompletedEventArgs ea) { }
+}
+
+// Namespace: System.Net.NetworkInformation
+public class PingCompletedEventArgs : AsyncCompletedEventArgs // TypeDefIndex: 1426
+{
+	// Fields
+	private PingReply reply; // 0x28
+
+	// Properties
+	public PingReply Reply { get; }
+
+	// Methods
+
+	// RVA: 0xF6DA10 Offset: 0xF6DA10 VA: 0xF6DA10
+	internal void .ctor(Exception ex, bool cancelled, object userState, PingReply reply) { }
+
+	// RVA: 0xF6DBD4 Offset: 0xF6DBD4 VA: 0xF6DBD4
+	public PingReply get_Reply() { }
+}
+
+// Namespace: System.Net.NetworkInformation
+[Serializable]
+public class PingException : InvalidOperationException // TypeDefIndex: 1427
+{
+	// Methods
+
+	// RVA: 0xF6DC28 Offset: 0xF6DC28 VA: 0xF6DC28
+	public void .ctor(string message) { }
+
+	// RVA: 0xF6DC30 Offset: 0xF6DC30 VA: 0xF6DC30
+	public void .ctor(string message, Exception innerException) { }
+
+	// RVA: 0xF6DC38 Offset: 0xF6DC38 VA: 0xF6DC38
+	protected void .ctor(SerializationInfo serializationInfo, StreamingContext streamingContext) { }
+}
+
+// Namespace: System.Net.NetworkInformation
+public class PingOptions // TypeDefIndex: 1428
+{
+	// Fields
+	private int ttl; // 0x10
+	private bool dont_fragment; // 0x14
+
+	// Properties
+	public bool DontFragment { get; set; }
+	public int Ttl { get; set; }
+
+	// Methods
+
+	// RVA: 0xF6B37C Offset: 0xF6B37C VA: 0xF6B37C
+	public void .ctor() { }
+
+	// RVA: 0xF6DC40 Offset: 0xF6DC40 VA: 0xF6DC40
+	public void .ctor(int ttl, bool dontFragment) { }
+
+	// RVA: 0xF6C6B0 Offset: 0xF6C6B0 VA: 0xF6C6B0
+	public bool get_DontFragment() { }
+
+	// RVA: 0xF6DD08 Offset: 0xF6DD08 VA: 0xF6DD08
+	public void set_DontFragment(bool value) { }
+
+	// RVA: 0xF6C6B8 Offset: 0xF6C6B8 VA: 0xF6C6B8
+	public int get_Ttl() { }
+
+	// RVA: 0xF6DD14 Offset: 0xF6DD14 VA: 0xF6DD14
+	public void set_Ttl(int value) { }
+}
+
+// Namespace: System.Net.NetworkInformation
+public class PingReply // TypeDefIndex: 1429
+{
+	// Fields
+	private IPAddress address; // 0x10
+	private byte[] buffer; // 0x18
+	private PingOptions options; // 0x20
+	private long rtt; // 0x28
+	private IPStatus status; // 0x30
+
+	// Properties
+	public IPAddress Address { get; }
+	public byte[] Buffer { get; }
+	public PingOptions Options { get; }
+	public long RoundtripTime { get; }
+	public IPStatus Status { get; }
+
+	// Methods
+
+	// RVA: 0xF6C914 Offset: 0xF6C914 VA: 0xF6C914
+	internal void .ctor(IPAddress address, byte[] buffer, PingOptions options, long roundtripTime, IPStatus status) { }
+
+	// RVA: 0xF6DD1C Offset: 0xF6DD1C VA: 0xF6DD1C
+	public IPAddress get_Address() { }
+
+	// RVA: 0xF6DD24 Offset: 0xF6DD24 VA: 0xF6DD24
+	public byte[] get_Buffer() { }
+
+	// RVA: 0xF6DD2C Offset: 0xF6DD2C VA: 0xF6DD2C
+	public PingOptions get_Options() { }
+
+	// RVA: 0xF6DD34 Offset: 0xF6DD34 VA: 0xF6DD34
+	public long get_RoundtripTime() { }
+
+	// RVA: 0xF6DD3C Offset: 0xF6DD3C VA: 0xF6DD3C
+	public IPStatus get_Status() { }
+}
+
+// Namespace: System.Net.NetworkInformation
+public enum PrefixOrigin // TypeDefIndex: 1430
+{
+	// Fields
+	public int value__; // 0x0
+	public const PrefixOrigin Other = 0;
+	public const PrefixOrigin Manual = 1;
+	public const PrefixOrigin WellKnown = 2;
+	public const PrefixOrigin Dhcp = 3;
+	public const PrefixOrigin RouterAdvertisement = 4;
+}
+
+// Namespace: System.Net.NetworkInformation
+public enum SuffixOrigin // TypeDefIndex: 1431
+{
+	// Fields
+	public int value__; // 0x0
+	public const SuffixOrigin Other = 0;
+	public const SuffixOrigin Manual = 1;
+	public const SuffixOrigin WellKnown = 2;
+	public const SuffixOrigin OriginDhcp = 3;
+	public const SuffixOrigin LinkLayerAddress = 4;
+	public const SuffixOrigin Random = 5;
+}
+
+// Namespace: System.Net.NetworkInformation
+public abstract class TcpConnectionInformation // TypeDefIndex: 1432
+{
+	// Properties
+	public abstract IPEndPoint LocalEndPoint { get; }
+	public abstract IPEndPoint RemoteEndPoint { get; }
+	public abstract TcpState State { get; }
+
+	// Methods
+
+	// RVA: 0xF6DD44 Offset: 0xF6DD44 VA: 0xF6DD44
+	protected void .ctor() { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract IPEndPoint get_LocalEndPoint();
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract IPEndPoint get_RemoteEndPoint();
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract TcpState get_State();
+}
+
+// Namespace: System.Net.NetworkInformation
+internal class TcpConnectionInformationImpl : TcpConnectionInformation // TypeDefIndex: 1433
+{
+	// Fields
+	private IPEndPoint local; // 0x10
+	private IPEndPoint remote; // 0x18
+	private TcpState state; // 0x20
+
+	// Properties
+	public override IPEndPoint LocalEndPoint { get; }
+	public override IPEndPoint RemoteEndPoint { get; }
+	public override TcpState State { get; }
+
+	// Methods
+
+	// RVA: 0xF64D98 Offset: 0xF64D98 VA: 0xF64D98
+	public void .ctor(IPEndPoint local, IPEndPoint remote, TcpState state) { }
+
+	// RVA: 0xF6DD4C Offset: 0xF6DD4C VA: 0xF6DD4C Slot: 4
+	public override IPEndPoint get_LocalEndPoint() { }
+
+	// RVA: 0xF6DD54 Offset: 0xF6DD54 VA: 0xF6DD54 Slot: 5
+	public override IPEndPoint get_RemoteEndPoint() { }
+
+	// RVA: 0xF6DD5C Offset: 0xF6DD5C VA: 0xF6DD5C Slot: 6
+	public override TcpState get_State() { }
+}
+
+// Namespace: System.Net.NetworkInformation
+public enum TcpState // TypeDefIndex: 1434
+{
+	// Fields
+	public int value__; // 0x0
+	public const TcpState Unknown = 0;
+	public const TcpState Closed = 1;
+	public const TcpState Listen = 2;
+	public const TcpState SynSent = 3;
+	public const TcpState SynReceived = 4;
+	public const TcpState Established = 5;
+	public const TcpState FinWait1 = 6;
+	public const TcpState FinWait2 = 7;
+	public const TcpState CloseWait = 8;
+	public const TcpState Closing = 9;
+	public const TcpState LastAck = 10;
+	public const TcpState TimeWait = 11;
+	public const TcpState DeleteTcb = 12;
+}
+
+// Namespace: System.Net.NetworkInformation
+public abstract class TcpStatistics // TypeDefIndex: 1435
+{
+	// Properties
+	public abstract long ConnectionsAccepted { get; }
+	public abstract long ConnectionsInitiated { get; }
+	public abstract long CumulativeConnections { get; }
+	public abstract long CurrentConnections { get; }
+	public abstract long ErrorsReceived { get; }
+	public abstract long FailedConnectionAttempts { get; }
+	public abstract long MaximumConnections { get; }
+	public abstract long MaximumTransmissionTimeout { get; }
+	public abstract long MinimumTransmissionTimeout { get; }
+	public abstract long ResetConnections { get; }
+	public abstract long ResetsSent { get; }
+	public abstract long SegmentsReceived { get; }
+	public abstract long SegmentsResent { get; }
+	public abstract long SegmentsSent { get; }
+
+	// Methods
+
+	// RVA: 0xF67284 Offset: 0xF67284 VA: 0xF67284
+	protected void .ctor() { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract long get_ConnectionsAccepted();
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract long get_ConnectionsInitiated();
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract long get_CumulativeConnections();
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract long get_CurrentConnections();
+
+	// RVA: -1 Offset: -1 Slot: 8
+	public abstract long get_ErrorsReceived();
+
+	// RVA: -1 Offset: -1 Slot: 9
+	public abstract long get_FailedConnectionAttempts();
+
+	// RVA: -1 Offset: -1 Slot: 10
+	public abstract long get_MaximumConnections();
+
+	// RVA: -1 Offset: -1 Slot: 11
+	public abstract long get_MaximumTransmissionTimeout();
+
+	// RVA: -1 Offset: -1 Slot: 12
+	public abstract long get_MinimumTransmissionTimeout();
+
+	// RVA: -1 Offset: -1 Slot: 13
+	public abstract long get_ResetConnections();
+
+	// RVA: -1 Offset: -1 Slot: 14
+	public abstract long get_ResetsSent();
+
+	// RVA: -1 Offset: -1 Slot: 15
+	public abstract long get_SegmentsReceived();
+
+	// RVA: -1 Offset: -1 Slot: 16
+	public abstract long get_SegmentsResent();
+
+	// RVA: -1 Offset: -1 Slot: 17
+	public abstract long get_SegmentsSent();
+}
+
+// Namespace: System.Net.NetworkInformation
+internal class MibTcpStatistics : TcpStatistics // TypeDefIndex: 1436
+{
+	// Fields
+	private StringDictionary dic; // 0x10
+
+	// Properties
+	public override long ConnectionsAccepted { get; }
+	public override long ConnectionsInitiated { get; }
+	public override long CumulativeConnections { get; }
+	public override long CurrentConnections { get; }
+	public override long ErrorsReceived { get; }
+	public override long FailedConnectionAttempts { get; }
+	public override long MaximumConnections { get; }
+	public override long MaximumTransmissionTimeout { get; }
+	public override long MinimumTransmissionTimeout { get; }
+	public override long ResetConnections { get; }
+	public override long ResetsSent { get; }
+	public override long SegmentsReceived { get; }
+	public override long SegmentsResent { get; }
+	public override long SegmentsSent { get; }
+
+	// Methods
+
+	// RVA: 0xF651E4 Offset: 0xF651E4 VA: 0xF651E4
+	public void .ctor(StringDictionary dic) { }
+
+	// RVA: 0xF6728C Offset: 0xF6728C VA: 0xF6728C

@@ -1,0 +1,1000 @@
+	public AnimateFsmAction.Calculation calculation; // 0xE8
+	private bool finishInNextStep; // 0xEC
+
+	// Methods
+
+	// RVA: 0x23155B8 Offset: 0x23155B8 VA: 0x23155B8
+	public void .ctor() { }
+
+	// RVA: 0x23155C0 Offset: 0x23155C0 VA: 0x23155C0 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x2315644 Offset: 0x2315644 VA: 0x2315644 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x2315808 Offset: 0x2315808 VA: 0x2315808 Slot: 37
+	public override void OnExit() { }
+
+	// RVA: 0x231580C Offset: 0x231580C VA: 0x231580C Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+public abstract class AnimateFsmAction : FsmStateAction // TypeDefIndex: 12222
+{
+	// Fields
+	[TooltipAttribute] // RVA: 0xCF59E8 Offset: 0xCF59E8 VA: 0xCF59E8
+	public FsmFloat time; // 0x50
+	[TooltipAttribute] // RVA: 0xCF5A20 Offset: 0xCF5A20 VA: 0xCF5A20
+	public FsmFloat speed; // 0x58
+	[TooltipAttribute] // RVA: 0xCF5A58 Offset: 0xCF5A58 VA: 0xCF5A58
+	public FsmFloat delay; // 0x60
+	[TooltipAttribute] // RVA: 0xCF5A90 Offset: 0xCF5A90 VA: 0xCF5A90
+	public FsmBool ignoreCurveOffset; // 0x68
+	[TooltipAttribute] // RVA: 0xCF5AC8 Offset: 0xCF5AC8 VA: 0xCF5AC8
+	public FsmEvent finishEvent; // 0x70
+	[TooltipAttribute] // RVA: 0xCF5B00 Offset: 0xCF5B00 VA: 0xCF5B00
+	public bool realTime; // 0x78
+	private float startTime; // 0x7C
+	private float currentTime; // 0x80
+	private float[] endTimes; // 0x88
+	private float lastTime; // 0x90
+	private float deltaTime; // 0x94
+	private float delayTime; // 0x98
+	private float[] keyOffsets; // 0xA0
+	protected AnimationCurve[] curves; // 0xA8
+	protected AnimateFsmAction.Calculation[] calculations; // 0xB0
+	protected float[] resultFloats; // 0xB8
+	protected float[] fromFloats; // 0xC0
+	protected float[] toFloats; // 0xC8
+	protected bool finishAction; // 0xD0
+	protected bool isRunning; // 0xD1
+	protected bool looping; // 0xD2
+	private bool start; // 0xD3
+	private float largestEndTime; // 0xD4
+
+	// Methods
+
+	// RVA: 0x2313FA8 Offset: 0x2313FA8 VA: 0x2313FA8
+	protected void .ctor() { }
+
+	// RVA: 0x2314034 Offset: 0x2314034 VA: 0x2314034 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x2314740 Offset: 0x2314740 VA: 0x2314740 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x23147DC Offset: 0x23147DC VA: 0x23147DC
+	protected void Init() { }
+
+	// RVA: 0x23152BC Offset: 0x23152BC VA: 0x23152BC Slot: 34
+	public override void OnUpdate() { }
+
+	// RVA: 0x2316B50 Offset: 0x2316B50 VA: 0x2316B50
+	private void CheckStart() { }
+
+	// RVA: 0x2316BFC Offset: 0x2316BFC VA: 0x2316BFC
+	private void UpdateTime() { }
+
+	// RVA: 0x2315984 Offset: 0x2315984 VA: 0x2315984
+	public void UpdateAnimation() { }
+
+	// RVA: 0x2316D24 Offset: 0x2316D24 VA: 0x2316D24
+	private void CheckFinished() { }
+}
+
+// Namespace: 
+public enum AnimateFsmAction.Calculation // TypeDefIndex: 12223
+{
+	// Fields
+	public int value__; // 0x0
+	public const AnimateFsmAction.Calculation None = 0;
+	public const AnimateFsmAction.Calculation SetValue = 1;
+	public const AnimateFsmAction.Calculation AddToValue = 2;
+	public const AnimateFsmAction.Calculation SubtractFromValue = 3;
+	public const AnimateFsmAction.Calculation SubtractValueFromCurve = 4;
+	public const AnimateFsmAction.Calculation MultiplyValue = 5;
+	public const AnimateFsmAction.Calculation DivideValue = 6;
+	public const AnimateFsmAction.Calculation DivideCurveByValue = 7;
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC99C20 Offset: 0xC99C20 VA: 0xC99C20
+[TooltipAttribute] // RVA: 0xC99C20 Offset: 0xC99C20 VA: 0xC99C20
+public class AnimateRect : AnimateFsmAction // TypeDefIndex: 12224
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF5B38 Offset: 0xCF5B38 VA: 0xCF5B38
+	[UIHintAttribute] // RVA: 0xCF5B38 Offset: 0xCF5B38 VA: 0xCF5B38
+	public FsmRect rectVariable; // 0xD8
+	[RequiredFieldAttribute] // RVA: 0xCF5B74 Offset: 0xCF5B74 VA: 0xCF5B74
+	public FsmAnimationCurve curveX; // 0xE0
+	[TooltipAttribute] // RVA: 0xCF5B84 Offset: 0xCF5B84 VA: 0xCF5B84
+	public AnimateFsmAction.Calculation calculationX; // 0xE8
+	[RequiredFieldAttribute] // RVA: 0xCF5BBC Offset: 0xCF5BBC VA: 0xCF5BBC
+	public FsmAnimationCurve curveY; // 0xF0
+	[TooltipAttribute] // RVA: 0xCF5BCC Offset: 0xCF5BCC VA: 0xCF5BCC
+	public AnimateFsmAction.Calculation calculationY; // 0xF8
+	[RequiredFieldAttribute] // RVA: 0xCF5C04 Offset: 0xCF5C04 VA: 0xCF5C04
+	public FsmAnimationCurve curveW; // 0x100
+	[TooltipAttribute] // RVA: 0xCF5C14 Offset: 0xCF5C14 VA: 0xCF5C14
+	public AnimateFsmAction.Calculation calculationW; // 0x108
+	[RequiredFieldAttribute] // RVA: 0xCF5C4C Offset: 0xCF5C4C VA: 0xCF5C4C
+	public FsmAnimationCurve curveH; // 0x110
+	[TooltipAttribute] // RVA: 0xCF5C5C Offset: 0xCF5C5C VA: 0xCF5C5C
+	public AnimateFsmAction.Calculation calculationH; // 0x118
+	private bool finishInNextStep; // 0x11C
+
+	// Methods
+
+	// RVA: 0x2316DE4 Offset: 0x2316DE4 VA: 0x2316DE4
+	public void .ctor() { }
+
+	// RVA: 0x2316DEC Offset: 0x2316DEC VA: 0x2316DEC Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x2316E70 Offset: 0x2316E70 VA: 0x2316E70 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x231742C Offset: 0x231742C VA: 0x231742C
+	private void UpdateVariableValue() { }
+
+	// RVA: 0x2317584 Offset: 0x2317584 VA: 0x2317584 Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC99C80 Offset: 0xC99C80 VA: 0xC99C80
+[TooltipAttribute] // RVA: 0xC99C80 Offset: 0xC99C80 VA: 0xC99C80
+public class AnimateVector3 : AnimateFsmAction // TypeDefIndex: 12225
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF5C94 Offset: 0xCF5C94 VA: 0xCF5C94
+	[UIHintAttribute] // RVA: 0xCF5C94 Offset: 0xCF5C94 VA: 0xCF5C94
+	public FsmVector3 vectorVariable; // 0xD8
+	[RequiredFieldAttribute] // RVA: 0xCF5CD0 Offset: 0xCF5CD0 VA: 0xCF5CD0
+	public FsmAnimationCurve curveX; // 0xE0
+	[TooltipAttribute] // RVA: 0xCF5CE0 Offset: 0xCF5CE0 VA: 0xCF5CE0
+	public AnimateFsmAction.Calculation calculationX; // 0xE8
+	[RequiredFieldAttribute] // RVA: 0xCF5D18 Offset: 0xCF5D18 VA: 0xCF5D18
+	public FsmAnimationCurve curveY; // 0xF0
+	[TooltipAttribute] // RVA: 0xCF5D28 Offset: 0xCF5D28 VA: 0xCF5D28
+	public AnimateFsmAction.Calculation calculationY; // 0xF8
+	[RequiredFieldAttribute] // RVA: 0xCF5D60 Offset: 0xCF5D60 VA: 0xCF5D60
+	public FsmAnimationCurve curveZ; // 0x100
+	[TooltipAttribute] // RVA: 0xCF5D70 Offset: 0xCF5D70 VA: 0xCF5D70
+	public AnimateFsmAction.Calculation calculationZ; // 0x108
+	private bool finishInNextStep; // 0x10C
+
+	// Methods
+
+	// RVA: 0x2317624 Offset: 0x2317624 VA: 0x2317624
+	public void .ctor() { }
+
+	// RVA: 0x231762C Offset: 0x231762C VA: 0x231762C Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x23176B0 Offset: 0x23176B0 VA: 0x23176B0 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x2317AF8 Offset: 0x2317AF8 VA: 0x2317AF8
+	private void UpdateVariableValue() { }
+
+	// RVA: 0x2317C18 Offset: 0x2317C18 VA: 0x2317C18 Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC99CD0 Offset: 0xC99CD0 VA: 0xC99CD0
+[TooltipAttribute] // RVA: 0xC99CD0 Offset: 0xC99CD0 VA: 0xC99CD0
+public class CurveColor : CurveFsmAction // TypeDefIndex: 12226
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF5DA8 Offset: 0xCF5DA8 VA: 0xCF5DA8
+	[UIHintAttribute] // RVA: 0xCF5DA8 Offset: 0xCF5DA8 VA: 0xCF5DA8
+	public FsmColor colorVariable; // 0xE0
+	[RequiredFieldAttribute] // RVA: 0xCF5DE4 Offset: 0xCF5DE4 VA: 0xCF5DE4
+	public FsmColor fromValue; // 0xE8
+	[RequiredFieldAttribute] // RVA: 0xCF5DF4 Offset: 0xCF5DF4 VA: 0xCF5DF4
+	public FsmColor toValue; // 0xF0
+	[RequiredFieldAttribute] // RVA: 0xCF5E04 Offset: 0xCF5E04 VA: 0xCF5E04
+	public FsmAnimationCurve curveR; // 0xF8
+	[TooltipAttribute] // RVA: 0xCF5E14 Offset: 0xCF5E14 VA: 0xCF5E14
+	public CurveFsmAction.Calculation calculationR; // 0x100
+	[RequiredFieldAttribute] // RVA: 0xCF5E4C Offset: 0xCF5E4C VA: 0xCF5E4C
+	public FsmAnimationCurve curveG; // 0x108
+	[TooltipAttribute] // RVA: 0xCF5E5C Offset: 0xCF5E5C VA: 0xCF5E5C
+	public CurveFsmAction.Calculation calculationG; // 0x110
+	[RequiredFieldAttribute] // RVA: 0xCF5E94 Offset: 0xCF5E94 VA: 0xCF5E94
+	public FsmAnimationCurve curveB; // 0x118
+	[TooltipAttribute] // RVA: 0xCF5EA4 Offset: 0xCF5EA4 VA: 0xCF5EA4
+	public CurveFsmAction.Calculation calculationB; // 0x120
+	[RequiredFieldAttribute] // RVA: 0xCF5EDC Offset: 0xCF5EDC VA: 0xCF5EDC
+	public FsmAnimationCurve curveA; // 0x128
+	[TooltipAttribute] // RVA: 0xCF5EEC Offset: 0xCF5EEC VA: 0xCF5EEC
+	public CurveFsmAction.Calculation calculationA; // 0x130
+	private Color clr; // 0x134
+	private bool finishInNextStep; // 0x144
+
+	// Methods
+
+	// RVA: 0x2328734 Offset: 0x2328734 VA: 0x2328734
+	public void .ctor() { }
+
+	// RVA: 0x2328744 Offset: 0x2328744 VA: 0x2328744 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x23289F0 Offset: 0x23289F0 VA: 0x23289F0 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x2329B54 Offset: 0x2329B54 VA: 0x2329B54 Slot: 37
+	public override void OnExit() { }
+
+	// RVA: 0x2329B58 Offset: 0x2329B58 VA: 0x2329B58 Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC99D20 Offset: 0xC99D20 VA: 0xC99D20
+[TooltipAttribute] // RVA: 0xC99D20 Offset: 0xC99D20 VA: 0xC99D20
+public class CurveFloat : CurveFsmAction // TypeDefIndex: 12227
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF5F24 Offset: 0xCF5F24 VA: 0xCF5F24
+	[UIHintAttribute] // RVA: 0xCF5F24 Offset: 0xCF5F24 VA: 0xCF5F24
+	public FsmFloat floatVariable; // 0xE0
+	[RequiredFieldAttribute] // RVA: 0xCF5F60 Offset: 0xCF5F60 VA: 0xCF5F60
+	public FsmFloat fromValue; // 0xE8
+	[RequiredFieldAttribute] // RVA: 0xCF5F70 Offset: 0xCF5F70 VA: 0xCF5F70
+	public FsmFloat toValue; // 0xF0
+	[RequiredFieldAttribute] // RVA: 0xCF5F80 Offset: 0xCF5F80 VA: 0xCF5F80
+	public FsmAnimationCurve animCurve; // 0xF8
+	[TooltipAttribute] // RVA: 0xCF5F90 Offset: 0xCF5F90 VA: 0xCF5F90
+	public CurveFsmAction.Calculation calculation; // 0x100
+	private bool finishInNextStep; // 0x104
+
+	// Methods
+
+	// RVA: 0x232B958 Offset: 0x232B958 VA: 0x232B958
+	public void .ctor() { }
+
+	// RVA: 0x232B960 Offset: 0x232B960 VA: 0x232B960 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x232BA54 Offset: 0x232BA54 VA: 0x232BA54 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x232BC98 Offset: 0x232BC98 VA: 0x232BC98 Slot: 37
+	public override void OnExit() { }
+
+	// RVA: 0x232BC9C Offset: 0x232BC9C VA: 0x232BC9C Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[TooltipAttribute] // RVA: 0xC99D70 Offset: 0xC99D70 VA: 0xC99D70
+public abstract class CurveFsmAction : FsmStateAction // TypeDefIndex: 12228
+{
+	// Fields
+	[TooltipAttribute] // RVA: 0xCF5FC8 Offset: 0xCF5FC8 VA: 0xCF5FC8
+	public FsmFloat time; // 0x50
+	[TooltipAttribute] // RVA: 0xCF6000 Offset: 0xCF6000 VA: 0xCF6000
+	public FsmFloat speed; // 0x58
+	[TooltipAttribute] // RVA: 0xCF6038 Offset: 0xCF6038 VA: 0xCF6038
+	public FsmFloat delay; // 0x60
+	[TooltipAttribute] // RVA: 0xCF6070 Offset: 0xCF6070 VA: 0xCF6070
+	public FsmBool ignoreCurveOffset; // 0x68
+	[TooltipAttribute] // RVA: 0xCF60A8 Offset: 0xCF60A8 VA: 0xCF60A8
+	public FsmEvent finishEvent; // 0x70
+	[TooltipAttribute] // RVA: 0xCF60E0 Offset: 0xCF60E0 VA: 0xCF60E0
+	public bool realTime; // 0x78
+	private float startTime; // 0x7C
+	private float currentTime; // 0x80
+	private float[] endTimes; // 0x88
+	private float lastTime; // 0x90
+	private float deltaTime; // 0x94
+	private float delayTime; // 0x98
+	private float[] keyOffsets; // 0xA0
+	protected AnimationCurve[] curves; // 0xA8
+	protected CurveFsmAction.Calculation[] calculations; // 0xB0
+	protected float[] resultFloats; // 0xB8
+	protected float[] fromFloats; // 0xC0
+	protected float[] toFloats; // 0xC8
+	private float[] distances; // 0xD0
+	protected bool finishAction; // 0xD8
+	protected bool isRunning; // 0xD9
+	protected bool looping; // 0xDA
+	private bool start; // 0xDB
+	private float largestEndTime; // 0xDC
+
+	// Methods
+
+	// RVA: 0x232873C Offset: 0x232873C VA: 0x232873C
+	protected void .ctor() { }
+
+	// RVA: 0x2328838 Offset: 0x2328838 VA: 0x2328838 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x23290E4 Offset: 0x23290E4 VA: 0x23290E4 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x2329180 Offset: 0x2329180 VA: 0x2329180
+	protected void Init() { }
+
+	// RVA: 0x2329EA0 Offset: 0x2329EA0 VA: 0x2329EA0 Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: 
+public enum CurveFsmAction.Calculation // TypeDefIndex: 12229
+{
+	// Fields
+	public int value__; // 0x0
+	public const CurveFsmAction.Calculation None = 0;
+	public const CurveFsmAction.Calculation AddToValue = 1;
+	public const CurveFsmAction.Calculation SubtractFromValue = 2;
+	public const CurveFsmAction.Calculation SubtractValueFromCurve = 3;
+	public const CurveFsmAction.Calculation MultiplyValue = 4;
+	public const CurveFsmAction.Calculation DivideValue = 5;
+	public const CurveFsmAction.Calculation DivideCurveByValue = 6;
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC99DA8 Offset: 0xC99DA8 VA: 0xC99DA8
+[TooltipAttribute] // RVA: 0xC99DA8 Offset: 0xC99DA8 VA: 0xC99DA8
+public class CurveRect : CurveFsmAction // TypeDefIndex: 12230
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF6118 Offset: 0xCF6118 VA: 0xCF6118
+	[UIHintAttribute] // RVA: 0xCF6118 Offset: 0xCF6118 VA: 0xCF6118
+	public FsmRect rectVariable; // 0xE0
+	[RequiredFieldAttribute] // RVA: 0xCF6154 Offset: 0xCF6154 VA: 0xCF6154
+	public FsmRect fromValue; // 0xE8
+	[RequiredFieldAttribute] // RVA: 0xCF6164 Offset: 0xCF6164 VA: 0xCF6164
+	public FsmRect toValue; // 0xF0
+	[RequiredFieldAttribute] // RVA: 0xCF6174 Offset: 0xCF6174 VA: 0xCF6174
+	public FsmAnimationCurve curveX; // 0xF8
+	[TooltipAttribute] // RVA: 0xCF6184 Offset: 0xCF6184 VA: 0xCF6184
+	public CurveFsmAction.Calculation calculationX; // 0x100
+	[RequiredFieldAttribute] // RVA: 0xCF61BC Offset: 0xCF61BC VA: 0xCF61BC
+	public FsmAnimationCurve curveY; // 0x108
+	[TooltipAttribute] // RVA: 0xCF61CC Offset: 0xCF61CC VA: 0xCF61CC
+	public CurveFsmAction.Calculation calculationY; // 0x110
+	[RequiredFieldAttribute] // RVA: 0xCF6204 Offset: 0xCF6204 VA: 0xCF6204
+	public FsmAnimationCurve curveW; // 0x118
+	[TooltipAttribute] // RVA: 0xCF6214 Offset: 0xCF6214 VA: 0xCF6214
+	public CurveFsmAction.Calculation calculationW; // 0x120
+	[RequiredFieldAttribute] // RVA: 0xCF624C Offset: 0xCF624C VA: 0xCF624C
+	public FsmAnimationCurve curveH; // 0x128
+	[TooltipAttribute] // RVA: 0xCF625C Offset: 0xCF625C VA: 0xCF625C
+	public CurveFsmAction.Calculation calculationH; // 0x130
+	private Rect rct; // 0x134
+	private bool finishInNextStep; // 0x144
+
+	// Methods
+
+	// RVA: 0x232BE14 Offset: 0x232BE14 VA: 0x232BE14
+	public void .ctor() { }
+
+	// RVA: 0x232BE1C Offset: 0x232BE1C VA: 0x232BE1C Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x232BF10 Offset: 0x232BF10 VA: 0x232BF10 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x232C6D0 Offset: 0x232C6D0 VA: 0x232C6D0 Slot: 37
+	public override void OnExit() { }
+
+	// RVA: 0x232C6D4 Offset: 0x232C6D4 VA: 0x232C6D4 Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC99E08 Offset: 0xC99E08 VA: 0xC99E08
+[TooltipAttribute] // RVA: 0xC99E08 Offset: 0xC99E08 VA: 0xC99E08
+public class CurveVector3 : CurveFsmAction // TypeDefIndex: 12231
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF6294 Offset: 0xCF6294 VA: 0xCF6294
+	[UIHintAttribute] // RVA: 0xCF6294 Offset: 0xCF6294 VA: 0xCF6294
+	public FsmVector3 vectorVariable; // 0xE0
+	[RequiredFieldAttribute] // RVA: 0xCF62D0 Offset: 0xCF62D0 VA: 0xCF62D0
+	public FsmVector3 fromValue; // 0xE8
+	[RequiredFieldAttribute] // RVA: 0xCF62E0 Offset: 0xCF62E0 VA: 0xCF62E0
+	public FsmVector3 toValue; // 0xF0
+	[RequiredFieldAttribute] // RVA: 0xCF62F0 Offset: 0xCF62F0 VA: 0xCF62F0
+	public FsmAnimationCurve curveX; // 0xF8
+	[TooltipAttribute] // RVA: 0xCF6300 Offset: 0xCF6300 VA: 0xCF6300
+	public CurveFsmAction.Calculation calculationX; // 0x100
+	[RequiredFieldAttribute] // RVA: 0xCF6338 Offset: 0xCF6338 VA: 0xCF6338
+	public FsmAnimationCurve curveY; // 0x108
+	[TooltipAttribute] // RVA: 0xCF6348 Offset: 0xCF6348 VA: 0xCF6348
+	public CurveFsmAction.Calculation calculationY; // 0x110
+	[RequiredFieldAttribute] // RVA: 0xCF6380 Offset: 0xCF6380 VA: 0xCF6380
+	public FsmAnimationCurve curveZ; // 0x118
+	[TooltipAttribute] // RVA: 0xCF6390 Offset: 0xCF6390 VA: 0xCF6390
+	public CurveFsmAction.Calculation calculationZ; // 0x120
+	private Vector3 vct; // 0x124
+	private bool finishInNextStep; // 0x130
+
+	// Methods
+
+	// RVA: 0x232CA1C Offset: 0x232CA1C VA: 0x232CA1C
+	public void .ctor() { }
+
+	// RVA: 0x232CA24 Offset: 0x232CA24 VA: 0x232CA24 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x232CB18 Offset: 0x232CB18 VA: 0x232CB18 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x232D07C Offset: 0x232D07C VA: 0x232D07C Slot: 37
+	public override void OnExit() { }
+
+	// RVA: 0x232D080 Offset: 0x232D080 VA: 0x232D080 Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC99E58 Offset: 0xC99E58 VA: 0xC99E58
+[TooltipAttribute] // RVA: 0xC99E58 Offset: 0xC99E58 VA: 0xC99E58
+public class EaseColor : EaseFsmAction // TypeDefIndex: 12232
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF63C8 Offset: 0xCF63C8 VA: 0xCF63C8
+	public FsmColor fromValue; // 0xC8
+	[RequiredFieldAttribute] // RVA: 0xCF63D8 Offset: 0xCF63D8 VA: 0xCF63D8
+	public FsmColor toValue; // 0xD0
+	[UIHintAttribute] // RVA: 0xCF63E8 Offset: 0xCF63E8 VA: 0xCF63E8
+	public FsmColor colorVariable; // 0xD8
+	private bool finishInNextStep; // 0xE0
+
+	// Methods
+
+	// RVA: 0x1865C80 Offset: 0x1865C80 VA: 0x1865C80
+	public void .ctor() { }
+
+	// RVA: 0x1865D0C Offset: 0x1865D0C VA: 0x1865D0C Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1865EB0 Offset: 0x1865EB0 VA: 0x1865EB0 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x186632C Offset: 0x186632C VA: 0x186632C Slot: 37
+	public override void OnExit() { }
+
+	// RVA: 0x1866334 Offset: 0x1866334 VA: 0x1866334 Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC99EA8 Offset: 0xC99EA8 VA: 0xC99EA8
+[TooltipAttribute] // RVA: 0xC99EA8 Offset: 0xC99EA8 VA: 0xC99EA8
+public class EaseFloat : EaseFsmAction // TypeDefIndex: 12233
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF63FC Offset: 0xCF63FC VA: 0xCF63FC
+	public FsmFloat fromValue; // 0xC8
+	[RequiredFieldAttribute] // RVA: 0xCF640C Offset: 0xCF640C VA: 0xCF640C
+	public FsmFloat toValue; // 0xD0
+	[UIHintAttribute] // RVA: 0xCF641C Offset: 0xCF641C VA: 0xCF641C
+	public FsmFloat floatVariable; // 0xD8
+	private bool finishInNextStep; // 0xE0
+
+	// Methods
+
+	// RVA: 0x1866B64 Offset: 0x1866B64 VA: 0x1866B64
+	public void .ctor() { }
+
+	// RVA: 0x1866B68 Offset: 0x1866B68 VA: 0x1866B68 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1866B94 Offset: 0x1866B94 VA: 0x1866B94 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1866CFC Offset: 0x1866CFC VA: 0x1866CFC Slot: 37
+	public override void OnExit() { }
+
+	// RVA: 0x1866D00 Offset: 0x1866D00 VA: 0x1866D00 Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[TooltipAttribute] // RVA: 0xC99EF8 Offset: 0xC99EF8 VA: 0xC99EF8
+public abstract class EaseFsmAction : FsmStateAction // TypeDefIndex: 12234
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF6430 Offset: 0xCF6430 VA: 0xCF6430
+	public FsmFloat time; // 0x50
+	public FsmFloat speed; // 0x58
+	public FsmFloat delay; // 0x60
+	public EaseFsmAction.EaseType easeType; // 0x68
+	public FsmBool reverse; // 0x70
+	[TooltipAttribute] // RVA: 0xCF6440 Offset: 0xCF6440 VA: 0xCF6440
+	public FsmEvent finishEvent; // 0x78
+	[TooltipAttribute] // RVA: 0xCF6478 Offset: 0xCF6478 VA: 0xCF6478
+	public bool realTime; // 0x80
+	protected EaseFsmAction.EasingFunction ease; // 0x88
+	protected float runningTime; // 0x90
+	protected float lastTime; // 0x94
+	protected float startTime; // 0x98
+	protected float deltaTime; // 0x9C
+	protected float delayTime; // 0xA0
+	protected float percentage; // 0xA4
+	protected float[] fromFloats; // 0xA8
+	protected float[] toFloats; // 0xB0
+	protected float[] resultFloats; // 0xB8
+	protected bool finishAction; // 0xC0
+	protected bool start; // 0xC1
+	protected bool finished; // 0xC2
+	protected bool isRunning; // 0xC3
+
+	// Methods
+
+	// RVA: 0x1865C84 Offset: 0x1865C84 VA: 0x1865C84
+	protected void .ctor() { }
+
+	// RVA: 0x1865D38 Offset: 0x1865D38 VA: 0x1865D38 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1866218 Offset: 0x1866218 VA: 0x1866218 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1866330 Offset: 0x1866330 VA: 0x1866330 Slot: 37
+	public override void OnExit() { }
+
+	// RVA: 0x18667EC Offset: 0x18667EC VA: 0x18667EC Slot: 34
+	public override void OnUpdate() { }
+
+	// RVA: 0x1867078 Offset: 0x1867078 VA: 0x1867078
+	protected void UpdatePercentage() { }
+
+	// RVA: 0x1866EAC Offset: 0x1866EAC VA: 0x1866EAC
+	protected void SetEasingFunction() { }
+
+	// RVA: 0x18674AC Offset: 0x18674AC VA: 0x18674AC
+	protected float linear(float start, float end, float value) { }
+
+	// RVA: 0x1867534 Offset: 0x1867534 VA: 0x1867534
+	protected float clerp(float start, float end, float value) { }
+
+	// RVA: 0x1867600 Offset: 0x1867600 VA: 0x1867600
+	protected float spring(float start, float end, float value) { }
+
+	// RVA: 0x1867704 Offset: 0x1867704 VA: 0x1867704
+	protected float easeInQuad(float start, float end, float value) { }
+
+	// RVA: 0x1867718 Offset: 0x1867718 VA: 0x1867718
+	protected float easeOutQuad(float start, float end, float value) { }
+
+	// RVA: 0x1867734 Offset: 0x1867734 VA: 0x1867734
+	protected float easeInOutQuad(float start, float end, float value) { }
+
+	// RVA: 0x1867788 Offset: 0x1867788 VA: 0x1867788
+	protected float easeInCubic(float start, float end, float value) { }
+
+	// RVA: 0x18677A0 Offset: 0x18677A0 VA: 0x18677A0
+	protected float easeOutCubic(float start, float end, float value) { }
+
+	// RVA: 0x18677C8 Offset: 0x18677C8 VA: 0x18677C8
+	protected float easeInOutCubic(float start, float end, float value) { }
+
+	// RVA: 0x1867820 Offset: 0x1867820 VA: 0x1867820
+	protected float easeInQuart(float start, float end, float value) { }
+
+	// RVA: 0x186783C Offset: 0x186783C VA: 0x186783C
+	protected float easeOutQuart(float start, float end, float value) { }
+
+	// RVA: 0x1867864 Offset: 0x1867864 VA: 0x1867864
+	protected float easeInOutQuart(float start, float end, float value) { }
+
+	// RVA: 0x18678C0 Offset: 0x18678C0 VA: 0x18678C0
+	protected float easeInQuint(float start, float end, float value) { }
+
+	// RVA: 0x18678E0 Offset: 0x18678E0 VA: 0x18678E0
+	protected float easeOutQuint(float start, float end, float value) { }
+
+	// RVA: 0x1867910 Offset: 0x1867910 VA: 0x1867910
+	protected float easeInOutQuint(float start, float end, float value) { }
+
+	// RVA: 0x1867978 Offset: 0x1867978 VA: 0x1867978
+	protected float easeInSine(float start, float end, float value) { }
+
+	// RVA: 0x1867A10 Offset: 0x1867A10 VA: 0x1867A10
+	protected float easeOutSine(float start, float end, float value) { }
+
+	// RVA: 0x1867AA4 Offset: 0x1867AA4 VA: 0x1867AA4
+	protected float easeInOutSine(float start, float end, float value) { }
+
+	// RVA: 0x1867B48 Offset: 0x1867B48 VA: 0x1867B48
+	protected float easeInExpo(float start, float end, float value) { }
+
+	// RVA: 0x1867BE0 Offset: 0x1867BE0 VA: 0x1867BE0
+	protected float easeOutExpo(float start, float end, float value) { }
+
+	// RVA: 0x1867C78 Offset: 0x1867C78 VA: 0x1867C78
+	protected float easeInOutExpo(float start, float end, float value) { }
+
+	// RVA: 0x1867D68 Offset: 0x1867D68 VA: 0x1867D68
+	protected float easeInCirc(float start, float end, float value) { }
+
+	// RVA: 0x1867E14 Offset: 0x1867E14 VA: 0x1867E14
+	protected float easeOutCirc(float start, float end, float value) { }
+
+	// RVA: 0x1867EC0 Offset: 0x1867EC0 VA: 0x1867EC0
+	protected float easeInOutCirc(float start, float end, float value) { }
+
+	// RVA: 0x1867FB8 Offset: 0x1867FB8 VA: 0x1867FB8
+	protected float bounce(float start, float end, float value) { }
+
+	// RVA: 0x1868088 Offset: 0x1868088 VA: 0x1868088
+	protected float easeInBack(float start, float end, float value) { }
+
+	// RVA: 0x18680B8 Offset: 0x18680B8 VA: 0x18680B8
+	protected float easeOutBack(float start, float end, float value) { }
+
+	// RVA: 0x18680F8 Offset: 0x18680F8 VA: 0x18680F8
+	protected float easeInOutBack(float start, float end, float value) { }
+
+	// RVA: 0x186817C Offset: 0x186817C VA: 0x186817C
+	protected float punch(float amplitude, float value) { }
+
+	// RVA: 0x186823C Offset: 0x186823C VA: 0x186823C
+	protected float elastic(float start, float end, float value) { }
+}
+
+// Namespace: 
+protected sealed class EaseFsmAction.EasingFunction : MulticastDelegate // TypeDefIndex: 12235
+{
+	// Methods
+
+	// RVA: 0x186749C Offset: 0x186749C VA: 0x186749C
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x186721C Offset: 0x186721C VA: 0x186721C Slot: 11
+	public virtual float Invoke(float start, float end, float value) { }
+
+	// RVA: 0x1868320 Offset: 0x1868320 VA: 0x1868320 Slot: 12
+	public virtual IAsyncResult BeginInvoke(float start, float end, float value, AsyncCallback callback, object object) { }
+
+	// RVA: 0x18683D8 Offset: 0x18683D8 VA: 0x18683D8 Slot: 13
+	public virtual float EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public enum EaseFsmAction.EaseType // TypeDefIndex: 12236
+{
+	// Fields
+	public int value__; // 0x0
+	public const EaseFsmAction.EaseType easeInQuad = 0;
+	public const EaseFsmAction.EaseType easeOutQuad = 1;
+	public const EaseFsmAction.EaseType easeInOutQuad = 2;
+	public const EaseFsmAction.EaseType easeInCubic = 3;
+	public const EaseFsmAction.EaseType easeOutCubic = 4;
+	public const EaseFsmAction.EaseType easeInOutCubic = 5;
+	public const EaseFsmAction.EaseType easeInQuart = 6;
+	public const EaseFsmAction.EaseType easeOutQuart = 7;
+	public const EaseFsmAction.EaseType easeInOutQuart = 8;
+	public const EaseFsmAction.EaseType easeInQuint = 9;
+	public const EaseFsmAction.EaseType easeOutQuint = 10;
+	public const EaseFsmAction.EaseType easeInOutQuint = 11;
+	public const EaseFsmAction.EaseType easeInSine = 12;
+	public const EaseFsmAction.EaseType easeOutSine = 13;
+	public const EaseFsmAction.EaseType easeInOutSine = 14;
+	public const EaseFsmAction.EaseType easeInExpo = 15;
+	public const EaseFsmAction.EaseType easeOutExpo = 16;
+	public const EaseFsmAction.EaseType easeInOutExpo = 17;
+	public const EaseFsmAction.EaseType easeInCirc = 18;
+	public const EaseFsmAction.EaseType easeOutCirc = 19;
+	public const EaseFsmAction.EaseType easeInOutCirc = 20;
+	public const EaseFsmAction.EaseType linear = 21;
+	public const EaseFsmAction.EaseType spring = 22;
+	public const EaseFsmAction.EaseType bounce = 23;
+	public const EaseFsmAction.EaseType easeInBack = 24;
+	public const EaseFsmAction.EaseType easeOutBack = 25;
+	public const EaseFsmAction.EaseType easeInOutBack = 26;
+	public const EaseFsmAction.EaseType elastic = 27;
+	public const EaseFsmAction.EaseType punch = 28;
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC99F30 Offset: 0xC99F30 VA: 0xC99F30
+[TooltipAttribute] // RVA: 0xC99F30 Offset: 0xC99F30 VA: 0xC99F30
+public class EaseRect : EaseFsmAction // TypeDefIndex: 12237
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF64B0 Offset: 0xCF64B0 VA: 0xCF64B0
+	public FsmRect fromValue; // 0xC8
+	[RequiredFieldAttribute] // RVA: 0xCF64C0 Offset: 0xCF64C0 VA: 0xCF64C0
+	public FsmRect toValue; // 0xD0
+	[UIHintAttribute] // RVA: 0xCF64D0 Offset: 0xCF64D0 VA: 0xCF64D0
+	public FsmRect rectVariable; // 0xD8
+	private bool finishInNextStep; // 0xE0
+
+	// Methods
+
+	// RVA: 0x1868414 Offset: 0x1868414 VA: 0x1868414
+	public void .ctor() { }
+
+	// RVA: 0x1868418 Offset: 0x1868418 VA: 0x1868418 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1868444 Offset: 0x1868444 VA: 0x1868444 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1868878 Offset: 0x1868878 VA: 0x1868878 Slot: 37
+	public override void OnExit() { }
+
+	// RVA: 0x186887C Offset: 0x186887C VA: 0x186887C Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC99F90 Offset: 0xC99F90 VA: 0xC99F90
+[TooltipAttribute] // RVA: 0xC99F90 Offset: 0xC99F90 VA: 0xC99F90
+public class EaseVector3 : EaseFsmAction // TypeDefIndex: 12238
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF64E4 Offset: 0xCF64E4 VA: 0xCF64E4
+	public FsmVector3 fromValue; // 0xC8
+	[RequiredFieldAttribute] // RVA: 0xCF64F4 Offset: 0xCF64F4 VA: 0xCF64F4
+	public FsmVector3 toValue; // 0xD0
+	[UIHintAttribute] // RVA: 0xCF6504 Offset: 0xCF6504 VA: 0xCF6504
+	public FsmVector3 vector3Variable; // 0xD8
+	private bool finishInNextStep; // 0xE0
+
+	// Methods
+
+	// RVA: 0x1868D68 Offset: 0x1868D68 VA: 0x1868D68
+	public void .ctor() { }
+
+	// RVA: 0x1868D6C Offset: 0x1868D6C VA: 0x1868D6C Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x1868D98 Offset: 0x1868D98 VA: 0x1868D98 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x1869058 Offset: 0x1869058 VA: 0x1869058 Slot: 37
+	public override void OnExit() { }
+
+	// RVA: 0x186905C Offset: 0x186905C VA: 0x186905C Slot: 34
+	public override void OnUpdate() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+public abstract class BaseAnimationAction : ComponentAction<Animation> // TypeDefIndex: 12239
+{
+	// Methods
+
+	// RVA: 0x2312A40 Offset: 0x2312A40 VA: 0x2312A40
+	protected void .ctor() { }
+
+	// RVA: 0x231CE1C Offset: 0x231CE1C VA: 0x231CE1C Slot: 41
+	public override void OnActionTargetInvoked(object targetObject) { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC99FE0 Offset: 0xC99FE0 VA: 0xC99FE0
+[TooltipAttribute] // RVA: 0xC99FE0 Offset: 0xC99FE0 VA: 0xC99FE0
+public class AnimationSettings : BaseAnimationAction // TypeDefIndex: 12240
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF6518 Offset: 0xCF6518 VA: 0xCF6518
+	[CheckForComponentAttribute] // RVA: 0xCF6518 Offset: 0xCF6518 VA: 0xCF6518
+	[TooltipAttribute] // RVA: 0xCF6518 Offset: 0xCF6518 VA: 0xCF6518
+	public FsmOwnerDefault gameObject; // 0x60
+	[RequiredFieldAttribute] // RVA: 0xCF65B0 Offset: 0xCF65B0 VA: 0xCF65B0
+	[UIHintAttribute] // RVA: 0xCF65B0 Offset: 0xCF65B0 VA: 0xCF65B0
+	[TooltipAttribute] // RVA: 0xCF65B0 Offset: 0xCF65B0 VA: 0xCF65B0
+	public FsmString animName; // 0x68
+	[TooltipAttribute] // RVA: 0xCF6610 Offset: 0xCF6610 VA: 0xCF6610
+	public WrapMode wrapMode; // 0x70
+	[TooltipAttribute] // RVA: 0xCF6648 Offset: 0xCF6648 VA: 0xCF6648
+	public AnimationBlendMode blendMode; // 0x74
+	[HasFloatSliderAttribute] // RVA: 0xCF6680 Offset: 0xCF6680 VA: 0xCF6680
+	[TooltipAttribute] // RVA: 0xCF6680 Offset: 0xCF6680 VA: 0xCF6680
+	public FsmFloat speed; // 0x78
+	[TooltipAttribute] // RVA: 0xCF66D4 Offset: 0xCF66D4 VA: 0xCF66D4
+	public FsmInt layer; // 0x80
+
+	// Methods
+
+	// RVA: 0x2317CB8 Offset: 0x2317CB8 VA: 0x2317CB8
+	public void .ctor() { }
+
+	// RVA: 0x2317CBC Offset: 0x2317CBC VA: 0x2317CBC Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x2317D04 Offset: 0x2317D04 VA: 0x2317D04 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x2317D2C Offset: 0x2317D2C VA: 0x2317D2C
+	private void DoAnimationSettings() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC9A030 Offset: 0xC9A030 VA: 0xC9A030
+[TooltipAttribute] // RVA: 0xC9A030 Offset: 0xC9A030 VA: 0xC9A030
+public class AnimatorCrossFade : FsmStateAction // TypeDefIndex: 12241
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF670C Offset: 0xCF670C VA: 0xCF670C
+	[CheckForComponentAttribute] // RVA: 0xCF670C Offset: 0xCF670C VA: 0xCF670C
+	[TooltipAttribute] // RVA: 0xCF670C Offset: 0xCF670C VA: 0xCF670C
+	public FsmOwnerDefault gameObject; // 0x50
+	[TooltipAttribute] // RVA: 0xCF67A4 Offset: 0xCF67A4 VA: 0xCF67A4
+	public FsmString stateName; // 0x58
+	[TooltipAttribute] // RVA: 0xCF67DC Offset: 0xCF67DC VA: 0xCF67DC
+	public FsmFloat transitionDuration; // 0x60
+	[TooltipAttribute] // RVA: 0xCF6814 Offset: 0xCF6814 VA: 0xCF6814
+	public FsmInt layer; // 0x68
+	[TooltipAttribute] // RVA: 0xCF684C Offset: 0xCF684C VA: 0xCF684C
+	public FsmFloat normalizedTime; // 0x70
+	private Animator _animator; // 0x78
+
+	// Methods
+
+	// RVA: 0x2318010 Offset: 0x2318010 VA: 0x2318010
+	public void .ctor() { }
+
+	// RVA: 0x2318018 Offset: 0x2318018 VA: 0x2318018 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x23180E4 Offset: 0x23180E4 VA: 0x23180E4 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC9A080 Offset: 0xC9A080 VA: 0xC9A080
+[TooltipAttribute] // RVA: 0xC9A080 Offset: 0xC9A080 VA: 0xC9A080
+public class AnimatorInterruptMatchTarget : FsmStateAction // TypeDefIndex: 12242
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF6884 Offset: 0xCF6884 VA: 0xCF6884
+	[CheckForComponentAttribute] // RVA: 0xCF6884 Offset: 0xCF6884 VA: 0xCF6884
+	[TooltipAttribute] // RVA: 0xCF6884 Offset: 0xCF6884 VA: 0xCF6884
+	public FsmOwnerDefault gameObject; // 0x50
+	[TooltipAttribute] // RVA: 0xCF691C Offset: 0xCF691C VA: 0xCF691C
+	public FsmBool completeMatch; // 0x58
+
+	// Methods
+
+	// RVA: 0x2318300 Offset: 0x2318300 VA: 0x2318300
+	public void .ctor() { }
+
+	// RVA: 0x2318308 Offset: 0x2318308 VA: 0x2318308 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x2318338 Offset: 0x2318338 VA: 0x2318338 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC9A0D0 Offset: 0xC9A0D0 VA: 0xC9A0D0
+[TooltipAttribute] // RVA: 0xC9A0D0 Offset: 0xC9A0D0 VA: 0xC9A0D0
+public class AnimatorMatchTarget : FsmStateAction // TypeDefIndex: 12243
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF6954 Offset: 0xCF6954 VA: 0xCF6954
+	[CheckForComponentAttribute] // RVA: 0xCF6954 Offset: 0xCF6954 VA: 0xCF6954
+	[TooltipAttribute] // RVA: 0xCF6954 Offset: 0xCF6954 VA: 0xCF6954
+	public FsmOwnerDefault gameObject; // 0x50
+	[TooltipAttribute] // RVA: 0xCF69EC Offset: 0xCF69EC VA: 0xCF69EC
+	public AvatarTarget bodyPart; // 0x58
+	[TooltipAttribute] // RVA: 0xCF6A24 Offset: 0xCF6A24 VA: 0xCF6A24
+	public FsmGameObject target; // 0x60
+	[TooltipAttribute] // RVA: 0xCF6A5C Offset: 0xCF6A5C VA: 0xCF6A5C
+	public FsmVector3 targetPosition; // 0x68
+	[TooltipAttribute] // RVA: 0xCF6A94 Offset: 0xCF6A94 VA: 0xCF6A94
+	public FsmQuaternion targetRotation; // 0x70
+	[TooltipAttribute] // RVA: 0xCF6ACC Offset: 0xCF6ACC VA: 0xCF6ACC
+	public FsmVector3 positionWeight; // 0x78
+	[TooltipAttribute] // RVA: 0xCF6B04 Offset: 0xCF6B04 VA: 0xCF6B04
+	public FsmFloat rotationWeight; // 0x80
+	[TooltipAttribute] // RVA: 0xCF6B3C Offset: 0xCF6B3C VA: 0xCF6B3C
+	public FsmFloat startNormalizedTime; // 0x88
+	[TooltipAttribute] // RVA: 0xCF6B74 Offset: 0xCF6B74 VA: 0xCF6B74
+	public FsmFloat targetNormalizedTime; // 0x90
+	[TooltipAttribute] // RVA: 0xCF6BAC Offset: 0xCF6BAC VA: 0xCF6BAC
+	public bool everyFrame; // 0x98
+	private Animator _animator; // 0xA0
+	private Transform _transform; // 0xA8
+
+	// Methods
+
+	// RVA: 0x2318480 Offset: 0x2318480 VA: 0x2318480
+	public void .ctor() { }
+
+	// RVA: 0x2318488 Offset: 0x2318488 VA: 0x2318488 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x23185A4 Offset: 0x23185A4 VA: 0x23185A4 Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x2318B30 Offset: 0x2318B30 VA: 0x2318B30 Slot: 34
+	public override void OnUpdate() { }
+
+	// RVA: 0x231873C Offset: 0x231873C VA: 0x231873C
+	private void DoMatchTarget() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC9A120 Offset: 0xC9A120 VA: 0xC9A120
+[TooltipAttribute] // RVA: 0xC9A120 Offset: 0xC9A120 VA: 0xC9A120
+public class AnimatorPlay : FsmStateAction // TypeDefIndex: 12244
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF6BE4 Offset: 0xCF6BE4 VA: 0xCF6BE4
+	[CheckForComponentAttribute] // RVA: 0xCF6BE4 Offset: 0xCF6BE4 VA: 0xCF6BE4
+	[TooltipAttribute] // RVA: 0xCF6BE4 Offset: 0xCF6BE4 VA: 0xCF6BE4
+	public FsmOwnerDefault gameObject; // 0x50
+	[TooltipAttribute] // RVA: 0xCF6C7C Offset: 0xCF6C7C VA: 0xCF6C7C
+	public FsmString stateName; // 0x58
+	[TooltipAttribute] // RVA: 0xCF6CB4 Offset: 0xCF6CB4 VA: 0xCF6CB4
+	public FsmInt layer; // 0x60
+	[TooltipAttribute] // RVA: 0xCF6CEC Offset: 0xCF6CEC VA: 0xCF6CEC
+	public FsmFloat normalizedTime; // 0x68
+	[TooltipAttribute] // RVA: 0xCF6D24 Offset: 0xCF6D24 VA: 0xCF6D24
+	public bool everyFrame; // 0x70
+	private Animator _animator; // 0x78
+
+	// Methods
+
+	// RVA: 0x2318B34 Offset: 0x2318B34 VA: 0x2318B34
+	public void .ctor() { }
+
+	// RVA: 0x2318B3C Offset: 0x2318B3C VA: 0x2318B3C Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x2318BFC Offset: 0x2318BFC VA: 0x2318BFC Slot: 32
+	public override void OnEnter() { }
+
+	// RVA: 0x2318E6C Offset: 0x2318E6C VA: 0x2318E6C Slot: 34
+	public override void OnUpdate() { }
+
+	// RVA: 0x2318CF8 Offset: 0x2318CF8 VA: 0x2318CF8
+	private void DoAnimatorPlay() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC9A170 Offset: 0xC9A170 VA: 0xC9A170
+[TooltipAttribute] // RVA: 0xC9A170 Offset: 0xC9A170 VA: 0xC9A170
+public class AnimatorStartPlayback : FsmStateAction // TypeDefIndex: 12245
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF6D5C Offset: 0xCF6D5C VA: 0xCF6D5C
+	[CheckForComponentAttribute] // RVA: 0xCF6D5C Offset: 0xCF6D5C VA: 0xCF6D5C
+	[TooltipAttribute] // RVA: 0xCF6D5C Offset: 0xCF6D5C VA: 0xCF6D5C
+	public FsmOwnerDefault gameObject; // 0x50
+
+	// Methods
+
+	// RVA: 0x2318E70 Offset: 0x2318E70 VA: 0x2318E70
+	public void .ctor() { }
+
+	// RVA: 0x2318E78 Offset: 0x2318E78 VA: 0x2318E78 Slot: 28
+	public override void Reset() { }
+
+	// RVA: 0x2318E80 Offset: 0x2318E80 VA: 0x2318E80 Slot: 32
+	public override void OnEnter() { }
+}
+
+// Namespace: HutongGames.PlayMaker.Actions
+[ActionCategoryAttribute] // RVA: 0xC9A1C0 Offset: 0xC9A1C0 VA: 0xC9A1C0
+[TooltipAttribute] // RVA: 0xC9A1C0 Offset: 0xC9A1C0 VA: 0xC9A1C0
+public class AnimatorStartRecording : FsmStateAction // TypeDefIndex: 12246
+{
+	// Fields
+	[RequiredFieldAttribute] // RVA: 0xCF6DF4 Offset: 0xCF6DF4 VA: 0xCF6DF4
+	[CheckForComponentAttribute] // RVA: 0xCF6DF4 Offset: 0xCF6DF4 VA: 0xCF6DF4
+	[TooltipAttribute] // RVA: 0xCF6DF4 Offset: 0xCF6DF4 VA: 0xCF6DF4
+	public FsmOwnerDefault gameObject; // 0x50
+	[RequiredFieldAttribute] // RVA: 0xCF6E8C Offset: 0xCF6E8C VA: 0xCF6E8C
+	[TooltipAttribute] // RVA: 0xCF6E8C Offset: 0xCF6E8C VA: 0xCF6E8C
+	public FsmInt frameCount; // 0x58
+
+	// Methods
+
+	// RVA: 0x2318FA4 Offset: 0x2318FA4 VA: 0x2318FA4
+	public void .ctor() { }
+

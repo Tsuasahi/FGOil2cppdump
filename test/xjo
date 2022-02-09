@@ -1,0 +1,1000 @@
+
+	// RVA: 0x11B1D38 Offset: 0x11B1D38 VA: 0x11B1D38
+	public static void InitializeLibrary() { }
+
+	// RVA: 0x11AD8C4 Offset: 0x11AD8C4 VA: 0x11AD8C4
+	public static bool IsLibraryInitialized() { }
+
+	// RVA: 0x11B1E40 Offset: 0x11B1E40 VA: 0x11B1E40
+	public static void FinalizeLibrary() { }
+
+	// RVA: 0x11B1824 Offset: 0x11B1824 VA: 0x11B1824
+	private static extern void CRIWARE7222D63A(int num_loaders, int num_binders, int num_installers, int max_path, bool minimize_file_descriptor_usage, bool enable_crc_check) { }
+
+	// RVA: 0x11B1F90 Offset: 0x11B1F90 VA: 0x11B1F90
+	private static extern void CRIWARE3F65C816() { }
+
+	// RVA: 0x11B201C Offset: 0x11B201C VA: 0x11B201C
+	public static extern bool CRIWARE9F3B52BA() { }
+
+	// RVA: 0x11B21B0 Offset: 0x11B21B0 VA: 0x11B21B0
+	private static extern void CRIWARE610B5BF8() { }
+
+	// RVA: 0x11B223C Offset: 0x11B223C VA: 0x11B223C
+	public static extern uint CRIWARE05FCC2E5() { }
+
+	// RVA: 0x11B22C8 Offset: 0x11B22C8 VA: 0x11B22C8
+	public static extern uint criFsLoader_GetRetryCount() { }
+
+	// RVA: 0x11B2354 Offset: 0x11B2354 VA: 0x11B2354
+	public static extern int criFs_GetNumBinds(ref int cur, ref int max, ref int limit) { }
+
+	// RVA: 0x11B2408 Offset: 0x11B2408 VA: 0x11B2408
+	public static extern int criFs_GetNumUsedLoaders(ref int cur, ref int max, ref int limit) { }
+
+	// RVA: 0x11B24BC Offset: 0x11B24BC VA: 0x11B24BC
+	public static extern int criFs_GetNumUsedInstallers(ref int cur, ref int max, ref int limit) { }
+
+	// RVA: 0x11B198C Offset: 0x11B198C VA: 0x11B198C
+	private static extern int criFs_SetReadDeviceEnabled(int device_id, bool enabled) { }
+
+	// RVA: 0x11B1A9C Offset: 0x11B1A9C VA: 0x11B1A9C
+	private static extern void criFsUnity_SetConfigAdditionalParameters_ANDROID(int device_read_bps) { }
+
+	// RVA: 0x11B1B9C Offset: 0x11B1B9C VA: 0x11B1B9C
+	public static extern void criFsUnity_SetMemoryFileSystemThreadPriority_ANDROID(int prio) { }
+
+	// RVA: 0x11B1C9C Offset: 0x11B1C9C VA: 0x11B1C9C
+	public static extern void criFsUnity_SetDataDecompressionThreadPriority_ANDROID(int prio) { }
+
+	// RVA: 0x11B2570 Offset: 0x11B2570 VA: 0x11B2570
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class CriFsServer : CriMonoBehaviour // TypeDefIndex: 4013
+{
+	// Fields
+	private static CriFsServer _instance; // 0x0
+	private List<CriFsRequest> requestList; // 0x28
+	[CompilerGeneratedAttribute] // RVA: 0xC8D358 Offset: 0xC8D358 VA: 0xC8D358
+	[DebuggerBrowsableAttribute] // RVA: 0xC8D358 Offset: 0xC8D358 VA: 0xC8D358
+	private int <installBufferSize>k__BackingField; // 0x30
+
+	// Properties
+	public static CriFsServer instance { get; }
+	public int installBufferSize { get; set; }
+
+	// Methods
+
+	// RVA: 0x11B2C98 Offset: 0x11B2C98 VA: 0x11B2C98
+	public void .ctor() { }
+
+	// RVA: 0x11B2CA0 Offset: 0x11B2CA0 VA: 0x11B2CA0
+	public static CriFsServer get_instance() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8FCB4 Offset: 0xC8FCB4 VA: 0xC8FCB4
+	// RVA: 0x11B2E58 Offset: 0x11B2E58 VA: 0x11B2E58
+	public int get_installBufferSize() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8FCC4 Offset: 0xC8FCC4 VA: 0xC8FCC4
+	// RVA: 0x11B2E60 Offset: 0x11B2E60 VA: 0x11B2E60
+	private void set_installBufferSize(int value) { }
+
+	// RVA: 0x11B2D0C Offset: 0x11B2D0C VA: 0x11B2D0C
+	public static void CreateInstance() { }
+
+	// RVA: 0x11B20B0 Offset: 0x11B20B0 VA: 0x11B20B0
+	public static void DestroyInstance() { }
+
+	// RVA: 0x11B2E68 Offset: 0x11B2E68 VA: 0x11B2E68
+	private void Awake() { }
+
+	// RVA: 0x11B2FF4 Offset: 0x11B2FF4 VA: 0x11B2FF4
+	private void OnDestroy() { }
+
+	// RVA: 0x11B31A8 Offset: 0x11B31A8 VA: 0x11B31A8 Slot: 6
+	public override void CriInternalUpdate() { }
+
+	// RVA: 0x11B3408 Offset: 0x11B3408 VA: 0x11B3408 Slot: 7
+	public override void CriInternalLateUpdate() { }
+
+	// RVA: 0x11B340C Offset: 0x11B340C VA: 0x11B340C
+	public void AddRequest(CriFsRequest request) { }
+
+	// RVA: 0x11B347C Offset: 0x11B347C VA: 0x11B347C
+	public CriFsLoadFileRequest LoadFile(CriFsBinder binder, string path, CriFsRequest.DoneDelegate doneDelegate, int readUnitSize) { }
+
+	// RVA: 0x11B3514 Offset: 0x11B3514 VA: 0x11B3514
+	public CriFsLoadAssetBundleRequest LoadAssetBundle(CriFsBinder binder, string path, int readUnitSize) { }
+
+	// RVA: 0x11B35A4 Offset: 0x11B35A4 VA: 0x11B35A4
+	public CriFsInstallRequest Install(CriFsBinder srcBinder, string srcPath, string dstPath, CriFsRequest.DoneDelegate doneDelegate) { }
+
+	// RVA: 0x11B3668 Offset: 0x11B3668 VA: 0x11B3668
+	public CriFsInstallRequest WebInstall(string srcPath, string dstPath, CriFsRequest.DoneDelegate doneDelegate) { }
+
+	// RVA: 0x11B37F4 Offset: 0x11B37F4 VA: 0x11B37F4
+	public CriFsBindRequest BindCpk(CriFsBinder targetBinder, CriFsBinder srcBinder, string path) { }
+
+	// RVA: 0x11B3888 Offset: 0x11B3888 VA: 0x11B3888
+	public CriFsBindRequest BindDirectory(CriFsBinder targetBinder, CriFsBinder srcBinder, string path) { }
+
+	// RVA: 0x11B391C Offset: 0x11B391C VA: 0x11B391C
+	public CriFsBindRequest BindFile(CriFsBinder targetBinder, CriFsBinder srcBinder, string path) { }
+
+	// RVA: 0x11B39B0 Offset: 0x11B39B0 VA: 0x11B39B0
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class CriFsWebInstaller : CriDisposable // TypeDefIndex: 4014
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xC8D394 Offset: 0xC8D394 VA: 0xC8D394
+	[DebuggerBrowsableAttribute] // RVA: 0xC8D394 Offset: 0xC8D394 VA: 0xC8D394
+	private static bool <isInitialized>k__BackingField; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC8D3D0 Offset: 0xC8D3D0 VA: 0xC8D3D0
+	[DebuggerBrowsableAttribute] // RVA: 0xC8D3D0 Offset: 0xC8D3D0 VA: 0xC8D3D0
+	private static bool <isCrcEnabled>k__BackingField; // 0x1
+	public const int InvalidHttpStatusCode = -1;
+	public const long InvalidContentsSize = -1;
+	private IntPtr handle; // 0x20
+
+	// Properties
+	public static bool isInitialized { get; set; }
+	public static bool isCrcEnabled { get; set; }
+	public static CriFsWebInstaller.ModuleConfig defaultModuleConfig { get; }
+
+	// Methods
+
+	// RVA: 0x11B429C Offset: 0x11B429C VA: 0x11B429C
+	public void .ctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8FCD4 Offset: 0xC8FCD4 VA: 0xC8FCD4
+	// RVA: 0x11B33B4 Offset: 0x11B33B4 VA: 0x11B33B4
+	public static bool get_isInitialized() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8FCE4 Offset: 0xC8FCE4 VA: 0xC8FCE4
+	// RVA: 0x11B481C Offset: 0x11B481C VA: 0x11B481C
+	private static void set_isInitialized(bool value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8FCF4 Offset: 0xC8FCF4 VA: 0xC8FCF4
+	// RVA: 0x11B4690 Offset: 0x11B4690 VA: 0x11B4690
+	public static bool get_isCrcEnabled() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8FD04 Offset: 0xC8FD04 VA: 0xC8FD04
+	// RVA: 0x11B4874 Offset: 0x11B4874 VA: 0x11B4874
+	private static void set_isCrcEnabled(bool value) { }
+
+	// RVA: 0x11B48CC Offset: 0x11B48CC VA: 0x11B48CC
+	public static CriFsWebInstaller.ModuleConfig get_defaultModuleConfig() { }
+
+	// RVA: 0x11B48F4 Offset: 0x11B48F4 VA: 0x11B48F4 Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x11B4A74 Offset: 0x11B4A74 VA: 0x11B4A74 Slot: 5
+	public override void Dispose() { }
+
+	// RVA: 0x11B4374 Offset: 0x11B4374 VA: 0x11B4374
+	public void Copy(string url, string dstPath) { }
+
+	// RVA: 0x11B438C Offset: 0x11B438C VA: 0x11B438C
+	public void Stop() { }
+
+	// RVA: 0x11B45EC Offset: 0x11B45EC VA: 0x11B45EC
+	public CriFsWebInstaller.StatusInfo GetStatusInfo() { }
+
+	// RVA: 0x11B46E0 Offset: 0x11B46E0 VA: 0x11B46E0
+	public bool GetCRC32(out uint ret_val) { }
+
+	// RVA: 0x11B4D78 Offset: 0x11B4D78 VA: 0x11B4D78
+	public static void InitializeModule(CriFsWebInstaller.ModuleConfig config) { }
+
+	// RVA: 0x11B4F84 Offset: 0x11B4F84 VA: 0x11B4F84
+	public static void FinalizeModule() { }
+
+	// RVA: 0x11B3404 Offset: 0x11B3404 VA: 0x11B3404
+	public static void ExecuteMain() { }
+
+	// RVA: 0x11B51D0 Offset: 0x11B51D0 VA: 0x11B51D0
+	public static bool SetRequestHeader(string field, string value) { }
+
+	// RVA: 0x11B496C Offset: 0x11B496C VA: 0x11B496C
+	private void Dispose(bool disposing) { }
+
+	// RVA: 0x11B4ED0 Offset: 0x11B4ED0 VA: 0x11B4ED0
+	private static extern int criFsWebInstaller_Initialize(in CriFsWebInstaller.ModuleConfig config) { }
+
+	// RVA: 0x11B50B8 Offset: 0x11B50B8 VA: 0x11B50B8
+	private static extern int criFsWebInstaller_Finalize() { }
+
+	// RVA: 0x11B5144 Offset: 0x11B5144 VA: 0x11B5144
+	private static extern int criFsWebInstaller_ExecuteMain() { }
+
+	// RVA: 0x11B4780 Offset: 0x11B4780 VA: 0x11B4780
+	private static extern int criFsWebInstaller_Create(out IntPtr installer) { }
+
+	// RVA: 0x11B52C8 Offset: 0x11B52C8 VA: 0x11B52C8
+	private static extern int criFsWebInstaller_Destroy(IntPtr installer) { }
+
+	// RVA: 0x11B4AA0 Offset: 0x11B4AA0 VA: 0x11B4AA0
+	private static extern int criFsWebInstaller_Copy(IntPtr installer, string url, string dstPath) { }
+
+	// RVA: 0x11B4B84 Offset: 0x11B4B84 VA: 0x11B4B84
+	private static extern int criFsWebInstaller_Stop(IntPtr installer) { }
+
+	// RVA: 0x11B4C20 Offset: 0x11B4C20 VA: 0x11B4C20
+	private static extern int criFsWebInstaller_GetStatusInfo(IntPtr installer, out CriFsWebInstaller.StatusInfo status) { }
+
+	// RVA: 0x11B4CCC Offset: 0x11B4CCC VA: 0x11B4CCC
+	private static extern int criFsWebInstaller_GetCRC32(IntPtr installer, out uint crc32) { }
+
+	// RVA: 0x11B51EC Offset: 0x11B51EC VA: 0x11B51EC
+	private static extern int criFsWebInstaller_SetRequestHeader(string field, string value) { }
+}
+
+// Namespace: 
+public enum CriFsWebInstaller.Status // TypeDefIndex: 4015
+{
+	// Fields
+	public int value__; // 0x0
+	public const CriFsWebInstaller.Status Stop = 0;
+	public const CriFsWebInstaller.Status Busy = 1;
+	public const CriFsWebInstaller.Status Complete = 2;
+	public const CriFsWebInstaller.Status Error = 3;
+}
+
+// Namespace: 
+public enum CriFsWebInstaller.Error // TypeDefIndex: 4016
+{
+	// Fields
+	public int value__; // 0x0
+	public const CriFsWebInstaller.Error None = 0;
+	public const CriFsWebInstaller.Error Timeout = 1;
+	public const CriFsWebInstaller.Error Memory = 2;
+	public const CriFsWebInstaller.Error LocalFs = 3;
+	public const CriFsWebInstaller.Error DNS = 4;
+	public const CriFsWebInstaller.Error Connection = 5;
+	public const CriFsWebInstaller.Error SSL = 6;
+	public const CriFsWebInstaller.Error HTTP = 7;
+	public const CriFsWebInstaller.Error Internal = 8;
+}
+
+// Namespace: 
+public struct CriFsWebInstaller.StatusInfo // TypeDefIndex: 4017
+{
+	// Fields
+	public CriFsWebInstaller.Status status; // 0x0
+	public CriFsWebInstaller.Error error; // 0x4
+	public int httpStatusCode; // 0x8
+	public long contentsSize; // 0x10
+	public long receivedSize; // 0x18
+}
+
+// Namespace: 
+public struct CriFsWebInstaller.ModuleConfig // TypeDefIndex: 4018
+{
+	// Fields
+	public uint numInstallers; // 0x0
+	public string proxyHost; // 0x8
+	public ushort proxyPort; // 0x10
+	public string userAgent; // 0x18
+	public uint inactiveTimeoutSec; // 0x20
+	public bool allowInsecureSSL; // 0x24
+	public bool crcEnabled; // 0x25
+	public CriFsWebInstaller.ModulePlatformConfig platformConfig; // 0x26
+}
+
+// Namespace: 
+public struct CriFsWebInstaller.ModulePlatformConfig // TypeDefIndex: 4019
+{
+	// Fields
+	public byte reserved; // 0x0
+
+	// Properties
+	public static CriFsWebInstaller.ModulePlatformConfig defaultConfig { get; }
+
+	// Methods
+
+	// RVA: 0x11B48EC Offset: 0x11B48EC VA: 0x11B48EC
+	public static CriFsWebInstaller.ModulePlatformConfig get_defaultConfig() { }
+}
+
+// Namespace: CriMana
+public enum CodecType // TypeDefIndex: 4020
+{
+	// Fields
+	public int value__; // 0x0
+	public const CodecType Unknown = 0;
+	public const CodecType SofdecPrime = 1;
+	public const CodecType H264 = 5;
+	public const CodecType VP9 = 9;
+}
+
+// Namespace: CriMana
+public enum AlphaType // TypeDefIndex: 4021
+{
+	// Fields
+	public int value__; // 0x0
+	public const AlphaType CompoOpaq = 0;
+	public const AlphaType CompoAlphaFull = 1;
+	public const AlphaType CompoAlpha3Step = 2;
+	public const AlphaType CompoAlpha32Bit = 3;
+}
+
+// Namespace: CriMana
+public struct AudioInfo // TypeDefIndex: 4022
+{
+	// Fields
+	public uint samplingRate; // 0x0
+	public uint numChannels; // 0x4
+	public uint totalSamples; // 0x8
+}
+
+// Namespace: CriMana
+public class MovieInfo // TypeDefIndex: 4023
+{
+	// Fields
+	private uint _reserved1; // 0x10
+	private uint _hasAlpha; // 0x14
+	public uint width; // 0x18
+	public uint height; // 0x1C
+	public uint dispWidth; // 0x20
+	public uint dispHeight; // 0x24
+	public uint framerateN; // 0x28
+	public uint framerateD; // 0x2C
+	public uint totalFrames; // 0x30
+	private uint _codecType; // 0x34
+	private uint _alphaCodecType; // 0x38
+	public uint numAudioStreams; // 0x3C
+	public AudioInfo[] audioPrm; // 0x40
+	public uint numSubtitleChannels; // 0x48
+	public uint maxSubtitleSize; // 0x4C
+	public uint maxChunkSize; // 0x50
+
+	// Properties
+	public bool hasAlpha { get; set; }
+	public CodecType codecType { get; set; }
+	public CodecType alphaCodecType { get; set; }
+
+	// Methods
+
+	// RVA: 0x11BC7D0 Offset: 0x11BC7D0 VA: 0x11BC7D0
+	public void .ctor() { }
+
+	// RVA: 0x11B7878 Offset: 0x11B7878 VA: 0x11B7878
+	public bool get_hasAlpha() { }
+
+	// RVA: 0x11BC7D8 Offset: 0x11BC7D8 VA: 0x11BC7D8
+	public void set_hasAlpha(bool value) { }
+
+	// RVA: 0x11B5938 Offset: 0x11B5938 VA: 0x11B5938
+	public CodecType get_codecType() { }
+
+	// RVA: 0x11BC804 Offset: 0x11BC804 VA: 0x11BC804
+	public void set_codecType(CodecType value) { }
+
+	// RVA: 0x11B8C68 Offset: 0x11B8C68 VA: 0x11B8C68
+	public CodecType get_alphaCodecType() { }
+
+	// RVA: 0x11BC80C Offset: 0x11BC80C VA: 0x11BC80C
+	public void set_alphaCodecType(CodecType value) { }
+}
+
+// Namespace: CriMana
+public class FrameInfo // TypeDefIndex: 4024
+{
+	// Fields
+	public int frameNo; // 0x10
+	public int frameNoPerFile; // 0x14
+	public uint width; // 0x18
+	public uint height; // 0x1C
+	public uint dispWidth; // 0x20
+	public uint dispHeight; // 0x24
+	public uint numImages; // 0x28
+	public uint framerateN; // 0x2C
+	public uint framerateD; // 0x30
+	public ulong time; // 0x38
+	public ulong tunit; // 0x40
+	public uint cntConcatenatedMovie; // 0x48
+	private AlphaType alphaType; // 0x4C
+	public uint cntSkippedFrames; // 0x50
+	public uint totalFramesPerFile; // 0x54
+
+	// Methods
+
+	// RVA: 0x11B7624 Offset: 0x11B7624 VA: 0x11B7624
+	public void .ctor() { }
+}
+
+// Namespace: CriMana
+public struct EventPoint // TypeDefIndex: 4025
+{
+	// Fields
+	public IntPtr cueName; // 0x0
+	public uint cueNameSize; // 0x8
+	public ulong time; // 0x10
+	public ulong tunit; // 0x18
+	public int type; // 0x20
+	public IntPtr paramString; // 0x28
+	public uint paramStringSize; // 0x30
+	public uint cntCallback; // 0x34
+}
+
+// Namespace: CriMana
+public static class Settings // TypeDefIndex: 4026
+{
+	// Methods
+
+	// RVA: 0x11C3554 Offset: 0x11C3554 VA: 0x11C3554
+	public static void SetDecodeSkippingEnabled(bool enabled) { }
+}
+
+// Namespace: 
+public class CriManaPlugin // TypeDefIndex: 4027
+{
+	// Fields
+	private static int initializationCount; // 0x0
+	private static bool isConfigured; // 0x4
+	private static bool enabledMultithreadedRendering; // 0x5
+	public static int renderingEventOffset; // 0x8
+
+	// Properties
+	public static bool isInitialized { get; }
+	public static bool isMultithreadedRenderingEnabled { get; }
+
+	// Methods
+
+	// RVA: 0xE7BE48 Offset: 0xE7BE48 VA: 0xE7BE48
+	public void .ctor() { }
+
+	// RVA: 0xE7BE50 Offset: 0xE7BE50 VA: 0xE7BE50
+	public static bool get_isInitialized() { }
+
+	// RVA: 0xE7BEC0 Offset: 0xE7BEC0 VA: 0xE7BEC0
+	public static bool get_isMultithreadedRenderingEnabled() { }
+
+	// RVA: 0xE7BF28 Offset: 0xE7BF28 VA: 0xE7BF28
+	public static void SetConfigParameters(bool graphicsMultiThreaded, int num_decoders, int max_num_of_entries) { }
+
+	// RVA: 0xE7C180 Offset: 0xE7C180 VA: 0xE7C180
+	private static void SetupVp9() { }
+
+	[ObsoleteAttribute] // RVA: 0xC8FD14 Offset: 0xC8FD14 VA: 0xC8FD14
+	// RVA: 0xE7C410 Offset: 0xE7C410 VA: 0xE7C410
+	public static void SetConfigAdditonalParameters_VITA(bool use_h264_playback, int width, int height) { }
+
+	// RVA: 0xE7C414 Offset: 0xE7C414 VA: 0xE7C414
+	public static void SetConfigAdditonalParameters_PC(bool use_h264_playback) { }
+
+	// RVA: 0xE7C418 Offset: 0xE7C418 VA: 0xE7C418
+	public static void SetConfigAdditonalParameters_ANDROID(bool enable_buffer_output_for_h264, bool enable_buffer_output_for_vp9) { }
+
+	// RVA: 0xE7C65C Offset: 0xE7C65C VA: 0xE7C65C
+	public static void SetConfigAdditonalParameters_WEBGL(string webworkerPath, uint heapSize) { }
+
+	// RVA: 0xE7C660 Offset: 0xE7C660 VA: 0xE7C660
+	public static void InitializeLibrary() { }
+
+	// RVA: 0xE7C7C4 Offset: 0xE7C7C4 VA: 0xE7C7C4
+	public static bool IsLibraryInitialized() { }
+
+	// RVA: 0xE7C820 Offset: 0xE7C820 VA: 0xE7C820
+	public static void FinalizeLibrary() { }
+
+	// RVA: 0xE7CB64 Offset: 0xE7CB64 VA: 0xE7CB64
+	public static bool IsCodecSupported(CodecType codecType) { }
+
+	// RVA: 0xE7C278 Offset: 0xE7C278 VA: 0xE7C278
+	private static bool IsVp9CodecSupported() { }
+
+	// RVA: 0xE7CC34 Offset: 0xE7CC34 VA: 0xE7CC34
+	private static bool IsH264CodecSupported() { }
+
+	// RVA: 0xE7CC64 Offset: 0xE7CC64 VA: 0xE7CC64
+	public static void SetDecodeThreadPriorityAndroidExperimental(int prio) { }
+
+	// RVA: 0xE7CD64 Offset: 0xE7CD64 VA: 0xE7CD64
+	public static bool ShouldSampleRed(GraphicsDeviceType type, IntPtr tex_ptr) { }
+
+	// RVA: 0xE7CE94 Offset: 0xE7CE94 VA: 0xE7CE94
+	public static void Lock() { }
+
+	// RVA: 0xE7CF7C Offset: 0xE7CF7C VA: 0xE7CF7C
+	public static void Unlock() { }
+
+	// RVA: 0xE7C0BC Offset: 0xE7C0BC VA: 0xE7C0BC
+	private static extern void CRIWAREC0E15C70(int graphics_api, bool graphics_multi_threaded, int num_decoders, int num_of_max_entries) { }
+
+	// RVA: 0xE7C9B8 Offset: 0xE7C9B8 VA: 0xE7C9B8
+	private static extern void CRIWAREF5532374() { }
+
+	// RVA: 0xE7CA44 Offset: 0xE7CA44 VA: 0xE7CA44
+	public static extern bool CRIWARE67506051() { }
+
+	// RVA: 0xE7CAD8 Offset: 0xE7CAD8 VA: 0xE7CAD8
+	private static extern void CRIWAREBF7C8D42() { }
+
+	// RVA: 0xE7D064 Offset: 0xE7D064 VA: 0xE7D064
+	public static extern void CRIWARE9102F00E(bool flag) { }
+
+	// RVA: 0xE7CEF0 Offset: 0xE7CEF0 VA: 0xE7CEF0
+	public static extern void CRIWAREFD2629D9() { }
+
+	// RVA: 0xE7CFD8 Offset: 0xE7CFD8 VA: 0xE7CFD8
+	public static extern void CRIWAREA66BBDA2() { }
+
+	// RVA: 0xE7D100 Offset: 0xE7D100 VA: 0xE7D100
+	public static extern void criMana_UseStreamerManager(bool flag) { }
+
+	// RVA: 0xE7D19C Offset: 0xE7D19C VA: 0xE7D19C
+	public static extern bool criMana_IsStreamerManagerUsed() { }
+
+	// RVA: 0xE7D230 Offset: 0xE7D230 VA: 0xE7D230
+	public static extern uint CRIWARE75B44401() { }
+
+	// RVA: 0xE7CCC8 Offset: 0xE7CCC8 VA: 0xE7CCC8
+	public static extern void criManaUnity_SetDecodeThreadPriority_ANDROID(int prio) { }
+
+	// RVA: 0xE7C5B0 Offset: 0xE7C5B0 VA: 0xE7C5B0
+	private static extern void criManaUnity_SetConfigAdditionalParameters_ANDROID(bool buffer_h264, bool buffer_vp9) { }
+
+	// RVA: 0xE7D2BC Offset: 0xE7D2BC VA: 0xE7D2BC
+	public static extern bool criManaUnity_IsBufferOutputForH264Enabled_ANDROID() { }
+
+	// RVA: 0xE7D350 Offset: 0xE7D350 VA: 0xE7D350
+	public static extern void criManaUnity_EnableSwitchTextureSampleColorGLES30_ANDROID() { }
+
+	// RVA: 0xE7CDF0 Offset: 0xE7CDF0 VA: 0xE7CDF0
+	private static extern bool criManaUnity_ShouldSwitchTextureSampleColorToRedGLES30_ANDROID(IntPtr tex_ptr) { }
+
+	// RVA: 0xE7D3DC Offset: 0xE7D3DC VA: 0xE7D3DC
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class CriManaAmbisonicSource : CriMonoBehaviour // TypeDefIndex: 4028
+{
+	// Fields
+	private CriAtomEx3dSource atomEx3DsourceForAmbisonics; // 0x28
+	private Vector3 ambisonicSourceOrientationFront; // 0x30
+	private Vector3 ambisonicSourceOrientationTop; // 0x3C
+	private Vector3 lastEulerOfAmbisonicSource; // 0x48
+
+	// Methods
+
+	// RVA: 0x11C35BC Offset: 0x11C35BC VA: 0x11C35BC
+	public void .ctor() { }
+
+	// RVA: 0x11C35C4 Offset: 0x11C35C4 VA: 0x11C35C4 Slot: 6
+	public override void CriInternalUpdate() { }
+
+	// RVA: 0x11C36B8 Offset: 0x11C36B8 VA: 0x11C36B8 Slot: 7
+	public override void CriInternalLateUpdate() { }
+
+	// RVA: 0x11C36BC Offset: 0x11C36BC VA: 0x11C36BC Slot: 4
+	protected override void OnEnable() { }
+
+	// RVA: 0x11C37A4 Offset: 0x11C37A4 VA: 0x11C37A4
+	private void ForceUpdateAmbisonicSourceOrientation() { }
+
+	// RVA: 0x11C35C8 Offset: 0x11C35C8 VA: 0x11C35C8
+	private void UpdateAmbisonicSourceOrientation() { }
+
+	// RVA: 0x11C3864 Offset: 0x11C3864 VA: 0x11C3864
+	private void RoatateAmbisonicSourceOrientationByTransformOfChild(ref Vector3 input_euler) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC8B09C Offset: 0xC8B09C VA: 0xC8B09C
+public class CriManaMovieController : CriManaMovieMaterial // TypeDefIndex: 4029
+{
+	// Fields
+	public Renderer target; // 0x98
+	public bool useOriginalMaterial; // 0xA0
+	private Material originalMaterial; // 0xA8
+
+	// Methods
+
+	// RVA: 0x11C3FE4 Offset: 0x11C3FE4 VA: 0x11C3FE4
+	public void .ctor() { }
+
+	// RVA: 0x11C4058 Offset: 0x11C4058 VA: 0x11C4058 Slot: 6
+	public override void CriInternalUpdate() { }
+
+	// RVA: 0x11C4138 Offset: 0x11C4138 VA: 0x11C4138 Slot: 10
+	public override bool RenderTargetManualSetup() { }
+
+	// RVA: 0x11C4274 Offset: 0x11C4274 VA: 0x11C4274 Slot: 11
+	public override void RenderTargetManualFinalize() { }
+
+	// RVA: 0x11C4350 Offset: 0x11C4350 VA: 0x11C4350 Slot: 8
+	protected override void OnMaterialAvailableChanged() { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC8B0D4 Offset: 0xC8B0D4 VA: 0xC8B0D4
+public class CriManaMovieControllerForUI : CriManaMovieMaterial // TypeDefIndex: 4030
+{
+	// Fields
+	public Graphic target; // 0x98
+	public bool useOriginalMaterial; // 0xA0
+	private Material originalMaterial; // 0xA8
+
+	// Methods
+
+	// RVA: 0x11C447C Offset: 0x11C447C VA: 0x11C447C
+	public void .ctor() { }
+
+	// RVA: 0x11C4480 Offset: 0x11C4480 VA: 0x11C4480 Slot: 12
+	protected override void Awake() { }
+
+	// RVA: 0x11C44B4 Offset: 0x11C44B4 VA: 0x11C44B4 Slot: 6
+	public override void CriInternalUpdate() { }
+
+	// RVA: 0x11C458C Offset: 0x11C458C VA: 0x11C458C Slot: 10
+	public override bool RenderTargetManualSetup() { }
+
+	// RVA: 0x11C46D0 Offset: 0x11C46D0 VA: 0x11C46D0 Slot: 11
+	public override void RenderTargetManualFinalize() { }
+
+	// RVA: 0x11C47B4 Offset: 0x11C47B4 VA: 0x11C47B4 Slot: 8
+	protected override void OnMaterialAvailableChanged() { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC8B10C Offset: 0xC8B10C VA: 0xC8B10C
+public class CriManaMovieMaterial : CriMonoBehaviour // TypeDefIndex: 4031
+{
+	// Fields
+	public bool playOnStart; // 0x28
+	public bool restartOnEnable; // 0x29
+	[CompilerGeneratedAttribute] // RVA: 0xC8D40C Offset: 0xC8D40C VA: 0xC8D40C
+	[DebuggerBrowsableAttribute] // RVA: 0xC8D40C Offset: 0xC8D40C VA: 0xC8D40C
+	private bool <isMaterialAvailable>k__BackingField; // 0x2A
+	[CompilerGeneratedAttribute] // RVA: 0xC8D448 Offset: 0xC8D448 VA: 0xC8D448
+	[DebuggerBrowsableAttribute] // RVA: 0xC8D448 Offset: 0xC8D448 VA: 0xC8D448
+	private Player <player>k__BackingField; // 0x30
+	public CriManaMovieMaterial.RenderMode renderMode; // 0x38
+	public CriManaMovieMaterial.OnApplicationPauseCallback onApplicationPauseCallback; // 0x40
+	private Player.TimerType _timerType; // 0x48
+	[SerializeField] // RVA: 0xC8D484 Offset: 0xC8D484 VA: 0xC8D484
+	private Material _material; // 0x50
+	[SerializeField] // RVA: 0xC8D494 Offset: 0xC8D494 VA: 0xC8D494
+	private string _moviePath; // 0x58
+	[SerializeField] // RVA: 0xC8D4A4 Offset: 0xC8D4A4 VA: 0xC8D4A4
+	private bool _loop; // 0x60
+	[SerializeField] // RVA: 0xC8D4B4 Offset: 0xC8D4B4 VA: 0xC8D4B4
+	private CriManaMovieMaterial.MaxFrameDrop _maxFrameDrop; // 0x64
+	[SerializeField] // RVA: 0xC8D4C4 Offset: 0xC8D4C4 VA: 0xC8D4C4
+	private bool _additiveMode; // 0x68
+	[SerializeField] // RVA: 0xC8D4D4 Offset: 0xC8D4D4 VA: 0xC8D4D4
+	private bool _advancedAudio; // 0x69
+	[SerializeField] // RVA: 0xC8D4E4 Offset: 0xC8D4E4 VA: 0xC8D4E4
+	private bool _ambisonics; // 0x6A
+	[SerializeField] // RVA: 0xC8D4F4 Offset: 0xC8D4F4 VA: 0xC8D4F4
+	private bool _applyTargetAlpha; // 0x6B
+	[SerializeField] // RVA: 0xC8D504 Offset: 0xC8D504 VA: 0xC8D504
+	private bool _uiRenderMode; // 0x6C
+	private bool materialOwn; // 0x6D
+	private bool isMonoBehaviourStartCalled; // 0x6E
+	private GameObject ambisonicSource; // 0x70
+	private bool wasDisabled; // 0x78
+	private bool wasPausedOnDisable; // 0x79
+	private WaitForEndOfFrame frameEnd; // 0x80
+	private bool unpauseOnApplicationUnpause; // 0x88
+	[CompilerGeneratedAttribute] // RVA: 0xC8D514 Offset: 0xC8D514 VA: 0xC8D514
+	[DebuggerBrowsableAttribute] // RVA: 0xC8D514 Offset: 0xC8D514 VA: 0xC8D514
+	private bool <HaveRendererOwner>k__BackingField; // 0x89
+	private CriManaMoviePlayerHolder playerHolder; // 0x90
+
+	// Properties
+	public string moviePath { get; set; }
+	public bool loop { get; set; }
+	public CriManaMovieMaterial.MaxFrameDrop maxFrameDrop { get; set; }
+	public bool advancedAudio { get; set; }
+	public bool ambisonics { get; set; }
+	public bool additiveMode { get; set; }
+	public bool applyTargetAlpha { get; set; }
+	public bool uiRenderMode { get; set; }
+	public bool isMaterialAvailable { get; set; }
+	public Player player { get; set; }
+	public Material material { get; set; }
+	public Player.TimerType timerType { get; set; }
+	protected bool HaveRendererOwner { get; set; }
+
+	// Methods
+
+	// RVA: 0x11C3FE8 Offset: 0x11C3FE8 VA: 0x11C3FE8
+	public void .ctor() { }
+
+	// RVA: 0x11C48E0 Offset: 0x11C48E0 VA: 0x11C48E0
+	public string get_moviePath() { }
+
+	// RVA: 0x11C48E8 Offset: 0x11C48E8 VA: 0x11C48E8
+	public void set_moviePath(string value) { }
+
+	// RVA: 0x11C48FC Offset: 0x11C48FC VA: 0x11C48FC
+	public bool get_loop() { }
+
+	// RVA: 0x11C4904 Offset: 0x11C4904 VA: 0x11C4904
+	public void set_loop(bool value) { }
+
+	// RVA: 0x11C491C Offset: 0x11C491C VA: 0x11C491C
+	public CriManaMovieMaterial.MaxFrameDrop get_maxFrameDrop() { }
+
+	// RVA: 0x11C4924 Offset: 0x11C4924 VA: 0x11C4924
+	public void set_maxFrameDrop(CriManaMovieMaterial.MaxFrameDrop value) { }
+
+	// RVA: 0x11C4938 Offset: 0x11C4938 VA: 0x11C4938
+	public bool get_advancedAudio() { }
+
+	// RVA: 0x11C4940 Offset: 0x11C4940 VA: 0x11C4940
+	public void set_advancedAudio(bool value) { }
+
+	// RVA: 0x11C4DE4 Offset: 0x11C4DE4 VA: 0x11C4DE4
+	public bool get_ambisonics() { }
+
+	// RVA: 0x11C4980 Offset: 0x11C4980 VA: 0x11C4980
+	public void set_ambisonics(bool value) { }
+
+	// RVA: 0x11C4DEC Offset: 0x11C4DEC VA: 0x11C4DEC
+	public bool get_additiveMode() { }
+
+	// RVA: 0x11C4DF4 Offset: 0x11C4DF4 VA: 0x11C4DF4
+	public void set_additiveMode(bool value) { }
+
+	// RVA: 0x11C4E0C Offset: 0x11C4E0C VA: 0x11C4E0C
+	public bool get_applyTargetAlpha() { }
+
+	// RVA: 0x11C4E14 Offset: 0x11C4E14 VA: 0x11C4E14
+	public void set_applyTargetAlpha(bool value) { }
+
+	// RVA: 0x11C4E2C Offset: 0x11C4E2C VA: 0x11C4E2C
+	public bool get_uiRenderMode() { }
+
+	// RVA: 0x11C4498 Offset: 0x11C4498 VA: 0x11C4498
+	public void set_uiRenderMode(bool value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8FD4C Offset: 0xC8FD4C VA: 0xC8FD4C
+	// RVA: 0x11C446C Offset: 0x11C446C VA: 0x11C446C
+	public bool get_isMaterialAvailable() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8FD5C Offset: 0xC8FD5C VA: 0xC8FD5C
+	// RVA: 0x11C4E34 Offset: 0x11C4E34 VA: 0x11C4E34
+	private void set_isMaterialAvailable(bool value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8FD6C Offset: 0xC8FD6C VA: 0xC8FD6C
+	// RVA: 0x11C379C Offset: 0x11C379C VA: 0x11C379C
+	public Player get_player() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8FD7C Offset: 0xC8FD7C VA: 0xC8FD7C
+	// RVA: 0x11C4E40 Offset: 0x11C4E40 VA: 0x11C4E40
+	private void set_player(Player value) { }
+
+	// RVA: 0x11C4474 Offset: 0x11C4474 VA: 0x11C4474
+	public Material get_material() { }
+
+	// RVA: 0x11C4E48 Offset: 0x11C4E48 VA: 0x11C4E48
+	public void set_material(Material value) { }
+
+	// RVA: 0x11C4F08 Offset: 0x11C4F08 VA: 0x11C4F08
+	public Player.TimerType get_timerType() { }
+
+	// RVA: 0x11C4F10 Offset: 0x11C4F10 VA: 0x11C4F10
+	public void set_timerType(Player.TimerType value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8FD8C Offset: 0xC8FD8C VA: 0xC8FD8C
+	// RVA: 0x11C4130 Offset: 0x11C4130 VA: 0x11C4130
+	protected bool get_HaveRendererOwner() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8FD9C Offset: 0xC8FD9C VA: 0xC8FD9C
+	// RVA: 0x11C4F28 Offset: 0x11C4F28 VA: 0x11C4F28
+	private void set_HaveRendererOwner(bool value) { }
+
+	// RVA: 0x11C4F34 Offset: 0x11C4F34 VA: 0x11C4F34
+	public void Play() { }
+
+	// RVA: 0x11C4F74 Offset: 0x11C4F74 VA: 0x11C4F74
+	public void Stop() { }
+
+	// RVA: 0x11C4FCC Offset: 0x11C4FCC VA: 0x11C4FCC
+	public void Pause(bool sw) { }
+
+	// RVA: 0x11C501C Offset: 0x11C501C VA: 0x11C501C Slot: 8
+	protected virtual void OnMaterialAvailableChanged() { }
+
+	// RVA: 0x11C5020 Offset: 0x11C5020 VA: 0x11C5020 Slot: 9
+	protected virtual void OnMaterialUpdated() { }
+
+	// RVA: 0x11C5024 Offset: 0x11C5024 VA: 0x11C5024
+	public void PlayerManualInitialize() { }
+
+	// RVA: 0x11C523C Offset: 0x11C523C VA: 0x11C523C
+	public void PlayerManualFinalize() { }
+
+	// RVA: 0x11C5284 Offset: 0x11C5284 VA: 0x11C5284
+	public void PlayerManualSetup() { }
+
+	// RVA: 0x11C5500 Offset: 0x11C5500 VA: 0x11C5500 Slot: 10
+	public virtual bool RenderTargetManualSetup() { }
+
+	// RVA: 0x11C5508 Offset: 0x11C5508 VA: 0x11C5508 Slot: 11
+	public virtual void RenderTargetManualFinalize() { }
+
+	// RVA: 0x11C550C Offset: 0x11C550C VA: 0x11C550C
+	public void PlayerManualUpdate() { }
+
+	// RVA: 0x11C44B0 Offset: 0x11C44B0 VA: 0x11C44B0 Slot: 12
+	protected virtual void Awake() { }
+
+	// RVA: 0x11C5638 Offset: 0x11C5638 VA: 0x11C5638 Slot: 4
+	protected override void OnEnable() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC8FDAC Offset: 0xC8FDAC VA: 0xC8FDAC
+	// RVA: 0x11C56A4 Offset: 0x11C56A4 VA: 0x11C56A4
+	private IEnumerator RestartPlayerRoutine() { }
+
+	// RVA: 0x11C5714 Offset: 0x11C5714 VA: 0x11C5714 Slot: 5
+	protected override void OnDisable() { }
+
+	// RVA: 0x11C577C Offset: 0x11C577C VA: 0x11C577C Slot: 13
+	protected virtual void OnDestroy() { }
+
+	// RVA: 0x11C57A8 Offset: 0x11C57A8 VA: 0x11C57A8 Slot: 14
+	protected virtual void Start() { }
+
+	// RVA: 0x11C412C Offset: 0x11C412C VA: 0x11C412C Slot: 6
+	public override void CriInternalUpdate() { }
+
+	// RVA: 0x11C5840 Offset: 0x11C5840 VA: 0x11C5840 Slot: 15
+	public virtual void RenderMovie() { }
+
+	// RVA: 0x11C586C Offset: 0x11C586C VA: 0x11C586C Slot: 7
+	public override void CriInternalLateUpdate() { }
+
+	// RVA: 0x11C58A4 Offset: 0x11C58A4 VA: 0x11C58A4 Slot: 16
+	protected virtual void OnWillRenderObject() { }
+
+	// RVA: 0x11C58E0 Offset: 0x11C58E0 VA: 0x11C58E0
+	private void OnApplicationPause(bool appPause) { }
+
+	// RVA: 0x11C58E8 Offset: 0x11C58E8 VA: 0x11C58E8
+	private void ProcessApplicationPause(bool appPause) { }
+
+	// RVA: 0x11C544C Offset: 0x11C544C VA: 0x11C544C
+	private void CreateMaterial() { }
+}
+
+// Namespace: 
+public enum CriManaMovieMaterial.MaxFrameDrop // TypeDefIndex: 4032
+{
+	// Fields
+	public int value__; // 0x0
+	public const CriManaMovieMaterial.MaxFrameDrop Disabled = 0;
+	public const CriManaMovieMaterial.MaxFrameDrop One = 1;
+	public const CriManaMovieMaterial.MaxFrameDrop Two = 2;
+	public const CriManaMovieMaterial.MaxFrameDrop Three = 3;
+	public const CriManaMovieMaterial.MaxFrameDrop Four = 4;
+	public const CriManaMovieMaterial.MaxFrameDrop Five = 5;
+	public const CriManaMovieMaterial.MaxFrameDrop Six = 6;
+	public const CriManaMovieMaterial.MaxFrameDrop Seven = 7;
+	public const CriManaMovieMaterial.MaxFrameDrop Eight = 8;
+	public const CriManaMovieMaterial.MaxFrameDrop Nine = 9;
+	public const CriManaMovieMaterial.MaxFrameDrop Ten = 10;
+	public const CriManaMovieMaterial.MaxFrameDrop Infinite = -1;
+}
+
+// Namespace: 
+public enum CriManaMovieMaterial.RenderMode // TypeDefIndex: 4033
+{
+	// Fields
+	public int value__; // 0x0
+	public const CriManaMovieMaterial.RenderMode Always = 0;
+	public const CriManaMovieMaterial.RenderMode OnVisibility = 1;
+	public const CriManaMovieMaterial.RenderMode Never = 2;
+}
+
+// Namespace: 
+public sealed class CriManaMovieMaterial.OnApplicationPauseCallback : MulticastDelegate // TypeDefIndex: 4034
+{
+	// Methods
+
+	// RVA: 0xE7B8D4 Offset: 0xE7B8D4 VA: 0xE7B8D4
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0xE7B8E4 Offset: 0xE7B8E4 VA: 0xE7B8E4 Slot: 11
+	public virtual void Invoke(CriManaMovieMaterial manaMovieMaterial, bool appPause) { }
+
+	// RVA: 0xE7BCA4 Offset: 0xE7BCA4 VA: 0xE7BCA4 Slot: 12
+	public virtual IAsyncResult BeginInvoke(CriManaMovieMaterial manaMovieMaterial, bool appPause, AsyncCallback callback, object object) { }
+
+	// RVA: 0xE7BD44 Offset: 0xE7BD44 VA: 0xE7BD44 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC8C620 Offset: 0xC8C620 VA: 0xC8C620
+private sealed class CriManaMovieMaterial.<RestartPlayerRoutine>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 4035
+{
+	// Fields
+	internal CriManaMovieMaterial $this; // 0x10
+	internal object $current; // 0x18
+	internal bool $disposing; // 0x20
+	internal int $PC; // 0x24
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xC909A8 Offset: 0xC909A8 VA: 0xC909A8
+	// RVA: 0xE7B62C Offset: 0xE7B62C VA: 0xE7B62C
+	public void .ctor() { }
+
+	// RVA: 0xE7B634 Offset: 0xE7B634 VA: 0xE7B634 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC909B8 Offset: 0xC909B8 VA: 0xC909B8
+	// RVA: 0xE7B848 Offset: 0xE7B848 VA: 0xE7B848 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC909C8 Offset: 0xC909C8 VA: 0xC909C8
+	// RVA: 0xE7B850 Offset: 0xE7B850 VA: 0xE7B850 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC909D8 Offset: 0xC909D8 VA: 0xC909D8
+	// RVA: 0xE7B858 Offset: 0xE7B858 VA: 0xE7B858 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC909E8 Offset: 0xC909E8 VA: 0xC909E8
+	// RVA: 0xE7B86C Offset: 0xE7B86C VA: 0xE7B86C Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+public class CriManaMoviePlayerHolder : CriMonoBehaviour // TypeDefIndex: 4036
+{
+	// Fields
+	private Player _player; // 0x28
+
+	// Properties
+	public Player player { set; }
+
+	// Methods
+
+	// RVA: 0xE7BD50 Offset: 0xE7BD50 VA: 0xE7BD50
+	public void .ctor() { }
+
+	// RVA: 0xE7BDCC Offset: 0xE7BDCC VA: 0xE7BDCC
+	public void set_player(Player value) { }
+
+	// RVA: 0xE7BDD4 Offset: 0xE7BDD4 VA: 0xE7BDD4
+	private void Awake() { }
+
+	// RVA: 0xE7BE3C Offset: 0xE7BE3C VA: 0xE7BE3C Slot: 6
+	public override void CriInternalUpdate() { }
+
+	// RVA: 0xE7BE40 Offset: 0xE7BE40 VA: 0xE7BE40 Slot: 7
+	public override void CriInternalLateUpdate() { }
+
+	// RVA: 0xE7BE44 Offset: 0xE7BE44 VA: 0xE7BE44
+	private void Start() { }
+}
+
+// Namespace: CriMana.Detail
+public abstract class RendererResource : IDisposable // TypeDefIndex: 4037
+{
+	// Fields
+	private bool disposed; // 0x10
+	protected Shader shader; // 0x18
+	protected Material currentMaterial; // 0x20
+	protected bool hasAlpha; // 0x28
+	protected bool additive; // 0x29
+	protected bool applyTargetAlpha; // 0x2A
+	protected bool ui; // 0x2B
+
+	// Methods
+

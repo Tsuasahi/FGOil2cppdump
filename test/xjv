@@ -1,0 +1,1000 @@
+	// RVA: 0x12D46E8 Offset: 0x12D46E8 VA: 0x12D46E8
+	private void Start() { }
+
+	// RVA: 0x12D478C Offset: 0x12D478C VA: 0x12D478C
+	private void OnTap(TapGesture gesture) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC8BB5C Offset: 0xC8BB5C VA: 0xC8BB5C
+public class TBOrbit : MonoBehaviour // TypeDefIndex: 4205
+{
+	// Fields
+	public Transform target; // 0x18
+	public float initialDistance; // 0x20
+	public float minDistance; // 0x24
+	public float maxDistance; // 0x28
+	public float yawSensitivity; // 0x2C
+	public float pitchSensitivity; // 0x30
+	public bool clampYawAngle; // 0x34
+	public float minYaw; // 0x38
+	public float maxYaw; // 0x3C
+	public bool clampPitchAngle; // 0x40
+	public float minPitch; // 0x44
+	public float maxPitch; // 0x48
+	public bool allowPinchZoom; // 0x4C
+	public float pinchZoomSensitivity; // 0x50
+	public bool smoothMotion; // 0x54
+	public float smoothZoomSpeed; // 0x58
+	public float smoothOrbitSpeed; // 0x5C
+	public bool allowPanning; // 0x60
+	public bool invertPanningDirections; // 0x61
+	public float panningSensitivity; // 0x64
+	public Transform panningPlane; // 0x68
+	public bool smoothPanning; // 0x70
+	public float smoothPanningSpeed; // 0x74
+	public LayerMask collisionLayerMask; // 0x78
+	private float distance; // 0x7C
+	private float yaw; // 0x80
+	private float pitch; // 0x84
+	private float idealDistance; // 0x88
+	private float idealYaw; // 0x8C
+	private float idealPitch; // 0x90
+	private Vector3 idealPanOffset; // 0x94
+	private Vector3 panOffset; // 0xA0
+	private PinchRecognizer pinchRecognizer; // 0xB0
+	private float nextDragTime; // 0xB8
+	public bool OnlyRotateWhenDragStartsOnObject; // 0xBC
+	[CompilerGeneratedAttribute] // RVA: 0xC8E8C8 Offset: 0xC8E8C8 VA: 0xC8E8C8
+	private static Predicate<GestureRecognizer> <>f__am$cache0; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC8E8D8 Offset: 0xC8E8D8 VA: 0xC8E8D8
+	private static Predicate<GestureRecognizer> <>f__am$cache1; // 0x8
+	[CompilerGeneratedAttribute] // RVA: 0xC8E8E8 Offset: 0xC8E8E8 VA: 0xC8E8E8
+	private static Predicate<GestureRecognizer> <>f__am$cache2; // 0x10
+
+	// Properties
+	public float Distance { get; }
+	public float IdealDistance { get; set; }
+	public float Yaw { get; }
+	public float IdealYaw { get; set; }
+	public float Pitch { get; }
+	public float IdealPitch { get; set; }
+	public Vector3 IdealPanOffset { get; set; }
+	public Vector3 PanOffset { get; }
+
+	// Methods
+
+	// RVA: 0x12D4974 Offset: 0x12D4974 VA: 0x12D4974
+	public void .ctor() { }
+
+	// RVA: 0x12D4A68 Offset: 0x12D4A68 VA: 0x12D4A68
+	public float get_Distance() { }
+
+	// RVA: 0x12D4A70 Offset: 0x12D4A70 VA: 0x12D4A70
+	public float get_IdealDistance() { }
+
+	// RVA: 0x12D4A78 Offset: 0x12D4A78 VA: 0x12D4A78
+	public void set_IdealDistance(float value) { }
+
+	// RVA: 0x12D4B08 Offset: 0x12D4B08 VA: 0x12D4B08
+	public float get_Yaw() { }
+
+	// RVA: 0x12D4B10 Offset: 0x12D4B10 VA: 0x12D4B10
+	public float get_IdealYaw() { }
+
+	// RVA: 0x12D4B18 Offset: 0x12D4B18 VA: 0x12D4B18
+	public void set_IdealYaw(float value) { }
+
+	// RVA: 0x12D4BF8 Offset: 0x12D4BF8 VA: 0x12D4BF8
+	public float get_Pitch() { }
+
+	// RVA: 0x12D4C00 Offset: 0x12D4C00 VA: 0x12D4C00
+	public float get_IdealPitch() { }
+
+	// RVA: 0x12D4C08 Offset: 0x12D4C08 VA: 0x12D4C08
+	public void set_IdealPitch(float value) { }
+
+	// RVA: 0x12D4C38 Offset: 0x12D4C38 VA: 0x12D4C38
+	public Vector3 get_IdealPanOffset() { }
+
+	// RVA: 0x12D4C44 Offset: 0x12D4C44 VA: 0x12D4C44
+	public void set_IdealPanOffset(Vector3 value) { }
+
+	// RVA: 0x12D4C50 Offset: 0x12D4C50 VA: 0x12D4C50
+	public Vector3 get_PanOffset() { }
+
+	// RVA: 0x12D4C5C Offset: 0x12D4C5C VA: 0x12D4C5C
+	private void InstallGestureRecognizers() { }
+
+	// RVA: 0x12D5130 Offset: 0x12D5130 VA: 0x12D5130
+	private void Start() { }
+
+	// RVA: 0x12D579C Offset: 0x12D579C VA: 0x12D579C
+	private void OnDrag(DragGesture gesture) { }
+
+	// RVA: 0x12D5A7C Offset: 0x12D5A7C VA: 0x12D5A7C
+	private void OnPinch(PinchGesture gesture) { }
+
+	// RVA: 0x12D5AF8 Offset: 0x12D5AF8 VA: 0x12D5AF8
+	private void OnTwoFingerDrag(DragGesture gesture) { }
+
+	// RVA: 0x12D52C4 Offset: 0x12D52C4 VA: 0x12D52C4
+	private void Apply() { }
+
+	// RVA: 0x12D5D4C Offset: 0x12D5D4C VA: 0x12D5D4C
+	private void LateUpdate() { }
+
+	// RVA: 0x12D4B48 Offset: 0x12D4B48 VA: 0x12D4B48
+	private static float ClampAngle(float angle, float min, float max) { }
+
+	// RVA: 0x12D5D50 Offset: 0x12D5D50 VA: 0x12D5D50
+	public void ResetPanning() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90578 Offset: 0xC90578 VA: 0xC90578
+	// RVA: 0x12D5DC0 Offset: 0x12D5DC0 VA: 0x12D5DC0
+	private static bool <InstallGestureRecognizers>m__0(GestureRecognizer r) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90588 Offset: 0xC90588 VA: 0xC90588
+	// RVA: 0x12D5E44 Offset: 0x12D5E44 VA: 0x12D5E44
+	private static bool <InstallGestureRecognizers>m__1(GestureRecognizer r) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90598 Offset: 0xC90598 VA: 0xC90598
+	// RVA: 0x12D5EC8 Offset: 0x12D5EC8 VA: 0x12D5EC8
+	private static bool <InstallGestureRecognizers>m__2(GestureRecognizer r) { }
+}
+
+// Namespace: 
+public enum TBOrbit.PanMode // TypeDefIndex: 4206
+{
+	// Fields
+	public int value__; // 0x0
+	public const TBOrbit.PanMode Disabled = 0;
+	public const TBOrbit.PanMode OneFinger = 1;
+	public const TBOrbit.PanMode TwoFingers = 2;
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC8BB94 Offset: 0xC8BB94 VA: 0xC8BB94
+[RequireComponent] // RVA: 0xC8BB94 Offset: 0xC8BB94 VA: 0xC8BB94
+public class TBPan : MonoBehaviour // TypeDefIndex: 4207
+{
+	// Fields
+	private Transform cachedTransform; // 0x18
+	public float sensitivity; // 0x20
+	public float smoothSpeed; // 0x24
+	public BoxCollider moveArea; // 0x28
+	private Vector3 idealPos; // 0x30
+	private DragGesture dragGesture; // 0x40
+	[CompilerGeneratedAttribute] // RVA: 0xC8E8F8 Offset: 0xC8E8F8 VA: 0xC8E8F8
+	[DebuggerBrowsableAttribute] // RVA: 0xC8E8F8 Offset: 0xC8E8F8 VA: 0xC8E8F8
+	private TBPan.PanEventHandler OnPan; // 0x48
+
+	// Methods
+
+	// RVA: 0x12D5F4C Offset: 0x12D5F4C VA: 0x12D5F4C
+	public void .ctor() { }
+
+	// RVA: 0x12D5F60 Offset: 0x12D5F60 VA: 0x12D5F60
+	public void add_OnPan(TBPan.PanEventHandler value) { }
+
+	// RVA: 0x12D604C Offset: 0x12D604C VA: 0x12D604C
+	public void remove_OnPan(TBPan.PanEventHandler value) { }
+
+	// RVA: 0x12D6138 Offset: 0x12D6138 VA: 0x12D6138
+	private void Awake() { }
+
+	// RVA: 0x12D6160 Offset: 0x12D6160 VA: 0x12D6160
+	private void Start() { }
+
+	// RVA: 0x12D6228 Offset: 0x12D6228 VA: 0x12D6228
+	private void OnDrag(DragGesture gesture) { }
+
+	// RVA: 0x12D6278 Offset: 0x12D6278 VA: 0x12D6278
+	private void Update() { }
+
+	// RVA: 0x12D6B40 Offset: 0x12D6B40 VA: 0x12D6B40
+	public Vector3 ConstrainToPanningPlane(Vector3 p) { }
+
+	// RVA: 0x12D6BCC Offset: 0x12D6BCC VA: 0x12D6BCC
+	public void TeleportTo(Vector3 worldPos) { }
+
+	// RVA: 0x12D6C34 Offset: 0x12D6C34 VA: 0x12D6C34
+	public void FlyTo(Vector3 worldPos) { }
+
+	// RVA: 0x12D6984 Offset: 0x12D6984 VA: 0x12D6984
+	public Vector3 ConstrainToMoveArea(Vector3 p) { }
+}
+
+// Namespace: 
+public sealed class TBPan.PanEventHandler : MulticastDelegate // TypeDefIndex: 4208
+{
+	// Methods
+
+	// RVA: 0x12D6C5C Offset: 0x12D6C5C VA: 0x12D6C5C
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x12D6574 Offset: 0x12D6574 VA: 0x12D6574 Slot: 11
+	public virtual void Invoke(TBPan source, Vector3 move) { }
+
+	// RVA: 0x12D6C6C Offset: 0x12D6C6C VA: 0x12D6C6C Slot: 12
+	public virtual IAsyncResult BeginInvoke(TBPan source, Vector3 move, AsyncCallback callback, object object) { }
+
+	// RVA: 0x12D6D0C Offset: 0x12D6D0C VA: 0x12D6D0C Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC8BC1C Offset: 0xC8BC1C VA: 0xC8BC1C
+[RequireComponent] // RVA: 0xC8BC1C Offset: 0xC8BC1C VA: 0xC8BC1C
+[RequireComponent] // RVA: 0xC8BC1C Offset: 0xC8BC1C VA: 0xC8BC1C
+public class TBPinchZoom : MonoBehaviour // TypeDefIndex: 4209
+{
+	// Fields
+	public TBPinchZoom.ZoomMethod zoomMethod; // 0x18
+	public float zoomSpeed; // 0x1C
+	public float minZoomAmount; // 0x20
+	public float maxZoomAmount; // 0x24
+	public float SmoothSpeed; // 0x28
+	private Vector3 defaultPos; // 0x2C
+	private float defaultFov; // 0x38
+	private float defaultOrthoSize; // 0x3C
+	private float idealZoomAmount; // 0x40
+	private float zoomAmount; // 0x44
+
+	// Properties
+	public Vector3 DefaultPos { get; set; }
+	public float DefaultFov { get; set; }
+	public float DefaultOrthoSize { get; set; }
+	public float IdealZoomAmount { get; set; }
+	public float ZoomAmount { get; set; }
+	private float CameraFov { get; set; }
+	public float ZoomPercent { get; }
+
+	// Methods
+
+	// RVA: 0x12D70E4 Offset: 0x12D70E4 VA: 0x12D70E4
+	public void .ctor() { }
+
+	// RVA: 0x12D7170 Offset: 0x12D7170 VA: 0x12D7170
+	public Vector3 get_DefaultPos() { }
+
+	// RVA: 0x12D717C Offset: 0x12D717C VA: 0x12D717C
+	public void set_DefaultPos(Vector3 value) { }
+
+	// RVA: 0x12D7188 Offset: 0x12D7188 VA: 0x12D7188
+	public float get_DefaultFov() { }
+
+	// RVA: 0x12D7190 Offset: 0x12D7190 VA: 0x12D7190
+	public void set_DefaultFov(float value) { }
+
+	// RVA: 0x12D7198 Offset: 0x12D7198 VA: 0x12D7198
+	public float get_DefaultOrthoSize() { }
+
+	// RVA: 0x12D71A0 Offset: 0x12D71A0 VA: 0x12D71A0
+	public void set_DefaultOrthoSize(float value) { }
+
+	// RVA: 0x12D71A8 Offset: 0x12D71A8 VA: 0x12D71A8
+	public float get_IdealZoomAmount() { }
+
+	// RVA: 0x12D71B0 Offset: 0x12D71B0 VA: 0x12D71B0
+	public void set_IdealZoomAmount(float value) { }
+
+	// RVA: 0x12D7240 Offset: 0x12D7240 VA: 0x12D7240
+	public float get_ZoomAmount() { }
+
+	// RVA: 0x12D7248 Offset: 0x12D7248 VA: 0x12D7248
+	public void set_ZoomAmount(float value) { }
+
+	// RVA: 0x12D7574 Offset: 0x12D7574 VA: 0x12D7574
+	private float get_CameraFov() { }
+
+	// RVA: 0x12D74FC Offset: 0x12D74FC VA: 0x12D74FC
+	private void set_CameraFov(float value) { }
+
+	// RVA: 0x12D75DC Offset: 0x12D75DC VA: 0x12D75DC
+	public float get_ZoomPercent() { }
+
+	// RVA: 0x12D75F4 Offset: 0x12D75F4 VA: 0x12D75F4
+	private void Start() { }
+
+	// RVA: 0x12D773C Offset: 0x12D773C VA: 0x12D773C
+	private void Update() { }
+
+	// RVA: 0x12D7694 Offset: 0x12D7694 VA: 0x12D7694
+	public void SetDefaults() { }
+
+	// RVA: 0x12D77D8 Offset: 0x12D77D8 VA: 0x12D77D8
+	private void OnPinch(PinchGesture gesture) { }
+}
+
+// Namespace: 
+public enum TBPinchZoom.ZoomMethod // TypeDefIndex: 4210
+{
+	// Fields
+	public int value__; // 0x0
+	public const TBPinchZoom.ZoomMethod Position = 0;
+	public const TBPinchZoom.ZoomMethod FOV = 1;
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC8BCCC Offset: 0xC8BCCC VA: 0xC8BCCC
+public class TBDragToMove : MonoBehaviour // TypeDefIndex: 4211
+{
+	// Fields
+	public Collider DragPlaneCollider; // 0x18
+	public float DragPlaneOffset; // 0x20
+	public Camera RaycastCamera; // 0x28
+	public bool DragFromObjectCenter; // 0x30
+	private bool dragging; // 0x31
+	private FingerGestures.Finger draggingFinger; // 0x38
+	private GestureRecognizer gestureRecognizer; // 0x40
+	private bool oldUseGravity; // 0x48
+	private bool oldIsKinematic; // 0x49
+	private Vector3 physxDragMove; // 0x4C
+
+	// Properties
+	public bool Dragging { get; set; }
+
+	// Methods
+
+	// RVA: 0x12D2FB0 Offset: 0x12D2FB0 VA: 0x12D2FB0
+	public void .ctor() { }
+
+	// RVA: 0x12D3028 Offset: 0x12D3028 VA: 0x12D3028
+	public bool get_Dragging() { }
+
+	// RVA: 0x12D3030 Offset: 0x12D3030 VA: 0x12D3030
+	private void set_Dragging(bool value) { }
+
+	// RVA: 0x12D3290 Offset: 0x12D3290 VA: 0x12D3290
+	private void Start() { }
+
+	// RVA: 0x12D3310 Offset: 0x12D3310 VA: 0x12D3310
+	public bool ProjectScreenPointOnDragPlane(Vector3 refPos, Vector2 screenPos, out Vector3 worldPos) { }
+
+	// RVA: 0x12D3694 Offset: 0x12D3694 VA: 0x12D3694
+	private void HandleDrag(DragGesture gesture) { }
+
+	// RVA: 0x12D3B30 Offset: 0x12D3B30 VA: 0x12D3B30
+	private void FixedUpdate() { }
+
+	// RVA: 0x12D3CAC Offset: 0x12D3CAC VA: 0x12D3CAC
+	private void OnDrag(DragGesture gesture) { }
+
+	// RVA: 0x12D3CB0 Offset: 0x12D3CB0 VA: 0x12D3CB0
+	private void OnDisable() { }
+}
+
+// Namespace: 
+public enum TBDragToMove.DragPlaneType // TypeDefIndex: 4212
+{
+	// Fields
+	public int value__; // 0x0
+	public const TBDragToMove.DragPlaneType Camera = 0;
+	public const TBDragToMove.DragPlaneType UseCollider = 1;
+}
+
+// Namespace: 
+public class TBHoverChangeMaterial : MonoBehaviour // TypeDefIndex: 4213
+{
+	// Fields
+	public Material hoverMaterial; // 0x18
+	private Material normalMaterial; // 0x20
+
+	// Methods
+
+	// RVA: 0x12D4390 Offset: 0x12D4390 VA: 0x12D4390
+	public void .ctor() { }
+
+	// RVA: 0x12D4398 Offset: 0x12D4398 VA: 0x12D4398
+	private void Start() { }
+
+	// RVA: 0x12D4408 Offset: 0x12D4408 VA: 0x12D4408
+	private void OnFingerHover(FingerHoverEvent e) { }
+}
+
+// Namespace: 
+public class TBHoverChangeScale : MonoBehaviour // TypeDefIndex: 4214
+{
+	// Fields
+	public float hoverScaleFactor; // 0x18
+	private Vector3 originalScale; // 0x1C
+
+	// Methods
+
+	// RVA: 0x12D44B8 Offset: 0x12D44B8 VA: 0x12D44B8
+	public void .ctor() { }
+
+	// RVA: 0x12D4538 Offset: 0x12D4538 VA: 0x12D4538
+	private void Start() { }
+
+	// RVA: 0x12D457C Offset: 0x12D457C VA: 0x12D457C
+	private void OnFingerHover(FingerHoverEvent e) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC8BD04 Offset: 0xC8BD04 VA: 0xC8BD04
+public class TBPinchToScale : MonoBehaviour // TypeDefIndex: 4215
+{
+	// Fields
+	public Vector3 scaleWeights; // 0x18
+	public float minScaleAmount; // 0x24
+	public float maxScaleAmount; // 0x28
+	public float sensitivity; // 0x2C
+	public float smoothingSpeed; // 0x30
+	private float idealScaleAmount; // 0x34
+	private float scaleAmount; // 0x38
+	private Vector3 baseScale; // 0x3C
+
+	// Properties
+	public float ScaleAmount { get; set; }
+	public float IdealScaleAmount { get; set; }
+
+	// Methods
+
+	// RVA: 0x12D6D18 Offset: 0x12D6D18 VA: 0x12D6D18
+	public void .ctor() { }
+
+	// RVA: 0x12D6DB4 Offset: 0x12D6DB4 VA: 0x12D6DB4
+	public float get_ScaleAmount() { }
+
+	// RVA: 0x12D6DBC Offset: 0x12D6DBC VA: 0x12D6DBC
+	public void set_ScaleAmount(float value) { }
+
+	// RVA: 0x12D6EF0 Offset: 0x12D6EF0 VA: 0x12D6EF0
+	public float get_IdealScaleAmount() { }
+
+	// RVA: 0x12D6EF8 Offset: 0x12D6EF8 VA: 0x12D6EF8
+	public void set_IdealScaleAmount(float value) { }
+
+	// RVA: 0x12D6F88 Offset: 0x12D6F88 VA: 0x12D6F88
+	private void Start() { }
+
+	// RVA: 0x12D6FD8 Offset: 0x12D6FD8 VA: 0x12D6FD8
+	private void Update() { }
+
+	// RVA: 0x12D7088 Offset: 0x12D7088 VA: 0x12D7088
+	private void OnPinch(PinchGesture gesture) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC8BD3C Offset: 0xC8BD3C VA: 0xC8BD3C
+public class TBQuickSetup : MonoBehaviour // TypeDefIndex: 4216
+{
+	// Fields
+	public GameObject MessageTarget; // 0x18
+	public int MaxSimultaneousGestures; // 0x20
+	private ScreenRaycaster screenRaycaster; // 0x28
+	[CompilerGeneratedAttribute] // RVA: 0xC8E934 Offset: 0xC8E934 VA: 0xC8E934
+	[DebuggerBrowsableAttribute] // RVA: 0xC8E934 Offset: 0xC8E934 VA: 0xC8E934
+	private FingerDownDetector <FingerDown>k__BackingField; // 0x30
+	[CompilerGeneratedAttribute] // RVA: 0xC8E970 Offset: 0xC8E970 VA: 0xC8E970
+	[DebuggerBrowsableAttribute] // RVA: 0xC8E970 Offset: 0xC8E970 VA: 0xC8E970
+	private FingerUpDetector <FingerUp>k__BackingField; // 0x38
+	[CompilerGeneratedAttribute] // RVA: 0xC8E9AC Offset: 0xC8E9AC VA: 0xC8E9AC
+	[DebuggerBrowsableAttribute] // RVA: 0xC8E9AC Offset: 0xC8E9AC VA: 0xC8E9AC
+	private FingerHoverDetector <FingerHover>k__BackingField; // 0x40
+	[CompilerGeneratedAttribute] // RVA: 0xC8E9E8 Offset: 0xC8E9E8 VA: 0xC8E9E8
+	[DebuggerBrowsableAttribute] // RVA: 0xC8E9E8 Offset: 0xC8E9E8 VA: 0xC8E9E8
+	private FingerMotionDetector <FingerMotion>k__BackingField; // 0x48
+	[CompilerGeneratedAttribute] // RVA: 0xC8EA24 Offset: 0xC8EA24 VA: 0xC8EA24
+	[DebuggerBrowsableAttribute] // RVA: 0xC8EA24 Offset: 0xC8EA24 VA: 0xC8EA24
+	private DragRecognizer <Drag>k__BackingField; // 0x50
+	[CompilerGeneratedAttribute] // RVA: 0xC8EA60 Offset: 0xC8EA60 VA: 0xC8EA60
+	[DebuggerBrowsableAttribute] // RVA: 0xC8EA60 Offset: 0xC8EA60 VA: 0xC8EA60
+	private LongPressRecognizer <LongPress>k__BackingField; // 0x58
+	[CompilerGeneratedAttribute] // RVA: 0xC8EA9C Offset: 0xC8EA9C VA: 0xC8EA9C
+	[DebuggerBrowsableAttribute] // RVA: 0xC8EA9C Offset: 0xC8EA9C VA: 0xC8EA9C
+	private SwipeRecognizer <Swipe>k__BackingField; // 0x60
+	[CompilerGeneratedAttribute] // RVA: 0xC8EAD8 Offset: 0xC8EAD8 VA: 0xC8EAD8
+	[DebuggerBrowsableAttribute] // RVA: 0xC8EAD8 Offset: 0xC8EAD8 VA: 0xC8EAD8
+	private TapRecognizer <Tap>k__BackingField; // 0x68
+	[CompilerGeneratedAttribute] // RVA: 0xC8EB14 Offset: 0xC8EB14 VA: 0xC8EB14
+	[DebuggerBrowsableAttribute] // RVA: 0xC8EB14 Offset: 0xC8EB14 VA: 0xC8EB14
+	private TapRecognizer <DoubleTap>k__BackingField; // 0x70
+	[CompilerGeneratedAttribute] // RVA: 0xC8EB50 Offset: 0xC8EB50 VA: 0xC8EB50
+	[DebuggerBrowsableAttribute] // RVA: 0xC8EB50 Offset: 0xC8EB50 VA: 0xC8EB50
+	private PinchRecognizer <Pinch>k__BackingField; // 0x78
+	[CompilerGeneratedAttribute] // RVA: 0xC8EB8C Offset: 0xC8EB8C VA: 0xC8EB8C
+	[DebuggerBrowsableAttribute] // RVA: 0xC8EB8C Offset: 0xC8EB8C VA: 0xC8EB8C
+	private TwistRecognizer <Twist>k__BackingField; // 0x80
+	[CompilerGeneratedAttribute] // RVA: 0xC8EBC8 Offset: 0xC8EBC8 VA: 0xC8EBC8
+	[DebuggerBrowsableAttribute] // RVA: 0xC8EBC8 Offset: 0xC8EBC8 VA: 0xC8EBC8
+	private DragRecognizer <TwoFingerDrag>k__BackingField; // 0x88
+	[CompilerGeneratedAttribute] // RVA: 0xC8EC04 Offset: 0xC8EC04 VA: 0xC8EC04
+	[DebuggerBrowsableAttribute] // RVA: 0xC8EC04 Offset: 0xC8EC04 VA: 0xC8EC04
+	private TapRecognizer <TwoFingerTap>k__BackingField; // 0x90
+	[CompilerGeneratedAttribute] // RVA: 0xC8EC40 Offset: 0xC8EC40 VA: 0xC8EC40
+	[DebuggerBrowsableAttribute] // RVA: 0xC8EC40 Offset: 0xC8EC40 VA: 0xC8EC40
+	private SwipeRecognizer <TwoFingerSwipe>k__BackingField; // 0x98
+	[CompilerGeneratedAttribute] // RVA: 0xC8EC7C Offset: 0xC8EC7C VA: 0xC8EC7C
+	[DebuggerBrowsableAttribute] // RVA: 0xC8EC7C Offset: 0xC8EC7C VA: 0xC8EC7C
+	private LongPressRecognizer <TwoFingerLongPress>k__BackingField; // 0xA0
+
+	// Properties
+	public FingerDownDetector FingerDown { get; set; }
+	public FingerUpDetector FingerUp { get; set; }
+	public FingerHoverDetector FingerHover { get; set; }
+	public FingerMotionDetector FingerMotion { get; set; }
+	public DragRecognizer Drag { get; set; }
+	public LongPressRecognizer LongPress { get; set; }
+	public SwipeRecognizer Swipe { get; set; }
+	public TapRecognizer Tap { get; set; }
+	public TapRecognizer DoubleTap { get; set; }
+	public PinchRecognizer Pinch { get; set; }
+	public TwistRecognizer Twist { get; set; }
+	public DragRecognizer TwoFingerDrag { get; set; }
+	public TapRecognizer TwoFingerTap { get; set; }
+	public SwipeRecognizer TwoFingerSwipe { get; set; }
+	public LongPressRecognizer TwoFingerLongPress { get; set; }
+
+	// Methods
+
+	// RVA: 0x12D7834 Offset: 0x12D7834 VA: 0x12D7834
+	public void .ctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC905A8 Offset: 0xC905A8 VA: 0xC905A8
+	// RVA: 0x12D7844 Offset: 0x12D7844 VA: 0x12D7844
+	public FingerDownDetector get_FingerDown() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC905B8 Offset: 0xC905B8 VA: 0xC905B8
+	// RVA: 0x12D784C Offset: 0x12D784C VA: 0x12D784C
+	public void set_FingerDown(FingerDownDetector value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC905C8 Offset: 0xC905C8 VA: 0xC905C8
+	// RVA: 0x12D7854 Offset: 0x12D7854 VA: 0x12D7854
+	public FingerUpDetector get_FingerUp() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC905D8 Offset: 0xC905D8 VA: 0xC905D8
+	// RVA: 0x12D785C Offset: 0x12D785C VA: 0x12D785C
+	public void set_FingerUp(FingerUpDetector value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC905E8 Offset: 0xC905E8 VA: 0xC905E8
+	// RVA: 0x12D7864 Offset: 0x12D7864 VA: 0x12D7864
+	public FingerHoverDetector get_FingerHover() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC905F8 Offset: 0xC905F8 VA: 0xC905F8
+	// RVA: 0x12D786C Offset: 0x12D786C VA: 0x12D786C
+	public void set_FingerHover(FingerHoverDetector value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90608 Offset: 0xC90608 VA: 0xC90608
+	// RVA: 0x12D7874 Offset: 0x12D7874 VA: 0x12D7874
+	public FingerMotionDetector get_FingerMotion() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90618 Offset: 0xC90618 VA: 0xC90618
+	// RVA: 0x12D787C Offset: 0x12D787C VA: 0x12D787C
+	public void set_FingerMotion(FingerMotionDetector value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90628 Offset: 0xC90628 VA: 0xC90628
+	// RVA: 0x12D7884 Offset: 0x12D7884 VA: 0x12D7884
+	public DragRecognizer get_Drag() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90638 Offset: 0xC90638 VA: 0xC90638
+	// RVA: 0x12D788C Offset: 0x12D788C VA: 0x12D788C
+	public void set_Drag(DragRecognizer value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90648 Offset: 0xC90648 VA: 0xC90648
+	// RVA: 0x12D7894 Offset: 0x12D7894 VA: 0x12D7894
+	public LongPressRecognizer get_LongPress() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90658 Offset: 0xC90658 VA: 0xC90658
+	// RVA: 0x12D789C Offset: 0x12D789C VA: 0x12D789C
+	public void set_LongPress(LongPressRecognizer value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90668 Offset: 0xC90668 VA: 0xC90668
+	// RVA: 0x12D78A4 Offset: 0x12D78A4 VA: 0x12D78A4
+	public SwipeRecognizer get_Swipe() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90678 Offset: 0xC90678 VA: 0xC90678
+	// RVA: 0x12D78AC Offset: 0x12D78AC VA: 0x12D78AC
+	public void set_Swipe(SwipeRecognizer value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90688 Offset: 0xC90688 VA: 0xC90688
+	// RVA: 0x12D78B4 Offset: 0x12D78B4 VA: 0x12D78B4
+	public TapRecognizer get_Tap() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90698 Offset: 0xC90698 VA: 0xC90698
+	// RVA: 0x12D78BC Offset: 0x12D78BC VA: 0x12D78BC
+	public void set_Tap(TapRecognizer value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC906A8 Offset: 0xC906A8 VA: 0xC906A8
+	// RVA: 0x12D78C4 Offset: 0x12D78C4 VA: 0x12D78C4
+	public TapRecognizer get_DoubleTap() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC906B8 Offset: 0xC906B8 VA: 0xC906B8
+	// RVA: 0x12D78CC Offset: 0x12D78CC VA: 0x12D78CC
+	public void set_DoubleTap(TapRecognizer value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC906C8 Offset: 0xC906C8 VA: 0xC906C8
+	// RVA: 0x12D78D4 Offset: 0x12D78D4 VA: 0x12D78D4
+	public PinchRecognizer get_Pinch() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC906D8 Offset: 0xC906D8 VA: 0xC906D8
+	// RVA: 0x12D78DC Offset: 0x12D78DC VA: 0x12D78DC
+	public void set_Pinch(PinchRecognizer value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC906E8 Offset: 0xC906E8 VA: 0xC906E8
+	// RVA: 0x12D78E4 Offset: 0x12D78E4 VA: 0x12D78E4
+	public TwistRecognizer get_Twist() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC906F8 Offset: 0xC906F8 VA: 0xC906F8
+	// RVA: 0x12D78EC Offset: 0x12D78EC VA: 0x12D78EC
+	public void set_Twist(TwistRecognizer value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90708 Offset: 0xC90708 VA: 0xC90708
+	// RVA: 0x12D78F4 Offset: 0x12D78F4 VA: 0x12D78F4
+	public DragRecognizer get_TwoFingerDrag() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90718 Offset: 0xC90718 VA: 0xC90718
+	// RVA: 0x12D78FC Offset: 0x12D78FC VA: 0x12D78FC
+	public void set_TwoFingerDrag(DragRecognizer value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90728 Offset: 0xC90728 VA: 0xC90728
+	// RVA: 0x12D7904 Offset: 0x12D7904 VA: 0x12D7904
+	public TapRecognizer get_TwoFingerTap() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90738 Offset: 0xC90738 VA: 0xC90738
+	// RVA: 0x12D790C Offset: 0x12D790C VA: 0x12D790C
+	public void set_TwoFingerTap(TapRecognizer value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90748 Offset: 0xC90748 VA: 0xC90748
+	// RVA: 0x12D7914 Offset: 0x12D7914 VA: 0x12D7914
+	public SwipeRecognizer get_TwoFingerSwipe() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90758 Offset: 0xC90758 VA: 0xC90758
+	// RVA: 0x12D791C Offset: 0x12D791C VA: 0x12D791C
+	public void set_TwoFingerSwipe(SwipeRecognizer value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90768 Offset: 0xC90768 VA: 0xC90768
+	// RVA: 0x12D7924 Offset: 0x12D7924 VA: 0x12D7924
+	public LongPressRecognizer get_TwoFingerLongPress() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC90778 Offset: 0xC90778 VA: 0xC90778
+	// RVA: 0x12D792C Offset: 0x12D792C VA: 0x12D792C
+	public void set_TwoFingerLongPress(LongPressRecognizer value) { }
+
+	// RVA: 0x12D7934 Offset: 0x12D7934 VA: 0x12D7934
+	private GameObject CreateChildNode(string name) { }
+
+	// RVA: 0x12D7AB4 Offset: 0x12D7AB4 VA: 0x12D7AB4
+	private void Start() { }
+
+	// RVA: -1 Offset: -1
+	private T AddFingerEventDetector<T>(GameObject node) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x219EABC Offset: 0x219EABC VA: 0x219EABC
+	|-TBQuickSetup.AddFingerEventDetector<FingerDownDetector>
+	|-TBQuickSetup.AddFingerEventDetector<FingerHoverDetector>
+	|-TBQuickSetup.AddFingerEventDetector<FingerMotionDetector>
+	|-TBQuickSetup.AddFingerEventDetector<FingerUpDetector>
+	|-TBQuickSetup.AddFingerEventDetector<object>
+	*/
+
+	// RVA: -1 Offset: -1
+	private T AddGesture<T>(GameObject node) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x219EB40 Offset: 0x219EB40 VA: 0x219EB40
+	|-TBQuickSetup.AddGesture<object>
+	*/
+
+	// RVA: -1 Offset: -1
+	private T AddSingleFingerGesture<T>(GameObject node) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x219EBF0 Offset: 0x219EBF0 VA: 0x219EBF0
+	|-TBQuickSetup.AddSingleFingerGesture<DragRecognizer>
+	|-TBQuickSetup.AddSingleFingerGesture<LongPressRecognizer>
+	|-TBQuickSetup.AddSingleFingerGesture<SwipeRecognizer>
+	|-TBQuickSetup.AddSingleFingerGesture<object>
+	|-TBQuickSetup.AddSingleFingerGesture<TapRecognizer>
+	*/
+
+	// RVA: -1 Offset: -1
+	private T AddTwoFingerGesture<T>(GameObject node) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x219EC60 Offset: 0x219EC60 VA: 0x219EC60
+	|-TBQuickSetup.AddTwoFingerGesture<PinchRecognizer>
+	|-TBQuickSetup.AddTwoFingerGesture<object>
+	|-TBQuickSetup.AddTwoFingerGesture<TwistRecognizer>
+	*/
+
+	// RVA: -1 Offset: -1
+	private T AddTwoFingerGesture<T>(GameObject node, string eventName) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x219ECD0 Offset: 0x219ECD0 VA: 0x219ECD0
+	|-TBQuickSetup.AddTwoFingerGesture<DragRecognizer>
+	|-TBQuickSetup.AddTwoFingerGesture<LongPressRecognizer>
+	|-TBQuickSetup.AddTwoFingerGesture<SwipeRecognizer>
+	|-TBQuickSetup.AddTwoFingerGesture<object>
+	|-TBQuickSetup.AddTwoFingerGesture<TapRecognizer>
+	*/
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC8BD74 Offset: 0xC8BD74 VA: 0xC8BD74
+public class TBTwistToRotate : MonoBehaviour // TypeDefIndex: 4217
+{
+	// Fields
+	public float Sensitivity; // 0x18
+	public TBTwistToRotate.RotationAxis Axis; // 0x1C
+	public Camera ReferenceCamera; // 0x20
+
+	// Methods
+
+	// RVA: 0x12D7E80 Offset: 0x12D7E80 VA: 0x12D7E80
+	public void .ctor() { }
+
+	// RVA: 0x12D7E94 Offset: 0x12D7E94 VA: 0x12D7E94
+	private void Start() { }
+
+	// RVA: 0x12D7F14 Offset: 0x12D7F14 VA: 0x12D7F14
+	public Vector3 GetRotationAxis() { }
+
+	// RVA: 0x12D80AC Offset: 0x12D80AC VA: 0x12D80AC
+	private void OnTwist(TwistGesture gesture) { }
+}
+
+// Namespace: 
+public enum TBTwistToRotate.RotationAxis // TypeDefIndex: 4218
+{
+	// Fields
+	public int value__; // 0x0
+	public const TBTwistToRotate.RotationAxis WorldX = 0;
+	public const TBTwistToRotate.RotationAxis WorldY = 1;
+	public const TBTwistToRotate.RotationAxis WorldZ = 2;
+	public const TBTwistToRotate.RotationAxis ObjectX = 3;
+	public const TBTwistToRotate.RotationAxis ObjectY = 4;
+	public const TBTwistToRotate.RotationAxis ObjectZ = 5;
+	public const TBTwistToRotate.RotationAxis CameraX = 6;
+	public const TBTwistToRotate.RotationAxis CameraY = 7;
+	public const TBTwistToRotate.RotationAxis CameraZ = 8;
+}
+
+// Namespace: 
+public class MetapsAnalyticsAndroidBridge : MetapsAnalyticsScript.IPlatformBridge // TypeDefIndex: 4219
+{
+	// Fields
+	private static AndroidJavaClass analyticsAndroid; // 0x0
+
+	// Properties
+	private static AndroidJavaClass AnalyticsAndroid { get; }
+
+	// Methods
+
+	// RVA: 0xE90C1C Offset: 0xE90C1C VA: 0xE90C1C
+	public void .ctor() { }
+
+	// RVA: 0xE90C2C Offset: 0xE90C2C VA: 0xE90C2C
+	private static AndroidJavaClass get_AnalyticsAndroid() { }
+
+	// RVA: 0xE90CC0 Offset: 0xE90CC0 VA: 0xE90CC0 Slot: 4
+	public override void SetCallbackHandlerImpl(string handlerName) { }
+
+	// RVA: 0xE90DA4 Offset: 0xE90DA4 VA: 0xE90DA4 Slot: 5
+	public override void InitializeImpl(string applicationId, int sessionTime) { }
+
+	// RVA: 0xE90EFC Offset: 0xE90EFC VA: 0xE90EFC Slot: 6
+	public override bool IsInitializedImpl() { }
+
+	// RVA: 0xE90F88 Offset: 0xE90F88 VA: 0xE90F88 Slot: 7
+	public override void StartSessionImpl() { }
+
+	// RVA: 0xE9100C Offset: 0xE9100C VA: 0xE9100C Slot: 8
+	public override void StopSessionImpl() { }
+
+	// RVA: 0xE91090 Offset: 0xE91090 VA: 0xE91090 Slot: 9
+	public override void TrackPurchaseImpl(string productId, double price, string currency) { }
+
+	// RVA: 0xE91234 Offset: 0xE91234 VA: 0xE91234 Slot: 10
+	public override void TrackEventImpl(string category, string name, int value) { }
+
+	// RVA: 0xE913D8 Offset: 0xE913D8 VA: 0xE913D8 Slot: 11
+	public override void TrackSpendImpl(string category, string name, int value) { }
+
+	// RVA: 0xE9157C Offset: 0xE9157C VA: 0xE9157C Slot: 12
+	public override void SetLogEnabledImpl(bool enabled) { }
+
+	// RVA: 0xE91684 Offset: 0xE91684 VA: 0xE91684 Slot: 13
+	public override void SetLocationEnabledImpl(bool enabled) { }
+
+	// RVA: 0xE9178C Offset: 0xE9178C VA: 0xE9178C Slot: 14
+	public override void SetCurrentPageImpl(string currentPage) { }
+
+	// RVA: 0xE91870 Offset: 0xE91870 VA: 0xE91870 Slot: 15
+	public override void SetAttributeImpl(string key, string value) { }
+
+	// RVA: 0xE919A0 Offset: 0xE919A0 VA: 0xE919A0 Slot: 16
+	public override void SetUserProfileImpl(string profileKey, string profileValue) { }
+
+	// RVA: 0xE91AD0 Offset: 0xE91AD0 VA: 0xE91AD0 Slot: 17
+	public override void TrackActionImpl(string name) { }
+
+	// RVA: 0xE91BB4 Offset: 0xE91BB4 VA: 0xE91BB4 Slot: 18
+	public override void TrackActionImpl(string name, string value) { }
+
+	// RVA: 0xE91CE4 Offset: 0xE91CE4 VA: 0xE91CE4 Slot: 19
+	public override MetapsAnalyticsScript.Campaign GetMatchedCampaignImpl() { }
+
+	// RVA: 0xE91E40 Offset: 0xE91E40 VA: 0xE91E40 Slot: 20
+	public override void SetDeviceTokenStringImpl(string deviceTokenString) { }
+
+	// RVA: 0xE91E44 Offset: 0xE91E44 VA: 0xE91E44 Slot: 21
+	public override void ReceiveNotificationIdImpl(string notificationId, string customText) { }
+
+	// RVA: 0xE91E48 Offset: 0xE91E48 VA: 0xE91E48 Slot: 22
+	public override string GetPushNotificationCustomTextImpl() { }
+
+	// RVA: 0xE91ED4 Offset: 0xE91ED4 VA: 0xE91ED4 Slot: 23
+	public override bool IsPushNotificationEnabledImpl() { }
+
+	// RVA: 0xE91F60 Offset: 0xE91F60 VA: 0xE91F60 Slot: 24
+	public override bool SetPushNotificationEnabledImpl(bool enabled) { }
+
+	// RVA: 0xE92074 Offset: 0xE92074 VA: 0xE92074 Slot: 25
+	public override void StartAppSpotLoadingImpl(string androidSpotCode, string iosSpotCode, MetapsAnalyticsScript.AppSpotType appSpotType, MetapsAnalyticsScript.AppSpotConfig appSpotConfig) { }
+
+	// RVA: 0xE923CC Offset: 0xE923CC VA: 0xE923CC Slot: 26
+	public override bool IsAppSpotLoadedImpl(string spotCode) { }
+
+	// RVA: 0xE924B8 Offset: 0xE924B8 VA: 0xE924B8 Slot: 27
+	public override void ShowAppSpotImpl(string spotCode) { }
+
+	// RVA: 0xE9259C Offset: 0xE9259C VA: 0xE9259C Slot: 28
+	public override void DismissAppSpotImpl(string spotCode) { }
+
+	// RVA: 0xE92680 Offset: 0xE92680 VA: 0xE92680 Slot: 29
+	public override bool isGdprCountryIncludedImpl() { }
+
+	// RVA: 0xE9270C Offset: 0xE9270C VA: 0xE9270C Slot: 30
+	public override bool isGdprUserNeedConfirmImpl() { }
+
+	// RVA: 0xE92798 Offset: 0xE92798 VA: 0xE92798 Slot: 31
+	public override bool isGdprUserAllowedImpl() { }
+
+	// RVA: 0xE92824 Offset: 0xE92824 VA: 0xE92824 Slot: 32
+	public override bool setGdprUserAllowedImpl(bool allowed) { }
+
+	// RVA: 0xE92938 Offset: 0xE92938 VA: 0xE92938 Slot: 33
+	public override string GetMetapsInstallIdImpl() { }
+
+	// RVA: 0xE929C4 Offset: 0xE929C4 VA: 0xE929C4 Slot: 34
+	public override void SetATTEnabledImpl(bool enabled) { }
+
+	// RVA: 0xE929C8 Offset: 0xE929C8 VA: 0xE929C8 Slot: 35
+	public override void SetATTPopupAutoRequestImpl(bool enabled) { }
+
+	// RVA: 0xE929CC Offset: 0xE929CC VA: 0xE929CC Slot: 36
+	public override void SetATTKochavaWaitTimeIntervalImpl(int timeInterval) { }
+
+	// RVA: 0xE929D0 Offset: 0xE929D0 VA: 0xE929D0 Slot: 37
+	public override bool updateCreateNotificationChannelImpl(string id, string name) { }
+
+	// RVA: 0xE92B08 Offset: 0xE92B08 VA: 0xE92B08 Slot: 38
+	public override bool deleteNotificationChannelImpl(string id) { }
+}
+
+// Namespace: 
+public class MetapsAnalyticsAndroidBridge.AndroidCampaign : MetapsAnalyticsScript.Campaign // TypeDefIndex: 4220
+{
+	// Methods
+
+	// RVA: 0xE91D9C Offset: 0xE91D9C VA: 0xE91D9C
+	public void .ctor(AndroidJavaObject androidCampaign) { }
+}
+
+// Namespace: 
+public class MetapsAnalyticsDefaultBridge : MetapsAnalyticsScript.IPlatformBridge // TypeDefIndex: 4221
+{
+	// Methods
+
+	// RVA: 0xE92BFC Offset: 0xE92BFC VA: 0xE92BFC
+	public void .ctor() { }
+
+	// RVA: 0xE92C04 Offset: 0xE92C04 VA: 0xE92C04 Slot: 4
+	public override void SetCallbackHandlerImpl(string handlerName) { }
+
+	// RVA: 0xE92C08 Offset: 0xE92C08 VA: 0xE92C08 Slot: 5
+	public override void InitializeImpl(string applicationId, int sessionTime) { }
+
+	// RVA: 0xE92C0C Offset: 0xE92C0C VA: 0xE92C0C Slot: 6
+	public override bool IsInitializedImpl() { }
+
+	// RVA: 0xE92C14 Offset: 0xE92C14 VA: 0xE92C14 Slot: 7
+	public override void StartSessionImpl() { }
+
+	// RVA: 0xE92C18 Offset: 0xE92C18 VA: 0xE92C18 Slot: 8
+	public override void StopSessionImpl() { }
+
+	// RVA: 0xE92C1C Offset: 0xE92C1C VA: 0xE92C1C Slot: 9
+	public override void TrackPurchaseImpl(string productId, double price, string currency) { }
+
+	// RVA: 0xE92C20 Offset: 0xE92C20 VA: 0xE92C20 Slot: 10
+	public override void TrackEventImpl(string category, string name, int value) { }
+
+	// RVA: 0xE92C24 Offset: 0xE92C24 VA: 0xE92C24 Slot: 11
+	public override void TrackSpendImpl(string category, string name, int value) { }
+
+	// RVA: 0xE92C28 Offset: 0xE92C28 VA: 0xE92C28 Slot: 12
+	public override void SetLogEnabledImpl(bool enabled) { }
+
+	// RVA: 0xE92C2C Offset: 0xE92C2C VA: 0xE92C2C Slot: 13
+	public override void SetLocationEnabledImpl(bool enabled) { }
+
+	// RVA: 0xE92C30 Offset: 0xE92C30 VA: 0xE92C30 Slot: 14
+	public override void SetCurrentPageImpl(string currentPage) { }
+
+	// RVA: 0xE92C34 Offset: 0xE92C34 VA: 0xE92C34 Slot: 15
+	public override void SetAttributeImpl(string key, string value) { }
+
+	// RVA: 0xE92C38 Offset: 0xE92C38 VA: 0xE92C38 Slot: 16
+	public override void SetUserProfileImpl(string profileKey, string profileValue) { }
+
+	// RVA: 0xE92C3C Offset: 0xE92C3C VA: 0xE92C3C Slot: 17
+	public override void TrackActionImpl(string name) { }
+
+	// RVA: 0xE92C40 Offset: 0xE92C40 VA: 0xE92C40 Slot: 18
+	public override void TrackActionImpl(string name, string value) { }
+
+	// RVA: 0xE92C44 Offset: 0xE92C44 VA: 0xE92C44 Slot: 19
+	public override MetapsAnalyticsScript.Campaign GetMatchedCampaignImpl() { }
+
+	// RVA: 0xE92C4C Offset: 0xE92C4C VA: 0xE92C4C Slot: 20
+	public override void SetDeviceTokenStringImpl(string deviceTokenString) { }
+
+	// RVA: 0xE92C50 Offset: 0xE92C50 VA: 0xE92C50 Slot: 21
+	public override void ReceiveNotificationIdImpl(string notificationId, string customText) { }
+
+	// RVA: 0xE92C54 Offset: 0xE92C54 VA: 0xE92C54 Slot: 22
+	public override string GetPushNotificationCustomTextImpl() { }
+
+	// RVA: 0xE92C5C Offset: 0xE92C5C VA: 0xE92C5C Slot: 23
+	public override bool IsPushNotificationEnabledImpl() { }
+
+	// RVA: 0xE92C64 Offset: 0xE92C64 VA: 0xE92C64 Slot: 24
+	public override bool SetPushNotificationEnabledImpl(bool enabled) { }
+
+	// RVA: 0xE92C6C Offset: 0xE92C6C VA: 0xE92C6C Slot: 25
+	public override void StartAppSpotLoadingImpl(string androidSpotCode, string iosSpotCode, MetapsAnalyticsScript.AppSpotType appSpotType, MetapsAnalyticsScript.AppSpotConfig appSpotConfig) { }
+
+	// RVA: 0xE92C70 Offset: 0xE92C70 VA: 0xE92C70 Slot: 26
+	public override bool IsAppSpotLoadedImpl(string spotCode) { }
+
+	// RVA: 0xE92C78 Offset: 0xE92C78 VA: 0xE92C78 Slot: 27
+	public override void ShowAppSpotImpl(string spotCode) { }
+
+	// RVA: 0xE92C7C Offset: 0xE92C7C VA: 0xE92C7C Slot: 28
+	public override void DismissAppSpotImpl(string spotCode) { }
+
+	// RVA: 0xE92C80 Offset: 0xE92C80 VA: 0xE92C80 Slot: 29
+	public override bool isGdprCountryIncludedImpl() { }
+
+	// RVA: 0xE92C88 Offset: 0xE92C88 VA: 0xE92C88 Slot: 30
+	public override bool isGdprUserNeedConfirmImpl() { }
+
+	// RVA: 0xE92C90 Offset: 0xE92C90 VA: 0xE92C90 Slot: 31
+	public override bool isGdprUserAllowedImpl() { }
+
+	// RVA: 0xE92C98 Offset: 0xE92C98 VA: 0xE92C98 Slot: 32
+	public override bool setGdprUserAllowedImpl(bool allowed) { }
+
+	// RVA: 0xE92CA0 Offset: 0xE92CA0 VA: 0xE92CA0 Slot: 33
+	public override string GetMetapsInstallIdImpl() { }
+
+	// RVA: 0xE92CA8 Offset: 0xE92CA8 VA: 0xE92CA8 Slot: 34
+	public override void SetATTEnabledImpl(bool enabled) { }
+
+	// RVA: 0xE92CAC Offset: 0xE92CAC VA: 0xE92CAC Slot: 35
+	public override void SetATTPopupAutoRequestImpl(bool enabled) { }
+
+	// RVA: 0xE92CB0 Offset: 0xE92CB0 VA: 0xE92CB0 Slot: 36
+	public override void SetATTKochavaWaitTimeIntervalImpl(int timeInterval) { }
+
+	// RVA: 0xE92CB4 Offset: 0xE92CB4 VA: 0xE92CB4 Slot: 37
+	public override bool updateCreateNotificationChannelImpl(string id, string name) { }
+
+	// RVA: 0xE92CBC Offset: 0xE92CBC VA: 0xE92CBC Slot: 38
+	public override bool deleteNotificationChannelImpl(string id) { }

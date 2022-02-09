@@ -1,0 +1,1000 @@
+
+	// RVA: 0x235FA54 Offset: 0x235FA54 VA: 0x235FA54 Slot: 8
+	public int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
+
+	// RVA: 0x235F864 Offset: 0x235F864 VA: 0x235F864 Slot: 9
+	public void Reset() { }
+
+	// RVA: 0x235FE78 Offset: 0x235FE78 VA: 0x235FE78
+	private int bytesToint(byte[] inBytes, int inOff) { }
+
+	// RVA: 0x235FF70 Offset: 0x235FF70 VA: 0x235FF70
+	private void intTobytes(int num, byte[] outBytes, int outOff) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Modes
+public interface IAeadBlockCipher // TypeDefIndex: 4792
+{
+	// Properties
+	public abstract string AlgorithmName { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract string get_AlgorithmName();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract IBlockCipher GetUnderlyingCipher();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void Init(bool forEncryption, ICipherParameters parameters);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract int GetBlockSize();
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void ProcessAadByte(byte input);
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract void ProcessAadBytes(byte[] inBytes, int inOff, int len);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract int ProcessByte(byte input, byte[] outBytes, int outOff);
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract int ProcessBytes(byte[] inBytes, int inOff, int len, byte[] outBytes, int outOff);
+
+	// RVA: -1 Offset: -1 Slot: 8
+	public abstract int DoFinal(byte[] outBytes, int outOff);
+
+	// RVA: -1 Offset: -1 Slot: 9
+	public abstract byte[] GetMac();
+
+	// RVA: -1 Offset: -1 Slot: 10
+	public abstract int GetUpdateOutputSize(int len);
+
+	// RVA: -1 Offset: -1 Slot: 11
+	public abstract int GetOutputSize(int len);
+
+	// RVA: -1 Offset: -1 Slot: 12
+	public abstract void Reset();
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Modes
+public class OcbBlockCipher : IAeadBlockCipher // TypeDefIndex: 4793
+{
+	// Fields
+	private const int BLOCK_SIZE = 16;
+	private readonly IBlockCipher hashCipher; // 0x10
+	private readonly IBlockCipher mainCipher; // 0x18
+	private bool forEncryption; // 0x20
+	private int macSize; // 0x24
+	private byte[] initialAssociatedText; // 0x28
+	private IList L; // 0x30
+	private byte[] L_Asterisk; // 0x38
+	private byte[] L_Dollar; // 0x40
+	private byte[] KtopInput; // 0x48
+	private byte[] Stretch; // 0x50
+	private byte[] OffsetMAIN_0; // 0x58
+	private byte[] hashBlock; // 0x60
+	private byte[] mainBlock; // 0x68
+	private int hashBlockPos; // 0x70
+	private int mainBlockPos; // 0x74
+	private long hashBlockCount; // 0x78
+	private long mainBlockCount; // 0x80
+	private byte[] OffsetHASH; // 0x88
+	private byte[] Sum; // 0x90
+	private byte[] OffsetMAIN; // 0x98
+	private byte[] Checksum; // 0xA0
+	private byte[] macBlock; // 0xA8
+
+	// Properties
+	public virtual string AlgorithmName { get; }
+
+	// Methods
+
+	// RVA: 0x236503C Offset: 0x236503C VA: 0x236503C
+	public void .ctor(IBlockCipher hashCipher, IBlockCipher mainCipher) { }
+
+	// RVA: 0x2365458 Offset: 0x2365458 VA: 0x2365458 Slot: 17
+	public virtual IBlockCipher GetUnderlyingCipher() { }
+
+	// RVA: 0x2365460 Offset: 0x2365460 VA: 0x2365460 Slot: 18
+	public virtual string get_AlgorithmName() { }
+
+	// RVA: 0x2365554 Offset: 0x2365554 VA: 0x2365554 Slot: 19
+	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
+
+	// RVA: 0x2365DA8 Offset: 0x2365DA8 VA: 0x2365DA8 Slot: 20
+	protected virtual int ProcessNonce(byte[] N) { }
+
+	// RVA: 0x2366090 Offset: 0x2366090 VA: 0x2366090 Slot: 21
+	public virtual int GetBlockSize() { }
+
+	// RVA: 0x2366098 Offset: 0x2366098 VA: 0x2366098 Slot: 22
+	public virtual byte[] GetMac() { }
+
+	// RVA: 0x23660A4 Offset: 0x23660A4 VA: 0x23660A4 Slot: 23
+	public virtual int GetOutputSize(int len) { }
+
+	// RVA: 0x23660CC Offset: 0x23660CC VA: 0x23660CC Slot: 24
+	public virtual int GetUpdateOutputSize(int len) { }
+
+	// RVA: 0x2366104 Offset: 0x2366104 VA: 0x2366104 Slot: 25
+	public virtual void ProcessAadByte(byte input) { }
+
+	// RVA: 0x23661AC Offset: 0x23661AC VA: 0x23661AC Slot: 26
+	public virtual void ProcessAadBytes(byte[] input, int off, int len) { }
+
+	// RVA: 0x23662A8 Offset: 0x23662A8 VA: 0x23662A8 Slot: 27
+	public virtual int ProcessByte(byte input, byte[] output, int outOff) { }
+
+	// RVA: 0x2366368 Offset: 0x2366368 VA: 0x2366368 Slot: 28
+	public virtual int ProcessBytes(byte[] input, int inOff, int len, byte[] output, int outOff) { }
+
+	// RVA: 0x2366488 Offset: 0x2366488 VA: 0x2366488 Slot: 29
+	public virtual int DoFinal(byte[] output, int outOff) { }
+
+	// RVA: 0x23669E8 Offset: 0x23669E8 VA: 0x23669E8 Slot: 30
+	public virtual void Reset() { }
+
+	// RVA: 0x23669FC Offset: 0x23669FC VA: 0x23669FC Slot: 31
+	protected virtual void Clear(byte[] bs) { }
+
+	// RVA: 0x2366A18 Offset: 0x2366A18 VA: 0x2366A18 Slot: 32
+	protected virtual byte[] GetLSub(int n) { }
+
+	// RVA: 0x2366DC8 Offset: 0x2366DC8 VA: 0x2366DC8 Slot: 33
+	protected virtual void ProcessHashBlock() { }
+
+	// RVA: 0x2366E68 Offset: 0x2366E68 VA: 0x2366E68 Slot: 34
+	protected virtual void ProcessMainBlock(byte[] output, int outOff) { }
+
+	// RVA: 0x2367044 Offset: 0x2367044 VA: 0x2367044 Slot: 35
+	protected virtual void Reset(bool clearMac) { }
+
+	// RVA: 0x2367254 Offset: 0x2367254 VA: 0x2367254 Slot: 36
+	protected virtual void UpdateHASH(byte[] LSub) { }
+
+	// RVA: 0x2365CF4 Offset: 0x2365CF4 VA: 0x2365CF4
+	protected static byte[] OCB_double(byte[] block) { }
+
+	// RVA: 0x23668A8 Offset: 0x23668A8 VA: 0x23668A8
+	protected static void OCB_extend(byte[] block, int pos) { }
+
+	// RVA: 0x2366E40 Offset: 0x2366E40 VA: 0x2366E40
+	protected static int OCB_ntz(long x) { }
+
+	// RVA: 0x2367350 Offset: 0x2367350 VA: 0x2367350
+	protected static int ShiftLeft(byte[] block, byte[] output) { }
+
+	// RVA: 0x2366944 Offset: 0x2366944 VA: 0x2366944
+	protected static void Xor(byte[] block, byte[] val) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Modes
+public class OfbBlockCipher : IBlockCipher // TypeDefIndex: 4794
+{
+	// Fields
+	private byte[] IV; // 0x10
+	private byte[] ofbV; // 0x18
+	private byte[] ofbOutV; // 0x20
+	private readonly int blockSize; // 0x28
+	private readonly IBlockCipher cipher; // 0x30
+
+	// Properties
+	public string AlgorithmName { get; }
+	public bool IsPartialBlockOkay { get; }
+
+	// Methods
+
+	// RVA: 0x23673FC Offset: 0x23673FC VA: 0x23673FC
+	public void .ctor(IBlockCipher cipher, int blockSize) { }
+
+	// RVA: 0x236760C Offset: 0x236760C VA: 0x236760C
+	public IBlockCipher GetUnderlyingCipher() { }
+
+	// RVA: 0x2367614 Offset: 0x2367614 VA: 0x2367614 Slot: 5
+	public void Init(bool forEncryption, ICipherParameters parameters) { }
+
+	// RVA: 0x2367938 Offset: 0x2367938 VA: 0x2367938 Slot: 4
+	public string get_AlgorithmName() { }
+
+	// RVA: 0x2367A60 Offset: 0x2367A60 VA: 0x2367A60 Slot: 7
+	public bool get_IsPartialBlockOkay() { }
+
+	// RVA: 0x2367A68 Offset: 0x2367A68 VA: 0x2367A68 Slot: 6
+	public int GetBlockSize() { }
+
+	// RVA: 0x2367A70 Offset: 0x2367A70 VA: 0x2367A70 Slot: 8
+	public int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
+
+	// RVA: 0x236784C Offset: 0x236784C VA: 0x236784C Slot: 9
+	public void Reset() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Modes
+public class OpenPgpCfbBlockCipher : IBlockCipher // TypeDefIndex: 4795
+{
+	// Fields
+	private byte[] IV; // 0x10
+	private byte[] FR; // 0x18
+	private byte[] FRE; // 0x20
+	private readonly IBlockCipher cipher; // 0x28
+	private readonly int blockSize; // 0x30
+	private int count; // 0x34
+	private bool forEncryption; // 0x38
+
+	// Properties
+	public string AlgorithmName { get; }
+	public bool IsPartialBlockOkay { get; }
+
+	// Methods
+
+	// RVA: 0x2367D48 Offset: 0x2367D48 VA: 0x2367D48
+	public void .ctor(IBlockCipher cipher) { }
+
+	// RVA: 0x2367E5C Offset: 0x2367E5C VA: 0x2367E5C
+	public IBlockCipher GetUnderlyingCipher() { }
+
+	// RVA: 0x2367E64 Offset: 0x2367E64 VA: 0x2367E64 Slot: 4
+	public string get_AlgorithmName() { }
+
+	// RVA: 0x2367F58 Offset: 0x2367F58 VA: 0x2367F58 Slot: 7
+	public bool get_IsPartialBlockOkay() { }
+
+	// RVA: 0x2367F60 Offset: 0x2367F60 VA: 0x2367F60 Slot: 6
+	public int GetBlockSize() { }
+
+	// RVA: 0x2368018 Offset: 0x2368018 VA: 0x2368018 Slot: 8
+	public int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
+
+	// RVA: 0x23691AC Offset: 0x23691AC VA: 0x23691AC Slot: 9
+	public void Reset() { }
+
+	// RVA: 0x236929C Offset: 0x236929C VA: 0x236929C Slot: 5
+	public void Init(bool forEncryption, ICipherParameters parameters) { }
+
+	// RVA: 0x23694C4 Offset: 0x23694C4 VA: 0x23694C4
+	private byte EncryptByte(byte data, int blockOff) { }
+
+	// RVA: 0x2368028 Offset: 0x2368028 VA: 0x2368028
+	private int EncryptBlock(byte[] input, int inOff, byte[] outBytes, int outOff) { }
+
+	// RVA: 0x23688A4 Offset: 0x23688A4 VA: 0x23688A4
+	private int DecryptBlock(byte[] input, int inOff, byte[] outBytes, int outOff) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Modes
+public class SicBlockCipher : IBlockCipher // TypeDefIndex: 4796
+{
+	// Fields
+	private readonly IBlockCipher cipher; // 0x10
+	private readonly int blockSize; // 0x18
+	private readonly byte[] counter; // 0x20
+	private readonly byte[] counterOut; // 0x28
+	private byte[] IV; // 0x30
+
+	// Properties
+	public virtual string AlgorithmName { get; }
+	public virtual bool IsPartialBlockOkay { get; }
+
+	// Methods
+
+	// RVA: 0x235B340 Offset: 0x235B340 VA: 0x235B340
+	public void .ctor(IBlockCipher cipher) { }
+
+	// RVA: 0x2369528 Offset: 0x2369528 VA: 0x2369528 Slot: 10
+	public virtual IBlockCipher GetUnderlyingCipher() { }
+
+	// RVA: 0x2369530 Offset: 0x2369530 VA: 0x2369530 Slot: 11
+	public virtual void Init(bool forEncryption, ICipherParameters parameters) { }
+
+	// RVA: 0x236982C Offset: 0x236982C VA: 0x236982C Slot: 12
+	public virtual string get_AlgorithmName() { }
+
+	// RVA: 0x2369920 Offset: 0x2369920 VA: 0x2369920 Slot: 13
+	public virtual bool get_IsPartialBlockOkay() { }
+
+	// RVA: 0x2369928 Offset: 0x2369928 VA: 0x2369928 Slot: 14
+	public virtual int GetBlockSize() { }
+
+	// RVA: 0x23699E0 Offset: 0x23699E0 VA: 0x23699E0 Slot: 15
+	public virtual int ProcessBlock(byte[] input, int inOff, byte[] output, int outOff) { }
+
+	// RVA: 0x2369C30 Offset: 0x2369C30 VA: 0x2369C30 Slot: 16
+	public virtual void Reset() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Operators
+internal class X509Utilities // TypeDefIndex: 4797
+{
+	// Fields
+	private static readonly Asn1Null derNull; // 0x0
+	private static readonly IDictionary algorithms; // 0x8
+	private static readonly IDictionary exParams; // 0x10
+	private static readonly ISet noParams; // 0x18
+
+	// Methods
+
+	// RVA: 0x236B860 Offset: 0x236B860 VA: 0x236B860
+	private static void .cctor() { }
+
+	// RVA: 0x236DF5C Offset: 0x236DF5C VA: 0x236DF5C
+	public void .ctor() { }
+
+	// RVA: 0x236DF64 Offset: 0x236DF64 VA: 0x236DF64
+	private static string GetDigestAlgName(DerObjectIdentifier digestAlgOID) { }
+
+	// RVA: 0x236A9A8 Offset: 0x236A9A8 VA: 0x236A9A8
+	internal static string GetSignatureName(AlgorithmIdentifier sigAlgId) { }
+
+	// RVA: 0x236DE50 Offset: 0x236DE50 VA: 0x236DE50
+	private static RsassaPssParameters CreatePssParams(AlgorithmIdentifier hashAlgId, int saltSize) { }
+
+	// RVA: 0x2369DDC Offset: 0x2369DDC VA: 0x2369DDC
+	internal static DerObjectIdentifier GetAlgorithmOid(string algorithmName) { }
+
+	// RVA: 0x236A050 Offset: 0x236A050 VA: 0x236A050
+	internal static AlgorithmIdentifier GetSigAlgID(DerObjectIdentifier sigOid, string algorithmName) { }
+
+	// RVA: 0x236A684 Offset: 0x236A684 VA: 0x236A684
+	internal static IEnumerable GetAlgNames() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Operators
+internal class SignerBucket : Stream // TypeDefIndex: 4798
+{
+	// Fields
+	protected readonly ISigner signer; // 0x10
+
+	// Properties
+	public override bool CanRead { get; }
+	public override bool CanWrite { get; }
+	public override bool CanSeek { get; }
+	public override long Length { get; }
+	public override long Position { get; set; }
+
+	// Methods
+
+	// RVA: 0x236AF5C Offset: 0x236AF5C VA: 0x236AF5C
+	public void .ctor(ISigner signer) { }
+
+	// RVA: 0x236B190 Offset: 0x236B190 VA: 0x236B190 Slot: 19
+	public override int Read(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x236B1F8 Offset: 0x236B1F8 VA: 0x236B1F8 Slot: 20
+	public override int ReadByte() { }
+
+	// RVA: 0x236B260 Offset: 0x236B260 VA: 0x236B260 Slot: 23
+	public override void Write(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x236B35C Offset: 0x236B35C VA: 0x236B35C Slot: 24
+	public override void WriteByte(byte b) { }
+
+	// RVA: 0x236B424 Offset: 0x236B424 VA: 0x236B424 Slot: 5
+	public override bool get_CanRead() { }
+
+	// RVA: 0x236B42C Offset: 0x236B42C VA: 0x236B42C Slot: 7
+	public override bool get_CanWrite() { }
+
+	// RVA: 0x236B434 Offset: 0x236B434 VA: 0x236B434 Slot: 6
+	public override bool get_CanSeek() { }
+
+	// RVA: 0x236B43C Offset: 0x236B43C VA: 0x236B43C Slot: 9
+	public override long get_Length() { }
+
+	// RVA: 0x236B444 Offset: 0x236B444 VA: 0x236B444 Slot: 10
+	public override long get_Position() { }
+
+	// RVA: 0x236B4AC Offset: 0x236B4AC VA: 0x236B4AC Slot: 11
+	public override void set_Position(long value) { }
+
+	// RVA: 0x236B514 Offset: 0x236B514 VA: 0x236B514 Slot: 18
+	public override void Flush() { }
+
+	// RVA: 0x236B518 Offset: 0x236B518 VA: 0x236B518 Slot: 21
+	public override long Seek(long offset, SeekOrigin origin) { }
+
+	// RVA: 0x236B580 Offset: 0x236B580 VA: 0x236B580 Slot: 22
+	public override void SetLength(long length) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Operators
+public class Asn1SignatureFactory : ISignatureFactory // TypeDefIndex: 4799
+{
+	// Fields
+	private readonly AlgorithmIdentifier algID; // 0x10
+	private readonly string algorithm; // 0x18
+	private readonly AsymmetricKeyParameter privateKey; // 0x20
+	private readonly SecureRandom random; // 0x28
+
+	// Properties
+	public object AlgorithmDetails { get; }
+	public static IEnumerable SignatureAlgNames { get; }
+
+	// Methods
+
+	// RVA: 0x2369D30 Offset: 0x2369D30 VA: 0x2369D30
+	public void .ctor(string algorithm, AsymmetricKeyParameter privateKey) { }
+
+	// RVA: 0x2369D38 Offset: 0x2369D38 VA: 0x2369D38
+	public void .ctor(string algorithm, AsymmetricKeyParameter privateKey, SecureRandom random) { }
+
+	// RVA: 0x236A3DC Offset: 0x236A3DC VA: 0x236A3DC Slot: 4
+	public object get_AlgorithmDetails() { }
+
+	// RVA: 0x236A3E4 Offset: 0x236A3E4 VA: 0x236A3E4 Slot: 5
+	public IStreamCalculator CreateCalculator() { }
+
+	// RVA: 0x236A628 Offset: 0x236A628 VA: 0x236A628
+	public static IEnumerable get_SignatureAlgNames() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Operators
+internal class SigCalculator : IStreamCalculator // TypeDefIndex: 4800
+{
+	// Fields
+	private readonly ISigner sig; // 0x10
+	private readonly Stream stream; // 0x18
+
+	// Properties
+	public Stream Stream { get; }
+
+	// Methods
+
+	// RVA: 0x236A5AC Offset: 0x236A5AC VA: 0x236A5AC
+	internal void .ctor(ISigner sig) { }
+
+	// RVA: 0x236AFD8 Offset: 0x236AFD8 VA: 0x236AFD8 Slot: 4
+	public Stream get_Stream() { }
+
+	// RVA: 0x236AFE0 Offset: 0x236AFE0 VA: 0x236AFE0 Slot: 5
+	public object GetResult() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Operators
+internal class SigResult : IBlockResult // TypeDefIndex: 4801
+{
+	// Fields
+	private readonly ISigner sig; // 0x10
+
+	// Methods
+
+	// RVA: 0x236B048 Offset: 0x236B048 VA: 0x236B048
+	internal void .ctor(ISigner sig) { }
+
+	// RVA: 0x236B074 Offset: 0x236B074 VA: 0x236B074 Slot: 4
+	public byte[] Collect() { }
+
+	// RVA: 0x236B12C Offset: 0x236B12C VA: 0x236B12C Slot: 5
+	public int Collect(byte[] destination, int offset) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Operators
+public class Asn1VerifierFactory : IVerifierFactory // TypeDefIndex: 4802
+{
+	// Fields
+	private readonly AlgorithmIdentifier algID; // 0x10
+	private readonly AsymmetricKeyParameter publicKey; // 0x18
+
+	// Properties
+	public object AlgorithmDetails { get; }
+
+	// Methods
+
+	// RVA: 0x236A790 Offset: 0x236A790 VA: 0x236A790
+	public void .ctor(string algorithm, AsymmetricKeyParameter publicKey) { }
+
+	// RVA: 0x236A824 Offset: 0x236A824 VA: 0x236A824
+	public void .ctor(AlgorithmIdentifier algorithm, AsymmetricKeyParameter publicKey) { }
+
+	// RVA: 0x236A85C Offset: 0x236A85C VA: 0x236A85C Slot: 4
+	public object get_AlgorithmDetails() { }
+
+	// RVA: 0x236A864 Offset: 0x236A864 VA: 0x236A864 Slot: 5
+	public IStreamCalculator CreateCalculator() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Operators
+internal class VerifierCalculator : IStreamCalculator // TypeDefIndex: 4803
+{
+	// Fields
+	private readonly ISigner sig; // 0x10
+	private readonly Stream stream; // 0x18
+
+	// Properties
+	public Stream Stream { get; }
+
+	// Methods
+
+	// RVA: 0x236AD60 Offset: 0x236AD60 VA: 0x236AD60
+	internal void .ctor(ISigner sig) { }
+
+	// RVA: 0x236B5E8 Offset: 0x236B5E8 VA: 0x236B5E8 Slot: 4
+	public Stream get_Stream() { }
+
+	// RVA: 0x236B5F0 Offset: 0x236B5F0 VA: 0x236B5F0 Slot: 5
+	public object GetResult() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Operators
+internal class VerifierResult : IVerifier // TypeDefIndex: 4804
+{
+	// Fields
+	private readonly ISigner sig; // 0x10
+
+	// Methods
+
+	// RVA: 0x236B658 Offset: 0x236B658 VA: 0x236B658
+	internal void .ctor(ISigner sig) { }
+
+	// RVA: 0x236B684 Offset: 0x236B684 VA: 0x236B684 Slot: 4
+	public bool IsVerified(byte[] signature) { }
+
+	// RVA: 0x236B74C Offset: 0x236B74C VA: 0x236B74C Slot: 5
+	public bool IsVerified(byte[] signature, int off, int length) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Operators
+public class Asn1VerifierFactoryProvider : IVerifierFactoryProvider // TypeDefIndex: 4805
+{
+	// Fields
+	private readonly AsymmetricKeyParameter publicKey; // 0x10
+
+	// Properties
+	public IEnumerable SignatureAlgNames { get; }
+
+	// Methods
+
+	// RVA: 0x236ADDC Offset: 0x236ADDC VA: 0x236ADDC
+	public void .ctor(AsymmetricKeyParameter publicKey) { }
+
+	// RVA: 0x236AE08 Offset: 0x236AE08 VA: 0x236AE08 Slot: 4
+	public IVerifierFactory CreateVerifierFactory(object algorithmDetails) { }
+
+	// RVA: 0x236AF00 Offset: 0x236AF00 VA: 0x236AF00
+	public IEnumerable get_SignatureAlgNames() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto
+[Serializable]
+public class OutputLengthException : DataLengthException // TypeDefIndex: 4806
+{
+	// Methods
+
+	// RVA: 0x236E340 Offset: 0x236E340 VA: 0x236E340
+	public void .ctor() { }
+
+	// RVA: 0x236E348 Offset: 0x236E348 VA: 0x236E348
+	public void .ctor(string message) { }
+
+	// RVA: 0x236E350 Offset: 0x236E350 VA: 0x236E350
+	public void .ctor(string message, Exception exception) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Paddings
+public interface IBlockCipherPadding // TypeDefIndex: 4807
+{
+	// Properties
+	public abstract string PaddingName { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void Init(SecureRandom random);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract string get_PaddingName();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract int AddPadding(byte[] input, int inOff);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract int PadCount(byte[] input);
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Paddings
+public class ISO10126d2Padding : IBlockCipherPadding // TypeDefIndex: 4808
+{
+	// Fields
+	private SecureRandom random; // 0x10
+
+	// Properties
+	public string PaddingName { get; }
+
+	// Methods
+
+	// RVA: 0x236E358 Offset: 0x236E358 VA: 0x236E358
+	public void .ctor() { }
+
+	// RVA: 0x236E360 Offset: 0x236E360 VA: 0x236E360 Slot: 4
+	public void Init(SecureRandom random) { }
+
+	// RVA: 0x236E3E8 Offset: 0x236E3E8 VA: 0x236E3E8 Slot: 5
+	public string get_PaddingName() { }
+
+	// RVA: 0x236E430 Offset: 0x236E430 VA: 0x236E430 Slot: 6
+	public int AddPadding(byte[] input, int inOff) { }
+
+	// RVA: 0x236E51C Offset: 0x236E51C VA: 0x236E51C Slot: 7
+	public int PadCount(byte[] input) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Paddings
+public class ISO7816d4Padding : IBlockCipherPadding // TypeDefIndex: 4809
+{
+	// Properties
+	public string PaddingName { get; }
+
+	// Methods
+
+	// RVA: 0x236E5EC Offset: 0x236E5EC VA: 0x236E5EC
+	public void .ctor() { }
+
+	// RVA: 0x236E5F4 Offset: 0x236E5F4 VA: 0x236E5F4 Slot: 4
+	public void Init(SecureRandom random) { }
+
+	// RVA: 0x236E5F8 Offset: 0x236E5F8 VA: 0x236E5F8 Slot: 5
+	public string get_PaddingName() { }
+
+	// RVA: 0x236E640 Offset: 0x236E640 VA: 0x236E640 Slot: 6
+	public int AddPadding(byte[] input, int inOff) { }
+
+	// RVA: 0x236E708 Offset: 0x236E708 VA: 0x236E708 Slot: 7
+	public int PadCount(byte[] input) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Paddings
+public class PaddedBufferedBlockCipher : BufferedBlockCipher // TypeDefIndex: 4810
+{
+	// Fields
+	private readonly IBlockCipherPadding padding; // 0x28
+
+	// Methods
+
+	// RVA: 0x236E80C Offset: 0x236E80C VA: 0x236E80C
+	public void .ctor(IBlockCipher cipher, IBlockCipherPadding padding) { }
+
+	// RVA: 0x236E904 Offset: 0x236E904 VA: 0x236E904
+	public void .ctor(IBlockCipher cipher) { }
+
+	// RVA: 0x236E980 Offset: 0x236E980 VA: 0x236E980 Slot: 23
+	public override void Init(bool forEncryption, ICipherParameters parameters) { }
+
+	// RVA: 0x236EB54 Offset: 0x236EB54 VA: 0x236EB54 Slot: 25
+	public override int GetOutputSize(int length) { }
+
+	// RVA: 0x236EBDC Offset: 0x236EBDC VA: 0x236EBDC Slot: 26
+	public override int GetUpdateOutputSize(int length) { }
+
+	// RVA: 0x236EC40 Offset: 0x236EC40 VA: 0x236EC40 Slot: 28
+	public override int ProcessByte(byte input, byte[] output, int outOff) { }
+
+	// RVA: 0x236EDA8 Offset: 0x236EDA8 VA: 0x236EDA8 Slot: 32
+	public override int ProcessBytes(byte[] input, int inOff, int length, byte[] output, int outOff) { }
+
+	// RVA: 0x236F08C Offset: 0x236F08C VA: 0x236F08C Slot: 36
+	public override int DoFinal(byte[] output, int outOff) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Paddings
+public class Pkcs7Padding : IBlockCipherPadding // TypeDefIndex: 4811
+{
+	// Properties
+	public string PaddingName { get; }
+
+	// Methods
+
+	// RVA: 0x236E978 Offset: 0x236E978 VA: 0x236E978
+	public void .ctor() { }
+
+	// RVA: 0x236F598 Offset: 0x236F598 VA: 0x236F598 Slot: 4
+	public void Init(SecureRandom random) { }
+
+	// RVA: 0x236F59C Offset: 0x236F59C VA: 0x236F59C Slot: 5
+	public string get_PaddingName() { }
+
+	// RVA: 0x236F5E4 Offset: 0x236F5E4 VA: 0x236F5E4 Slot: 6
+	public int AddPadding(byte[] input, int inOff) { }
+
+	// RVA: 0x236F660 Offset: 0x236F660 VA: 0x236F660 Slot: 7
+	public int PadCount(byte[] input) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Paddings
+public class TbcPadding : IBlockCipherPadding // TypeDefIndex: 4812
+{
+	// Properties
+	public string PaddingName { get; }
+
+	// Methods
+
+	// RVA: 0x236F79C Offset: 0x236F79C VA: 0x236F79C
+	public void .ctor() { }
+
+	// RVA: 0x236F7A4 Offset: 0x236F7A4 VA: 0x236F7A4 Slot: 5
+	public string get_PaddingName() { }
+
+	// RVA: 0x236F7EC Offset: 0x236F7EC VA: 0x236F7EC Slot: 8
+	public virtual void Init(SecureRandom random) { }
+
+	// RVA: 0x236F7F0 Offset: 0x236F7F0 VA: 0x236F7F0 Slot: 9
+	public virtual int AddPadding(byte[] input, int inOff) { }
+
+	// RVA: 0x236F900 Offset: 0x236F900 VA: 0x236F900 Slot: 10
+	public virtual int PadCount(byte[] input) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Paddings
+public class X923Padding : IBlockCipherPadding // TypeDefIndex: 4813
+{
+	// Fields
+	private SecureRandom random; // 0x10
+
+	// Properties
+	public string PaddingName { get; }
+
+	// Methods
+
+	// RVA: 0x236F9B8 Offset: 0x236F9B8 VA: 0x236F9B8
+	public void .ctor() { }
+
+	// RVA: 0x236F9C0 Offset: 0x236F9C0 VA: 0x236F9C0 Slot: 4
+	public void Init(SecureRandom random) { }
+
+	// RVA: 0x236F9C8 Offset: 0x236F9C8 VA: 0x236F9C8 Slot: 5
+	public string get_PaddingName() { }
+
+	// RVA: 0x236FA10 Offset: 0x236FA10 VA: 0x236FA10 Slot: 6
+	public int AddPadding(byte[] input, int inOff) { }
+
+	// RVA: 0x236FB14 Offset: 0x236FB14 VA: 0x236FB14 Slot: 7
+	public int PadCount(byte[] input) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Paddings
+public class ZeroBytePadding : IBlockCipherPadding // TypeDefIndex: 4814
+{
+	// Properties
+	public string PaddingName { get; }
+
+	// Methods
+
+	// RVA: 0x236FBE4 Offset: 0x236FBE4 VA: 0x236FBE4
+	public void .ctor() { }
+
+	// RVA: 0x236FBEC Offset: 0x236FBEC VA: 0x236FBEC Slot: 5
+	public string get_PaddingName() { }
+
+	// RVA: 0x236FC34 Offset: 0x236FC34 VA: 0x236FC34 Slot: 4
+	public void Init(SecureRandom random) { }
+
+	// RVA: 0x236FC38 Offset: 0x236FC38 VA: 0x236FC38 Slot: 6
+	public int AddPadding(byte[] input, int inOff) { }
+
+	// RVA: 0x236FCB0 Offset: 0x236FCB0 VA: 0x236FCB0 Slot: 7
+	public int PadCount(byte[] input) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Parameters
+public class AeadParameters : ICipherParameters // TypeDefIndex: 4815
+{
+	// Fields
+	private readonly byte[] associatedText; // 0x10
+	private readonly byte[] nonce; // 0x18
+	private readonly KeyParameter key; // 0x20
+	private readonly int macSize; // 0x28
+
+	// Properties
+	public virtual KeyParameter Key { get; }
+	public virtual int MacSize { get; }
+
+	// Methods
+
+	// RVA: 0x236FD2C Offset: 0x236FD2C VA: 0x236FD2C
+	public void .ctor(KeyParameter key, int macSize, byte[] nonce) { }
+
+	// RVA: 0x236FD70 Offset: 0x236FD70 VA: 0x236FD70
+	public void .ctor(KeyParameter key, int macSize, byte[] nonce, byte[] associatedText) { }
+
+	// RVA: 0x236FDC0 Offset: 0x236FDC0 VA: 0x236FDC0 Slot: 4
+	public virtual KeyParameter get_Key() { }
+
+	// RVA: 0x236FDC8 Offset: 0x236FDC8 VA: 0x236FDC8 Slot: 5
+	public virtual int get_MacSize() { }
+
+	// RVA: 0x236FDD0 Offset: 0x236FDD0 VA: 0x236FDD0 Slot: 6
+	public virtual byte[] GetAssociatedText() { }
+
+	// RVA: 0x236FDD8 Offset: 0x236FDD8 VA: 0x236FDD8 Slot: 7
+	public virtual byte[] GetNonce() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Parameters
+public class DesEdeParameters : DesParameters // TypeDefIndex: 4816
+{
+	// Fields
+	public const int DesEdeKeyLength = 24;
+
+	// Methods
+
+	// RVA: 0x2370FD8 Offset: 0x2370FD8 VA: 0x2370FD8
+	public void .ctor(byte[] key) { }
+
+	// RVA: 0x23712FC Offset: 0x23712FC VA: 0x23712FC
+	public void .ctor(byte[] key, int keyOff, int keyLen) { }
+
+	// RVA: 0x2371070 Offset: 0x2371070 VA: 0x2371070
+	private static byte[] FixKey(byte[] key, int keyOff, int keyLen) { }
+
+	// RVA: 0x23713C8 Offset: 0x23713C8 VA: 0x23713C8
+	public static bool IsWeakKey(byte[] key, int offset, int length) { }
+
+	// RVA: 0x23715F8 Offset: 0x23715F8 VA: 0x23715F8
+	public static bool IsWeakKey(byte[] key, int offset) { }
+
+	// RVA: 0x2371398 Offset: 0x2371398 VA: 0x2371398
+	public static bool IsWeakKey(byte[] key) { }
+
+	// RVA: 0x2371630 Offset: 0x2371630 VA: 0x2371630
+	public static bool IsRealEdeKey(byte[] key, int offset) { }
+
+	// RVA: 0x2371678 Offset: 0x2371678 VA: 0x2371678
+	public static bool IsReal2Key(byte[] key, int offset) { }
+
+	// RVA: 0x2371730 Offset: 0x2371730 VA: 0x2371730
+	public static bool IsReal3Key(byte[] key, int offset) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Parameters
+public class DesParameters : KeyParameter // TypeDefIndex: 4817
+{
+	// Fields
+	public const int DesKeyLength = 8;
+	private const int N_DES_WEAK_KEYS = 16;
+	private static readonly byte[] DES_weak_keys; // 0x0
+
+	// Methods
+
+	// RVA: 0x2371230 Offset: 0x2371230 VA: 0x2371230
+	public void .ctor(byte[] key) { }
+
+	// RVA: 0x2371924 Offset: 0x2371924 VA: 0x2371924
+	public void .ctor(byte[] key, int keyOff, int keyLen) { }
+
+	// RVA: 0x2371468 Offset: 0x2371468 VA: 0x2371468
+	public static bool IsWeakKey(byte[] key, int offset) { }
+
+	// RVA: 0x23718BC Offset: 0x23718BC VA: 0x23718BC
+	public static bool IsWeakKey(byte[] key) { }
+
+	// RVA: 0x2371A0C Offset: 0x2371A0C VA: 0x2371A0C
+	public static byte SetOddParity(byte b) { }
+
+	// RVA: 0x2371A2C Offset: 0x2371A2C VA: 0x2371A2C
+	public static void SetOddParity(byte[] bytes) { }
+
+	// RVA: 0x2371B1C Offset: 0x2371B1C VA: 0x2371B1C
+	public static void SetOddParity(byte[] bytes, int off, int len) { }
+
+	// RVA: 0x2371C18 Offset: 0x2371C18 VA: 0x2371C18
+	private static void .cctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Parameters
+public class DHKeyGenerationParameters : KeyGenerationParameters // TypeDefIndex: 4818
+{
+	// Fields
+	private readonly DHParameters parameters; // 0x20
+
+	// Properties
+	public DHParameters Parameters { get; }
+
+	// Methods
+
+	// RVA: 0x236FDE0 Offset: 0x236FDE0 VA: 0x236FDE0
+	public void .ctor(SecureRandom random, DHParameters parameters) { }
+
+	// RVA: 0x236FE9C Offset: 0x236FE9C VA: 0x236FE9C
+	public DHParameters get_Parameters() { }
+
+	// RVA: 0x236FE2C Offset: 0x236FE2C VA: 0x236FE2C
+	internal static int GetStrength(DHParameters parameters) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Parameters
+public class DHKeyParameters : AsymmetricKeyParameter // TypeDefIndex: 4819
+{
+	// Fields
+	private readonly DHParameters parameters; // 0x18
+	private readonly DerObjectIdentifier algorithmOid; // 0x20
+
+	// Properties
+	public DHParameters Parameters { get; }
+	public DerObjectIdentifier AlgorithmOid { get; }
+
+	// Methods
+
+	// RVA: 0x236FEB4 Offset: 0x236FEB4 VA: 0x236FEB4
+	protected void .ctor(bool isPrivate, DHParameters parameters) { }
+
+	// RVA: 0x236FF44 Offset: 0x236FF44 VA: 0x236FF44
+	protected void .ctor(bool isPrivate, DHParameters parameters, DerObjectIdentifier algorithmOid) { }
+
+	// RVA: 0x236FF80 Offset: 0x236FF80 VA: 0x236FF80
+	public DHParameters get_Parameters() { }
+
+	// RVA: 0x236FF88 Offset: 0x236FF88 VA: 0x236FF88
+	public DerObjectIdentifier get_AlgorithmOid() { }
+
+	// RVA: 0x236FF90 Offset: 0x236FF90 VA: 0x236FF90 Slot: 0
+	public override bool Equals(object obj) { }
+
+	// RVA: 0x2370040 Offset: 0x2370040 VA: 0x2370040
+	protected bool Equals(DHKeyParameters other) { }
+
+	// RVA: 0x23700AC Offset: 0x23700AC VA: 0x23700AC Slot: 2
+	public override int GetHashCode() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Parameters
+public class DHParameters : ICipherParameters // TypeDefIndex: 4820
+{
+	// Fields
+	private const int DefaultMinimumLength = 160;
+	private readonly BigInteger p; // 0x10
+	private readonly BigInteger g; // 0x18
+	private readonly BigInteger q; // 0x20
+	private readonly BigInteger j; // 0x28
+	private readonly int m; // 0x30
+	private readonly int l; // 0x34
+	private readonly DHValidationParameters validation; // 0x38
+
+	// Properties
+	public BigInteger P { get; }
+	public BigInteger G { get; }
+	public BigInteger Q { get; }
+	public BigInteger J { get; }
+	public int M { get; }
+	public int L { get; }
+	public DHValidationParameters ValidationParameters { get; }
+
+	// Methods
+
+	// RVA: 0x23700F4 Offset: 0x23700F4 VA: 0x23700F4
+	public void .ctor(BigInteger p, BigInteger g) { }
+
+	// RVA: 0x23701A8 Offset: 0x23701A8 VA: 0x23701A8
+	public void .ctor(BigInteger p, BigInteger g, BigInteger q) { }
+
+	// RVA: 0x2370124 Offset: 0x2370124 VA: 0x2370124
+	public void .ctor(BigInteger p, BigInteger g, BigInteger q, int l) { }
+
+	// RVA: 0x2370520 Offset: 0x2370520 VA: 0x2370520
+	public void .ctor(BigInteger p, BigInteger g, BigInteger q, int m, int l) { }
+
+	// RVA: 0x2370544 Offset: 0x2370544 VA: 0x2370544
+	public void .ctor(BigInteger p, BigInteger g, BigInteger q, BigInteger j, DHValidationParameters validation) { }
+
+	// RVA: 0x23701EC Offset: 0x23701EC VA: 0x23701EC
+	public void .ctor(BigInteger p, BigInteger g, BigInteger q, int m, int l, BigInteger j, DHValidationParameters validation) { }
+
+	// RVA: 0x23701D4 Offset: 0x23701D4 VA: 0x23701D4
+	private static int GetDefaultMParam(int lParam) { }
+
+	// RVA: 0x236FEAC Offset: 0x236FEAC VA: 0x236FEAC
+	public BigInteger get_P() { }
+
+	// RVA: 0x2370578 Offset: 0x2370578 VA: 0x2370578
+	public BigInteger get_G() { }
+
+	// RVA: 0x2370580 Offset: 0x2370580 VA: 0x2370580
+	public BigInteger get_Q() { }
+
+	// RVA: 0x2370588 Offset: 0x2370588 VA: 0x2370588
+	public BigInteger get_J() { }
+
+	// RVA: 0x2370590 Offset: 0x2370590 VA: 0x2370590
+	public int get_M() { }
+

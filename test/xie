@@ -1,0 +1,1000 @@
+	public Selectable selectOnDown { get; set; }
+	public Selectable selectOnLeft { get; set; }
+	public Selectable selectOnRight { get; set; }
+	public static Navigation defaultNavigation { get; }
+
+	// Methods
+
+	// RVA: 0xBB9B54 Offset: 0xBB9B54 VA: 0xBB9B54
+	public Navigation.Mode get_mode() { }
+
+	// RVA: 0xBB9B5C Offset: 0xBB9B5C VA: 0xBB9B5C
+	public void set_mode(Navigation.Mode value) { }
+
+	// RVA: 0xBB9B64 Offset: 0xBB9B64 VA: 0xBB9B64
+	public Selectable get_selectOnUp() { }
+
+	// RVA: 0xBB9B6C Offset: 0xBB9B6C VA: 0xBB9B6C
+	public void set_selectOnUp(Selectable value) { }
+
+	// RVA: 0xBB9B74 Offset: 0xBB9B74 VA: 0xBB9B74
+	public Selectable get_selectOnDown() { }
+
+	// RVA: 0xBB9B7C Offset: 0xBB9B7C VA: 0xBB9B7C
+	public void set_selectOnDown(Selectable value) { }
+
+	// RVA: 0xBB9B84 Offset: 0xBB9B84 VA: 0xBB9B84
+	public Selectable get_selectOnLeft() { }
+
+	// RVA: 0xBB9B8C Offset: 0xBB9B8C VA: 0xBB9B8C
+	public void set_selectOnLeft(Selectable value) { }
+
+	// RVA: 0xBB9B94 Offset: 0xBB9B94 VA: 0xBB9B94
+	public Selectable get_selectOnRight() { }
+
+	// RVA: 0xBB9B9C Offset: 0xBB9B9C VA: 0xBB9B9C
+	public void set_selectOnRight(Selectable value) { }
+
+	// RVA: 0xFFD2C8 Offset: 0xFFD2C8 VA: 0xFFD2C8
+	public static Navigation get_defaultNavigation() { }
+
+	// RVA: 0xBB9BA4 Offset: 0xBB9BA4 VA: 0xBB9BA4 Slot: 4
+	public bool Equals(Navigation other) { }
+}
+
+// Namespace: 
+[FlagsAttribute] // RVA: 0xC7E6B0 Offset: 0xC7E6B0 VA: 0xC7E6B0
+public enum Navigation.Mode // TypeDefIndex: 3104
+{
+	// Fields
+	public int value__; // 0x0
+	public const Navigation.Mode None = 0;
+	public const Navigation.Mode Horizontal = 1;
+	public const Navigation.Mode Vertical = 2;
+	public const Navigation.Mode Automatic = 3;
+	public const Navigation.Mode Explicit = 4;
+}
+
+// Namespace: UnityEngine.UI
+[AddComponentMenu] // RVA: 0xC7E6C0 Offset: 0xC7E6C0 VA: 0xC7E6C0
+public class RawImage : MaskableGraphic // TypeDefIndex: 3105
+{
+	// Fields
+	[FormerlySerializedAsAttribute] // RVA: 0xC808B4 Offset: 0xC808B4 VA: 0xC808B4
+	[SerializeField] // RVA: 0xC808B4 Offset: 0xC808B4 VA: 0xC808B4
+	private Texture m_Texture; // 0xB0
+	[SerializeField] // RVA: 0xC80900 Offset: 0xC80900 VA: 0xC80900
+	private Rect m_UVRect; // 0xB8
+
+	// Properties
+	public override Texture mainTexture { get; }
+	public Texture texture { get; set; }
+	public Rect uvRect { get; set; }
+
+	// Methods
+
+	// RVA: 0xFFE280 Offset: 0xFFE280 VA: 0xFFE280
+	protected void .ctor() { }
+
+	// RVA: 0xFFE2F4 Offset: 0xFFE2F4 VA: 0xFFE2F4 Slot: 35
+	public override Texture get_mainTexture() { }
+
+	// RVA: 0xFFE488 Offset: 0xFFE488 VA: 0xFFE488
+	public Texture get_texture() { }
+
+	// RVA: 0xFFE490 Offset: 0xFFE490 VA: 0xFFE490
+	public void set_texture(Texture value) { }
+
+	// RVA: 0xFFE54C Offset: 0xFFE54C VA: 0xFFE54C
+	public Rect get_uvRect() { }
+
+	// RVA: 0xFFE558 Offset: 0xFFE558 VA: 0xFFE558
+	public void set_uvRect(Rect value) { }
+
+	// RVA: 0xFFE5E8 Offset: 0xFFE5E8 VA: 0xFFE5E8 Slot: 45
+	public override void SetNativeSize() { }
+
+	// RVA: 0xFFE7E8 Offset: 0xFFE7E8 VA: 0xFFE7E8 Slot: 44
+	protected override void OnPopulateMesh(VertexHelper vh) { }
+}
+
+// Namespace: UnityEngine.UI
+[AddComponentMenu] // RVA: 0xC7E6FC Offset: 0xC7E6FC VA: 0xC7E6FC
+[ExecuteAlways] // RVA: 0xC7E6FC Offset: 0xC7E6FC VA: 0xC7E6FC
+[DisallowMultipleComponent] // RVA: 0xC7E6FC Offset: 0xC7E6FC VA: 0xC7E6FC
+[RequireComponent] // RVA: 0xC7E6FC Offset: 0xC7E6FC VA: 0xC7E6FC
+public class RectMask2D : UIBehaviour, IClipper, ICanvasRaycastFilter // TypeDefIndex: 3106
+{
+	// Fields
+	private readonly RectangularVertexClipper m_VertexClipper; // 0x18
+	private RectTransform m_RectTransform; // 0x20
+	private HashSet<IClippable> m_ClipTargets; // 0x28
+	private bool m_ShouldRecalculateClipRects; // 0x30
+	private List<RectMask2D> m_Clippers; // 0x38
+	private Rect m_LastClipRectCanvasSpace; // 0x40
+	private bool m_ForceClip; // 0x50
+	private Canvas m_Canvas; // 0x58
+	private Vector3[] m_Corners; // 0x60
+
+	// Properties
+	private Canvas Canvas { get; }
+	public Rect canvasRect { get; }
+	public RectTransform rectTransform { get; }
+	private Rect rootCanvasRect { get; }
+
+	// Methods
+
+	// RVA: 0xFFEE8C Offset: 0xFFEE8C VA: 0xFFEE8C
+	protected void .ctor() { }
+
+	// RVA: 0xFFEFC8 Offset: 0xFFEFC8 VA: 0xFFEFC8
+	private Canvas get_Canvas() { }
+
+	// RVA: 0xFFF164 Offset: 0xFFF164 VA: 0xFFF164
+	public Rect get_canvasRect() { }
+
+	// RVA: 0xFFF1B8 Offset: 0xFFF1B8 VA: 0xFFF1B8
+	public RectTransform get_rectTransform() { }
+
+	// RVA: 0xFFF504 Offset: 0xFFF504 VA: 0xFFF504 Slot: 5
+	protected override void OnEnable() { }
+
+	// RVA: 0xFFF540 Offset: 0xFFF540 VA: 0xFFF540 Slot: 7
+	protected override void OnDisable() { }
+
+	// RVA: 0xFFF5E4 Offset: 0xFFF5E4 VA: 0xFFF5E4 Slot: 19
+	public virtual bool IsRaycastLocationValid(Vector2 sp, Camera eventCamera) { }
+
+	// RVA: 0xFFF6AC Offset: 0xFFF6AC VA: 0xFFF6AC
+	private Rect get_rootCanvasRect() { }
+
+	// RVA: 0xFFF96C Offset: 0xFFF96C VA: 0xFFF96C Slot: 20
+	public virtual void PerformClipping() { }
+
+	// RVA: 0xFFCB9C Offset: 0xFFCB9C VA: 0xFFCB9C
+	public void AddClippable(IClippable clippable) { }
+
+	// RVA: 0xFFCA94 Offset: 0xFFCA94 VA: 0xFFCA94
+	public void RemoveClippable(IClippable clippable) { }
+
+	// RVA: 0xFFFDC0 Offset: 0xFFFDC0 VA: 0xFFFDC0 Slot: 12
+	protected override void OnTransformParentChanged() { }
+
+	// RVA: 0xFFFDEC Offset: 0xFFFDEC VA: 0xFFFDEC Slot: 15
+	protected override void OnCanvasHierarchyChanged() { }
+}
+
+// Namespace: UnityEngine.UI
+[AddComponentMenu] // RVA: 0xC7E7A8 Offset: 0xC7E7A8 VA: 0xC7E7A8
+[SelectionBaseAttribute] // RVA: 0xC7E7A8 Offset: 0xC7E7A8 VA: 0xC7E7A8
+[ExecuteAlways] // RVA: 0xC7E7A8 Offset: 0xC7E7A8 VA: 0xC7E7A8
+[DisallowMultipleComponent] // RVA: 0xC7E7A8 Offset: 0xC7E7A8 VA: 0xC7E7A8
+[RequireComponent] // RVA: 0xC7E7A8 Offset: 0xC7E7A8 VA: 0xC7E7A8
+public class ScrollRect : UIBehaviour, IInitializePotentialDragHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IScrollHandler, ICanvasElement, ILayoutElement, ILayoutGroup, IEventSystemHandler, ILayoutController // TypeDefIndex: 3107
+{
+	// Fields
+	[SerializeField] // RVA: 0xC80910 Offset: 0xC80910 VA: 0xC80910
+	private RectTransform m_Content; // 0x18
+	[SerializeField] // RVA: 0xC80920 Offset: 0xC80920 VA: 0xC80920
+	private bool m_Horizontal; // 0x20
+	[SerializeField] // RVA: 0xC80930 Offset: 0xC80930 VA: 0xC80930
+	private bool m_Vertical; // 0x21
+	[SerializeField] // RVA: 0xC80940 Offset: 0xC80940 VA: 0xC80940
+	private ScrollRect.MovementType m_MovementType; // 0x24
+	[SerializeField] // RVA: 0xC80950 Offset: 0xC80950 VA: 0xC80950
+	private float m_Elasticity; // 0x28
+	[SerializeField] // RVA: 0xC80960 Offset: 0xC80960 VA: 0xC80960
+	private bool m_Inertia; // 0x2C
+	[SerializeField] // RVA: 0xC80970 Offset: 0xC80970 VA: 0xC80970
+	private float m_DecelerationRate; // 0x30
+	[SerializeField] // RVA: 0xC80980 Offset: 0xC80980 VA: 0xC80980
+	private float m_ScrollSensitivity; // 0x34
+	[SerializeField] // RVA: 0xC80990 Offset: 0xC80990 VA: 0xC80990
+	private RectTransform m_Viewport; // 0x38
+	[SerializeField] // RVA: 0xC809A0 Offset: 0xC809A0 VA: 0xC809A0
+	private Scrollbar m_HorizontalScrollbar; // 0x40
+	[SerializeField] // RVA: 0xC809B0 Offset: 0xC809B0 VA: 0xC809B0
+	private Scrollbar m_VerticalScrollbar; // 0x48
+	[SerializeField] // RVA: 0xC809C0 Offset: 0xC809C0 VA: 0xC809C0
+	private ScrollRect.ScrollbarVisibility m_HorizontalScrollbarVisibility; // 0x50
+	[SerializeField] // RVA: 0xC809D0 Offset: 0xC809D0 VA: 0xC809D0
+	private ScrollRect.ScrollbarVisibility m_VerticalScrollbarVisibility; // 0x54
+	[SerializeField] // RVA: 0xC809E0 Offset: 0xC809E0 VA: 0xC809E0
+	private float m_HorizontalScrollbarSpacing; // 0x58
+	[SerializeField] // RVA: 0xC809F0 Offset: 0xC809F0 VA: 0xC809F0
+	private float m_VerticalScrollbarSpacing; // 0x5C
+	[SerializeField] // RVA: 0xC80A00 Offset: 0xC80A00 VA: 0xC80A00
+	private ScrollRect.ScrollRectEvent m_OnValueChanged; // 0x60
+	private Vector2 m_PointerStartLocalCursor; // 0x68
+	protected Vector2 m_ContentStartPosition; // 0x70
+	private RectTransform m_ViewRect; // 0x78
+	protected Bounds m_ContentBounds; // 0x80
+	private Bounds m_ViewBounds; // 0x98
+	private Vector2 m_Velocity; // 0xB0
+	private bool m_Dragging; // 0xB8
+	private bool m_Scrolling; // 0xB9
+	private Vector2 m_PrevPosition; // 0xBC
+	private Bounds m_PrevContentBounds; // 0xC4
+	private Bounds m_PrevViewBounds; // 0xDC
+	private bool m_HasRebuiltLayout; // 0xF4
+	private bool m_HSliderExpand; // 0xF5
+	private bool m_VSliderExpand; // 0xF6
+	private float m_HSliderHeight; // 0xF8
+	private float m_VSliderWidth; // 0xFC
+	private RectTransform m_Rect; // 0x100
+	private RectTransform m_HorizontalScrollbarRect; // 0x108
+	private RectTransform m_VerticalScrollbarRect; // 0x110
+	private DrivenRectTransformTracker m_Tracker; // 0x118
+	private readonly Vector3[] m_Corners; // 0x120
+
+	// Properties
+	public RectTransform content { get; set; }
+	public bool horizontal { get; set; }
+	public bool vertical { get; set; }
+	public ScrollRect.MovementType movementType { get; set; }
+	public float elasticity { get; set; }
+	public bool inertia { get; set; }
+	public float decelerationRate { get; set; }
+	public float scrollSensitivity { get; set; }
+	public RectTransform viewport { get; set; }
+	public Scrollbar horizontalScrollbar { get; set; }
+	public Scrollbar verticalScrollbar { get; set; }
+	public ScrollRect.ScrollbarVisibility horizontalScrollbarVisibility { get; set; }
+	public ScrollRect.ScrollbarVisibility verticalScrollbarVisibility { get; set; }
+	public float horizontalScrollbarSpacing { get; set; }
+	public float verticalScrollbarSpacing { get; set; }
+	public ScrollRect.ScrollRectEvent onValueChanged { get; set; }
+	protected RectTransform viewRect { get; }
+	public Vector2 velocity { get; set; }
+	private RectTransform rectTransform { get; }
+	public Vector2 normalizedPosition { get; set; }
+	public float horizontalNormalizedPosition { get; set; }
+	public float verticalNormalizedPosition { get; set; }
+	private bool hScrollingNeeded { get; }
+	private bool vScrollingNeeded { get; }
+	public virtual float minWidth { get; }
+	public virtual float preferredWidth { get; }
+	public virtual float flexibleWidth { get; }
+	public virtual float minHeight { get; }
+	public virtual float preferredHeight { get; }
+	public virtual float flexibleHeight { get; }
+	public virtual int layoutPriority { get; }
+
+	// Methods
+
+	// RVA: 0x1002934 Offset: 0x1002934 VA: 0x1002934
+	protected void .ctor() { }
+
+	// RVA: 0x1002A78 Offset: 0x1002A78 VA: 0x1002A78
+	public RectTransform get_content() { }
+
+	// RVA: 0x1002A80 Offset: 0x1002A80 VA: 0x1002A80
+	public void set_content(RectTransform value) { }
+
+	// RVA: 0x1002A88 Offset: 0x1002A88 VA: 0x1002A88
+	public bool get_horizontal() { }
+
+	// RVA: 0x1002A90 Offset: 0x1002A90 VA: 0x1002A90
+	public void set_horizontal(bool value) { }
+
+	// RVA: 0x1002A9C Offset: 0x1002A9C VA: 0x1002A9C
+	public bool get_vertical() { }
+
+	// RVA: 0x1002AA4 Offset: 0x1002AA4 VA: 0x1002AA4
+	public void set_vertical(bool value) { }
+
+	// RVA: 0x1002AB0 Offset: 0x1002AB0 VA: 0x1002AB0
+	public ScrollRect.MovementType get_movementType() { }
+
+	// RVA: 0x1002AB8 Offset: 0x1002AB8 VA: 0x1002AB8
+	public void set_movementType(ScrollRect.MovementType value) { }
+
+	// RVA: 0x1002AC0 Offset: 0x1002AC0 VA: 0x1002AC0
+	public float get_elasticity() { }
+
+	// RVA: 0x1002AC8 Offset: 0x1002AC8 VA: 0x1002AC8
+	public void set_elasticity(float value) { }
+
+	// RVA: 0x1002AD0 Offset: 0x1002AD0 VA: 0x1002AD0
+	public bool get_inertia() { }
+
+	// RVA: 0x1002AD8 Offset: 0x1002AD8 VA: 0x1002AD8
+	public void set_inertia(bool value) { }
+
+	// RVA: 0x1002AE4 Offset: 0x1002AE4 VA: 0x1002AE4
+	public float get_decelerationRate() { }
+
+	// RVA: 0x1002AEC Offset: 0x1002AEC VA: 0x1002AEC
+	public void set_decelerationRate(float value) { }
+
+	// RVA: 0x1002AF4 Offset: 0x1002AF4 VA: 0x1002AF4
+	public float get_scrollSensitivity() { }
+
+	// RVA: 0x1002AFC Offset: 0x1002AFC VA: 0x1002AFC
+	public void set_scrollSensitivity(float value) { }
+
+	// RVA: 0x1002B04 Offset: 0x1002B04 VA: 0x1002B04
+	public RectTransform get_viewport() { }
+
+	// RVA: 0x1002B0C Offset: 0x1002B0C VA: 0x1002B0C
+	public void set_viewport(RectTransform value) { }
+
+	// RVA: 0x1002BD4 Offset: 0x1002BD4 VA: 0x1002BD4
+	public Scrollbar get_horizontalScrollbar() { }
+
+	// RVA: 0x1002BDC Offset: 0x1002BDC VA: 0x1002BDC
+	public void set_horizontalScrollbar(Scrollbar value) { }
+
+	// RVA: 0x1002D74 Offset: 0x1002D74 VA: 0x1002D74
+	public Scrollbar get_verticalScrollbar() { }
+
+	// RVA: 0x1002D7C Offset: 0x1002D7C VA: 0x1002D7C
+	public void set_verticalScrollbar(Scrollbar value) { }
+
+	// RVA: 0x1002F0C Offset: 0x1002F0C VA: 0x1002F0C
+	public ScrollRect.ScrollbarVisibility get_horizontalScrollbarVisibility() { }
+
+	// RVA: 0x1002F14 Offset: 0x1002F14 VA: 0x1002F14
+	public void set_horizontalScrollbarVisibility(ScrollRect.ScrollbarVisibility value) { }
+
+	// RVA: 0x1002F1C Offset: 0x1002F1C VA: 0x1002F1C
+	public ScrollRect.ScrollbarVisibility get_verticalScrollbarVisibility() { }
+
+	// RVA: 0x1002F24 Offset: 0x1002F24 VA: 0x1002F24
+	public void set_verticalScrollbarVisibility(ScrollRect.ScrollbarVisibility value) { }
+
+	// RVA: 0x1002F2C Offset: 0x1002F2C VA: 0x1002F2C
+	public float get_horizontalScrollbarSpacing() { }
+
+	// RVA: 0x1002F34 Offset: 0x1002F34 VA: 0x1002F34
+	public void set_horizontalScrollbarSpacing(float value) { }
+
+	// RVA: 0x1002FD0 Offset: 0x1002FD0 VA: 0x1002FD0
+	public float get_verticalScrollbarSpacing() { }
+
+	// RVA: 0x1002FD8 Offset: 0x1002FD8 VA: 0x1002FD8
+	public void set_verticalScrollbarSpacing(float value) { }
+
+	// RVA: 0x1002FE0 Offset: 0x1002FE0 VA: 0x1002FE0
+	public ScrollRect.ScrollRectEvent get_onValueChanged() { }
+
+	// RVA: 0x1002FE8 Offset: 0x1002FE8 VA: 0x1002FE8
+	public void set_onValueChanged(ScrollRect.ScrollRectEvent value) { }
+
+	// RVA: 0x1002FF0 Offset: 0x1002FF0 VA: 0x1002FF0
+	protected RectTransform get_viewRect() { }
+
+	// RVA: 0x1003128 Offset: 0x1003128 VA: 0x1003128
+	public Vector2 get_velocity() { }
+
+	// RVA: 0x1003130 Offset: 0x1003130 VA: 0x1003130
+	public void set_velocity(Vector2 value) { }
+
+	// RVA: 0x1003138 Offset: 0x1003138 VA: 0x1003138
+	private RectTransform get_rectTransform() { }
+
+	// RVA: 0x10031D0 Offset: 0x10031D0 VA: 0x10031D0 Slot: 38
+	public virtual void Rebuild(CanvasUpdate executing) { }
+
+	// RVA: 0x1003F20 Offset: 0x1003F20 VA: 0x1003F20 Slot: 39
+	public virtual void LayoutComplete() { }
+
+	// RVA: 0x1003F24 Offset: 0x1003F24 VA: 0x1003F24 Slot: 40
+	public virtual void GraphicUpdateComplete() { }
+
+	// RVA: 0x1003284 Offset: 0x1003284 VA: 0x1003284
+	private void UpdateCachedData() { }
+
+	// RVA: 0x1003F28 Offset: 0x1003F28 VA: 0x1003F28 Slot: 5
+	protected override void OnEnable() { }
+
+	// RVA: 0x10040E4 Offset: 0x10040E4 VA: 0x10040E4 Slot: 7
+	protected override void OnDisable() { }
+
+	// RVA: 0x1004310 Offset: 0x1004310 VA: 0x1004310 Slot: 9
+	public override bool IsActive() { }
+
+	// RVA: 0x10043A0 Offset: 0x10043A0 VA: 0x10043A0
+	private void EnsureLayoutHasRebuilt() { }
+
+	// RVA: 0x1004424 Offset: 0x1004424 VA: 0x1004424 Slot: 41
+	public virtual void StopMovement() { }
+
+	// RVA: 0x1004490 Offset: 0x1004490 VA: 0x1004490 Slot: 42
+	public virtual void OnScroll(PointerEventData data) { }
+
+	// RVA: 0x10047A8 Offset: 0x10047A8 VA: 0x10047A8 Slot: 43
+	public virtual void OnInitializePotentialDrag(PointerEventData eventData) { }
+
+	// RVA: 0x100483C Offset: 0x100483C VA: 0x100483C Slot: 44
+	public virtual void OnBeginDrag(PointerEventData eventData) { }
+
+	// RVA: 0x10049B8 Offset: 0x10049B8 VA: 0x10049B8 Slot: 45
+	public virtual void OnEndDrag(PointerEventData eventData) { }
+
+	// RVA: 0x10049F8 Offset: 0x10049F8 VA: 0x10049F8 Slot: 46
+	public virtual void OnDrag(PointerEventData eventData) { }
+
+	// RVA: 0x1004D34 Offset: 0x1004D34 VA: 0x1004D34 Slot: 47
+	protected virtual void SetContentAnchoredPosition(Vector2 position) { }
+
+	// RVA: 0x1004E78 Offset: 0x1004E78 VA: 0x1004E78 Slot: 48
+	protected virtual void LateUpdate() { }
+
+	// RVA: 0x1003E3C Offset: 0x1003E3C VA: 0x1003E3C
+	protected void UpdatePrevData() { }
+
+	// RVA: 0x1003BD0 Offset: 0x1003BD0 VA: 0x1003BD0
+	private void UpdateScrollbars(Vector2 offset) { }
+
+	// RVA: 0x100556C Offset: 0x100556C VA: 0x100556C
+	public Vector2 get_normalizedPosition() { }
+
+	// RVA: 0x1005960 Offset: 0x1005960 VA: 0x1005960
+	public void set_normalizedPosition(Vector2 value) { }
+
+	// RVA: 0x10056B8 Offset: 0x10056B8 VA: 0x10056B8
+	public float get_horizontalNormalizedPosition() { }
+
+	// RVA: 0x10059B4 Offset: 0x10059B4 VA: 0x10059B4
+	public void set_horizontalNormalizedPosition(float value) { }
+
+	// RVA: 0x1005810 Offset: 0x1005810 VA: 0x1005810
+	public float get_verticalNormalizedPosition() { }
+
+	// RVA: 0x10059C8 Offset: 0x10059C8 VA: 0x10059C8
+	public void set_verticalNormalizedPosition(float value) { }
+
+	// RVA: 0x10059DC Offset: 0x10059DC VA: 0x10059DC
+	private void SetHorizontalNormalizedPosition(float value) { }
+
+	// RVA: 0x10059F0 Offset: 0x10059F0 VA: 0x10059F0
+	private void SetVerticalNormalizedPosition(float value) { }
+
+	// RVA: 0x1005A04 Offset: 0x1005A04 VA: 0x1005A04 Slot: 49
+	protected virtual void SetNormalizedPosition(float value, int axis) { }
+
+	// RVA: 0x1004C88 Offset: 0x1004C88 VA: 0x1004C88
+	private static float RubberDelta(float overStretching, float viewSize) { }
+
+	// RVA: 0x1005C50 Offset: 0x1005C50 VA: 0x1005C50 Slot: 10
+	protected override void OnRectTransformDimensionsChange() { }
+
+	// RVA: 0x1005C54 Offset: 0x1005C54 VA: 0x1005C54
+	private bool get_hScrollingNeeded() { }
+
+	// RVA: 0x1005CBC Offset: 0x1005CBC VA: 0x1005CBC
+	private bool get_vScrollingNeeded() { }
+
+	// RVA: 0x1005D24 Offset: 0x1005D24 VA: 0x1005D24 Slot: 50
+	public virtual void CalculateLayoutInputHorizontal() { }
+
+	// RVA: 0x1005D28 Offset: 0x1005D28 VA: 0x1005D28 Slot: 51
+	public virtual void CalculateLayoutInputVertical() { }
+
+	// RVA: 0x1005D2C Offset: 0x1005D2C VA: 0x1005D2C Slot: 52
+	public virtual float get_minWidth() { }
+
+	// RVA: 0x1005D34 Offset: 0x1005D34 VA: 0x1005D34 Slot: 53
+	public virtual float get_preferredWidth() { }
+
+	// RVA: 0x1005D3C Offset: 0x1005D3C VA: 0x1005D3C Slot: 54
+	public virtual float get_flexibleWidth() { }
+
+	// RVA: 0x1005D44 Offset: 0x1005D44 VA: 0x1005D44 Slot: 55
+	public virtual float get_minHeight() { }
+
+	// RVA: 0x1005D4C Offset: 0x1005D4C VA: 0x1005D4C Slot: 56
+	public virtual float get_preferredHeight() { }
+
+	// RVA: 0x1005D54 Offset: 0x1005D54 VA: 0x1005D54 Slot: 57
+	public virtual float get_flexibleHeight() { }
+
+	// RVA: 0x1005D5C Offset: 0x1005D5C VA: 0x1005D5C Slot: 58
+	public virtual int get_layoutPriority() { }
+
+	// RVA: 0x1005D64 Offset: 0x1005D64 VA: 0x1005D64 Slot: 59
+	public virtual void SetLayoutHorizontal() { }
+
+	// RVA: 0x1006578 Offset: 0x1006578 VA: 0x1006578 Slot: 60
+	public virtual void SetLayoutVertical() { }
+
+	// RVA: 0x10055C4 Offset: 0x10055C4 VA: 0x10055C4
+	private void UpdateScrollbarVisibility() { }
+
+	// RVA: 0x1006AB8 Offset: 0x1006AB8 VA: 0x1006AB8
+	private static void UpdateOneScrollbarVisibility(bool xScrollingNeeded, bool xAxisEnabled, ScrollRect.ScrollbarVisibility scrollbarVisibility, Scrollbar scrollbar) { }
+
+	// RVA: 0x10066EC Offset: 0x10066EC VA: 0x10066EC
+	private void UpdateScrollbarLayout() { }
+
+	// RVA: 0x10036AC Offset: 0x10036AC VA: 0x10036AC
+	protected void UpdateBounds() { }
+
+	// RVA: 0x1006BF8 Offset: 0x1006BF8 VA: 0x1006BF8
+	internal static void AdjustBounds(ref Bounds viewBounds, ref Vector2 contentPivot, ref Vector3 contentSize, ref Vector3 contentPos) { }
+
+	// RVA: 0x1006448 Offset: 0x1006448 VA: 0x1006448
+	private Bounds GetBounds() { }
+
+	// RVA: 0x1006D38 Offset: 0x1006D38 VA: 0x1006D38
+	internal static Bounds InternalGetBounds(Vector3[] corners, ref Matrix4x4 viewWorldToLocalMatrix) { }
+
+	// RVA: 0x100476C Offset: 0x100476C VA: 0x100476C
+	private Vector2 CalculateOffset(Vector2 delta) { }
+
+	// RVA: 0x1006F40 Offset: 0x1006F40 VA: 0x1006F40
+	internal static Vector2 InternalCalculateOffset(ref Bounds viewBounds, ref Bounds contentBounds, bool horizontal, bool vertical, ScrollRect.MovementType movementType, ref Vector2 delta) { }
+
+	// RVA: 0x1002F3C Offset: 0x1002F3C VA: 0x1002F3C
+	protected void SetDirty() { }
+
+	// RVA: 0x1002B14 Offset: 0x1002B14 VA: 0x1002B14
+	protected void SetDirtyCaching() { }
+
+	// RVA: 0x1007124 Offset: 0x1007124 VA: 0x1007124 Slot: 23
+	private Transform UnityEngine.UI.ICanvasElement.get_transform() { }
+}
+
+// Namespace: 
+public enum ScrollRect.MovementType // TypeDefIndex: 3108
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScrollRect.MovementType Unrestricted = 0;
+	public const ScrollRect.MovementType Elastic = 1;
+	public const ScrollRect.MovementType Clamped = 2;
+}
+
+// Namespace: 
+public enum ScrollRect.ScrollbarVisibility // TypeDefIndex: 3109
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScrollRect.ScrollbarVisibility Permanent = 0;
+	public const ScrollRect.ScrollbarVisibility AutoHide = 1;
+	public const ScrollRect.ScrollbarVisibility AutoHideAndExpandViewport = 2;
+}
+
+// Namespace: 
+[Serializable]
+public class ScrollRect.ScrollRectEvent : UnityEvent<Vector2> // TypeDefIndex: 3110
+{
+	// Methods
+
+	// RVA: 0x1002A28 Offset: 0x1002A28 VA: 0x1002A28
+	public void .ctor() { }
+}
+
+// Namespace: UnityEngine.UI
+[AddComponentMenu] // RVA: 0xC7E864 Offset: 0xC7E864 VA: 0xC7E864
+[RequireComponent] // RVA: 0xC7E864 Offset: 0xC7E864 VA: 0xC7E864
+public class Scrollbar : Selectable, IBeginDragHandler, IDragHandler, IInitializePotentialDragHandler, ICanvasElement, IEventSystemHandler // TypeDefIndex: 3111
+{
+	// Fields
+	[SerializeField] // RVA: 0xC80A10 Offset: 0xC80A10 VA: 0xC80A10
+	private RectTransform m_HandleRect; // 0xD8
+	[SerializeField] // RVA: 0xC80A20 Offset: 0xC80A20 VA: 0xC80A20
+	private Scrollbar.Direction m_Direction; // 0xE0
+	[RangeAttribute] // RVA: 0xC80A30 Offset: 0xC80A30 VA: 0xC80A30
+	[SerializeField] // RVA: 0xC80A30 Offset: 0xC80A30 VA: 0xC80A30
+	private float m_Value; // 0xE4
+	[RangeAttribute] // RVA: 0xC80A70 Offset: 0xC80A70 VA: 0xC80A70
+	[SerializeField] // RVA: 0xC80A70 Offset: 0xC80A70 VA: 0xC80A70
+	private float m_Size; // 0xE8
+	[RangeAttribute] // RVA: 0xC80AB0 Offset: 0xC80AB0 VA: 0xC80AB0
+	[SerializeField] // RVA: 0xC80AB0 Offset: 0xC80AB0 VA: 0xC80AB0
+	private int m_NumberOfSteps; // 0xEC
+	[SpaceAttribute] // RVA: 0xC80AF0 Offset: 0xC80AF0 VA: 0xC80AF0
+	[SerializeField] // RVA: 0xC80AF0 Offset: 0xC80AF0 VA: 0xC80AF0
+	private Scrollbar.ScrollEvent m_OnValueChanged; // 0xF0
+	private RectTransform m_ContainerRect; // 0xF8
+	private Vector2 m_Offset; // 0x100
+	private DrivenRectTransformTracker m_Tracker; // 0x108
+	private Coroutine m_PointerDownRepeat; // 0x110
+	private bool isPointerDownAndNotDragging; // 0x118
+
+	// Properties
+	public RectTransform handleRect { get; set; }
+	public Scrollbar.Direction direction { get; set; }
+	public float value { get; set; }
+	public float size { get; set; }
+	public int numberOfSteps { get; set; }
+	public Scrollbar.ScrollEvent onValueChanged { get; set; }
+	private float stepSize { get; }
+	private Scrollbar.Axis axis { get; }
+	private bool reverseValue { get; }
+
+	// Methods
+
+	// RVA: 0x100712C Offset: 0x100712C VA: 0x100712C
+	protected void .ctor() { }
+
+	// RVA: 0x1007324 Offset: 0x1007324 VA: 0x1007324
+	public RectTransform get_handleRect() { }
+
+	// RVA: 0x100732C Offset: 0x100732C VA: 0x100732C
+	public void set_handleRect(RectTransform value) { }
+
+	// RVA: 0x10076A0 Offset: 0x10076A0 VA: 0x10076A0
+	public Scrollbar.Direction get_direction() { }
+
+	// RVA: 0x10076A8 Offset: 0x10076A8 VA: 0x10076A8
+	public void set_direction(Scrollbar.Direction value) { }
+
+	// RVA: 0x1007724 Offset: 0x1007724 VA: 0x1007724
+	public float get_value() { }
+
+	// RVA: 0x1005808 Offset: 0x1005808 VA: 0x1005808
+	public void set_value(float value) { }
+
+	// RVA: 0x1007838 Offset: 0x1007838 VA: 0x1007838
+	public float get_size() { }
+
+	// RVA: 0x1005610 Offset: 0x1005610 VA: 0x1005610
+	public void set_size(float value) { }
+
+	// RVA: 0x1007840 Offset: 0x1007840 VA: 0x1007840
+	public int get_numberOfSteps() { }
+
+	// RVA: 0x1007848 Offset: 0x1007848 VA: 0x1007848
+	public void set_numberOfSteps(int value) { }
+
+	// RVA: 0x1002D6C Offset: 0x1002D6C VA: 0x1002D6C
+	public Scrollbar.ScrollEvent get_onValueChanged() { }
+
+	// RVA: 0x10078D4 Offset: 0x10078D4 VA: 0x10078D4
+	public void set_onValueChanged(Scrollbar.ScrollEvent value) { }
+
+	// RVA: 0x10078DC Offset: 0x10078DC VA: 0x10078DC
+	private float get_stepSize() { }
+
+	// RVA: 0x1007908 Offset: 0x1007908 VA: 0x1007908 Slot: 47
+	public virtual void Rebuild(CanvasUpdate executing) { }
+
+	// RVA: 0x100790C Offset: 0x100790C VA: 0x100790C Slot: 48
+	public virtual void LayoutComplete() { }
+
+	// RVA: 0x1007910 Offset: 0x1007910 VA: 0x1007910 Slot: 49
+	public virtual void GraphicUpdateComplete() { }
+
+	// RVA: 0x1007914 Offset: 0x1007914 VA: 0x1007914 Slot: 5
+	protected override void OnEnable() { }
+
+	// RVA: 0x1007B00 Offset: 0x1007B00 VA: 0x1007B00 Slot: 7
+	protected override void OnDisable() { }
+
+	// RVA: 0x10073B0 Offset: 0x10073B0 VA: 0x10073B0
+	private void UpdateCachedReferences() { }
+
+	// RVA: 0x1007830 Offset: 0x1007830 VA: 0x1007830
+	private void Set(float input) { }
+
+	// RVA: 0x10079FC Offset: 0x10079FC VA: 0x10079FC
+	private void Set(float input, bool sendCallback) { }
+
+	// RVA: 0x1007BD8 Offset: 0x1007BD8 VA: 0x1007BD8 Slot: 10
+	protected override void OnRectTransformDimensionsChange() { }
+
+	// RVA: 0x1007C20 Offset: 0x1007C20 VA: 0x1007C20
+	private Scrollbar.Axis get_axis() { }
+
+	// RVA: 0x1007C3C Offset: 0x1007C3C VA: 0x1007C3C
+	private bool get_reverseValue() { }
+
+	// RVA: 0x10074CC Offset: 0x10074CC VA: 0x10074CC
+	private void UpdateVisuals() { }
+
+	// RVA: 0x1007C50 Offset: 0x1007C50 VA: 0x1007C50
+	private void UpdateDrag(PointerEventData eventData) { }
+
+	// RVA: 0x1007FA4 Offset: 0x1007FA4 VA: 0x1007FA4
+	private bool MayDrag(PointerEventData eventData) { }
+
+	// RVA: 0x1008018 Offset: 0x1008018 VA: 0x1008018 Slot: 50
+	public virtual void OnBeginDrag(PointerEventData eventData) { }
+
+	// RVA: 0x1008278 Offset: 0x1008278 VA: 0x1008278 Slot: 51
+	public virtual void OnDrag(PointerEventData eventData) { }
+
+	// RVA: 0x1008324 Offset: 0x1008324 VA: 0x1008324 Slot: 32
+	public override void OnPointerDown(PointerEventData eventData) { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC81ABC Offset: 0xC81ABC VA: 0xC81ABC
+	// RVA: 0x10084E0 Offset: 0x10084E0 VA: 0x10084E0
+	protected IEnumerator ClickRepeat(PointerEventData eventData) { }
+
+	// RVA: 0x100857C Offset: 0x100857C VA: 0x100857C Slot: 33
+	public override void OnPointerUp(PointerEventData eventData) { }
+
+	// RVA: 0x10085F4 Offset: 0x10085F4 VA: 0x10085F4 Slot: 31
+	public override void OnMove(AxisEventData eventData) { }
+
+	// RVA: 0x1008904 Offset: 0x1008904 VA: 0x1008904 Slot: 27
+	public override Selectable FindSelectableOnLeft() { }
+
+	// RVA: 0x1008A8C Offset: 0x1008A8C VA: 0x1008A8C Slot: 28
+	public override Selectable FindSelectableOnRight() { }
+
+	// RVA: 0x1008BF8 Offset: 0x1008BF8 VA: 0x1008BF8 Slot: 29
+	public override Selectable FindSelectableOnUp() { }
+
+	// RVA: 0x1008D64 Offset: 0x1008D64 VA: 0x1008D64 Slot: 30
+	public override Selectable FindSelectableOnDown() { }
+
+	// RVA: 0x1008ED0 Offset: 0x1008ED0 VA: 0x1008ED0 Slot: 52
+	public virtual void OnInitializePotentialDrag(PointerEventData eventData) { }
+
+	// RVA: 0x1008F04 Offset: 0x1008F04 VA: 0x1008F04
+	public void SetDirection(Scrollbar.Direction direction, bool includeRectLayouts) { }
+
+	// RVA: 0x1009098 Offset: 0x1009098 VA: 0x1009098 Slot: 43
+	private Transform UnityEngine.UI.ICanvasElement.get_transform() { }
+}
+
+// Namespace: 
+public enum Scrollbar.Direction // TypeDefIndex: 3112
+{
+	// Fields
+	public int value__; // 0x0
+	public const Scrollbar.Direction LeftToRight = 0;
+	public const Scrollbar.Direction RightToLeft = 1;
+	public const Scrollbar.Direction BottomToTop = 2;
+	public const Scrollbar.Direction TopToBottom = 3;
+}
+
+// Namespace: 
+[Serializable]
+public class Scrollbar.ScrollEvent : UnityEvent<float> // TypeDefIndex: 3113
+{
+	// Methods
+
+	// RVA: 0x10071F0 Offset: 0x10071F0 VA: 0x10071F0
+	public void .ctor() { }
+}
+
+// Namespace: 
+private enum Scrollbar.Axis // TypeDefIndex: 3114
+{
+	// Fields
+	public int value__; // 0x0
+	public const Scrollbar.Axis Horizontal = 0;
+	public const Scrollbar.Axis Vertical = 1;
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC7F0C8 Offset: 0xC7F0C8 VA: 0xC7F0C8
+private sealed class Scrollbar.<ClickRepeat>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 3115
+{
+	// Fields
+	internal PointerEventData eventData; // 0x10
+	internal Scrollbar $this; // 0x18
+	internal object $current; // 0x20
+	internal bool $disposing; // 0x28
+	internal int $PC; // 0x2C
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xC81F70 Offset: 0xC81F70 VA: 0xC81F70
+	// RVA: 0x1008574 Offset: 0x1008574 VA: 0x1008574
+	public void .ctor() { }
+
+	// RVA: 0x10090A0 Offset: 0x10090A0 VA: 0x10090A0 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC81F80 Offset: 0xC81F80 VA: 0xC81F80
+	// RVA: 0x1009364 Offset: 0x1009364 VA: 0x1009364 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC81F90 Offset: 0xC81F90 VA: 0xC81F90
+	// RVA: 0x100936C Offset: 0x100936C VA: 0x100936C Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC81FA0 Offset: 0xC81FA0 VA: 0xC81FA0
+	// RVA: 0x1009374 Offset: 0x1009374 VA: 0x1009374 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC81FB0 Offset: 0xC81FB0 VA: 0xC81FB0
+	// RVA: 0x1009388 Offset: 0x1009388 VA: 0x1009388 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: UnityEngine.UI
+[AddComponentMenu] // RVA: 0xC7E8F0 Offset: 0xC7E8F0 VA: 0xC7E8F0
+[ExecuteAlways] // RVA: 0xC7E8F0 Offset: 0xC7E8F0 VA: 0xC7E8F0
+[SelectionBaseAttribute] // RVA: 0xC7E8F0 Offset: 0xC7E8F0 VA: 0xC7E8F0
+[DisallowMultipleComponent] // RVA: 0xC7E8F0 Offset: 0xC7E8F0 VA: 0xC7E8F0
+public class Selectable : UIBehaviour, IMoveHandler, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler, IEventSystemHandler // TypeDefIndex: 3116
+{
+	// Fields
+	private static List<Selectable> s_List; // 0x0
+	[FormerlySerializedAsAttribute] // RVA: 0xC80B2C Offset: 0xC80B2C VA: 0xC80B2C
+	[SerializeField] // RVA: 0xC80B2C Offset: 0xC80B2C VA: 0xC80B2C
+	private Navigation m_Navigation; // 0x18
+	[FormerlySerializedAsAttribute] // RVA: 0xC80B78 Offset: 0xC80B78 VA: 0xC80B78
+	[SerializeField] // RVA: 0xC80B78 Offset: 0xC80B78 VA: 0xC80B78
+	private Selectable.Transition m_Transition; // 0x40
+	[FormerlySerializedAsAttribute] // RVA: 0xC80BC4 Offset: 0xC80BC4 VA: 0xC80BC4
+	[SerializeField] // RVA: 0xC80BC4 Offset: 0xC80BC4 VA: 0xC80BC4
+	private ColorBlock m_Colors; // 0x44
+	[FormerlySerializedAsAttribute] // RVA: 0xC80C10 Offset: 0xC80C10 VA: 0xC80C10
+	[SerializeField] // RVA: 0xC80C10 Offset: 0xC80C10 VA: 0xC80C10
+	private SpriteState m_SpriteState; // 0x90
+	[FormerlySerializedAsAttribute] // RVA: 0xC80C5C Offset: 0xC80C5C VA: 0xC80C5C
+	[SerializeField] // RVA: 0xC80C5C Offset: 0xC80C5C VA: 0xC80C5C
+	private AnimationTriggers m_AnimationTriggers; // 0xA8
+	[TooltipAttribute] // RVA: 0xC80CA8 Offset: 0xC80CA8 VA: 0xC80CA8
+	[SerializeField] // RVA: 0xC80CA8 Offset: 0xC80CA8 VA: 0xC80CA8
+	private bool m_Interactable; // 0xB0
+	[FormerlySerializedAsAttribute] // RVA: 0xC80CF4 Offset: 0xC80CF4 VA: 0xC80CF4
+	[FormerlySerializedAsAttribute] // RVA: 0xC80CF4 Offset: 0xC80CF4 VA: 0xC80CF4
+	[SerializeField] // RVA: 0xC80CF4 Offset: 0xC80CF4 VA: 0xC80CF4
+	private Graphic m_TargetGraphic; // 0xB8
+	private bool m_GroupsAllowInteraction; // 0xC0
+	private Selectable.SelectionState m_CurrentSelectionState; // 0xC4
+	[CompilerGeneratedAttribute] // RVA: 0xC80D64 Offset: 0xC80D64 VA: 0xC80D64
+	[DebuggerBrowsableAttribute] // RVA: 0xC80D64 Offset: 0xC80D64 VA: 0xC80D64
+	private bool <isPointerInside>k__BackingField; // 0xC8
+	[CompilerGeneratedAttribute] // RVA: 0xC80DA0 Offset: 0xC80DA0 VA: 0xC80DA0
+	[DebuggerBrowsableAttribute] // RVA: 0xC80DA0 Offset: 0xC80DA0 VA: 0xC80DA0
+	private bool <isPointerDown>k__BackingField; // 0xC9
+	[CompilerGeneratedAttribute] // RVA: 0xC80DDC Offset: 0xC80DDC VA: 0xC80DDC
+	[DebuggerBrowsableAttribute] // RVA: 0xC80DDC Offset: 0xC80DDC VA: 0xC80DDC
+	private bool <hasSelection>k__BackingField; // 0xCA
+	private readonly List<CanvasGroup> m_CanvasGroupCache; // 0xD0
+
+	// Properties
+	public static List<Selectable> allSelectables { get; }
+	public Navigation navigation { get; set; }
+	public Selectable.Transition transition { get; set; }
+	public ColorBlock colors { get; set; }
+	public SpriteState spriteState { get; set; }
+	public AnimationTriggers animationTriggers { get; set; }
+	public Graphic targetGraphic { get; set; }
+	public bool interactable { get; set; }
+	private bool isPointerInside { get; set; }
+	private bool isPointerDown { get; set; }
+	private bool hasSelection { get; set; }
+	public Image image { get; set; }
+	public Animator animator { get; }
+	protected Selectable.SelectionState currentSelectionState { get; }
+
+	// Methods
+
+	// RVA: 0x1007240 Offset: 0x1007240 VA: 0x1007240
+	protected void .ctor() { }
+
+	// RVA: 0x10093F0 Offset: 0x10093F0 VA: 0x10093F0
+	public static List<Selectable> get_allSelectables() { }
+
+	// RVA: 0x1008928 Offset: 0x1008928 VA: 0x1008928
+	public Navigation get_navigation() { }
+
+	// RVA: 0x1009458 Offset: 0x1009458 VA: 0x1009458
+	public void set_navigation(Navigation value) { }
+
+	// RVA: 0x1009504 Offset: 0x1009504 VA: 0x1009504
+	public Selectable.Transition get_transition() { }
+
+	// RVA: 0x100950C Offset: 0x100950C VA: 0x100950C
+	public void set_transition(Selectable.Transition value) { }
+
+	// RVA: 0x100958C Offset: 0x100958C VA: 0x100958C
+	public ColorBlock get_colors() { }
+
+	// RVA: 0x10095AC Offset: 0x10095AC VA: 0x10095AC
+	public void set_colors(ColorBlock value) { }
+
+	// RVA: 0x1009650 Offset: 0x1009650 VA: 0x1009650
+	public SpriteState get_spriteState() { }
+
+	// RVA: 0x1009664 Offset: 0x1009664 VA: 0x1009664
+	public void set_spriteState(SpriteState value) { }
+
+	// RVA: 0x1009700 Offset: 0x1009700 VA: 0x1009700
+	public AnimationTriggers get_animationTriggers() { }
+
+	// RVA: 0x1009708 Offset: 0x1009708 VA: 0x1009708
+	public void set_animationTriggers(AnimationTriggers value) { }
+
+	// RVA: 0x1009788 Offset: 0x1009788 VA: 0x1009788
+	public Graphic get_targetGraphic() { }
+
+	// RVA: 0x1009790 Offset: 0x1009790 VA: 0x1009790
+	public void set_targetGraphic(Graphic value) { }
+
+	// RVA: 0x1009810 Offset: 0x1009810 VA: 0x1009810
+	public bool get_interactable() { }
+
+	// RVA: 0x1009818 Offset: 0x1009818 VA: 0x1009818
+	public void set_interactable(bool value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC81ACC Offset: 0xC81ACC VA: 0xC81ACC
+	// RVA: 0x1009A40 Offset: 0x1009A40 VA: 0x1009A40
+	private bool get_isPointerInside() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC81ADC Offset: 0xC81ADC VA: 0xC81ADC
+	// RVA: 0x1009A48 Offset: 0x1009A48 VA: 0x1009A48
+	private void set_isPointerInside(bool value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC81AEC Offset: 0xC81AEC VA: 0xC81AEC
+	// RVA: 0x1009A54 Offset: 0x1009A54 VA: 0x1009A54
+	private bool get_isPointerDown() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC81AFC Offset: 0xC81AFC VA: 0xC81AFC
+	// RVA: 0x1009A5C Offset: 0x1009A5C VA: 0x1009A5C
+	private void set_isPointerDown(bool value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC81B0C Offset: 0xC81B0C VA: 0xC81B0C
+	// RVA: 0x1009A68 Offset: 0x1009A68 VA: 0x1009A68
+	private bool get_hasSelection() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC81B1C Offset: 0xC81B1C VA: 0xC81B1C
+	// RVA: 0x1009A70 Offset: 0x1009A70 VA: 0x1009A70
+	private void set_hasSelection(bool value) { }
+
+	// RVA: 0x1009A7C Offset: 0x1009A7C VA: 0x1009A7C
+	public Image get_image() { }
+
+	// RVA: 0x1009B00 Offset: 0x1009B00 VA: 0x1009B00
+	public void set_image(Image value) { }
+
+	// RVA: 0x1009B08 Offset: 0x1009B08 VA: 0x1009B08
+	public Animator get_animator() { }
+
+	// RVA: 0x1009B58 Offset: 0x1009B58 VA: 0x1009B58 Slot: 4
+	protected override void Awake() { }
+
+	// RVA: 0x1009BE8 Offset: 0x1009BE8 VA: 0x1009BE8 Slot: 14
+	protected override void OnCanvasGroupChanged() { }
+
+	// RVA: 0x1009DE4 Offset: 0x1009DE4 VA: 0x1009DE4 Slot: 24
+	public virtual bool IsInteractable() { }
+
+	// RVA: 0x1009E04 Offset: 0x1009E04 VA: 0x1009E04 Slot: 13
+	protected override void OnDidApplyAnimationProperties() { }
+
+	// RVA: 0x1007950 Offset: 0x1007950 VA: 0x1007950 Slot: 5
+	protected override void OnEnable() { }
+
+	// RVA: 0x1009E84 Offset: 0x1009E84 VA: 0x1009E84 Slot: 12
+	protected override void OnTransformParentChanged() { }
+
+	// RVA: 0x10094FC Offset: 0x10094FC VA: 0x10094FC
+	private void OnSetProperty() { }
+
+	// RVA: 0x1007B2C Offset: 0x1007B2C VA: 0x1007B2C Slot: 7
+	protected override void OnDisable() { }
+
+	// RVA: 0x1009EB8 Offset: 0x1009EB8 VA: 0x1009EB8
+	protected Selectable.SelectionState get_currentSelectionState() { }
+
+	// RVA: 0x1009EC0 Offset: 0x1009EC0 VA: 0x1009EC0 Slot: 25
+	protected virtual void InstantClearState() { }
+
+	// RVA: 0x100A3A0 Offset: 0x100A3A0 VA: 0x100A3A0 Slot: 26
+	protected virtual void DoStateTransition(Selectable.SelectionState state, bool instant) { }
+
+	// RVA: 0x100A660 Offset: 0x100A660 VA: 0x100A660
+	public Selectable FindSelectable(Vector3 dir) { }
+
+	// RVA: 0x100AB88 Offset: 0x100AB88 VA: 0x100AB88
+	private static Vector3 GetPointOnRectEdge(RectTransform rect, Vector2 dir) { }
+
+	// RVA: 0x100ADD4 Offset: 0x100ADD4 VA: 0x100ADD4
+	private void Navigate(AxisEventData eventData, Selectable sel) { }
+
+	// RVA: 0x1008944 Offset: 0x1008944 VA: 0x1008944 Slot: 27
+	public virtual Selectable FindSelectableOnLeft() { }
+
+	// RVA: 0x1008AB0 Offset: 0x1008AB0 VA: 0x1008AB0 Slot: 28
+	public virtual Selectable FindSelectableOnRight() { }
+
+	// RVA: 0x1008C1C Offset: 0x1008C1C VA: 0x1008C1C Slot: 29
+	public virtual Selectable FindSelectableOnUp() { }
+
+	// RVA: 0x1008D88 Offset: 0x1008D88 VA: 0x1008D88 Slot: 30

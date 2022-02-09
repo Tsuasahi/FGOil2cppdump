@@ -1,0 +1,1000 @@
+	public override void set_Key(byte[] value) { }
+
+	// RVA: 0x11CD588 Offset: 0x11CD588 VA: 0x11CD588
+	public static bool IsWeakKey(byte[] rgbKey) { }
+
+	// RVA: 0x11CD910 Offset: 0x11CD910 VA: 0x11CD910
+	public static TripleDES Create() { }
+
+	// RVA: 0x11CD958 Offset: 0x11CD958 VA: 0x11CD958
+	public static TripleDES Create(string str) { }
+}
+
+// Namespace: System.Security.Cryptography
+[ComVisibleAttribute] // RVA: 0xC3598C Offset: 0xC3598C VA: 0xC3598C
+public sealed class TripleDESCryptoServiceProvider : TripleDES // TypeDefIndex: 785
+{
+	// Methods
+
+	// RVA: 0x11CDA4C Offset: 0x11CDA4C VA: 0x11CDA4C
+	public void .ctor() { }
+
+	// RVA: 0x11CDA50 Offset: 0x11CDA50 VA: 0x11CDA50 Slot: 26
+	public override void GenerateIV() { }
+
+	// RVA: 0x11CDA80 Offset: 0x11CDA80 VA: 0x11CDA80 Slot: 27
+	public override void GenerateKey() { }
+
+	// RVA: 0x11CDB2C Offset: 0x11CDB2C VA: 0x11CDB2C Slot: 23
+	public override ICryptoTransform CreateDecryptor(byte[] rgbKey, byte[] rgbIV) { }
+
+	// RVA: 0x11CDEC0 Offset: 0x11CDEC0 VA: 0x11CDEC0 Slot: 25
+	public override ICryptoTransform CreateEncryptor(byte[] rgbKey, byte[] rgbIV) { }
+}
+
+// Namespace: System.Security.Cryptography
+internal class TripleDESTransform : SymmetricTransform // TypeDefIndex: 786
+{
+	// Fields
+	private DESTransform E1; // 0x58
+	private DESTransform D2; // 0x60
+	private DESTransform E3; // 0x68
+	private DESTransform D1; // 0x70
+	private DESTransform E2; // 0x78
+	private DESTransform D3; // 0x80
+
+	// Methods
+
+	// RVA: 0x11CDBA8 Offset: 0x11CDBA8 VA: 0x11CDBA8
+	public void .ctor(TripleDES algo, bool encryption, byte[] key, byte[] iv) { }
+
+	// RVA: 0x11CDF3C Offset: 0x11CDF3C VA: 0x11CDF3C Slot: 17
+	protected override void ECB(byte[] input, byte[] output) { }
+
+	// RVA: 0x11CDAA4 Offset: 0x11CDAA4 VA: 0x11CDAA4
+	internal static byte[] GetStrongKey() { }
+}
+
+// Namespace: System.Security.Permissions
+[AttributeUsageAttribute] // RVA: 0xC359A0 Offset: 0xC359A0 VA: 0xC359A0
+[ObsoleteAttribute] // RVA: 0xC359A0 Offset: 0xC359A0 VA: 0xC359A0
+[ComVisibleAttribute] // RVA: 0xC359A0 Offset: 0xC359A0 VA: 0xC359A0
+[Serializable]
+public abstract class CodeAccessSecurityAttribute : SecurityAttribute // TypeDefIndex: 787
+{
+	// Methods
+
+	// RVA: 0x11D2034 Offset: 0x11D2034 VA: 0x11D2034
+	protected void .ctor(SecurityAction action) { }
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35A28 Offset: 0xC35A28 VA: 0xC35A28
+[Serializable]
+public sealed class EnvironmentPermission : CodeAccessPermission, IBuiltInPermission, IUnrestrictedPermission // TypeDefIndex: 788
+{
+	// Fields
+	private PermissionState _state; // 0x10
+	private ArrayList readList; // 0x18
+	private ArrayList writeList; // 0x20
+
+	// Methods
+
+	// RVA: 0x11D208C Offset: 0x11D208C VA: 0x11D208C
+	public void .ctor(PermissionState state) { }
+
+	// RVA: 0x11D2130 Offset: 0x11D2130 VA: 0x11D2130
+	public void .ctor(EnvironmentPermissionAccess flag, string pathList) { }
+
+	// RVA: 0x11D25B0 Offset: 0x11D25B0 VA: 0x11D25B0
+	public void AddPathList(EnvironmentPermissionAccess flag, string pathList) { }
+
+	// RVA: 0x11D2AAC Offset: 0x11D2AAC VA: 0x11D2AAC Slot: 15
+	public override IPermission Copy() { }
+
+	// RVA: 0x11D2BC8 Offset: 0x11D2BC8 VA: 0x11D2BC8 Slot: 16
+	public override void FromXml(SecurityElement esd) { }
+
+	// RVA: 0x11D2B78 Offset: 0x11D2B78 VA: 0x11D2B78
+	public string GetPathList(EnvironmentPermissionAccess flag) { }
+
+	// RVA: 0x11D30D0 Offset: 0x11D30D0 VA: 0x11D30D0 Slot: 17
+	public override IPermission Intersect(IPermission target) { }
+
+	// RVA: 0x11D345C Offset: 0x11D345C VA: 0x11D345C Slot: 18
+	public override bool IsSubsetOf(IPermission target) { }
+
+	// RVA: 0x11D344C Offset: 0x11D344C VA: 0x11D344C Slot: 21
+	public bool IsUnrestricted() { }
+
+	// RVA: 0x11D21D8 Offset: 0x11D21D8 VA: 0x11D21D8
+	public void SetPathList(EnvironmentPermissionAccess flag, string pathList) { }
+
+	// RVA: 0x11D3A60 Offset: 0x11D3A60 VA: 0x11D3A60 Slot: 19
+	public override SecurityElement ToXml() { }
+
+	// RVA: 0x11D3B70 Offset: 0x11D3B70 VA: 0x11D3B70 Slot: 20
+	public override IPermission Union(IPermission other) { }
+
+	// RVA: 0x11D3D0C Offset: 0x11D3D0C VA: 0x11D3D0C
+	private bool IsEmpty() { }
+
+	// RVA: 0x11D33A0 Offset: 0x11D33A0 VA: 0x11D33A0
+	private EnvironmentPermission Cast(IPermission target) { }
+
+	// RVA: 0x11D29A8 Offset: 0x11D29A8 VA: 0x11D29A8
+	internal void ThrowInvalidFlag(EnvironmentPermissionAccess flag, bool context) { }
+
+	// RVA: 0x11D2CF8 Offset: 0x11D2CF8 VA: 0x11D2CF8
+	private string GetPathList(ArrayList list) { }
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35A3C Offset: 0xC35A3C VA: 0xC35A3C
+[FlagsAttribute] // RVA: 0xC35A3C Offset: 0xC35A3C VA: 0xC35A3C
+[Serializable]
+public enum EnvironmentPermissionAccess // TypeDefIndex: 789
+{
+	// Fields
+	public int value__; // 0x0
+	public const EnvironmentPermissionAccess NoAccess = 0;
+	public const EnvironmentPermissionAccess Read = 1;
+	public const EnvironmentPermissionAccess Write = 2;
+	public const EnvironmentPermissionAccess AllAccess = 3;
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35A78 Offset: 0xC35A78 VA: 0xC35A78
+[Serializable]
+public sealed class FileDialogPermission : CodeAccessPermission, IBuiltInPermission, IUnrestrictedPermission // TypeDefIndex: 790
+{
+	// Fields
+	private FileDialogPermissionAccess _access; // 0x10
+
+	// Properties
+	public FileDialogPermissionAccess Access { set; }
+
+	// Methods
+
+	// RVA: 0x11D3D8C Offset: 0x11D3D8C VA: 0x11D3D8C
+	public void .ctor(PermissionState state) { }
+
+	// RVA: 0x11D3DD4 Offset: 0x11D3DD4 VA: 0x11D3DD4
+	public void .ctor(FileDialogPermissionAccess access) { }
+
+	// RVA: 0x11D3E04 Offset: 0x11D3E04 VA: 0x11D3E04
+	public void set_Access(FileDialogPermissionAccess value) { }
+
+	// RVA: 0x11D3F9C Offset: 0x11D3F9C VA: 0x11D3F9C Slot: 15
+	public override IPermission Copy() { }
+
+	// RVA: 0x11D400C Offset: 0x11D400C VA: 0x11D400C Slot: 16
+	public override void FromXml(SecurityElement esd) { }
+
+	// RVA: 0x11D414C Offset: 0x11D414C VA: 0x11D414C Slot: 17
+	public override IPermission Intersect(IPermission target) { }
+
+	// RVA: 0x11D4294 Offset: 0x11D4294 VA: 0x11D4294 Slot: 18
+	public override bool IsSubsetOf(IPermission target) { }
+
+	// RVA: 0x11D42C8 Offset: 0x11D42C8 VA: 0x11D42C8 Slot: 21
+	public bool IsUnrestricted() { }
+
+	// RVA: 0x11D42D8 Offset: 0x11D42D8 VA: 0x11D42D8 Slot: 19
+	public override SecurityElement ToXml() { }
+
+	// RVA: 0x11D43BC Offset: 0x11D43BC VA: 0x11D43BC Slot: 20
+	public override IPermission Union(IPermission target) { }
+
+	// RVA: 0x11D41E8 Offset: 0x11D41E8 VA: 0x11D41E8
+	private FileDialogPermission Cast(IPermission target) { }
+}
+
+// Namespace: System.Security.Permissions
+[FlagsAttribute] // RVA: 0xC35A8C Offset: 0xC35A8C VA: 0xC35A8C
+[ComVisibleAttribute] // RVA: 0xC35A8C Offset: 0xC35A8C VA: 0xC35A8C
+[Serializable]
+public enum FileDialogPermissionAccess // TypeDefIndex: 791
+{
+	// Fields
+	public int value__; // 0x0
+	public const FileDialogPermissionAccess None = 0;
+	public const FileDialogPermissionAccess Open = 1;
+	public const FileDialogPermissionAccess Save = 2;
+	public const FileDialogPermissionAccess OpenSave = 3;
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35AC8 Offset: 0xC35AC8 VA: 0xC35AC8
+[Serializable]
+public sealed class FileIOPermission : CodeAccessPermission, IBuiltInPermission, IUnrestrictedPermission // TypeDefIndex: 792
+{
+	// Fields
+	private static char[] BadPathNameCharacters; // 0x0
+	private static char[] BadFileNameCharacters; // 0x8
+	private bool m_Unrestricted; // 0x10
+	private FileIOPermissionAccess m_AllFilesAccess; // 0x14
+	private FileIOPermissionAccess m_AllLocalFilesAccess; // 0x18
+	private ArrayList readList; // 0x20
+	private ArrayList writeList; // 0x28
+	private ArrayList appendList; // 0x30
+	private ArrayList pathList; // 0x38
+
+	// Properties
+	public FileIOPermissionAccess AllFiles { get; set; }
+	public FileIOPermissionAccess AllLocalFiles { get; set; }
+
+	// Methods
+
+	// RVA: 0x11D44B0 Offset: 0x11D44B0 VA: 0x11D44B0
+	public void .ctor(PermissionState state) { }
+
+	// RVA: 0x11D45BC Offset: 0x11D45BC VA: 0x11D45BC
+	private static void .cctor() { }
+
+	// RVA: 0x11D450C Offset: 0x11D450C VA: 0x11D450C
+	internal void CreateLists() { }
+
+	// RVA: 0x11D4648 Offset: 0x11D4648 VA: 0x11D4648
+	public FileIOPermissionAccess get_AllFiles() { }
+
+	// RVA: 0x11D4650 Offset: 0x11D4650 VA: 0x11D4650
+	public void set_AllFiles(FileIOPermissionAccess value) { }
+
+	// RVA: 0x11D4664 Offset: 0x11D4664 VA: 0x11D4664
+	public FileIOPermissionAccess get_AllLocalFiles() { }
+
+	// RVA: 0x11D466C Offset: 0x11D466C VA: 0x11D466C
+	public void set_AllLocalFiles(FileIOPermissionAccess value) { }
+
+	// RVA: 0x11D4680 Offset: 0x11D4680 VA: 0x11D4680
+	public void AddPathList(FileIOPermissionAccess access, string[] pathList) { }
+
+	// RVA: 0x11D4934 Offset: 0x11D4934 VA: 0x11D4934
+	internal void AddPathInternal(FileIOPermissionAccess access, string path) { }
+
+	// RVA: 0x11D4A7C Offset: 0x11D4A7C VA: 0x11D4A7C Slot: 15
+	public override IPermission Copy() { }
+
+	// RVA: 0x11D4DA4 Offset: 0x11D4DA4 VA: 0x11D4DA4 Slot: 16
+	public override void FromXml(SecurityElement esd) { }
+
+	// RVA: 0x11D506C Offset: 0x11D506C VA: 0x11D506C
+	public string[] GetPathList(FileIOPermissionAccess access) { }
+
+	// RVA: 0x11D5290 Offset: 0x11D5290 VA: 0x11D5290 Slot: 17
+	public override IPermission Intersect(IPermission target) { }
+
+	// RVA: 0x11D5D90 Offset: 0x11D5D90 VA: 0x11D5D90 Slot: 18
+	public override bool IsSubsetOf(IPermission target) { }
+
+	// RVA: 0x11D54AC Offset: 0x11D54AC VA: 0x11D54AC Slot: 21
+	public bool IsUnrestricted() { }
+
+	// RVA: 0x11D65F4 Offset: 0x11D65F4 VA: 0x11D65F4 Slot: 19
+	public override SecurityElement ToXml() { }
+
+	// RVA: 0x11D6898 Offset: 0x11D6898 VA: 0x11D6898 Slot: 20
+	public override IPermission Union(IPermission other) { }
+
+	[MonoTODOAttribute] // RVA: 0xC39864 Offset: 0xC39864 VA: 0xC39864
+	[ComVisibleAttribute] // RVA: 0xC39864 Offset: 0xC39864 VA: 0xC39864
+	// RVA: 0x11D6F0C Offset: 0x11D6F0C VA: 0x11D6F0C Slot: 0
+	public override bool Equals(object obj) { }
+
+	[ComVisibleAttribute] // RVA: 0xC398B4 Offset: 0xC398B4 VA: 0xC398B4
+	[MonoTODOAttribute] // RVA: 0xC398B4 Offset: 0xC398B4 VA: 0xC398B4
+	// RVA: 0x11D6F14 Offset: 0x11D6F14 VA: 0x11D6F14 Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0x11D5CC0 Offset: 0x11D5CC0 VA: 0x11D5CC0
+	private bool IsEmpty() { }
+
+	// RVA: 0x11D5400 Offset: 0x11D5400 VA: 0x11D5400
+	private static FileIOPermission Cast(IPermission target) { }
+
+	// RVA: 0x11D4778 Offset: 0x11D4778 VA: 0x11D4778
+	internal static void ThrowInvalidFlag(FileIOPermissionAccess access, bool context) { }
+
+	// RVA: 0x11D6F1C Offset: 0x11D6F1C VA: 0x11D6F1C
+	internal static void ThrowIfInvalidPath(string path) { }
+
+	// RVA: 0x11D487C Offset: 0x11D487C VA: 0x11D487C
+	internal static void ThrowIfInvalidPath(string[] paths) { }
+
+	// RVA: 0x11D5F50 Offset: 0x11D5F50 VA: 0x11D5F50
+	internal static bool KeyIsSubsetOf(IList local, IList target) { }
+
+	// RVA: 0x11D6B38 Offset: 0x11D6B38 VA: 0x11D6B38
+	internal static void UnionKeys(IList list, string[] paths) { }
+
+	// RVA: 0x11D54B4 Offset: 0x11D54B4 VA: 0x11D54B4
+	internal static void IntersectKeys(IList local, IList target, IList result) { }
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35ADC Offset: 0xC35ADC VA: 0xC35ADC
+[FlagsAttribute] // RVA: 0xC35ADC Offset: 0xC35ADC VA: 0xC35ADC
+[Serializable]
+public enum FileIOPermissionAccess // TypeDefIndex: 793
+{
+	// Fields
+	public int value__; // 0x0
+	public const FileIOPermissionAccess NoAccess = 0;
+	public const FileIOPermissionAccess Read = 1;
+	public const FileIOPermissionAccess Write = 2;
+	public const FileIOPermissionAccess Append = 4;
+	public const FileIOPermissionAccess PathDiscovery = 8;
+	public const FileIOPermissionAccess AllAccess = 15;
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35B18 Offset: 0xC35B18 VA: 0xC35B18
+[FlagsAttribute] // RVA: 0xC35B18 Offset: 0xC35B18 VA: 0xC35B18
+[Serializable]
+public enum HostProtectionResource // TypeDefIndex: 794
+{
+	// Fields
+	public int value__; // 0x0
+	public const HostProtectionResource None = 0;
+	public const HostProtectionResource Synchronization = 1;
+	public const HostProtectionResource SharedState = 2;
+	public const HostProtectionResource ExternalProcessMgmt = 4;
+	public const HostProtectionResource SelfAffectingProcessMgmt = 8;
+	public const HostProtectionResource ExternalThreading = 16;
+	public const HostProtectionResource SelfAffectingThreading = 32;
+	public const HostProtectionResource SecurityInfrastructure = 64;
+	public const HostProtectionResource UI = 128;
+	public const HostProtectionResource MayLeakOnAbort = 256;
+	public const HostProtectionResource All = 511;
+}
+
+// Namespace: System.Security.Permissions
+internal interface IBuiltInPermission // TypeDefIndex: 795
+{}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35B54 Offset: 0xC35B54 VA: 0xC35B54
+public interface IUnrestrictedPermission // TypeDefIndex: 796
+{}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35B68 Offset: 0xC35B68 VA: 0xC35B68
+[Serializable]
+public enum IsolatedStorageContainment // TypeDefIndex: 797
+{
+	// Fields
+	public int value__; // 0x0
+	public const IsolatedStorageContainment None = 0;
+	public const IsolatedStorageContainment DomainIsolationByUser = 16;
+	public const IsolatedStorageContainment AssemblyIsolationByUser = 32;
+	public const IsolatedStorageContainment DomainIsolationByRoamingUser = 80;
+	public const IsolatedStorageContainment AssemblyIsolationByRoamingUser = 96;
+	public const IsolatedStorageContainment AdministerIsolatedStorageByUser = 112;
+	public const IsolatedStorageContainment UnrestrictedIsolatedStorage = 240;
+	public const IsolatedStorageContainment ApplicationIsolationByUser = 21;
+	public const IsolatedStorageContainment DomainIsolationByMachine = 48;
+	public const IsolatedStorageContainment AssemblyIsolationByMachine = 64;
+	public const IsolatedStorageContainment ApplicationIsolationByMachine = 69;
+	public const IsolatedStorageContainment ApplicationIsolationByRoamingUser = 101;
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35B7C Offset: 0xC35B7C VA: 0xC35B7C
+[Serializable]
+public sealed class IsolatedStorageFilePermission : IsolatedStoragePermission, IBuiltInPermission // TypeDefIndex: 798
+{
+	// Methods
+
+	// RVA: 0x11D7124 Offset: 0x11D7124 VA: 0x11D7124
+	public void .ctor(PermissionState state) { }
+
+	// RVA: 0x11D717C Offset: 0x11D717C VA: 0x11D717C Slot: 15
+	public override IPermission Copy() { }
+
+	// RVA: 0x11D726C Offset: 0x11D726C VA: 0x11D726C Slot: 17
+	public override IPermission Intersect(IPermission target) { }
+
+	// RVA: 0x11D762C Offset: 0x11D762C VA: 0x11D762C Slot: 18
+	public override bool IsSubsetOf(IPermission target) { }
+
+	// RVA: 0x11D76F0 Offset: 0x11D76F0 VA: 0x11D76F0 Slot: 20
+	public override IPermission Union(IPermission target) { }
+
+	[MonoTODOAttribute] // RVA: 0xC39904 Offset: 0xC39904 VA: 0xC39904
+	[ComVisibleAttribute] // RVA: 0xC39904 Offset: 0xC39904 VA: 0xC39904
+	// RVA: 0x11D7820 Offset: 0x11D7820 VA: 0x11D7820 Slot: 19
+	public override SecurityElement ToXml() { }
+
+	// RVA: 0x11D73A8 Offset: 0x11D73A8 VA: 0x11D73A8
+	private IsolatedStorageFilePermission Cast(IPermission target) { }
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35B90 Offset: 0xC35B90 VA: 0xC35B90
+[Serializable]
+public abstract class IsolatedStoragePermission : CodeAccessPermission, IUnrestrictedPermission // TypeDefIndex: 799
+{
+	// Fields
+	internal long m_userQuota; // 0x10
+	internal long m_machineQuota; // 0x18
+	internal long m_expirationDays; // 0x20
+	internal bool m_permanentData; // 0x28
+	internal IsolatedStorageContainment m_allowed; // 0x2C
+
+	// Properties
+	public long UserQuota { set; }
+	public IsolatedStorageContainment UsageAllowed { set; }
+
+	// Methods
+
+	// RVA: 0x11D7128 Offset: 0x11D7128 VA: 0x11D7128
+	protected void .ctor(PermissionState state) { }
+
+	// RVA: 0x11D7960 Offset: 0x11D7960 VA: 0x11D7960
+	public void set_UserQuota(long value) { }
+
+	// RVA: 0x11D7474 Offset: 0x11D7474 VA: 0x11D7474
+	public void set_UsageAllowed(IsolatedStorageContainment value) { }
+
+	// RVA: 0x11D76E0 Offset: 0x11D76E0 VA: 0x11D76E0 Slot: 21
+	public bool IsUnrestricted() { }
+
+	// RVA: 0x11D7824 Offset: 0x11D7824 VA: 0x11D7824 Slot: 19
+	public override SecurityElement ToXml() { }
+
+	// RVA: 0x11D7968 Offset: 0x11D7968 VA: 0x11D7968 Slot: 16
+	public override void FromXml(SecurityElement esd) { }
+
+	// RVA: 0x11D7454 Offset: 0x11D7454 VA: 0x11D7454
+	internal bool IsEmpty() { }
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35BA4 Offset: 0xC35BA4 VA: 0xC35BA4
+[Serializable]
+public sealed class KeyContainerPermission : CodeAccessPermission, IBuiltInPermission, IUnrestrictedPermission // TypeDefIndex: 800
+{
+	// Fields
+	private KeyContainerPermissionAccessEntryCollection _accessEntries; // 0x10
+	private KeyContainerPermissionFlags _flags; // 0x18
+
+	// Methods
+
+	// RVA: 0x11D7B08 Offset: 0x11D7B08 VA: 0x11D7B08
+	public void .ctor(PermissionState state) { }
+
+	// RVA: 0x11D7B50 Offset: 0x11D7B50 VA: 0x11D7B50
+	public void .ctor(KeyContainerPermissionFlags flags) { }
+
+	// RVA: 0x11D7C94 Offset: 0x11D7C94 VA: 0x11D7C94
+	public void .ctor(KeyContainerPermissionFlags flags, KeyContainerPermissionAccessEntry[] accessList) { }
+
+	// RVA: 0x11D7D9C Offset: 0x11D7D9C VA: 0x11D7D9C Slot: 15
+	public override IPermission Copy() { }
+
+	[MonoTODOAttribute] // RVA: 0xC39954 Offset: 0xC39954 VA: 0xC39954
+	// RVA: 0x11D7F88 Offset: 0x11D7F88 VA: 0x11D7F88 Slot: 16
+	public override void FromXml(SecurityElement securityElement) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3998C Offset: 0xC3998C VA: 0xC3998C
+	// RVA: 0x11D80BC Offset: 0x11D80BC VA: 0x11D80BC Slot: 17
+	public override IPermission Intersect(IPermission target) { }
+
+	[MonoTODOAttribute] // RVA: 0xC399C4 Offset: 0xC399C4 VA: 0xC399C4
+	// RVA: 0x11D80C4 Offset: 0x11D80C4 VA: 0x11D80C4 Slot: 18
+	public override bool IsSubsetOf(IPermission target) { }
+
+	// RVA: 0x11D80CC Offset: 0x11D80CC VA: 0x11D80CC Slot: 21
+	public bool IsUnrestricted() { }
+
+	[MonoTODOAttribute] // RVA: 0xC399FC Offset: 0xC399FC VA: 0xC399FC
+	// RVA: 0x11D80E0 Offset: 0x11D80E0 VA: 0x11D80E0 Slot: 19
+	public override SecurityElement ToXml() { }
+
+	// RVA: 0x11D8178 Offset: 0x11D8178 VA: 0x11D8178 Slot: 20
+	public override IPermission Union(IPermission target) { }
+
+	// RVA: 0x11D7B80 Offset: 0x11D7B80 VA: 0x11D7B80
+	private void SetFlags(KeyContainerPermissionFlags flags) { }
+
+	// RVA: 0x11D843C Offset: 0x11D843C VA: 0x11D843C
+	private KeyContainerPermission Cast(IPermission target) { }
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35BB8 Offset: 0xC35BB8 VA: 0xC35BB8
+[Serializable]
+public sealed class KeyContainerPermissionAccessEntry // TypeDefIndex: 801
+{
+	// Fields
+	private KeyContainerPermissionFlags _flags; // 0x10
+	private string _containerName; // 0x18
+	private int _spec; // 0x20
+	private string _store; // 0x28
+	private string _providerName; // 0x30
+	private int _type; // 0x38
+
+	// Methods
+
+	// RVA: 0x11D88A0 Offset: 0x11D88A0 VA: 0x11D88A0 Slot: 0
+	public override bool Equals(object o) { }
+
+	// RVA: 0x11D89EC Offset: 0x11D89EC VA: 0x11D89EC Slot: 2
+	public override int GetHashCode() { }
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35BCC Offset: 0xC35BCC VA: 0xC35BCC
+[DefaultMemberAttribute] // RVA: 0xC35BCC Offset: 0xC35BCC VA: 0xC35BCC
+[Serializable]
+public sealed class KeyContainerPermissionAccessEntryCollection : IEnumerable, ICollection // TypeDefIndex: 802
+{
+	// Fields
+	private ArrayList _list; // 0x10
+
+	// Properties
+	public int Count { get; }
+	public bool IsSynchronized { get; }
+	public object SyncRoot { get; }
+
+	// Methods
+
+	// RVA: 0x11D84E8 Offset: 0x11D84E8 VA: 0x11D84E8
+	internal void .ctor() { }
+
+	// RVA: 0x11D8A5C Offset: 0x11D8A5C VA: 0x11D8A5C Slot: 8
+	private void System.Collections.ICollection.CopyTo(Array array, int index) { }
+
+	// RVA: 0x11D8AAC Offset: 0x11D8AAC VA: 0x11D8AAC Slot: 4
+	private IEnumerator System.Collections.IEnumerable.GetEnumerator() { }
+
+	// RVA: 0x11D7F00 Offset: 0x11D7F00 VA: 0x11D7F00 Slot: 5
+	public int get_Count() { }
+
+	// RVA: 0x11D8B5C Offset: 0x11D8B5C VA: 0x11D8B5C Slot: 6
+	public bool get_IsSynchronized() { }
+
+	// RVA: 0x11D8B64 Offset: 0x11D8B64 VA: 0x11D8B64 Slot: 7
+	public object get_SyncRoot() { }
+
+	// RVA: 0x11D7D5C Offset: 0x11D7D5C VA: 0x11D7D5C
+	public int Add(KeyContainerPermissionAccessEntry accessEntry) { }
+
+	// RVA: 0x11D7F38 Offset: 0x11D7F38 VA: 0x11D7F38
+	public void CopyTo(KeyContainerPermissionAccessEntry[] array, int index) { }
+
+	// RVA: 0x11D8554 Offset: 0x11D8554 VA: 0x11D8554
+	public KeyContainerPermissionAccessEntryEnumerator GetEnumerator() { }
+
+	// RVA: 0x11D8794 Offset: 0x11D8794 VA: 0x11D8794
+	public int IndexOf(KeyContainerPermissionAccessEntry accessEntry) { }
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35C1C Offset: 0xC35C1C VA: 0xC35C1C
+[Serializable]
+public sealed class KeyContainerPermissionAccessEntryEnumerator : IEnumerator // TypeDefIndex: 803
+{
+	// Fields
+	private IEnumerator e; // 0x10
+
+	// Properties
+	private object System.Collections.IEnumerator.Current { get; }
+	public KeyContainerPermissionAccessEntry Current { get; }
+
+	// Methods
+
+	// RVA: 0x11D8B10 Offset: 0x11D8B10 VA: 0x11D8B10
+	internal void .ctor(ArrayList list) { }
+
+	// RVA: 0x11D8B68 Offset: 0x11D8B68 VA: 0x11D8B68 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	// RVA: 0x11D85B8 Offset: 0x11D85B8 VA: 0x11D85B8
+	public KeyContainerPermissionAccessEntry get_Current() { }
+
+	// RVA: 0x11D86DC Offset: 0x11D86DC VA: 0x11D86DC Slot: 5
+	public bool MoveNext() { }
+
+	// RVA: 0x11D8C1C Offset: 0x11D8C1C VA: 0x11D8C1C Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: System.Security.Permissions
+[FlagsAttribute] // RVA: 0xC35C30 Offset: 0xC35C30 VA: 0xC35C30
+[ComVisibleAttribute] // RVA: 0xC35C30 Offset: 0xC35C30 VA: 0xC35C30
+[Serializable]
+public enum KeyContainerPermissionFlags // TypeDefIndex: 804
+{
+	// Fields
+	public int value__; // 0x0
+	public const KeyContainerPermissionFlags NoFlags = 0;
+	public const KeyContainerPermissionFlags Create = 1;
+	public const KeyContainerPermissionFlags Open = 2;
+	public const KeyContainerPermissionFlags Delete = 4;
+	public const KeyContainerPermissionFlags Import = 16;
+	public const KeyContainerPermissionFlags Export = 32;
+	public const KeyContainerPermissionFlags Sign = 256;
+	public const KeyContainerPermissionFlags Decrypt = 512;
+	public const KeyContainerPermissionFlags ViewAcl = 4096;
+	public const KeyContainerPermissionFlags ChangeAcl = 8192;
+	public const KeyContainerPermissionFlags AllFlags = 13111;
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35C6C Offset: 0xC35C6C VA: 0xC35C6C
+[Serializable]
+public enum PermissionState // TypeDefIndex: 805
+{
+	// Fields
+	public int value__; // 0x0
+	public const PermissionState Unrestricted = 1;
+	public const PermissionState None = 0;
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35C80 Offset: 0xC35C80 VA: 0xC35C80
+[Serializable]
+public sealed class ReflectionPermission : CodeAccessPermission, IBuiltInPermission, IUnrestrictedPermission // TypeDefIndex: 806
+{
+	// Fields
+	private ReflectionPermissionFlag flags; // 0x10
+
+	// Properties
+	public ReflectionPermissionFlag Flags { get; set; }
+
+	// Methods
+
+	// RVA: 0x11D8CD4 Offset: 0x11D8CD4 VA: 0x11D8CD4
+	public void .ctor(PermissionState state) { }
+
+	// RVA: 0x11D8D1C Offset: 0x11D8D1C VA: 0x11D8D1C
+	public void .ctor(ReflectionPermissionFlag flag) { }
+
+	// RVA: 0x11D8E5C Offset: 0x11D8E5C VA: 0x11D8E5C
+	public ReflectionPermissionFlag get_Flags() { }
+
+	// RVA: 0x11D8D4C Offset: 0x11D8D4C VA: 0x11D8D4C
+	public void set_Flags(ReflectionPermissionFlag value) { }
+
+	// RVA: 0x11D8E64 Offset: 0x11D8E64 VA: 0x11D8E64 Slot: 15
+	public override IPermission Copy() { }
+
+	// RVA: 0x11D8ED4 Offset: 0x11D8ED4 VA: 0x11D8ED4 Slot: 16
+	public override void FromXml(SecurityElement esd) { }
+
+	// RVA: 0x11D906C Offset: 0x11D906C VA: 0x11D906C Slot: 17
+	public override IPermission Intersect(IPermission target) { }
+
+	// RVA: 0x11D9284 Offset: 0x11D9284 VA: 0x11D9284 Slot: 18
+	public override bool IsSubsetOf(IPermission target) { }
+
+	// RVA: 0x11D9274 Offset: 0x11D9274 VA: 0x11D9274 Slot: 21
+	public bool IsUnrestricted() { }
+
+	// RVA: 0x11D92E0 Offset: 0x11D92E0 VA: 0x11D92E0 Slot: 19
+	public override SecurityElement ToXml() { }
+
+	// RVA: 0x11D9558 Offset: 0x11D9558 VA: 0x11D9558 Slot: 20
+	public override IPermission Union(IPermission other) { }
+
+	// RVA: 0x11D91C8 Offset: 0x11D91C8 VA: 0x11D91C8
+	private ReflectionPermission Cast(IPermission target) { }
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35C94 Offset: 0xC35C94 VA: 0xC35C94
+[FlagsAttribute] // RVA: 0xC35C94 Offset: 0xC35C94 VA: 0xC35C94
+[Serializable]
+public enum ReflectionPermissionFlag // TypeDefIndex: 807
+{
+	// Fields
+	public int value__; // 0x0
+	public const ReflectionPermissionFlag NoFlags = 0;
+	[ObsoleteAttribute] // RVA: 0xC377E8 Offset: 0xC377E8 VA: 0xC377E8
+	public const ReflectionPermissionFlag TypeInformation = 1;
+	public const ReflectionPermissionFlag MemberAccess = 2;
+	public const ReflectionPermissionFlag ReflectionEmit = 4;
+	public const ReflectionPermissionFlag AllFlags = 7;
+	[ComVisibleAttribute] // RVA: 0xC37820 Offset: 0xC37820 VA: 0xC37820
+	public const ReflectionPermissionFlag RestrictedMemberAccess = 8;
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35CD0 Offset: 0xC35CD0 VA: 0xC35CD0
+[Serializable]
+public sealed class RegistryPermission : CodeAccessPermission, IBuiltInPermission, IUnrestrictedPermission // TypeDefIndex: 808
+{
+	// Fields
+	private PermissionState _state; // 0x10
+	private ArrayList createList; // 0x18
+	private ArrayList readList; // 0x20
+	private ArrayList writeList; // 0x28
+
+	// Methods
+
+	// RVA: 0x11D96D8 Offset: 0x11D96D8 VA: 0x11D96D8
+	public void .ctor(PermissionState state) { }
+
+	// RVA: 0x11D9794 Offset: 0x11D9794 VA: 0x11D9794
+	public void AddPathList(RegistryPermissionAccess access, string pathList) { }
+
+	// RVA: 0x11D9DCC Offset: 0x11D9DCC VA: 0x11D9DCC
+	public string GetPathList(RegistryPermissionAccess access) { }
+
+	// RVA: 0x11DA1FC Offset: 0x11DA1FC VA: 0x11DA1FC
+	public void SetPathList(RegistryPermissionAccess access, string pathList) { }
+
+	// RVA: 0x11DA70C Offset: 0x11DA70C VA: 0x11DA70C Slot: 15
+	public override IPermission Copy() { }
+
+	// RVA: 0x11DA808 Offset: 0x11DA808 VA: 0x11DA808 Slot: 16
+	public override void FromXml(SecurityElement esd) { }
+
+	// RVA: 0x11DA9A0 Offset: 0x11DA9A0 VA: 0x11DA9A0 Slot: 17
+	public override IPermission Intersect(IPermission target) { }
+
+	// RVA: 0x11DB450 Offset: 0x11DB450 VA: 0x11DB450 Slot: 18
+	public override bool IsSubsetOf(IPermission target) { }
+
+	// RVA: 0x11DABA0 Offset: 0x11DABA0 VA: 0x11DABA0 Slot: 21
+	public bool IsUnrestricted() { }
+
+	// RVA: 0x11DBB84 Offset: 0x11DBB84 VA: 0x11DBB84 Slot: 19
+	public override SecurityElement ToXml() { }
+
+	// RVA: 0x11DBCD0 Offset: 0x11DBCD0 VA: 0x11DBCD0 Slot: 20
+	public override IPermission Union(IPermission other) { }
+
+	// RVA: 0x11DB3A8 Offset: 0x11DB3A8 VA: 0x11DB3A8
+	private bool IsEmpty() { }
+
+	// RVA: 0x11DAAF4 Offset: 0x11DAAF4 VA: 0x11DAAF4
+	private RegistryPermission Cast(IPermission target) { }
+
+	// RVA: 0x11D9CC8 Offset: 0x11D9CC8 VA: 0x11D9CC8
+	internal void ThrowInvalidFlag(RegistryPermissionAccess flag, bool context) { }
+
+	// RVA: 0x11D9E24 Offset: 0x11D9E24 VA: 0x11D9E24
+	private string GetPathList(ArrayList list) { }
+
+	// RVA: 0x11DB4F4 Offset: 0x11DB4F4 VA: 0x11DB4F4
+	internal bool KeyIsSubsetOf(IList local, IList target) { }
+
+	// RVA: 0x11D9898 Offset: 0x11D9898 VA: 0x11D9898
+	internal void AddWithUnionKey(IList list, string pathList) { }
+
+	// RVA: 0x11DABB0 Offset: 0x11DABB0 VA: 0x11DABB0
+	internal void IntersectKeys(IList local, IList target, IList result) { }
+}
+
+// Namespace: System.Security.Permissions
+[FlagsAttribute] // RVA: 0xC35CE4 Offset: 0xC35CE4 VA: 0xC35CE4
+[ComVisibleAttribute] // RVA: 0xC35CE4 Offset: 0xC35CE4 VA: 0xC35CE4
+[Serializable]
+public enum RegistryPermissionAccess // TypeDefIndex: 809
+{
+	// Fields
+	public int value__; // 0x0
+	public const RegistryPermissionAccess NoAccess = 0;
+	public const RegistryPermissionAccess Read = 1;
+	public const RegistryPermissionAccess Write = 2;
+	public const RegistryPermissionAccess Create = 4;
+	public const RegistryPermissionAccess AllAccess = 7;
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35D20 Offset: 0xC35D20 VA: 0xC35D20
+[ObsoleteAttribute] // RVA: 0xC35D20 Offset: 0xC35D20 VA: 0xC35D20
+[Serializable]
+public enum SecurityAction // TypeDefIndex: 810
+{
+	// Fields
+	public int value__; // 0x0
+	public const SecurityAction Demand = 2;
+	public const SecurityAction Assert = 3;
+	public const SecurityAction Deny = 4;
+	public const SecurityAction PermitOnly = 5;
+	public const SecurityAction LinkDemand = 6;
+	public const SecurityAction InheritanceDemand = 7;
+	public const SecurityAction RequestMinimum = 8;
+	public const SecurityAction RequestOptional = 9;
+	public const SecurityAction RequestRefuse = 10;
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35D70 Offset: 0xC35D70 VA: 0xC35D70
+[Serializable]
+public sealed class SecurityPermission : CodeAccessPermission, IBuiltInPermission, IUnrestrictedPermission // TypeDefIndex: 811
+{
+	// Fields
+	private SecurityPermissionFlag flags; // 0x10
+
+	// Properties
+	public SecurityPermissionFlag Flags { set; }
+
+	// Methods
+
+	// RVA: 0x11DBEAC Offset: 0x11DBEAC VA: 0x11DBEAC
+	public void .ctor(PermissionState state) { }
+
+	// RVA: 0x11DBEF4 Offset: 0x11DBEF4 VA: 0x11DBEF4
+	public void .ctor(SecurityPermissionFlag flag) { }
+
+	// RVA: 0x11DBF24 Offset: 0x11DBF24 VA: 0x11DBF24
+	public void set_Flags(SecurityPermissionFlag value) { }
+
+	// RVA: 0x11DC034 Offset: 0x11DC034 VA: 0x11DC034 Slot: 21
+	public bool IsUnrestricted() { }
+
+	// RVA: 0x11DC048 Offset: 0x11DC048 VA: 0x11DC048 Slot: 15
+	public override IPermission Copy() { }
+
+	// RVA: 0x11DC0B8 Offset: 0x11DC0B8 VA: 0x11DC0B8 Slot: 17
+	public override IPermission Intersect(IPermission target) { }
+
+	// RVA: 0x11DC288 Offset: 0x11DC288 VA: 0x11DC288 Slot: 20
+	public override IPermission Union(IPermission target) { }
+
+	// RVA: 0x11DC37C Offset: 0x11DC37C VA: 0x11DC37C Slot: 18
+	public override bool IsSubsetOf(IPermission target) { }
+
+	// RVA: 0x11DC3E0 Offset: 0x11DC3E0 VA: 0x11DC3E0 Slot: 16
+	public override void FromXml(SecurityElement esd) { }
+
+	// RVA: 0x11DC520 Offset: 0x11DC520 VA: 0x11DC520 Slot: 19
+	public override SecurityElement ToXml() { }
+
+	// RVA: 0x11DC278 Offset: 0x11DC278 VA: 0x11DC278
+	private bool IsEmpty() { }
+
+	// RVA: 0x11DC1CC Offset: 0x11DC1CC VA: 0x11DC1CC
+	private SecurityPermission Cast(IPermission target) { }
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35D84 Offset: 0xC35D84 VA: 0xC35D84
+[AttributeUsageAttribute] // RVA: 0xC35D84 Offset: 0xC35D84 VA: 0xC35D84
+[ObsoleteAttribute] // RVA: 0xC35D84 Offset: 0xC35D84 VA: 0xC35D84
+[Serializable]
+public sealed class SecurityPermissionAttribute : CodeAccessSecurityAttribute // TypeDefIndex: 812
+{
+	// Fields
+	private SecurityPermissionFlag m_Flags; // 0x18
+
+	// Properties
+	public bool SkipVerification { set; }
+
+	// Methods
+
+	// RVA: 0x11DC61C Offset: 0x11DC61C VA: 0x11DC61C
+	public void set_SkipVerification(bool value) { }
+
+	// RVA: 0x11DC638 Offset: 0x11DC638 VA: 0x11DC638 Slot: 7
+	public override IPermission CreatePermission() { }
+}
+
+// Namespace: System.Security.Permissions
+[ObsoleteAttribute] // RVA: 0xC35E0C Offset: 0xC35E0C VA: 0xC35E0C
+[ComVisibleAttribute] // RVA: 0xC35E0C Offset: 0xC35E0C VA: 0xC35E0C
+[FlagsAttribute] // RVA: 0xC35E0C Offset: 0xC35E0C VA: 0xC35E0C
+[Serializable]
+public enum SecurityPermissionFlag // TypeDefIndex: 813
+{
+	// Fields
+	public int value__; // 0x0
+	public const SecurityPermissionFlag NoFlags = 0;
+	public const SecurityPermissionFlag Assertion = 1;
+	public const SecurityPermissionFlag UnmanagedCode = 2;
+	public const SecurityPermissionFlag SkipVerification = 4;
+	public const SecurityPermissionFlag Execution = 8;
+	public const SecurityPermissionFlag ControlThread = 16;
+	public const SecurityPermissionFlag ControlEvidence = 32;
+	public const SecurityPermissionFlag ControlPolicy = 64;
+	public const SecurityPermissionFlag SerializationFormatter = 128;
+	public const SecurityPermissionFlag ControlDomainPolicy = 256;
+	public const SecurityPermissionFlag ControlPrincipal = 512;
+	public const SecurityPermissionFlag ControlAppDomain = 1024;
+	public const SecurityPermissionFlag RemotingConfiguration = 2048;
+	public const SecurityPermissionFlag Infrastructure = 4096;
+	public const SecurityPermissionFlag BindingRedirects = 8192;
+	public const SecurityPermissionFlag AllFlags = 16383;
+}
+
+// Namespace: System.Security.Permissions
+[ComVisibleAttribute] // RVA: 0xC35E6C Offset: 0xC35E6C VA: 0xC35E6C
+[Serializable]
+public sealed class StrongNameIdentityPermission : CodeAccessPermission, IBuiltInPermission // TypeDefIndex: 814
+{
+	// Fields
+	private static Version defaultVersion; // 0x0
+	private PermissionState _state; // 0x10
+	private ArrayList _list; // 0x18
+
+	// Properties
+	public string Name { get; }
+	public StrongNamePublicKeyBlob PublicKey { get; }
+	public Version Version { get; }
+
+	// Methods
+
+	// RVA: 0x11DC640 Offset: 0x11DC640 VA: 0x11DC640
+	public void .ctor(PermissionState state) { }
+
+	// RVA: 0x11DC858 Offset: 0x11DC858 VA: 0x11DC858
+	public void .ctor(StrongNamePublicKeyBlob blob, string name, Version version) { }
+
+	// RVA: 0x11DC9C4 Offset: 0x11DC9C4 VA: 0x11DC9C4
+	internal void .ctor(StrongNameIdentityPermission snip) { }
+
+	// RVA: 0x11DCCEC Offset: 0x11DCCEC VA: 0x11DCCEC
+	private static void .cctor() { }
+
+	// RVA: 0x11DCD60 Offset: 0x11DCD60 VA: 0x11DCD60
+	public string get_Name() { }
+
+	// RVA: 0x11DCE40 Offset: 0x11DCE40 VA: 0x11DCE40
+	public StrongNamePublicKeyBlob get_PublicKey() { }
+
+	// RVA: 0x11DCF20 Offset: 0x11DCF20 VA: 0x11DCF20
+	public Version get_Version() { }
+
+	// RVA: 0x11DD000 Offset: 0x11DD000 VA: 0x11DD000 Slot: 15
+	public override IPermission Copy() { }
+
+	// RVA: 0x11DD1C0 Offset: 0x11DD1C0 VA: 0x11DD1C0 Slot: 16
+	public override void FromXml(SecurityElement e) { }
+
+	// RVA: 0x11DD5EC Offset: 0x11DD5EC VA: 0x11DD5EC
+	private StrongNameIdentityPermission.SNIP FromSecurityElement(SecurityElement se) { }
+
+	// RVA: 0x11DD8AC Offset: 0x11DD8AC VA: 0x11DD8AC Slot: 17
+	public override IPermission Intersect(IPermission target) { }
+
+	// RVA: 0x11DDDAC Offset: 0x11DDDAC VA: 0x11DDDAC Slot: 18
+	public override bool IsSubsetOf(IPermission target) { }
+
+	// RVA: 0x11DE484 Offset: 0x11DE484 VA: 0x11DE484 Slot: 19
+	public override SecurityElement ToXml() { }
+
+	// RVA: 0x11DE834 Offset: 0x11DE834 VA: 0x11DE834
+	private void ToSecurityElement(SecurityElement se, StrongNameIdentityPermission.SNIP snip) { }
+
+	// RVA: 0x11DEB64 Offset: 0x11DEB64 VA: 0x11DEB64 Slot: 20
+	public override IPermission Union(IPermission target) { }
+
+	// RVA: 0x11DE3C8 Offset: 0x11DE3C8 VA: 0x11DE3C8
+	private bool IsUnrestricted() { }
+
+	// RVA: 0x11DEF20 Offset: 0x11DEF20 VA: 0x11DEF20
+	private bool Contains(StrongNameIdentityPermission.SNIP snip) { }
+
+	// RVA: 0x11DE950 Offset: 0x11DE950 VA: 0x11DE950
+	private bool IsEmpty(StrongNameIdentityPermission.SNIP snip) { }
+
+	// RVA: 0x11DD088 Offset: 0x11DD088 VA: 0x11DD088
+	private bool IsEmpty() { }
+
+	// RVA: 0x11DE31C Offset: 0x11DE31C VA: 0x11DE31C
+	private StrongNameIdentityPermission Cast(IPermission target) { }
+
+	// RVA: 0x11DDAAC Offset: 0x11DDAAC VA: 0x11DDAAC
+	private bool Match(string target) { }
+}
+
+// Namespace: 
+private struct StrongNameIdentityPermission.SNIP // TypeDefIndex: 815
+{
+	// Fields
+	public StrongNamePublicKeyBlob PublicKey; // 0x0
+	public string Name; // 0x8
+	public Version AssemblyVersion; // 0x10
+
+	// Methods
+
+	// RVA: 0xBBDA24 Offset: 0xBBDA24 VA: 0xBBDA24
+	internal void .ctor(StrongNamePublicKeyBlob pk, string name, Version version) { }
+
+	// RVA: 0x11DC728 Offset: 0x11DC728 VA: 0x11DC728
+	internal static StrongNameIdentityPermission.SNIP CreateDefault() { }

@@ -1,0 +1,1000 @@
+	// RVA: 0x138CFCC Offset: 0x138CFCC VA: 0x138CFCC
+	protected static string CreateMultiplePK(long arg1, long arg2, long arg3, long arg4) { }
+
+	// RVA: 0x138D2C0 Offset: 0x138D2C0 VA: 0x138D2C0
+	protected static string CreateMultiplePK(long arg1, long arg2, long arg3, long arg4, long arg5) { }
+
+	// RVA: 0x138D65C Offset: 0x138D65C VA: 0x138D65C
+	protected static string CreateMultiplePK(long arg1, long arg2, long arg3, long arg4, long arg5, long arg6) { }
+
+	// RVA: 0x138DA9C Offset: 0x138DA9C VA: 0x138DA9C
+	protected static string CreateMultiplePK(long arg1, long arg2, long arg3, long arg4, long arg5, long arg6, long arg7) { }
+
+	// RVA: 0x138DF84 Offset: 0x138DF84 VA: 0x138DF84
+	protected static string CreateMultiplePK(long arg1, long arg2, long arg3, long arg4, long arg5, long arg6, long arg7, long arg8) { }
+
+	// RVA: 0x138E514 Offset: 0x138E514 VA: 0x138E514
+	protected static string CreateMultiplePKWithString(string arg1, long arg2) { }
+
+	// RVA: 0x138E5B0 Offset: 0x138E5B0 VA: 0x138E5B0
+	protected static string CreateMultiplePKWithString(long arg1, long arg2, string arg3) { }
+
+	// RVA: 0x138E7F0 Offset: 0x138E7F0 VA: 0x138E7F0
+	protected static string CreateMultiplePKWithString(long arg1, long arg2, string arg3, long arg4) { }
+
+	// RVA: 0x138EAD8 Offset: 0x138EAD8 VA: 0x138EAD8
+	protected static string CreateMultiplePKWithString(long arg1, long arg2, string arg3, long arg4, long arg5, long arg6) { }
+}
+
+// Namespace: 
+public abstract class DataEntityBase<PKType> : DataEntityBase // TypeDefIndex: 6649
+{
+	// Properties
+	public override string PrimaryKey { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1
+	protected void .ctor() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x252A390 Offset: 0x252A390 VA: 0x252A390
+	|-DataEntityBase<int>..ctor
+	|
+	|-RVA: 0x252A404 Offset: 0x252A404 VA: 0x252A404
+	|-DataEntityBase<long>..ctor
+	|
+	|-RVA: 0x252A478 Offset: 0x252A478 VA: 0x252A478
+	|-DataEntityBase<object>..ctor
+	|-DataEntityBase<string>..ctor
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public override string get_PrimaryKey() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x252A3BC Offset: 0x252A3BC VA: 0x252A3BC
+	|-DataEntityBase<int>.get_PrimaryKey
+	|
+	|-RVA: 0x252A430 Offset: 0x252A430 VA: 0x252A430
+	|-DataEntityBase<long>.get_PrimaryKey
+	|
+	|-RVA: 0x252A4A4 Offset: 0x252A4A4 VA: 0x252A4A4
+	|-DataEntityBase<object>.get_PrimaryKey
+	|-DataEntityBase<string>.get_PrimaryKey
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 5
+	protected abstract PKType CreatePrimaryKey();
+	/* GenericInstMethod :
+	|
+	|-RVA: -1 Offset: -1
+	|-DataEntityBase<object>.CreatePrimaryKey
+	*/
+}
+
+// Namespace: 
+public abstract class DataMasterBase // TypeDefIndex: 6650
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xCC1420 Offset: 0xCC1420 VA: 0xCC1420
+	[DebuggerBrowsableAttribute] // RVA: 0xCC1420 Offset: 0xCC1420 VA: 0xCC1420
+	private DataNameKind.Kind <MasterKind>k__BackingField; // 0x10
+	[CompilerGeneratedAttribute] // RVA: 0xCC145C Offset: 0xCC145C VA: 0xCC145C
+	[DebuggerBrowsableAttribute] // RVA: 0xCC145C Offset: 0xCC145C VA: 0xCC145C
+	private string <MasterName>k__BackingField; // 0x18
+	protected List<DataEntityBase> list; // 0x20
+	protected Dictionary<string, DataEntityBase> _lookup; // 0x28
+	protected MiniMessagePacker seriazlier; // 0x30
+	private const int SB_CAPA_MAX = 128;
+	private StringBuilder sb; // 0x38
+	private static bool failedToDeserializeDirectly; // 0x0
+	private int revision; // 0x40
+
+	// Properties
+	public DataNameKind.Kind MasterKind { get; set; }
+	public string MasterName { get; set; }
+	protected bool IsCreatedLookupTable { get; }
+	protected Dictionary<string, DataEntityBase> lookup { get; }
+
+	// Methods
+
+	// RVA: 0x177EAD0 Offset: 0x177EAD0 VA: 0x177EAD0
+	protected void .ctor(DataNameKind.Kind kind) { }
+
+	// RVA: -1 Offset: -1
+	public static DataNameKind.Kind GetRegisteredKind<TMaster>() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x268DFE8 Offset: 0x268DFE8 VA: 0x268DFE8
+	|-DataMasterBase.GetRegisteredKind<object>
+	*/
+
+	// RVA: -1 Offset: -1
+	public static string GetRegisteredName<TMaster>() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x21CB204 Offset: 0x21CB204 VA: 0x21CB204
+	|-DataMasterBase.GetRegisteredName<object>
+	*/
+
+	// RVA: -1 Offset: -1
+	protected static void RegisterKindAndName<TMaster>(DataNameKind.Kind kind, string name) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x21CFC40 Offset: 0x21CFC40 VA: 0x21CFC40
+	|-DataMasterBase.RegisterKindAndName<object>
+	*/
+
+	[CompilerGeneratedAttribute] // RVA: 0xD376AC Offset: 0xD376AC VA: 0xD376AC
+	// RVA: 0x176D7B4 Offset: 0x176D7B4 VA: 0x176D7B4
+	public DataNameKind.Kind get_MasterKind() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD376BC Offset: 0xD376BC VA: 0xD376BC
+	// RVA: 0x177EB80 Offset: 0x177EB80 VA: 0x177EB80
+	private void set_MasterKind(DataNameKind.Kind value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD376CC Offset: 0xD376CC VA: 0xD376CC
+	// RVA: 0x1771D58 Offset: 0x1771D58 VA: 0x1771D58
+	public string get_MasterName() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD376DC Offset: 0xD376DC VA: 0xD376DC
+	// RVA: 0x177EC14 Offset: 0x177EC14 VA: 0x177EC14
+	private void set_MasterName(string value) { }
+
+	// RVA: 0x177EC1C Offset: 0x177EC1C VA: 0x177EC1C
+	protected bool get_IsCreatedLookupTable() { }
+
+	// RVA: 0x177EC2C Offset: 0x177EC2C VA: 0x177EC2C
+	protected Dictionary<string, DataEntityBase> get_lookup() { }
+
+	// RVA: 0x177EE28 Offset: 0x177EE28 VA: 0x177EE28
+	public bool Modified(int revision) { }
+
+	// RVA: 0x1772110 Offset: 0x1772110 VA: 0x1772110
+	public int Revision() { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract DataEntityBase[] getList(object obj);
+
+	// RVA: -1 Offset: -1 Slot: 5
+	protected abstract void ForForceDerived();
+
+	// RVA: 0x177EE38 Offset: 0x177EE38 VA: 0x177EE38
+	private DataEntityBase[] directGetList(byte[] bytes, int start, int length) { }
+
+	// RVA: 0x177F024 Offset: 0x177F024 VA: 0x177F024
+	private DataEntityBase[] abstractGetList(object objOrBytes, Nullable<long> start, Nullable<long> lenght) { }
+
+	// RVA: 0x177F2FC Offset: 0x177F2FC VA: 0x177F2FC
+	private DataEntityBase[] abstractGetListForThread(object objOrBytes, SynchronizationContext context, Nullable<long> start, Nullable<long> lenght, byte[] work) { }
+
+	// RVA: 0x177F780 Offset: 0x177F780 VA: 0x177F780 Slot: 6
+	public virtual bool preProcess() { }
+
+	// RVA: 0x177F788 Offset: 0x177F788 VA: 0x177F788 Slot: 7
+	public virtual void Clear() { }
+
+	// RVA: 0x1771F60 Offset: 0x1771F60 VA: 0x1771F60
+	public bool Replaced(object objOrBytes, Nullable<long> start, Nullable<long> lenght) { }
+
+	// RVA: 0x176E7CC Offset: 0x176E7CC VA: 0x176E7CC
+	public bool ReplacedForThread(object objOrBytes, SynchronizationContext context, Nullable<long> start, Nullable<long> lenght, byte[] work) { }
+
+	// RVA: 0x177EC5C Offset: 0x177EC5C VA: 0x177EC5C
+	private void CreateLookupTable() { }
+
+	// RVA: 0x1771E70 Offset: 0x1771E70 VA: 0x1771E70
+	public bool Updated(object obj) { }
+
+	// RVA: 0x177F7F0 Offset: 0x177F7F0 VA: 0x177F7F0
+	public bool UpdatedEntity(DataEntityBase entity) { }
+
+	// RVA: 0x1771D60 Offset: 0x1771D60 VA: 0x1771D60
+	public bool Deleted(object obj) { }
+
+	// RVA: 0x177F8B8 Offset: 0x177F8B8 VA: 0x177F8B8
+	private bool RemoveEntity(string key) { }
+
+	// RVA: 0x17722F0 Offset: 0x17722F0 VA: 0x17722F0
+	public DataEntityBase[] getEntitys() { }
+
+	// RVA: 0x17722BC Offset: 0x17722BC VA: 0x17722BC
+	public List<DataEntityBase> getEntityList() { }
+
+	// RVA: -1 Offset: -1
+	public T[] getEntitys<T>() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B80ADC Offset: 0x2B80ADC VA: 0x2B80ADC
+	|-DataMasterBase.getEntitys<BgmEntity>
+	|-DataMasterBase.getEntitys<BuffEntity>
+	|-DataMasterBase.getEntitys<CommandSpellEntity>
+	|-DataMasterBase.getEntitys<EffectEntity>
+	|-DataMasterBase.getEntitys<EventBoardGameTokenRewardEntity>
+	|-DataMasterBase.getEntitys<EventRaidEntity>
+	|-DataMasterBase.getEntitys<GiftEntity>
+	|-DataMasterBase.getEntitys<MapGimmickEntity>
+	|-DataMasterBase.getEntitys<QuestEntity>
+	|-DataMasterBase.getEntitys<ServantEntity>
+	|-DataMasterBase.getEntitys<ServantLimitAddEntity>
+	|-DataMasterBase.getEntitys<ServantProfileEntity>
+	|-DataMasterBase.getEntitys<ServantSkillEntity>
+	|-DataMasterBase.getEntitys<ShopScriptEntity>
+	|-DataMasterBase.getEntitys<SkillDetailEntity>
+	|-DataMasterBase.getEntitys<SkillEntity>
+	|-DataMasterBase.getEntitys<object>
+	|-DataMasterBase.getEntitys<TotalEventRaidEntity>
+	|-DataMasterBase.getEntitys<UserServantCollectionEntity>
+	|-DataMasterBase.getEntitys<VoiceEntity>
+	|-DataMasterBase.getEntitys<WarEntity>
+	*/
+
+	// RVA: 0x177FAA0 Offset: 0x177FAA0 VA: 0x177FAA0
+	public bool isSingleEntityExists() { }
+
+	// RVA: -1 Offset: -1
+	public T getSingleEntity<T>() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218DB78 Offset: 0x218DB78 VA: 0x218DB78
+	|-DataMasterBase.getSingleEntity<BattleEntity>
+	|-DataMasterBase.getSingleEntity<BeforeBirthDayEntity>
+	|-DataMasterBase.getSingleEntity<PickupUserFollowerEntity>
+	|-DataMasterBase.getSingleEntity<object>
+	|-DataMasterBase.getSingleEntity<UserFollowerEntity>
+	*/
+
+	// RVA: -1 Offset: -1
+	public T getUserIdEntity<T>() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218DE3C Offset: 0x218DE3C VA: 0x218DE3C
+	|-DataMasterBase.getUserIdEntity<object>
+	*/
+
+	// RVA: -1 Offset: -1
+	public T getEntityFromKey<T>(string key) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218DA54 Offset: 0x218DA54 VA: 0x218DA54
+	|-DataMasterBase.getEntityFromKey<ConstantStrEntity>
+	|-DataMasterBase.getEntityFromKey<EventPointGroupEntity>
+	|-DataMasterBase.getEntityFromKey<EventQuestCooltimeEntity>
+	|-DataMasterBase.getEntityFromKey<object>
+	*/
+
+	// RVA: -1 Offset: -1
+	public T getEntityFromId<T>(int id) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218CE1C Offset: 0x218CE1C VA: 0x218CE1C
+	|-DataMasterBase.getEntityFromId<AiActEntity>
+	|-DataMasterBase.getEntityFromId<AuraEffectEntity>
+	|-DataMasterBase.getEntityFromId<BankShopEntity>
+	|-DataMasterBase.getEntityFromId<BgmEntity>
+	|-DataMasterBase.getEntityFromId<BoxGachaBaseDetailEntity>
+	|-DataMasterBase.getEntityFromId<BoxGachaEntity>
+	|-DataMasterBase.getEntityFromId<BuffEntity>
+	|-DataMasterBase.getEntityFromId<ClosedMessageEntity>
+	|-DataMasterBase.getEntityFromId<CombineEntity>
+	|-DataMasterBase.getEntityFromId<CommandCodeEntity>
+	|-DataMasterBase.getEntityFromId<CommandSpellEntity>
+	|-DataMasterBase.getEntityFromId<CommonRestrictionEntity>
+	|-DataMasterBase.getEntityFromId<CompleteMissionEntity>
+	|-DataMasterBase.getEntityFromId<CvEntity>
+	|-DataMasterBase.getEntityFromId<EffectEntity>
+	|-DataMasterBase.getEntityFromId<EquipEntity>
+	|-DataMasterBase.getEntityFromId<EquipImageEntity>
+	|-DataMasterBase.getEntityFromId<EventBonusFilterGroupInfoEntity>
+	|-DataMasterBase.getEntityFromId<EventDetailEntity>
+	|-DataMasterBase.getEntityFromId<EventEntity>
+	|-DataMasterBase.getEntityFromId<EventMissionEntity>
+	|-DataMasterBase.getEntityFromId<EventPanelMapDetailEntity>
+	|-DataMasterBase.getEntityFromId<EventPanelMapEntity>
+	|-DataMasterBase.getEntityFromId<EventPanelScanEntity>
+	|-DataMasterBase.getEntityFromId<EventPanelSpotEntity>
+	|-DataMasterBase.getEntityFromId<EventPointBuffEntity>
+	|-DataMasterBase.getEntityFromId<FunctionEntity>
+	|-DataMasterBase.getEntityFromId<GachaEntity>
+	|-DataMasterBase.getEntityFromId<GachaGroupEntity>
+	|-DataMasterBase.getEntityFromId<IllustratorEntity>
+	|-DataMasterBase.getEntityFromId<ItemEntity>
+	|-DataMasterBase.getEntityFromId<MapGimmickEntity>
+	|-DataMasterBase.getEntityFromId<MstMissionDisplayInfoEntity>
+	|-DataMasterBase.getEntityFromId<NewsEntity>
+	|-DataMasterBase.getEntityFromId<OtherUserGameEntity>
+	|-DataMasterBase.getEntityFromId<PrivilegeEntity>
+	|-DataMasterBase.getEntityFromId<QuestConsumeItemEntity>
+	|-DataMasterBase.getEntityFromId<QuestEntity>
+	|-DataMasterBase.getEntityFromId<RestrictionEntity>
+	|-DataMasterBase.getEntityFromId<ServantClassEntity>
+	|-DataMasterBase.getEntityFromId<ServantEntity>
+	|-DataMasterBase.getEntityFromId<ServantFilterEntity>
+	|-DataMasterBase.getEntityFromId<ServantRarityEntity>
+	|-DataMasterBase.getEntityFromId<ShopEntity>
+	|-DataMasterBase.getEntityFromId<SkillDetailEntity>
+	|-DataMasterBase.getEntityFromId<SkillEntity>
+	|-DataMasterBase.getEntityFromId<SpotEntity>
+	|-DataMasterBase.getEntityFromId<SpotPathEntity>
+	|-DataMasterBase.getEntityFromId<SpotRoadEntity>
+	|-DataMasterBase.getEntityFromId<StoneShopEntity>
+	|-DataMasterBase.getEntityFromId<object>
+	|-DataMasterBase.getEntityFromId<TipsBattleEntity>
+	|-DataMasterBase.getEntityFromId<TreasureDvcEntity>
+	|-DataMasterBase.getEntityFromId<UserEquipEntity>
+	|-DataMasterBase.getEntityFromId<UserExpEntity>
+	|-DataMasterBase.getEntityFromId<WarBoardAIEntity>
+	|-DataMasterBase.getEntityFromId<WarBoardActionTrendConditionEntity>
+	|-DataMasterBase.getEntityFromId<WarBoardActionTrendEntity>
+	|-DataMasterBase.getEntityFromId<WarBoardEffectEntity>
+	|-DataMasterBase.getEntityFromId<WarBoardEntity>
+	|-DataMasterBase.getEntityFromId<WarBoardItemEntity>
+	|-DataMasterBase.getEntityFromId<WarBoardRatingBaseEntity>
+	|-DataMasterBase.getEntityFromId<WarBoardRatingOffsetEntity>
+	|-DataMasterBase.getEntityFromId<WarBoardStageEntity>
+	|-DataMasterBase.getEntityFromId<WarBoardTacticalTrendEntity>
+	|-DataMasterBase.getEntityFromId<WarBoardTreasureEntity>
+	|-DataMasterBase.getEntityFromId<WarEntity>
+	*/
+
+	// RVA: -1 Offset: -1
+	public T getEntityFromId<T>(int id1, int id2) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218CF50 Offset: 0x218CF50 VA: 0x218CF50
+	|-DataMasterBase.getEntityFromId<AttriRelationEntity>
+	|-DataMasterBase.getEntityFromId<BoxGachaBaseEntity>
+	|-DataMasterBase.getEntityFromId<CardEntity>
+	|-DataMasterBase.getEntityFromId<ClassRelationEntity>
+	|-DataMasterBase.getEntityFromId<CombineLimitEntity>
+	|-DataMasterBase.getEntityFromId<CombineMaterialEntity>
+	|-DataMasterBase.getEntityFromId<CombineQpEntity>
+	|-DataMasterBase.getEntityFromId<CombineQpSvtEquipEntity>
+	|-DataMasterBase.getEntityFromId<CombineSkillEntity>
+	|-DataMasterBase.getEntityFromId<EquipExpEntity>
+	|-DataMasterBase.getEntityFromId<EquipSkillEntity>
+	|-DataMasterBase.getEntityFromId<EventItemDisplayGroupEntity>
+	|-DataMasterBase.getEntityFromId<EventPointEntity>
+	|-DataMasterBase.getEntityFromId<EventPointGroupEntity>
+	|-DataMasterBase.getEntityFromId<EventRaceEntity>
+	|-DataMasterBase.getEntityFromId<EventRaidEntity>
+	|-DataMasterBase.getEntityFromId<EventServantEntity>
+	|-DataMasterBase.getEntityFromId<EventSuperBossEntity>
+	|-DataMasterBase.getEntityFromId<EventTowerEntity>
+	|-DataMasterBase.getEntityFromId<FriendshipEntity>
+	|-DataMasterBase.getEntityFromId<MapEntity>
+	|-DataMasterBase.getEntityFromId<QuestPhaseEntity>
+	|-DataMasterBase.getEntityFromId<ServantCardEntity>
+	|-DataMasterBase.getEntityFromId<ServantCommandCodeUnlockEntity>
+	|-DataMasterBase.getEntityFromId<ServantCostumeEntity>
+	|-DataMasterBase.getEntityFromId<ServantExceedEntity>
+	|-DataMasterBase.getEntityFromId<ServantExpEntity>
+	|-DataMasterBase.getEntityFromId<ServantFlagEntity>
+	|-DataMasterBase.getEntityFromId<ServantLimitAddEntity>
+	|-DataMasterBase.getEntityFromId<ServantLimitEntity>
+	|-DataMasterBase.getEntityFromId<ServantTreasureDeviceDamageEntity>
+	|-DataMasterBase.getEntityFromId<SkillLvEntity>
+	|-DataMasterBase.getEntityFromId<object>
+	|-DataMasterBase.getEntityFromId<TreasureDvcLvEntity>
+	|-DataMasterBase.getEntityFromId<WarBoardQuestEntity>
+	*/
+
+	// RVA: -1 Offset: -1
+	public T getEntityFromId<T>(int id1, int id2, int id3) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218D0D8 Offset: 0x218D0D8 VA: 0x218D0D8
+	|-DataMasterBase.getEntityFromId<EventMissionConditionEntity>
+	|-DataMasterBase.getEntityFromId<EventRewardSetEntity>
+	|-DataMasterBase.getEntityFromId<GiftEntity>
+	|-DataMasterBase.getEntityFromId<ServantCommentEntity>
+	|-DataMasterBase.getEntityFromId<ServantTreasureDvcEntity>
+	|-DataMasterBase.getEntityFromId<ServantVoiceEntity>
+	|-DataMasterBase.getEntityFromId<object>
+	*/
+
+	// RVA: -1 Offset: -1
+	public T getEntityFromId<T>(int id1, int id2, int id3, int id4) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218D400 Offset: 0x218D400 VA: 0x218D400
+	|-DataMasterBase.getEntityFromId<QuestReleaseEntity>
+	|-DataMasterBase.getEntityFromId<object>
+	*/
+
+	// RVA: 0x177FB30 Offset: 0x177FB30 VA: 0x177FB30
+	protected string createKey(long[] args) { }
+
+	// RVA: -1 Offset: -1
+	public T getEntityFromId<T>(long id) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218D7CC Offset: 0x218D7CC VA: 0x218D7CC
+	|-DataMasterBase.getEntityFromId<EquipEntity>
+	|-DataMasterBase.getEntityFromId<EventPointBuffEntity>
+	|-DataMasterBase.getEntityFromId<NpcServantEquipEntity>
+	|-DataMasterBase.getEntityFromId<NpcServantFollowerEntity>
+	|-DataMasterBase.getEntityFromId<OtherUserGameEntity>
+	|-DataMasterBase.getEntityFromId<object>
+	|-DataMasterBase.getEntityFromId<TblUserEntity>
+	|-DataMasterBase.getEntityFromId<UserCoinRoomEntity>
+	|-DataMasterBase.getEntityFromId<UserCommandCodeEntity>
+	|-DataMasterBase.getEntityFromId<UserDeckEntity>
+	|-DataMasterBase.getEntityFromId<UserEquipEntity>
+	|-DataMasterBase.getEntityFromId<UserGameEntity>
+	|-DataMasterBase.getEntityFromId<UserLoginEntity>
+	|-DataMasterBase.getEntityFromId<UserServantEntity>
+	*/
+
+	// RVA: -1 Offset: -1
+	public T getEntityFromId<T>(long[] args) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218D8FC Offset: 0x218D8FC VA: 0x218D8FC
+	|-DataMasterBase.getEntityFromId<object>
+	|-DataMasterBase.getEntityFromId<UserBoxGachaEntity>
+	|-DataMasterBase.getEntityFromId<UserEventMissionCondDetailEntity>
+	|-DataMasterBase.getEntityFromId<UserEventMissionEntity>
+	|-DataMasterBase.getEntityFromId<UserEventPointEntity>
+	|-DataMasterBase.getEntityFromId<UserGachaEntity>
+	|-DataMasterBase.getEntityFromId<UserItemEntity>
+	|-DataMasterBase.getEntityFromId<UserQuestEntity>
+	|-DataMasterBase.getEntityFromId<UserServantCollectionEntity>
+	|-DataMasterBase.getEntityFromId<UserSuperBossEntity>
+	*/
+
+	// RVA: 0x177FD3C Offset: 0x177FD3C VA: 0x177FD3C
+	public bool isEntityExistsFromId(long[] args) { }
+
+	// RVA: -1 Offset: -1
+	public bool TryGetEntityFromId<T>(out T result, long[] args) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x26A0B38 Offset: 0x26A0B38 VA: 0x26A0B38
+	|-DataMasterBase.TryGetEntityFromId<AiActEntity>
+	|-DataMasterBase.TryGetEntityFromId<BattleBgEntity>
+	|-DataMasterBase.TryGetEntityFromId<BgmEntity>
+	|-DataMasterBase.TryGetEntityFromId<BoxGachaHistoryEntity>
+	|-DataMasterBase.TryGetEntityFromId<BuffEntity>
+	|-DataMasterBase.TryGetEntityFromId<CampaignInfoEntity>
+	|-DataMasterBase.TryGetEntityFromId<CardEntity>
+	|-DataMasterBase.TryGetEntityFromId<ClassRelationEntity>
+	|-DataMasterBase.TryGetEntityFromId<ClassRelationOverwriteEntity>
+	|-DataMasterBase.TryGetEntityFromId<ClosedMessageEntity>
+	|-DataMasterBase.TryGetEntityFromId<CombineCostumeEntity>
+	|-DataMasterBase.TryGetEntityFromId<CombineEntity>
+	|-DataMasterBase.TryGetEntityFromId<CommandCodeCommentEntity>
+	|-DataMasterBase.TryGetEntityFromId<CommandCodeEntity>
+	|-DataMasterBase.TryGetEntityFromId<EffectEntity>
+	|-DataMasterBase.TryGetEntityFromId<EnemyMstBattleEntity>
+	|-DataMasterBase.TryGetEntityFromId<EquipEntity>
+	|-DataMasterBase.TryGetEntityFromId<EquipExpEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventBoardGameTokenEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventBoostItemUsedEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventBossStatusUiEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventDetailEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventFilterEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventItemDisplayReleaseEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventLocationCampaignEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventMissionEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventPointEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventPointGroupEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventRaceEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventRaceResultEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventRaidEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventServantFatigueEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventStatusEntity>
+	|-DataMasterBase.TryGetEntityFromId<EventTowerEntity>
+	|-DataMasterBase.TryGetEntityFromId<FriendshipEntity>
+	|-DataMasterBase.TryGetEntityFromId<FunctionEntity>
+	|-DataMasterBase.TryGetEntityFromId<FunctionGroupEntity>
+	|-DataMasterBase.TryGetEntityFromId<GachaAppendEntity>
+	|-DataMasterBase.TryGetEntityFromId<GachaGroupEntity>
+	|-DataMasterBase.TryGetEntityFromId<ItemEntity>
+	|-DataMasterBase.TryGetEntityFromId<ItemSelectEntity>
+	|-DataMasterBase.TryGetEntityFromId<MapEntity>
+	|-DataMasterBase.TryGetEntityFromId<NotEndEventMissionFixEntity>
+	|-DataMasterBase.TryGetEntityFromId<NpcFollowerEntity>
+	|-DataMasterBase.TryGetEntityFromId<NpcServantFollowerEntity>
+	|-DataMasterBase.TryGetEntityFromId<QuestEntity>
+	|-DataMasterBase.TryGetEntityFromId<QuestPhaseDetailEntity>
+	|-DataMasterBase.TryGetEntityFromId<QuestPhaseEntity>
+	|-DataMasterBase.TryGetEntityFromId<QuestRacePointEntity>
+	|-DataMasterBase.TryGetEntityFromId<QuestReleaseEntity>
+	|-DataMasterBase.TryGetEntityFromId<QuestResetEntity>
+	|-DataMasterBase.TryGetEntityFromId<QuestRestrictionInfoEntity>
+	|-DataMasterBase.TryGetEntityFromId<ReprintStageEntity>
+	|-DataMasterBase.TryGetEntityFromId<RestrictionEntity>
+	|-DataMasterBase.TryGetEntityFromId<ServantCardEntity>
+	|-DataMasterBase.TryGetEntityFromId<ServantClassEntity>
+	|-DataMasterBase.TryGetEntityFromId<ServantCostumeEntity>
+	|-DataMasterBase.TryGetEntityFromId<ServantEntity>
+	|-DataMasterBase.TryGetEntityFromId<ServantFilterEntity>
+	|-DataMasterBase.TryGetEntityFromId<ServantLimitAddEntity>
+	|-DataMasterBase.TryGetEntityFromId<ServantLimitEntity>
+	|-DataMasterBase.TryGetEntityFromId<ServantSkillEntity>
+	|-DataMasterBase.TryGetEntityFromId<ShopDetailEntity>
+	|-DataMasterBase.TryGetEntityFromId<ShopEntity>
+	|-DataMasterBase.TryGetEntityFromId<ShopScriptEntity>
+	|-DataMasterBase.TryGetEntityFromId<SkillDetailEntity>
+	|-DataMasterBase.TryGetEntityFromId<SkillEntity>
+	|-DataMasterBase.TryGetEntityFromId<SkillLvEntity>
+	|-DataMasterBase.TryGetEntityFromId<SpotEntity>
+	|-DataMasterBase.TryGetEntityFromId<SpotPathEntity>
+	|-DataMasterBase.TryGetEntityFromId<StageEntity>
+	|-DataMasterBase.TryGetEntityFromId<StatusEffectPosOverwriteEntity>
+	|-DataMasterBase.TryGetEntityFromId<object>
+	|-DataMasterBase.TryGetEntityFromId<TotalEventRaceEntity>
+	|-DataMasterBase.TryGetEntityFromId<TotalEventRaidEntity>
+	|-DataMasterBase.TryGetEntityFromId<TreasureDvcEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserBoxGachaEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserCommandCodeCollectionEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserCommandCodeEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserContinueEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserEventDeckEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserEventEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserEventMissionCondDetailEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserEventMissionEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserEventPointEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserEventRaceEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserExpEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserFollowEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserItemEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserPrivilegeEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserQuestEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserQuestInfoEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserQuestRecordEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserQuestRouteEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserServantCollectionEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserServantCommandCardEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserServantCommandCodeEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserServantEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserShopEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserSupportDeckEntity>
+	|-DataMasterBase.TryGetEntityFromId<UserSvtCoinEntity>
+	|-DataMasterBase.TryGetEntityFromId<ViewEnemyEntity>
+	|-DataMasterBase.TryGetEntityFromId<ViewQuestInfoEntity>
+	|-DataMasterBase.TryGetEntityFromId<VoiceClosedMessageEntity>
+	|-DataMasterBase.TryGetEntityFromId<WarBoardStageEntity>
+	|-DataMasterBase.TryGetEntityFromId<WarEntity>
+	*/
+
+	// RVA: -1 Offset: -1
+	public bool TryGetEntityFromId<T>(out T result, string key) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x26A0D48 Offset: 0x26A0D48 VA: 0x26A0D48
+	|-DataMasterBase.TryGetEntityFromId<BgmEntity>
+	|-DataMasterBase.TryGetEntityFromId<ConstantStrEntity>
+	|-DataMasterBase.TryGetEntityFromId<FriendshipEntity>
+	|-DataMasterBase.TryGetEntityFromId<QuestPhaseDetailEntity>
+	|-DataMasterBase.TryGetEntityFromId<ServantVoiceEntity>
+	|-DataMasterBase.TryGetEntityFromId<object>
+	*/
+
+	// RVA: 0x177FDD0 Offset: 0x177FDD0 VA: 0x177FDD0
+	public bool isEntityExistsFromId(string key) { }
+
+	// RVA: 0x177FE4C Offset: 0x177FE4C VA: 0x177FE4C
+	private static void .cctor() { }
+}
+
+// Namespace: 
+private static class DataMasterBase.Registration<TMaster> // TypeDefIndex: 6651
+{
+	// Fields
+	public static DataNameKind.Kind Kind; // 0x0
+	public static string Name; // 0x0
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCAECB0 Offset: 0xCAECB0 VA: 0xCAECB0
+private sealed class DataMasterBase.<abstractGetListForThread>c__AnonStorey0 // TypeDefIndex: 6652
+{
+	// Fields
+	internal Exception e; // 0x10
+
+	// Methods
+
+	// RVA: 0x177F770 Offset: 0x177F770 VA: 0x177F770
+	public void .ctor() { }
+
+	// RVA: 0x177FEF0 Offset: 0x177FEF0 VA: 0x177FEF0
+	internal void <>m__0(object _) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCAECC0 Offset: 0xCAECC0 VA: 0xCAECC0
+private sealed class DataMasterBase.<abstractGetListForThread>c__AnonStorey1 // TypeDefIndex: 6653
+{
+	// Fields
+	internal Exception e; // 0x10
+
+	// Methods
+
+	// RVA: 0x177F778 Offset: 0x177F778 VA: 0x177F778
+	public void .ctor() { }
+
+	// RVA: 0x177FEF4 Offset: 0x177FEF4 VA: 0x177FEF4
+	internal void <>m__0(object _) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCAECD0 Offset: 0xCAECD0 VA: 0xCAECD0
+private sealed class DataMasterBase.<RemoveEntity>c__AnonStorey2 // TypeDefIndex: 6654
+{
+	// Fields
+	internal string key; // 0x10
+
+	// Methods
+
+	// RVA: 0x177FA98 Offset: 0x177FA98 VA: 0x177FA98
+	public void .ctor() { }
+
+	// RVA: 0x177FE50 Offset: 0x177FE50 VA: 0x177FE50
+	internal bool <>m__0(DataEntityBase x) { }
+}
+
+// Namespace: 
+public abstract class DataMasterBase<TMaster, TEntity, PKType> : DataMasterBase // TypeDefIndex: 6655
+{
+	// Methods
+
+	// RVA: -1 Offset: -1
+	protected void .ctor(DataNameKind.Kind kind) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x252A4F0 Offset: 0x252A4F0 VA: 0x252A4F0
+	|-DataMasterBase<AccessaryMaster, AccessaryEntity, int>..ctor
+	|-DataMasterBase<AiActMaster, AiActEntity, int>..ctor
+	|-DataMasterBase<AreaMaster, AreaEntity, int>..ctor
+	|-DataMasterBase<AuraEffectMaster, AuraEffectEntity, int>..ctor
+	|-DataMasterBase<BankShopMaster, BankShopEntity, int>..ctor
+	|-DataMasterBase<BannerMaster, BannerEntity, int>..ctor
+	|-DataMasterBase<BgmMaster, BgmEntity, int>..ctor
+	|-DataMasterBase<BoostMaster, BoostEntity, int>..ctor
+	|-DataMasterBase<BoxGachaBaseDetailMaster, BoxGachaBaseDetailEntity, int>..ctor
+	|-DataMasterBase<BoxGachaHistoryMaster, BoxGachaHistoryEntity, int>..ctor
+	|-DataMasterBase<BoxGachaMaster, BoxGachaEntity, int>..ctor
+	|-DataMasterBase<BuffMaster, BuffEntity, int>..ctor
+	|-DataMasterBase<CampaignInfoMaster, CampaignInfoEntity, int>..ctor
+	|-DataMasterBase<ClosedMessageMaster, ClosedMessageEntity, int>..ctor
+	|-DataMasterBase<CombineMaster, CombineEntity, int>..ctor
+	|-DataMasterBase<CommandCodeCommentMaster, CommandCodeCommentEntity, int>..ctor
+	|-DataMasterBase<CommandCodeMaster, CommandCodeEntity, int>..ctor
+	|-DataMasterBase<CommandSpellMaster, CommandSpellEntity, int>..ctor
+	|-DataMasterBase<CommonRestrictionMaster, CommonRestrictionEntity, int>..ctor
+	|-DataMasterBase<CompleteMissionMaster, CompleteMissionEntity, int>..ctor
+	|-DataMasterBase<CvMaster, CvEntity, int>..ctor
+	|-DataMasterBase<DialogMessageMaster, DialogMessageEntity, int>..ctor
+	|-DataMasterBase<EffectMaster, EffectEntity, int>..ctor
+	|-DataMasterBase<EnemyMstBattleMaster, EnemyMstBattleEntity, int>..ctor
+	|-DataMasterBase<EnemyMstMaster, EnemyMstEntity, int>..ctor
+	|-DataMasterBase<EquipImageMaster, EquipImageEntity, int>..ctor
+	|-DataMasterBase<EquipMaster, EquipEntity, int>..ctor
+	|-DataMasterBase<EventBonusFilterGroupInfoMaster, EventBonusFilterGroupInfoEntity, int>..ctor
+	|-DataMasterBase<EventBulletinBoardMaster, EventBulletinBoardEntity, int>..ctor
+	|-DataMasterBase<EventDetailMaster, EventDetailEntity, int>..ctor
+	|-DataMasterBase<EventFactoryMaster, EventFactoryEntity, int>..ctor
+	|-DataMasterBase<EventFilterMaster, EventFilterEntity, int>..ctor
+	|-DataMasterBase<EventItemDisplayReleaseMaster, EventItemDisplayReleaseEntity, int>..ctor
+	|-DataMasterBase<EventLocationCampaignMaster, EventLocationCampaignEntity, int>..ctor
+	|-DataMasterBase<EventMaster, EventEntity, int>..ctor
+	|-DataMasterBase<EventMissionCondDetailMaster, EventMissionCondDetailEntity, int>..ctor
+	|-DataMasterBase<EventMissionMaster, EventMissionEntity, int>..ctor
+	|-DataMasterBase<EventPanelMapDetailMaster, EventPanelMapDetailEntity, int>..ctor
+	|-DataMasterBase<EventPanelMapMaster, EventPanelMapEntity, int>..ctor
+	|-DataMasterBase<EventPanelScanMaster, EventPanelScanEntity, int>..ctor
+	|-DataMasterBase<EventPanelSpotMaster, EventPanelSpotEntity, int>..ctor
+	|-DataMasterBase<EventPointBuffMaster, EventPointBuffEntity, int>..ctor
+	|-DataMasterBase<FunctionCategoryMaster, FunctionCategoryEntity, int>..ctor
+	|-DataMasterBase<FunctionMaster, FunctionEntity, int>..ctor
+	|-DataMasterBase<GachaDetailMaster, GachaDetailEntity, int>..ctor
+	|-DataMasterBase<GachaGroupMaster, GachaGroupEntity, int>..ctor
+	|-DataMasterBase<GachaMaster, GachaEntity, int>..ctor
+	|-DataMasterBase<IllustratorMaster, IllustratorEntity, int>..ctor
+	|-DataMasterBase<ItemMaster, ItemEntity, int>..ctor
+	|-DataMasterBase<LoginQuestMaster, LoginQuestEntity, int>..ctor
+	|-DataMasterBase<MapGimmickMaster, MapGimmickEntity, int>..ctor
+	|-DataMasterBase<MaterialFolderMaster, MaterialFolderEntity, int>..ctor
+	|-DataMasterBase<MstMissionDisplayInfoMaster, MstMissionDisplayInfoEntity, int>..ctor
+	|-DataMasterBase<MstMissionMaster, MstMissionEntity, int>..ctor
+	|-DataMasterBase<NewsMaster, NewsEntity, int>..ctor
+	|-DataMasterBase<OpeningMovieMaster, OpeningMovieEntity, int>..ctor
+	|-DataMasterBase<PartialMaintenanceMaster, PartialMaintenanceEntity, int>..ctor
+	|-DataMasterBase<PrivilegeMaster, PrivilegeEntity, int>..ctor
+	|-DataMasterBase<QuestConsumeItemMaster, QuestConsumeItemEntity, int>..ctor
+	|-DataMasterBase<QuestMaster, QuestEntity, int>..ctor
+	|-DataMasterBase<QuestPickupMaster, QuestPickupEntity, int>..ctor
+	|-DataMasterBase<QuestResetMaster, QuestResetEntity, int>..ctor
+	|-DataMasterBase<RecoverMaster, RecoverEntity, int>..ctor
+	|-DataMasterBase<RestrictionMaster, RestrictionEntity, int>..ctor
+	|-DataMasterBase<ServantAddMaster, ServantAddEntity, int>..ctor
+	|-DataMasterBase<ServantClassMaster, ServantClassEntity, int>..ctor
+	|-DataMasterBase<ServantFilterMaster, ServantFilterEntity, int>..ctor
+	|-DataMasterBase<ServantMaster, ServantEntity, int>..ctor
+	|-DataMasterBase<ServantMaterialFolderMaster, ServantMaterialFolderEntity, int>..ctor
+	|-DataMasterBase<ServantRarityMaster, ServantRarityEntity, int>..ctor
+	|-DataMasterBase<ServantScriptAddMaster, ServantScriptAddEntity, int>..ctor
+	|-DataMasterBase<ShopDetailMaster, ShopDetailEntity, int>..ctor
+	|-DataMasterBase<ShopMaster, ShopEntity, int>..ctor
+	|-DataMasterBase<ShopScriptMaster, ShopScriptEntity, int>..ctor
+	|-DataMasterBase<SkillDetailMaster, SkillDetailEntity, int>..ctor
+	|-DataMasterBase<SkillMaster, SkillEntity, int>..ctor
+	|-DataMasterBase<SpotMaster, SpotEntity, int>..ctor
+	|-DataMasterBase<SpotPathMaster, SpotPathEntity, int>..ctor
+	|-DataMasterBase<SpotRoadMaster, SpotRoadEntity, int>..ctor
+	|-DataMasterBase<StoneShopMaster, StoneShopEntity, int>..ctor
+	|-DataMasterBase<SubEquipMaster, SubEquipEntity, int>..ctor
+	|-DataMasterBase<SvtCoinMaster, SvtCoinEntity, int>..ctor
+	|-DataMasterBase<object, object, int>..ctor
+	|-DataMasterBase<TelopMaster, TelopEntity, int>..ctor
+	|-DataMasterBase<TipsBattleMaster, TipsBattleEntity, int>..ctor
+	|-DataMasterBase<TotalBoxGachaMaster, TotalBoxGachaEntity, int>..ctor
+	|-DataMasterBase<TreasureBoxMaster, TreasureBoxEntity, int>..ctor
+	|-DataMasterBase<TreasureDvcDetailMaster, TreasureDvcDetailEntity, int>..ctor
+	|-DataMasterBase<TreasureDvcMaster, TreasureDvcEntity, int>..ctor
+	|-DataMasterBase<UserEventServantFatigueMaster, UserEventServantFatigueEntity, int>..ctor
+	|-DataMasterBase<UserExpMaster, UserExpEntity, int>..ctor
+	|-DataMasterBase<UserFriendRequestHistoryMaster, UserFriendRequestHistoryEntity, int>..ctor
+	|-DataMasterBase<ViewQuestEnemyInfoMaster, ViewQuestEnemyInfoEntity, int>..ctor
+	|-DataMasterBase<ViewQuestInfoMaster, ViewQuestInfoEntity, int>..ctor
+	|-DataMasterBase<VoiceClosedMessageMaster, VoiceClosedMessageEntity, int>..ctor
+	|-DataMasterBase<WarBoardAIMaster, WarBoardAIEntity, int>..ctor
+	|-DataMasterBase<WarBoardActionTrendConditionMaster, WarBoardActionTrendConditionEntity, int>..ctor
+	|-DataMasterBase<WarBoardActionTrendMaster, WarBoardActionTrendEntity, int>..ctor
+	|-DataMasterBase<WarBoardEffectMaster, WarBoardEffectEntity, int>..ctor
+	|-DataMasterBase<WarBoardIndividualityClassMaster, WarBoardIndividualityClassEntity, int>..ctor
+	|-DataMasterBase<WarBoardItemMaster, WarBoardItemEntity, int>..ctor
+	|-DataMasterBase<WarBoardMaster, WarBoardEntity, int>..ctor
+	|-DataMasterBase<WarBoardRatingBaseMaster, WarBoardRatingBaseEntity, int>..ctor
+	|-DataMasterBase<WarBoardRatingOffsetMaster, WarBoardRatingOffsetEntity, int>..ctor
+	|-DataMasterBase<WarBoardStageMaster, WarBoardStageEntity, int>..ctor
+	|-DataMasterBase<WarBoardTacticalTrendMaster, WarBoardTacticalTrendEntity, int>..ctor
+	|-DataMasterBase<WarBoardTreasureMaster, WarBoardTreasureEntity, int>..ctor
+	|-DataMasterBase<WarMaster, WarEntity, int>..ctor
+	|
+	|-RVA: 0x252A980 Offset: 0x252A980 VA: 0x252A980
+	|-DataMasterBase<AiFieldMaster, AiFieldEntity, string>..ctor
+	|-DataMasterBase<AiMaster, AiEntity, string>..ctor
+	|-DataMasterBase<AssistMaster, AssistEntity, string>..ctor
+	|-DataMasterBase<AttriRelationMaster, AttriRelationEntity, string>..ctor
+	|-DataMasterBase<AuraEffectPosOverwriteMaster, AuraEffectPosOverwriteEntity, string>..ctor
+	|-DataMasterBase<BannerAddMaster, BannerAddEntity, string>..ctor
+	|-DataMasterBase<BattleBgMaster, BattleBgEntity, string>..ctor
+	|-DataMasterBase<BattleMasterImageMaster, BattleMasterImageEntity, string>..ctor
+	|-DataMasterBase<BgmReleaseMaster, BgmReleaseEntity, string>..ctor
+	|-DataMasterBase<BoardMessageMaster, BoardMessageEntity, string>..ctor
+	|-DataMasterBase<BoardMessageReleaseMaster, BoardMessageReleaseEntity, string>..ctor
+	|-DataMasterBase<BoxGachaBaseMaster, BoxGachaBaseEntity, string>..ctor
+	|-DataMasterBase<BoxGachaTalkMaster, BoxGachaTalkEntity, string>..ctor
+	|-DataMasterBase<CardMaster, CardEntity, string>..ctor
+	|-DataMasterBase<ClassRelationMaster, ClassRelationEntity, string>..ctor
+	|-DataMasterBase<ClassRelationOverwriteMaster, ClassRelationOverwriteEntity, string>..ctor
+	|-DataMasterBase<CombineAppendPassiveSkillMaster, CombineAppendPassiveSkillEntity, string>..ctor
+	|-DataMasterBase<CombineCostumeMaster, CombineCostumeEntity, string>..ctor
+	|-DataMasterBase<CombineLimitMaster, CombineLimitEntity, string>..ctor
+	|-DataMasterBase<CombineMaterialMaster, CombineMaterialEntity, string>..ctor
+	|-DataMasterBase<CombineQpMaster, CombineQpEntity, string>..ctor
+	|-DataMasterBase<CombineQpSvtEquipMaster, CombineQpSvtEquipEntity, string>..ctor
+	|-DataMasterBase<CombineSkillMaster, CombineSkillEntity, string>..ctor
+	|-DataMasterBase<CombineTdMaster, CombineTdEntity, string>..ctor
+	|-DataMasterBase<CommandCardRankParamMaster, CommandCardRankParamEntity, string>..ctor
+	|-DataMasterBase<CommandCodeSkillMaster, CommandCodeSkillEntity, string>..ctor
+	|-DataMasterBase<CommandCodeSkillReleaseMaster, CommandCodeSkillReleaseEntity, string>..ctor
+	|-DataMasterBase<CommonConsumeMaster, CommonConsumeEntity, string>..ctor
+	|-DataMasterBase<CommonReleaseMaster, CommonReleaseEntity, string>..ctor
+	|-DataMasterBase<ConstantLongMaster, ConstantLongEntity, string>..ctor
+	|-DataMasterBase<ConstantMaster, ConstantEntity, string>..ctor
+	|-DataMasterBase<ConstantStrMaster, ConstantStrEntity, string>..ctor
+	|-DataMasterBase<EquipExpMaster, EquipExpEntity, string>..ctor
+	|-DataMasterBase<EquipSkillMaster, EquipSkillEntity, string>..ctor
+	|-DataMasterBase<EventAddMaster, EventAddEntity, string>..ctor
+	|-DataMasterBase<EventBoardGameCellMaster, EventBoardGameCellEntity, string>..ctor
+	|-DataMasterBase<EventBoardGameTokenMaster, EventBoardGameTokenEntity, string>..ctor
+	|-DataMasterBase<EventBoardGameTokenRewardMaster, EventBoardGameTokenRewardEntity, string>..ctor
+	|-DataMasterBase<EventBonusFilterGroupMemberMaster, EventBonusFilterGroupMemberEntity, string>..ctor
+	|-DataMasterBase<EventBonusFilterMaster, EventBonusFilterEntity, string>..ctor
+	|-DataMasterBase<EventBossStatusUiMaster, EventBossStatusUiEntity, string>..ctor
+	|-DataMasterBase<EventBulletinBoardReleaseMaster, EventBulletinBoardReleaseEntity, string>..ctor
+	|-DataMasterBase<EventCampaignMaster, EventCampaignEntity, string>..ctor
+	|-DataMasterBase<EventCampaignReleaseMaster, EventCampaignReleaseEntity, string>..ctor
+	|-DataMasterBase<EventCombineCostumeMaster, EventCombineCostumeEntity, string>..ctor
+	|-DataMasterBase<EventCombineMaster, EventCombineEntity, string>..ctor
+	|-DataMasterBase<EventConquestRewardMaster, EventConquestRewardEntity, string>..ctor
+	|-DataMasterBase<EventEquipSkillReleaseMaster, EventEquipSkillReleaseEntity, string>..ctor
+	|-DataMasterBase<EventFatigueRecoveryMaster, EventFatigueRecoveryEntity, string>..ctor
+	|-DataMasterBase<EventGroupMaster, EventGroupEntity, string>..ctor
+	|-DataMasterBase<EventItemDisplayGroupMaster, EventItemDisplayGroupEntity, string>..ctor
+	|-DataMasterBase<EventItemDisplayMaster, EventItemDisplayEntity, string>..ctor
+	|-DataMasterBase<EventMissionActionAddMaster, EventMissionActionAddEntity, string>..ctor
+	|-DataMasterBase<EventMissionActionMaster, EventMissionActionEntity, string>..ctor
+	|-DataMasterBase<EventMissionAddMaster, EventMissionAddEntity, string>..ctor
+	|-DataMasterBase<EventMissionConditionMaster, EventMissionConditionEntity, string>..ctor
+	|-DataMasterBase<EventPointActivityMaster, EventPointActivityEntity, string>..ctor
+	|-DataMasterBase<EventPointGroupAddMaster, EventPointGroupAddEntity, string>..ctor
+	|-DataMasterBase<EventPointGroupMaster, EventPointGroupEntity, string>..ctor
+	|-DataMasterBase<EventPointMaster, EventPointEntity, string>..ctor
+	|-DataMasterBase<EventPointUpperMaster, EventPointUpperEntity, string>..ctor
+	|-DataMasterBase<EventPointUpperReleaseMaster, EventPointUpperReleaseEntity, string>..ctor
+	|-DataMasterBase<EventProgressValueMaster, EventProgressValueEntity, string>..ctor
+	|-DataMasterBase<EventQuestCooltimeMaster, EventQuestCooltimeEntity, string>..ctor
+	|-DataMasterBase<EventQuestMaster, EventQuestEntity, string>..ctor
+	|-DataMasterBase<EventRaceMaster, EventRaceEntity, string>..ctor
+	|-DataMasterBase<EventRaceResultMaster, EventRaceResultEntity, string>..ctor
+	|-DataMasterBase<EventRaidMaster, EventRaidEntity, string>..ctor
+	|-DataMasterBase<EventRandomMissionMaster, EventRandomMissionEntity, string>..ctor
+	|-DataMasterBase<EventRewardBgMaster, EventRewardBgEntity, string>..ctor
+	|-DataMasterBase<EventRewardExtraMaster, EventRewardExtraEntity, string>..ctor
+	|-DataMasterBase<EventRewardGuideReleaseMaster, EventRewardGuideReleaseEntity, string>..ctor
+	|-DataMasterBase<EventRewardMaster, EventRewardEntity, string>..ctor
+	|-DataMasterBase<EventRewardSceneMaster, EventRewardSceneEntity, string>..ctor
+	|-DataMasterBase<EventRewardSceneReleaseMaster, EventRewardSceneReleaseEntity, string>..ctor
+	|-DataMasterBase<EventRewardSetMaster, EventRewardSetEntity, string>..ctor
+	|-DataMasterBase<EventScriptMaster, EventScriptEntity, string>..ctor
+	|-DataMasterBase<EventScriptReleaseMaster, EventScriptReleaseEntity, string>..ctor
+	|-DataMasterBase<EventServantFatigueMaster, EventServantFatigueEntity, string>..ctor
+	|-DataMasterBase<EventServantMaster, EventServantEntity, string>..ctor
+	|-DataMasterBase<EventStatusMaster, EventStatusEntity, string>..ctor
+	|-DataMasterBase<EventStatusQuestMaster, EventStatusQuestEntity, string>..ctor
+	|-DataMasterBase<EventSuperBossMaster, EventSuperBossEntity, string>..ctor
+	|-DataMasterBase<EventTowerMaster, EventTowerEntity, string>..ctor
+	|-DataMasterBase<EventTowerRewardMaster, EventTowerRewardEntity, string>..ctor
+	|-DataMasterBase<EventTutorialCondMaster, EventTutorialCondEntity, string>..ctor
+	|-DataMasterBase<EventTutorialMaster, EventTutorialEntity, string>..ctor
+	|-DataMasterBase<EventUiMaster, EventUiEntity, string>..ctor
+	|-DataMasterBase<EventUiReleaseMaster, EventUiReleaseEntity, string>..ctor
+	|-DataMasterBase<EventUiValueMaster, EventUiValueEntity, string>..ctor
+	|-DataMasterBase<EventVoicePlayMaster, EventVoicePlayEntity, string>..ctor
+	|-DataMasterBase<FriendshipMaster, FriendshipEntity, string>..ctor
+	|-DataMasterBase<FriendshipQuestDialogInfoMaster, FriendshipQuestDialogInfoEntity, string>..ctor
+	|-DataMasterBase<FunctionGroupMaster, FunctionGroupEntity, string>..ctor
+	|-DataMasterBase<GachaAppendMaster, GachaAppendEntity, string>..ctor
+	|-DataMasterBase<GachaBehaviorMaster, GachaBehaviorEntity, string>..ctor
+	|-DataMasterBase<GachaImageMaster, GachaImageEntity, string>..ctor
+	|-DataMasterBase<GachaReleaseMaster, GachaReleaseEntity, string>..ctor
+	|-DataMasterBase<GachaStoryAdjustMaster, GachaStoryAdjustEntity, string>..ctor
+	|-DataMasterBase<GachaSubMaster, GachaSubEntity, string>..ctor
+	|-DataMasterBase<GachaTicketMaster, GachaTicketEntity, string>..ctor
+	|-DataMasterBase<GiftAddMaster, GiftAddEntity, string>..ctor
+	|-DataMasterBase<GiftMaster, GiftEntity, string>..ctor
+	|-DataMasterBase<GuideMaster, GuideEntity, string>..ctor
+	|-DataMasterBase<ItemSelectMaster, ItemSelectEntity, string>..ctor
+	|-DataMasterBase<MapButtonMaster, MapButtonEntity, string>..ctor
+	|-DataMasterBase<MapCondMaster, MapCondEntity, string>..ctor
+	|-DataMasterBase<MapGimmickReleaseMaster, MapGimmickReleaseEntity, string>..ctor
+	|-DataMasterBase<MapMaster, MapEntity, string>..ctor
+	|-DataMasterBase<MyRoomAddMaster, MyRoomAddEntity, string>..ctor
+	|-DataMasterBase<NotEndEventMissionFixMaster, NotEndEventMissionFixEntity, string>..ctor
+	|-DataMasterBase<NpcFollowerMaster, NpcFollowerEntity, string>..ctor
+	|-DataMasterBase<NpcFollowerReleaseMaster, NpcFollowerReleaseEntity, string>..ctor
+	|-DataMasterBase<QuestAddMaster, QuestAddEntity, string>..ctor
+	|-DataMasterBase<QuestBehaviorMaster, QuestBehaviorEntity, string>..ctor
+	|-DataMasterBase<QuestDateRangeMaster, QuestDateRangeEntity, string>..ctor
+	|-DataMasterBase<QuestGroupMaster, QuestGroupEntity, string>..ctor
+	|-DataMasterBase<QuestMessageMaster, QuestMessageEntity, string>..ctor
+	|-DataMasterBase<QuestPhaseDetailAddMaster, QuestPhaseDetailAddEntity, string>..ctor
+	|-DataMasterBase<QuestPhaseDetailMaster, QuestPhaseDetailEntity, string>..ctor
+	|-DataMasterBase<QuestPhaseMaster, QuestPhaseEntity, string>..ctor
+	|-DataMasterBase<QuestRacePointMaster, QuestRacePointEntity, string>..ctor
+	|-DataMasterBase<QuestRandomGroupMaster, QuestRandomGroupEntity, string>..ctor
+	|-DataMasterBase<QuestReleaseMaster, QuestReleaseEntity, string>..ctor
+	|-DataMasterBase<QuestRestrictionInfoMaster, QuestRestrictionInfoEntity, string>..ctor
+	|-DataMasterBase<QuestRestrictionMaster, QuestRestrictionEntity, string>..ctor
+	|-DataMasterBase<QuestScriptMaster, QuestScriptEntity, string>..ctor
+	|-DataMasterBase<QuestScriptReleaseMaster, QuestScriptReleaseEntity, string>..ctor
+	|-DataMasterBase<QuestSpotReleaseMaster, QuestSpotReleaseEntity, string>..ctor
+	|-DataMasterBase<ReprintStageMaster, ReprintStageEntity, string>..ctor
+	|-DataMasterBase<ServantAnimationOverwriteMaster, ServantAnimationOverwriteEntity, string>..ctor
+	|-DataMasterBase<ServantAppendPassiveSkillMaster, ServantAppendPassiveSkillEntity, string>..ctor
+	|-DataMasterBase<ServantCardMaster, ServantCardEntity, string>..ctor
+	|-DataMasterBase<ServantChangeMaster, ServantChangeEntity, string>..ctor
+	|-DataMasterBase<ServantCollectionMaster, ServantCollectionEntity, string>..ctor
+	|-DataMasterBase<ServantCommandCodeUnlockMaster, ServantCommandCodeUnlockEntity, string>..ctor
+	|-DataMasterBase<ServantCommentAddMaster, ServantCommentAddEntity, string>..ctor
+	|-DataMasterBase<ServantCommentMaster, ServantCommentEntity, string>..ctor
+	|-DataMasterBase<ServantCostumeMaster, ServantCostumeEntity, string>..ctor
+	|-DataMasterBase<ServantCostumeReleaseMaster, ServantCostumeReleaseEntity, string>..ctor
+	|-DataMasterBase<ServantExceedMaster, ServantExceedEntity, string>..ctor
+	|-DataMasterBase<ServantExpMaster, ServantExpEntity, string>..ctor
+	|-DataMasterBase<ServantFlagMaster, ServantFlagEntity, string>..ctor
+	|-DataMasterBase<ServantFlagReleaseMaster, ServantFlagReleaseEntity, string>..ctor
+	|-DataMasterBase<ServantGroupMaster, ServantGroupEntity, string>..ctor
+	|-DataMasterBase<ServantIndividualityMaster, ServantIndividualityEntity, string>..ctor
+	|-DataMasterBase<ServantLimitAddMaster, ServantLimitAddEntity, string>..ctor
+	|-DataMasterBase<ServantLimitImageMaster, ServantLimitImageEntity, string>..ctor
+	|-DataMasterBase<ServantLimitMaster, ServantLimitEntity, string>..ctor
+	|-DataMasterBase<ServantLimitSpoilerProtectionMaster, ServantLimitSpoilerProtectionEntity, string>..ctor
+	|-DataMasterBase<ServantLvDetailMaster, ServantLvDetailEntity, string>..ctor
+	|-DataMasterBase<ServantPassiveSkillMaster, ServantPassiveSkillEntity, string>..ctor
+	|-DataMasterBase<ServantPassiveSkillReleaseMaster, ServantPassiveSkillReleaseEntity, string>..ctor
+	|-DataMasterBase<ServantProfileMaster, ServantProfileEntity, string>..ctor
+	|-DataMasterBase<ServantScriptMaster, ServantScriptEntity, string>..ctor
+	|-DataMasterBase<ServantSkillMaster, ServantSkillEntity, string>..ctor
+	|-DataMasterBase<ServantSkillReleaseMaster, ServantSkillReleaseEntity, string>..ctor
+	|-DataMasterBase<ServantTreasureDeviceAddMaster, ServantTreasureDeviceAddEntity, string>..ctor
+	|-DataMasterBase<ServantTreasureDeviceDamageMaster, ServantTreasureDeviceDamageEntity, string>..ctor
+	|-DataMasterBase<ServantTreasureDeviceReleaseMaster, ServantTreasureDeviceReleaseEntity, string>..ctor
+	|-DataMasterBase<ServantTreasureDvcMaster, ServantTreasureDvcEntity, string>..ctor
+	|-DataMasterBase<ServantVoiceMaster, ServantVoiceEntity, string>..ctor
+	|-DataMasterBase<ServantVoiceRelationMaster, ServantVoiceRelationEntity, string>..ctor
+	|-DataMasterBase<SetItemMaster, SetItemEntity, string>..ctor
+	|-DataMasterBase<ShopActionMaster, ShopActionEntity, string>..ctor
+	|-DataMasterBase<ShopGroupMaster, ShopGroupEntity, string>..ctor
+	|-DataMasterBase<ShopReleaseMaster, ShopReleaseEntity, string>..ctor
+	|-DataMasterBase<SkillAddMaster, SkillAddEntity, string>..ctor
+	|-DataMasterBase<SkillLvMaster, SkillLvEntity, string>..ctor
+	|-DataMasterBase<SpotAddMaster, SpotAddEntity, string>..ctor
+	|-DataMasterBase<SpotImageMaster, SpotImageEntity, string>..ctor
+	|-DataMasterBase<StageMaster, StageEntity, string>..ctor
+	|-DataMasterBase<StatusEffectPosOverwriteMaster, StatusEffectPosOverwriteEntity, string>..ctor
+	|-DataMasterBase<SvtAppendPassiveSkillUnlockMaster, SvtAppendPassiveSkillUnlockEntity, string>..ctor
+	|-DataMasterBase<SvtMaterialTdMaster, SvtMaterialTdEntity, string>..ctor
+	|-DataMasterBase<SvtMultiPortraitMaster, SvtMultiPortraitEntity, string>..ctor
+	|-DataMasterBase<object, object, object>..ctor
+	|-DataMasterBase<TblFriendMaster, TblFriendEntity, string>..ctor
+	|-DataMasterBase<TotalEventPointMaster, TotalEventPointEntity, string>..ctor
+	|-DataMasterBase<TotalEventRaceMaster, TotalEventRaceEntity, string>..ctor
+	|-DataMasterBase<TotalEventRaidMaster, TotalEventRaidEntity, string>..ctor
+	|-DataMasterBase<TotalLoginMaster, TotalLoginEntity, string>..ctor
+	|-DataMasterBase<TreasureBoxGiftMaster, TreasureBoxGiftEntity, string>..ctor
+	|-DataMasterBase<TreasureBoxTalkMaster, TreasureBoxTalkEntity, string>..ctor
+	|-DataMasterBase<TreasureDvcLvMaster, TreasureDvcLvEntity, string>..ctor
+	|-DataMasterBase<UpdateProfileDialogInfoMaster, UpdateProfileDialogInfoEntity, string>..ctor
+	|-DataMasterBase<UserAccessaryMaster, UserAccessaryEntity, string>..ctor
+	|-DataMasterBase<UserBlacklistMaster, UserBlacklistEntity, string>..ctor
+	|-DataMasterBase<UserBoxGachaMaster, UserBoxGachaEntity, string>..ctor
+	|-DataMasterBase<UserCombineExpMaster, UserCombineExpEntity, string>..ctor
+	|-DataMasterBase<UserCommandCodeCollectionMaster, UserCommandCodeCollectionEntity, string>..ctor
+	|-DataMasterBase<UserEventBoardGameTokenMaster, UserEventBoardGameTokenEntity, string>..ctor
+	|-DataMasterBase<UserEventDeckMaster, UserEventDeckEntity, string>..ctor
+	|-DataMasterBase<UserEventMapMaster, UserEventMapEntity, string>..ctor
+	|-DataMasterBase<UserEventMaster, UserEventEntity, string>..ctor
+	|-DataMasterBase<UserEventMissionCondDetailMaster, UserEventMissionCondDetailEntity, string>..ctor
+	|-DataMasterBase<UserEventMissionFixMaster, UserEventMissionFixEntity, string>..ctor
+	|-DataMasterBase<UserEventMissionMaster, UserEventMissionEntity, string>..ctor
+	|-DataMasterBase<UserEventPointMaster, UserEventPointEntity, string>..ctor
+	|-DataMasterBase<UserEventQuestCooltimeMaster, UserEventQuestCooltimeEntity, string>..ctor
+	|-DataMasterBase<UserEventRaceMaster, UserEventRaceEntity, string>..ctor
+	|-DataMasterBase<UserEventRaidMaster, UserEventRaidEntity, string>..ctor
+	|-DataMasterBase<UserEventRandomMissionMaster, UserEventRandomMissionEntity, string>..ctor
+	|-DataMasterBase<UserEventSpotMaster, UserEventSpotEntity, string>..ctor
+	|-DataMasterBase<UserFollowMaster, UserFollowEntity, string>..ctor
+	|-DataMasterBase<UserFriendPointGachaFreeDrawCampaignLogMaster, UserFriendPointGachaFreeDrawCampaignLogEntity, string>..ctor
+	|-DataMasterBase<UserGachaDrawLogMaster, UserGachaDrawLogEntity, string>..ctor
+	|-DataMasterBase<UserGachaExtraCountMaster, UserGachaExtraCountEntity, string>..ctor
+	|-DataMasterBase<UserGachaHistoryMaster, UserGachaHistoryEntity, string>..ctor
+	|-DataMasterBase<UserGachaMaster, UserGachaEntity, string>..ctor
+	|-DataMasterBase<UserItemMaster, UserItemEntity, string>..ctor
+	|-DataMasterBase<UserPresentBoxMaster, UserPresentBoxEntity, string>..ctor
+	|-DataMasterBase<UserPrivilegeMaster, UserPrivilegeEntity, string>..ctor
+	|-DataMasterBase<UserQuestInfoMaster, UserQuestInfoEntity, string>..ctor
+	|-DataMasterBase<UserQuestMaster, UserQuestEntity, string>..ctor
+	|-DataMasterBase<UserQuestRecordMaster, UserQuestRecordEntity, string>..ctor
+	|-DataMasterBase<UserQuestRouteMaster, UserQuestRouteEntity, string>..ctor
+	|-DataMasterBase<UserServantAppendPassiveSkillMaster, UserServantAppendPassiveSkillEntity, string>..ctor
+	|-DataMasterBase<UserServantCollectionMaster, UserServantCollectionEntity, string>..ctor
+	|-DataMasterBase<UserServantCommandCardMaster, UserServantCommandCardEntity, string>..ctor
+	|-DataMasterBase<UserServantCommandCodeMaster, UserServantCommandCodeEntity, string>..ctor
+	|-DataMasterBase<UserServantLeaderMaster, UserServantLeaderEntity, string>..ctor
+	|-DataMasterBase<UserServantVoicePlayedMaster, UserServantVoicePlayedEntity, string>..ctor
+	|-DataMasterBase<UserShopMaster, UserShopEntity, string>..ctor
+	|-DataMasterBase<UserSuperBossMaster, UserSuperBossEntity, string>..ctor
+	|-DataMasterBase<UserSupportDeckMaster, UserSupportDeckEntity, string>..ctor
+	|-DataMasterBase<UserSvtCoinMaster, UserSvtCoinEntity, string>..ctor
+	|-DataMasterBase<ViewEnemyMaster, ViewEnemyEntity, string>..ctor
+	|-DataMasterBase<VoiceCondMaster, VoiceCondEntity, string>..ctor
+	|-DataMasterBase<VoiceMaster, VoiceEntity, string>..ctor
+	|-DataMasterBase<VoiceMaterialCondMaster, VoiceMaterialCondEntity, string>..ctor
+	|-DataMasterBase<VoicePlayCondMaster, VoicePlayCondEntity, string>..ctor
+	|-DataMasterBase<VoicePlayGroupMaster, VoicePlayGroupEntity, string>..ctor
+	|-DataMasterBase<VoiceReleaseMaster, VoiceReleaseEntity, string>..ctor
+	|-DataMasterBase<WarAddMaster, WarAddEntity, string>..ctor
+	|-DataMasterBase<WarBoardActionPointMaster, WarBoardActionPointEntity, string>..ctor
+	|-DataMasterBase<WarBoardDataMaster, WarBoardDataEntity, string>..ctor
+	|-DataMasterBase<WarBoardOnboardSkillMaster, WarBoardOnboardSkillEntity, string>..ctor
+	|-DataMasterBase<WarBoardQuestMaster, WarBoardQuestEntity, string>..ctor
+	|-DataMasterBase<WarBoardRoadMaster, WarBoardRoadEntity, string>..ctor
+	|-DataMasterBase<WarBoardSquareMaster, WarBoardSquareEntity, string>..ctor

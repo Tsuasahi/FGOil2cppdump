@@ -1,0 +1,1000 @@
+
+	// Methods
+
+	// RVA: 0xBBAA5C Offset: 0xBBAA5C VA: 0xBBAA5C
+	public SocketInformationOptions get_Options() { }
+
+	// RVA: 0xBBAA64 Offset: 0xBBAA64 VA: 0xBBAA64
+	public void set_Options(SocketInformationOptions value) { }
+
+	// RVA: 0xBBAA6C Offset: 0xBBAA6C VA: 0xBBAA6C
+	public byte[] get_ProtocolInformation() { }
+
+	// RVA: 0xBBAA74 Offset: 0xBBAA74 VA: 0xBBAA74
+	public void set_ProtocolInformation(byte[] value) { }
+}
+
+// Namespace: System.Net.Sockets
+[FlagsAttribute] // RVA: 0xC3C8E4 Offset: 0xC3C8E4 VA: 0xC3C8E4
+public enum SocketInformationOptions // TypeDefIndex: 1495
+{
+	// Fields
+	public int value__; // 0x0
+	public const SocketInformationOptions NonBlocking = 1;
+	public const SocketInformationOptions Connected = 2;
+	public const SocketInformationOptions Listening = 4;
+	public const SocketInformationOptions UseOnlyOverlappedIO = 8;
+}
+
+// Namespace: System.Net.Sockets
+public enum SocketOptionLevel // TypeDefIndex: 1496
+{
+	// Fields
+	public int value__; // 0x0
+	public const SocketOptionLevel Socket = 65535;
+	public const SocketOptionLevel IP = 0;
+	public const SocketOptionLevel IPv6 = 41;
+	public const SocketOptionLevel Tcp = 6;
+	public const SocketOptionLevel Udp = 17;
+}
+
+// Namespace: System.Net.Sockets
+public enum SocketOptionName // TypeDefIndex: 1497
+{
+	// Fields
+	public int value__; // 0x0
+	public const SocketOptionName Debug = 1;
+	public const SocketOptionName AcceptConnection = 2;
+	public const SocketOptionName ReuseAddress = 4;
+	public const SocketOptionName KeepAlive = 8;
+	public const SocketOptionName DontRoute = 16;
+	public const SocketOptionName Broadcast = 32;
+	public const SocketOptionName UseLoopback = 64;
+	public const SocketOptionName Linger = 128;
+	public const SocketOptionName OutOfBandInline = 256;
+	public const SocketOptionName DontLinger = -129;
+	public const SocketOptionName ExclusiveAddressUse = -5;
+	public const SocketOptionName SendBuffer = 4097;
+	public const SocketOptionName ReceiveBuffer = 4098;
+	public const SocketOptionName SendLowWater = 4099;
+	public const SocketOptionName ReceiveLowWater = 4100;
+	public const SocketOptionName SendTimeout = 4101;
+	public const SocketOptionName ReceiveTimeout = 4102;
+	public const SocketOptionName Error = 4103;
+	public const SocketOptionName Type = 4104;
+	public const SocketOptionName MaxConnections = 2147483647;
+	public const SocketOptionName IPOptions = 1;
+	public const SocketOptionName HeaderIncluded = 2;
+	public const SocketOptionName TypeOfService = 3;
+	public const SocketOptionName IpTimeToLive = 4;
+	public const SocketOptionName MulticastInterface = 9;
+	public const SocketOptionName MulticastTimeToLive = 10;
+	public const SocketOptionName MulticastLoopback = 11;
+	public const SocketOptionName AddMembership = 12;
+	public const SocketOptionName DropMembership = 13;
+	public const SocketOptionName DontFragment = 14;
+	public const SocketOptionName AddSourceMembership = 15;
+	public const SocketOptionName DropSourceMembership = 16;
+	public const SocketOptionName BlockSource = 17;
+	public const SocketOptionName UnblockSource = 18;
+	public const SocketOptionName PacketInformation = 19;
+	public const SocketOptionName NoDelay = 1;
+	public const SocketOptionName BsdUrgent = 2;
+	public const SocketOptionName Expedited = 2;
+	public const SocketOptionName NoChecksum = 1;
+	public const SocketOptionName ChecksumCoverage = 20;
+	public const SocketOptionName HopLimit = 21;
+	public const SocketOptionName UpdateAcceptContext = 28683;
+	public const SocketOptionName UpdateConnectContext = 28688;
+}
+
+// Namespace: System.Net.Sockets
+internal static class SocketPolicyClient // TypeDefIndex: 1498
+{
+	// Fields
+	private const string policy_request = "<policy-file-request/>\0";
+	private static int session; // 0x0
+
+	// Methods
+
+	// RVA: 0x10885CC Offset: 0x10885CC VA: 0x10885CC
+	private static void .cctor() { }
+
+	// RVA: 0x10885D0 Offset: 0x10885D0 VA: 0x10885D0
+	private static void Log(string msg) { }
+
+	// RVA: 0x1088814 Offset: 0x1088814 VA: 0x1088814
+	private static Stream GetPolicyStreamForIP(string ip, int policyport, int timeout) { }
+}
+
+// Namespace: System.Net.Sockets
+public enum SocketShutdown // TypeDefIndex: 1499
+{
+	// Fields
+	public int value__; // 0x0
+	public const SocketShutdown Receive = 0;
+	public const SocketShutdown Send = 1;
+	public const SocketShutdown Both = 2;
+}
+
+// Namespace: System.Net.Sockets
+public enum SocketType // TypeDefIndex: 1500
+{
+	// Fields
+	public int value__; // 0x0
+	public const SocketType Stream = 1;
+	public const SocketType Dgram = 2;
+	public const SocketType Raw = 3;
+	public const SocketType Rdm = 4;
+	public const SocketType Seqpacket = 5;
+	public const SocketType Unknown = -1;
+}
+
+// Namespace: System.Net.Sockets
+public class TcpClient : IDisposable // TypeDefIndex: 1501
+{
+	// Fields
+	private NetworkStream stream; // 0x10
+	private bool active; // 0x18
+	private Socket client; // 0x20
+	private bool disposed; // 0x28
+	private TcpClient.Properties values; // 0x2C
+	private int recv_timeout; // 0x30
+	private int send_timeout; // 0x34
+	private int recv_buffer_size; // 0x38
+	private int send_buffer_size; // 0x3C
+	private LingerOption linger_state; // 0x40
+	private bool no_delay; // 0x48
+
+	// Properties
+	protected bool Active { get; set; }
+	public Socket Client { get; set; }
+	public int Available { get; }
+	public bool Connected { get; }
+	public bool ExclusiveAddressUse { get; set; }
+	public LingerOption LingerState { get; set; }
+	public bool NoDelay { get; set; }
+	public int ReceiveBufferSize { get; set; }
+	public int ReceiveTimeout { get; set; }
+	public int SendBufferSize { get; set; }
+	public int SendTimeout { get; set; }
+
+	// Methods
+
+	// RVA: 0x1089094 Offset: 0x1089094 VA: 0x1089094
+	public void .ctor() { }
+
+	// RVA: 0x10891F0 Offset: 0x10891F0 VA: 0x10891F0
+	public void .ctor(AddressFamily family) { }
+
+	// RVA: 0x1089348 Offset: 0x1089348 VA: 0x1089348
+	public void .ctor(IPEndPoint local_end_point) { }
+
+	// RVA: 0x10893B4 Offset: 0x10893B4 VA: 0x10893B4
+	public void .ctor(string hostname, int port) { }
+
+	// RVA: 0x108947C Offset: 0x108947C VA: 0x108947C Slot: 4
+	private void System.IDisposable.Dispose() { }
+
+	// RVA: 0x1089160 Offset: 0x1089160 VA: 0x1089160
+	private void Init(AddressFamily family) { }
+
+	// RVA: 0x10894B0 Offset: 0x10894B0 VA: 0x10894B0
+	protected bool get_Active() { }
+
+	// RVA: 0x10894B8 Offset: 0x10894B8 VA: 0x10894B8
+	protected void set_Active(bool value) { }
+
+	// RVA: 0x10894C4 Offset: 0x10894C4 VA: 0x10894C4
+	public Socket get_Client() { }
+
+	// RVA: 0x10894CC Offset: 0x10894CC VA: 0x10894CC
+	public void set_Client(Socket value) { }
+
+	// RVA: 0x10894D8 Offset: 0x10894D8 VA: 0x10894D8
+	public int get_Available() { }
+
+	// RVA: 0x1089508 Offset: 0x1089508 VA: 0x1089508
+	public bool get_Connected() { }
+
+	// RVA: 0x1089538 Offset: 0x1089538 VA: 0x1089538
+	public bool get_ExclusiveAddressUse() { }
+
+	// RVA: 0x1089568 Offset: 0x1089568 VA: 0x1089568
+	public void set_ExclusiveAddressUse(bool value) { }
+
+	// RVA: 0x10895A0 Offset: 0x10895A0 VA: 0x10895A0
+	internal void SetTcpClient(Socket s) { }
+
+	// RVA: 0x10895AC Offset: 0x10895AC VA: 0x10895AC
+	public LingerOption get_LingerState() { }
+
+	// RVA: 0x10896A8 Offset: 0x10896A8 VA: 0x10896A8
+	public void set_LingerState(LingerOption value) { }
+
+	// RVA: 0x1089734 Offset: 0x1089734 VA: 0x1089734
+	public bool get_NoDelay() { }
+
+	// RVA: 0x10897BC Offset: 0x10897BC VA: 0x10897BC
+	public void set_NoDelay(bool value) { }
+
+	// RVA: 0x1089850 Offset: 0x1089850 VA: 0x1089850
+	public int get_ReceiveBufferSize() { }
+
+	// RVA: 0x10898D8 Offset: 0x10898D8 VA: 0x10898D8
+	public void set_ReceiveBufferSize(int value) { }
+
+	// RVA: 0x1089964 Offset: 0x1089964 VA: 0x1089964
+	public int get_ReceiveTimeout() { }
+
+	// RVA: 0x10899EC Offset: 0x10899EC VA: 0x10899EC
+	public void set_ReceiveTimeout(int value) { }
+
+	// RVA: 0x1089A74 Offset: 0x1089A74 VA: 0x1089A74
+	public int get_SendBufferSize() { }
+
+	// RVA: 0x1089AFC Offset: 0x1089AFC VA: 0x1089AFC
+	public void set_SendBufferSize(int value) { }
+
+	// RVA: 0x1089B88 Offset: 0x1089B88 VA: 0x1089B88
+	public int get_SendTimeout() { }
+
+	// RVA: 0x1089C10 Offset: 0x1089C10 VA: 0x1089C10
+	public void set_SendTimeout(int value) { }
+
+	// RVA: 0x1089C9C Offset: 0x1089C9C VA: 0x1089C9C
+	public void Close() { }
+
+	// RVA: 0x1089D40 Offset: 0x1089D40 VA: 0x1089D40
+	public void Connect(IPEndPoint remote_end_point) { }
+
+	// RVA: 0x1089E9C Offset: 0x1089E9C VA: 0x1089E9C
+	public void Connect(IPAddress address, int port) { }
+
+	// RVA: 0x1089F18 Offset: 0x1089F18 VA: 0x1089F18
+	private void SetOptions() { }
+
+	// RVA: 0x10893F4 Offset: 0x10893F4 VA: 0x10893F4
+	public void Connect(string hostname, int port) { }
+
+	// RVA: 0x1089FC4 Offset: 0x1089FC4 VA: 0x1089FC4
+	public void Connect(IPAddress[] ipAddresses, int port) { }
+
+	// RVA: 0x108A410 Offset: 0x108A410 VA: 0x108A410
+	public void EndConnect(IAsyncResult asyncResult) { }
+
+	// RVA: 0x108A448 Offset: 0x108A448 VA: 0x108A448
+	public IAsyncResult BeginConnect(IPAddress address, int port, AsyncCallback callback, object state) { }
+
+	// RVA: 0x108A4A8 Offset: 0x108A4A8 VA: 0x108A4A8
+	public IAsyncResult BeginConnect(IPAddress[] addresses, int port, AsyncCallback callback, object state) { }
+
+	// RVA: 0x108A508 Offset: 0x108A508 VA: 0x108A508
+	public IAsyncResult BeginConnect(string host, int port, AsyncCallback callback, object state) { }
+
+	// RVA: 0x108A568 Offset: 0x108A568 VA: 0x108A568 Slot: 5
+	protected virtual void Dispose(bool disposing) { }
+
+	// RVA: 0x108A5CC Offset: 0x108A5CC VA: 0x108A5CC Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x108A64C Offset: 0x108A64C VA: 0x108A64C
+	public NetworkStream GetStream() { }
+
+	// RVA: 0x1089DE4 Offset: 0x1089DE4 VA: 0x1089DE4
+	private void CheckDisposed() { }
+}
+
+// Namespace: 
+private enum TcpClient.Properties // TypeDefIndex: 1502
+{
+	// Fields
+	public uint value__; // 0x0
+	public const TcpClient.Properties LingerState = 1;
+	public const TcpClient.Properties NoDelay = 2;
+	public const TcpClient.Properties ReceiveBufferSize = 4;
+	public const TcpClient.Properties ReceiveTimeout = 8;
+	public const TcpClient.Properties SendBufferSize = 16;
+	public const TcpClient.Properties SendTimeout = 32;
+}
+
+// Namespace: System.Net.Sockets
+public class TcpListener // TypeDefIndex: 1503
+{
+	// Fields
+	private bool active; // 0x10
+	private Socket server; // 0x18
+	private EndPoint savedEP; // 0x20
+
+	// Properties
+	protected bool Active { get; }
+	public EndPoint LocalEndpoint { get; }
+	public Socket Server { get; }
+	public bool ExclusiveAddressUse { get; set; }
+
+	// Methods
+
+	[ObsoleteAttribute] // RVA: 0xC3DDF8 Offset: 0xC3DDF8 VA: 0xC3DDF8
+	// RVA: 0x108A718 Offset: 0x108A718 VA: 0x108A718
+	public void .ctor(int port) { }
+
+	// RVA: 0x108A898 Offset: 0x108A898 VA: 0x108A898
+	public void .ctor(IPEndPoint local_end_point) { }
+
+	// RVA: 0x108A954 Offset: 0x108A954 VA: 0x108A954
+	public void .ctor(IPAddress listen_ip, int port) { }
+
+	// RVA: 0x108A818 Offset: 0x108A818 VA: 0x108A818
+	private void Init(AddressFamily family, EndPoint ep) { }
+
+	// RVA: 0x108AA78 Offset: 0x108AA78 VA: 0x108AA78
+	protected bool get_Active() { }
+
+	// RVA: 0x108AA80 Offset: 0x108AA80 VA: 0x108AA80
+	public EndPoint get_LocalEndpoint() { }
+
+	// RVA: 0x108AAC0 Offset: 0x108AAC0 VA: 0x108AAC0
+	public Socket get_Server() { }
+
+	// RVA: 0x108AAC8 Offset: 0x108AAC8 VA: 0x108AAC8
+	public bool get_ExclusiveAddressUse() { }
+
+	// RVA: 0x108ABC0 Offset: 0x108ABC0 VA: 0x108ABC0
+	public void set_ExclusiveAddressUse(bool value) { }
+
+	// RVA: 0x108ACC8 Offset: 0x108ACC8 VA: 0x108ACC8
+	public Socket AcceptSocket() { }
+
+	// RVA: 0x108AD6C Offset: 0x108AD6C VA: 0x108AD6C
+	public TcpClient AcceptTcpClient() { }
+
+	// RVA: 0x108AE4C Offset: 0x108AE4C VA: 0x108AE4C Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x108AF1C Offset: 0x108AF1C VA: 0x108AF1C
+	public bool Pending() { }
+
+	// RVA: 0x108AFC8 Offset: 0x108AFC8 VA: 0x108AFC8
+	public void Start() { }
+
+	// RVA: 0x108AFD0 Offset: 0x108AFD0 VA: 0x108AFD0
+	public void Start(int backlog) { }
+
+	// RVA: 0x108B0A4 Offset: 0x108B0A4 VA: 0x108B0A4
+	public IAsyncResult BeginAcceptSocket(AsyncCallback callback, object state) { }
+
+	// RVA: 0x108B174 Offset: 0x108B174 VA: 0x108B174
+	public IAsyncResult BeginAcceptTcpClient(AsyncCallback callback, object state) { }
+
+	// RVA: 0x108B244 Offset: 0x108B244 VA: 0x108B244
+	public Socket EndAcceptSocket(IAsyncResult asyncResult) { }
+
+	// RVA: 0x108B27C Offset: 0x108B27C VA: 0x108B27C
+	public TcpClient EndAcceptTcpClient(IAsyncResult asyncResult) { }
+
+	// RVA: 0x108AECC Offset: 0x108AECC VA: 0x108AECC
+	public void Stop() { }
+}
+
+// Namespace: System.Net.Sockets
+[FlagsAttribute] // RVA: 0xC3C8F4 Offset: 0xC3C8F4 VA: 0xC3C8F4
+public enum TransmitFileOptions // TypeDefIndex: 1504
+{
+	// Fields
+	public int value__; // 0x0
+	public const TransmitFileOptions UseDefaultWorkerThread = 0;
+	public const TransmitFileOptions Disconnect = 1;
+	public const TransmitFileOptions ReuseSocket = 2;
+	public const TransmitFileOptions WriteBehind = 4;
+	public const TransmitFileOptions UseSystemThread = 16;
+	public const TransmitFileOptions UseKernelApc = 32;
+}
+
+// Namespace: System.Net.Sockets
+public class UdpClient : IDisposable // TypeDefIndex: 1505
+{
+	// Fields
+	private bool disposed; // 0x10
+	private bool active; // 0x11
+	private Socket socket; // 0x18
+	private AddressFamily family; // 0x20
+	private byte[] recvbuffer; // 0x28
+
+	// Properties
+	protected bool Active { get; set; }
+	public Socket Client { get; set; }
+	public int Available { get; }
+	public bool DontFragment { get; set; }
+	public bool EnableBroadcast { get; set; }
+	public bool ExclusiveAddressUse { get; set; }
+	public bool MulticastLoopback { get; set; }
+	public short Ttl { get; set; }
+
+	// Methods
+
+	// RVA: 0x108B320 Offset: 0x108B320 VA: 0x108B320
+	public void .ctor() { }
+
+	// RVA: 0x108B328 Offset: 0x108B328 VA: 0x108B328
+	public void .ctor(AddressFamily family) { }
+
+	// RVA: 0x108B4B0 Offset: 0x108B4B0 VA: 0x108B4B0
+	public void .ctor(int port) { }
+
+	// RVA: 0x108B5B8 Offset: 0x108B5B8 VA: 0x108B5B8
+	public void .ctor(IPEndPoint localEP) { }
+
+	// RVA: 0x108B67C Offset: 0x108B67C VA: 0x108B67C
+	public void .ctor(int port, AddressFamily family) { }
+
+	// RVA: 0x108B800 Offset: 0x108B800 VA: 0x108B800
+	public void .ctor(string hostname, int port) { }
+
+	// RVA: 0x108BB3C Offset: 0x108BB3C VA: 0x108BB3C Slot: 4
+	private void System.IDisposable.Dispose() { }
+
+	// RVA: 0x108B3F4 Offset: 0x108B3F4 VA: 0x108B3F4
+	private void InitSocket(EndPoint localEP) { }
+
+	// RVA: 0x108BB70 Offset: 0x108BB70 VA: 0x108BB70
+	public void Close() { }
+
+	// RVA: 0x108BC14 Offset: 0x108BC14 VA: 0x108BC14
+	private void DoConnect(IPEndPoint endPoint) { }
+
+	// RVA: 0x108BD84 Offset: 0x108BD84 VA: 0x108BD84
+	public void Connect(IPEndPoint endPoint) { }
+
+	// RVA: 0x108BEEC Offset: 0x108BEEC VA: 0x108BEEC
+	public void Connect(IPAddress addr, int port) { }
+
+	// RVA: 0x108B8F8 Offset: 0x108B8F8 VA: 0x108B8F8
+	public void Connect(string hostname, int port) { }
+
+	// RVA: 0x108BFE4 Offset: 0x108BFE4 VA: 0x108BFE4
+	public void DropMulticastGroup(IPAddress multicastAddr) { }
+
+	// RVA: 0x108C10C Offset: 0x108C10C VA: 0x108C10C
+	public void DropMulticastGroup(IPAddress multicastAddr, int ifindex) { }
+
+	// RVA: 0x108C210 Offset: 0x108C210 VA: 0x108C210
+	public void JoinMulticastGroup(IPAddress multicastAddr) { }
+
+	// RVA: 0x108C338 Offset: 0x108C338 VA: 0x108C338
+	public void JoinMulticastGroup(int ifindex, IPAddress multicastAddr) { }
+
+	// RVA: 0x108C450 Offset: 0x108C450 VA: 0x108C450
+	public void JoinMulticastGroup(IPAddress multicastAddr, int timeToLive) { }
+
+	// RVA: 0x108C570 Offset: 0x108C570 VA: 0x108C570
+	public void JoinMulticastGroup(IPAddress multicastAddr, IPAddress localAddress) { }
+
+	// RVA: 0x108C658 Offset: 0x108C658 VA: 0x108C658
+	public byte[] Receive(ref IPEndPoint remoteEP) { }
+
+	// RVA: 0x108C940 Offset: 0x108C940 VA: 0x108C940
+	private int DoSend(byte[] dgram, int bytes, IPEndPoint endPoint) { }
+
+	// RVA: 0x108CB48 Offset: 0x108CB48 VA: 0x108CB48
+	public int Send(byte[] dgram, int bytes) { }
+
+	// RVA: 0x108CC2C Offset: 0x108CC2C VA: 0x108CC2C
+	public int Send(byte[] dgram, int bytes, IPEndPoint endPoint) { }
+
+	// RVA: 0x108CD20 Offset: 0x108CD20 VA: 0x108CD20
+	public int Send(byte[] dgram, int bytes, string hostname, int port) { }
+
+	// RVA: 0x108C8BC Offset: 0x108C8BC VA: 0x108C8BC
+	private byte[] CutArray(byte[] orig, int length) { }
+
+	// RVA: 0x108CE08 Offset: 0x108CE08 VA: 0x108CE08
+	private IAsyncResult DoBeginSend(byte[] datagram, int bytes, IPEndPoint endPoint, AsyncCallback requestCallback, object state) { }
+
+	// RVA: 0x108D044 Offset: 0x108D044 VA: 0x108D044
+	public IAsyncResult BeginSend(byte[] datagram, int bytes, AsyncCallback requestCallback, object state) { }
+
+	// RVA: 0x108D05C Offset: 0x108D05C VA: 0x108D05C
+	public IAsyncResult BeginSend(byte[] datagram, int bytes, IPEndPoint endPoint, AsyncCallback requestCallback, object state) { }
+
+	// RVA: 0x108D130 Offset: 0x108D130 VA: 0x108D130
+	public IAsyncResult BeginSend(byte[] datagram, int bytes, string hostname, int port, AsyncCallback requestCallback, object state) { }
+
+	// RVA: 0x108D230 Offset: 0x108D230 VA: 0x108D230
+	public int EndSend(IAsyncResult asyncResult) { }
+
+	// RVA: 0x108D2E8 Offset: 0x108D2E8 VA: 0x108D2E8
+	public IAsyncResult BeginReceive(AsyncCallback callback, object state) { }
+
+	// RVA: 0x108D430 Offset: 0x108D430 VA: 0x108D430
+	public byte[] EndReceive(IAsyncResult asyncResult, ref IPEndPoint remoteEP) { }
+
+	// RVA: 0x108D6C8 Offset: 0x108D6C8 VA: 0x108D6C8
+	protected bool get_Active() { }
+
+	// RVA: 0x108D6D0 Offset: 0x108D6D0 VA: 0x108D6D0
+	protected void set_Active(bool value) { }
+
+	// RVA: 0x108D6DC Offset: 0x108D6DC VA: 0x108D6DC
+	public Socket get_Client() { }
+
+	// RVA: 0x108D6E4 Offset: 0x108D6E4 VA: 0x108D6E4
+	public void set_Client(Socket value) { }
+
+	// RVA: 0x108D6EC Offset: 0x108D6EC VA: 0x108D6EC
+	public int get_Available() { }
+
+	// RVA: 0x108D71C Offset: 0x108D71C VA: 0x108D71C
+	public bool get_DontFragment() { }
+
+	// RVA: 0x108D74C Offset: 0x108D74C VA: 0x108D74C
+	public void set_DontFragment(bool value) { }
+
+	// RVA: 0x108D784 Offset: 0x108D784 VA: 0x108D784
+	public bool get_EnableBroadcast() { }
+
+	// RVA: 0x108D7B4 Offset: 0x108D7B4 VA: 0x108D7B4
+	public void set_EnableBroadcast(bool value) { }
+
+	// RVA: 0x108D7EC Offset: 0x108D7EC VA: 0x108D7EC
+	public bool get_ExclusiveAddressUse() { }
+
+	// RVA: 0x108D81C Offset: 0x108D81C VA: 0x108D81C
+	public void set_ExclusiveAddressUse(bool value) { }
+
+	// RVA: 0x108D854 Offset: 0x108D854 VA: 0x108D854
+	public bool get_MulticastLoopback() { }
+
+	// RVA: 0x108D884 Offset: 0x108D884 VA: 0x108D884
+	public void set_MulticastLoopback(bool value) { }
+
+	// RVA: 0x108D8BC Offset: 0x108D8BC VA: 0x108D8BC
+	public short get_Ttl() { }
+
+	// RVA: 0x108D8EC Offset: 0x108D8EC VA: 0x108D8EC
+	public void set_Ttl(short value) { }
+
+	// RVA: 0x108D924 Offset: 0x108D924 VA: 0x108D924 Slot: 5
+	protected virtual void Dispose(bool disposing) { }
+
+	// RVA: 0x108D968 Offset: 0x108D968 VA: 0x108D968 Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x108BE34 Offset: 0x108BE34 VA: 0x108BE34
+	private void CheckDisposed() { }
+}
+
+// Namespace: System.Net
+public class AuthenticationManager // TypeDefIndex: 1506
+{
+	// Fields
+	private static ArrayList modules; // 0x0
+	private static object locker; // 0x8
+	private static ICredentialPolicy credential_policy; // 0x10
+
+	// Properties
+	public static ICredentialPolicy CredentialPolicy { get; set; }
+	[MonoTODOAttribute] // RVA: 0xC3F774 Offset: 0xC3F774 VA: 0xC3F774
+	public static StringDictionary CustomTargetNameDictionary { get; }
+	public static IEnumerator RegisteredModules { get; }
+
+	// Methods
+
+	// RVA: 0xEC4134 Offset: 0xEC4134 VA: 0xEC4134
+	private void .ctor() { }
+
+	// RVA: 0xEC413C Offset: 0xEC413C VA: 0xEC413C
+	private static void .cctor() { }
+
+	// RVA: 0xEC41B0 Offset: 0xEC41B0 VA: 0xEC41B0
+	private static void EnsureModules() { }
+
+	// RVA: 0xEC43B8 Offset: 0xEC43B8 VA: 0xEC43B8
+	public static ICredentialPolicy get_CredentialPolicy() { }
+
+	// RVA: 0xEC4420 Offset: 0xEC4420 VA: 0xEC4420
+	public static void set_CredentialPolicy(ICredentialPolicy value) { }
+
+	// RVA: 0xEC448C Offset: 0xEC448C VA: 0xEC448C
+	private static Exception GetMustImplement() { }
+
+	// RVA: 0xEC44E8 Offset: 0xEC44E8 VA: 0xEC44E8
+	public static StringDictionary get_CustomTargetNameDictionary() { }
+
+	// RVA: 0xEC4554 Offset: 0xEC4554 VA: 0xEC4554
+	public static IEnumerator get_RegisteredModules() { }
+
+	// RVA: 0xEC45DC Offset: 0xEC45DC VA: 0xEC45DC
+	internal static void Clear() { }
+
+	// RVA: 0xEC46F0 Offset: 0xEC46F0 VA: 0xEC46F0
+	public static Authorization Authenticate(string challenge, WebRequest request, ICredentials credentials) { }
+
+	// RVA: 0xEC47F4 Offset: 0xEC47F4 VA: 0xEC47F4
+	private static Authorization DoAuthenticate(string challenge, WebRequest request, ICredentials credentials) { }
+
+	// RVA: 0xEC4CA8 Offset: 0xEC4CA8 VA: 0xEC4CA8
+	public static Authorization PreAuthenticate(WebRequest request, ICredentials credentials) { }
+
+	// RVA: 0xEC519C Offset: 0xEC519C VA: 0xEC519C
+	public static void Register(IAuthenticationModule authenticationModule) { }
+
+	// RVA: 0xEC58F8 Offset: 0xEC58F8 VA: 0xEC58F8
+	public static void Unregister(IAuthenticationModule authenticationModule) { }
+
+	// RVA: 0xEC5A1C Offset: 0xEC5A1C VA: 0xEC5A1C
+	public static void Unregister(string authenticationScheme) { }
+
+	// RVA: 0xEC538C Offset: 0xEC538C VA: 0xEC538C
+	private static void DoUnregister(string authenticationScheme, bool throwEx) { }
+}
+
+// Namespace: System.Net
+[FlagsAttribute] // RVA: 0xC3C904 Offset: 0xC3C904 VA: 0xC3C904
+public enum AuthenticationSchemes // TypeDefIndex: 1507
+{
+	// Fields
+	public int value__; // 0x0
+	public const AuthenticationSchemes None = 0;
+	public const AuthenticationSchemes Digest = 1;
+	public const AuthenticationSchemes Negotiate = 2;
+	public const AuthenticationSchemes Ntlm = 4;
+	public const AuthenticationSchemes IntegratedWindowsAuthentication = 6;
+	public const AuthenticationSchemes Basic = 8;
+	public const AuthenticationSchemes Anonymous = 32768;
+}
+
+// Namespace: System.Net
+public class Authorization // TypeDefIndex: 1508
+{
+	// Fields
+	private string token; // 0x10
+	private bool complete; // 0x18
+	private string connectionGroupId; // 0x20
+	private string[] protectionRealm; // 0x28
+	private IAuthenticationModule module; // 0x30
+
+	// Properties
+	public string Message { get; }
+	public bool Complete { get; }
+	public string ConnectionGroupId { get; }
+	public string[] ProtectionRealm { get; set; }
+	internal IAuthenticationModule Module { get; set; }
+	[MonoTODOAttribute] // RVA: 0xC3F784 Offset: 0xC3F784 VA: 0xC3F784
+	public bool MutuallyAuthenticated { get; set; }
+
+	// Methods
+
+	// RVA: 0xEC5EE0 Offset: 0xEC5EE0 VA: 0xEC5EE0
+	public void .ctor(string token) { }
+
+	// RVA: 0xEC5F18 Offset: 0xEC5F18 VA: 0xEC5F18
+	public void .ctor(string token, bool complete) { }
+
+	// RVA: 0xEC5F5C Offset: 0xEC5F5C VA: 0xEC5F5C
+	public void .ctor(string token, bool complete, string connectionGroupId) { }
+
+	// RVA: 0xEC5FA4 Offset: 0xEC5FA4 VA: 0xEC5FA4
+	public string get_Message() { }
+
+	// RVA: 0xEC5FAC Offset: 0xEC5FAC VA: 0xEC5FAC
+	public bool get_Complete() { }
+
+	// RVA: 0xEC5FB4 Offset: 0xEC5FB4 VA: 0xEC5FB4
+	public string get_ConnectionGroupId() { }
+
+	// RVA: 0xEC5FBC Offset: 0xEC5FBC VA: 0xEC5FBC
+	public string[] get_ProtectionRealm() { }
+
+	// RVA: 0xEC5FC4 Offset: 0xEC5FC4 VA: 0xEC5FC4
+	public void set_ProtectionRealm(string[] value) { }
+
+	// RVA: 0xEC5FCC Offset: 0xEC5FCC VA: 0xEC5FCC
+	internal IAuthenticationModule get_Module() { }
+
+	// RVA: 0xEC4CA0 Offset: 0xEC4CA0 VA: 0xEC4CA0
+	internal void set_Module(IAuthenticationModule value) { }
+
+	// RVA: 0xEC5FD4 Offset: 0xEC5FD4 VA: 0xEC5FD4
+	private static Exception GetMustImplement() { }
+
+	// RVA: 0xEC6030 Offset: 0xEC6030 VA: 0xEC6030
+	public bool get_MutuallyAuthenticated() { }
+
+	// RVA: 0xEC607C Offset: 0xEC607C VA: 0xEC607C
+	public void set_MutuallyAuthenticated(bool value) { }
+}
+
+// Namespace: System.Net
+internal class BasicClient : IAuthenticationModule // TypeDefIndex: 1509
+{
+	// Properties
+	public string AuthenticationType { get; }
+	public bool CanPreAuthenticate { get; }
+
+	// Methods
+
+	// RVA: 0xEC43A8 Offset: 0xEC43A8 VA: 0xEC43A8
+	public void .ctor() { }
+
+	// RVA: 0xEC60C8 Offset: 0xEC60C8 VA: 0xEC60C8 Slot: 4
+	public Authorization Authenticate(string challenge, WebRequest webRequest, ICredentials credentials) { }
+
+	// RVA: 0xEC665C Offset: 0xEC665C VA: 0xEC665C
+	private static byte[] GetBytes(string str) { }
+
+	// RVA: 0xEC618C Offset: 0xEC618C VA: 0xEC618C
+	private static Authorization InternalAuthenticate(WebRequest webRequest, ICredentials credentials) { }
+
+	// RVA: 0xEC6744 Offset: 0xEC6744 VA: 0xEC6744 Slot: 5
+	public Authorization PreAuthenticate(WebRequest webRequest, ICredentials credentials) { }
+
+	// RVA: 0xEC6750 Offset: 0xEC6750 VA: 0xEC6750 Slot: 6
+	public string get_AuthenticationType() { }
+
+	// RVA: 0xEC6798 Offset: 0xEC6798 VA: 0xEC6798 Slot: 7
+	public bool get_CanPreAuthenticate() { }
+}
+
+// Namespace: System.Net
+internal class ChunkStream // TypeDefIndex: 1510
+{
+	// Fields
+	internal WebHeaderCollection headers; // 0x10
+	private int chunkSize; // 0x18
+	private int chunkRead; // 0x1C
+	private ChunkStream.State state; // 0x20
+	private StringBuilder saved; // 0x28
+	private bool sawCR; // 0x30
+	private bool gotit; // 0x31
+	private int trailerState; // 0x34
+	private ArrayList chunks; // 0x38
+
+	// Properties
+	public bool WantMore { get; }
+	public int ChunkLeft { get; }
+
+	// Methods
+
+	// RVA: 0xEC6CB8 Offset: 0xEC6CB8 VA: 0xEC6CB8
+	public void .ctor(byte[] buffer, int offset, int size, WebHeaderCollection headers) { }
+
+	// RVA: 0xEC6D10 Offset: 0xEC6D10 VA: 0xEC6D10
+	public void .ctor(WebHeaderCollection headers) { }
+
+	// RVA: 0xEC6DD8 Offset: 0xEC6DD8 VA: 0xEC6DD8
+	public void ResetBuffer() { }
+
+	// RVA: 0xEC6E18 Offset: 0xEC6E18 VA: 0xEC6E18
+	public void WriteAndReadBack(byte[] buffer, int offset, int size, ref int read) { }
+
+	// RVA: 0xEC6E90 Offset: 0xEC6E90 VA: 0xEC6E90
+	public int Read(byte[] buffer, int offset, int size) { }
+
+	// RVA: 0xEC6E94 Offset: 0xEC6E94 VA: 0xEC6E94
+	private int ReadFromChunks(byte[] buffer, int offset, int size) { }
+
+	// RVA: 0xEC6DB4 Offset: 0xEC6DB4 VA: 0xEC6DB4
+	public void Write(byte[] buffer, int offset, int size) { }
+
+	// RVA: 0xEC711C Offset: 0xEC711C VA: 0xEC711C
+	private void InternalWrite(byte[] buffer, ref int offset, int size) { }
+
+	// RVA: 0xEC7B8C Offset: 0xEC7B8C VA: 0xEC7B8C
+	public bool get_WantMore() { }
+
+	// RVA: 0xEC7BB4 Offset: 0xEC7BB4 VA: 0xEC7BB4
+	public int get_ChunkLeft() { }
+
+	// RVA: 0xEC75A0 Offset: 0xEC75A0 VA: 0xEC75A0
+	private ChunkStream.State ReadBody(byte[] buffer, ref int offset, int size) { }
+
+	// RVA: 0xEC7270 Offset: 0xEC7270 VA: 0xEC7270
+	private ChunkStream.State GetChunkSize(byte[] buffer, ref int offset, int size) { }
+
+	// RVA: 0xEC7C68 Offset: 0xEC7C68 VA: 0xEC7C68
+	private static string RemoveChunkExtension(string input) { }
+
+	// RVA: 0xEC76C8 Offset: 0xEC76C8 VA: 0xEC76C8
+	private ChunkStream.State ReadCRLF(byte[] buffer, ref int offset, int size) { }
+
+	// RVA: 0xEC77FC Offset: 0xEC77FC VA: 0xEC77FC
+	private ChunkStream.State ReadTrailer(byte[] buffer, ref int offset, int size) { }
+
+	// RVA: 0xEC7BEC Offset: 0xEC7BEC VA: 0xEC7BEC
+	private static void ThrowProtocolViolation(string message) { }
+}
+
+// Namespace: 
+private enum ChunkStream.State // TypeDefIndex: 1511
+{
+	// Fields
+	public int value__; // 0x0
+	public const ChunkStream.State None = 0;
+	public const ChunkStream.State Body = 1;
+	public const ChunkStream.State BodyFinished = 2;
+	public const ChunkStream.State Trailer = 3;
+}
+
+// Namespace: 
+private class ChunkStream.Chunk // TypeDefIndex: 1512
+{
+	// Fields
+	public byte[] Bytes; // 0x10
+	public int Offset; // 0x18
+
+	// Methods
+
+	// RVA: 0xEC7BC0 Offset: 0xEC7BC0 VA: 0xEC7BC0
+	public void .ctor(byte[] chunk) { }
+
+	// RVA: 0xEC707C Offset: 0xEC707C VA: 0xEC707C
+	public int Read(byte[] buffer, int offset, int size) { }
+}
+
+// Namespace: System.Net
+internal class ChunkedInputStream : RequestStream // TypeDefIndex: 1513
+{
+	// Fields
+	private bool disposed; // 0x38
+	private ChunkStream decoder; // 0x40
+	private HttpListenerContext context; // 0x48
+	private bool no_more_data; // 0x50
+
+	// Properties
+	public ChunkStream Decoder { get; set; }
+
+	// Methods
+
+	// RVA: 0xEC7CD4 Offset: 0xEC7CD4 VA: 0xEC7CD4
+	public void .ctor(HttpListenerContext context, Stream stream, byte[] buffer, int offset, int length) { }
+
+	// RVA: 0xEC7E34 Offset: 0xEC7E34 VA: 0xEC7E34
+	public ChunkStream get_Decoder() { }
+
+	// RVA: 0xEC7E3C Offset: 0xEC7E3C VA: 0xEC7E3C
+	public void set_Decoder(ChunkStream value) { }
+
+	// RVA: 0xEC7E44 Offset: 0xEC7E44 VA: 0xEC7E44 Slot: 19
+	public override int Read([In] [Out] byte[] buffer, int offset, int count) { }
+
+	// RVA: 0xEC7E8C Offset: 0xEC7E8C VA: 0xEC7E8C Slot: 25
+	public override IAsyncResult BeginRead(byte[] buffer, int offset, int count, AsyncCallback cback, object state) { }
+
+	// RVA: 0xEC81EC Offset: 0xEC81EC VA: 0xEC81EC
+	private void OnRead(IAsyncResult base_ares) { }
+
+	// RVA: 0xEC865C Offset: 0xEC865C VA: 0xEC865C Slot: 27
+	public override int EndRead(IAsyncResult ares) { }
+
+	// RVA: 0xEC88D4 Offset: 0xEC88D4 VA: 0xEC88D4 Slot: 13
+	public override void Close() { }
+}
+
+// Namespace: 
+private class ChunkedInputStream.ReadBufferState // TypeDefIndex: 1514
+{
+	// Fields
+	public byte[] Buffer; // 0x10
+	public int Offset; // 0x18
+	public int Count; // 0x1C
+	public int InitialCount; // 0x20
+	public HttpStreamAsyncResult Ares; // 0x28
+
+	// Methods
+
+	// RVA: 0xEC8198 Offset: 0xEC8198 VA: 0xEC8198
+	public void .ctor(byte[] buffer, int offset, int count, HttpStreamAsyncResult ares) { }
+}
+
+// Namespace: System.Net
+internal enum ConnectionModes // TypeDefIndex: 1515
+{
+	// Fields
+	public int value__; // 0x0
+	public const ConnectionModes Single = 0;
+	public const ConnectionModes Persistent = 1;
+	public const ConnectionModes Pipeline = 2;
+	public const ConnectionModes Mux = 3;
+}
+
+// Namespace: System.Net
+[Serializable]
+public sealed class Cookie // TypeDefIndex: 1516
+{
+	// Fields
+	private string comment; // 0x10
+	private Uri commentUri; // 0x18
+	private bool discard; // 0x20
+	private string domain; // 0x28
+	private DateTime expires; // 0x30
+	private bool httpOnly; // 0x40
+	private string name; // 0x48
+	private string path; // 0x50
+	private string port; // 0x58
+	private int[] ports; // 0x60
+	private bool secure; // 0x68
+	private DateTime timestamp; // 0x70
+	private string val; // 0x80
+	private int version; // 0x88
+	private static char[] reservedCharsName; // 0x0
+	private static char[] portSeparators; // 0x8
+	private static string tspecials; // 0x10
+	private bool exact_domain; // 0x8C
+
+	// Properties
+	public string Comment { get; set; }
+	public Uri CommentUri { get; set; }
+	public bool Discard { get; set; }
+	public string Domain { get; set; }
+	internal bool ExactDomain { get; set; }
+	public bool Expired { get; set; }
+	public DateTime Expires { get; set; }
+	public bool HttpOnly { get; set; }
+	public string Name { get; set; }
+	public string Path { get; set; }
+	public string Port { get; set; }
+	internal int[] Ports { get; }
+	public bool Secure { get; set; }
+	public DateTime TimeStamp { get; }
+	public string Value { get; set; }
+	public int Version { get; set; }
+
+	// Methods
+
+	// RVA: 0xEC88F8 Offset: 0xEC88F8 VA: 0xEC88F8
+	public void .ctor() { }
+
+	// RVA: 0xEC89E0 Offset: 0xEC89E0 VA: 0xEC89E0
+	public void .ctor(string name, string value) { }
+
+	// RVA: 0xEC8C0C Offset: 0xEC8C0C VA: 0xEC8C0C
+	public void .ctor(string name, string value, string path) { }
+
+	// RVA: 0xEC8CD0 Offset: 0xEC8CD0 VA: 0xEC8CD0
+	public void .ctor(string name, string value, string path, string domain) { }
+
+	// RVA: 0xEC8DF4 Offset: 0xEC8DF4 VA: 0xEC8DF4
+	private static void .cctor() { }
+
+	// RVA: 0xEC8EF4 Offset: 0xEC8EF4 VA: 0xEC8EF4
+	public string get_Comment() { }
+
+	// RVA: 0xEC8EFC Offset: 0xEC8EFC VA: 0xEC8EFC
+	public void set_Comment(string value) { }
+
+	// RVA: 0xEC8F94 Offset: 0xEC8F94 VA: 0xEC8F94
+	public Uri get_CommentUri() { }
+
+	// RVA: 0xEC8F9C Offset: 0xEC8F9C VA: 0xEC8F9C
+	public void set_CommentUri(Uri value) { }
+
+	// RVA: 0xEC8FA4 Offset: 0xEC8FA4 VA: 0xEC8FA4
+	public bool get_Discard() { }
+
+	// RVA: 0xEC8FAC Offset: 0xEC8FAC VA: 0xEC8FAC
+	public void set_Discard(bool value) { }
+
+	// RVA: 0xEC8FB8 Offset: 0xEC8FB8 VA: 0xEC8FB8
+	public string get_Domain() { }
+
+	// RVA: 0xEC8D14 Offset: 0xEC8D14 VA: 0xEC8D14
+	public void set_Domain(string value) { }
+
+	// RVA: 0xEC8FF8 Offset: 0xEC8FF8 VA: 0xEC8FF8
+	internal bool get_ExactDomain() { }
+
+	// RVA: 0xEC8FEC Offset: 0xEC8FEC VA: 0xEC8FEC
+	internal void set_ExactDomain(bool value) { }
+
+	// RVA: 0xEC9000 Offset: 0xEC9000 VA: 0xEC9000
+	public bool get_Expired() { }
+
+	// RVA: 0xEC90D8 Offset: 0xEC90D8 VA: 0xEC90D8
+	public void set_Expired(bool value) { }
+
+	// RVA: 0xEC9154 Offset: 0xEC9154 VA: 0xEC9154
+	public DateTime get_Expires() { }
+
+	// RVA: 0xEC9160 Offset: 0xEC9160 VA: 0xEC9160
+	public void set_Expires(DateTime value) { }
+

@@ -1,0 +1,1000 @@
+
+	// Methods
+
+	// RVA: 0xEB5FB8 Offset: 0xEB5FB8 VA: 0xEB5FB8
+	public void .ctor(string typeName, string assemblyName, string objectUri, WellKnownObjectMode mode) { }
+
+	// RVA: 0xEAEE8C Offset: 0xEAEE8C VA: 0xEAEE8C
+	public WellKnownObjectMode get_Mode() { }
+
+	// RVA: 0xEAEE84 Offset: 0xEAEE84 VA: 0xEAEE84
+	public Type get_ObjectType() { }
+
+	// RVA: 0xEAEE7C Offset: 0xEAEE7C VA: 0xEAEE7C
+	public string get_ObjectUri() { }
+
+	// RVA: 0xEB60F0 Offset: 0xEB60F0 VA: 0xEB60F0 Slot: 3
+	public override string ToString() { }
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+internal class BinaryCommon // TypeDefIndex: 638
+{
+	// Fields
+	public static byte[] BinaryHeader; // 0x0
+	private static Type[] _typeCodesToType; // 0x8
+	private static byte[] _typeCodeMap; // 0x10
+	public static bool UseReflectionSerialization; // 0x18
+
+	// Methods
+
+	// RVA: 0xEB7460 Offset: 0xEB7460 VA: 0xEB7460
+	private static void .cctor() { }
+
+	// RVA: 0xEB816C Offset: 0xEB816C VA: 0xEB816C
+	public static bool IsPrimitive(Type type) { }
+
+	// RVA: 0xEB82C8 Offset: 0xEB82C8 VA: 0xEB82C8
+	public static byte GetTypeCode(Type type) { }
+
+	// RVA: 0xEB83E4 Offset: 0xEB83E4 VA: 0xEB83E4
+	public static Type GetTypeFromCode(int code) { }
+
+	// RVA: 0xEB8484 Offset: 0xEB8484 VA: 0xEB8484
+	public static void CheckSerializable(Type type, ISurrogateSelector selector, StreamingContext context) { }
+
+	// RVA: 0xEB8624 Offset: 0xEB8624 VA: 0xEB8624
+	public static void SwapBytes(byte[] byteArray, int size, int dataSize) { }
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+internal enum BinaryElement // TypeDefIndex: 639
+{
+	// Fields
+	public byte value__; // 0x0
+	public const BinaryElement Header = 0;
+	public const BinaryElement RefTypeObject = 1;
+	public const BinaryElement UntypedRuntimeObject = 2;
+	public const BinaryElement UntypedExternalObject = 3;
+	public const BinaryElement RuntimeObject = 4;
+	public const BinaryElement ExternalObject = 5;
+	public const BinaryElement String = 6;
+	public const BinaryElement GenericArray = 7;
+	public const BinaryElement BoxedPrimitiveTypeValue = 8;
+	public const BinaryElement ObjectReference = 9;
+	public const BinaryElement NullValue = 10;
+	public const BinaryElement End = 11;
+	public const BinaryElement Assembly = 12;
+	public const BinaryElement ArrayFiller8b = 13;
+	public const BinaryElement ArrayFiller32b = 14;
+	public const BinaryElement ArrayOfPrimitiveType = 15;
+	public const BinaryElement ArrayOfObject = 16;
+	public const BinaryElement ArrayOfString = 17;
+	public const BinaryElement Method = 18;
+	public const BinaryElement _Unknown4 = 19;
+	public const BinaryElement _Unknown5 = 20;
+	public const BinaryElement MethodCall = 21;
+	public const BinaryElement MethodResponse = 22;
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+internal enum TypeTag // TypeDefIndex: 640
+{
+	// Fields
+	public byte value__; // 0x0
+	public const TypeTag PrimitiveType = 0;
+	public const TypeTag String = 1;
+	public const TypeTag ObjectType = 2;
+	public const TypeTag RuntimeType = 3;
+	public const TypeTag GenericType = 4;
+	public const TypeTag ArrayOfObject = 5;
+	public const TypeTag ArrayOfString = 6;
+	public const TypeTag ArrayOfPrimitiveType = 7;
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+internal enum MethodFlags // TypeDefIndex: 641
+{
+	// Fields
+	public int value__; // 0x0
+	public const MethodFlags NoArguments = 1;
+	public const MethodFlags PrimitiveArguments = 2;
+	public const MethodFlags ArgumentsInSimpleArray = 4;
+	public const MethodFlags ArgumentsInMultiArray = 8;
+	public const MethodFlags ExcludeLogicalCallContext = 16;
+	public const MethodFlags IncludesLogicalCallContext = 64;
+	public const MethodFlags IncludesSignature = 128;
+	public const MethodFlags FormatMask = 15;
+	public const MethodFlags GenericArguments = 32768;
+	public const MethodFlags NeedsInfoArrayMask = 32972;
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+internal enum ReturnTypeTag // TypeDefIndex: 642
+{
+	// Fields
+	public byte value__; // 0x0
+	public const ReturnTypeTag Null = 2;
+	public const ReturnTypeTag PrimitiveType = 8;
+	public const ReturnTypeTag ObjectType = 16;
+	public const ReturnTypeTag Exception = 32;
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+[ComVisibleAttribute] // RVA: 0xC34F30 Offset: 0xC34F30 VA: 0xC34F30
+public sealed class BinaryFormatter : IRemotingFormatter, IFormatter // TypeDefIndex: 643
+{
+	// Fields
+	private FormatterAssemblyStyle assembly_format; // 0x10
+	private SerializationBinder binder; // 0x18
+	private StreamingContext context; // 0x20
+	private ISurrogateSelector surrogate_selector; // 0x30
+	private FormatterTypeStyle type_format; // 0x38
+	private TypeFilterLevel filter_level; // 0x3C
+	[CompilerGeneratedAttribute] // RVA: 0xC377C8 Offset: 0xC377C8 VA: 0xC377C8
+	private static ISurrogateSelector <DefaultSurrogateSelector>k__BackingField; // 0x0
+
+	// Properties
+	public static ISurrogateSelector DefaultSurrogateSelector { get; }
+	public FormatterAssemblyStyle AssemblyFormat { set; }
+	public SerializationBinder Binder { get; }
+	public StreamingContext Context { get; }
+	public ISurrogateSelector SurrogateSelector { get; set; }
+	public TypeFilterLevel FilterLevel { get; }
+
+	// Methods
+
+	// RVA: 0xEB8B5C Offset: 0xEB8B5C VA: 0xEB8B5C
+	public void .ctor() { }
+
+	// RVA: 0xEB0D00 Offset: 0xEB0D00 VA: 0xEB0D00
+	public void .ctor(ISurrogateSelector selector, StreamingContext context) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC39348 Offset: 0xC39348 VA: 0xC39348
+	// RVA: 0xEB8BEC Offset: 0xEB8BEC VA: 0xEB8BEC
+	public static ISurrogateSelector get_DefaultSurrogateSelector() { }
+
+	// RVA: 0xEB0D4C Offset: 0xEB0D4C VA: 0xEB0D4C
+	public void set_AssemblyFormat(FormatterAssemblyStyle value) { }
+
+	// RVA: 0xEB8C3C Offset: 0xEB8C3C VA: 0xEB8C3C Slot: 5
+	public SerializationBinder get_Binder() { }
+
+	// RVA: 0xEB8C44 Offset: 0xEB8C44 VA: 0xEB8C44 Slot: 6
+	public StreamingContext get_Context() { }
+
+	// RVA: 0xEB8C50 Offset: 0xEB8C50 VA: 0xEB8C50 Slot: 7
+	public ISurrogateSelector get_SurrogateSelector() { }
+
+	// RVA: 0xEB8C58 Offset: 0xEB8C58 VA: 0xEB8C58 Slot: 8
+	public void set_SurrogateSelector(ISurrogateSelector value) { }
+
+	// RVA: 0xEB8C60 Offset: 0xEB8C60 VA: 0xEB8C60
+	public TypeFilterLevel get_FilterLevel() { }
+
+	// RVA: 0xEB8C68 Offset: 0xEB8C68 VA: 0xEB8C68 Slot: 4
+	public object Deserialize(Stream serializationStream) { }
+
+	// RVA: 0xEB8E7C Offset: 0xEB8E7C VA: 0xEB8E7C Slot: 9
+	public object Deserialize(Stream serializationStream, HeaderHandler handler) { }
+
+	// RVA: 0xEB8C70 Offset: 0xEB8C70 VA: 0xEB8C70
+	private object NoCheckDeserialize(Stream serializationStream, HeaderHandler handler) { }
+
+	// RVA: 0xEBA6EC Offset: 0xEBA6EC VA: 0xEBA6EC
+	public object DeserializeMethodResponse(Stream serializationStream, HeaderHandler handler, IMethodCallMessage methodCallMessage) { }
+
+	// RVA: 0xEBA6F0 Offset: 0xEBA6F0 VA: 0xEBA6F0
+	private object NoCheckDeserializeMethodResponse(Stream serializationStream, HeaderHandler handler, IMethodCallMessage methodCallMessage) { }
+
+	// RVA: 0xEBA898 Offset: 0xEBA898 VA: 0xEBA898 Slot: 10
+	public void Serialize(Stream serializationStream, object graph) { }
+
+	// RVA: 0xEBA8A0 Offset: 0xEBA8A0 VA: 0xEBA8A0 Slot: 11
+	public void Serialize(Stream serializationStream, object graph, Header[] headers) { }
+
+	// RVA: 0xEBAA8C Offset: 0xEBAA8C VA: 0xEBAA8C
+	private void WriteBinaryHeader(BinaryWriter writer, bool hasHeaders) { }
+
+	// RVA: 0xEB8E80 Offset: 0xEB8E80 VA: 0xEB8E80
+	private void ReadBinaryHeader(BinaryReader reader, out bool hasHeaders) { }
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+internal class CodeGenerator // TypeDefIndex: 644
+{
+	// Fields
+	private static object monitor; // 0x0
+	private static ModuleBuilder _module; // 0x8
+
+	// Methods
+
+	// RVA: 0xEBCBFC Offset: 0xEBCBFC VA: 0xEBCBFC
+	private static void .cctor() { }
+
+	// RVA: 0xEBCD34 Offset: 0xEBCD34 VA: 0xEBCD34
+	public static Type GenerateMetadataType(Type type, StreamingContext context) { }
+
+	// RVA: 0xEBCE40 Offset: 0xEBCE40 VA: 0xEBCE40
+	public static Type GenerateMetadataTypeInternal(Type type, StreamingContext context) { }
+
+	// RVA: 0xEBF10C Offset: 0xEBF10C VA: 0xEBF10C
+	public static void LoadFromPtr(ILGenerator ig, Type t) { }
+
+	// RVA: 0xEBEC34 Offset: 0xEBEC34 VA: 0xEBEC34
+	private static void EmitWriteTypeSpec(ILGenerator gen, Type type, string member) { }
+
+	// RVA: 0xEBE914 Offset: 0xEBE914 VA: 0xEBE914
+	private static void EmitLoadTypeAssembly(ILGenerator gen, Type type, string member) { }
+
+	// RVA: 0xEBEAB4 Offset: 0xEBEAB4 VA: 0xEBEAB4
+	private static void EmitWrite(ILGenerator gen, Type type) { }
+
+	// RVA: 0xEBF7D4 Offset: 0xEBF7D4 VA: 0xEBF7D4
+	public static void EmitWritePrimitiveValue(ILGenerator gen, Type type) { }
+
+	// RVA: 0xEBFCC8 Offset: 0xEBFCC8 VA: 0xEBFCC8
+	public static Type EnumToUnderlying(Type t) { }
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+internal class MessageFormatter // TypeDefIndex: 645
+{
+	// Methods
+
+	// RVA: 0xEBAB64 Offset: 0xEBAB64 VA: 0xEBAB64
+	public static void WriteMethodCall(BinaryWriter writer, object obj, Header[] headers, ISurrogateSelector surrogateSelector, StreamingContext context, FormatterAssemblyStyle assemblyFormat, FormatterTypeStyle typeFormat) { }
+
+	// RVA: 0xEBBAC8 Offset: 0xEBBAC8 VA: 0xEBBAC8
+	public static void WriteMethodResponse(BinaryWriter writer, object obj, Header[] headers, ISurrogateSelector surrogateSelector, StreamingContext context, FormatterAssemblyStyle assemblyFormat, FormatterTypeStyle typeFormat) { }
+
+	// RVA: 0xEB8F6C Offset: 0xEB8F6C VA: 0xEB8F6C
+	public static object ReadMethodCall(BinaryElement elem, BinaryReader reader, bool hasHeaders, HeaderHandler headerHandler, BinaryFormatter formatter) { }
+
+	// RVA: 0xEBA830 Offset: 0xEBA830 VA: 0xEBA830
+	public static object ReadMethodResponse(BinaryReader reader, bool hasHeaders, HeaderHandler headerHandler, IMethodCallMessage methodCallMessage, BinaryFormatter formatter) { }
+
+	// RVA: 0xEB9BAC Offset: 0xEB9BAC VA: 0xEB9BAC
+	public static object ReadMethodResponse(BinaryElement elem, BinaryReader reader, bool hasHeaders, HeaderHandler headerHandler, IMethodCallMessage methodCallMessage, BinaryFormatter formatter) { }
+
+	// RVA: 0xEC0BE4 Offset: 0xEC0BE4 VA: 0xEC0BE4
+	private static bool AllTypesArePrimitive(object[] objects) { }
+
+	// RVA: 0xEC0C70 Offset: 0xEC0C70 VA: 0xEC0C70
+	public static bool IsMethodPrimitive(Type type) { }
+
+	// RVA: 0xEC07EC Offset: 0xEC07EC VA: 0xEC07EC
+	private static object[] GetExtraProperties(IDictionary properties, string[] internalKeys) { }
+
+	// RVA: 0xEC0D8C Offset: 0xEC0D8C VA: 0xEC0D8C
+	private static bool IsInternalKey(string key, string[] internalKeys) { }
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+internal class ObjectReader // TypeDefIndex: 646
+{
+	// Fields
+	private ISurrogateSelector _surrogateSelector; // 0x10
+	private StreamingContext _context; // 0x18
+	private SerializationBinder _binder; // 0x28
+	private TypeFilterLevel _filterLevel; // 0x30
+	private ObjectManager _manager; // 0x38
+	private Hashtable _registeredAssemblies; // 0x40
+	private Hashtable _typeMetadataCache; // 0x48
+	private object _lastObject; // 0x50
+	private long _lastObjectID; // 0x58
+	private long _rootObjectID; // 0x60
+	private byte[] arrayBuffer; // 0x68
+	private int ArrayBufferLength; // 0x70
+
+	// Properties
+	public object CurrentObject { get; }
+
+	// Methods
+
+	// RVA: 0x1151AD4 Offset: 0x1151AD4 VA: 0x1151AD4
+	public void .ctor(BinaryFormatter formatter) { }
+
+	// RVA: 0x1151CEC Offset: 0x1151CEC VA: 0x1151CEC
+	public void ReadObjectGraph(BinaryReader reader, bool readHeaders, out object result, out Header[] headers) { }
+
+	// RVA: 0x1151D5C Offset: 0x1151D5C VA: 0x1151D5C
+	public void ReadObjectGraph(BinaryElement elem, BinaryReader reader, bool readHeaders, out object result, out Header[] headers) { }
+
+	// RVA: 0x1151F24 Offset: 0x1151F24 VA: 0x1151F24
+	private bool ReadNextObject(BinaryElement element, BinaryReader reader) { }
+
+	// RVA: 0x1151FEC Offset: 0x1151FEC VA: 0x1151FEC
+	public bool ReadNextObject(BinaryReader reader) { }
+
+	// RVA: 0x1151FE4 Offset: 0x1151FE4 VA: 0x1151FE4
+	public object get_CurrentObject() { }
+
+	// RVA: 0x11520D8 Offset: 0x11520D8 VA: 0x11520D8
+	private void ReadObject(BinaryElement element, BinaryReader reader, out long objectId, out object value, out SerializationInfo info) { }
+
+	// RVA: 0x1152CC0 Offset: 0x1152CC0 VA: 0x1152CC0
+	private void ReadAssembly(BinaryReader reader) { }
+
+	// RVA: 0x1152800 Offset: 0x1152800 VA: 0x1152800
+	private void ReadObjectInstance(BinaryReader reader, bool isRuntimeObject, bool hasTypeInfo, out long objectId, out object value, out SerializationInfo info) { }
+
+	// RVA: 0x115260C Offset: 0x115260C VA: 0x115260C
+	private void ReadRefTypeObjectInstance(BinaryReader reader, out long objectId, out object value, out SerializationInfo info) { }
+
+	// RVA: 0x1154350 Offset: 0x1154350 VA: 0x1154350
+	private void ReadObjectContent(BinaryReader reader, ObjectReader.TypeMetadata metadata, long objectId, out object objectInstance, out SerializationInfo info) { }
+
+	// RVA: 0x1152454 Offset: 0x1152454 VA: 0x1152454
+	private void RegisterObject(long objectId, object objectInstance, SerializationInfo info, long parentObjectId, MemberInfo parentObjectMemeber, int[] indices) { }
+
+	// RVA: 0x11528A0 Offset: 0x11528A0 VA: 0x11528A0
+	private void ReadStringIntance(BinaryReader reader, out long objectId, out object value) { }
+
+	// RVA: 0x1152918 Offset: 0x1152918 VA: 0x1152918
+	private void ReadGenericArray(BinaryReader reader, out long objectId, out object val) { }
+
+	// RVA: 0x1152C94 Offset: 0x1152C94 VA: 0x1152C94
+	private object ReadBoxedPrimitiveTypeValue(BinaryReader reader) { }
+
+	// RVA: 0x1152DC8 Offset: 0x1152DC8 VA: 0x1152DC8
+	private void ReadArrayOfPrimitiveType(BinaryReader reader, out long objectId, out object val) { }
+
+	// RVA: 0x1155604 Offset: 0x1155604 VA: 0x1155604
+	private void BlockRead(BinaryReader reader, Array array, int dataSize) { }
+
+	// RVA: 0x1153870 Offset: 0x1153870 VA: 0x1153870
+	private void ReadArrayOfObject(BinaryReader reader, out long objectId, out object array) { }
+
+	// RVA: 0x1153918 Offset: 0x1153918 VA: 0x1153918
+	private void ReadArrayOfString(BinaryReader reader, out long objectId, out object array) { }
+
+	// RVA: 0x11557E8 Offset: 0x11557E8 VA: 0x11557E8
+	private void ReadSimpleArray(BinaryReader reader, Type elementType, out long objectId, out object val) { }
+
+	// RVA: 0x11539C8 Offset: 0x11539C8 VA: 0x11539C8
+	private ObjectReader.TypeMetadata ReadTypeMetadata(BinaryReader reader, bool isRuntimeObject, bool hasTypeInfo) { }
+
+	// RVA: 0x115485C Offset: 0x115485C VA: 0x115485C
+	private void ReadValue(BinaryReader reader, object parentObject, long parentObjectId, SerializationInfo info, Type valueType, string fieldName, MemberInfo memberInfo, int[] indices) { }
+
+	// RVA: 0x1155B44 Offset: 0x1155B44 VA: 0x1155B44
+	private void SetObjectValue(object parentObject, string fieldName, MemberInfo memberInfo, SerializationInfo info, object value, Type valueType, int[] indices) { }
+
+	// RVA: 0x1155F68 Offset: 0x1155F68 VA: 0x1155F68
+	private void RecordFixup(long parentObjectId, long childObjectId, object parentObject, SerializationInfo info, string fieldName, MemberInfo memberInfo, int[] indices) { }
+
+	// RVA: 0x115596C Offset: 0x115596C VA: 0x115596C
+	private Type GetDeserializationType(long assemblyId, string className) { }
+
+	// RVA: 0x1154C44 Offset: 0x1154C44 VA: 0x1154C44
+	public Type ReadType(BinaryReader reader, TypeTag code) { }
+
+	// RVA: 0x11550D8 Offset: 0x11550D8 VA: 0x11550D8
+	public static object ReadPrimitiveTypeValue(BinaryReader reader, Type type) { }
+}
+
+// Namespace: 
+private class ObjectReader.TypeMetadata // TypeDefIndex: 647
+{
+	// Fields
+	public Type Type; // 0x10
+	public Type[] MemberTypes; // 0x18
+	public string[] MemberNames; // 0x20
+	public MemberInfo[] MemberInfos; // 0x28
+	public int FieldCount; // 0x30
+	public bool NeedsSerializationInfo; // 0x34
+
+	// Methods
+
+	// RVA: 0x1155964 Offset: 0x1155964 VA: 0x1155964
+	public void .ctor() { }
+}
+
+// Namespace: 
+private class ObjectReader.ArrayNullFiller // TypeDefIndex: 648
+{
+	// Fields
+	public int NullCount; // 0x10
+
+	// Methods
+
+	// RVA: 0x1152D9C Offset: 0x1152D9C VA: 0x1152D9C
+	public void .ctor(int count) { }
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+internal abstract class TypeMetadata // TypeDefIndex: 649
+{
+	// Fields
+	public string TypeAssemblyName; // 0x10
+	public string InstanceTypeName; // 0x18
+
+	// Properties
+	public abstract bool RequiresTypes { get; }
+
+	// Methods
+
+	// RVA: 0x115AF94 Offset: 0x115AF94 VA: 0x115AF94
+	protected void .ctor() { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void WriteAssemblies(ObjectWriter ow, BinaryWriter writer);
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract void WriteTypeData(ObjectWriter ow, BinaryWriter writer, bool writeTypes);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract void WriteObjectData(ObjectWriter ow, BinaryWriter writer, object data);
+
+	// RVA: 0x115B818 Offset: 0x115B818 VA: 0x115B818 Slot: 7
+	public virtual bool IsCompatible(TypeMetadata other) { }
+
+	// RVA: -1 Offset: -1 Slot: 8
+	public abstract bool get_RequiresTypes();
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+internal abstract class ClrTypeMetadata : TypeMetadata // TypeDefIndex: 650
+{
+	// Fields
+	public Type InstanceType; // 0x20
+
+	// Properties
+	public override bool RequiresTypes { get; }
+
+	// Methods
+
+	// RVA: 0xEBCB64 Offset: 0xEBCB64 VA: 0xEBCB64
+	public void .ctor(Type instanceType) { }
+
+	// RVA: 0xEBCBF4 Offset: 0xEBCBF4 VA: 0xEBCBF4 Slot: 8
+	public override bool get_RequiresTypes() { }
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+internal class SerializableTypeMetadata : TypeMetadata // TypeDefIndex: 651
+{
+	// Fields
+	private Type[] types; // 0x20
+	private string[] names; // 0x28
+
+	// Properties
+	public override bool RequiresTypes { get; }
+
+	// Methods
+
+	// RVA: 0x1157AB4 Offset: 0x1157AB4 VA: 0x1157AB4
+	public void .ctor(Type itype, SerializationInfo info) { }
+
+	// RVA: 0x115B148 Offset: 0x115B148 VA: 0x115B148 Slot: 7
+	public override bool IsCompatible(TypeMetadata other) { }
+
+	// RVA: 0x115B3C0 Offset: 0x115B3C0 VA: 0x115B3C0 Slot: 4
+	public override void WriteAssemblies(ObjectWriter ow, BinaryWriter writer) { }
+
+	// RVA: 0x115B4C4 Offset: 0x115B4C4 VA: 0x115B4C4 Slot: 5
+	public override void WriteTypeData(ObjectWriter ow, BinaryWriter writer, bool writeTypes) { }
+
+	// RVA: 0x115B6A0 Offset: 0x115B6A0 VA: 0x115B6A0 Slot: 6
+	public override void WriteObjectData(ObjectWriter ow, BinaryWriter writer, object data) { }
+
+	// RVA: 0x115B810 Offset: 0x115B810 VA: 0x115B810 Slot: 8
+	public override bool get_RequiresTypes() { }
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+internal class MemberTypeMetadata : ClrTypeMetadata // TypeDefIndex: 652
+{
+	// Fields
+	private MemberInfo[] members; // 0x28
+
+	// Methods
+
+	// RVA: 0xEC0030 Offset: 0xEC0030 VA: 0xEC0030
+	public void .ctor(Type type, StreamingContext context) { }
+
+	// RVA: 0xEC0060 Offset: 0xEC0060 VA: 0xEC0060 Slot: 4
+	public override void WriteAssemblies(ObjectWriter ow, BinaryWriter writer) { }
+
+	// RVA: 0xEC0228 Offset: 0xEC0228 VA: 0xEC0228 Slot: 5
+	public override void WriteTypeData(ObjectWriter ow, BinaryWriter writer, bool writeTypes) { }
+
+	// RVA: 0xEC05B4 Offset: 0xEC05B4 VA: 0xEC05B4 Slot: 6
+	public override void WriteObjectData(ObjectWriter ow, BinaryWriter writer, object data) { }
+}
+
+// Namespace: System.Runtime.Serialization.Formatters.Binary
+internal class ObjectWriter // TypeDefIndex: 653
+{
+	// Fields
+	private ObjectIDGenerator _idGenerator; // 0x10
+	private Hashtable _cachedMetadata; // 0x18
+	private Queue _pendingObjects; // 0x20
+	private Hashtable _assemblyCache; // 0x28
+	private static Hashtable _cachedTypes; // 0x0
+	internal static Assembly CorlibAssembly; // 0x8
+	internal static string CorlibAssemblyName; // 0x10
+	private ISurrogateSelector _surrogateSelector; // 0x30
+	private StreamingContext _context; // 0x38
+	private FormatterAssemblyStyle _assemblyFormat; // 0x48
+	private FormatterTypeStyle _typeFormat; // 0x4C
+	private byte[] arrayBuffer; // 0x50
+	private int ArrayBufferLength; // 0x58
+	private SerializationObjectManager _manager; // 0x60
+
+	// Methods
+
+	// RVA: 0x1156354 Offset: 0x1156354 VA: 0x1156354
+	public void .ctor(ISurrogateSelector surrogateSelector, StreamingContext context, FormatterAssemblyStyle assemblyFormat, FormatterTypeStyle typeFormat) { }
+
+	// RVA: 0x11565A4 Offset: 0x11565A4 VA: 0x11565A4
+	private static void .cctor() { }
+
+	// RVA: 0x11566D0 Offset: 0x11566D0 VA: 0x11566D0
+	public void WriteObjectGraph(BinaryWriter writer, object obj, Header[] headers) { }
+
+	// RVA: 0x115682C Offset: 0x115682C VA: 0x115682C
+	public void QueueObject(object obj) { }
+
+	// RVA: 0x115686C Offset: 0x115686C VA: 0x115686C
+	public void WriteQueuedObjects(BinaryWriter writer) { }
+
+	// RVA: 0x1156948 Offset: 0x1156948 VA: 0x1156948
+	public void WriteObjectInstance(BinaryWriter writer, object obj, bool isValueObject) { }
+
+	// RVA: 0x11568F8 Offset: 0x11568F8 VA: 0x11568F8
+	public static void WriteSerializationEnd(BinaryWriter writer) { }
+
+	// RVA: 0x1156D60 Offset: 0x1156D60 VA: 0x1156D60
+	private void WriteObject(BinaryWriter writer, long id, object obj) { }
+
+	// RVA: 0x1157100 Offset: 0x1157100 VA: 0x1157100
+	private void GetObjectData(object obj, out TypeMetadata metadata, out object data) { }
+
+	// RVA: 0x1157FEC Offset: 0x1157FEC VA: 0x1157FEC
+	private TypeMetadata CreateMemberTypeMetadata(Type type) { }
+
+	// RVA: 0x1156B2C Offset: 0x1156B2C VA: 0x1156B2C
+	private void WriteArray(BinaryWriter writer, long id, Array array) { }
+
+	// RVA: 0x11593E0 Offset: 0x11593E0 VA: 0x11593E0
+	private void WriteGenericArray(BinaryWriter writer, long id, Array array) { }
+
+	// RVA: 0x1158164 Offset: 0x1158164 VA: 0x1158164
+	private void WriteObjectArray(BinaryWriter writer, long id, Array array) { }
+
+	// RVA: 0x115827C Offset: 0x115827C VA: 0x115827C
+	private void WriteStringArray(BinaryWriter writer, long id, Array array) { }
+
+	// RVA: 0x1158394 Offset: 0x1158394 VA: 0x1158394
+	private void WritePrimitiveTypeArray(BinaryWriter writer, long id, Array array) { }
+
+	// RVA: 0x115A1AC Offset: 0x115A1AC VA: 0x115A1AC
+	private void BlockWrite(BinaryWriter writer, Array array, int dataSize) { }
+
+	// RVA: 0x1159C50 Offset: 0x1159C50 VA: 0x1159C50
+	private void WriteSingleDimensionArrayElements(BinaryWriter writer, Array array, Type elementType) { }
+
+	// RVA: 0x115A37C Offset: 0x115A37C VA: 0x115A37C
+	private void WriteNullFiller(BinaryWriter writer, int numNulls) { }
+
+	// RVA: 0x115A440 Offset: 0x115A440 VA: 0x115A440
+	private void WriteObjectReference(BinaryWriter writer, long id) { }
+
+	// RVA: 0x1159F14 Offset: 0x1159F14 VA: 0x1159F14
+	public void WriteValue(BinaryWriter writer, Type valueType, object val) { }
+
+	// RVA: 0x1156A84 Offset: 0x1156A84 VA: 0x1156A84
+	private void WriteString(BinaryWriter writer, long id, string str) { }
+
+	// RVA: 0x115989C Offset: 0x115989C VA: 0x115989C
+	public int WriteAssembly(BinaryWriter writer, Assembly assembly) { }
+
+	// RVA: 0x115790C Offset: 0x115790C VA: 0x115790C
+	public int WriteAssemblyName(BinaryWriter writer, string assembly) { }
+
+	// RVA: 0x115AB98 Offset: 0x115AB98 VA: 0x115AB98
+	public int GetAssemblyId(Assembly assembly) { }
+
+	// RVA: 0x115ABDC Offset: 0x115ABDC VA: 0x115ABDC
+	public int GetAssemblyNameId(string assembly) { }
+
+	// RVA: 0x115AA38 Offset: 0x115AA38 VA: 0x115AA38
+	private int RegisterAssembly(string assembly, out bool firstTime) { }
+
+	// RVA: 0x115A4A0 Offset: 0x115A4A0 VA: 0x115A4A0
+	public static void WritePrimitiveValue(BinaryWriter writer, object value) { }
+
+	// RVA: 0x11598F0 Offset: 0x11598F0 VA: 0x11598F0
+	public static void WriteTypeCode(BinaryWriter writer, Type type) { }
+
+	// RVA: 0x115AC64 Offset: 0x115AC64 VA: 0x115AC64
+	public static TypeTag GetTypeTag(Type type) { }
+
+	// RVA: 0x1159984 Offset: 0x1159984 VA: 0x1159984
+	public void WriteTypeSpec(BinaryWriter writer, Type type) { }
+}
+
+// Namespace: 
+private class ObjectWriter.MetadataReference // TypeDefIndex: 654
+{
+	// Fields
+	public TypeMetadata Metadata; // 0x10
+	public long ObjectID; // 0x18
+
+	// Methods
+
+	// RVA: 0x11578D4 Offset: 0x11578D4 VA: 0x11578D4
+	public void .ctor(TypeMetadata metadata, long id) { }
+}
+
+// Namespace: System.Runtime.Serialization.Formatters
+[ComVisibleAttribute] // RVA: 0xC34F44 Offset: 0xC34F44 VA: 0xC34F44
+[Serializable]
+public enum FormatterAssemblyStyle // TypeDefIndex: 655
+{
+	// Fields
+	public int value__; // 0x0
+	public const FormatterAssemblyStyle Simple = 0;
+	public const FormatterAssemblyStyle Full = 1;
+}
+
+// Namespace: System.Runtime.Serialization.Formatters
+[ComVisibleAttribute] // RVA: 0xC34F58 Offset: 0xC34F58 VA: 0xC34F58
+[Serializable]
+public enum FormatterTypeStyle // TypeDefIndex: 656
+{
+	// Fields
+	public int value__; // 0x0
+	public const FormatterTypeStyle TypesWhenNeeded = 0;
+	public const FormatterTypeStyle TypesAlways = 1;
+	public const FormatterTypeStyle XsdString = 2;
+}
+
+// Namespace: System.Runtime.Serialization.Formatters
+[ComVisibleAttribute] // RVA: 0xC34F6C Offset: 0xC34F6C VA: 0xC34F6C
+public enum TypeFilterLevel // TypeDefIndex: 657
+{
+	// Fields
+	public int value__; // 0x0
+	public const TypeFilterLevel Low = 2;
+	public const TypeFilterLevel Full = 3;
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC34F80 Offset: 0xC34F80 VA: 0xC34F80
+public class FormatterConverter : IFormatterConverter // TypeDefIndex: 658
+{
+	// Methods
+
+	// RVA: 0xEB6798 Offset: 0xEB6798 VA: 0xEB6798
+	public void .ctor() { }
+
+	// RVA: 0xEB67A0 Offset: 0xEB67A0 VA: 0xEB67A0 Slot: 4
+	public object Convert(object value, Type type) { }
+
+	// RVA: 0xEB6818 Offset: 0xEB6818 VA: 0xEB6818 Slot: 5
+	public bool ToBoolean(object value) { }
+
+	// RVA: 0xEB68C8 Offset: 0xEB68C8 VA: 0xEB68C8 Slot: 6
+	public short ToInt16(object value) { }
+
+	// RVA: 0xEB6978 Offset: 0xEB6978 VA: 0xEB6978 Slot: 7
+	public int ToInt32(object value) { }
+
+	// RVA: 0xEB6A28 Offset: 0xEB6A28 VA: 0xEB6A28 Slot: 8
+	public long ToInt64(object value) { }
+
+	// RVA: 0xEB6AD8 Offset: 0xEB6AD8 VA: 0xEB6AD8 Slot: 9
+	public string ToString(object value) { }
+
+	[CLSCompliantAttribute] // RVA: 0xC39358 Offset: 0xC39358 VA: 0xC39358
+	// RVA: 0xEB6B88 Offset: 0xEB6B88 VA: 0xEB6B88 Slot: 10
+	public uint ToUInt32(object value) { }
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC34F94 Offset: 0xC34F94 VA: 0xC34F94
+public sealed class FormatterServices // TypeDefIndex: 659
+{
+	// Methods
+
+	// RVA: 0xEB6C38 Offset: 0xEB6C38 VA: 0xEB6C38
+	public static object[] GetObjectData(object obj, MemberInfo[] members) { }
+
+	// RVA: 0xEB6F50 Offset: 0xEB6F50 VA: 0xEB6F50
+	public static MemberInfo[] GetSerializableMembers(Type type, StreamingContext context) { }
+
+	// RVA: 0xEB714C Offset: 0xEB714C VA: 0xEB714C
+	private static void GetFields(Type reflectedType, Type type, ArrayList fields) { }
+
+	// RVA: 0xEB7360 Offset: 0xEB7360 VA: 0xEB7360
+	public static object GetUninitializedObject(Type type) { }
+
+	// RVA: 0xEB745C Offset: 0xEB745C VA: 0xEB745C
+	public static object GetSafeUninitializedObject(Type type) { }
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC34FA8 Offset: 0xC34FA8 VA: 0xC34FA8
+public interface IDeserializationCallback // TypeDefIndex: 660
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void OnDeserialization(object sender);
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC34FBC Offset: 0xC34FBC VA: 0xC34FBC
+public interface IFormatter // TypeDefIndex: 661
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract object Deserialize(Stream serializationStream);
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC34FD0 Offset: 0xC34FD0 VA: 0xC34FD0
+[CLSCompliantAttribute] // RVA: 0xC34FD0 Offset: 0xC34FD0 VA: 0xC34FD0
+public interface IFormatterConverter // TypeDefIndex: 662
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract object Convert(object value, Type type);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract bool ToBoolean(object value);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract short ToInt16(object value);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract int ToInt32(object value);
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract long ToInt64(object value);
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract string ToString(object value);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract uint ToUInt32(object value);
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC35010 Offset: 0xC35010 VA: 0xC35010
+public interface IObjectReference // TypeDefIndex: 663
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract object GetRealObject(StreamingContext context);
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC35024 Offset: 0xC35024 VA: 0xC35024
+public interface ISerializationSurrogate // TypeDefIndex: 664
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void GetObjectData(object obj, SerializationInfo info, StreamingContext context);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract object SetObjectData(object obj, SerializationInfo info, StreamingContext context, ISurrogateSelector selector);
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC35038 Offset: 0xC35038 VA: 0xC35038
+public interface ISurrogateSelector // TypeDefIndex: 665
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract ISerializationSurrogate GetSurrogate(Type type, StreamingContext context, out ISurrogateSelector selector);
+}
+
+// Namespace: System.Runtime.Serialization
+[MonoTODOAttribute] // RVA: 0xC3504C Offset: 0xC3504C VA: 0xC3504C
+[ComVisibleAttribute] // RVA: 0xC3504C Offset: 0xC3504C VA: 0xC3504C
+[Serializable]
+public class ObjectIDGenerator // TypeDefIndex: 666
+{
+	// Fields
+	private Hashtable table; // 0x10
+	private long current; // 0x18
+	private static ObjectIDGenerator.InstanceComparer comparer; // 0x0
+
+	// Properties
+	internal long NextId { get; }
+
+	// Methods
+
+	// RVA: 0x1156478 Offset: 0x1156478 VA: 0x1156478
+	public void .ctor() { }
+
+	// RVA: 0x115BA14 Offset: 0x115BA14 VA: 0x115BA14
+	private static void .cctor() { }
+
+	// RVA: 0x115BA88 Offset: 0x115BA88 VA: 0x115BA88 Slot: 4
+	public virtual long GetId(object obj, out bool firstTime) { }
+
+	// RVA: 0x1156A70 Offset: 0x1156A70 VA: 0x1156A70
+	internal long get_NextId() { }
+}
+
+// Namespace: 
+private class ObjectIDGenerator.InstanceComparer : IComparer, IHashCodeProvider // TypeDefIndex: 667
+{
+	// Methods
+
+	// RVA: 0x115BA80 Offset: 0x115BA80 VA: 0x115BA80
+	public void .ctor() { }
+
+	// RVA: 0x115BBCC Offset: 0x115BBCC VA: 0x115BBCC Slot: 4
+	private int System.Collections.IComparer.Compare(object o1, object o2) { }
+
+	// RVA: 0x115BC58 Offset: 0x115BC58 VA: 0x115BC58 Slot: 5
+	private int System.Collections.IHashCodeProvider.GetHashCode(object o) { }
+}
+
+// Namespace: System.Runtime.Serialization
+[ComVisibleAttribute] // RVA: 0xC3509C Offset: 0xC3509C VA: 0xC3509C
+public class ObjectManager // TypeDefIndex: 668
+{
+	// Fields
+	private ObjectRecord _objectRecordChain; // 0x10
+	private ObjectRecord _lastObjectRecord; // 0x18
+	private ArrayList _deserializedRecords; // 0x20
+	private ArrayList _onDeserializedCallbackRecords; // 0x28
+	private Hashtable _objectRecords; // 0x30
+	private bool _finalFixup; // 0x38
+	private ISurrogateSelector _selector; // 0x40
+	private StreamingContext _context; // 0x48
+	private int _registeredObjectsCount; // 0x58
+
+	// Methods
+
+	// RVA: 0x1151C24 Offset: 0x1151C24 VA: 0x1151C24
+	public void .ctor(ISurrogateSelector selector, StreamingContext context) { }
+
+	// RVA: 0x115BC64 Offset: 0x115BC64 VA: 0x115BC64 Slot: 4
+	public virtual void DoFixups() { }
+
+	// RVA: 0x115CE6C Offset: 0x115CE6C VA: 0x115CE6C
+	internal ObjectRecord GetObjectRecord(long objectID) { }
+
+	// RVA: 0x115D0C4 Offset: 0x115D0C4 VA: 0x115D0C4 Slot: 5
+	public virtual object GetObject(long objectID) { }
+
+	// RVA: 0x115D244 Offset: 0x115D244 VA: 0x115D244 Slot: 6
+	public virtual void RaiseDeserializationEvent() { }
+
+	// RVA: 0x1154648 Offset: 0x1154648 VA: 0x1154648
+	public void RaiseOnDeserializingEvent(object obj) { }
+
+	// RVA: 0x115D4D0 Offset: 0x115D4D0 VA: 0x115D4D0
+	private void RaiseOnDeserializedEvent(object obj) { }
+
+	// RVA: 0x115D6A4 Offset: 0x115D6A4 VA: 0x115D6A4
+	private void AddFixup(BaseFixupRecord record) { }
+
+	// RVA: 0x115D764 Offset: 0x115D764 VA: 0x115D764 Slot: 7
+	public virtual void RecordArrayElementFixup(long arrayToBeFixed, int index, long objectRequired) { }
+
+	// RVA: 0x115D894 Offset: 0x115D894 VA: 0x115D894 Slot: 8
+	public virtual void RecordArrayElementFixup(long arrayToBeFixed, int[] indices, long objectRequired) { }
+
+	// RVA: 0x115D9F4 Offset: 0x115D9F4 VA: 0x115D9F4 Slot: 9
+	public virtual void RecordDelayedFixup(long objectToBeFixed, string memberName, long objectRequired) { }
+
+	// RVA: 0x115DB54 Offset: 0x115DB54 VA: 0x115DB54 Slot: 10
+	public virtual void RecordFixup(long objectToBeFixed, MemberInfo member, long objectRequired) { }
+
+	// RVA: 0x115DCB4 Offset: 0x115DCB4 VA: 0x115DCB4
+	private void RegisterObjectInternal(object obj, ObjectRecord record) { }
+
+	// RVA: 0x1154ADC Offset: 0x1154ADC VA: 0x1154ADC
+	public void RegisterObject(object obj, long objectID, SerializationInfo info, long idOfContainingObj, MemberInfo member, int[] arrayIndex) { }
+}
+
+// Namespace: System.Runtime.Serialization
+internal abstract class BaseFixupRecord // TypeDefIndex: 669
+{
+	// Fields
+	protected internal ObjectRecord ObjectToBeFixed; // 0x10
+	protected internal ObjectRecord ObjectRequired; // 0x18
+	public BaseFixupRecord NextSameContainer; // 0x20
+	public BaseFixupRecord NextSameRequired; // 0x28
+
+	// Methods
+
+	// RVA: 0xEB6350 Offset: 0xEB6350 VA: 0xEB6350
+	public void .ctor(ObjectRecord objectToBeFixed, ObjectRecord objectRequired) { }
+
+	// RVA: 0xEB649C Offset: 0xEB649C VA: 0xEB649C
+	public bool DoFixup(ObjectManager manager, bool strict) { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	protected abstract void FixupImpl(ObjectManager manager);
+}
+
+// Namespace: System.Runtime.Serialization
+internal class ArrayFixupRecord : BaseFixupRecord // TypeDefIndex: 670
+{
+	// Fields
+	private int _index; // 0x30
+
+	// Methods
+
+	// RVA: 0xEB6310 Offset: 0xEB6310 VA: 0xEB6310
+	public void .ctor(ObjectRecord objectToBeFixed, int index, ObjectRecord objectRequired) { }
+
+	// RVA: 0xEB6388 Offset: 0xEB6388 VA: 0xEB6388 Slot: 4
+	protected override void FixupImpl(ObjectManager manager) { }
+}
+
+// Namespace: System.Runtime.Serialization
+internal class MultiArrayFixupRecord : BaseFixupRecord // TypeDefIndex: 671
+{
+	// Fields
+	private int[] _indices; // 0x30
+
+	// Methods
+
+	// RVA: 0x115B820 Offset: 0x115B820 VA: 0x115B820
+	public void .ctor(ObjectRecord objectToBeFixed, int[] indices, ObjectRecord objectRequired) { }
+
+	// RVA: 0x115B850 Offset: 0x115B850 VA: 0x115B850 Slot: 4
+	protected override void FixupImpl(ObjectManager manager) { }
+}
+
+// Namespace: System.Runtime.Serialization
+internal class FixupRecord : BaseFixupRecord // TypeDefIndex: 672
+{
+	// Fields
+	public MemberInfo _member; // 0x30
+
+	// Methods
+
+	// RVA: 0xEB66FC Offset: 0xEB66FC VA: 0xEB66FC
+	public void .ctor(ObjectRecord objectToBeFixed, MemberInfo member, ObjectRecord objectRequired) { }
+
+	// RVA: 0xEB673C Offset: 0xEB673C VA: 0xEB673C Slot: 4
+	protected override void FixupImpl(ObjectManager manager) { }
+}
+
+// Namespace: System.Runtime.Serialization
+internal class DelayedFixupRecord : BaseFixupRecord // TypeDefIndex: 673
+{
+	// Fields
+	public string _memberName; // 0x30
+
+	// Methods
+
+	// RVA: 0xEB6660 Offset: 0xEB6660 VA: 0xEB6660
+	public void .ctor(ObjectRecord objectToBeFixed, string memberName, ObjectRecord objectRequired) { }
+
+	// RVA: 0xEB66A0 Offset: 0xEB66A0 VA: 0xEB66A0 Slot: 4
+	protected override void FixupImpl(ObjectManager manager) { }
+}
+
+// Namespace: System.Runtime.Serialization
+internal enum ObjectRecordStatus // TypeDefIndex: 674
+{
+	// Fields
+	public byte value__; // 0x0
+	public const ObjectRecordStatus Unregistered = 0;
+	public const ObjectRecordStatus ReferenceUnsolved = 1;
+	public const ObjectRecordStatus ReferenceSolvingDelayed = 2;
+	public const ObjectRecordStatus ReferenceSolved = 3;
+}
+
+// Namespace: System.Runtime.Serialization
+internal class ObjectRecord // TypeDefIndex: 675
+{
+	// Fields

@@ -1,0 +1,1000 @@
+	public Object target { get; }
+	public string methodName { get; }
+	public PersistentListenerMode mode { get; }
+	public ArgumentCache arguments { get; }
+
+	// Methods
+
+	// RVA: 0x264D4B0 Offset: 0x264D4B0 VA: 0x264D4B0
+	public void .ctor() { }
+
+	// RVA: 0x264D524 Offset: 0x264D524 VA: 0x264D524
+	public Object get_target() { }
+
+	// RVA: 0x264D52C Offset: 0x264D52C VA: 0x264D52C
+	public string get_methodName() { }
+
+	// RVA: 0x264D534 Offset: 0x264D534 VA: 0x264D534
+	public PersistentListenerMode get_mode() { }
+
+	// RVA: 0x264D53C Offset: 0x264D53C VA: 0x264D53C
+	public ArgumentCache get_arguments() { }
+
+	// RVA: 0x264D544 Offset: 0x264D544 VA: 0x264D544
+	public bool IsValid() { }
+
+	// RVA: 0x264D5FC Offset: 0x264D5FC VA: 0x264D5FC
+	public BaseInvokableCall GetRuntimeCall(UnityEventBase theEvent) { }
+
+	// RVA: 0x264D9C0 Offset: 0x264D9C0 VA: 0x264D9C0
+	private static BaseInvokableCall GetObjectCall(Object target, MethodInfo method, ArgumentCache arguments) { }
+}
+
+// Namespace: UnityEngine.Events
+[Serializable]
+internal class PersistentCallGroup // TypeDefIndex: 2441
+{
+	// Fields
+	[SerializeField] // RVA: 0xC498D0 Offset: 0xC498D0 VA: 0xC498D0
+	[FormerlySerializedAsAttribute] // RVA: 0xC498D0 Offset: 0xC498D0 VA: 0xC498D0
+	private List<PersistentCall> m_Calls; // 0x10
+
+	// Methods
+
+	// RVA: 0x264DEF8 Offset: 0x264DEF8 VA: 0x264DEF8
+	public void .ctor() { }
+
+	// RVA: 0x264DF6C Offset: 0x264DF6C VA: 0x264DF6C
+	public void Initialize(InvokableCallList invokableList, UnityEventBase unityEventBase) { }
+}
+
+// Namespace: UnityEngine.Events
+internal class InvokableCallList // TypeDefIndex: 2442
+{
+	// Fields
+	private readonly List<BaseInvokableCall> m_PersistentCalls; // 0x10
+	private readonly List<BaseInvokableCall> m_RuntimeCalls; // 0x18
+	private readonly List<BaseInvokableCall> m_ExecutingCalls; // 0x20
+	private bool m_NeedsUpdate; // 0x28
+
+	// Methods
+
+	// RVA: 0x264CFAC Offset: 0x264CFAC VA: 0x264CFAC
+	public void .ctor() { }
+
+	// RVA: 0x264D05C Offset: 0x264D05C VA: 0x264D05C
+	public void AddPersistentInvokableCall(BaseInvokableCall call) { }
+
+	// RVA: 0x264D0D8 Offset: 0x264D0D8 VA: 0x264D0D8
+	public void AddListener(BaseInvokableCall call) { }
+
+	// RVA: 0x264D154 Offset: 0x264D154 VA: 0x264D154
+	public void RemoveListener(object targetObj, MethodInfo method) { }
+
+	// RVA: 0x264D310 Offset: 0x264D310 VA: 0x264D310
+	public void Clear() { }
+
+	// RVA: 0x264D37C Offset: 0x264D37C VA: 0x264D37C
+	public void ClearPersistent() { }
+
+	// RVA: 0x264D3E8 Offset: 0x264D3E8 VA: 0x264D3E8
+	public List<BaseInvokableCall> PrepareInvoke() { }
+}
+
+// Namespace: UnityEngine.Events
+[UsedByNativeCodeAttribute] // RVA: 0xC46DE8 Offset: 0xC46DE8 VA: 0xC46DE8
+[Serializable]
+public abstract class UnityEventBase : ISerializationCallbackReceiver // TypeDefIndex: 2443
+{
+	// Fields
+	private InvokableCallList m_Calls; // 0x10
+	[SerializeField] // RVA: 0xC4991C Offset: 0xC4991C VA: 0xC4991C
+	[FormerlySerializedAsAttribute] // RVA: 0xC4991C Offset: 0xC4991C VA: 0xC4991C
+	private PersistentCallGroup m_PersistentCalls; // 0x18
+	private bool m_CallsDirty; // 0x20
+
+	// Methods
+
+	// RVA: 0x264E13C Offset: 0x264E13C VA: 0x264E13C
+	protected void .ctor() { }
+
+	// RVA: 0x264E808 Offset: 0x264E808 VA: 0x264E808 Slot: 4
+	private void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize() { }
+
+	// RVA: 0x264E80C Offset: 0x264E80C VA: 0x264E80C Slot: 5
+	private void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize() { }
+
+	// RVA: -1 Offset: -1 Slot: 6
+	protected abstract MethodInfo FindMethod_Impl(string name, object targetObj);
+
+	// RVA: -1 Offset: -1 Slot: 7
+	internal abstract BaseInvokableCall GetDelegate(object target, MethodInfo theFunction);
+
+	// RVA: 0x264D83C Offset: 0x264D83C VA: 0x264D83C
+	internal MethodInfo FindMethod(PersistentCall call) { }
+
+	// RVA: 0x264E84C Offset: 0x264E84C VA: 0x264E84C
+	internal MethodInfo FindMethod(string name, object listener, PersistentListenerMode mode, Type argumentType) { }
+
+	// RVA: 0x264E810 Offset: 0x264E810 VA: 0x264E810
+	private void DirtyPersistentCalls() { }
+
+	// RVA: 0x264EB2C Offset: 0x264EB2C VA: 0x264EB2C
+	private void RebuildPersistentCallsIfNeeded() { }
+
+	// RVA: 0x264E260 Offset: 0x264E260 VA: 0x264E260
+	internal void AddCall(BaseInvokableCall call) { }
+
+	// RVA: 0x264E2F0 Offset: 0x264E2F0 VA: 0x264E2F0
+	protected void RemoveListener(object targetObj, MethodInfo method) { }
+
+	// RVA: 0x264EB7C Offset: 0x264EB7C VA: 0x264EB7C
+	public void RemoveAllListeners() { }
+
+	// RVA: 0x264E7D4 Offset: 0x264E7D4 VA: 0x264E7D4
+	internal List<BaseInvokableCall> PrepareInvoke() { }
+
+	// RVA: 0x264EBA8 Offset: 0x264EBA8 VA: 0x264EBA8 Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0x264E3A0 Offset: 0x264E3A0 VA: 0x264E3A0
+	public static MethodInfo GetValidMethodInfo(object obj, string functionName, Type[] argumentTypes) { }
+}
+
+// Namespace: UnityEngine.Events
+public sealed class UnityAction : MulticastDelegate // TypeDefIndex: 2444
+{
+	// Methods
+
+	// RVA: 0x264E0E4 Offset: 0x264E0E4 VA: 0x264E0E4
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x2644D18 Offset: 0x2644D18 VA: 0x2644D18 Slot: 11
+	public virtual void Invoke() { }
+
+	// RVA: 0x264E0F4 Offset: 0x264E0F4 VA: 0x264E0F4 Slot: 12
+	public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object) { }
+
+	// RVA: 0x264E128 Offset: 0x264E128 VA: 0x264E128 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: UnityEngine.Events
+[Serializable]
+public class UnityEvent : UnityEventBase // TypeDefIndex: 2445
+{
+	// Fields
+	private object[] m_InvokeArray; // 0x28
+
+	// Methods
+
+	[RequiredByNativeCodeAttribute] // RVA: 0xC508E8 Offset: 0xC508E8 VA: 0xC508E8
+	// RVA: 0x264E134 Offset: 0x264E134 VA: 0x264E134
+	public void .ctor() { }
+
+	// RVA: 0x264E1C8 Offset: 0x264E1C8 VA: 0x264E1C8
+	public void AddListener(UnityAction call) { }
+
+	// RVA: 0x264E294 Offset: 0x264E294 VA: 0x264E294
+	public void RemoveListener(UnityAction call) { }
+
+	// RVA: 0x264E334 Offset: 0x264E334 VA: 0x264E334 Slot: 6
+	protected override MethodInfo FindMethod_Impl(string name, object targetObj) { }
+
+	// RVA: 0x264E5A8 Offset: 0x264E5A8 VA: 0x264E5A8 Slot: 7
+	internal override BaseInvokableCall GetDelegate(object target, MethodInfo theFunction) { }
+
+	// RVA: 0x264E1F4 Offset: 0x264E1F4 VA: 0x264E1F4
+	private static BaseInvokableCall GetDelegate(UnityAction action) { }
+
+	// RVA: 0x264E618 Offset: 0x264E618 VA: 0x264E618
+	public void Invoke() { }
+}
+
+// Namespace: UnityEngine.Events
+public sealed class UnityAction<T0> : MulticastDelegate // TypeDefIndex: 2446
+{
+	// Methods
+
+	// RVA: -1 Offset: -1
+	public void .ctor(object object, IntPtr method) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x275C028 Offset: 0x275C028 VA: 0x275C028
+	|-UnityAction<bool>..ctor
+	|
+	|-RVA: 0x275C5D4 Offset: 0x275C5D4 VA: 0x275C5D4
+	|-UnityAction<List<IEventSystemHandler>>..ctor
+	|-UnityAction<object>..ctor
+	|-UnityAction<string>..ctor
+	|-UnityAction<Component>..ctor
+	|-UnityAction<BaseEventData>..ctor
+	|-UnityAction<MessageEventArgs>..ctor
+	|-UnityAction<LayoutRebuilder>..ctor
+	|
+	|-RVA: 0x275C300 Offset: 0x275C300 VA: 0x275C300
+	|-UnityAction<int>..ctor
+	|
+	|-RVA: 0x275C9B4 Offset: 0x275C9B4 VA: 0x275C9B4
+	|-UnityAction<float>..ctor
+	|
+	|-RVA: 0x275CC98 Offset: 0x275CC98 VA: 0x275CC98
+	|-UnityAction<Color>..ctor
+	|
+	|-RVA: 0x275CFC8 Offset: 0x275CFC8 VA: 0x275CFC8
+	|-UnityAction<Scene>..ctor
+	|
+	|-RVA: 0x275D2AC Offset: 0x275D2AC VA: 0x275D2AC
+	|-UnityAction<Vector2>..ctor
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 11
+	public virtual void Invoke(T0 arg0) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x275C038 Offset: 0x275C038 VA: 0x275C038
+	|-UnityAction<bool>.Invoke
+	|
+	|-RVA: 0x275C310 Offset: 0x275C310 VA: 0x275C310
+	|-UnityAction<int>.Invoke
+	|
+	|-RVA: 0x275C5E4 Offset: 0x275C5E4 VA: 0x275C5E4
+	|-UnityAction<object>.Invoke
+	|-UnityAction<string>.Invoke
+	|-UnityAction<Component>.Invoke
+	|
+	|-RVA: 0x275C9C4 Offset: 0x275C9C4 VA: 0x275C9C4
+	|-UnityAction<float>.Invoke
+	|
+	|-RVA: 0x275CCA8 Offset: 0x275CCA8 VA: 0x275CCA8
+	|-UnityAction<Color>.Invoke
+	|
+	|-RVA: 0x275CFD8 Offset: 0x275CFD8 VA: 0x275CFD8
+	|-UnityAction<Scene>.Invoke
+	|
+	|-RVA: 0x275D2BC Offset: 0x275D2BC VA: 0x275D2BC
+	|-UnityAction<Vector2>.Invoke
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 12
+	public virtual IAsyncResult BeginInvoke(T0 arg0, AsyncCallback callback, object object) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x275C264 Offset: 0x275C264 VA: 0x275C264
+	|-UnityAction<bool>.BeginInvoke
+	|
+	|-RVA: 0x275C53C Offset: 0x275C53C VA: 0x275C53C
+	|-UnityAction<int>.BeginInvoke
+	|
+	|-RVA: 0x275C984 Offset: 0x275C984 VA: 0x275C984
+	|-UnityAction<object>.BeginInvoke
+	|
+	|-RVA: 0x275CC00 Offset: 0x275CC00 VA: 0x275CC00
+	|-UnityAction<float>.BeginInvoke
+	|
+	|-RVA: 0x275CF2C Offset: 0x275CF2C VA: 0x275CF2C
+	|-UnityAction<Color>.BeginInvoke
+	|
+	|-RVA: 0x275D214 Offset: 0x275D214 VA: 0x275D214
+	|-UnityAction<Scene>.BeginInvoke
+	|
+	|-RVA: 0x275D4FC Offset: 0x275D4FC VA: 0x275D4FC
+	|-UnityAction<Vector2>.BeginInvoke
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x275C2F4 Offset: 0x275C2F4 VA: 0x275C2F4
+	|-UnityAction<bool>.EndInvoke
+	|
+	|-RVA: 0x275C5C8 Offset: 0x275C5C8 VA: 0x275C5C8
+	|-UnityAction<int>.EndInvoke
+	|
+	|-RVA: 0x275C9A8 Offset: 0x275C9A8 VA: 0x275C9A8
+	|-UnityAction<object>.EndInvoke
+	|
+	|-RVA: 0x275CC8C Offset: 0x275CC8C VA: 0x275CC8C
+	|-UnityAction<float>.EndInvoke
+	|
+	|-RVA: 0x275CFBC Offset: 0x275CFBC VA: 0x275CFBC
+	|-UnityAction<Color>.EndInvoke
+	|
+	|-RVA: 0x275D2A0 Offset: 0x275D2A0 VA: 0x275D2A0
+	|-UnityAction<Scene>.EndInvoke
+	|
+	|-RVA: 0x275D588 Offset: 0x275D588 VA: 0x275D588
+	|-UnityAction<Vector2>.EndInvoke
+	*/
+}
+
+// Namespace: UnityEngine.Events
+[Serializable]
+public abstract class UnityEvent<T0> : UnityEventBase // TypeDefIndex: 2447
+{
+	// Fields
+	private object[] m_InvokeArray; // 0x0
+
+	// Methods
+
+	[RequiredByNativeCodeAttribute] // RVA: 0xC508F8 Offset: 0xC508F8 VA: 0xC508F8
+	// RVA: -1 Offset: -1
+	public void .ctor() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8A594 Offset: 0x2B8A594 VA: 0x2B8A594
+	|-UnityEvent<bool>..ctor
+	|
+	|-RVA: 0x2B8AB34 Offset: 0x2B8AB34 VA: 0x2B8AB34
+	|-UnityEvent<int>..ctor
+	|
+	|-RVA: 0x2B8B0C4 Offset: 0x2B8B0C4 VA: 0x2B8B0C4
+	|-UnityEvent<object>..ctor
+	|-UnityEvent<string>..ctor
+	|-UnityEvent<BaseEventData>..ctor
+	|-UnityEvent<MessageEventArgs>..ctor
+	|-UnityEvent<Product>..ctor
+	|
+	|-RVA: 0x2B8B604 Offset: 0x2B8B604 VA: 0x2B8B604
+	|-UnityEvent<float>..ctor
+	|
+	|-RVA: 0x2B8BB88 Offset: 0x2B8BB88 VA: 0x2B8BB88
+	|-UnityEvent<Color>..ctor
+	|
+	|-RVA: 0x2B8C138 Offset: 0x2B8C138 VA: 0x2B8C138
+	|-UnityEvent<Vector2>..ctor
+	*/
+
+	// RVA: -1 Offset: -1
+	public void AddListener(UnityAction<T0> call) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8A5C4 Offset: 0x2B8A5C4 VA: 0x2B8A5C4
+	|-UnityEvent<bool>.AddListener
+	|
+	|-RVA: 0x2B8AB64 Offset: 0x2B8AB64 VA: 0x2B8AB64
+	|-UnityEvent<int>.AddListener
+	|
+	|-RVA: 0x2B8B0F4 Offset: 0x2B8B0F4 VA: 0x2B8B0F4
+	|-UnityEvent<object>.AddListener
+	|-UnityEvent<string>.AddListener
+	|-UnityEvent<BaseEventData>.AddListener
+	|-UnityEvent<MessageEventArgs>.AddListener
+	|
+	|-RVA: 0x2B8B634 Offset: 0x2B8B634 VA: 0x2B8B634
+	|-UnityEvent<float>.AddListener
+	|
+	|-RVA: 0x2B8BBB8 Offset: 0x2B8BBB8 VA: 0x2B8BBB8
+	|-UnityEvent<Color>.AddListener
+	|
+	|-RVA: 0x2B8C168 Offset: 0x2B8C168 VA: 0x2B8C168
+	|-UnityEvent<Vector2>.AddListener
+	*/
+
+	// RVA: -1 Offset: -1
+	public void RemoveListener(UnityAction<T0> call) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8A618 Offset: 0x2B8A618 VA: 0x2B8A618
+	|-UnityEvent<bool>.RemoveListener
+	|
+	|-RVA: 0x2B8ABB8 Offset: 0x2B8ABB8 VA: 0x2B8ABB8
+	|-UnityEvent<int>.RemoveListener
+	|
+	|-RVA: 0x2B8B148 Offset: 0x2B8B148 VA: 0x2B8B148
+	|-UnityEvent<object>.RemoveListener
+	|-UnityEvent<string>.RemoveListener
+	|-UnityEvent<MessageEventArgs>.RemoveListener
+	|
+	|-RVA: 0x2B8B688 Offset: 0x2B8B688 VA: 0x2B8B688
+	|-UnityEvent<float>.RemoveListener
+	|
+	|-RVA: 0x2B8BC0C Offset: 0x2B8BC0C VA: 0x2B8BC0C
+	|-UnityEvent<Color>.RemoveListener
+	|
+	|-RVA: 0x2B8C1BC Offset: 0x2B8C1BC VA: 0x2B8C1BC
+	|-UnityEvent<Vector2>.RemoveListener
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 6
+	protected override MethodInfo FindMethod_Impl(string name, object targetObj) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8A688 Offset: 0x2B8A688 VA: 0x2B8A688
+	|-UnityEvent<bool>.FindMethod_Impl
+	|
+	|-RVA: 0x2B8AC28 Offset: 0x2B8AC28 VA: 0x2B8AC28
+	|-UnityEvent<int>.FindMethod_Impl
+	|
+	|-RVA: 0x2B8B1B8 Offset: 0x2B8B1B8 VA: 0x2B8B1B8
+	|-UnityEvent<object>.FindMethod_Impl
+	|-UnityEvent<string>.FindMethod_Impl
+	|-UnityEvent<BaseEventData>.FindMethod_Impl
+	|-UnityEvent<MessageEventArgs>.FindMethod_Impl
+	|-UnityEvent<Product>.FindMethod_Impl
+	|
+	|-RVA: 0x2B8B6F8 Offset: 0x2B8B6F8 VA: 0x2B8B6F8
+	|-UnityEvent<float>.FindMethod_Impl
+	|
+	|-RVA: 0x2B8BC7C Offset: 0x2B8BC7C VA: 0x2B8BC7C
+	|-UnityEvent<Color>.FindMethod_Impl
+	|
+	|-RVA: 0x2B8C22C Offset: 0x2B8C22C VA: 0x2B8C22C
+	|-UnityEvent<Vector2>.FindMethod_Impl
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 7
+	internal override BaseInvokableCall GetDelegate(object target, MethodInfo theFunction) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8A798 Offset: 0x2B8A798 VA: 0x2B8A798
+	|-UnityEvent<bool>.GetDelegate
+	|
+	|-RVA: 0x2B8AD38 Offset: 0x2B8AD38 VA: 0x2B8AD38
+	|-UnityEvent<int>.GetDelegate
+	|
+	|-RVA: 0x2B8B2C8 Offset: 0x2B8B2C8 VA: 0x2B8B2C8
+	|-UnityEvent<object>.GetDelegate
+	|-UnityEvent<string>.GetDelegate
+	|-UnityEvent<BaseEventData>.GetDelegate
+	|-UnityEvent<MessageEventArgs>.GetDelegate
+	|-UnityEvent<Product>.GetDelegate
+	|
+	|-RVA: 0x2B8B808 Offset: 0x2B8B808 VA: 0x2B8B808
+	|-UnityEvent<float>.GetDelegate
+	|
+	|-RVA: 0x2B8BD8C Offset: 0x2B8BD8C VA: 0x2B8BD8C
+	|-UnityEvent<Color>.GetDelegate
+	|
+	|-RVA: 0x2B8C33C Offset: 0x2B8C33C VA: 0x2B8C33C
+	|-UnityEvent<Vector2>.GetDelegate
+	*/
+
+	// RVA: -1 Offset: -1
+	private static BaseInvokableCall GetDelegate(UnityAction<T0> action) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8A80C Offset: 0x2B8A80C VA: 0x2B8A80C
+	|-UnityEvent<bool>.GetDelegate
+	|
+	|-RVA: 0x2B8ADAC Offset: 0x2B8ADAC VA: 0x2B8ADAC
+	|-UnityEvent<int>.GetDelegate
+	|
+	|-RVA: 0x2B8B33C Offset: 0x2B8B33C VA: 0x2B8B33C
+	|-UnityEvent<object>.GetDelegate
+	|
+	|-RVA: 0x2B8B87C Offset: 0x2B8B87C VA: 0x2B8B87C
+	|-UnityEvent<float>.GetDelegate
+	|
+	|-RVA: 0x2B8BE00 Offset: 0x2B8BE00 VA: 0x2B8BE00
+	|-UnityEvent<Color>.GetDelegate
+	|
+	|-RVA: 0x2B8C3B0 Offset: 0x2B8C3B0 VA: 0x2B8C3B0
+	|-UnityEvent<Vector2>.GetDelegate
+	*/
+
+	// RVA: -1 Offset: -1
+	public void Invoke(T0 arg0) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8A8C4 Offset: 0x2B8A8C4 VA: 0x2B8A8C4
+	|-UnityEvent<bool>.Invoke
+	|
+	|-RVA: 0x2B8AE64 Offset: 0x2B8AE64 VA: 0x2B8AE64
+	|-UnityEvent<int>.Invoke
+	|
+	|-RVA: 0x2B8B3F4 Offset: 0x2B8B3F4 VA: 0x2B8B3F4
+	|-UnityEvent<object>.Invoke
+	|-UnityEvent<string>.Invoke
+	|-UnityEvent<BaseEventData>.Invoke
+	|-UnityEvent<MessageEventArgs>.Invoke
+	|-UnityEvent<Product>.Invoke
+	|
+	|-RVA: 0x2B8B934 Offset: 0x2B8B934 VA: 0x2B8B934
+	|-UnityEvent<float>.Invoke
+	|
+	|-RVA: 0x2B8BEB8 Offset: 0x2B8BEB8 VA: 0x2B8BEB8
+	|-UnityEvent<Color>.Invoke
+	|
+	|-RVA: 0x2B8C468 Offset: 0x2B8C468 VA: 0x2B8C468
+	|-UnityEvent<Vector2>.Invoke
+	*/
+}
+
+// Namespace: UnityEngine.Events
+public sealed class UnityAction<T0, T1> : MulticastDelegate // TypeDefIndex: 2448
+{
+	// Methods
+
+	// RVA: -1 Offset: -1
+	public void .ctor(object object, IntPtr method) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x275D594 Offset: 0x275D594 VA: 0x275D594
+	|-UnityAction<object, object>..ctor
+	|
+	|-RVA: 0x275D9A0 Offset: 0x275D9A0 VA: 0x275D9A0
+	|-UnityAction<object, PurchaseFailureReason>..ctor
+	|
+	|-RVA: 0x275DE18 Offset: 0x275DE18 VA: 0x275DE18
+	|-UnityAction<Scene, LoadSceneMode>..ctor
+	|
+	|-RVA: 0x275E130 Offset: 0x275E130 VA: 0x275E130
+	|-UnityAction<Scene, Scene>..ctor
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 11
+	public virtual void Invoke(T0 arg0, T1 arg1) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x275D5A4 Offset: 0x275D5A4 VA: 0x275D5A4
+	|-UnityAction<object, object>.Invoke
+	|
+	|-RVA: 0x275D9B0 Offset: 0x275D9B0 VA: 0x275D9B0
+	|-UnityAction<object, PurchaseFailureReason>.Invoke
+	|
+	|-RVA: 0x275DE28 Offset: 0x275DE28 VA: 0x275DE28
+	|-UnityAction<Scene, LoadSceneMode>.Invoke
+	|
+	|-RVA: 0x275E140 Offset: 0x275E140 VA: 0x275E140
+	|-UnityAction<Scene, Scene>.Invoke
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 12
+	public virtual IAsyncResult BeginInvoke(T0 arg0, T1 arg1, AsyncCallback callback, object object) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x275D964 Offset: 0x275D964 VA: 0x275D964
+	|-UnityAction<object, object>.BeginInvoke
+	|
+	|-RVA: 0x275DD70 Offset: 0x275DD70 VA: 0x275DD70
+	|-UnityAction<object, PurchaseFailureReason>.BeginInvoke
+	|
+	|-RVA: 0x275E07C Offset: 0x275E07C VA: 0x275E07C
+	|-UnityAction<Scene, LoadSceneMode>.BeginInvoke
+	|
+	|-RVA: 0x275E3A0 Offset: 0x275E3A0 VA: 0x275E3A0
+	|-UnityAction<Scene, Scene>.BeginInvoke
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x275D994 Offset: 0x275D994 VA: 0x275D994
+	|-UnityAction<object, object>.EndInvoke
+	|
+	|-RVA: 0x275DE0C Offset: 0x275DE0C VA: 0x275DE0C
+	|-UnityAction<object, PurchaseFailureReason>.EndInvoke
+	|
+	|-RVA: 0x275E124 Offset: 0x275E124 VA: 0x275E124
+	|-UnityAction<Scene, LoadSceneMode>.EndInvoke
+	|
+	|-RVA: 0x275E444 Offset: 0x275E444 VA: 0x275E444
+	|-UnityAction<Scene, Scene>.EndInvoke
+	*/
+}
+
+// Namespace: UnityEngine.Events
+[Serializable]
+public abstract class UnityEvent<T0, T1> : UnityEventBase // TypeDefIndex: 2449
+{
+	// Fields
+	private object[] m_InvokeArray; // 0x0
+
+	// Methods
+
+	[RequiredByNativeCodeAttribute] // RVA: 0xC50908 Offset: 0xC50908 VA: 0xC50908
+	// RVA: -1 Offset: -1
+	public void .ctor() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8C6CC Offset: 0x2B8C6CC VA: 0x2B8C6CC
+	|-UnityEvent<object, object>..ctor
+	|
+	|-RVA: 0x2B8CB68 Offset: 0x2B8CB68 VA: 0x2B8CB68
+	|-UnityEvent<object, PurchaseFailureReason>..ctor
+	|-UnityEvent<Product, PurchaseFailureReason>..ctor
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 6
+	protected override MethodInfo FindMethod_Impl(string name, object targetObj) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8C6FC Offset: 0x2B8C6FC VA: 0x2B8C6FC
+	|-UnityEvent<object, object>.FindMethod_Impl
+	|
+	|-RVA: 0x2B8CB98 Offset: 0x2B8CB98 VA: 0x2B8CB98
+	|-UnityEvent<object, PurchaseFailureReason>.FindMethod_Impl
+	|-UnityEvent<Product, PurchaseFailureReason>.FindMethod_Impl
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 7
+	internal override BaseInvokableCall GetDelegate(object target, MethodInfo theFunction) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8C874 Offset: 0x2B8C874 VA: 0x2B8C874
+	|-UnityEvent<object, object>.GetDelegate
+	|
+	|-RVA: 0x2B8CD10 Offset: 0x2B8CD10 VA: 0x2B8CD10
+	|-UnityEvent<object, PurchaseFailureReason>.GetDelegate
+	|-UnityEvent<Product, PurchaseFailureReason>.GetDelegate
+	*/
+
+	// RVA: -1 Offset: -1
+	public void Invoke(T0 arg0, T1 arg1) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8C8E8 Offset: 0x2B8C8E8 VA: 0x2B8C8E8
+	|-UnityEvent<object, object>.Invoke
+	|
+	|-RVA: 0x2B8CD84 Offset: 0x2B8CD84 VA: 0x2B8CD84
+	|-UnityEvent<object, PurchaseFailureReason>.Invoke
+	|-UnityEvent<Product, PurchaseFailureReason>.Invoke
+	*/
+}
+
+// Namespace: UnityEngine.Events
+public sealed class UnityAction<T0, T1, T2> : MulticastDelegate // TypeDefIndex: 2450
+{
+	// Methods
+
+	// RVA: -1 Offset: -1
+	public void .ctor(object object, IntPtr method) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B89CF8 Offset: 0x2B89CF8 VA: 0x2B89CF8
+	|-UnityAction<object, object, object>..ctor
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 11
+	public virtual void Invoke(T0 arg0, T1 arg1, T2 arg2) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B89D08 Offset: 0x2B89D08 VA: 0x2B89D08
+	|-UnityAction<object, object, object>.Invoke
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 12
+	public virtual IAsyncResult BeginInvoke(T0 arg0, T1 arg1, T2 arg2, AsyncCallback callback, object object) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8A0F8 Offset: 0x2B8A0F8 VA: 0x2B8A0F8
+	|-UnityAction<object, object, object>.BeginInvoke
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8A128 Offset: 0x2B8A128 VA: 0x2B8A128
+	|-UnityAction<object, object, object>.EndInvoke
+	*/
+}
+
+// Namespace: UnityEngine.Events
+[Serializable]
+public abstract class UnityEvent<T0, T1, T2> : UnityEventBase // TypeDefIndex: 2451
+{
+	// Fields
+	private object[] m_InvokeArray; // 0x0
+
+	// Methods
+
+	[RequiredByNativeCodeAttribute] // RVA: 0xC50918 Offset: 0xC50918 VA: 0xC50918
+	// RVA: -1 Offset: -1
+	public void .ctor() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8D050 Offset: 0x2B8D050 VA: 0x2B8D050
+	|-UnityEvent<object, object, object>..ctor
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 6
+	protected override MethodInfo FindMethod_Impl(string name, object targetObj) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8D080 Offset: 0x2B8D080 VA: 0x2B8D080
+	|-UnityEvent<object, object, object>.FindMethod_Impl
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 7
+	internal override BaseInvokableCall GetDelegate(object target, MethodInfo theFunction) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8D258 Offset: 0x2B8D258 VA: 0x2B8D258
+	|-UnityEvent<object, object, object>.GetDelegate
+	*/
+}
+
+// Namespace: UnityEngine.Events
+public sealed class UnityAction<T0, T1, T2, T3> : MulticastDelegate // TypeDefIndex: 2452
+{
+	// Methods
+
+	// RVA: -1 Offset: -1
+	public void .ctor(object object, IntPtr method) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8A134 Offset: 0x2B8A134 VA: 0x2B8A134
+	|-UnityAction<object, object, object, object>..ctor
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 11
+	public virtual void Invoke(T0 arg0, T1 arg1, T2 arg2, T3 arg3) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8A144 Offset: 0x2B8A144 VA: 0x2B8A144
+	|-UnityAction<object, object, object, object>.Invoke
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 12
+	public virtual IAsyncResult BeginInvoke(T0 arg0, T1 arg1, T2 arg2, T3 arg3, AsyncCallback callback, object object) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8A554 Offset: 0x2B8A554 VA: 0x2B8A554
+	|-UnityAction<object, object, object, object>.BeginInvoke
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8A588 Offset: 0x2B8A588 VA: 0x2B8A588
+	|-UnityAction<object, object, object, object>.EndInvoke
+	*/
+}
+
+// Namespace: UnityEngine.Events
+[Serializable]
+public abstract class UnityEvent<T0, T1, T2, T3> : UnityEventBase // TypeDefIndex: 2453
+{
+	// Fields
+	private object[] m_InvokeArray; // 0x0
+
+	// Methods
+
+	[RequiredByNativeCodeAttribute] // RVA: 0xC50928 Offset: 0xC50928 VA: 0xC50928
+	// RVA: -1 Offset: -1
+	public void .ctor() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8D2CC Offset: 0x2B8D2CC VA: 0x2B8D2CC
+	|-UnityEvent<object, object, object, object>..ctor
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 6
+	protected override MethodInfo FindMethod_Impl(string name, object targetObj) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8D2FC Offset: 0x2B8D2FC VA: 0x2B8D2FC
+	|-UnityEvent<object, object, object, object>.FindMethod_Impl
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 7
+	internal override BaseInvokableCall GetDelegate(object target, MethodInfo theFunction) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x2B8D534 Offset: 0x2B8D534 VA: 0x2B8D534
+	|-UnityEvent<object, object, object, object>.GetDelegate
+	*/
+}
+
+// Namespace: UnityEngine
+[NativeHeaderAttribute] // RVA: 0xC46DF8 Offset: 0xC46DF8 VA: 0xC46DF8
+internal class UnityLogWriter : TextWriter // TypeDefIndex: 2454
+{
+	// Properties
+	public override Encoding Encoding { get; }
+
+	// Methods
+
+	// RVA: 0x104179C Offset: 0x104179C VA: 0x104179C
+	public void .ctor() { }
+
+	[ThreadAndSerializationSafeAttribute] // RVA: 0xC50938 Offset: 0xC50938 VA: 0xC50938
+	// RVA: 0x1041804 Offset: 0x1041804 VA: 0x1041804
+	public static void WriteStringToUnityLog(string s) { }
+
+	[FreeFunctionAttribute] // RVA: 0xC50948 Offset: 0xC50948 VA: 0xC50948
+	// RVA: 0x1041810 Offset: 0x1041810 VA: 0x1041810
+	private static void WriteStringToUnityLogImpl(string s) { }
+
+	// RVA: 0x104187C Offset: 0x104187C VA: 0x104187C
+	public static void Init() { }
+
+	// RVA: 0x10418F8 Offset: 0x10418F8 VA: 0x10418F8 Slot: 5
+	public override Encoding get_Encoding() { }
+
+	// RVA: 0x1041958 Offset: 0x1041958 VA: 0x1041958 Slot: 9
+	public override void Write(char value) { }
+
+	// RVA: 0x1041988 Offset: 0x1041988 VA: 0x1041988 Slot: 11
+	public override void Write(string s) { }
+
+	// RVA: 0x1041998 Offset: 0x1041998 VA: 0x1041998 Slot: 13
+	public override void Write(char[] buffer, int index, int count) { }
+}
+
+// Namespace: UnityEngine
+internal sealed class UnitySynchronizationContext : SynchronizationContext // TypeDefIndex: 2455
+{
+	// Fields
+	private readonly List<UnitySynchronizationContext.WorkRequest> m_AsyncWorkQueue; // 0x18
+	private readonly List<UnitySynchronizationContext.WorkRequest> m_CurrentFrameWork; // 0x20
+	private readonly int m_MainThreadID; // 0x28
+
+	// Methods
+
+	// RVA: 0x10419B4 Offset: 0x10419B4 VA: 0x10419B4
+	private void .ctor(int mainThreadID) { }
+
+	// RVA: 0x1041A60 Offset: 0x1041A60 VA: 0x1041A60 Slot: 7
+	public override void Send(SendOrPostCallback callback, object state) { }
+
+	// RVA: 0x1041D18 Offset: 0x1041D18 VA: 0x1041D18 Slot: 6
+	public override void Post(SendOrPostCallback callback, object state) { }
+
+	// RVA: 0x1041DF8 Offset: 0x1041DF8 VA: 0x1041DF8
+	private void Exec() { }
+
+	[RequiredByNativeCodeAttribute] // RVA: 0xC50980 Offset: 0xC50980 VA: 0xC50980
+	// RVA: 0x1042128 Offset: 0x1042128 VA: 0x1042128
+	private static void InitializeSynchronizationContext() { }
+
+	[RequiredByNativeCodeAttribute] // RVA: 0xC50990 Offset: 0xC50990 VA: 0xC50990
+	// RVA: 0x10421E8 Offset: 0x10421E8 VA: 0x10421E8
+	private static void ExecuteTasks() { }
+}
+
+// Namespace: 
+private struct UnitySynchronizationContext.WorkRequest // TypeDefIndex: 2456
+{
+	// Fields
+	private readonly SendOrPostCallback m_DelagateCallback; // 0x0
+	private readonly object m_DelagateState; // 0x8
+	private readonly ManualResetEvent m_WaitHandle; // 0x10
+
+	// Methods
+
+	// RVA: 0xBBA3BC Offset: 0xBBA3BC VA: 0xBBA3BC
+	public void .ctor(SendOrPostCallback callback, object state, ManualResetEvent waitHandle) { }
+
+	// RVA: 0xBBA3C8 Offset: 0xBBA3C8 VA: 0xBBA3C8
+	public void Invoke() { }
+}
+
+// Namespace: UnityEngine
+[DefaultMemberAttribute] // RVA: 0xC46E30 Offset: 0xC46E30 VA: 0xC46E30
+[RequiredByNativeCodeAttribute] // RVA: 0xC46E30 Offset: 0xC46E30 VA: 0xC46E30
+[NativeClassAttribute] // RVA: 0xC46E30 Offset: 0xC46E30 VA: 0xC46E30
+public struct Vector2 : IEquatable<Vector2> // TypeDefIndex: 2457
+{
+	// Fields
+	public float x; // 0x0
+	public float y; // 0x4
+	private static readonly Vector2 zeroVector; // 0x0
+	private static readonly Vector2 oneVector; // 0x8
+	private static readonly Vector2 upVector; // 0x10
+	private static readonly Vector2 downVector; // 0x18
+	private static readonly Vector2 leftVector; // 0x20
+	private static readonly Vector2 rightVector; // 0x28
+	private static readonly Vector2 positiveInfinityVector; // 0x30
+	private static readonly Vector2 negativeInfinityVector; // 0x38
+	public const float kEpsilon = 1E-05;
+	public const float kEpsilonNormalSqrt = 1E-15;
+
+	// Properties
+	public float Item { get; set; }
+	public Vector2 normalized { get; }
+	public float magnitude { get; }
+	public float sqrMagnitude { get; }
+	public static Vector2 zero { get; }
+	public static Vector2 one { get; }
+	public static Vector2 up { get; }
+	public static Vector2 right { get; }
+
+	// Methods
+
+	// RVA: 0xBBA3D0 Offset: 0xBBA3D0 VA: 0xBBA3D0
+	public void .ctor(float x, float y) { }
+
+	// RVA: 0xBBA3D8 Offset: 0xBBA3D8 VA: 0xBBA3D8
+	public float get_Item(int index) { }
+
+	// RVA: 0xBBA3E0 Offset: 0xBBA3E0 VA: 0xBBA3E0
+	public void set_Item(int index, float value) { }
+
+	// RVA: 0xBBA3E8 Offset: 0xBBA3E8 VA: 0xBBA3E8
+	public void Set(float newX, float newY) { }
+
+	// RVA: 0x10423C4 Offset: 0x10423C4 VA: 0x10423C4
+	public static Vector2 Lerp(Vector2 a, Vector2 b, float t) { }
+
+	// RVA: 0x1042470 Offset: 0x1042470 VA: 0x1042470
+	public static Vector2 MoveTowards(Vector2 current, Vector2 target, float maxDistanceDelta) { }
+
+	// RVA: 0x104262C Offset: 0x104262C VA: 0x104262C
+	public static Vector2 Scale(Vector2 a, Vector2 b) { }
+
+	// RVA: 0xBBA3F0 Offset: 0xBBA3F0 VA: 0xBBA3F0
+	public void Normalize() { }
+
+	// RVA: 0xBBA3F8 Offset: 0xBBA3F8 VA: 0xBBA3F8
+	public Vector2 get_normalized() { }
+
+	// RVA: 0xBBA424 Offset: 0xBBA424 VA: 0xBBA424 Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0xBBA42C Offset: 0xBBA42C VA: 0xBBA42C
+	public string ToString(string format) { }
+
+	// RVA: 0xBBA434 Offset: 0xBBA434 VA: 0xBBA434 Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0xBBA470 Offset: 0xBBA470 VA: 0xBBA470 Slot: 0
+	public override bool Equals(object other) { }
+
+	// RVA: 0xBBA478 Offset: 0xBBA478 VA: 0xBBA478 Slot: 4
+	public bool Equals(Vector2 other) { }
+
+	// RVA: 0x1042AD0 Offset: 0x1042AD0 VA: 0x1042AD0
+	public static float Dot(Vector2 lhs, Vector2 rhs) { }
+
+	// RVA: 0xBBA480 Offset: 0xBBA480 VA: 0xBBA480
+	public float get_magnitude() { }
+
+	// RVA: 0xBBA488 Offset: 0xBBA488 VA: 0xBBA488
+	public float get_sqrMagnitude() { }
+
+	// RVA: 0x1042AF4 Offset: 0x1042AF4 VA: 0x1042AF4
+	public static float Angle(Vector2 from, Vector2 to) { }
+
+	// RVA: 0x1042C24 Offset: 0x1042C24 VA: 0x1042C24
+	public static float Distance(Vector2 a, Vector2 b) { }
+
+	// RVA: 0x1042CB8 Offset: 0x1042CB8 VA: 0x1042CB8
+	public static Vector2 ClampMagnitude(Vector2 vector, float maxLength) { }
+
+	// RVA: 0x1042D68 Offset: 0x1042D68 VA: 0x1042D68
+	public static float SqrMagnitude(Vector2 a) { }
+
+	// RVA: 0xBBA49C Offset: 0xBBA49C VA: 0xBBA49C
+	public float SqrMagnitude() { }
+
+	// RVA: 0x1042D8C Offset: 0x1042D8C VA: 0x1042D8C
+	public static Vector2 Min(Vector2 lhs, Vector2 rhs) { }
+
+	// RVA: 0x1042E34 Offset: 0x1042E34 VA: 0x1042E34
+	public static Vector2 Max(Vector2 lhs, Vector2 rhs) { }
+
+	// RVA: 0x1042620 Offset: 0x1042620 VA: 0x1042620
+	public static Vector2 op_Addition(Vector2 a, Vector2 b) { }
+
+	// RVA: 0x1042564 Offset: 0x1042564 VA: 0x1042564
+	public static Vector2 op_Subtraction(Vector2 a, Vector2 b) { }
+
+	// RVA: 0x1042EDC Offset: 0x1042EDC VA: 0x1042EDC
+	public static Vector2 op_Multiply(Vector2 a, Vector2 b) { }
+
+	// RVA: 0x1042EE8 Offset: 0x1042EE8 VA: 0x1042EE8
+	public static Vector2 op_Division(Vector2 a, Vector2 b) { }
+
+	// RVA: 0x1042EF4 Offset: 0x1042EF4 VA: 0x1042EF4
+	public static Vector2 op_UnaryNegation(Vector2 a) { }
+
+	// RVA: 0x1042614 Offset: 0x1042614 VA: 0x1042614
+	public static Vector2 op_Multiply(Vector2 a, float d) { }
+
+	// RVA: 0x1042F00 Offset: 0x1042F00 VA: 0x1042F00
+	public static Vector2 op_Multiply(float d, Vector2 a) { }
+
+	// RVA: 0x1042608 Offset: 0x1042608 VA: 0x1042608
+	public static Vector2 op_Division(Vector2 a, float d) { }
+
+	// RVA: 0x1042F10 Offset: 0x1042F10 VA: 0x1042F10
+	public static bool op_Equality(Vector2 lhs, Vector2 rhs) { }
+
+	// RVA: 0x1042FB0 Offset: 0x1042FB0 VA: 0x1042FB0
+	public static bool op_Inequality(Vector2 lhs, Vector2 rhs) { }

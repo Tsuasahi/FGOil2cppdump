@@ -1,0 +1,1000 @@
+	// RVA: 0x26044DC Offset: 0x26044DC VA: 0x26044DC Slot: 7
+	public virtual int[] GetExponentsPresent() { }
+
+	// RVA: 0x26044E8 Offset: 0x26044E8 VA: 0x26044E8 Slot: 0
+	public override bool Equals(object obj) { }
+
+	// RVA: 0x26045B0 Offset: 0x26045B0 VA: 0x26045B0 Slot: 2
+	public override int GetHashCode() { }
+}
+
+// Namespace: Org.BouncyCastle.Math.Field
+public interface IExtensionField : IFiniteField // TypeDefIndex: 5153
+{
+	// Properties
+	public abstract IFiniteField Subfield { get; }
+	public abstract int Degree { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IFiniteField get_Subfield();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract int get_Degree();
+}
+
+// Namespace: Org.BouncyCastle.Math.Field
+public interface IFiniteField // TypeDefIndex: 5154
+{
+	// Properties
+	public abstract BigInteger Characteristic { get; }
+	public abstract int Dimension { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract BigInteger get_Characteristic();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract int get_Dimension();
+}
+
+// Namespace: Org.BouncyCastle.Math.Field
+public interface IPolynomial // TypeDefIndex: 5155
+{
+	// Properties
+	public abstract int Degree { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract int get_Degree();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract int[] GetExponentsPresent();
+}
+
+// Namespace: Org.BouncyCastle.Math.Field
+public interface IPolynomialExtensionField : IExtensionField, IFiniteField // TypeDefIndex: 5156
+{
+	// Properties
+	public abstract IPolynomial MinimalPolynomial { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IPolynomial get_MinimalPolynomial();
+}
+
+// Namespace: Org.BouncyCastle.Math.Field
+internal class PrimeField : IFiniteField // TypeDefIndex: 5157
+{
+	// Fields
+	protected readonly BigInteger characteristic; // 0x10
+
+	// Properties
+	public virtual BigInteger Characteristic { get; }
+	public virtual int Dimension { get; }
+
+	// Methods
+
+	// RVA: 0x2604370 Offset: 0x2604370 VA: 0x2604370
+	internal void .ctor(BigInteger characteristic) { }
+
+	// RVA: 0x26049E8 Offset: 0x26049E8 VA: 0x26049E8 Slot: 6
+	public virtual BigInteger get_Characteristic() { }
+
+	// RVA: 0x26049F0 Offset: 0x26049F0 VA: 0x26049F0 Slot: 7
+	public virtual int get_Dimension() { }
+
+	// RVA: 0x26049F8 Offset: 0x26049F8 VA: 0x26049F8 Slot: 0
+	public override bool Equals(object obj) { }
+
+	// RVA: 0x2604AD4 Offset: 0x2604AD4 VA: 0x2604AD4 Slot: 2
+	public override int GetHashCode() { }
+}
+
+// Namespace: Org.BouncyCastle.Math.Raw
+internal abstract class Interleave // TypeDefIndex: 5158
+{
+	// Fields
+	private const ulong M32 = 1431655765;
+	private const ulong M64 = 6148914691236517205;
+
+	// Methods
+
+	// RVA: 0x2604B08 Offset: 0x2604B08 VA: 0x2604B08
+	protected void .ctor() { }
+
+	// RVA: 0x2604B10 Offset: 0x2604B10 VA: 0x2604B10
+	internal static uint Expand8to16(uint x) { }
+
+	// RVA: 0x2604B3C Offset: 0x2604B3C VA: 0x2604B3C
+	internal static uint Expand16to32(uint x) { }
+
+	// RVA: 0x2604B64 Offset: 0x2604B64 VA: 0x2604B64
+	internal static ulong Expand32to64(uint x) { }
+
+	// RVA: 0x2604BBC Offset: 0x2604BBC VA: 0x2604BBC
+	internal static void Expand64To128(ulong x, ulong[] z, int zOff) { }
+
+	// RVA: 0x2604CB0 Offset: 0x2604CB0 VA: 0x2604CB0
+	internal static ulong Unshuffle(ulong x) { }
+}
+
+// Namespace: Org.BouncyCastle.Math.Raw
+internal abstract class Mod // TypeDefIndex: 5159
+{
+	// Fields
+	private static readonly SecureRandom RandomSource; // 0x0
+
+	// Methods
+
+	// RVA: 0x2604D0C Offset: 0x2604D0C VA: 0x2604D0C
+	protected void .ctor() { }
+
+	// RVA: 0x2604D14 Offset: 0x2604D14 VA: 0x2604D14
+	public static void Invert(uint[] p, uint[] x, uint[] z) { }
+
+	// RVA: 0x2605728 Offset: 0x2605728 VA: 0x2605728
+	public static uint[] Random(uint[] p) { }
+
+	// RVA: 0x26058C4 Offset: 0x26058C4 VA: 0x26058C4
+	public static void Add(uint[] p, uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x2605A4C Offset: 0x2605A4C VA: 0x2605A4C
+	public static void Subtract(uint[] p, uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x2605504 Offset: 0x2605504 VA: 0x2605504
+	private static void InversionResult(uint[] p, int ac, uint[] a, uint[] z) { }
+
+	// RVA: 0x2605344 Offset: 0x2605344 VA: 0x2605344
+	private static void InversionStep(uint[] p, uint[] u, int uLen, uint[] x, ref int xc) { }
+
+	// RVA: 0x2605D68 Offset: 0x2605D68 VA: 0x2605D68
+	private static int GetTrailingZeroes(uint x) { }
+
+	// RVA: 0x2605EF8 Offset: 0x2605EF8 VA: 0x2605EF8
+	private static void .cctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Math.Raw
+internal abstract class Nat // TypeDefIndex: 5160
+{
+	// Fields
+	private const ulong M = 4294967295;
+
+	// Methods
+
+	// RVA: 0x2605F64 Offset: 0x2605F64 VA: 0x2605F64
+	protected void .ctor() { }
+
+	// RVA: 0x2605940 Offset: 0x2605940 VA: 0x2605940
+	public static uint Add(int len, uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x2605F6C Offset: 0x2605F6C VA: 0x2605F6C
+	public static uint Add33At(int len, uint x, uint[] z, int zPos) { }
+
+	// RVA: 0x2606108 Offset: 0x2606108 VA: 0x2606108
+	public static uint Add33At(int len, uint x, uint[] z, int zOff, int zPos) { }
+
+	// RVA: 0x26062D0 Offset: 0x26062D0 VA: 0x26062D0
+	public static uint Add33To(int len, uint x, uint[] z) { }
+
+	// RVA: 0x26063B8 Offset: 0x26063B8 VA: 0x26063B8
+	public static uint Add33To(int len, uint x, uint[] z, int zOff) { }
+
+	// RVA: 0x26064D0 Offset: 0x26064D0 VA: 0x26064D0
+	public static uint AddBothTo(int len, uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x2606610 Offset: 0x2606610 VA: 0x2606610
+	public static uint AddBothTo(int len, uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x2606774 Offset: 0x2606774 VA: 0x2606774
+	public static uint AddDWordAt(int len, ulong x, uint[] z, int zPos) { }
+
+	// RVA: 0x2606894 Offset: 0x2606894 VA: 0x2606894
+	public static uint AddDWordAt(int len, ulong x, uint[] z, int zOff, int zPos) { }
+
+	// RVA: 0x26069C0 Offset: 0x26069C0 VA: 0x26069C0
+	public static uint AddDWordTo(int len, ulong x, uint[] z) { }
+
+	// RVA: 0x2606AA8 Offset: 0x2606AA8 VA: 0x2606AA8
+	public static uint AddDWordTo(int len, ulong x, uint[] z, int zOff) { }
+
+	// RVA: 0x2605BD4 Offset: 0x2605BD4 VA: 0x2605BD4
+	public static uint AddTo(int len, uint[] x, uint[] z) { }
+
+	// RVA: 0x2606BCC Offset: 0x2606BCC VA: 0x2606BCC
+	public static uint AddTo(int len, uint[] x, int xOff, uint[] z, int zOff) { }
+
+	// RVA: 0x2606CCC Offset: 0x2606CCC VA: 0x2606CCC
+	public static uint AddWordAt(int len, uint x, uint[] z, int zPos) { }
+
+	// RVA: 0x2606D88 Offset: 0x2606D88 VA: 0x2606D88
+	public static uint AddWordAt(int len, uint x, uint[] z, int zOff, int zPos) { }
+
+	// RVA: 0x2606E5C Offset: 0x2606E5C VA: 0x2606E5C
+	public static uint AddWordTo(int len, uint x, uint[] z) { }
+
+	// RVA: 0x2606EF8 Offset: 0x2606EF8 VA: 0x2606EF8
+	public static uint AddWordTo(int len, uint x, uint[] z, int zOff) { }
+
+	// RVA: 0x2606FB8 Offset: 0x2606FB8 VA: 0x2606FB8
+	public static void Copy(int len, uint[] x, uint[] z) { }
+
+	// RVA: 0x2605270 Offset: 0x2605270 VA: 0x2605270
+	public static uint[] Copy(int len, uint[] x) { }
+
+	// RVA: 0x26052F4 Offset: 0x26052F4 VA: 0x26052F4
+	public static uint[] Create(int len) { }
+
+	// RVA: 0x2606FD4 Offset: 0x2606FD4 VA: 0x2606FD4
+	public static ulong[] Create64(int len) { }
+
+	// RVA: 0x2607024 Offset: 0x2607024 VA: 0x2607024
+	public static int Dec(int len, uint[] z) { }
+
+	// RVA: 0x26070AC Offset: 0x26070AC VA: 0x26070AC
+	public static int Dec(int len, uint[] x, uint[] z) { }
+
+	// RVA: 0x26071E0 Offset: 0x26071E0 VA: 0x26071E0
+	public static int DecAt(int len, uint[] z, int zPos) { }
+
+	// RVA: 0x2607268 Offset: 0x2607268 VA: 0x2607268
+	public static int DecAt(int len, uint[] z, int zOff, int zPos) { }
+
+	// RVA: 0x2607304 Offset: 0x2607304 VA: 0x2607304
+	public static bool Eq(int len, uint[] x, uint[] y) { }
+
+	// RVA: 0x26073B8 Offset: 0x26073B8 VA: 0x26073B8
+	public static uint[] FromBigInteger(int bits, BigInteger x) { }
+
+	// RVA: 0x260752C Offset: 0x260752C VA: 0x260752C
+	public static uint GetBit(uint[] x, int bit) { }
+
+	// RVA: 0x260557C Offset: 0x260557C VA: 0x260557C
+	public static bool Gte(int len, uint[] x, uint[] y) { }
+
+	// RVA: 0x26075E0 Offset: 0x26075E0 VA: 0x26075E0
+	public static uint Inc(int len, uint[] z) { }
+
+	// RVA: 0x2607668 Offset: 0x2607668 VA: 0x2607668
+	public static uint Inc(int len, uint[] x, uint[] z) { }
+
+	// RVA: 0x2606080 Offset: 0x2606080 VA: 0x2606080
+	public static uint IncAt(int len, uint[] z, int zPos) { }
+
+	// RVA: 0x2606234 Offset: 0x2606234 VA: 0x2606234
+	public static uint IncAt(int len, uint[] z, int zOff, int zPos) { }
+
+	// RVA: 0x26051C4 Offset: 0x26051C4 VA: 0x26051C4
+	public static bool IsOne(int len, uint[] x) { }
+
+	// RVA: 0x260511C Offset: 0x260511C VA: 0x260511C
+	public static bool IsZero(int len, uint[] x) { }
+
+	// RVA: 0x260779C Offset: 0x260779C VA: 0x260779C
+	public static void Mul(int len, uint[] x, uint[] y, uint[] zz) { }
+
+	// RVA: 0x2607AC0 Offset: 0x2607AC0 VA: 0x2607AC0
+	public static void Mul(int len, uint[] x, int xOff, uint[] y, int yOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x2607D28 Offset: 0x2607D28 VA: 0x2607D28
+	public static uint Mul31BothAdd(int len, uint a, uint[] x, uint b, uint[] y, uint[] z, int zOff) { }
+
+	// RVA: 0x26078E8 Offset: 0x26078E8 VA: 0x26078E8
+	public static uint MulWord(int len, uint x, uint[] y, uint[] z) { }
+
+	// RVA: 0x2607C44 Offset: 0x2607C44 VA: 0x2607C44
+	public static uint MulWord(int len, uint x, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x26079AC Offset: 0x26079AC VA: 0x26079AC
+	public static uint MulWordAddTo(int len, uint x, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x2607E88 Offset: 0x2607E88 VA: 0x2607E88
+	public static uint MulWordDwordAddAt(int len, uint x, ulong y, uint[] z, int zPos) { }
+
+	// RVA: 0x2605E50 Offset: 0x2605E50 VA: 0x2605E50
+	public static uint ShiftDownBit(int len, uint[] z, uint c) { }
+
+	// RVA: 0x2608008 Offset: 0x2608008 VA: 0x2608008
+	public static uint ShiftDownBit(int len, uint[] z, int zOff, uint c) { }
+
+	// RVA: 0x26080C0 Offset: 0x26080C0 VA: 0x26080C0
+	public static uint ShiftDownBit(int len, uint[] x, uint c, uint[] z) { }
+
+	// RVA: 0x2608180 Offset: 0x2608180 VA: 0x2608180
+	public static uint ShiftDownBit(int len, uint[] x, int xOff, uint c, uint[] z, int zOff) { }
+
+	// RVA: 0x2605D84 Offset: 0x2605D84 VA: 0x2605D84
+	public static uint ShiftDownBits(int len, uint[] z, int bits, uint c) { }
+
+	// RVA: 0x2608258 Offset: 0x2608258 VA: 0x2608258
+	public static uint ShiftDownBits(int len, uint[] z, int zOff, int bits, uint c) { }
+
+	// RVA: 0x2608334 Offset: 0x2608334 VA: 0x2608334
+	public static uint ShiftDownBits(int len, uint[] x, int bits, uint c, uint[] z) { }
+
+	// RVA: 0x2608418 Offset: 0x2608418 VA: 0x2608418
+	public static uint ShiftDownBits(int len, uint[] x, int xOff, int bits, uint c, uint[] z, int zOff) { }
+
+	// RVA: 0x2605CC4 Offset: 0x2605CC4 VA: 0x2605CC4
+	public static uint ShiftDownWord(int len, uint[] z, uint c) { }
+
+	// RVA: 0x2608514 Offset: 0x2608514 VA: 0x2608514
+	public static uint ShiftUpBit(int len, uint[] z, uint c) { }
+
+	// RVA: 0x26085C4 Offset: 0x26085C4 VA: 0x26085C4
+	public static uint ShiftUpBit(int len, uint[] z, int zOff, uint c) { }
+
+	// RVA: 0x2608678 Offset: 0x2608678 VA: 0x2608678
+	public static uint ShiftUpBit(int len, uint[] x, uint c, uint[] z) { }
+
+	// RVA: 0x2608744 Offset: 0x2608744 VA: 0x2608744
+	public static uint ShiftUpBit(int len, uint[] x, int xOff, uint c, uint[] z, int zOff) { }
+
+	// RVA: 0x2608820 Offset: 0x2608820 VA: 0x2608820
+	public static ulong ShiftUpBit64(int len, ulong[] x, int xOff, ulong c, ulong[] z, int zOff) { }
+
+	// RVA: 0x26088FC Offset: 0x26088FC VA: 0x26088FC
+	public static uint ShiftUpBits(int len, uint[] z, int bits, uint c) { }
+
+	// RVA: 0x26089D0 Offset: 0x26089D0 VA: 0x26089D0
+	public static uint ShiftUpBits(int len, uint[] z, int zOff, int bits, uint c) { }
+
+	// RVA: 0x2608AA8 Offset: 0x2608AA8 VA: 0x2608AA8
+	public static ulong ShiftUpBits64(int len, ulong[] z, int zOff, int bits, ulong c) { }
+
+	// RVA: 0x2608B80 Offset: 0x2608B80 VA: 0x2608B80
+	public static uint ShiftUpBits(int len, uint[] x, int bits, uint c, uint[] z) { }
+
+	// RVA: 0x2608C70 Offset: 0x2608C70 VA: 0x2608C70
+	public static uint ShiftUpBits(int len, uint[] x, int xOff, int bits, uint c, uint[] z, int zOff) { }
+
+	// RVA: 0x2608D70 Offset: 0x2608D70 VA: 0x2608D70
+	public static ulong ShiftUpBits64(int len, ulong[] x, int xOff, int bits, ulong c, ulong[] z, int zOff) { }
+
+	// RVA: 0x2608E70 Offset: 0x2608E70 VA: 0x2608E70
+	public static void Square(int len, uint[] x, uint[] zz) { }
+
+	// RVA: 0x260912C Offset: 0x260912C VA: 0x260912C
+	public static void Square(int len, uint[] x, int xOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x2609008 Offset: 0x2609008 VA: 0x2609008
+	public static uint SquareWordAdd(uint[] x, int xPos, uint[] z) { }
+
+	// RVA: 0x26092F8 Offset: 0x26092F8 VA: 0x26092F8
+	public static uint SquareWordAdd(uint[] x, int xOff, int xPos, uint[] z, int zOff) { }
+
+	// RVA: 0x2605AC8 Offset: 0x2605AC8 VA: 0x2605AC8
+	public static int Sub(int len, uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x260943C Offset: 0x260943C VA: 0x260943C
+	public static int Sub(int len, uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x2609564 Offset: 0x2609564 VA: 0x2609564
+	public static int Sub33At(int len, uint x, uint[] z, int zPos) { }
+
+	// RVA: 0x2609678 Offset: 0x2609678 VA: 0x2609678
+	public static int Sub33At(int len, uint x, uint[] z, int zOff, int zPos) { }
+
+	// RVA: 0x26097A4 Offset: 0x26097A4 VA: 0x26097A4
+	public static int Sub33From(int len, uint x, uint[] z) { }
+
+	// RVA: 0x260988C Offset: 0x260988C VA: 0x260988C
+	public static int Sub33From(int len, uint x, uint[] z, int zOff) { }
+
+	// RVA: 0x26099A4 Offset: 0x26099A4 VA: 0x26099A4
+	public static int SubBothFrom(int len, uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x2609AE4 Offset: 0x2609AE4 VA: 0x2609AE4
+	public static int SubBothFrom(int len, uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x2609C50 Offset: 0x2609C50 VA: 0x2609C50
+	public static int SubDWordAt(int len, ulong x, uint[] z, int zPos) { }
+
+	// RVA: 0x2609D70 Offset: 0x2609D70 VA: 0x2609D70
+	public static int SubDWordAt(int len, ulong x, uint[] z, int zOff, int zPos) { }
+
+	// RVA: 0x2609E9C Offset: 0x2609E9C VA: 0x2609E9C
+	public static int SubDWordFrom(int len, ulong x, uint[] z) { }
+
+	// RVA: 0x2609F84 Offset: 0x2609F84 VA: 0x2609F84
+	public static int SubDWordFrom(int len, ulong x, uint[] z, int zOff) { }
+
+	// RVA: 0x2605638 Offset: 0x2605638 VA: 0x2605638
+	public static int SubFrom(int len, uint[] x, uint[] z) { }
+
+	// RVA: 0x260A0A8 Offset: 0x260A0A8 VA: 0x260A0A8
+	public static int SubFrom(int len, uint[] x, int xOff, uint[] z, int zOff) { }
+
+	// RVA: 0x260A1B0 Offset: 0x260A1B0 VA: 0x260A1B0
+	public static int SubWordAt(int len, uint x, uint[] z, int zPos) { }
+
+	// RVA: 0x260A26C Offset: 0x260A26C VA: 0x260A26C
+	public static int SubWordAt(int len, uint x, uint[] z, int zOff, int zPos) { }
+
+	// RVA: 0x260A340 Offset: 0x260A340 VA: 0x260A340
+	public static int SubWordFrom(int len, uint x, uint[] z) { }
+
+	// RVA: 0x260A3DC Offset: 0x260A3DC VA: 0x260A3DC
+	public static int SubWordFrom(int len, uint x, uint[] z, int zOff) { }
+
+	// RVA: 0x260A49C Offset: 0x260A49C VA: 0x260A49C
+	public static BigInteger ToBigInteger(int len, uint[] x) { }
+
+	// RVA: 0x260A59C Offset: 0x260A59C VA: 0x260A59C
+	public static void Zero(int len, uint[] z) { }
+}
+
+// Namespace: Org.BouncyCastle.Math.Raw
+internal abstract class Nat128 // TypeDefIndex: 5161
+{
+	// Fields
+	private const ulong M = 4294967295;
+
+	// Methods
+
+	// RVA: 0x260A60C Offset: 0x260A60C VA: 0x260A60C
+	protected void .ctor() { }
+
+	// RVA: 0x260A614 Offset: 0x260A614 VA: 0x260A614
+	public static uint Add(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x260A808 Offset: 0x260A808 VA: 0x260A808
+	public static uint AddBothTo(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x260AA88 Offset: 0x260AA88 VA: 0x260AA88
+	public static uint AddTo(uint[] x, uint[] z) { }
+
+	// RVA: 0x260AC64 Offset: 0x260AC64 VA: 0x260AC64
+	public static uint AddTo(uint[] x, int xOff, uint[] z, int zOff, uint cIn) { }
+
+	// RVA: 0x260AEC8 Offset: 0x260AEC8 VA: 0x260AEC8
+	public static uint AddToEachOther(uint[] u, int uOff, uint[] v, int vOff) { }
+
+	// RVA: 0x260B1A8 Offset: 0x260B1A8 VA: 0x260B1A8
+	public static void Copy(uint[] x, uint[] z) { }
+
+	// RVA: 0x260B2DC Offset: 0x260B2DC VA: 0x260B2DC
+	public static void Copy64(ulong[] x, ulong[] z) { }
+
+	// RVA: 0x260B390 Offset: 0x260B390 VA: 0x260B390
+	public static uint[] Create() { }
+
+	// RVA: 0x260B3DC Offset: 0x260B3DC VA: 0x260B3DC
+	public static ulong[] Create64() { }
+
+	// RVA: 0x260B428 Offset: 0x260B428 VA: 0x260B428
+	public static uint[] CreateExt() { }
+
+	// RVA: 0x260B474 Offset: 0x260B474 VA: 0x260B474
+	public static ulong[] CreateExt64() { }
+
+	// RVA: 0x260B4C0 Offset: 0x260B4C0 VA: 0x260B4C0
+	public static bool Diff(uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x260B8C4 Offset: 0x260B8C4 VA: 0x260B8C4
+	public static bool Eq(uint[] x, uint[] y) { }
+
+	// RVA: 0x260B974 Offset: 0x260B974 VA: 0x260B974
+	public static bool Eq64(ulong[] x, ulong[] y) { }
+
+	// RVA: 0x260BA24 Offset: 0x260BA24 VA: 0x260BA24
+	public static uint[] FromBigInteger(BigInteger x) { }
+
+	// RVA: 0x260BB8C Offset: 0x260BB8C VA: 0x260BB8C
+	public static ulong[] FromBigInteger64(BigInteger x) { }
+
+	// RVA: 0x260BCF4 Offset: 0x260BCF4 VA: 0x260BCF4
+	public static uint GetBit(uint[] x, int bit) { }
+
+	// RVA: 0x260BDA0 Offset: 0x260BDA0 VA: 0x260BDA0
+	public static bool Gte(uint[] x, uint[] y) { }
+
+	// RVA: 0x260B548 Offset: 0x260B548 VA: 0x260B548
+	public static bool Gte(uint[] x, int xOff, uint[] y, int yOff) { }
+
+	// RVA: 0x260BE58 Offset: 0x260BE58 VA: 0x260BE58
+	public static bool IsOne(uint[] x) { }
+
+	// RVA: 0x260BEF0 Offset: 0x260BEF0 VA: 0x260BEF0
+	public static bool IsOne64(ulong[] x) { }
+
+	// RVA: 0x260BF68 Offset: 0x260BF68 VA: 0x260BF68
+	public static bool IsZero(uint[] x) { }
+
+	// RVA: 0x260BFDC Offset: 0x260BFDC VA: 0x260BFDC
+	public static bool IsZero64(ulong[] x) { }
+
+	// RVA: 0x260C050 Offset: 0x260C050 VA: 0x260C050
+	public static void Mul(uint[] x, uint[] y, uint[] zz) { }
+
+	// RVA: 0x260C3C4 Offset: 0x260C3C4 VA: 0x260C3C4
+	public static void Mul(uint[] x, int xOff, uint[] y, int yOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x260C818 Offset: 0x260C818 VA: 0x260C818
+	public static uint MulAddTo(uint[] x, uint[] y, uint[] zz) { }
+
+	// RVA: 0x260CAE8 Offset: 0x260CAE8 VA: 0x260CAE8
+	public static uint MulAddTo(uint[] x, int xOff, uint[] y, int yOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x260CE58 Offset: 0x260CE58 VA: 0x260CE58
+	public static ulong Mul33Add(uint w, uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x260D130 Offset: 0x260D130 VA: 0x260D130
+	public static uint MulWordAddExt(uint x, uint[] yy, int yyOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x260D3A8 Offset: 0x260D3A8 VA: 0x260D3A8
+	public static uint Mul33DWordAdd(uint x, ulong y, uint[] z, int zOff) { }
+
+	// RVA: 0x260D558 Offset: 0x260D558 VA: 0x260D558
+	public static uint Mul33WordAdd(uint x, uint y, uint[] z, int zOff) { }
+
+	// RVA: 0x260D6C8 Offset: 0x260D6C8 VA: 0x260D6C8
+	public static uint MulWordDwordAdd(uint x, ulong y, uint[] z, int zOff) { }
+
+	// RVA: 0x260D844 Offset: 0x260D844 VA: 0x260D844
+	public static uint MulWordsAdd(uint x, uint y, uint[] z, int zOff) { }
+
+	// RVA: 0x260D958 Offset: 0x260D958 VA: 0x260D958
+	public static uint MulWord(uint x, uint[] y, uint[] z, int zOff) { }
+
+	// RVA: 0x260DA24 Offset: 0x260DA24 VA: 0x260DA24
+	public static void Square(uint[] x, uint[] zz) { }
+
+	// RVA: 0x260DDF0 Offset: 0x260DDF0 VA: 0x260DDF0
+	public static void Square(uint[] x, int xOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x260E2D0 Offset: 0x260E2D0 VA: 0x260E2D0
+	public static int Sub(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x260B624 Offset: 0x260B624 VA: 0x260B624
+	public static int Sub(uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x260E4C4 Offset: 0x260E4C4 VA: 0x260E4C4
+	public static int SubBothFrom(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x260E748 Offset: 0x260E748 VA: 0x260E748
+	public static int SubFrom(uint[] x, uint[] z) { }
+
+	// RVA: 0x260E928 Offset: 0x260E928 VA: 0x260E928
+	public static int SubFrom(uint[] x, int xOff, uint[] z, int zOff) { }
+
+	// RVA: 0x260EB8C Offset: 0x260EB8C VA: 0x260EB8C
+	public static BigInteger ToBigInteger(uint[] x) { }
+
+	// RVA: 0x260EC78 Offset: 0x260EC78 VA: 0x260EC78
+	public static BigInteger ToBigInteger64(ulong[] x) { }
+
+	// RVA: 0x260ED64 Offset: 0x260ED64 VA: 0x260ED64
+	public static void Zero(uint[] z) { }
+}
+
+// Namespace: Org.BouncyCastle.Math.Raw
+internal abstract class Nat160 // TypeDefIndex: 5162
+{
+	// Fields
+	private const ulong M = 4294967295;
+
+	// Methods
+
+	// RVA: 0x260EE04 Offset: 0x260EE04 VA: 0x260EE04
+	protected void .ctor() { }
+
+	// RVA: 0x260EE0C Offset: 0x260EE0C VA: 0x260EE0C
+	public static uint Add(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x260F06C Offset: 0x260F06C VA: 0x260F06C
+	public static uint AddBothTo(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x260F37C Offset: 0x260F37C VA: 0x260F37C
+	public static uint AddTo(uint[] x, uint[] z) { }
+
+	// RVA: 0x260F5C4 Offset: 0x260F5C4 VA: 0x260F5C4
+	public static uint AddTo(uint[] x, int xOff, uint[] z, int zOff, uint cIn) { }
+
+	// RVA: 0x260F90C Offset: 0x260F90C VA: 0x260F90C
+	public static uint AddToEachOther(uint[] u, int uOff, uint[] v, int vOff) { }
+
+	// RVA: 0x260FC90 Offset: 0x260FC90 VA: 0x260FC90
+	public static void Copy(uint[] x, uint[] z) { }
+
+	// RVA: 0x260FE04 Offset: 0x260FE04 VA: 0x260FE04
+	public static uint[] Create() { }
+
+	// RVA: 0x260FE50 Offset: 0x260FE50 VA: 0x260FE50
+	public static uint[] CreateExt() { }
+
+	// RVA: 0x260FE9C Offset: 0x260FE9C VA: 0x260FE9C
+	public static bool Diff(uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x2610330 Offset: 0x2610330 VA: 0x2610330
+	public static bool Eq(uint[] x, uint[] y) { }
+
+	// RVA: 0x26103E0 Offset: 0x26103E0 VA: 0x26103E0
+	public static uint[] FromBigInteger(BigInteger x) { }
+
+	// RVA: 0x2610548 Offset: 0x2610548 VA: 0x2610548
+	public static uint GetBit(uint[] x, int bit) { }
+
+	// RVA: 0x26105F8 Offset: 0x26105F8 VA: 0x26105F8
+	public static bool Gte(uint[] x, uint[] y) { }
+
+	// RVA: 0x260FF24 Offset: 0x260FF24 VA: 0x260FF24
+	public static bool Gte(uint[] x, int xOff, uint[] y, int yOff) { }
+
+	// RVA: 0x26106B0 Offset: 0x26106B0 VA: 0x26106B0
+	public static bool IsOne(uint[] x) { }
+
+	// RVA: 0x2610748 Offset: 0x2610748 VA: 0x2610748
+	public static bool IsZero(uint[] x) { }
+
+	// RVA: 0x26107BC Offset: 0x26107BC VA: 0x26107BC
+	public static void Mul(uint[] x, uint[] y, uint[] zz) { }
+
+	// RVA: 0x2610BD4 Offset: 0x2610BD4 VA: 0x2610BD4
+	public static void Mul(uint[] x, int xOff, uint[] y, int yOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x26110F0 Offset: 0x26110F0 VA: 0x26110F0
+	public static uint MulAddTo(uint[] x, uint[] y, uint[] zz) { }
+
+	// RVA: 0x2611438 Offset: 0x2611438 VA: 0x2611438
+	public static uint MulAddTo(uint[] x, int xOff, uint[] y, int yOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x261183C Offset: 0x261183C VA: 0x261183C
+	public static ulong Mul33Add(uint w, uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x2611BAC Offset: 0x2611BAC VA: 0x2611BAC
+	public static uint MulWordAddExt(uint x, uint[] yy, int yyOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x2611EAC Offset: 0x2611EAC VA: 0x2611EAC
+	public static uint Mul33DWordAdd(uint x, ulong y, uint[] z, int zOff) { }
+
+	// RVA: 0x261208C Offset: 0x261208C VA: 0x261208C
+	public static uint Mul33WordAdd(uint x, uint y, uint[] z, int zOff) { }
+
+	// RVA: 0x26121FC Offset: 0x26121FC VA: 0x26121FC
+	public static uint MulWordDwordAdd(uint x, ulong y, uint[] z, int zOff) { }
+
+	// RVA: 0x2612378 Offset: 0x2612378 VA: 0x2612378
+	public static uint MulWordsAdd(uint x, uint y, uint[] z, int zOff) { }
+
+	// RVA: 0x261248C Offset: 0x261248C VA: 0x261248C
+	public static uint MulWord(uint x, uint[] y, uint[] z, int zOff) { }
+
+	// RVA: 0x2612558 Offset: 0x2612558 VA: 0x2612558
+	public static void Square(uint[] x, uint[] zz) { }
+
+	// RVA: 0x2612A10 Offset: 0x2612A10 VA: 0x2612A10
+	public static void Square(uint[] x, int xOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x2613078 Offset: 0x2613078 VA: 0x2613078
+	public static int Sub(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x2610000 Offset: 0x2610000 VA: 0x2610000
+	public static int Sub(uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x26132D8 Offset: 0x26132D8 VA: 0x26132D8
+	public static int SubBothFrom(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x26135EC Offset: 0x26135EC VA: 0x26135EC
+	public static int SubFrom(uint[] x, uint[] z) { }
+
+	// RVA: 0x2613838 Offset: 0x2613838 VA: 0x2613838
+	public static int SubFrom(uint[] x, int xOff, uint[] z, int zOff) { }
+
+	// RVA: 0x2613B20 Offset: 0x2613B20 VA: 0x2613B20
+	public static BigInteger ToBigInteger(uint[] x) { }
+
+	// RVA: 0x2613C0C Offset: 0x2613C0C VA: 0x2613C0C
+	public static void Zero(uint[] z) { }
+}
+
+// Namespace: Org.BouncyCastle.Math.Raw
+internal abstract class Nat192 // TypeDefIndex: 5163
+{
+	// Fields
+	private const ulong M = 4294967295;
+
+	// Methods
+
+	// RVA: 0x2613CCC Offset: 0x2613CCC VA: 0x2613CCC
+	protected void .ctor() { }
+
+	// RVA: 0x2613CD4 Offset: 0x2613CD4 VA: 0x2613CD4
+	public static uint Add(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x2613FA0 Offset: 0x2613FA0 VA: 0x2613FA0
+	public static uint AddBothTo(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x2614340 Offset: 0x2614340 VA: 0x2614340
+	public static uint AddTo(uint[] x, uint[] z) { }
+
+	// RVA: 0x26145F4 Offset: 0x26145F4 VA: 0x26145F4
+	public static uint AddTo(uint[] x, int xOff, uint[] z, int zOff, uint cIn) { }
+
+	// RVA: 0x2614960 Offset: 0x2614960 VA: 0x2614960
+	public static uint AddToEachOther(uint[] u, int uOff, uint[] v, int vOff) { }
+
+	// RVA: 0x2614D88 Offset: 0x2614D88 VA: 0x2614D88
+	public static void Copy(uint[] x, uint[] z) { }
+
+	// RVA: 0x2614F3C Offset: 0x2614F3C VA: 0x2614F3C
+	public static void Copy64(ulong[] x, ulong[] z) { }
+
+	// RVA: 0x2615030 Offset: 0x2615030 VA: 0x2615030
+	public static uint[] Create() { }
+
+	// RVA: 0x261507C Offset: 0x261507C VA: 0x261507C
+	public static ulong[] Create64() { }
+
+	// RVA: 0x26150C8 Offset: 0x26150C8 VA: 0x26150C8
+	public static uint[] CreateExt() { }
+
+	// RVA: 0x2615114 Offset: 0x2615114 VA: 0x2615114
+	public static ulong[] CreateExt64() { }
+
+	// RVA: 0x2615160 Offset: 0x2615160 VA: 0x2615160
+	public static bool Diff(uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x2615684 Offset: 0x2615684 VA: 0x2615684
+	public static bool Eq(uint[] x, uint[] y) { }
+
+	// RVA: 0x2615734 Offset: 0x2615734 VA: 0x2615734
+	public static bool Eq64(ulong[] x, ulong[] y) { }
+
+	// RVA: 0x26157E4 Offset: 0x26157E4 VA: 0x26157E4
+	public static uint[] FromBigInteger(BigInteger x) { }
+
+	// RVA: 0x261594C Offset: 0x261594C VA: 0x261594C
+	public static ulong[] FromBigInteger64(BigInteger x) { }
+
+	// RVA: 0x2615AB4 Offset: 0x2615AB4 VA: 0x2615AB4
+	public static uint GetBit(uint[] x, int bit) { }
+
+	// RVA: 0x2615B64 Offset: 0x2615B64 VA: 0x2615B64
+	public static bool Gte(uint[] x, uint[] y) { }
+
+	// RVA: 0x26151E8 Offset: 0x26151E8 VA: 0x26151E8
+	public static bool Gte(uint[] x, int xOff, uint[] y, int yOff) { }
+
+	// RVA: 0x2615C1C Offset: 0x2615C1C VA: 0x2615C1C
+	public static bool IsOne(uint[] x) { }
+
+	// RVA: 0x2615CB4 Offset: 0x2615CB4 VA: 0x2615CB4
+	public static bool IsOne64(ulong[] x) { }
+
+	// RVA: 0x2615D4C Offset: 0x2615D4C VA: 0x2615D4C
+	public static bool IsZero(uint[] x) { }
+
+	// RVA: 0x2615DC0 Offset: 0x2615DC0 VA: 0x2615DC0
+	public static bool IsZero64(ulong[] x) { }
+
+	// RVA: 0x2615E34 Offset: 0x2615E34 VA: 0x2615E34
+	public static void Mul(uint[] x, uint[] y, uint[] zz) { }
+
+	// RVA: 0x26162F0 Offset: 0x26162F0 VA: 0x26162F0
+	public static void Mul(uint[] x, int xOff, uint[] y, int yOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x26168D4 Offset: 0x26168D4 VA: 0x26168D4
+	public static uint MulAddTo(uint[] x, uint[] y, uint[] zz) { }
+
+	// RVA: 0x2616C94 Offset: 0x2616C94 VA: 0x2616C94
+	public static uint MulAddTo(uint[] x, int xOff, uint[] y, int yOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x261712C Offset: 0x261712C VA: 0x261712C
+	public static ulong Mul33Add(uint w, uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x2617534 Offset: 0x2617534 VA: 0x2617534
+	public static uint MulWordAddExt(uint x, uint[] yy, int yyOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x26178BC Offset: 0x26178BC VA: 0x26178BC
+	public static uint Mul33DWordAdd(uint x, ulong y, uint[] z, int zOff) { }
+
+	// RVA: 0x2617A9C Offset: 0x2617A9C VA: 0x2617A9C
+	public static uint Mul33WordAdd(uint x, uint y, uint[] z, int zOff) { }
+
+	// RVA: 0x2617C0C Offset: 0x2617C0C VA: 0x2617C0C
+	public static uint MulWordDwordAdd(uint x, ulong y, uint[] z, int zOff) { }
+
+	// RVA: 0x2617D88 Offset: 0x2617D88 VA: 0x2617D88
+	public static uint MulWord(uint x, uint[] y, uint[] z, int zOff) { }
+
+	// RVA: 0x2617E54 Offset: 0x2617E54 VA: 0x2617E54
+	public static void Square(uint[] x, uint[] zz) { }
+
+	// RVA: 0x2618420 Offset: 0x2618420 VA: 0x2618420
+	public static void Square(uint[] x, int xOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x2618BCC Offset: 0x2618BCC VA: 0x2618BCC
+	public static int Sub(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x26152C4 Offset: 0x26152C4 VA: 0x26152C4
+	public static int Sub(uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x2618E98 Offset: 0x2618E98 VA: 0x2618E98
+	public static int SubBothFrom(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x261923C Offset: 0x261923C VA: 0x261923C
+	public static int SubFrom(uint[] x, uint[] z) { }
+
+	// RVA: 0x26194F4 Offset: 0x26194F4 VA: 0x26194F4
+	public static int SubFrom(uint[] x, int xOff, uint[] z, int zOff) { }
+
+	// RVA: 0x2619860 Offset: 0x2619860 VA: 0x2619860
+	public static BigInteger ToBigInteger(uint[] x) { }
+
+	// RVA: 0x261994C Offset: 0x261994C VA: 0x261994C
+	public static BigInteger ToBigInteger64(ulong[] x) { }
+
+	// RVA: 0x2619A38 Offset: 0x2619A38 VA: 0x2619A38
+	public static void Zero(uint[] z) { }
+}
+
+// Namespace: Org.BouncyCastle.Math.Raw
+internal abstract class Nat224 // TypeDefIndex: 5164
+{
+	// Fields
+	private const ulong M = 4294967295;
+
+	// Methods
+
+	// RVA: 0x24BA52C Offset: 0x24BA52C VA: 0x24BA52C
+	protected void .ctor() { }
+
+	// RVA: 0x24BA534 Offset: 0x24BA534 VA: 0x24BA534
+	public static uint Add(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x24BA86C Offset: 0x24BA86C VA: 0x24BA86C
+	public static uint Add(uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x24BACBC Offset: 0x24BACBC VA: 0x24BACBC
+	public static uint AddBothTo(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x24BB0EC Offset: 0x24BB0EC VA: 0x24BB0EC
+	public static uint AddBothTo(uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x24BB65C Offset: 0x24BB65C VA: 0x24BB65C
+	public static uint AddTo(uint[] x, uint[] z) { }
+
+	// RVA: 0x24BB97C Offset: 0x24BB97C VA: 0x24BB97C
+	public static uint AddTo(uint[] x, int xOff, uint[] z, int zOff, uint cIn) { }
+
+	// RVA: 0x24BBD6C Offset: 0x24BBD6C VA: 0x24BBD6C
+	public static uint AddToEachOther(uint[] u, int uOff, uint[] v, int vOff) { }
+
+	// RVA: 0x24BC238 Offset: 0x24BC238 VA: 0x24BC238
+	public static void Copy(uint[] x, uint[] z) { }
+
+	// RVA: 0x24BC42C Offset: 0x24BC42C VA: 0x24BC42C
+	public static uint[] Create() { }
+
+	// RVA: 0x24BC478 Offset: 0x24BC478 VA: 0x24BC478
+	public static uint[] CreateExt() { }
+
+	// RVA: 0x24BC4C4 Offset: 0x24BC4C4 VA: 0x24BC4C4
+	public static bool Diff(uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x24BCA78 Offset: 0x24BCA78 VA: 0x24BCA78
+	public static bool Eq(uint[] x, uint[] y) { }
+
+	// RVA: 0x24BCB28 Offset: 0x24BCB28 VA: 0x24BCB28
+	public static uint[] FromBigInteger(BigInteger x) { }
+
+	// RVA: 0x24BCC90 Offset: 0x24BCC90 VA: 0x24BCC90
+	public static uint GetBit(uint[] x, int bit) { }
+
+	// RVA: 0x24BCD40 Offset: 0x24BCD40 VA: 0x24BCD40
+	public static bool Gte(uint[] x, uint[] y) { }
+
+	// RVA: 0x24BC54C Offset: 0x24BC54C VA: 0x24BC54C
+	public static bool Gte(uint[] x, int xOff, uint[] y, int yOff) { }
+
+	// RVA: 0x24BCDF8 Offset: 0x24BCDF8 VA: 0x24BCDF8
+	public static bool IsOne(uint[] x) { }
+
+	// RVA: 0x24BCE90 Offset: 0x24BCE90 VA: 0x24BCE90
+	public static bool IsZero(uint[] x) { }
+
+	// RVA: 0x24BCF04 Offset: 0x24BCF04 VA: 0x24BCF04
+	public static void Mul(uint[] x, uint[] y, uint[] zz) { }
+
+	// RVA: 0x24BD464 Offset: 0x24BD464 VA: 0x24BD464
+	public static void Mul(uint[] x, int xOff, uint[] y, int yOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x24BDB10 Offset: 0x24BDB10 VA: 0x24BDB10
+	public static uint MulAddTo(uint[] x, uint[] y, uint[] zz) { }
+
+	// RVA: 0x24BDF48 Offset: 0x24BDF48 VA: 0x24BDF48
+	public static uint MulAddTo(uint[] x, int xOff, uint[] y, int yOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x24BE474 Offset: 0x24BE474 VA: 0x24BE474
+	public static ulong Mul33Add(uint w, uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x24BE914 Offset: 0x24BE914 VA: 0x24BE914
+	public static uint MulByWord(uint x, uint[] z) { }
+
+	// RVA: 0x24BEB38 Offset: 0x24BEB38 VA: 0x24BEB38
+	public static uint MulByWordAddTo(uint x, uint[] y, uint[] z) { }
+
+	// RVA: 0x24BEE88 Offset: 0x24BEE88 VA: 0x24BEE88
+	public static uint MulWordAddTo(uint x, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x24BF298 Offset: 0x24BF298 VA: 0x24BF298
+	public static uint Mul33DWordAdd(uint x, ulong y, uint[] z, int zOff) { }
+
+	// RVA: 0x24BF47C Offset: 0x24BF47C VA: 0x24BF47C
+	public static uint Mul33WordAdd(uint x, uint y, uint[] z, int zOff) { }
+
+	// RVA: 0x24BF5F0 Offset: 0x24BF5F0 VA: 0x24BF5F0
+	public static uint MulWordDwordAdd(uint x, ulong y, uint[] z, int zOff) { }
+
+	// RVA: 0x24BF770 Offset: 0x24BF770 VA: 0x24BF770
+	public static uint MulWord(uint x, uint[] y, uint[] z, int zOff) { }
+
+	// RVA: 0x24BF83C Offset: 0x24BF83C VA: 0x24BF83C
+	public static void Square(uint[] x, uint[] zz) { }
+
+	// RVA: 0x24BFF48 Offset: 0x24BFF48 VA: 0x24BFF48
+	public static void Square(uint[] x, int xOff, uint[] zz, int zzOff) { }
+
+	// RVA: 0x24C0884 Offset: 0x24C0884 VA: 0x24C0884
+	public static int Sub(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x24BC628 Offset: 0x24BC628 VA: 0x24BC628
+	public static int Sub(uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x24C0BBC Offset: 0x24C0BBC VA: 0x24C0BBC
+	public static int SubBothFrom(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x24C0FF0 Offset: 0x24C0FF0 VA: 0x24C0FF0
+	public static int SubFrom(uint[] x, uint[] z) { }
+
+	// RVA: 0x24C1314 Offset: 0x24C1314 VA: 0x24C1314
+	public static int SubFrom(uint[] x, int xOff, uint[] z, int zOff) { }
+
+	// RVA: 0x24C1704 Offset: 0x24C1704 VA: 0x24C1704
+	public static BigInteger ToBigInteger(uint[] x) { }
+
+	// RVA: 0x24C17F0 Offset: 0x24C17F0 VA: 0x24C17F0
+	public static void Zero(uint[] z) { }
+}
+
+// Namespace: Org.BouncyCastle.Math.Raw
+internal abstract class Nat256 // TypeDefIndex: 5165
+{
+	// Fields
+	private const ulong M = 4294967295;
+
+	// Methods
+
+	// RVA: 0x24C18F0 Offset: 0x24C18F0 VA: 0x24C18F0
+	protected void .ctor() { }
+
+	// RVA: 0x24C18F8 Offset: 0x24C18F8 VA: 0x24C18F8
+	public static uint Add(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x24C1C9C Offset: 0x24C1C9C VA: 0x24C1C9C
+	public static uint Add(uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x24C217C Offset: 0x24C217C VA: 0x24C217C
+	public static uint AddBothTo(uint[] x, uint[] y, uint[] z) { }
+
+	// RVA: 0x24C263C Offset: 0x24C263C VA: 0x24C263C
+	public static uint AddBothTo(uint[] x, int xOff, uint[] y, int yOff, uint[] z, int zOff) { }
+
+	// RVA: 0x24C2C64 Offset: 0x24C2C64 VA: 0x24C2C64
+	public static uint AddTo(uint[] x, uint[] z) { }
+
+	// RVA: 0x24C2FF0 Offset: 0x24C2FF0 VA: 0x24C2FF0
+	public static uint AddTo(uint[] x, int xOff, uint[] z, int zOff, uint cIn) { }
+
+	// RVA: 0x24C3464 Offset: 0x24C3464 VA: 0x24C3464
+	public static uint AddToEachOther(uint[] u, int uOff, uint[] v, int vOff) { }
+
+	// RVA: 0x24C39D4 Offset: 0x24C39D4 VA: 0x24C39D4
+	public static void Copy(uint[] x, uint[] z) { }
+

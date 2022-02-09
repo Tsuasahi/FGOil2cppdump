@@ -1,0 +1,1000 @@
+// Namespace: System.Collections.Generic
+[Serializable]
+internal sealed class GenericComparer<T> : Comparer<T> // TypeDefIndex: 171
+{
+	// Methods
+
+	// RVA: -1 Offset: -1
+	public void .ctor() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x27A117C Offset: 0x27A117C VA: 0x27A117C
+	|-GenericComparer<bool>..ctor
+	|
+	|-RVA: 0x27A125C Offset: 0x27A125C VA: 0x27A125C
+	|-GenericComparer<byte>..ctor
+	|
+	|-RVA: 0x27A1338 Offset: 0x27A1338 VA: 0x27A1338
+	|-GenericComparer<DateTime>..ctor
+	|
+	|-RVA: 0x27A1418 Offset: 0x27A1418 VA: 0x27A1418
+	|-GenericComparer<DateTimeOffset>..ctor
+	|
+	|-RVA: 0x27A1504 Offset: 0x27A1504 VA: 0x27A1504
+	|-GenericComparer<Decimal>..ctor
+	|
+	|-RVA: 0x27A15E4 Offset: 0x27A15E4 VA: 0x27A15E4
+	|-GenericComparer<double>..ctor
+	|
+	|-RVA: 0x27A16C0 Offset: 0x27A16C0 VA: 0x27A16C0
+	|-GenericComparer<Guid>..ctor
+	|
+	|-RVA: 0x27A17A0 Offset: 0x27A17A0 VA: 0x27A17A0
+	|-GenericComparer<int>..ctor
+	|
+	|-RVA: 0x27A187C Offset: 0x27A187C VA: 0x27A187C
+	|-GenericComparer<long>..ctor
+	|
+	|-RVA: 0x27A1958 Offset: 0x27A1958 VA: 0x27A1958
+	|-GenericComparer<object>..ctor
+	|
+	|-RVA: 0x27A1AD4 Offset: 0x27A1AD4 VA: 0x27A1AD4
+	|-GenericComparer<float>..ctor
+	|
+	|-RVA: 0x27A1BB0 Offset: 0x27A1BB0 VA: 0x27A1BB0
+	|-GenericComparer<TimeSpan>..ctor
+	|
+	|-RVA: 0x27A1C8C Offset: 0x27A1C8C VA: 0x27A1C8C
+	|-GenericComparer<uint>..ctor
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public override int Compare(T x, T y) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x27A122C Offset: 0x27A122C VA: 0x27A122C
+	|-GenericComparer<bool>.Compare
+	|
+	|-RVA: 0x27A130C Offset: 0x27A130C VA: 0x27A130C
+	|-GenericComparer<byte>.Compare
+	|
+	|-RVA: 0x27A13E8 Offset: 0x27A13E8 VA: 0x27A13E8
+	|-GenericComparer<DateTime>.Compare
+	|
+	|-RVA: 0x27A14C8 Offset: 0x27A14C8 VA: 0x27A14C8
+	|-GenericComparer<DateTimeOffset>.Compare
+	|
+	|-RVA: 0x27A15B4 Offset: 0x27A15B4 VA: 0x27A15B4
+	|-GenericComparer<Decimal>.Compare
+	|
+	|-RVA: 0x27A1694 Offset: 0x27A1694 VA: 0x27A1694
+	|-GenericComparer<double>.Compare
+	|
+	|-RVA: 0x27A1770 Offset: 0x27A1770 VA: 0x27A1770
+	|-GenericComparer<Guid>.Compare
+	|
+	|-RVA: 0x27A1850 Offset: 0x27A1850 VA: 0x27A1850
+	|-GenericComparer<int>.Compare
+	|
+	|-RVA: 0x27A192C Offset: 0x27A192C VA: 0x27A192C
+	|-GenericComparer<long>.Compare
+	|
+	|-RVA: 0x27A1A08 Offset: 0x27A1A08 VA: 0x27A1A08
+	|-GenericComparer<object>.Compare
+	|
+	|-RVA: 0x27A1B84 Offset: 0x27A1B84 VA: 0x27A1B84
+	|-GenericComparer<float>.Compare
+	|
+	|-RVA: 0x27A1C60 Offset: 0x27A1C60 VA: 0x27A1C60
+	|-GenericComparer<TimeSpan>.Compare
+	|
+	|-RVA: 0x27A1D3C Offset: 0x27A1D3C VA: 0x27A1D3C
+	|-GenericComparer<uint>.Compare
+	*/
+}
+
+// Namespace: System.Collections.Generic
+internal struct Link // TypeDefIndex: 172
+{
+	// Fields
+	public int HashCode; // 0x0
+	public int Next; // 0x4
+}
+
+// Namespace: System.Collections.Generic
+[DefaultMemberAttribute] // RVA: 0xC30238 Offset: 0xC30238 VA: 0xC30238
+[DebuggerTypeProxyAttribute] // RVA: 0xC30238 Offset: 0xC30238 VA: 0xC30238
+[DebuggerDisplayAttribute] // RVA: 0xC30238 Offset: 0xC30238 VA: 0xC30238
+[ComVisibleAttribute] // RVA: 0xC30238 Offset: 0xC30238 VA: 0xC30238
+[Serializable]
+public class Dictionary<TKey, TValue> : IEnumerable, ISerializable, ICollection, ICollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IDictionary<TKey, TValue>, IDictionary, IDeserializationCallback // TypeDefIndex: 173
+{
+	// Fields
+	private const int INITIAL_SIZE = 10;
+	private const float DEFAULT_LOAD_FACTOR = 0.9;
+	private const int NO_SLOT = -1;
+	private const int HASH_FLAG = -2147483648;
+	private int[] table; // 0x0
+	private Link[] linkSlots; // 0x0
+	private TKey[] keySlots; // 0x0
+	private TValue[] valueSlots; // 0x0
+	private int touchedSlots; // 0x0
+	private int emptySlot; // 0x0
+	private int count; // 0x0
+	private int threshold; // 0x0
+	private IEqualityComparer<TKey> hcp; // 0x0
+	private SerializationInfo serialization_info; // 0x0
+	private int generation; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC3762C Offset: 0xC3762C VA: 0xC3762C
+	private static Dictionary.Transform<TKey, TValue, DictionaryEntry> <>f__am$cacheB; // 0x0
+
+	// Properties
+	private ICollection<TKey> System.Collections.Generic.IDictionary<TKey,TValue>.Keys { get; }
+	private ICollection<TValue> System.Collections.Generic.IDictionary<TKey,TValue>.Values { get; }
+	private ICollection System.Collections.IDictionary.Keys { get; }
+	private ICollection System.Collections.IDictionary.Values { get; }
+	private bool System.Collections.IDictionary.IsFixedSize { get; }
+	private bool System.Collections.IDictionary.IsReadOnly { get; }
+	private object System.Collections.IDictionary.Item { get; set; }
+	private bool System.Collections.ICollection.IsSynchronized { get; }
+	private object System.Collections.ICollection.SyncRoot { get; }
+	private bool System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<TKey,TValue>>.IsReadOnly { get; }
+	public int Count { get; }
+	public TValue Item { get; set; }
+	public Dictionary.KeyCollection<TKey, TValue> Keys { get; }
+	public Dictionary.ValueCollection<TKey, TValue> Values { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1
+	public void .ctor() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x26F309C Offset: 0x26F309C VA: 0x26F309C
+	|-Dictionary<AStarSearch.CacheKey, int[]>..ctor
+	|-Dictionary<AStarSearch.CacheKey, object>..ctor
+	|
+	|-RVA: 0x26F7328 Offset: 0x26F7328 VA: 0x26F7328
+	|-Dictionary<Ai.COND, ConditionsInformation.CheckInfo>..ctor
+	|-Dictionary<Ai.COND, object>..ctor
+	|
+	|-RVA: 0x26FB5B0 Offset: 0x26FB5B0 VA: 0x26FB5B0
+	|-Dictionary<AiAct.TYPE, BattleLogicNpcAi.BaseAiActProc>..ctor
+	|-Dictionary<AiAct.TYPE, object>..ctor
+	|
+	|-RVA: 0x26FF838 Offset: 0x26FF838 VA: 0x26FF838
+	|-Dictionary<AssetsFile.Path, object>..ctor
+	|-Dictionary<AssetsFile.Path, string>..ctor
+	|
+	|-RVA: 0x2703AC0 Offset: 0x2703AC0 VA: 0x2703AC0
+	|-Dictionary<BattleData.CHAIN_COUNT_TYPE, int>..ctor
+	|
+	|-RVA: 0x2A001BC Offset: 0x2A001BC VA: 0x2A001BC
+	|-Dictionary<BattleLogic.LOGICTYPE, BattleLogic.taskFunction>..ctor
+	|-Dictionary<BattleLogic.LOGICTYPE, object>..ctor
+	|
+	|-RVA: 0x29FBF38 Offset: 0x29FBF38 VA: 0x29FBF38
+	|-Dictionary<BattleLogic.LOGICTYPE, BattleLogicTask.ACTIONTYPE>..ctor
+	|
+	|-RVA: 0x2A04444 Offset: 0x2A04444 VA: 0x2A04444
+	|-Dictionary<BattleLogicTask.ACTIONTYPE, AiLogic.PROC_STATE>..ctor
+	|
+	|-RVA: 0x2A086C8 Offset: 0x2A086C8 VA: 0x2A086C8
+	|-Dictionary<BattleLogicTask.ACTIONTYPE, BattleLogic.createActionBattle>..ctor
+	|-Dictionary<BattleLogicTask.ACTIONTYPE, BattleLogic.reactionFunction>..ctor
+	|-Dictionary<BattleLogicTask.ACTIONTYPE, object>..ctor
+	|
+	|-RVA: 0x2A0C950 Offset: 0x2A0C950 VA: 0x2A0C950
+	|-Dictionary<BuffList.ACTION, BuffList.ActInfo>..ctor
+	|-Dictionary<BuffList.ACTION, object>..ctor
+	|
+	|-RVA: 0x2A10BD8 Offset: 0x2A10BD8 VA: 0x2A10BD8
+	|-Dictionary<BuffList.INVOKE_COND_TYPE, int[]>..ctor
+	|-Dictionary<BuffList.INVOKE_COND_TYPE, object>..ctor
+	|
+	|-RVA: 0x2A14E60 Offset: 0x2A14E60 VA: 0x2A14E60
+	|-Dictionary<CacheFolderName.FOLDER_NAME, object>..ctor
+	|-Dictionary<CacheFolderName.FOLDER_NAME, string>..ctor
+	|
+	|-RVA: 0x2A190E8 Offset: 0x2A190E8 VA: 0x2A190E8
+	|-Dictionary<CriAtomEx.Randomize3dCalcType, CriAtomEx.Randomize3dParamType[]>..ctor
+	|-Dictionary<CriAtomEx.Randomize3dCalcType, object>..ctor
+	|
+	|-RVA: 0x29ADCF0 Offset: 0x29ADCF0 VA: 0x29ADCF0
+	|-Dictionary<DatFileName.FILE_NAME, object>..ctor
+	|-Dictionary<DatFileName.FILE_NAME, string>..ctor
+	|
+	|-RVA: 0x29B1F78 Offset: 0x29B1F78 VA: 0x29B1F78
+	|-Dictionary<DataNameKind.Kind, object>..ctor
+	|-Dictionary<DataNameKind.Kind, string>..ctor
+	|
+	|-RVA: 0x29B6200 Offset: 0x29B6200 VA: 0x29B6200
+	|-Dictionary<FileName.HIT_EFFECT, object>..ctor
+	|-Dictionary<FileName.HIT_EFFECT, string>..ctor
+	|
+	|-RVA: 0x29BA488 Offset: 0x29BA488 VA: 0x29BA488
+	|-Dictionary<FuncList.TYPE, BattleLogicFunctionProcess.BaseFunctionTypeProcess>..ctor
+	|-Dictionary<FuncList.TYPE, object>..ctor
+	|
+	|-RVA: 0x2A3319C Offset: 0x2A3319C VA: 0x2A3319C
+	|-Dictionary<SkuType, GooglePlayStoreImpl.AsyncRequestStatus>..ctor
+	|-Dictionary<object, GooglePlayStoreImpl.AsyncRequestStatus>..ctor
+	|
+	|-RVA: 0x295C798 Offset: 0x295C798 VA: 0x295C798
+	|-Dictionary<Fsm, RaycastHit2D>..ctor
+	|-Dictionary<object, RaycastHit2D>..ctor
+	|
+	|-RVA: 0x29BE710 Offset: 0x29BE710 VA: 0x29BE710
+	|-Dictionary<ListViewSort.FilterCategoryKind, object>..ctor
+	|-Dictionary<ListViewSort.FilterCategoryKind, string>..ctor
+	|
+	|-RVA: 0x29C2998 Offset: 0x29C2998 VA: 0x29C2998
+	|-Dictionary<QuestAfterAction.COMMAND_TYPE, List<int>>..ctor
+	|-Dictionary<QuestAfterAction.COMMAND_TYPE, object>..ctor
+	|
+	|-RVA: 0x29C6C20 Offset: 0x29C6C20 VA: 0x29C6C20
+	|-Dictionary<Rarity.TYPE, SummonEffectComponent.CardColor>..ctor
+	|
+	|-RVA: 0x29CAEA4 Offset: 0x29CAEA4 VA: 0x29CAEA4
+	|-Dictionary<ResponseCommandKind.Kind, object>..ctor
+	|-Dictionary<ResponseCommandKind.Kind, string>..ctor
+	|
+	|-RVA: 0x28E71CC Offset: 0x28E71CC VA: 0x28E71CC
+	|-Dictionary<SceneList.Type, object>..ctor
+	|-Dictionary<SceneList.Type, string>..ctor
+	|
+	|-RVA: 0x2946BE8 Offset: 0x2946BE8 VA: 0x2946BE8
+	|-Dictionary<SchedulerTaskBase, IEnumerator>..ctor
+	|-Dictionary<object, object>..ctor
+	|-Dictionary<Assembly, Type[]>..ctor
+	|-Dictionary<FieldInfo, string>..ctor
+	|-Dictionary<string, AssetData>..ctor
+	|-Dictionary<string, AssetLoader.LoadEndDataHandler>..ctor
+	|-Dictionary<string, AssetsInfo.dataInfo>..ctor
+	|-Dictionary<string, AtlasManagerUnit>..ctor
+	|-Dictionary<string, BattleBgComponent.SaveData>..ctor
+	|-Dictionary<string, BattlePerformanceBg.BgState>..ctor
+	|-Dictionary<string, Digest>..ctor
+	|-Dictionary<string, CommandCodeSkillEntity[]>..ctor
+	|-Dictionary<string, CriFsBinder>..ctor
+	|-Dictionary<string, DataEntityBase>..ctor
+	|-Dictionary<string, FirebaseApp>..ctor
+	|-Dictionary<string, Purchase>..ctor
+	|-Dictionary<string, SkuDetails>..ctor
+	|-Dictionary<string, MultiLapStopWatch.LapDetail>..ctor
+	|-Dictionary<string, ResponseCommandBase>..ctor
+	|-Dictionary<string, ScriptActionAdvPrefabActorController>..ctor
+	|-Dictionary<string, ScriptEncryptEntity>..ctor
+	|-Dictionary<string, ServantAppendPassiveSkillEntity[]>..ctor
+	|-Dictionary<string, ServantAssetArgs>..ctor
+	|-Dictionary<string, ServantPassiveSkillEntity[]>..ctor
+	|-Dictionary<string, ServantSkillEntity[]>..ctor
+	|-Dictionary<string, SoundManager.CpkLoader>..ctor
+	|-Dictionary<string, byte[][]>..ctor
+	|-Dictionary<string, List<ConnectionBase>>..ctor
+	|-Dictionary<string, List<CommandCodeSkillEntity>>..ctor
+	|-Dictionary<string, List<EventRewardGuideReleaseEntity>>..ctor
+	|-Dictionary<string, List<ServantAppendPassiveSkillEntity>>..ctor
+	|-Dictionary<string, List<ServantPassiveSkillEntity>>..ctor
+	|-Dictionary<string, List<ServantSkillEntity>>..ctor
+	|-Dictionary<string, List<int[]>>..ctor
+	|-Dictionary<string, List<string>>..ctor
+	|-Dictionary<string, LinuxNetworkInterface>..ctor
+	|-Dictionary<string, MacOsNetworkInterface>..ctor
+	|-Dictionary<string, object>..ctor
+	|-Dictionary<string, string>..ctor
+	|-Dictionary<string, string[]>..ctor
+	|-Dictionary<string, Type>..ctor
+	|-Dictionary<string, UIAtlas>..ctor
+	|-Dictionary<string, GameObject>..ctor
+	|-Dictionary<string, Object>..ctor
+	|-Dictionary<string, ProductDefinition>..ctor
+	|-Dictionary<string, SkinnedMeshRenderer>..ctor
+	|-Dictionary<Type, LinkedList<TypeDescriptionProvider>>..ctor
+	|-Dictionary<Type, FieldInfo[]>..ctor
+	|-Dictionary<Type, IStoreConfiguration>..ctor
+	|-Dictionary<Type, IStoreExtension>..ctor
+	|-Dictionary<Uri, object>..ctor
+	|-Dictionary<Canvas, IndexedSet<Graphic>>..ctor
+	|-Dictionary<Font, HashSet<Text>>..ctor
+	|-Dictionary<Material, Texture>..ctor
+	|-Dictionary<MeshCollider, Action>..ctor
+	|-Dictionary<MeshCollider, SkinnedMeshRenderer>..ctor
+	|-Dictionary<WarBoardTaskBase, IEnumerator>..ctor
+	|
+	|-RVA: 0x28EB454 Offset: 0x28EB454 VA: 0x28EB454
+	|-Dictionary<KeyValuePair<int, int>, bool>..ctor
+	|
+	|-RVA: 0x28EF73C Offset: 0x28EF73C VA: 0x28EF73C
+	|-Dictionary<KeyValuePair<object, object>, float>..ctor
+	|-Dictionary<KeyValuePair<string, Material>, float>..ctor
+	|
+	|-RVA: 0x294B0D4 Offset: 0x294B0D4 VA: 0x294B0D4
+	|-Dictionary<IEnumerator, float>..ctor
+	|-Dictionary<object, float>..ctor
+	|
+	|-RVA: 0x28F3BA8 Offset: 0x28F3BA8 VA: 0x28F3BA8
+	|-Dictionary<DateTime, object>..ctor
+	|
+	|-RVA: 0x29047B0 Offset: 0x29047B0 VA: 0x29047B0
+	|-Dictionary<int, AssetData>..ctor
+	|-Dictionary<int, BMGlyph>..ctor
+	|-Dictionary<int, BattleActorControl>..ctor
+	|-Dictionary<int, BattleBuffData.BuffData[]>..ctor
+	|-Dictionary<int, BattleServantData.SaveData>..ctor
+	|-Dictionary<int, BillBoardGroupManager.GroupData>..ctor
+	|-Dictionary<int, CaldeaFolderTutorial.TutorialData>..ctor
+	|-Dictionary<int, DataMasterBase>..ctor
+	|-Dictionary<int, EventUiEntity>..ctor
+	|-Dictionary<int, FutureBool.Action>..ctor
+	|-Dictionary<int, FutureString.Action>..ctor
+	|-Dictionary<int, FutureVoid.Action>..ctor
+	|-Dictionary<int, FollowerInfo>..ctor
+	|-Dictionary<int, FsmGameObject>..ctor
+	|-Dictionary<int, MapGimmickComponent>..ctor
+	|-Dictionary<int, PlayMakerFSM>..ctor
+	|-Dictionary<int, QuestAfterAction.VoiceInfo>..ctor
+	|-Dictionary<int, QuestBehaviorEntity>..ctor
+	|-Dictionary<int, SePlayer>..ctor
+	|-Dictionary<int, SelectedUserSvtCoin>..ctor
+	|-Dictionary<int, ServantTreasureDeviceAddEntity[]>..ctor
+	|-Dictionary<int, ServantTreasureDvcEntity[]>..ctor
+	|-Dictionary<int, SkillEntity>..ctor
+	|-Dictionary<int, SoundPlayerListViewItem.BgmPriorityData>..ctor
+	|-Dictionary<int, Action>..ctor
+	|-Dictionary<int, Action<bool>>..ctor
+	|-Dictionary<int, Dictionary<int, List<EventMissionConditionEntity>>>..ctor
+	|-Dictionary<int, Dictionary<string, string>>..ctor
+	|-Dictionary<int, List<BattleLogicFunction.ExecutedFunctionData>>..ctor
+	|-Dictionary<int, List<EventItemDisplayEntity>>..ctor
+	|-Dictionary<int, List<EventMissionConditionEntity>>..ctor
+	|-Dictionary<int, List<EventPointUpperReleaseEntity>>..ctor
+	|-Dictionary<int, List<QuestPhaseEntity>>..ctor
+	|-Dictionary<int, List<QuestReleaseEntity>>..ctor
+	|-Dictionary<int, List<ServantFlagReleaseEntity>>..ctor
+	|-Dictionary<int, List<ServantIndividualityEntity>>..ctor
+	|-Dictionary<int, List<ServantSkillReleaseEntity>>..ctor
+	|-Dictionary<int, List<ServantTreasureDeviceAddEntity>>..ctor
+	|-Dictionary<int, List<ServantTreasureDvcEntity>>..ctor
+	|-Dictionary<int, List<SoundPlayerListViewItem.BgmReleaseData>>..ctor
+	|-Dictionary<int, List<int>>..ctor
+	|-Dictionary<int, List<string>>..ctor
+	|-Dictionary<int, List<AnimatorClipInfo>>..ctor
+	|-Dictionary<int, List<VoiceCondEntity>>..ctor
+	|-Dictionary<int, int[]>..ctor
+	|-Dictionary<int, object>..ctor
+	|-Dictionary<int, string>..ctor
+	|-Dictionary<int, string[]>..ctor
+	|-Dictionary<int, ManualResetEvent>..ctor
+	|-Dictionary<int, UICamera.MouseOrTouch>..ctor
+	|-Dictionary<int, AsyncOperation>..ctor
+	|-Dictionary<int, PointerEventData>..ctor
+	|-Dictionary<int, GUILayoutUtility.LayoutCache>..ctor
+	|-Dictionary<int, GameObject>..ctor
+	|-Dictionary<int, Vector3[]>..ctor
+	|-Dictionary<int, WarBoardAIRoute.TargetData>..ctor
+	|-Dictionary<int, WarBoardEvalValueSquare.CalcEval>..ctor
+	|-Dictionary<int, WarBoardEvalValueSquare.EvalValueSquare>..ctor
+	|-Dictionary<int, WarBoardItemData>..ctor
+	|-Dictionary<int, WarBoardPieceData>..ctor
+	|-Dictionary<int, WarBoardSquareData>..ctor
+	|
+	|-RVA: 0x28F7FE8 Offset: 0x28F7FE8 VA: 0x28F7FE8
+	|-Dictionary<int, bool>..ctor
+	|
+	|-RVA: 0x28FC28C Offset: 0x28FC28C VA: 0x28FC28C
+	|-Dictionary<int, int>..ctor
+	|
+	|-RVA: 0x2900510 Offset: 0x2900510 VA: 0x2900510
+	|-Dictionary<int, long>..ctor
+	|
+	|-RVA: 0x298C174 Offset: 0x298C174 VA: 0x298C174
+	|-Dictionary<int, float>..ctor
+	|
+	|-RVA: 0x29903EC Offset: 0x29903EC VA: 0x29903EC
+	|-Dictionary<int, uint>..ctor
+	|
+	|-RVA: 0x2994670 Offset: 0x2994670 VA: 0x2994670
+	|-Dictionary<int, TitleInfoControl.TitleKind>..ctor
+	|
+	|-RVA: 0x29988F4 Offset: 0x29988F4 VA: 0x29988F4
+	|-Dictionary<int, AnimatorStateInfo>..ctor
+	|
+	|-RVA: 0x299CF30 Offset: 0x299CF30 VA: 0x299CF30
+	|-Dictionary<int, Color>..ctor
+	|
+	|-RVA: 0x29A13C4 Offset: 0x29A13C4 VA: 0x29A13C4
+	|-Dictionary<int, Vector3>..ctor
+	|
+	|-RVA: 0x29A57A8 Offset: 0x29A57A8 VA: 0x29A57A8
+	|-Dictionary<int, WarBoardAIRoute.DistanceType>..ctor
+	|
+	|-RVA: 0x29A9A2C Offset: 0x29A9A2C VA: 0x29A9A2C
+	|-Dictionary<long, bool>..ctor
+	|
+	|-RVA: 0x2A1E370 Offset: 0x2A1E370 VA: 0x2A1E370
+	|-Dictionary<long, KeyValuePair<int, int[]>>..ctor
+	|-Dictionary<long, KeyValuePair<int, object>>..ctor
+	|
+	|-RVA: 0x2A2AC84 Offset: 0x2A2AC84 VA: 0x2A2AC84
+	|-Dictionary<long, List<ServantWaveTurnEvent>>..ctor
+	|-Dictionary<long, object>..ctor
+	|
+	|-RVA: 0x2A2273C Offset: 0x2A2273C VA: 0x2A2273C
+	|-Dictionary<long, int>..ctor
+	|
+	|-RVA: 0x2A269E0 Offset: 0x2A269E0 VA: 0x2A269E0
+	|-Dictionary<long, long>..ctor
+	|
+	|-RVA: 0x2A2EF10 Offset: 0x2A2EF10 VA: 0x2A2EF10
+	|-Dictionary<IntPtr, FirebaseApp>..ctor
+	|-Dictionary<IntPtr, object>..ctor
+	|
+	|-RVA: 0x2A376A8 Offset: 0x2A376A8 VA: 0x2A376A8
+	|-Dictionary<object, bool>..ctor
+	|-Dictionary<string, bool>..ctor
+	|
+	|-RVA: 0x2A3BBD8 Offset: 0x2A3BBD8 VA: 0x2A3BBD8
+	|-Dictionary<object, int>..ctor
+	|-Dictionary<string, int>..ctor
+	|-Dictionary<Type, int>..ctor
+	|-Dictionary<UIPanel, int>..ctor
+	|-Dictionary<Font, int>..ctor
+	|-Dictionary<GameObject, int>..ctor
+	|-Dictionary<MeshCollider, int>..ctor
+	|-Dictionary<Graphic, int>..ctor
+	|-Dictionary<ICanvasElement, int>..ctor
+	|-Dictionary<IClipper, int>..ctor
+	|
+	|-RVA: 0x294F5E4 Offset: 0x294F5E4 VA: 0x294F5E4
+	|-Dictionary<object, uint>..ctor
+	|-Dictionary<string, uint>..ctor
+	|
+	|-RVA: 0x2953AF0 Offset: 0x2953AF0 VA: 0x2953AF0
+	|-Dictionary<object, TutorialFlag.Id>..ctor
+	|-Dictionary<string, TutorialFlag.Id>..ctor
+	|
+	|-RVA: 0x2957FFC Offset: 0x2957FFC VA: 0x2957FFC
+	|-Dictionary<object, Bounds>..ctor
+	|-Dictionary<SkinnedMeshRenderer, Bounds>..ctor
+	|
+	|-RVA: 0x2961014 Offset: 0x2961014 VA: 0x2961014
+	|-Dictionary<object, TextEditor.TextEditOp>..ctor
+	|-Dictionary<Event, TextEditor.TextEditOp>..ctor
+	|
+	|-RVA: 0x2965520 Offset: 0x2965520 VA: 0x2965520
+	|-Dictionary<float, float>..ctor
+	|
+	|-RVA: 0x2A410E4 Offset: 0x2A410E4 VA: 0x2A410E4
+	|-Dictionary<uint, int>..ctor
+	|
+	|-RVA: 0x2A45368 Offset: 0x2A45368 VA: 0x2A45368
+	|-Dictionary<uint, object>..ctor
+	|-Dictionary<uint, WarBoardAIRoute.AdvantagePieceData>..ctor
+	|-Dictionary<uint, WarBoardAIRoute.DesignationItemData>..ctor
+	|-Dictionary<uint, WarBoardAIRoute.PutSquareTarget>..ctor
+	|-Dictionary<uint, WarBoardPieceData>..ctor
+	|
+	|-RVA: 0x2A495F0 Offset: 0x2A495F0 VA: 0x2A495F0
+	|-Dictionary<ulong, HTTPCacheFileInfo>..ctor
+	|-Dictionary<ulong, object>..ctor
+	|
+	|-RVA: 0x2A4D87C Offset: 0x2A4D87C VA: 0x2A4D87C
+	|-Dictionary<TitleInfoControl.TitleKind, int>..ctor
+	|
+	|-RVA: 0x2A51B00 Offset: 0x2A51B00 VA: 0x2A51B00
+	|-Dictionary<TitleInfoControl.TitleKind, object>..ctor
+	|-Dictionary<TitleInfoControl.TitleKind, string>..ctor
+	|
+	|-RVA: 0x2A55D88 Offset: 0x2A55D88 VA: 0x2A55D88
+	|-Dictionary<TitleInfoControl.TitleKind, TutorialFlag.ImageId>..ctor
+	|
+	|-RVA: 0x2A5A00C Offset: 0x2A5A00C VA: 0x2A5A00C
+	|-Dictionary<AppStore, object>..ctor
+	|-Dictionary<AppStore, string>..ctor
+	|
+	|-RVA: 0x2A5E294 Offset: 0x2A5E294 VA: 0x2A5E294
+	|-Dictionary<Voice.BATTLE, object>..ctor
+	|-Dictionary<Voice.BATTLE, string>..ctor
+	|
+	|-RVA: 0x26C0D60 Offset: 0x26C0D60 VA: 0x26C0D60
+	|-Dictionary<FGOTarget, FGOTarget>..ctor
+	*/
+
+	// RVA: -1 Offset: -1
+	public void .ctor(IEqualityComparer<TKey> comparer) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x26F3104 Offset: 0x26F3104 VA: 0x26F3104
+	|-Dictionary<AStarSearch.CacheKey, object>..ctor
+	|
+	|-RVA: 0x26F7390 Offset: 0x26F7390 VA: 0x26F7390
+	|-Dictionary<Ai.COND, object>..ctor
+	|
+	|-RVA: 0x26FB618 Offset: 0x26FB618 VA: 0x26FB618
+	|-Dictionary<AiAct.TYPE, object>..ctor
+	|
+	|-RVA: 0x26FF8A0 Offset: 0x26FF8A0 VA: 0x26FF8A0
+	|-Dictionary<AssetsFile.Path, object>..ctor
+	|
+	|-RVA: 0x2703B28 Offset: 0x2703B28 VA: 0x2703B28
+	|-Dictionary<BattleData.CHAIN_COUNT_TYPE, int>..ctor
+	|
+	|-RVA: 0x29FBFA0 Offset: 0x29FBFA0 VA: 0x29FBFA0
+	|-Dictionary<BattleLogic.LOGICTYPE, BattleLogicTask.ACTIONTYPE>..ctor
+	|
+	|-RVA: 0x2A00224 Offset: 0x2A00224 VA: 0x2A00224
+	|-Dictionary<BattleLogic.LOGICTYPE, object>..ctor
+	|
+	|-RVA: 0x2A044AC Offset: 0x2A044AC VA: 0x2A044AC
+	|-Dictionary<BattleLogicTask.ACTIONTYPE, AiLogic.PROC_STATE>..ctor
+	|
+	|-RVA: 0x2A08730 Offset: 0x2A08730 VA: 0x2A08730
+	|-Dictionary<BattleLogicTask.ACTIONTYPE, object>..ctor
+	|
+	|-RVA: 0x2A0C9B8 Offset: 0x2A0C9B8 VA: 0x2A0C9B8
+	|-Dictionary<BuffList.ACTION, object>..ctor
+	|
+	|-RVA: 0x2A10C40 Offset: 0x2A10C40 VA: 0x2A10C40
+	|-Dictionary<BuffList.INVOKE_COND_TYPE, object>..ctor
+	|
+	|-RVA: 0x2A14EC8 Offset: 0x2A14EC8 VA: 0x2A14EC8
+	|-Dictionary<CacheFolderName.FOLDER_NAME, object>..ctor
+	|
+	|-RVA: 0x2A19150 Offset: 0x2A19150 VA: 0x2A19150
+	|-Dictionary<CriAtomEx.Randomize3dCalcType, object>..ctor
+	|
+	|-RVA: 0x29ADD58 Offset: 0x29ADD58 VA: 0x29ADD58
+	|-Dictionary<DatFileName.FILE_NAME, object>..ctor
+	|
+	|-RVA: 0x29B1FE0 Offset: 0x29B1FE0 VA: 0x29B1FE0
+	|-Dictionary<DataNameKind.Kind, object>..ctor
+	|
+	|-RVA: 0x29B6268 Offset: 0x29B6268 VA: 0x29B6268
+	|-Dictionary<FileName.HIT_EFFECT, object>..ctor
+	|
+	|-RVA: 0x29BA4F0 Offset: 0x29BA4F0 VA: 0x29BA4F0
+	|-Dictionary<FuncList.TYPE, object>..ctor
+	|
+	|-RVA: 0x29BE778 Offset: 0x29BE778 VA: 0x29BE778
+	|-Dictionary<ListViewSort.FilterCategoryKind, object>..ctor
+	|
+	|-RVA: 0x29C2A00 Offset: 0x29C2A00 VA: 0x29C2A00
+	|-Dictionary<QuestAfterAction.COMMAND_TYPE, object>..ctor
+	|
+	|-RVA: 0x29C6C88 Offset: 0x29C6C88 VA: 0x29C6C88
+	|-Dictionary<Rarity.TYPE, SummonEffectComponent.CardColor>..ctor
+	|
+	|-RVA: 0x29CAF0C Offset: 0x29CAF0C VA: 0x29CAF0C
+	|-Dictionary<ResponseCommandKind.Kind, object>..ctor
+	|
+	|-RVA: 0x28E7234 Offset: 0x28E7234 VA: 0x28E7234
+	|-Dictionary<SceneList.Type, object>..ctor
+	|
+	|-RVA: 0x28EB4BC Offset: 0x28EB4BC VA: 0x28EB4BC
+	|-Dictionary<KeyValuePair<int, int>, bool>..ctor
+	|
+	|-RVA: 0x28EF7A4 Offset: 0x28EF7A4 VA: 0x28EF7A4
+	|-Dictionary<KeyValuePair<object, object>, float>..ctor
+	|
+	|-RVA: 0x2946C50 Offset: 0x2946C50 VA: 0x2946C50
+	|-Dictionary<WeakObjectWrapper, LinkedList<TypeDescriptionProvider>>..ctor
+	|-Dictionary<object, object>..ctor
+	|-Dictionary<string, GUIStyle>..ctor
+	|-Dictionary<Uri, HTTPCacheFileInfo>..ctor
+	|
+	|-RVA: 0x28F3C10 Offset: 0x28F3C10 VA: 0x28F3C10
+	|-Dictionary<DateTime, object>..ctor
+	|
+	|-RVA: 0x28F8050 Offset: 0x28F8050 VA: 0x28F8050
+	|-Dictionary<int, bool>..ctor
+	|
+	|-RVA: 0x28FC2F4 Offset: 0x28FC2F4 VA: 0x28FC2F4
+	|-Dictionary<int, int>..ctor
+	|
+	|-RVA: 0x2900578 Offset: 0x2900578 VA: 0x2900578
+	|-Dictionary<int, long>..ctor
+	|
+	|-RVA: 0x2904818 Offset: 0x2904818 VA: 0x2904818
+	|-Dictionary<int, object>..ctor
+	|
+	|-RVA: 0x298C1DC Offset: 0x298C1DC VA: 0x298C1DC
+	|-Dictionary<int, float>..ctor
+	|
+	|-RVA: 0x2990454 Offset: 0x2990454 VA: 0x2990454
+	|-Dictionary<int, uint>..ctor
+	|
+	|-RVA: 0x29946D8 Offset: 0x29946D8 VA: 0x29946D8
+	|-Dictionary<int, TitleInfoControl.TitleKind>..ctor
+	|
+	|-RVA: 0x299895C Offset: 0x299895C VA: 0x299895C
+	|-Dictionary<int, AnimatorStateInfo>..ctor
+	|
+	|-RVA: 0x299CF98 Offset: 0x299CF98 VA: 0x299CF98
+	|-Dictionary<int, Color>..ctor
+	|
+	|-RVA: 0x29A142C Offset: 0x29A142C VA: 0x29A142C
+	|-Dictionary<int, Vector3>..ctor
+	|
+	|-RVA: 0x29A5810 Offset: 0x29A5810 VA: 0x29A5810
+	|-Dictionary<int, WarBoardAIRoute.DistanceType>..ctor
+	|
+	|-RVA: 0x29A9A94 Offset: 0x29A9A94 VA: 0x29A9A94
+	|-Dictionary<long, bool>..ctor
+	|
+	|-RVA: 0x2A1E3D8 Offset: 0x2A1E3D8 VA: 0x2A1E3D8
+	|-Dictionary<long, KeyValuePair<int, object>>..ctor
+	|
+	|-RVA: 0x2A227A4 Offset: 0x2A227A4 VA: 0x2A227A4
+	|-Dictionary<long, int>..ctor
+	|
+	|-RVA: 0x2A26A48 Offset: 0x2A26A48 VA: 0x2A26A48
+	|-Dictionary<long, long>..ctor
+	|
+	|-RVA: 0x2A2ACEC Offset: 0x2A2ACEC VA: 0x2A2ACEC
+	|-Dictionary<long, object>..ctor
+	|
+	|-RVA: 0x2A2EF78 Offset: 0x2A2EF78 VA: 0x2A2EF78
+	|-Dictionary<IntPtr, object>..ctor
+	|
+	|-RVA: 0x2A33204 Offset: 0x2A33204 VA: 0x2A33204
+	|-Dictionary<object, GooglePlayStoreImpl.AsyncRequestStatus>..ctor
+	|
+	|-RVA: 0x2A37710 Offset: 0x2A37710 VA: 0x2A37710
+	|-Dictionary<object, bool>..ctor
+	|-Dictionary<string, bool>..ctor
+	|
+	|-RVA: 0x2A3BC40 Offset: 0x2A3BC40 VA: 0x2A3BC40
+	|-Dictionary<object, int>..ctor
+	|
+	|-RVA: 0x294B13C Offset: 0x294B13C VA: 0x294B13C
+	|-Dictionary<object, float>..ctor
+	|
+	|-RVA: 0x294F64C Offset: 0x294F64C VA: 0x294F64C
+	|-Dictionary<object, uint>..ctor
+	|
+	|-RVA: 0x2953B58 Offset: 0x2953B58 VA: 0x2953B58
+	|-Dictionary<object, TutorialFlag.Id>..ctor
+	|
+	|-RVA: 0x2958064 Offset: 0x2958064 VA: 0x2958064
+	|-Dictionary<object, Bounds>..ctor
+	|
+	|-RVA: 0x295C800 Offset: 0x295C800 VA: 0x295C800
+	|-Dictionary<object, RaycastHit2D>..ctor
+	|
+	|-RVA: 0x296107C Offset: 0x296107C VA: 0x296107C
+	|-Dictionary<object, TextEditor.TextEditOp>..ctor
+	|
+	|-RVA: 0x2965588 Offset: 0x2965588 VA: 0x2965588
+	|-Dictionary<float, float>..ctor
+	|
+	|-RVA: 0x2A4114C Offset: 0x2A4114C VA: 0x2A4114C
+	|-Dictionary<uint, int>..ctor
+	|
+	|-RVA: 0x2A453D0 Offset: 0x2A453D0 VA: 0x2A453D0
+	|-Dictionary<uint, object>..ctor
+	|
+	|-RVA: 0x2A49658 Offset: 0x2A49658 VA: 0x2A49658
+	|-Dictionary<ulong, object>..ctor
+	|
+	|-RVA: 0x2A4D8E4 Offset: 0x2A4D8E4 VA: 0x2A4D8E4
+	|-Dictionary<TitleInfoControl.TitleKind, int>..ctor
+	|
+	|-RVA: 0x2A51B68 Offset: 0x2A51B68 VA: 0x2A51B68
+	|-Dictionary<TitleInfoControl.TitleKind, object>..ctor
+	|
+	|-RVA: 0x2A55DF0 Offset: 0x2A55DF0 VA: 0x2A55DF0
+	|-Dictionary<TitleInfoControl.TitleKind, TutorialFlag.ImageId>..ctor
+	|
+	|-RVA: 0x2A5A074 Offset: 0x2A5A074 VA: 0x2A5A074
+	|-Dictionary<AppStore, object>..ctor
+	|
+	|-RVA: 0x2A5E2FC Offset: 0x2A5E2FC VA: 0x2A5E2FC
+	|-Dictionary<Voice.BATTLE, object>..ctor
+	|
+	|-RVA: 0x26C0DC8 Offset: 0x26C0DC8 VA: 0x26C0DC8
+	|-Dictionary<FGOTarget, FGOTarget>..ctor
+	*/
+
+	// RVA: -1 Offset: -1
+	public void .ctor(IDictionary<TKey, TValue> dictionary) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x26F3178 Offset: 0x26F3178 VA: 0x26F3178
+	|-Dictionary<AStarSearch.CacheKey, object>..ctor
+	|
+	|-RVA: 0x26F7404 Offset: 0x26F7404 VA: 0x26F7404
+	|-Dictionary<Ai.COND, object>..ctor
+	|
+	|-RVA: 0x26FB68C Offset: 0x26FB68C VA: 0x26FB68C
+	|-Dictionary<AiAct.TYPE, object>..ctor
+	|
+	|-RVA: 0x26FF914 Offset: 0x26FF914 VA: 0x26FF914
+	|-Dictionary<AssetsFile.Path, object>..ctor
+	|
+	|-RVA: 0x2703B9C Offset: 0x2703B9C VA: 0x2703B9C
+	|-Dictionary<BattleData.CHAIN_COUNT_TYPE, int>..ctor
+	|
+	|-RVA: 0x29FC014 Offset: 0x29FC014 VA: 0x29FC014
+	|-Dictionary<BattleLogic.LOGICTYPE, BattleLogicTask.ACTIONTYPE>..ctor
+	|
+	|-RVA: 0x2A00298 Offset: 0x2A00298 VA: 0x2A00298
+	|-Dictionary<BattleLogic.LOGICTYPE, object>..ctor
+	|
+	|-RVA: 0x2A04520 Offset: 0x2A04520 VA: 0x2A04520
+	|-Dictionary<BattleLogicTask.ACTIONTYPE, AiLogic.PROC_STATE>..ctor
+	|
+	|-RVA: 0x2A087A4 Offset: 0x2A087A4 VA: 0x2A087A4
+	|-Dictionary<BattleLogicTask.ACTIONTYPE, object>..ctor
+	|
+	|-RVA: 0x2A0CA2C Offset: 0x2A0CA2C VA: 0x2A0CA2C
+	|-Dictionary<BuffList.ACTION, object>..ctor
+	|
+	|-RVA: 0x2A10CB4 Offset: 0x2A10CB4 VA: 0x2A10CB4
+	|-Dictionary<BuffList.INVOKE_COND_TYPE, object>..ctor
+	|
+	|-RVA: 0x2A14F3C Offset: 0x2A14F3C VA: 0x2A14F3C
+	|-Dictionary<CacheFolderName.FOLDER_NAME, object>..ctor
+	|
+	|-RVA: 0x2A191C4 Offset: 0x2A191C4 VA: 0x2A191C4
+	|-Dictionary<CriAtomEx.Randomize3dCalcType, object>..ctor
+	|
+	|-RVA: 0x29ADDCC Offset: 0x29ADDCC VA: 0x29ADDCC
+	|-Dictionary<DatFileName.FILE_NAME, object>..ctor
+	|
+	|-RVA: 0x29B2054 Offset: 0x29B2054 VA: 0x29B2054
+	|-Dictionary<DataNameKind.Kind, object>..ctor
+	|
+	|-RVA: 0x29B62DC Offset: 0x29B62DC VA: 0x29B62DC
+	|-Dictionary<FileName.HIT_EFFECT, object>..ctor
+	|
+	|-RVA: 0x29BA564 Offset: 0x29BA564 VA: 0x29BA564
+	|-Dictionary<FuncList.TYPE, object>..ctor
+	|
+	|-RVA: 0x29BE7EC Offset: 0x29BE7EC VA: 0x29BE7EC
+	|-Dictionary<ListViewSort.FilterCategoryKind, object>..ctor
+	|
+	|-RVA: 0x29C2A74 Offset: 0x29C2A74 VA: 0x29C2A74
+	|-Dictionary<QuestAfterAction.COMMAND_TYPE, object>..ctor
+	|
+	|-RVA: 0x29C6CFC Offset: 0x29C6CFC VA: 0x29C6CFC
+	|-Dictionary<Rarity.TYPE, SummonEffectComponent.CardColor>..ctor
+	|
+	|-RVA: 0x29CAF80 Offset: 0x29CAF80 VA: 0x29CAF80
+	|-Dictionary<ResponseCommandKind.Kind, object>..ctor
+	|
+	|-RVA: 0x28E72A8 Offset: 0x28E72A8 VA: 0x28E72A8
+	|-Dictionary<SceneList.Type, object>..ctor
+	|
+	|-RVA: 0x28EB530 Offset: 0x28EB530 VA: 0x28EB530
+	|-Dictionary<KeyValuePair<int, int>, bool>..ctor
+	|
+	|-RVA: 0x28EF818 Offset: 0x28EF818 VA: 0x28EF818
+	|-Dictionary<KeyValuePair<object, object>, float>..ctor
+	|
+	|-RVA: 0x28F3C84 Offset: 0x28F3C84 VA: 0x28F3C84
+	|-Dictionary<DateTime, object>..ctor
+	|
+	|-RVA: 0x28F80C4 Offset: 0x28F80C4 VA: 0x28F80C4
+	|-Dictionary<int, bool>..ctor
+	|
+	|-RVA: 0x28FC368 Offset: 0x28FC368 VA: 0x28FC368
+	|-Dictionary<int, int>..ctor
+	|
+	|-RVA: 0x29005EC Offset: 0x29005EC VA: 0x29005EC
+	|-Dictionary<int, long>..ctor
+	|
+	|-RVA: 0x290488C Offset: 0x290488C VA: 0x290488C
+	|-Dictionary<int, object>..ctor
+	|
+	|-RVA: 0x298C250 Offset: 0x298C250 VA: 0x298C250
+	|-Dictionary<int, float>..ctor
+	|
+	|-RVA: 0x29904C8 Offset: 0x29904C8 VA: 0x29904C8
+	|-Dictionary<int, uint>..ctor
+	|
+	|-RVA: 0x299474C Offset: 0x299474C VA: 0x299474C
+	|-Dictionary<int, TitleInfoControl.TitleKind>..ctor
+	|
+	|-RVA: 0x29989D0 Offset: 0x29989D0 VA: 0x29989D0
+	|-Dictionary<int, AnimatorStateInfo>..ctor
+	|
+	|-RVA: 0x299D00C Offset: 0x299D00C VA: 0x299D00C
+	|-Dictionary<int, Color>..ctor
+	|
+	|-RVA: 0x29A14A0 Offset: 0x29A14A0 VA: 0x29A14A0
+	|-Dictionary<int, Vector3>..ctor
+	|
+	|-RVA: 0x29A5884 Offset: 0x29A5884 VA: 0x29A5884
+	|-Dictionary<int, WarBoardAIRoute.DistanceType>..ctor
+	|
+	|-RVA: 0x29A9B08 Offset: 0x29A9B08 VA: 0x29A9B08
+	|-Dictionary<long, bool>..ctor
+	|
+	|-RVA: 0x2A1E44C Offset: 0x2A1E44C VA: 0x2A1E44C
+	|-Dictionary<long, KeyValuePair<int, object>>..ctor
+	|
+	|-RVA: 0x2A22818 Offset: 0x2A22818 VA: 0x2A22818
+	|-Dictionary<long, int>..ctor
+	|
+	|-RVA: 0x2A26ABC Offset: 0x2A26ABC VA: 0x2A26ABC
+	|-Dictionary<long, long>..ctor
+	|
+	|-RVA: 0x2A2AD60 Offset: 0x2A2AD60 VA: 0x2A2AD60
+	|-Dictionary<long, object>..ctor
+	|
+	|-RVA: 0x2A2EFEC Offset: 0x2A2EFEC VA: 0x2A2EFEC
+	|-Dictionary<IntPtr, object>..ctor
+	|
+	|-RVA: 0x2A33278 Offset: 0x2A33278 VA: 0x2A33278
+	|-Dictionary<object, GooglePlayStoreImpl.AsyncRequestStatus>..ctor
+	|
+	|-RVA: 0x2A37784 Offset: 0x2A37784 VA: 0x2A37784
+	|-Dictionary<object, bool>..ctor
+	|
+	|-RVA: 0x2A3BCB4 Offset: 0x2A3BCB4 VA: 0x2A3BCB4
+	|-Dictionary<object, int>..ctor
+	|
+	|-RVA: 0x2946CC4 Offset: 0x2946CC4 VA: 0x2946CC4
+	|-Dictionary<object, object>..ctor
+	|
+	|-RVA: 0x294B1B0 Offset: 0x294B1B0 VA: 0x294B1B0
+	|-Dictionary<object, float>..ctor
+	|
+	|-RVA: 0x294F6C0 Offset: 0x294F6C0 VA: 0x294F6C0
+	|-Dictionary<object, uint>..ctor
+	|
+	|-RVA: 0x2953BCC Offset: 0x2953BCC VA: 0x2953BCC
+	|-Dictionary<object, TutorialFlag.Id>..ctor
+	|
+	|-RVA: 0x29580D8 Offset: 0x29580D8 VA: 0x29580D8
+	|-Dictionary<object, Bounds>..ctor
+	|
+	|-RVA: 0x295C874 Offset: 0x295C874 VA: 0x295C874
+	|-Dictionary<object, RaycastHit2D>..ctor
+	|
+	|-RVA: 0x29610F0 Offset: 0x29610F0 VA: 0x29610F0
+	|-Dictionary<object, TextEditor.TextEditOp>..ctor
+	|
+	|-RVA: 0x29655FC Offset: 0x29655FC VA: 0x29655FC
+	|-Dictionary<float, float>..ctor
+	|
+	|-RVA: 0x2A411C0 Offset: 0x2A411C0 VA: 0x2A411C0
+	|-Dictionary<uint, int>..ctor
+	|
+	|-RVA: 0x2A45444 Offset: 0x2A45444 VA: 0x2A45444
+	|-Dictionary<uint, object>..ctor
+	|
+	|-RVA: 0x2A496CC Offset: 0x2A496CC VA: 0x2A496CC
+	|-Dictionary<ulong, object>..ctor
+	|
+	|-RVA: 0x2A4D958 Offset: 0x2A4D958 VA: 0x2A4D958
+	|-Dictionary<TitleInfoControl.TitleKind, int>..ctor
+	|
+	|-RVA: 0x2A51BDC Offset: 0x2A51BDC VA: 0x2A51BDC
+	|-Dictionary<TitleInfoControl.TitleKind, object>..ctor
+	|
+	|-RVA: 0x2A55E64 Offset: 0x2A55E64 VA: 0x2A55E64
+	|-Dictionary<TitleInfoControl.TitleKind, TutorialFlag.ImageId>..ctor
+	|
+	|-RVA: 0x2A5A0E8 Offset: 0x2A5A0E8 VA: 0x2A5A0E8
+	|-Dictionary<AppStore, object>..ctor
+	|
+	|-RVA: 0x2A5E370 Offset: 0x2A5E370 VA: 0x2A5E370
+	|-Dictionary<Voice.BATTLE, object>..ctor
+	|
+	|-RVA: 0x26C0E3C Offset: 0x26C0E3C VA: 0x26C0E3C
+	|-Dictionary<FGOTarget, FGOTarget>..ctor
+	*/
+
+	// RVA: -1 Offset: -1
+	public void .ctor(int capacity) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x26F31C8 Offset: 0x26F31C8 VA: 0x26F31C8
+	|-Dictionary<AStarSearch.CacheKey, object>..ctor
+	|
+	|-RVA: 0x26F7454 Offset: 0x26F7454 VA: 0x26F7454
+	|-Dictionary<Ai.COND, object>..ctor
+	|
+	|-RVA: 0x26FB6DC Offset: 0x26FB6DC VA: 0x26FB6DC
+	|-Dictionary<AiAct.TYPE, object>..ctor
+	|
+	|-RVA: 0x26FF964 Offset: 0x26FF964 VA: 0x26FF964
+	|-Dictionary<AssetsFile.Path, object>..ctor
+	|
+	|-RVA: 0x2703BEC Offset: 0x2703BEC VA: 0x2703BEC
+	|-Dictionary<BattleData.CHAIN_COUNT_TYPE, int>..ctor
+	|
+	|-RVA: 0x29FC064 Offset: 0x29FC064 VA: 0x29FC064
+	|-Dictionary<BattleLogic.LOGICTYPE, BattleLogicTask.ACTIONTYPE>..ctor
+	|
+	|-RVA: 0x2A002E8 Offset: 0x2A002E8 VA: 0x2A002E8
+	|-Dictionary<BattleLogic.LOGICTYPE, object>..ctor
+	|
+	|-RVA: 0x2A04570 Offset: 0x2A04570 VA: 0x2A04570
+	|-Dictionary<BattleLogicTask.ACTIONTYPE, AiLogic.PROC_STATE>..ctor
+	|
+	|-RVA: 0x2A087F4 Offset: 0x2A087F4 VA: 0x2A087F4
+	|-Dictionary<BattleLogicTask.ACTIONTYPE, object>..ctor
+	|
+	|-RVA: 0x2A0CA7C Offset: 0x2A0CA7C VA: 0x2A0CA7C
+	|-Dictionary<BuffList.ACTION, object>..ctor
+	|
+	|-RVA: 0x2A10D04 Offset: 0x2A10D04 VA: 0x2A10D04
+	|-Dictionary<BuffList.INVOKE_COND_TYPE, object>..ctor
+	|
+	|-RVA: 0x2A14F8C Offset: 0x2A14F8C VA: 0x2A14F8C
+	|-Dictionary<CacheFolderName.FOLDER_NAME, object>..ctor
+	|
+	|-RVA: 0x2A19214 Offset: 0x2A19214 VA: 0x2A19214
+	|-Dictionary<CriAtomEx.Randomize3dCalcType, object>..ctor
+	|
+	|-RVA: 0x29ADE1C Offset: 0x29ADE1C VA: 0x29ADE1C
+	|-Dictionary<DatFileName.FILE_NAME, object>..ctor
+	|
+	|-RVA: 0x29B20A4 Offset: 0x29B20A4 VA: 0x29B20A4
+	|-Dictionary<DataNameKind.Kind, object>..ctor
+	|
+	|-RVA: 0x29B632C Offset: 0x29B632C VA: 0x29B632C
+	|-Dictionary<FileName.HIT_EFFECT, object>..ctor
+	|
+	|-RVA: 0x29BA5B4 Offset: 0x29BA5B4 VA: 0x29BA5B4
+	|-Dictionary<FuncList.TYPE, object>..ctor
+	|
+	|-RVA: 0x29BE83C Offset: 0x29BE83C VA: 0x29BE83C
+	|-Dictionary<ListViewSort.FilterCategoryKind, object>..ctor
+	|
+	|-RVA: 0x29C2AC4 Offset: 0x29C2AC4 VA: 0x29C2AC4
+	|-Dictionary<QuestAfterAction.COMMAND_TYPE, object>..ctor
+	|
+	|-RVA: 0x29C6D4C Offset: 0x29C6D4C VA: 0x29C6D4C
+	|-Dictionary<Rarity.TYPE, SummonEffectComponent.CardColor>..ctor
+	|
+	|-RVA: 0x29CAFD0 Offset: 0x29CAFD0 VA: 0x29CAFD0
+	|-Dictionary<ResponseCommandKind.Kind, object>..ctor
+	|
+	|-RVA: 0x28E72F8 Offset: 0x28E72F8 VA: 0x28E72F8
+	|-Dictionary<SceneList.Type, object>..ctor
+	|
+	|-RVA: 0x28EB580 Offset: 0x28EB580 VA: 0x28EB580
+	|-Dictionary<KeyValuePair<int, int>, bool>..ctor
+	|
+	|-RVA: 0x28EF868 Offset: 0x28EF868 VA: 0x28EF868
+	|-Dictionary<KeyValuePair<object, object>, float>..ctor
+	|
+	|-RVA: 0x28F3CD4 Offset: 0x28F3CD4 VA: 0x28F3CD4
+	|-Dictionary<DateTime, object>..ctor
+	|
+	|-RVA: 0x28F8114 Offset: 0x28F8114 VA: 0x28F8114
+	|-Dictionary<int, bool>..ctor
+	|
+	|-RVA: 0x28FC3B8 Offset: 0x28FC3B8 VA: 0x28FC3B8
+	|-Dictionary<int, int>..ctor
+	|
+	|-RVA: 0x290063C Offset: 0x290063C VA: 0x290063C
+	|-Dictionary<int, long>..ctor
+	|
+	|-RVA: 0x29048DC Offset: 0x29048DC VA: 0x29048DC
+	|-Dictionary<int, object>..ctor
+	|-Dictionary<int, TitleInfoEventFactoryUnit>..ctor
+	|
+	|-RVA: 0x298C2A0 Offset: 0x298C2A0 VA: 0x298C2A0
+	|-Dictionary<int, float>..ctor
+	|
+	|-RVA: 0x2990518 Offset: 0x2990518 VA: 0x2990518
+	|-Dictionary<int, uint>..ctor
+	|
+	|-RVA: 0x299479C Offset: 0x299479C VA: 0x299479C
+	|-Dictionary<int, TitleInfoControl.TitleKind>..ctor
+	|
+	|-RVA: 0x2998A20 Offset: 0x2998A20 VA: 0x2998A20
+	|-Dictionary<int, AnimatorStateInfo>..ctor
+	|
+	|-RVA: 0x299D05C Offset: 0x299D05C VA: 0x299D05C
+	|-Dictionary<int, Color>..ctor
+	|
+	|-RVA: 0x29A14F0 Offset: 0x29A14F0 VA: 0x29A14F0
+	|-Dictionary<int, Vector3>..ctor
+	|
+	|-RVA: 0x29A58D4 Offset: 0x29A58D4 VA: 0x29A58D4

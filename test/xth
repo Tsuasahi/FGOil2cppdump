@@ -1,0 +1,1000 @@
+
+	// RVA: 0x1624AAC Offset: 0x1624AAC VA: 0x1624AAC
+	protected void RequestListObject(DeckListViewObject.InitMode mode, float delay) { }
+
+	// RVA: 0x16248B8 Offset: 0x16248B8 VA: 0x16248B8
+	protected void RequestListObject(DeckListViewObject.InitMode mode) { }
+
+	// RVA: 0x1624DBC Offset: 0x1624DBC VA: 0x1624DBC
+	protected void OnMoveEnd() { }
+
+	// RVA: 0x1624E94 Offset: 0x1624E94 VA: 0x1624E94
+	protected void OnClickListView(ListViewObject obj) { }
+}
+
+// Namespace: 
+public enum DeckListViewManager.Kind // TypeDefIndex: 10327
+{
+	// Fields
+	public int value__; // 0x0
+	public const DeckListViewManager.Kind EVENT = 0;
+}
+
+// Namespace: 
+public enum DeckListViewManager.InitMode // TypeDefIndex: 10328
+{
+	// Fields
+	public int value__; // 0x0
+	public const DeckListViewManager.InitMode NONE = 0;
+	public const DeckListViewManager.InitMode VALID = 1;
+	public const DeckListViewManager.InitMode INPUT = 2;
+}
+
+// Namespace: 
+public enum DeckListViewManager.ResultKind // TypeDefIndex: 10329
+{
+	// Fields
+	public int value__; // 0x0
+	public const DeckListViewManager.ResultKind CANCEL = 0;
+	public const DeckListViewManager.ResultKind SELECT = 1;
+	public const DeckListViewManager.ResultKind COMMAND_CARD = 2;
+}
+
+// Namespace: 
+public sealed class DeckListViewManager.CallbackFunc : MulticastDelegate // TypeDefIndex: 10330
+{
+	// Methods
+
+	// RVA: 0x1625134 Offset: 0x1625134 VA: 0x1625134
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1624EF0 Offset: 0x1624EF0 VA: 0x1624EF0 Slot: 11
+	public virtual void Invoke(DeckListViewManager.ResultKind result, int index) { }
+
+	// RVA: 0x1625144 Offset: 0x1625144 VA: 0x1625144 Slot: 12
+	public virtual IAsyncResult BeginInvoke(DeckListViewManager.ResultKind result, int index, AsyncCallback callback, object object) { }
+
+	// RVA: 0x16251EC Offset: 0x16251EC VA: 0x16251EC Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class DeckListViewObject : ListViewObject // TypeDefIndex: 10331
+{
+	// Fields
+	protected DeckListViewObject.State state; // 0x6C
+	[CompilerGeneratedAttribute] // RVA: 0xCDFA60 Offset: 0xCDFA60 VA: 0xCDFA60
+	[DebuggerBrowsableAttribute] // RVA: 0xCDFA60 Offset: 0xCDFA60 VA: 0xCDFA60
+	private Action callbackFunc; // 0x70
+	protected DeckListViewItemDraw itemDraw; // 0x78
+	protected DeckListViewItemDraw.DispMode dispMode; // 0x80
+	protected GameObject dragObject; // 0x88
+
+	// Methods
+
+	// RVA: 0x16251F8 Offset: 0x16251F8 VA: 0x16251F8
+	public void .ctor() { }
+
+	// RVA: 0x1625260 Offset: 0x1625260 VA: 0x1625260
+	protected void add_callbackFunc(Action value) { }
+
+	// RVA: 0x162534C Offset: 0x162534C VA: 0x162534C
+	protected void remove_callbackFunc(Action value) { }
+
+	// RVA: 0x1625438 Offset: 0x1625438 VA: 0x1625438
+	protected void Awake() { }
+
+	// RVA: 0x16254AC Offset: 0x16254AC VA: 0x16254AC
+	private void OnDestroy() { }
+
+	// RVA: 0x16243B4 Offset: 0x16243B4 VA: 0x16243B4
+	public DeckListViewItem GetItem() { }
+
+	// RVA: 0x1625558 Offset: 0x1625558 VA: 0x1625558 Slot: 6
+	public override void SetItem(ListViewItem item, ListViewItemSeed seed) { }
+
+	// RVA: 0x1625564 Offset: 0x1625564 VA: 0x1625564 Slot: 8
+	public override GameObject CreateDragObject() { }
+
+	// RVA: 0x16255EC Offset: 0x16255EC VA: 0x16255EC
+	public void Init(DeckListViewObject.InitMode initMode, Action callbackFunc, float delay, Vector3 position) { }
+
+	// RVA: 0x1624CB4 Offset: 0x1624CB4 VA: 0x1624CB4
+	public void Init(DeckListViewObject.InitMode initMode, Action callbackFunc, float delay) { }
+
+	// RVA: 0x1624D38 Offset: 0x1624D38 VA: 0x1624D38
+	public void Init(DeckListViewObject.InitMode initMode, Action callbackFunc) { }
+
+	// RVA: 0x16247B8 Offset: 0x16247B8 VA: 0x16247B8
+	public void Init(DeckListViewObject.InitMode initMode) { }
+
+	// RVA: 0x16257A4 Offset: 0x16257A4 VA: 0x16257A4
+	protected void SetupDisp() { }
+
+	// RVA: 0x16258B4 Offset: 0x16258B4 VA: 0x16258B4
+	protected void EventMoveEnd() { }
+}
+
+// Namespace: 
+public enum DeckListViewObject.InitMode // TypeDefIndex: 10332
+{
+	// Fields
+	public int value__; // 0x0
+	public const DeckListViewObject.InitMode INVISIBLE = 0;
+	public const DeckListViewObject.InitMode INVALID = 1;
+	public const DeckListViewObject.InitMode VALID = 2;
+	public const DeckListViewObject.InitMode INPUT = 3;
+}
+
+// Namespace: 
+protected enum DeckListViewObject.State // TypeDefIndex: 10333
+{
+	// Fields
+	public int value__; // 0x0
+	public const DeckListViewObject.State INIT = 0;
+	public const DeckListViewObject.State IDLE = 1;
+	public const DeckListViewObject.State MOVE = 2;
+	public const DeckListViewObject.State INPUT = 3;
+}
+
+// Namespace: 
+public class DeckNameInputMenu : BaseDialog // TypeDefIndex: 10334
+{
+	// Fields
+	[SerializeField] // RVA: 0xCDFA9C Offset: 0xCDFA9C VA: 0xCDFA9C
+	protected UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xCDFAAC Offset: 0xCDFAAC VA: 0xCDFAAC
+	protected UILabel explanationLabel; // 0x60
+	[SerializeField] // RVA: 0xCDFABC Offset: 0xCDFABC VA: 0xCDFABC
+	protected UILineInput nameInput; // 0x68
+	[SerializeField] // RVA: 0xCDFACC Offset: 0xCDFACC VA: 0xCDFACC
+	protected UILabel nameText; // 0x70
+	[SerializeField] // RVA: 0xCDFADC Offset: 0xCDFADC VA: 0xCDFADC
+	protected UIInput inputTarget; // 0x78
+	[SerializeField] // RVA: 0xCDFAEC Offset: 0xCDFAEC VA: 0xCDFAEC
+	protected UICommonButton decideButton; // 0x80
+	[SerializeField] // RVA: 0xCDFAFC Offset: 0xCDFAFC VA: 0xCDFAFC
+	protected UILabel decideLabel; // 0x88
+	[SerializeField] // RVA: 0xCDFB0C Offset: 0xCDFB0C VA: 0xCDFB0C
+	protected UILabel cancelLabel; // 0x90
+	[SerializeField] // RVA: 0xCDFB1C Offset: 0xCDFB1C VA: 0xCDFB1C
+	protected UILabel clearLabel; // 0x98
+	[SerializeField] // RVA: 0xCDFB2C Offset: 0xCDFB2C VA: 0xCDFB2C
+	protected UILabel initLabel; // 0xA0
+	[CompilerGeneratedAttribute] // RVA: 0xCDFB3C Offset: 0xCDFB3C VA: 0xCDFB3C
+	[DebuggerBrowsableAttribute] // RVA: 0xCDFB3C Offset: 0xCDFB3C VA: 0xCDFB3C
+	private DeckNameInputMenu.CallbackFunc callbackFunc; // 0xA8
+	protected Action closeCallbackFunc; // 0xB0
+	protected string baseName; // 0xB8
+	protected string changeName; // 0xC0
+	protected string initName; // 0xC8
+	protected DeckNameInputMenu.State state; // 0xD0
+
+	// Properties
+	protected override string closeBtnPath { get; }
+
+	// Methods
+
+	// RVA: 0x16258DC Offset: 0x16258DC VA: 0x16258DC
+	public void .ctor() { }
+
+	// RVA: 0x1625944 Offset: 0x1625944 VA: 0x1625944
+	protected void add_callbackFunc(DeckNameInputMenu.CallbackFunc value) { }
+
+	// RVA: 0x1625A30 Offset: 0x1625A30 VA: 0x1625A30
+	protected void remove_callbackFunc(DeckNameInputMenu.CallbackFunc value) { }
+
+	// RVA: 0x1625B1C Offset: 0x1625B1C VA: 0x1625B1C
+	public void Init() { }
+
+	// RVA: 0x1625BD0 Offset: 0x1625BD0 VA: 0x1625BD0
+	public void Open(string deckName, string initName, DeckNameInputMenu.CallbackFunc callback) { }
+
+	// RVA: 0x1625E98 Offset: 0x1625E98 VA: 0x1625E98
+	public void OnChangeInput() { }
+
+	// RVA: 0x1625ED8 Offset: 0x1625ED8 VA: 0x1625ED8
+	public void ChangeInput(string inputName) { }
+
+	// RVA: 0x16260E8 Offset: 0x16260E8 VA: 0x16260E8
+	protected void EndOpen() { }
+
+	// RVA: 0x1626184 Offset: 0x1626184 VA: 0x1626184
+	public void Close() { }
+
+	// RVA: 0x162618C Offset: 0x162618C VA: 0x162618C
+	public void Close(Action callback) { }
+
+	// RVA: 0x162625C Offset: 0x162625C VA: 0x162625C
+	protected void EndClose() { }
+
+	// RVA: 0x16262C0 Offset: 0x16262C0 VA: 0x16262C0
+	protected void Callback(bool result, string name) { }
+
+	// RVA: 0x1626524 Offset: 0x1626524 VA: 0x1626524
+	public void OnClickDecide() { }
+
+	// RVA: 0x16265F8 Offset: 0x16265F8 VA: 0x16265F8
+	public void OnClickCancel() { }
+
+	// RVA: 0x16266BC Offset: 0x16266BC VA: 0x16266BC
+	public void OnClickClear() { }
+
+	// RVA: 0x162679C Offset: 0x162679C VA: 0x162679C
+	public void OnClickInit() { }
+
+	// RVA: 0x1626858 Offset: 0x1626858 VA: 0x1626858 Slot: 6
+	protected override string get_closeBtnPath() { }
+}
+
+// Namespace: 
+public sealed class DeckNameInputMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10335
+{
+	// Methods
+
+	// RVA: 0x16268A0 Offset: 0x16268A0 VA: 0x16268A0
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x16262E0 Offset: 0x16262E0 VA: 0x16262E0 Slot: 11
+	public virtual void Invoke(bool result, string changeName) { }
+
+	// RVA: 0x16268B0 Offset: 0x16268B0 VA: 0x16268B0 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, string changeName, AsyncCallback callback, object object) { }
+
+	// RVA: 0x162694C Offset: 0x162694C VA: 0x162694C Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+protected enum DeckNameInputMenu.State // TypeDefIndex: 10336
+{
+	// Fields
+	public int value__; // 0x0
+	public const DeckNameInputMenu.State INIT = 0;
+	public const DeckNameInputMenu.State OPEN = 1;
+	public const DeckNameInputMenu.State INPUT = 2;
+	public const DeckNameInputMenu.State CLOSE = 3;
+}
+
+// Namespace: 
+public class DeckSelectMenu : BaseDialog // TypeDefIndex: 10337
+{
+	// Fields
+	[SerializeField] // RVA: 0xCDFB78 Offset: 0xCDFB78 VA: 0xCDFB78
+	protected UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xCDFB88 Offset: 0xCDFB88 VA: 0xCDFB88
+	protected UILabel titleDetailLabel; // 0x60
+	[SerializeField] // RVA: 0xCDFB98 Offset: 0xCDFB98 VA: 0xCDFB98
+	protected DeckListViewManager deckListViewManager; // 0x68
+	[SerializeField] // RVA: 0xCDFBA8 Offset: 0xCDFBA8 VA: 0xCDFBA8
+	protected UILabel cancelLabel; // 0x70
+	[CompilerGeneratedAttribute] // RVA: 0xCDFBB8 Offset: 0xCDFBB8 VA: 0xCDFBB8
+	[DebuggerBrowsableAttribute] // RVA: 0xCDFBB8 Offset: 0xCDFBB8 VA: 0xCDFBB8
+	private DeckSelectMenu.CallbackFunc callbackFunc; // 0x78
+	protected Action openCallbackFunc; // 0x80
+	protected Action closeCallbackFunc; // 0x88
+	protected DeckSelectMenu.State state; // 0x90
+
+	// Methods
+
+	// RVA: 0x1626958 Offset: 0x1626958 VA: 0x1626958
+	public void .ctor() { }
+
+	// RVA: 0x16269C0 Offset: 0x16269C0 VA: 0x16269C0
+	protected void add_callbackFunc(DeckSelectMenu.CallbackFunc value) { }
+
+	// RVA: 0x1626AAC Offset: 0x1626AAC VA: 0x1626AAC
+	protected void remove_callbackFunc(DeckSelectMenu.CallbackFunc value) { }
+
+	// RVA: 0x1626B98 Offset: 0x1626B98 VA: 0x1626B98
+	public DeckListViewItem GetItem(int index) { }
+
+	// RVA: 0x1626BCC Offset: 0x1626BCC VA: 0x1626BCC
+	public void Init() { }
+
+	// RVA: 0x1626C10 Offset: 0x1626C10 VA: 0x1626C10
+	public void Open(DeckSelectMenu.Kind kind, PartyListViewItem[] baseDeckItemList, DeckSelectMenu.CallbackFunc callback, Action openCallback) { }
+
+	// RVA: 0x1626EB8 Offset: 0x1626EB8 VA: 0x1626EB8
+	protected void EndOpen() { }
+
+	// RVA: 0x1626F74 Offset: 0x1626F74 VA: 0x1626F74
+	public void Close() { }
+
+	// RVA: 0x1626F7C Offset: 0x1626F7C VA: 0x1626F7C
+	public void Close(Action callback) { }
+
+	// RVA: 0x1627028 Offset: 0x1627028 VA: 0x1627028
+	protected void EndClose() { }
+
+	// RVA: 0x1627064 Offset: 0x1627064 VA: 0x1627064
+	protected void Callback(DeckSelectMenu.ResultKind result, int index = -1) { }
+
+	// RVA: 0x16272C4 Offset: 0x16272C4 VA: 0x16272C4
+	public void OnClickCancel() { }
+
+	// RVA: 0x1627368 Offset: 0x1627368 VA: 0x1627368
+	protected void OnSelectItem(DeckListViewManager.ResultKind kind, int n) { }
+}
+
+// Namespace: 
+public enum DeckSelectMenu.Kind // TypeDefIndex: 10338
+{
+	// Fields
+	public int value__; // 0x0
+	public const DeckSelectMenu.Kind COPY = 0;
+}
+
+// Namespace: 
+public enum DeckSelectMenu.ResultKind // TypeDefIndex: 10339
+{
+	// Fields
+	public int value__; // 0x0
+	public const DeckSelectMenu.ResultKind CANCEL = 0;
+	public const DeckSelectMenu.ResultKind SELECT = 1;
+}
+
+// Namespace: 
+protected enum DeckSelectMenu.State // TypeDefIndex: 10340
+{
+	// Fields
+	public int value__; // 0x0
+	public const DeckSelectMenu.State INIT = 0;
+	public const DeckSelectMenu.State OPEN = 1;
+	public const DeckSelectMenu.State INPUT = 2;
+	public const DeckSelectMenu.State SELECTED = 3;
+	public const DeckSelectMenu.State CLOSE = 4;
+}
+
+// Namespace: 
+public sealed class DeckSelectMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 10341
+{
+	// Methods
+
+	// RVA: 0x1627484 Offset: 0x1627484 VA: 0x1627484
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1627080 Offset: 0x1627080 VA: 0x1627080 Slot: 11
+	public virtual void Invoke(DeckSelectMenu.ResultKind result, int index) { }
+
+	// RVA: 0x1627494 Offset: 0x1627494 VA: 0x1627494 Slot: 12
+	public virtual IAsyncResult BeginInvoke(DeckSelectMenu.ResultKind result, int index, AsyncCallback callback, object object) { }
+
+	// RVA: 0x162753C Offset: 0x162753C VA: 0x162753C Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public class DropAutoSellDlgComponent : BaseDialog // TypeDefIndex: 10342
+{
+	// Fields
+	private static readonly int[] settingKinds; // 0x0
+	private static readonly int[] settingMasks; // 0x8
+	[SerializeField] // RVA: 0xCDFBF4 Offset: 0xCDFBF4 VA: 0xCDFBF4
+	private UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xCDFC04 Offset: 0xCDFC04 VA: 0xCDFC04
+	private UILabel msgLabel; // 0x60
+	[SerializeField] // RVA: 0xCDFC14 Offset: 0xCDFC14 VA: 0xCDFC14
+	private UICommonButton decideButton; // 0x68
+	[SerializeField] // RVA: 0xCDFC24 Offset: 0xCDFC24 VA: 0xCDFC24
+	private UICommonButton cancelButton; // 0x70
+	[SerializeField] // RVA: 0xCDFC34 Offset: 0xCDFC34 VA: 0xCDFC34
+	private UILabel decideLabel; // 0x78
+	[SerializeField] // RVA: 0xCDFC44 Offset: 0xCDFC44 VA: 0xCDFC44
+	private UILabel cancelLabel; // 0x80
+	[SerializeField] // RVA: 0xCDFC54 Offset: 0xCDFC54 VA: 0xCDFC54
+	private UICommonButton[] settingButton; // 0x88
+	[SerializeField] // RVA: 0xCDFC64 Offset: 0xCDFC64 VA: 0xCDFC64
+	private UISprite[] settingButtonSprites; // 0x90
+	[SerializeField] // RVA: 0xCDFC74 Offset: 0xCDFC74 VA: 0xCDFC74
+	private UILabel[] settingButtonLabel; // 0x98
+	[SerializeField] // RVA: 0xCDFC84 Offset: 0xCDFC84 VA: 0xCDFC84
+	private UILabel expTitleLb; // 0xA0
+	[CompilerGeneratedAttribute] // RVA: 0xCDFC94 Offset: 0xCDFC94 VA: 0xCDFC94
+	[DebuggerBrowsableAttribute] // RVA: 0xCDFC94 Offset: 0xCDFC94 VA: 0xCDFC94
+	private DropAutoSellDlgComponent.CallbackFunc callbackFunc; // 0xA8
+	private Action closeCallbackFunc; // 0xB0
+	private List<int> enableList; // 0xB8
+	private DropAutoSellDlgComponent.State state; // 0xC0
+
+	// Properties
+	protected override GameObject closeBtnObject { get; }
+
+	// Methods
+
+	// RVA: 0x1631598 Offset: 0x1631598 VA: 0x1631598
+	public void .ctor() { }
+
+	// RVA: 0x1631628 Offset: 0x1631628 VA: 0x1631628
+	private void add_callbackFunc(DropAutoSellDlgComponent.CallbackFunc value) { }
+
+	// RVA: 0x1631714 Offset: 0x1631714 VA: 0x1631714
+	private void remove_callbackFunc(DropAutoSellDlgComponent.CallbackFunc value) { }
+
+	// RVA: 0x1631800 Offset: 0x1631800 VA: 0x1631800
+	public void Init() { }
+
+	// RVA: 0x163199C Offset: 0x163199C VA: 0x163199C
+	public void Open(DropAutoSellDlgComponent.CallbackFunc callback) { }
+
+	// RVA: 0x16321FC Offset: 0x16321FC VA: 0x16321FC
+	private void EndOpen() { }
+
+	// RVA: 0x1632208 Offset: 0x1632208 VA: 0x1632208
+	public void Close() { }
+
+	// RVA: 0x1632210 Offset: 0x1632210 VA: 0x1632210
+	public void Close(Action callback) { }
+
+	// RVA: 0x16322A0 Offset: 0x16322A0 VA: 0x16322A0
+	private void EndClose() { }
+
+	// RVA: 0x1632304 Offset: 0x1632304 VA: 0x1632304
+	private void Callback(bool result) { }
+
+	// RVA: 0x1632550 Offset: 0x1632550 VA: 0x1632550
+	public void OnClickDecide() { }
+
+	// RVA: 0x16326E8 Offset: 0x16326E8 VA: 0x16326E8
+	public void OnClickCancel() { }
+
+	// RVA: 0x1632794 Offset: 0x1632794 VA: 0x1632794
+	public void OnClickExp4() { }
+
+	// RVA: 0x1632844 Offset: 0x1632844 VA: 0x1632844
+	public void OnClickExp3() { }
+
+	// RVA: 0x163284C Offset: 0x163284C VA: 0x163284C
+	public void OnClickExp2() { }
+
+	// RVA: 0x1632854 Offset: 0x1632854 VA: 0x1632854
+	public void OnClickExp1() { }
+
+	// RVA: 0x163279C Offset: 0x163279C VA: 0x163279C
+	private void OnClickButton(DropAutoSellDlgComponent.FlagKind kind) { }
+
+	// RVA: 0x1631E88 Offset: 0x1631E88 VA: 0x1631E88
+	private void SetButtonSelect(int kind) { }
+
+	// RVA: 0x1632130 Offset: 0x1632130 VA: 0x1632130
+	private void SetButtonEnable(bool isEnable) { }
+
+	// RVA: 0x163285C Offset: 0x163285C VA: 0x163285C
+	private void SwitchSelect(int kind) { }
+
+	// RVA: 0x16325EC Offset: 0x16325EC VA: 0x16325EC
+	private void RequestUserStatusFlagSet() { }
+
+	// RVA: 0x1632BE0 Offset: 0x1632BE0 VA: 0x1632BE0
+	private void callbackUsetStatusFlagSet(string result) { }
+
+	// RVA: 0x1632A00 Offset: 0x1632A00 VA: 0x1632A00
+	private int[] GetDisableList() { }
+
+	// RVA: 0x1632CA8 Offset: 0x1632CA8 VA: 0x1632CA8 Slot: 4
+	protected override GameObject get_closeBtnObject() { }
+
+	// RVA: 0x1632D48 Offset: 0x1632D48 VA: 0x1632D48
+	private static void .cctor() { }
+}
+
+// Namespace: 
+private enum DropAutoSellDlgComponent.FlagKind // TypeDefIndex: 10343
+{
+	// Fields
+	public int value__; // 0x0
+	public const DropAutoSellDlgComponent.FlagKind EXP_1 = 0;
+	public const DropAutoSellDlgComponent.FlagKind EXP_2 = 1;
+	public const DropAutoSellDlgComponent.FlagKind EXP_3 = 2;
+	public const DropAutoSellDlgComponent.FlagKind EXP_4 = 3;
+	public const DropAutoSellDlgComponent.FlagKind MAX = 4;
+}
+
+// Namespace: 
+private enum DropAutoSellDlgComponent.State // TypeDefIndex: 10344
+{
+	// Fields
+	public int value__; // 0x0
+	public const DropAutoSellDlgComponent.State INIT = 0;
+	public const DropAutoSellDlgComponent.State OPEN = 1;
+	public const DropAutoSellDlgComponent.State INPUT = 2;
+	public const DropAutoSellDlgComponent.State NETWORK = 3;
+	public const DropAutoSellDlgComponent.State SELECTED = 4;
+	public const DropAutoSellDlgComponent.State CLOSE = 5;
+}
+
+// Namespace: 
+public sealed class DropAutoSellDlgComponent.CallbackFunc : MulticastDelegate // TypeDefIndex: 10345
+{
+	// Methods
+
+	// RVA: 0x1632F84 Offset: 0x1632F84 VA: 0x1632F84
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1632324 Offset: 0x1632324 VA: 0x1632324 Slot: 11
+	public virtual void Invoke(bool result) { }
+
+	// RVA: 0x1632F94 Offset: 0x1632F94 VA: 0x1632F94 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1633024 Offset: 0x1633024 VA: 0x1633024 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1350 Offset: 0xCB1350 VA: 0xCB1350
+private sealed class DropAutoSellDlgComponent.<SetButtonSelect>c__AnonStorey1 // TypeDefIndex: 10346
+{
+	// Fields
+	internal int kind; // 0x10
+
+	// Methods
+
+	// RVA: 0x16329E8 Offset: 0x16329E8 VA: 0x16329E8
+	public void .ctor() { }
+
+	// RVA: 0x1632EC0 Offset: 0x1632EC0 VA: 0x1632EC0
+	internal bool <>m__0(int x) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1360 Offset: 0xCB1360 VA: 0xCB1360
+private sealed class DropAutoSellDlgComponent.<SetButtonSelect>c__AnonStorey0 // TypeDefIndex: 10347
+{
+	// Fields
+	internal int i; // 0x10
+
+	// Methods
+
+	// RVA: 0x16329F0 Offset: 0x16329F0 VA: 0x16329F0
+	public void .ctor() { }
+
+	// RVA: 0x1632E0C Offset: 0x1632E0C VA: 0x1632E0C
+	internal bool <>m__0(int x) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1370 Offset: 0xCB1370 VA: 0xCB1370
+private sealed class DropAutoSellDlgComponent.<SwitchSelect>c__AnonStorey2 // TypeDefIndex: 10348
+{
+	// Fields
+	internal int target; // 0x10
+
+	// Methods
+
+	// RVA: 0x16329F8 Offset: 0x16329F8 VA: 0x16329F8
+	public void .ctor() { }
+
+	// RVA: 0x1632F74 Offset: 0x1632F74 VA: 0x1632F74
+	internal bool <>m__0(int x) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1380 Offset: 0xCB1380 VA: 0xCB1380
+private sealed class DropAutoSellDlgComponent.<GetDisableList>c__AnonStorey3 // TypeDefIndex: 10349
+{
+	// Fields
+	internal int target; // 0x10
+
+	// Methods
+
+	// RVA: 0x1632CA0 Offset: 0x1632CA0 VA: 0x1632CA0
+	public void .ctor() { }
+
+	// RVA: 0x1632DFC Offset: 0x1632DFC VA: 0x1632DFC
+	internal bool <>m__0(int x) { }
+}
+
+// Namespace: 
+public class FriendshipUpItemUseItem : BaseMonoBehaviour // TypeDefIndex: 10350
+{
+	// Fields
+	private static readonly int FRIENDSHIP_UP_ITEM_MAX_NUM; // 0x0
+	private static readonly string BUTTON_ON_FILE_NAME; // 0x8
+	private static readonly string BUTTON_OFF_FILE_NAME; // 0x10
+	public UISprite friendshipUpItemUseSprite; // 0x18
+	public UISprite friendshipUpItemIconSprite; // 0x20
+	public UILabel friendshipUpItemUseFixAutoUseLabel; // 0x28
+	public UILabel friendshipUpItemUseFixHaveLabel; // 0x30
+	public UILabel friendshipUpItemUseNumLabel; // 0x38
+
+	// Methods
+
+	// RVA: 0x1E87698 Offset: 0x1E87698 VA: 0x1E87698
+	public void .ctor() { }
+
+	// RVA: 0x1E876A0 Offset: 0x1E876A0 VA: 0x1E876A0
+	public void SetInit() { }
+
+	// RVA: 0x1E87948 Offset: 0x1E87948 VA: 0x1E87948
+	public void ChangeButtonState(bool isOn) { }
+
+	// RVA: 0x1E87A04 Offset: 0x1E87A04 VA: 0x1E87A04
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class PartyEventPointIndicator : ListViewIndicator // TypeDefIndex: 10351
+{
+	// Fields
+	[SerializeField] // RVA: 0xCDFCD0 Offset: 0xCDFCD0 VA: 0xCDFCD0
+	protected UIPanel infomationPanel; // 0x18
+	[SerializeField] // RVA: 0xCDFCE0 Offset: 0xCDFCE0 VA: 0xCDFCE0
+	protected GameObject pointEventBase; // 0x20
+	[SerializeField] // RVA: 0xCDFCF0 Offset: 0xCDFCF0 VA: 0xCDFCF0
+	protected Transform pointEventTotalTitleBase; // 0x28
+	[SerializeField] // RVA: 0xCDFD00 Offset: 0xCDFD00 VA: 0xCDFD00
+	protected UILabel pointEventTotalTitle1Label; // 0x30
+	[SerializeField] // RVA: 0xCDFD10 Offset: 0xCDFD10 VA: 0xCDFD10
+	protected UILabel pointEventTotalTitle2Label; // 0x38
+	[SerializeField] // RVA: 0xCDFD20 Offset: 0xCDFD20 VA: 0xCDFD20
+	protected UILabel pointEventTotalDataLabel; // 0x40
+	[SerializeField] // RVA: 0xCDFD30 Offset: 0xCDFD30 VA: 0xCDFD30
+	protected GameObject trendInfoBase; // 0x48
+	[SerializeField] // RVA: 0xCDFD40 Offset: 0xCDFD40 VA: 0xCDFD40
+	protected GameObject levelInfoBase; // 0x50
+	[SerializeField] // RVA: 0xCDFD50 Offset: 0xCDFD50 VA: 0xCDFD50
+	protected UILabel levelInfoLabel; // 0x58
+	[SerializeField] // RVA: 0xCDFD60 Offset: 0xCDFD60 VA: 0xCDFD60
+	protected GameObject classInfoBase; // 0x60
+	[SerializeField] // RVA: 0xCDFD70 Offset: 0xCDFD70 VA: 0xCDFD70
+	protected ServantClassIconComponent[] classIconList; // 0x68
+	[SerializeField] // RVA: 0xCDFD80 Offset: 0xCDFD80 VA: 0xCDFD80
+	protected Transform restrictionMessageBase; // 0x70
+	[SerializeField] // RVA: 0xCDFD90 Offset: 0xCDFD90 VA: 0xCDFD90
+	protected UILabel restrictionMessageLabel; // 0x78
+	protected EventPartyMargeUpValInfo eventMargeItemUpValInfo; // 0x80
+	protected QuestRestrictionInfo questRestrictionInfo; // 0x88
+	protected bool isDispTrend; // 0x90
+	protected PartyEventPointIndicator.DispKind dispKind; // 0x94
+	protected int dispNum; // 0x98
+	protected IEnumerator dispTotalDropItemCRW; // 0xA0
+	protected bool isClick; // 0xA8
+	protected int titleWidth; // 0xAC
+	protected int baseMessageWidth; // 0xB0
+
+	// Methods
+
+	// RVA: 0x179C618 Offset: 0x179C618 VA: 0x179C618
+	public void .ctor() { }
+
+	// RVA: 0x179C628 Offset: 0x179C628 VA: 0x179C628
+	protected void Awake() { }
+
+	// RVA: 0x179C6E0 Offset: 0x179C6E0 VA: 0x179C6E0
+	public void SetInfomation(QuestRestrictionInfo questRestrictionInfo) { }
+
+	// RVA: 0x179CA0C Offset: 0x179CA0C VA: 0x179CA0C
+	public void SetTotalDropItemList(EventPartyMargeUpValInfo margeItemInfo) { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD3E234 Offset: 0xD3E234 VA: 0xD3E234
+	// RVA: 0x179D160 Offset: 0x179D160 VA: 0x179D160
+	private IEnumerator DispTotalDropItemCR() { }
+
+	// RVA: 0x179CAE4 Offset: 0x179CAE4 VA: 0x179CAE4
+	protected void StopTotalDropItemtweenAlpha() { }
+
+	// RVA: 0x179CBC4 Offset: 0x179CBC4 VA: 0x179CBC4
+	protected bool SetTotalDropItem(EventMargeItemUpValInfo dropItemInfo) { }
+
+	// RVA: 0x179C730 Offset: 0x179C730 VA: 0x179C730
+	protected bool SetTrendDisp() { }
+
+	// RVA: 0x179D1D8 Offset: 0x179D1D8 VA: 0x179D1D8
+	protected bool SetRestrictionDisp(RestrictionEntity restrictionEntity) { }
+
+	// RVA: 0x179D3F0 Offset: 0x179D3F0 VA: 0x179D3F0
+	public void OnClick() { }
+}
+
+// Namespace: 
+protected enum PartyEventPointIndicator.DispKind // TypeDefIndex: 10352
+{
+	// Fields
+	public int value__; // 0x0
+	public const PartyEventPointIndicator.DispKind NONE = 0;
+	public const PartyEventPointIndicator.DispKind TREND = 1;
+	public const PartyEventPointIndicator.DispKind RESTRICTION = 2;
+	public const PartyEventPointIndicator.DispKind MARGE_UP_VAL = 3;
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1390 Offset: 0xCB1390 VA: 0xCB1390
+private sealed class PartyEventPointIndicator.<DispTotalDropItemCR>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 10353
+{
+	// Fields
+	internal RestrictionEntity[] <restrictionEntityList>__0; // 0x10
+	internal int <restrictionCount>__0; // 0x18
+	internal EventMargeItemUpValInfo[] <margeItemList>__0; // 0x20
+	internal int <margeItemCount>__0; // 0x28
+	internal TweenAlpha <ta>__1; // 0x30
+	internal WaitForEndOfFrame <wait>__2; // 0x38
+	internal float <startTime>__3; // 0x40
+	internal float <nowTime>__4; // 0x44
+	internal WaitForEndOfFrame <wait>__5; // 0x48
+	internal PartyEventPointIndicator $this; // 0x50
+	internal object $current; // 0x58
+	internal bool $disposing; // 0x60
+	internal int $PC; // 0x64
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49C04 Offset: 0xD49C04 VA: 0xD49C04
+	// RVA: 0x179D1D0 Offset: 0x179D1D0 VA: 0x179D1D0
+	public void .ctor() { }
+
+	// RVA: 0x179D474 Offset: 0x179D474 VA: 0x179D474 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49C14 Offset: 0xD49C14 VA: 0xD49C14
+	// RVA: 0x179E0E4 Offset: 0x179E0E4 VA: 0x179E0E4 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49C24 Offset: 0xD49C24 VA: 0xD49C24
+	// RVA: 0x179E0EC Offset: 0x179E0EC VA: 0x179E0EC Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49C34 Offset: 0xD49C34 VA: 0xD49C34
+	// RVA: 0x179E0F4 Offset: 0x179E0F4 VA: 0x179E0F4 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD49C44 Offset: 0xD49C44 VA: 0xD49C44
+	// RVA: 0x179E108 Offset: 0x179E108 VA: 0x179E108 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+public class PartyListMenu : BaseMenu // TypeDefIndex: 10354
+{
+	// Fields
+	protected static readonly Vector3 HELP_PANEL_OFFSET_1; // 0x0
+	protected static readonly Vector3 HELP_PANEL_OFFSET_2; // 0xC
+	protected static readonly int LAYOUT_SIZE_X_TYPE_SMALL; // 0x18
+	protected static readonly int[] LAYOUT_SIZE_X_TYPE_MIDDLE; // 0x20
+	protected static readonly int LAYOUT_SIZE_X_TYPE_BIG; // 0x28
+	protected static readonly int LAYOUT_POS_X_AUTOSELL_IN_EVENT; // 0x2C
+	protected static readonly int LAYOUT_POS_X_AUTOSELL_NOT_EVENT; // 0x30
+	protected static readonly int LAYOUT_POS_X_HINT_IN_EVENT; // 0x34
+	protected static readonly int LAYOUT_POS_X_HINT_NOT_EVENT; // 0x38
+	protected static readonly int[] LAYOUT_POS_X_HELP; // 0x40
+	protected static readonly int[] LAYOUT_POS_X_QUESTINFO; // 0x48
+	protected static readonly int[] LAYOUT_POS_X_AUTOSELL_1; // 0x50
+	protected static readonly int[] LAYOUT_POS_X_AUTOSELL_2; // 0x58
+	protected static readonly int[] LAYOUT_POS_X_EVENT; // 0x60
+	protected static readonly int[] LAYOUT_POS_X_INFOMATION; // 0x68
+	protected static readonly int[] LAYOUT_POS_X_REMOVE; // 0x70
+	protected static readonly int[] LAYOUT_POS_X_SWAP; // 0x78
+	protected static readonly int[] LAYOUT_POS_X_HINT_1; // 0x80
+	protected static readonly int[] LAYOUT_POS_X_HINT_2; // 0x88
+	protected static readonly int[] LAYOUT_POS_X_HELP_BUTTON; // 0x90
+	protected static readonly float LAYOUT_FS_OFFSET; // 0x98
+	protected static readonly float[] LAYOUT_FS_OFFSET_OLD; // 0xA0
+	protected static readonly string START_BUTTON_QUEST_SP; // 0xA8
+	protected static readonly string START_BUTTON_BATTLE_SP; // 0xB0
+	[SerializeField] // RVA: 0xCDFDA0 Offset: 0xCDFDA0 VA: 0xCDFDA0
+	protected PartyListViewManager partyListViewManager; // 0x58
+	[SerializeField] // RVA: 0xCDFDB0 Offset: 0xCDFDB0 VA: 0xCDFDB0
+	protected GameObject questStartBase; // 0x60
+	[SerializeField] // RVA: 0xCDFDC0 Offset: 0xCDFDC0 VA: 0xCDFDC0
+	protected GameObject partySelectBase; // 0x68
+	[SerializeField] // RVA: 0xCDFDD0 Offset: 0xCDFDD0 VA: 0xCDFDD0
+	protected UICommonButton partyEditButton; // 0x70
+	[SerializeField] // RVA: 0xCDFDE0 Offset: 0xCDFDE0 VA: 0xCDFDE0
+	protected UICommonButton partyStartButton; // 0x78
+	[SerializeField] // RVA: 0xCDFDF0 Offset: 0xCDFDF0 VA: 0xCDFDF0
+	protected UICommonButton partyChangeButton; // 0x80
+	[SerializeField] // RVA: 0xCDFE00 Offset: 0xCDFE00 VA: 0xCDFE00
+	protected UICommonButton partySwapButton; // 0x88
+	[SerializeField] // RVA: 0xCDFE10 Offset: 0xCDFE10 VA: 0xCDFE10
+	protected UICommonButton partySwap2Button; // 0x90
+	[SerializeField] // RVA: 0xCDFE20 Offset: 0xCDFE20 VA: 0xCDFE20
+	protected UICommonButton partyRemoveButton; // 0x98
+	[SerializeField] // RVA: 0xCDFE30 Offset: 0xCDFE30 VA: 0xCDFE30
+	protected UICommonButton partyRemove2Button; // 0xA0
+	[SerializeField] // RVA: 0xCDFE40 Offset: 0xCDFE40 VA: 0xCDFE40
+	protected UICommonButton partyPointEventButton; // 0xA8
+	[SerializeField] // RVA: 0xCDFE50 Offset: 0xCDFE50 VA: 0xCDFE50
+	protected UICommonButton autoSellButton; // 0xB0
+	[SerializeField] // RVA: 0xCDFE60 Offset: 0xCDFE60 VA: 0xCDFE60
+	protected UICommonButton partyHelpButton; // 0xB8
+	[SerializeField] // RVA: 0xCDFE70 Offset: 0xCDFE70 VA: 0xCDFE70
+	protected UICommonButton partyHelpIconButton; // 0xC0
+	[SerializeField] // RVA: 0xCDFE80 Offset: 0xCDFE80 VA: 0xCDFE80
+	protected UICommonButton partyQuestInfoIconButton; // 0xC8
+	[SerializeField] // RVA: 0xCDFE90 Offset: 0xCDFE90 VA: 0xCDFE90
+	protected UICommonButton assistConfirmButton; // 0xD0
+	[SerializeField] // RVA: 0xCDFEA0 Offset: 0xCDFEA0 VA: 0xCDFEA0
+	protected UILabel assistCanNotLabel; // 0xD8
+	[SerializeField] // RVA: 0xCDFEB0 Offset: 0xCDFEB0 VA: 0xCDFEB0
+	protected UISprite centerEffectLabelSp; // 0xE0
+	[SerializeField] // RVA: 0xCDFEC0 Offset: 0xCDFEC0 VA: 0xCDFEC0
+	protected UICommonButton hintDialogButton; // 0xE8
+	[SerializeField] // RVA: 0xCDFED0 Offset: 0xCDFED0 VA: 0xCDFED0
+	protected UICommonButton infomationButton; // 0xF0
+	[SerializeField] // RVA: 0xCDFEE0 Offset: 0xCDFEE0 VA: 0xCDFEE0
+	protected GameObject tutorialMaskBase; // 0xF8
+	[SerializeField] // RVA: 0xCDFEF0 Offset: 0xCDFEF0 VA: 0xCDFEF0
+	protected UICommonButton tutorialPartyChangeButton; // 0x100
+	[SerializeField] // RVA: 0xCDFF00 Offset: 0xCDFF00 VA: 0xCDFF00
+	protected UICommonButton tutorialPartyStartButton; // 0x108
+	[SerializeField] // RVA: 0xCDFF10 Offset: 0xCDFF10 VA: 0xCDFF10
+	protected PartyOrganizationChangeObject tutorialPartyOrganizationChangeEmptyObject; // 0x110
+	[SerializeField] // RVA: 0xCDFF20 Offset: 0xCDFF20 VA: 0xCDFF20
+	protected UISprite partyStartButtonTxtSp; // 0x118
+	[SerializeField] // RVA: 0xCDFF30 Offset: 0xCDFF30 VA: 0xCDFF30
+	protected DropAutoSellDlgComponent dropAutoSellDialog; // 0x120
+	[SerializeField] // RVA: 0xCDFF40 Offset: 0xCDFF40 VA: 0xCDFF40
+	protected GameObject infoPanel; // 0x128
+	[SerializeField] // RVA: 0xCDFF50 Offset: 0xCDFF50 VA: 0xCDFF50
+	private FriendshipUpItemUseItem friendshipUpItemUseButton; // 0x130
+	[SerializeField] // RVA: 0xCDFF60 Offset: 0xCDFF60 VA: 0xCDFF60
+	protected UICommonButton infomation2Button; // 0x138
+	[SerializeField] // RVA: 0xCDFF70 Offset: 0xCDFF70 VA: 0xCDFF70
+	protected UICommonButton partyHelp2Button; // 0x140
+	[SerializeField] // RVA: 0xCDFF80 Offset: 0xCDFF80 VA: 0xCDFF80
+	private UISprite autoSellSprite; // 0x148
+	[SerializeField] // RVA: 0xCDFF90 Offset: 0xCDFF90 VA: 0xCDFF90
+	private UISprite partyPointEventSprite; // 0x150
+	[SerializeField] // RVA: 0xCDFFA0 Offset: 0xCDFFA0 VA: 0xCDFFA0
+	private UISprite partyRemoveSprite; // 0x158
+	[SerializeField] // RVA: 0xCDFFB0 Offset: 0xCDFFB0 VA: 0xCDFFB0
+	private UISprite partyRemove2Sprite; // 0x160
+	protected PartyListMenu.TutorialMode tutorialMode; // 0x168
+	protected PartyListMenu.State state; // 0x16C
+	[CompilerGeneratedAttribute] // RVA: 0xCDFFC0 Offset: 0xCDFFC0 VA: 0xCDFFC0
+	[DebuggerBrowsableAttribute] // RVA: 0xCDFFC0 Offset: 0xCDFFC0 VA: 0xCDFFC0
+	private PartyListMenu.CallbackFunc callbackFunc; // 0x170
+	protected Action openCallbackFunc; // 0x178
+	protected Action closeCallbackFunc; // 0x180
+	protected PartyListViewItem.MenuKind menuKind; // 0x188
+	protected EventUpValSetupInfo setupInfo; // 0x190
+	protected QuestRestrictionInfo questRestrictionInfo; // 0x198
+	protected bool isSelectItemEnable; // 0x1A0
+	private bool buttonStateSetFlag; // 0x1A1
+	private bool isHintDialogOpneFlag; // 0x1A2
+	[CompilerGeneratedAttribute] // RVA: 0xCDFFFC Offset: 0xCDFFFC VA: 0xCDFFFC
+	private static ScrollMessageDialog.ClickDelegate <>f__am$cache0; // 0xB8
+
+	// Properties
+	public Vector2 HELP_PANEL_OFFSET_1_FS { get; }
+	public Vector2 HELP_PANEL_OFFSET_2_FS { get; }
+
+	// Methods
+
+	// RVA: 0x179E228 Offset: 0x179E228 VA: 0x179E228
+	public void .ctor() { }
+
+	// RVA: 0x179E298 Offset: 0x179E298 VA: 0x179E298
+	private float FSOffsetX() { }
+
+	// RVA: 0x179E304 Offset: 0x179E304 VA: 0x179E304
+	private float FSOffsetX(float ver) { }
+
+	// RVA: 0x179E378 Offset: 0x179E378 VA: 0x179E378
+	public Vector2 get_HELP_PANEL_OFFSET_1_FS() { }
+
+	// RVA: 0x179E42C Offset: 0x179E42C VA: 0x179E42C
+	public Vector2 get_HELP_PANEL_OFFSET_2_FS() { }
+
+	// RVA: 0x179E4E0 Offset: 0x179E4E0 VA: 0x179E4E0
+	protected void add_callbackFunc(PartyListMenu.CallbackFunc value) { }
+
+	// RVA: 0x179E5D0 Offset: 0x179E5D0 VA: 0x179E5D0
+	protected void remove_callbackFunc(PartyListMenu.CallbackFunc value) { }
+
+	// RVA: 0x179E6C0 Offset: 0x179E6C0 VA: 0x179E6C0
+	public void DispInfoPanel(bool disp) { }
+
+	// RVA: 0x179E750 Offset: 0x179E750 VA: 0x179E750
+	public void SetListViewMangaerEnabled(bool enabled) { }
+
+	// RVA: 0x179E788 Offset: 0x179E788 VA: 0x179E788
+	public PartyListViewItem GetItem(int index) { }
+
+	// RVA: 0x179E7C0 Offset: 0x179E7C0 VA: 0x179E7C0
+	public PartyListViewItem GetCenterItem() { }
+
+	// RVA: 0x179E85C Offset: 0x179E85C VA: 0x179E85C
+	public void SetCenterItem(int index, bool isAnimation = True) { }
+
+	// RVA: 0x179E894 Offset: 0x179E894 VA: 0x179E894
+	public void ForceSetCenterItem(int index) { }
+
+	// RVA: 0x179E8CC Offset: 0x179E8CC VA: 0x179E8CC
+	public void Init() { }
+
+	// RVA: 0x179E974 Offset: 0x179E974 VA: 0x179E974
+	public void SetButtonStateSetFlag(bool flag) { }
+
+	// RVA: 0x179E980 Offset: 0x179E980 VA: 0x179E980
+	public void Open(PartyListViewItem.MenuKind menuKind, PartyListMenu.TutorialMode tutorialMode, PartyListViewItem[] baseDeckItemList, int partyNum, EventUpValSetupInfo setupInfo, QuestRestrictionInfo questRestrictionInfo, PartyListMenu.CallbackFunc callback, Action openCallback, int friendBonusVal = 0) { }
+
+	// RVA: 0x17A0890 Offset: 0x17A0890 VA: 0x17A0890
+	private void SetButtonPosAndSize(GameObject buttonObj, float offset, int posX, int sizeX = 0) { }
+
+	// RVA: 0x17A0490 Offset: 0x17A0490 VA: 0x17A0490
+	private void SetButtonState() { }
+
+	// RVA: 0x17A139C Offset: 0x17A139C VA: 0x17A139C
+	protected void EndOpen() { }
+
+	// RVA: 0x17A2124 Offset: 0x17A2124 VA: 0x17A2124
+	protected void EndOpenTutorialArrow() { }
+
+	// RVA: 0x17A2130 Offset: 0x17A2130 VA: 0x17A2130
+	public void Close() { }
+
+	// RVA: 0x17A2138 Offset: 0x17A2138 VA: 0x17A2138
+	public void Close(Action callback) { }
+
+	// RVA: 0x17A2218 Offset: 0x17A2218 VA: 0x17A2218
+	protected void EndCloseList() { }
+
+	// RVA: 0x17A221C Offset: 0x17A221C VA: 0x17A221C
+	protected void EndClose() { }
+
+	// RVA: 0x17A2258 Offset: 0x17A2258 VA: 0x17A2258
+	public void Enter() { }
+
+	// RVA: 0x17A2260 Offset: 0x17A2260 VA: 0x17A2260
+	public void Enter(Action callback) { }
+
+	// RVA: 0x17A2310 Offset: 0x17A2310 VA: 0x17A2310
+	protected void EndEnter() { }
+
+	// RVA: 0x17A236C Offset: 0x17A236C VA: 0x17A236C
+	protected void Callback(PartyListMenu.ResultKind result) { }
+
+	// RVA: 0x17A2648 Offset: 0x17A2648 VA: 0x17A2648
+	public void OnClickDecide() { }
+
+	// RVA: 0x17A26CC Offset: 0x17A26CC VA: 0x17A26CC
+	protected void EndBlockDecideDialog() { }
+
+	// RVA: 0x17A2760 Offset: 0x17A2760 VA: 0x17A2760
+	public void OnClickCancel() { }
+
+	// RVA: 0x17A2814 Offset: 0x17A2814 VA: 0x17A2814
+	public void OnClickChange() { }
+
+	// RVA: 0x17A29A8 Offset: 0x17A29A8 VA: 0x17A29A8
+	protected void EndCloseTutorialArrowChange() { }
+
+	// RVA: 0x17A2A4C Offset: 0x17A2A4C VA: 0x17A2A4C
+	public void OnClickMasterFormation() { }
+
+	// RVA: 0x17A2B00 Offset: 0x17A2B00 VA: 0x17A2B00
+	public void OnClickLimitMasterFormation() { }
+
+	// RVA: 0x17A2B64 Offset: 0x17A2B64 VA: 0x17A2B64
+	public void OnClickSwap() { }
+
+	// RVA: 0x17A2C38 Offset: 0x17A2C38 VA: 0x17A2C38
+	public void OnClickRemove() { }
+
+	// RVA: 0x17A2D0C Offset: 0x17A2D0C VA: 0x17A2D0C
+	public void OnClickDeckName() { }
+
+	// RVA: 0x17A2E20 Offset: 0x17A2E20 VA: 0x17A2E20
+	public void OnClickDeckCopy() { }
+
+	// RVA: 0x17A2EF4 Offset: 0x17A2EF4 VA: 0x17A2EF4
+	public void OnClickEdit() { }
+
+	// RVA: 0x17A2FC8 Offset: 0x17A2FC8 VA: 0x17A2FC8
+	public void OnClickStart() { }
+
+	// RVA: 0x17A3130 Offset: 0x17A3130 VA: 0x17A3130
+	public void OnClickAutoSell() { }
+
+	// RVA: 0x17A31EC Offset: 0x17A31EC VA: 0x17A31EC
+	public void OnClickQuestInfo() { }
+
+	// RVA: 0x17A32A0 Offset: 0x17A32A0 VA: 0x17A32A0
+	protected void EndCloseTutorialArrowStart() { }
+
+	// RVA: 0x17A3344 Offset: 0x17A3344 VA: 0x17A3344

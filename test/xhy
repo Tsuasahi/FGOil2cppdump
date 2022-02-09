@@ -1,0 +1,1000 @@
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract ProductCollection get_products();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void InitiatePurchase(Product product);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void InitiatePurchase(string productId);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract void ConfirmPendingPurchase(Product product);
+}
+
+// Namespace: UnityEngine.Purchasing
+public interface IStoreListener // TypeDefIndex: 2961
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void OnInitializeFailed(InitializationFailureReason error);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs e);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void OnPurchaseFailed(Product i, PurchaseFailureReason p);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract void OnInitialized(IStoreController controller, IExtensionProvider extensions);
+}
+
+// Namespace: UnityEngine.Purchasing
+internal interface IUnityAnalytics // TypeDefIndex: 2962
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void Transaction(string productId, Decimal price, string currency, string receipt, string signature);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void CustomEvent(string name, Dictionary<string, object> data);
+}
+
+// Namespace: UnityEngine.Purchasing
+public enum InitializationFailureReason // TypeDefIndex: 2963
+{
+	// Fields
+	public int value__; // 0x0
+	public const InitializationFailureReason PurchasingUnavailable = 0;
+	public const InitializationFailureReason NoProductsAvailable = 1;
+	public const InitializationFailureReason AppNotKnown = 2;
+}
+
+// Namespace: UnityEngine.Purchasing
+[Serializable]
+public class PayoutDefinition // TypeDefIndex: 2964
+{
+	// Fields
+	[SerializeField] // RVA: 0xC7D4B8 Offset: 0xC7D4B8 VA: 0xC7D4B8
+	private PayoutType m_Type; // 0x10
+	[SerializeField] // RVA: 0xC7D4C8 Offset: 0xC7D4C8 VA: 0xC7D4C8
+	private string m_Subtype; // 0x18
+	[SerializeField] // RVA: 0xC7D4D8 Offset: 0xC7D4D8 VA: 0xC7D4D8
+	private double m_Quantity; // 0x20
+	[SerializeField] // RVA: 0xC7D4E8 Offset: 0xC7D4E8 VA: 0xC7D4E8
+	private string m_Data; // 0x28
+	public const int MaxSubtypeLength = 64;
+	public const int MaxDataLength = 1024;
+
+	// Properties
+	private PayoutType type { set; }
+	private string subtype { set; }
+	private double quantity { set; }
+	private string data { set; }
+
+	// Methods
+
+	// RVA: 0x1338488 Offset: 0x1338488 VA: 0x1338488
+	public void .ctor() { }
+
+	// RVA: 0x133850C Offset: 0x133850C VA: 0x133850C
+	public void .ctor(string typeString, string subtype, double quantity, string data) { }
+
+	// RVA: 0x1338730 Offset: 0x1338730 VA: 0x1338730
+	private void set_type(PayoutType value) { }
+
+	// RVA: 0x1338738 Offset: 0x1338738 VA: 0x1338738
+	private void set_subtype(string value) { }
+
+	// RVA: 0x1338848 Offset: 0x1338848 VA: 0x1338848
+	private void set_quantity(double value) { }
+
+	// RVA: 0x1338850 Offset: 0x1338850 VA: 0x1338850
+	private void set_data(string value) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+public enum PayoutType // TypeDefIndex: 2965
+{
+	// Fields
+	public int value__; // 0x0
+	public const PayoutType Other = 0;
+	public const PayoutType Currency = 1;
+	public const PayoutType Item = 2;
+	public const PayoutType Resource = 3;
+}
+
+// Namespace: UnityEngine.Purchasing
+public class Product // TypeDefIndex: 2966
+{
+	// Fields
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D4F8 Offset: 0xC7D4F8 VA: 0xC7D4F8
+	[CompilerGeneratedAttribute] // RVA: 0xC7D4F8 Offset: 0xC7D4F8 VA: 0xC7D4F8
+	private ProductDefinition <definition>k__BackingField; // 0x10
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D534 Offset: 0xC7D534 VA: 0xC7D534
+	[CompilerGeneratedAttribute] // RVA: 0xC7D534 Offset: 0xC7D534 VA: 0xC7D534
+	private ProductMetadata <metadata>k__BackingField; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xC7D570 Offset: 0xC7D570 VA: 0xC7D570
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D570 Offset: 0xC7D570 VA: 0xC7D570
+	private bool <availableToPurchase>k__BackingField; // 0x20
+	[CompilerGeneratedAttribute] // RVA: 0xC7D5AC Offset: 0xC7D5AC VA: 0xC7D5AC
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D5AC Offset: 0xC7D5AC VA: 0xC7D5AC
+	private string <transactionID>k__BackingField; // 0x28
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D5E8 Offset: 0xC7D5E8 VA: 0xC7D5E8
+	[CompilerGeneratedAttribute] // RVA: 0xC7D5E8 Offset: 0xC7D5E8 VA: 0xC7D5E8
+	private string <receipt>k__BackingField; // 0x30
+
+	// Properties
+	public ProductDefinition definition { get; set; }
+	public ProductMetadata metadata { get; set; }
+	public bool availableToPurchase { get; set; }
+	public string transactionID { get; set; }
+	public string receipt { get; set; }
+
+	// Methods
+
+	// RVA: 0x1338960 Offset: 0x1338960 VA: 0x1338960
+	internal void .ctor(ProductDefinition definition, ProductMetadata metadata, string receipt) { }
+
+	// RVA: 0x13389B8 Offset: 0x13389B8 VA: 0x13389B8
+	internal void .ctor(ProductDefinition definition, ProductMetadata metadata) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DB14 Offset: 0xC7DB14 VA: 0xC7DB14
+	// RVA: 0x13377C8 Offset: 0x13377C8 VA: 0x13377C8
+	public ProductDefinition get_definition() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DB24 Offset: 0xC7DB24 VA: 0xC7DB24
+	// RVA: 0x13389A0 Offset: 0x13389A0 VA: 0x13389A0
+	private void set_definition(ProductDefinition value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DB34 Offset: 0xC7DB34 VA: 0xC7DB34
+	// RVA: 0x13377B8 Offset: 0x13377B8 VA: 0x13377B8
+	public ProductMetadata get_metadata() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DB44 Offset: 0xC7DB44 VA: 0xC7DB44
+	// RVA: 0x13389A8 Offset: 0x13389A8 VA: 0x13389A8
+	internal void set_metadata(ProductMetadata value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DB54 Offset: 0xC7DB54 VA: 0xC7DB54
+	// RVA: 0x13389F4 Offset: 0x13389F4 VA: 0x13389F4
+	public bool get_availableToPurchase() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DB64 Offset: 0xC7DB64 VA: 0xC7DB64
+	// RVA: 0x13389FC Offset: 0x13389FC VA: 0x13389FC
+	internal void set_availableToPurchase(bool value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DB74 Offset: 0xC7DB74 VA: 0xC7DB74
+	// RVA: 0x1338A08 Offset: 0x1338A08 VA: 0x1338A08
+	public string get_transactionID() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DB84 Offset: 0xC7DB84 VA: 0xC7DB84
+	// RVA: 0x1338A10 Offset: 0x1338A10 VA: 0x1338A10
+	internal void set_transactionID(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DB94 Offset: 0xC7DB94 VA: 0xC7DB94
+	// RVA: 0x13377E4 Offset: 0x13377E4 VA: 0x13377E4
+	public string get_receipt() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DBA4 Offset: 0xC7DBA4 VA: 0xC7DBA4
+	// RVA: 0x13389B0 Offset: 0x13389B0 VA: 0x13389B0
+	internal void set_receipt(string value) { }
+
+	// RVA: 0x1338A18 Offset: 0x1338A18 VA: 0x1338A18 Slot: 0
+	public override bool Equals(object obj) { }
+
+	// RVA: 0x1338AE4 Offset: 0x1338AE4 VA: 0x1338AE4 Slot: 2
+	public override int GetHashCode() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+public class ProductCollection // TypeDefIndex: 2967
+{
+	// Fields
+	private Dictionary<string, Product> m_IdToProduct; // 0x10
+	private Dictionary<string, Product> m_StoreSpecificIdToProduct; // 0x18
+	private Product[] m_Products; // 0x20
+	private HashSet<Product> m_ProductSet; // 0x28
+	[CompilerGeneratedAttribute] // RVA: 0xC7D624 Offset: 0xC7D624 VA: 0xC7D624
+	private static Func<Product, string> <>f__am$cache0; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC7D634 Offset: 0xC7D634 VA: 0xC7D634
+	private static Func<Product, string> <>f__am$cache1; // 0x8
+
+	// Properties
+	public HashSet<Product> set { get; }
+	public Product[] all { get; }
+
+	// Methods
+
+	// RVA: 0x1338B18 Offset: 0x1338B18 VA: 0x1338B18
+	internal void .ctor(Product[] products) { }
+
+	// RVA: 0x1338BA0 Offset: 0x1338BA0 VA: 0x1338BA0
+	internal void AddProducts(IEnumerable<Product> products) { }
+
+	// RVA: 0x1338D20 Offset: 0x1338D20 VA: 0x1338D20
+	public HashSet<Product> get_set() { }
+
+	// RVA: 0x1338D28 Offset: 0x1338D28 VA: 0x1338D28
+	public Product[] get_all() { }
+
+	// RVA: 0x1338D30 Offset: 0x1338D30 VA: 0x1338D30
+	public Product WithID(string id) { }
+
+	// RVA: 0x1338DB0 Offset: 0x1338DB0 VA: 0x1338DB0
+	public Product WithStoreSpecificID(string id) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DBB4 Offset: 0xC7DBB4 VA: 0xC7DBB4
+	// RVA: 0x1338E30 Offset: 0x1338E30 VA: 0x1338E30
+	private static string <AddProducts>m__0(Product x) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DBC4 Offset: 0xC7DBC4 VA: 0xC7DBC4
+	// RVA: 0x1338E70 Offset: 0x1338E70 VA: 0x1338E70
+	private static string <AddProducts>m__1(Product x) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+public class ProductDefinition // TypeDefIndex: 2968
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xC7D644 Offset: 0xC7D644 VA: 0xC7D644
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D644 Offset: 0xC7D644 VA: 0xC7D644
+	private string <id>k__BackingField; // 0x10
+	[CompilerGeneratedAttribute] // RVA: 0xC7D680 Offset: 0xC7D680 VA: 0xC7D680
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D680 Offset: 0xC7D680 VA: 0xC7D680
+	private string <storeSpecificId>k__BackingField; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xC7D6BC Offset: 0xC7D6BC VA: 0xC7D6BC
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D6BC Offset: 0xC7D6BC VA: 0xC7D6BC
+	private ProductType <type>k__BackingField; // 0x20
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D6F8 Offset: 0xC7D6F8 VA: 0xC7D6F8
+	[CompilerGeneratedAttribute] // RVA: 0xC7D6F8 Offset: 0xC7D6F8 VA: 0xC7D6F8
+	private bool <enabled>k__BackingField; // 0x24
+	private List<PayoutDefinition> m_Payouts; // 0x28
+
+	// Properties
+	public string id { get; set; }
+	public string storeSpecificId { get; set; }
+	public ProductType type { get; set; }
+	public bool enabled { get; set; }
+	public IEnumerable<PayoutDefinition> payouts { get; }
+
+	// Methods
+
+	// RVA: 0x1337EF8 Offset: 0x1337EF8 VA: 0x1337EF8
+	public void .ctor(string id, string storeSpecificId, ProductType type) { }
+
+	// RVA: 0x1338EA8 Offset: 0x1338EA8 VA: 0x1338EA8
+	public void .ctor(string id, string storeSpecificId, ProductType type, bool enabled) { }
+
+	// RVA: 0x1338EB4 Offset: 0x1338EB4 VA: 0x1338EB4
+	public void .ctor(string id, string storeSpecificId, ProductType type, bool enabled, IEnumerable<PayoutDefinition> payouts) { }
+
+	// RVA: 0x1338F90 Offset: 0x1338F90 VA: 0x1338F90
+	public void .ctor(string id, ProductType type) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DBD4 Offset: 0xC7DBD4 VA: 0xC7DBD4
+	// RVA: 0x1338E68 Offset: 0x1338E68 VA: 0x1338E68
+	public string get_id() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DBE4 Offset: 0xC7DBE4 VA: 0xC7DBE4
+	// RVA: 0x1338F6C Offset: 0x1338F6C VA: 0x1338F6C
+	private void set_id(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DBF4 Offset: 0xC7DBF4 VA: 0xC7DBF4
+	// RVA: 0x13377D0 Offset: 0x13377D0 VA: 0x13377D0
+	public string get_storeSpecificId() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DC04 Offset: 0xC7DC04 VA: 0xC7DC04
+	// RVA: 0x1338F74 Offset: 0x1338F74 VA: 0x1338F74
+	private void set_storeSpecificId(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DC14 Offset: 0xC7DC14 VA: 0xC7DC14
+	// RVA: 0x1338FA8 Offset: 0x1338FA8 VA: 0x1338FA8
+	public ProductType get_type() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DC24 Offset: 0xC7DC24 VA: 0xC7DC24
+	// RVA: 0x1338F7C Offset: 0x1338F7C VA: 0x1338F7C
+	private void set_type(ProductType value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DC34 Offset: 0xC7DC34 VA: 0xC7DC34
+	// RVA: 0x1338FB0 Offset: 0x1338FB0 VA: 0x1338FB0
+	public bool get_enabled() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DC44 Offset: 0xC7DC44 VA: 0xC7DC44
+	// RVA: 0x1338F84 Offset: 0x1338F84 VA: 0x1338F84
+	private void set_enabled(bool value) { }
+
+	// RVA: 0x1338FB8 Offset: 0x1338FB8 VA: 0x1338FB8 Slot: 0
+	public override bool Equals(object obj) { }
+
+	// RVA: 0x1339094 Offset: 0x1339094 VA: 0x1339094 Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0x13390C8 Offset: 0x13390C8 VA: 0x13390C8
+	public IEnumerable<PayoutDefinition> get_payouts() { }
+
+	// RVA: 0x1337F04 Offset: 0x1337F04 VA: 0x1337F04
+	internal void SetPayouts(IEnumerable<PayoutDefinition> newPayouts) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+public class ProductMetadata // TypeDefIndex: 2969
+{
+	// Fields
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D734 Offset: 0xC7D734 VA: 0xC7D734
+	[CompilerGeneratedAttribute] // RVA: 0xC7D734 Offset: 0xC7D734 VA: 0xC7D734
+	private string <localizedPriceString>k__BackingField; // 0x10
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D770 Offset: 0xC7D770 VA: 0xC7D770
+	[CompilerGeneratedAttribute] // RVA: 0xC7D770 Offset: 0xC7D770 VA: 0xC7D770
+	private string <localizedTitle>k__BackingField; // 0x18
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D7AC Offset: 0xC7D7AC VA: 0xC7D7AC
+	[CompilerGeneratedAttribute] // RVA: 0xC7D7AC Offset: 0xC7D7AC VA: 0xC7D7AC
+	private string <localizedDescription>k__BackingField; // 0x20
+	[CompilerGeneratedAttribute] // RVA: 0xC7D7E8 Offset: 0xC7D7E8 VA: 0xC7D7E8
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D7E8 Offset: 0xC7D7E8 VA: 0xC7D7E8
+	private string <isoCurrencyCode>k__BackingField; // 0x28
+	[CompilerGeneratedAttribute] // RVA: 0xC7D824 Offset: 0xC7D824 VA: 0xC7D824
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D824 Offset: 0xC7D824 VA: 0xC7D824
+	private Decimal <localizedPrice>k__BackingField; // 0x30
+
+	// Properties
+	public string localizedPriceString { get; set; }
+	public string localizedTitle { get; set; }
+	public string localizedDescription { get; set; }
+	public string isoCurrencyCode { get; set; }
+	public Decimal localizedPrice { get; set; }
+
+	// Methods
+
+	// RVA: 0x13390D0 Offset: 0x13390D0 VA: 0x13390D0
+	public void .ctor(string priceString, string title, string description, string currencyCode, Decimal localizedPrice) { }
+
+	// RVA: 0x1339158 Offset: 0x1339158 VA: 0x1339158
+	public void .ctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DC54 Offset: 0xC7DC54 VA: 0xC7DC54
+	// RVA: 0x1339160 Offset: 0x1339160 VA: 0x1339160
+	public string get_localizedPriceString() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DC64 Offset: 0xC7DC64 VA: 0xC7DC64
+	// RVA: 0x1339130 Offset: 0x1339130 VA: 0x1339130
+	internal void set_localizedPriceString(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DC74 Offset: 0xC7DC74 VA: 0xC7DC74
+	// RVA: 0x1339168 Offset: 0x1339168 VA: 0x1339168
+	public string get_localizedTitle() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DC84 Offset: 0xC7DC84 VA: 0xC7DC84
+	// RVA: 0x1339138 Offset: 0x1339138 VA: 0x1339138
+	internal void set_localizedTitle(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DC94 Offset: 0xC7DC94 VA: 0xC7DC94
+	// RVA: 0x1339170 Offset: 0x1339170 VA: 0x1339170
+	public string get_localizedDescription() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DCA4 Offset: 0xC7DCA4 VA: 0xC7DCA4
+	// RVA: 0x1339140 Offset: 0x1339140 VA: 0x1339140
+	internal void set_localizedDescription(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DCB4 Offset: 0xC7DCB4 VA: 0xC7DCB4
+	// RVA: 0x13377C0 Offset: 0x13377C0 VA: 0x13377C0
+	public string get_isoCurrencyCode() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DCC4 Offset: 0xC7DCC4 VA: 0xC7DCC4
+	// RVA: 0x1339148 Offset: 0x1339148 VA: 0x1339148
+	internal void set_isoCurrencyCode(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DCD4 Offset: 0xC7DCD4 VA: 0xC7DCD4
+	// RVA: 0x13377D8 Offset: 0x13377D8 VA: 0x13377D8
+	public Decimal get_localizedPrice() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DCE4 Offset: 0xC7DCE4 VA: 0xC7DCE4
+	// RVA: 0x1339150 Offset: 0x1339150 VA: 0x1339150
+	internal void set_localizedPrice(Decimal value) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+public enum ProductType // TypeDefIndex: 2970
+{
+	// Fields
+	public int value__; // 0x0
+	public const ProductType Consumable = 0;
+	public const ProductType NonConsumable = 1;
+	public const ProductType Subscription = 2;
+}
+
+// Namespace: UnityEngine.Purchasing
+public class PurchaseEventArgs // TypeDefIndex: 2971
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xC7D860 Offset: 0xC7D860 VA: 0xC7D860
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D860 Offset: 0xC7D860 VA: 0xC7D860
+	private Product <purchasedProduct>k__BackingField; // 0x10
+
+	// Properties
+	public Product purchasedProduct { get; set; }
+
+	// Methods
+
+	// RVA: 0x1339178 Offset: 0x1339178 VA: 0x1339178
+	internal void .ctor(Product purchasedProduct) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DCF4 Offset: 0xC7DCF4 VA: 0xC7DCF4
+	// RVA: 0x13391AC Offset: 0x13391AC VA: 0x13391AC
+	public Product get_purchasedProduct() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DD04 Offset: 0xC7DD04 VA: 0xC7DD04
+	// RVA: 0x13391A4 Offset: 0x13391A4 VA: 0x13391A4
+	private void set_purchasedProduct(Product value) { }
+}
+
+// Namespace: UnityEngine.Purchasing.Extension
+public class PurchaseFailureDescription // TypeDefIndex: 2972
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xC7D89C Offset: 0xC7D89C VA: 0xC7D89C
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D89C Offset: 0xC7D89C VA: 0xC7D89C
+	private string <productId>k__BackingField; // 0x10
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D8D8 Offset: 0xC7D8D8 VA: 0xC7D8D8
+	[CompilerGeneratedAttribute] // RVA: 0xC7D8D8 Offset: 0xC7D8D8 VA: 0xC7D8D8
+	private PurchaseFailureReason <reason>k__BackingField; // 0x18
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D914 Offset: 0xC7D914 VA: 0xC7D914
+	[CompilerGeneratedAttribute] // RVA: 0xC7D914 Offset: 0xC7D914 VA: 0xC7D914
+	private string <message>k__BackingField; // 0x20
+
+	// Properties
+	public string productId { get; set; }
+	public PurchaseFailureReason reason { get; set; }
+	private string message { set; }
+
+	// Methods
+
+	// RVA: 0x13381C0 Offset: 0x13381C0 VA: 0x13381C0
+	public void .ctor(string productId, PurchaseFailureReason reason, string message) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DD14 Offset: 0xC7DD14 VA: 0xC7DD14
+	// RVA: 0x133821C Offset: 0x133821C VA: 0x133821C
+	public string get_productId() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DD24 Offset: 0xC7DD24 VA: 0xC7DD24
+	// RVA: 0x1338204 Offset: 0x1338204 VA: 0x1338204
+	private void set_productId(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DD34 Offset: 0xC7DD34 VA: 0xC7DD34
+	// RVA: 0x1338224 Offset: 0x1338224 VA: 0x1338224
+	public PurchaseFailureReason get_reason() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DD44 Offset: 0xC7DD44 VA: 0xC7DD44
+	// RVA: 0x133820C Offset: 0x133820C VA: 0x133820C
+	private void set_reason(PurchaseFailureReason value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DD54 Offset: 0xC7DD54 VA: 0xC7DD54
+	// RVA: 0x1338214 Offset: 0x1338214 VA: 0x1338214
+	private void set_message(string value) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+public enum PurchaseFailureReason // TypeDefIndex: 2973
+{
+	// Fields
+	public int value__; // 0x0
+	public const PurchaseFailureReason PurchasingUnavailable = 0;
+	public const PurchaseFailureReason ExistingPurchasePending = 1;
+	public const PurchaseFailureReason ProductUnavailable = 2;
+	public const PurchaseFailureReason SignatureInvalid = 3;
+	public const PurchaseFailureReason UserCancelled = 4;
+	public const PurchaseFailureReason PaymentDeclined = 5;
+	public const PurchaseFailureReason DuplicateTransaction = 6;
+	public const PurchaseFailureReason Unknown = 7;
+}
+
+// Namespace: UnityEngine.Purchasing
+public enum PurchaseProcessingResult // TypeDefIndex: 2974
+{
+	// Fields
+	public int value__; // 0x0
+	public const PurchaseProcessingResult Complete = 0;
+	public const PurchaseProcessingResult Pending = 1;
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class PurchasingFactory : IPurchasingBinder, IExtensionProvider // TypeDefIndex: 2975
+{
+	// Fields
+	private Dictionary<Type, IStoreConfiguration> m_ConfigMap; // 0x10
+	private Dictionary<Type, IStoreExtension> m_ExtensionMap; // 0x18
+	private IStore m_Store; // 0x20
+	private ICatalogProvider m_CatalogProvider; // 0x28
+	[CompilerGeneratedAttribute] // RVA: 0xC7D950 Offset: 0xC7D950 VA: 0xC7D950
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D950 Offset: 0xC7D950 VA: 0xC7D950
+	private string <storeName>k__BackingField; // 0x30
+
+	// Properties
+	public string storeName { get; set; }
+	public IStore service { get; set; }
+
+	// Methods
+
+	// RVA: 0x1337B50 Offset: 0x1337B50 VA: 0x1337B50
+	public void .ctor(IPurchasingModule first, IPurchasingModule[] remainingModules) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DD64 Offset: 0xC7DD64 VA: 0xC7DD64
+	// RVA: 0x1337E44 Offset: 0x1337E44 VA: 0x1337E44
+	public string get_storeName() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DD74 Offset: 0xC7DD74 VA: 0xC7DD74
+	// RVA: 0x13391B4 Offset: 0x13391B4 VA: 0x13391B4
+	private void set_storeName(string value) { }
+
+	// RVA: 0x13391BC Offset: 0x13391BC VA: 0x13391BC
+	public IStore get_service() { }
+
+	// RVA: 0x1339248 Offset: 0x1339248 VA: 0x1339248
+	public void set_service(IStore value) { }
+
+	// RVA: 0x1339250 Offset: 0x1339250 VA: 0x1339250 Slot: 4
+	public void RegisterStore(string name, IStore s) { }
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public void RegisterExtension<T>(T instance) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218B690 Offset: 0x218B690 VA: 0x218B690
+	|-PurchasingFactory.RegisterExtension<object>
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public void RegisterConfiguration<T>(T instance) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218B5E0 Offset: 0x218B5E0 VA: 0x218B5E0
+	|-PurchasingFactory.RegisterConfiguration<object>
+	*/
+
+	// RVA: -1 Offset: -1
+	public T GetConfig<T>() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x21A08F4 Offset: 0x21A08F4 VA: 0x21A08F4
+	|-PurchasingFactory.GetConfig<object>
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 9
+	public T GetExtension<T>() { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x21A0B30 Offset: 0x21A0B30 VA: 0x21A0B30
+	|-PurchasingFactory.GetExtension<object>
+	*/
+
+	// RVA: 0x1339268 Offset: 0x1339268 VA: 0x1339268 Slot: 7
+	public void SetCatalogProvider(ICatalogProvider provider) { }
+
+	// RVA: 0x1339270 Offset: 0x1339270 VA: 0x1339270 Slot: 8
+	public void SetCatalogProviderFunction(Action<Action<HashSet<ProductDefinition>>> func) { }
+
+	// RVA: 0x133930C Offset: 0x133930C VA: 0x133930C
+	internal ICatalogProvider GetCatalogProvider() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class PurchasingManager : IStoreCallback, IStoreController // TypeDefIndex: 2976
+{
+	// Fields
+	private IStore m_Store; // 0x10
+	private IInternalStoreListener m_Listener; // 0x18
+	private ILogger m_Logger; // 0x20
+	private TransactionLog m_TransactionLog; // 0x28
+	private string m_StoreName; // 0x30
+	private Action m_AdditionalProductsCallback; // 0x38
+	private Action<InitializationFailureReason> m_AdditionalProductsFailCallback; // 0x40
+	[CompilerGeneratedAttribute] // RVA: 0xC7D98C Offset: 0xC7D98C VA: 0xC7D98C
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D98C Offset: 0xC7D98C VA: 0xC7D98C
+	private bool <useTransactionLog>k__BackingField; // 0x48
+	[CompilerGeneratedAttribute] // RVA: 0xC7D9C8 Offset: 0xC7D9C8 VA: 0xC7D9C8
+	[DebuggerBrowsableAttribute] // RVA: 0xC7D9C8 Offset: 0xC7D9C8 VA: 0xC7D9C8
+	private ProductCollection <products>k__BackingField; // 0x50
+	private bool initialized; // 0x58
+	[CompilerGeneratedAttribute] // RVA: 0xC7DA04 Offset: 0xC7DA04 VA: 0xC7DA04
+	private static Func<ProductDefinition, Product> <>f__am$cache1; // 0x0
+
+	// Properties
+	public bool useTransactionLog { get; set; }
+	public ProductCollection products { get; set; }
+
+	// Methods
+
+	// RVA: 0x1339314 Offset: 0x1339314 VA: 0x1339314
+	internal void .ctor(TransactionLog tDb, ILogger logger, IStore store, string storeName) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DD84 Offset: 0xC7DD84 VA: 0xC7DD84
+	// RVA: 0x1339378 Offset: 0x1339378 VA: 0x1339378 Slot: 13
+	public bool get_useTransactionLog() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DD94 Offset: 0xC7DD94 VA: 0xC7DD94
+	// RVA: 0x133936C Offset: 0x133936C VA: 0x133936C Slot: 14
+	public void set_useTransactionLog(bool value) { }
+
+	// RVA: 0x1339380 Offset: 0x1339380 VA: 0x1339380 Slot: 10
+	public void InitiatePurchase(Product product) { }
+
+	// RVA: 0x13396BC Offset: 0x13396BC VA: 0x13396BC Slot: 11
+	public void InitiatePurchase(string productId) { }
+
+	// RVA: 0x1339400 Offset: 0x1339400 VA: 0x1339400 Slot: 15
+	public void InitiatePurchase(Product product, string developerPayload) { }
+
+	// RVA: 0x133973C Offset: 0x133973C VA: 0x133973C Slot: 16
+	public void InitiatePurchase(string purchasableId, string developerPayload) { }
+
+	// RVA: 0x133985C Offset: 0x133985C VA: 0x133985C Slot: 12
+	public void ConfirmPendingPurchase(Product product) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DDA4 Offset: 0xC7DDA4 VA: 0xC7DDA4
+	// RVA: 0x1339854 Offset: 0x1339854 VA: 0x1339854 Slot: 9
+	public ProductCollection get_products() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DDB4 Offset: 0xC7DDB4 VA: 0xC7DDB4
+	// RVA: 0x1339C5C Offset: 0x1339C5C VA: 0x1339C5C
+	private void set_products(ProductCollection value) { }
+
+	// RVA: 0x1339C64 Offset: 0x1339C64 VA: 0x1339C64 Slot: 7
+	public void OnPurchaseSucceeded(string id, string receipt, string transactionId) { }
+
+	// RVA: 0x133A10C Offset: 0x133A10C VA: 0x133A10C Slot: 5
+	public void OnSetupFailed(InitializationFailureReason reason) { }
+
+	// RVA: 0x133A210 Offset: 0x133A210 VA: 0x133A210 Slot: 8
+	public void OnPurchaseFailed(PurchaseFailureDescription description) { }
+
+	// RVA: 0x133A46C Offset: 0x133A46C VA: 0x133A46C Slot: 6
+	public void OnProductsRetrieved(List<ProductDescription> products) { }
+
+	// RVA: 0x1339E54 Offset: 0x1339E54 VA: 0x1339E54
+	private void ProcessPurchaseIfNew(Product product) { }
+
+	// RVA: 0x133A898 Offset: 0x133A898 VA: 0x133A898
+	private void CheckForInitialization() { }
+
+	// RVA: 0x133AD0C Offset: 0x133AD0C VA: 0x133AD0C
+	public void Initialize(IInternalStoreListener listener, HashSet<ProductDefinition> products) { }
+
+	// RVA: 0x1339DA4 Offset: 0x1339DA4 VA: 0x1339DA4
+	private string FormatUnifiedReceipt(string platformReceipt, string transactionId) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC7DDC4 Offset: 0xC7DDC4 VA: 0xC7DDC4
+	// RVA: 0x133AF54 Offset: 0x133AF54 VA: 0x133AF54
+	private static Product <Initialize>m__1(ProductDefinition x) { }
+}
+
+// Namespace: 
+[Serializable]
+private class PurchasingManager.UnifiedReceipt // TypeDefIndex: 2977
+{
+	// Fields
+	public string Store; // 0x10
+	public string TransactionID; // 0x18
+	public string Payload; // 0x20
+
+	// Methods
+
+	// RVA: 0x133AF4C Offset: 0x133AF4C VA: 0x133AF4C
+	public void .ctor() { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class SimpleCatalogProvider : ICatalogProvider // TypeDefIndex: 2978
+{
+	// Fields
+	private Action<Action<HashSet<ProductDefinition>>> m_Func; // 0x10
+
+	// Methods
+
+	// RVA: 0x13392E0 Offset: 0x13392E0 VA: 0x13392E0
+	internal void .ctor(Action<Action<HashSet<ProductDefinition>>> func) { }
+
+	// RVA: 0x133AFE0 Offset: 0x133AFE0 VA: 0x133AFE0 Slot: 4
+	public void FetchProducts(Action<HashSet<ProductDefinition>> callback) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class StoreListenerProxy : IInternalStoreListener // TypeDefIndex: 2979
+{
+	// Fields
+	private AnalyticsReporter m_Analytics; // 0x10
+	private IStoreListener m_ForwardTo; // 0x18
+	private IExtensionProvider m_Extensions; // 0x20
+
+	// Methods
+
+	// RVA: 0x133B054 Offset: 0x133B054 VA: 0x133B054
+	public void .ctor(IStoreListener forwardTo, AnalyticsReporter analytics, IExtensionProvider extensions) { }
+
+	// RVA: 0x133B094 Offset: 0x133B094 VA: 0x133B094 Slot: 7
+	public void OnInitialized(IStoreController controller) { }
+
+	// RVA: 0x133B164 Offset: 0x133B164 VA: 0x133B164 Slot: 4
+	public void OnInitializeFailed(InitializationFailureReason error) { }
+
+	// RVA: 0x133B228 Offset: 0x133B228 VA: 0x133B228 Slot: 5
+	public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs e) { }
+
+	// RVA: 0x133B31C Offset: 0x133B31C VA: 0x133B31C Slot: 6
+	public void OnPurchaseFailed(Product i, PurchaseFailureReason p) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class TransactionLog // TypeDefIndex: 2980
+{
+	// Fields
+	private readonly ILogger logger; // 0x10
+	private readonly string persistentDataPath; // 0x18
+
+	// Methods
+
+	// RVA: 0x133B40C Offset: 0x133B40C VA: 0x133B40C
+	public void .ctor(ILogger logger, string persistentDataPath) { }
+
+	// RVA: 0x133AC40 Offset: 0x133AC40 VA: 0x133AC40
+	public bool HasRecordOf(string transactionID) { }
+
+	// RVA: 0x1339A88 Offset: 0x1339A88 VA: 0x1339A88
+	public void Record(string transactionID) { }
+
+	// RVA: 0x133B4EC Offset: 0x133B4EC VA: 0x133B4EC
+	private string GetRecordPath(string transactionID) { }
+
+	// RVA: 0x133B578 Offset: 0x133B578 VA: 0x133B578
+	internal static string ComputeHash(string transactionID) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+internal class UnityAnalytics : IUnityAnalytics // TypeDefIndex: 2981
+{
+	// Methods
+
+	// RVA: 0x133B738 Offset: 0x133B738 VA: 0x133B738
+	public void .ctor() { }
+
+	// RVA: 0x133B740 Offset: 0x133B740 VA: 0x133B740 Slot: 4
+	public void Transaction(string productId, Decimal price, string currency, string receipt, string signature) { }
+
+	// RVA: 0x133B768 Offset: 0x133B768 VA: 0x133B768 Slot: 5
+	public void CustomEvent(string name, Dictionary<string, object> data) { }
+}
+
+// Namespace: UnityEngine.Purchasing
+public abstract class UnityPurchasing // TypeDefIndex: 2982
+{
+	// Methods
+
+	// RVA: 0x133B778 Offset: 0x133B778 VA: 0x133B778
+	public static void Initialize(IStoreListener listener, ConfigurationBuilder builder) { }
+
+	// RVA: 0x133B858 Offset: 0x133B858 VA: 0x133B858
+	internal static void Initialize(IStoreListener listener, ConfigurationBuilder builder, ILogger logger, string persistentDatapath, IUnityAnalytics analytics, ICatalogProvider catalog) { }
+
+	// RVA: 0x133BA30 Offset: 0x133BA30 VA: 0x133BA30
+	internal static void FetchAndMergeProducts(bool useCatalog, HashSet<ProductDefinition> localProductSet, ICatalogProvider catalog, Action<HashSet<ProductDefinition>> callback) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC7D45C Offset: 0xC7D45C VA: 0xC7D45C
+private sealed class UnityPurchasing.<Initialize>c__AnonStorey0 // TypeDefIndex: 2983
+{
+	// Fields
+	internal PurchasingManager manager; // 0x10
+	internal StoreListenerProxy proxy; // 0x18
+
+	// Methods
+
+	// RVA: 0x133BA28 Offset: 0x133BA28 VA: 0x133BA28
+	public void .ctor() { }
+
+	// RVA: 0x133BD78 Offset: 0x133BD78 VA: 0x133BD78
+	internal void <>m__0(HashSet<ProductDefinition> response) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC7D46C Offset: 0xC7D46C VA: 0xC7D46C
+private sealed class UnityPurchasing.<FetchAndMergeProducts>c__AnonStorey1 // TypeDefIndex: 2984
+{
+	// Fields
+	internal HashSet<ProductDefinition> localProductSet; // 0x10
+	internal Action<HashSet<ProductDefinition>> callback; // 0x18
+
+	// Methods
+
+	// RVA: 0x133BBB0 Offset: 0x133BBB0 VA: 0x133BBB0
+	public void .ctor() { }
+
+	// RVA: 0x133BBB8 Offset: 0x133BBB8 VA: 0x133BBB8
+	internal void <>m__0(HashSet<ProductDefinition> cloudProducts) { }
+}
+
+// Namespace: UnityEngine.Purchasing.Extension
+public abstract class AbstractPurchasingModule : IPurchasingModule // TypeDefIndex: 2985
+{
+	// Fields
+	protected IPurchasingBinder m_Binder; // 0x10
+
+	// Methods
+
+	// RVA: 0x1337FAC Offset: 0x1337FAC VA: 0x1337FAC
+	protected void .ctor() { }
+
+	// RVA: 0x1337FB4 Offset: 0x1337FB4 VA: 0x1337FB4 Slot: 4
+	public void Configure(IPurchasingBinder binder) { }
+
+	// RVA: 0x1337FC4 Offset: 0x1337FC4 VA: 0x1337FC4
+	protected void RegisterStore(string name, IStore a) { }
+
+	// RVA: -1 Offset: -1
+	protected void BindExtension<T>(T instance) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218B528 Offset: 0x218B528 VA: 0x218B528
+	|-AbstractPurchasingModule.BindExtension<object>
+	|-AbstractPurchasingModule.BindExtension<IAmazonExtensions>
+	|-AbstractPurchasingModule.BindExtension<IAppleExtensions>
+	|-AbstractPurchasingModule.BindExtension<IGooglePlayStoreExtensions>
+	|-AbstractPurchasingModule.BindExtension<IManagedStoreExtensions>
+	|-AbstractPurchasingModule.BindExtension<IMicrosoftExtensions>
+	|-AbstractPurchasingModule.BindExtension<ISamsungAppsExtensions>
+	|-AbstractPurchasingModule.BindExtension<ITransactionHistoryExtensions>
+	|-AbstractPurchasingModule.BindExtension<IUDPExtensions>
+	*/
+
+	// RVA: -1 Offset: -1
+	protected void BindConfiguration<T>(T instance) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218B470 Offset: 0x218B470 VA: 0x218B470
+	|-AbstractPurchasingModule.BindConfiguration<object>
+	|-AbstractPurchasingModule.BindConfiguration<IAmazonConfiguration>
+	|-AbstractPurchasingModule.BindConfiguration<IAndroidStoreSelection>
+	|-AbstractPurchasingModule.BindConfiguration<IAppleConfiguration>
+	|-AbstractPurchasingModule.BindConfiguration<IGooglePlayConfiguration>
+	|-AbstractPurchasingModule.BindConfiguration<IManagedStoreConfig>
+	|-AbstractPurchasingModule.BindConfiguration<IMicrosoftConfiguration>
+	|-AbstractPurchasingModule.BindConfiguration<ISamsungAppsConfiguration>
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract void Configure();
+}
+
+// Namespace: UnityEngine.Purchasing.Extension
+public abstract class AbstractStore : IStore // TypeDefIndex: 2986
+{
+	// Methods
+
+	// RVA: 0x1338090 Offset: 0x1338090 VA: 0x1338090
+	protected void .ctor() { }
+
+	// RVA: -1 Offset: -1 Slot: 8
+	public abstract void Initialize(IStoreCallback callback);
+
+	// RVA: -1 Offset: -1 Slot: 9
+	public abstract void RetrieveProducts(ReadOnlyCollection<ProductDefinition> products);
+
+	// RVA: -1 Offset: -1 Slot: 10
+	public abstract void Purchase(ProductDefinition product, string developerPayload);
+
+	// RVA: -1 Offset: -1 Slot: 11
+	public abstract void FinishTransaction(ProductDefinition product, string transactionId);
+}
+
+// Namespace: UnityEngine.Purchasing.Extension
+public interface ICatalogProvider // TypeDefIndex: 2987
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void FetchProducts(Action<HashSet<ProductDefinition>> callback);
+}
+
+// Namespace: UnityEngine.Purchasing.Extension
+public interface IPurchasingBinder // TypeDefIndex: 2988
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void RegisterStore(string name, IStore a);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void RegisterExtension<T>(T instance);
+	/* GenericInstMethod :
+	|
+	|-RVA: -1 Offset: -1
+	|-IPurchasingBinder.RegisterExtension<IGooglePlayStoreExtensions>
+	|-IPurchasingBinder.RegisterExtension<object>
+	|-IPurchasingBinder.RegisterExtension<IAmazonExtensions>
+	|-IPurchasingBinder.RegisterExtension<ISamsungAppsExtensions>
+	|-IPurchasingBinder.RegisterExtension<IUDPExtensions>
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void RegisterConfiguration<T>(T instance);
+	/* GenericInstMethod :
+	|
+	|-RVA: -1 Offset: -1
+	|-IPurchasingBinder.RegisterConfiguration<IGooglePlayConfiguration>
+	|-IPurchasingBinder.RegisterConfiguration<object>
+	|-IPurchasingBinder.RegisterConfiguration<IAmazonConfiguration>
+	|-IPurchasingBinder.RegisterConfiguration<ISamsungAppsConfiguration>
+	*/
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract void SetCatalogProvider(ICatalogProvider provider);
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void SetCatalogProviderFunction(Action<Action<HashSet<ProductDefinition>>> func);
+}
+
+// Namespace: UnityEngine.Purchasing.Extension
+public interface IPurchasingModule // TypeDefIndex: 2989
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void Configure(IPurchasingBinder binder);
+}
+
+// Namespace: UnityEngine.Purchasing.Extension
+public interface IStore // TypeDefIndex: 2990
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void Initialize(IStoreCallback callback);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void RetrieveProducts(ReadOnlyCollection<ProductDefinition> products);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void Purchase(ProductDefinition product, string developerPayload);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract void FinishTransaction(ProductDefinition product, string transactionId);
+}
+
+// Namespace: UnityEngine.Purchasing.Extension
+public interface IStoreCallback // TypeDefIndex: 2991
+{
+	// Properties
+	public abstract ProductCollection products { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract ProductCollection get_products();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void OnSetupFailed(InitializationFailureReason reason);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void OnProductsRetrieved(List<ProductDescription> products);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract void OnPurchaseSucceeded(string storeSpecificId, string receipt, string transactionIdentifier);
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void OnPurchaseFailed(PurchaseFailureDescription desc);
+}
+
+// Namespace: UnityEngine.Purchasing.Extension
+public interface IStoreConfiguration // TypeDefIndex: 2992
+{}
+
+// Namespace: UnityEngine.Purchasing
+public interface IStoreExtension // TypeDefIndex: 2993
+{}
+
+// Namespace: UnityEngine.Purchasing.Extension
+public class ProductDescription // TypeDefIndex: 2994
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xC7DA14 Offset: 0xC7DA14 VA: 0xC7DA14
+	[DebuggerBrowsableAttribute] // RVA: 0xC7DA14 Offset: 0xC7DA14 VA: 0xC7DA14
+	private string <storeSpecificId>k__BackingField; // 0x10

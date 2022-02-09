@@ -1,0 +1,1000 @@
+	public const Bloom.HDRBloomMode Auto = 0;
+	public const Bloom.HDRBloomMode On = 1;
+	public const Bloom.HDRBloomMode Off = 2;
+}
+
+// Namespace: 
+public enum Bloom.BloomScreenBlendMode // TypeDefIndex: 4252
+{
+	// Fields
+	public int value__; // 0x0
+	public const Bloom.BloomScreenBlendMode Screen = 0;
+	public const Bloom.BloomScreenBlendMode Add = 1;
+}
+
+// Namespace: 
+public enum Bloom.BloomQuality // TypeDefIndex: 4253
+{
+	// Fields
+	public int value__; // 0x0
+	public const Bloom.BloomQuality Cheap = 0;
+	public const Bloom.BloomQuality High = 1;
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC8BF50 Offset: 0xC8BF50 VA: 0xC8BF50
+[AddComponentMenu] // RVA: 0xC8BF50 Offset: 0xC8BF50 VA: 0xC8BF50
+public class BlurEffect : MonoBehaviour // TypeDefIndex: 4254
+{
+	// Fields
+	public int iterations; // 0x18
+	public float blurSpread; // 0x1C
+	public Shader blurShader; // 0x20
+	private static Material m_Material; // 0x0
+
+	// Properties
+	protected Material material { get; }
+
+	// Methods
+
+	// RVA: 0x11E7A58 Offset: 0x11E7A58 VA: 0x11E7A58
+	public void .ctor() { }
+
+	// RVA: 0x11E7A70 Offset: 0x11E7A70 VA: 0x11E7A70
+	protected Material get_material() { }
+
+	// RVA: 0x11E7BB0 Offset: 0x11E7BB0 VA: 0x11E7BB0
+	protected void OnDisable() { }
+
+	// RVA: 0x11E7CAC Offset: 0x11E7CAC VA: 0x11E7CAC
+	protected void Start() { }
+
+	// RVA: 0x11E7D80 Offset: 0x11E7D80 VA: 0x11E7D80
+	public void FourTapCone(RenderTexture source, RenderTexture dest, int iteration) { }
+
+	// RVA: 0x11E7F58 Offset: 0x11E7F58 VA: 0x11E7F58
+	private void DownSample4x(RenderTexture source, RenderTexture dest) { }
+
+	// RVA: 0x11E8104 Offset: 0x11E8104 VA: 0x11E8104
+	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
+
+	// RVA: 0x11E8280 Offset: 0x11E8280 VA: 0x11E8280
+	private static void .cctor() { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC8BF9C Offset: 0xC8BF9C VA: 0xC8BF9C
+[AddComponentMenu] // RVA: 0xC8BF9C Offset: 0xC8BF9C VA: 0xC8BF9C
+public class ColorCorrectionEffect : ImageEffectBase // TypeDefIndex: 4255
+{
+	// Fields
+	public Texture textureRamp; // 0x28
+
+	// Methods
+
+	// RVA: 0x11E8358 Offset: 0x11E8358 VA: 0x11E8358
+	public void .ctor() { }
+
+	// RVA: 0x11E8360 Offset: 0x11E8360 VA: 0x11E8360
+	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC8BFE8 Offset: 0xC8BFE8 VA: 0xC8BFE8
+[AddComponentMenu] // RVA: 0xC8BFE8 Offset: 0xC8BFE8 VA: 0xC8BFE8
+public class ContrastStretchEffect : MonoBehaviour // TypeDefIndex: 4256
+{
+	// Fields
+	public float adaptationSpeed; // 0x18
+	public float limitMinimum; // 0x1C
+	public float limitMaximum; // 0x20
+	private RenderTexture[] adaptRenderTex; // 0x28
+	private int curAdaptIndex; // 0x30
+	public Shader shaderLum; // 0x38
+	private Material m_materialLum; // 0x40
+	public Shader shaderReduce; // 0x48
+	private Material m_materialReduce; // 0x50
+	public Shader shaderAdapt; // 0x58
+	private Material m_materialAdapt; // 0x60
+	public Shader shaderApply; // 0x68
+	private Material m_materialApply; // 0x70
+
+	// Properties
+	protected Material materialLum { get; }
+	protected Material materialReduce { get; }
+	protected Material materialAdapt { get; }
+	protected Material materialApply { get; }
+
+	// Methods
+
+	// RVA: 0x11E89E8 Offset: 0x11E89E8 VA: 0x11E89E8
+	public void .ctor() { }
+
+	// RVA: 0x11E8A68 Offset: 0x11E8A68 VA: 0x11E8A68
+	protected Material get_materialLum() { }
+
+	// RVA: 0x11E8B30 Offset: 0x11E8B30 VA: 0x11E8B30
+	protected Material get_materialReduce() { }
+
+	// RVA: 0x11E8BF8 Offset: 0x11E8BF8 VA: 0x11E8BF8
+	protected Material get_materialAdapt() { }
+
+	// RVA: 0x11E8CC0 Offset: 0x11E8CC0 VA: 0x11E8CC0
+	protected Material get_materialApply() { }
+
+	// RVA: 0x11E8D88 Offset: 0x11E8D88 VA: 0x11E8D88
+	private void Start() { }
+
+	// RVA: 0x11E8E48 Offset: 0x11E8E48 VA: 0x11E8E48
+	private void OnEnable() { }
+
+	// RVA: 0x11E8FE8 Offset: 0x11E8FE8 VA: 0x11E8FE8
+	private void OnDisable() { }
+
+	// RVA: 0x11E9238 Offset: 0x11E9238 VA: 0x11E9238
+	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
+
+	// RVA: 0x11E94CC Offset: 0x11E94CC VA: 0x11E94CC
+	private void CalculateAdaptation(Texture curTexture) { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC8C034 Offset: 0xC8C034 VA: 0xC8C034
+[RequireComponent] // RVA: 0xC8C034 Offset: 0xC8C034 VA: 0xC8C034
+[AddComponentMenu] // RVA: 0xC8C034 Offset: 0xC8C034 VA: 0xC8C034
+public class GlowEffect : MonoBehaviour // TypeDefIndex: 4257
+{
+	// Fields
+	public float glowIntensity; // 0x18
+	public int blurIterations; // 0x1C
+	public float blurSpread; // 0x20
+	public Color glowTint; // 0x24
+	public Shader compositeShader; // 0x38
+	private Material m_CompositeMaterial; // 0x40
+	public Shader blurShader; // 0x48
+	private Material m_BlurMaterial; // 0x50
+	public Shader downsampleShader; // 0x58
+	private Material m_DownsampleMaterial; // 0x60
+
+	// Properties
+	protected Material compositeMaterial { get; }
+	protected Material blurMaterial { get; }
+	protected Material downsampleMaterial { get; }
+
+	// Methods
+
+	// RVA: 0xE8DA78 Offset: 0xE8DA78 VA: 0xE8DA78
+	public void .ctor() { }
+
+	// RVA: 0xE8DAF8 Offset: 0xE8DAF8 VA: 0xE8DAF8
+	protected Material get_compositeMaterial() { }
+
+	// RVA: 0xE8DBC0 Offset: 0xE8DBC0 VA: 0xE8DBC0
+	protected Material get_blurMaterial() { }
+
+	// RVA: 0xE8DC88 Offset: 0xE8DC88 VA: 0xE8DC88
+	protected Material get_downsampleMaterial() { }
+
+	// RVA: 0xE8DD50 Offset: 0xE8DD50 VA: 0xE8DD50
+	protected void OnDisable() { }
+
+	// RVA: 0xE8DEA8 Offset: 0xE8DEA8 VA: 0xE8DEA8
+	protected void Start() { }
+
+	// RVA: 0xE8E018 Offset: 0xE8E018 VA: 0xE8E018
+	public void FourTapCone(RenderTexture source, RenderTexture dest, int iteration) { }
+
+	// RVA: 0xE8E1F0 Offset: 0xE8E1F0 VA: 0xE8E1F0
+	private void DownSample4x(RenderTexture source, RenderTexture dest) { }
+
+	// RVA: 0xE8E2D8 Offset: 0xE8E2D8 VA: 0xE8E2D8
+	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
+
+	// RVA: 0xE8E550 Offset: 0xE8E550 VA: 0xE8E550
+	public void BlitGlow(RenderTexture source, RenderTexture dest) { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC8C0CC Offset: 0xC8C0CC VA: 0xC8C0CC
+[AddComponentMenu] // RVA: 0xC8C0CC Offset: 0xC8C0CC VA: 0xC8C0CC
+public class GrayscaleEffect : ImageEffectBase // TypeDefIndex: 4258
+{
+	// Fields
+	public Texture textureRamp; // 0x28
+	public float saturation; // 0x30
+
+	// Methods
+
+	// RVA: 0xE8E674 Offset: 0xE8E674 VA: 0xE8E674
+	public void .ctor() { }
+
+	// RVA: 0xE8E684 Offset: 0xE8E684 VA: 0xE8E684
+	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
+}
+
+// Namespace: 
+[RequireComponent] // RVA: 0xC8C118 Offset: 0xC8C118 VA: 0xC8C118
+[AddComponentMenu] // RVA: 0xC8C118 Offset: 0xC8C118 VA: 0xC8C118
+public class ImageEffectBase : MonoBehaviour // TypeDefIndex: 4259
+{
+	// Fields
+	public Shader shader; // 0x18
+	private Material m_Material; // 0x20
+
+	// Properties
+	protected Material material { get; }
+
+	// Methods
+
+	// RVA: 0xE8E67C Offset: 0xE8E67C VA: 0xE8E67C
+	public void .ctor() { }
+
+	// RVA: 0xE903A4 Offset: 0xE903A4 VA: 0xE903A4 Slot: 4
+	protected virtual void Start() { }
+
+	// RVA: 0xE8E78C Offset: 0xE8E78C VA: 0xE8E78C
+	protected Material get_material() { }
+
+	// RVA: 0xE9045C Offset: 0xE9045C VA: 0xE9045C Slot: 5
+	protected virtual void OnDisable() { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC8C1A0 Offset: 0xC8C1A0 VA: 0xC8C1A0
+public class ImageEffects // TypeDefIndex: 4260
+{
+	// Methods
+
+	// RVA: 0xE9050C Offset: 0xE9050C VA: 0xE9050C
+	public void .ctor() { }
+
+	// RVA: 0xE90514 Offset: 0xE90514 VA: 0xE90514
+	public static void RenderDistortion(Material material, RenderTexture source, RenderTexture destination, float angle, Vector2 center, Vector2 radius) { }
+
+	[ObsoleteAttribute] // RVA: 0xC90798 Offset: 0xC90798 VA: 0xC90798
+	// RVA: 0xE907A4 Offset: 0xE907A4 VA: 0xE907A4
+	public static void Blit(RenderTexture source, RenderTexture dest) { }
+
+	[ObsoleteAttribute] // RVA: 0xC907D0 Offset: 0xC907D0 VA: 0xC907D0
+	// RVA: 0xE9081C Offset: 0xE9081C VA: 0xE9081C
+	public static void BlitWithMaterial(Material material, RenderTexture source, RenderTexture dest) { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC8C1D8 Offset: 0xC8C1D8 VA: 0xC8C1D8
+[AddComponentMenu] // RVA: 0xC8C1D8 Offset: 0xC8C1D8 VA: 0xC8C1D8
+[RequireComponent] // RVA: 0xC8C1D8 Offset: 0xC8C1D8 VA: 0xC8C1D8
+public class MotionBlur : ImageEffectBase // TypeDefIndex: 4261
+{
+	// Fields
+	public float blurAmount; // 0x28
+	public bool extraBlur; // 0x2C
+	private RenderTexture accumTexture; // 0x30
+
+	// Methods
+
+	// RVA: 0xE95DF0 Offset: 0xE95DF0 VA: 0xE95DF0
+	public void .ctor() { }
+
+	// RVA: 0xE95E04 Offset: 0xE95E04 VA: 0xE95E04 Slot: 4
+	protected override void Start() { }
+
+	// RVA: 0xE95E48 Offset: 0xE95E48 VA: 0xE95E48 Slot: 5
+	protected override void OnDisable() { }
+
+	// RVA: 0xE95EBC Offset: 0xE95EBC VA: 0xE95EBC
+	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC8C270 Offset: 0xC8C270 VA: 0xC8C270
+[RequireComponent] // RVA: 0xC8C270 Offset: 0xC8C270 VA: 0xC8C270
+[AddComponentMenu] // RVA: 0xC8C270 Offset: 0xC8C270 VA: 0xC8C270
+public class NoiseEffect : MonoBehaviour // TypeDefIndex: 4262
+{
+	// Fields
+	public bool monochrome; // 0x18
+	private bool rgbFallback; // 0x19
+	public float grainIntensityMin; // 0x1C
+	public float grainIntensityMax; // 0x20
+	public float grainSize; // 0x24
+	public float scratchIntensityMin; // 0x28
+	public float scratchIntensityMax; // 0x2C
+	public float scratchFPS; // 0x30
+	public float scratchJitter; // 0x34
+	public Texture grainTexture; // 0x38
+	public Texture scratchTexture; // 0x40
+	public Shader shaderRGB; // 0x48
+	public Shader shaderYUV; // 0x50
+	private Material m_MaterialRGB; // 0x58
+	private Material m_MaterialYUV; // 0x60
+	private float scratchTimeLeft; // 0x68
+	private float scratchX; // 0x6C
+	private float scratchY; // 0x70
+
+	// Properties
+	protected Material material { get; }
+
+	// Methods
+
+	// RVA: 0xE96A14 Offset: 0xE96A14 VA: 0xE96A14
+	public void .ctor() { }
+
+	// RVA: 0xE96A48 Offset: 0xE96A48 VA: 0xE96A48
+	protected void Start() { }
+
+	// RVA: 0xE96B68 Offset: 0xE96B68 VA: 0xE96B68
+	protected Material get_material() { }
+
+	// RVA: 0xE96CD0 Offset: 0xE96CD0 VA: 0xE96CD0
+	protected void OnDisable() { }
+
+	// RVA: 0xE96DD4 Offset: 0xE96DD4 VA: 0xE96DD4
+	private void SanitizeParameters() { }
+
+	// RVA: 0xE96F10 Offset: 0xE96F10 VA: 0xE96F10
+	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC8C308 Offset: 0xC8C308 VA: 0xC8C308
+[RequireComponent] // RVA: 0xC8C308 Offset: 0xC8C308 VA: 0xC8C308
+[Serializable]
+public class PostEffectsBase : MonoBehaviour // TypeDefIndex: 4263
+{
+	// Fields
+	protected bool supportHDRTextures; // 0x18
+	protected bool supportDX11; // 0x19
+	protected bool isSupported; // 0x1A
+
+	// Methods
+
+	// RVA: 0x12D0134 Offset: 0x12D0134 VA: 0x12D0134
+	public void .ctor() { }
+
+	// RVA: 0x12D0164 Offset: 0x12D0164 VA: 0x12D0164 Slot: 4
+	public virtual Material CheckShaderAndCreateMaterial(Shader s, Material m2Create) { }
+
+	// RVA: 0x12D0334 Offset: 0x12D0334 VA: 0x12D0334 Slot: 5
+	public virtual Material CreateMaterial(Shader s, Material m2Create) { }
+
+	// RVA: 0x12D04DC Offset: 0x12D04DC VA: 0x12D04DC Slot: 6
+	public virtual void OnEnable() { }
+
+	// RVA: 0x12D04E8 Offset: 0x12D04E8 VA: 0x12D04E8 Slot: 7
+	public virtual bool CheckSupport() { }
+
+	// RVA: 0x12D04F8 Offset: 0x12D04F8 VA: 0x12D04F8 Slot: 8
+	public virtual bool CheckResources() { }
+
+	// RVA: 0x12D0500 Offset: 0x12D0500 VA: 0x12D0500 Slot: 9
+	public virtual void Start() { }
+
+	// RVA: 0x12D050C Offset: 0x12D050C VA: 0x12D050C Slot: 10
+	public virtual bool CheckSupport(bool needDepth) { }
+
+	// RVA: 0x12D0644 Offset: 0x12D0644 VA: 0x12D0644 Slot: 11
+	public virtual bool CheckSupport(bool needDepth, bool needHdr) { }
+
+	// RVA: 0x12D06A8 Offset: 0x12D06A8 VA: 0x12D06A8 Slot: 12
+	public virtual bool Dx11Support() { }
+
+	// RVA: 0x12D06B0 Offset: 0x12D06B0 VA: 0x12D06B0 Slot: 13
+	public virtual void ReportAutoDisable() { }
+
+	// RVA: 0x12D06B4 Offset: 0x12D06B4 VA: 0x12D06B4 Slot: 14
+	public virtual bool CheckShader(Shader s) { }
+
+	// RVA: 0x12D0708 Offset: 0x12D0708 VA: 0x12D0708 Slot: 15
+	public virtual void NotSupported() { }
+
+	// RVA: 0x12D0734 Offset: 0x12D0734 VA: 0x12D0734 Slot: 16
+	public virtual void DrawBorder(RenderTexture dest, Material material) { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC8C37C Offset: 0xC8C37C VA: 0xC8C37C
+[AddComponentMenu] // RVA: 0xC8C37C Offset: 0xC8C37C VA: 0xC8C37C
+public class SepiaToneEffect : ImageEffectBase // TypeDefIndex: 4264
+{
+	// Methods
+
+	// RVA: 0x12D2440 Offset: 0x12D2440 VA: 0x12D2440
+	public void .ctor() { }
+
+	// RVA: 0x12D2448 Offset: 0x12D2448 VA: 0x12D2448
+	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC8C3C8 Offset: 0xC8C3C8 VA: 0xC8C3C8
+[RequireComponent] // RVA: 0xC8C3C8 Offset: 0xC8C3C8 VA: 0xC8C3C8
+[AddComponentMenu] // RVA: 0xC8C3C8 Offset: 0xC8C3C8 VA: 0xC8C3C8
+public class SSAOEffect : MonoBehaviour // TypeDefIndex: 4265
+{
+	// Fields
+	public float m_Radius; // 0x18
+	public SSAOEffect.SSAOSamples m_SampleCount; // 0x1C
+	public float m_OcclusionIntensity; // 0x20
+	public int m_Blur; // 0x24
+	public int m_Downsampling; // 0x28
+	public float m_OcclusionAttenuation; // 0x2C
+	public float m_MinZ; // 0x30
+	public Shader m_SSAOShader; // 0x38
+	private Material m_SSAOMaterial; // 0x40
+	public Texture2D m_RandomTexture; // 0x48
+	private bool m_Supported; // 0x50
+
+	// Methods
+
+	// RVA: 0x12D0ACC Offset: 0x12D0ACC VA: 0x12D0ACC
+	public void .ctor() { }
+
+	// RVA: 0x12D0B04 Offset: 0x12D0B04 VA: 0x12D0B04
+	private static Material CreateMaterial(Shader shader) { }
+
+	// RVA: 0x12D0BB8 Offset: 0x12D0BB8 VA: 0x12D0BB8
+	private static void DestroyMaterial(Material mat) { }
+
+	// RVA: 0x12D0C54 Offset: 0x12D0C54 VA: 0x12D0C54
+	private void OnDisable() { }
+
+	// RVA: 0x12D0C5C Offset: 0x12D0C5C VA: 0x12D0C5C
+	private void Start() { }
+
+	// RVA: 0x12D0E1C Offset: 0x12D0E1C VA: 0x12D0E1C
+	private void OnEnable() { }
+
+	// RVA: 0x12D0D3C Offset: 0x12D0D3C VA: 0x12D0D3C
+	private void CreateMaterials() { }
+
+	[ImageEffectOpaque] // RVA: 0xC90808 Offset: 0xC90808 VA: 0xC90808
+	// RVA: 0x12D0EB4 Offset: 0x12D0EB4 VA: 0x12D0EB4
+	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
+}
+
+// Namespace: 
+public enum SSAOEffect.SSAOSamples // TypeDefIndex: 4266
+{
+	// Fields
+	public int value__; // 0x0
+	public const SSAOEffect.SSAOSamples Low = 0;
+	public const SSAOEffect.SSAOSamples Medium = 1;
+	public const SSAOEffect.SSAOSamples High = 2;
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC8C460 Offset: 0xC8C460 VA: 0xC8C460
+[AddComponentMenu] // RVA: 0xC8C460 Offset: 0xC8C460 VA: 0xC8C460
+public class TwirlEffect : ImageEffectBase // TypeDefIndex: 4267
+{
+	// Fields
+	public Vector2 radius; // 0x28
+	public float angle; // 0x30
+	public Vector2 center; // 0x34
+
+	// Methods
+
+	// RVA: 0x12D8DD8 Offset: 0x12D8DD8 VA: 0x12D8DD8
+	public void .ctor() { }
+
+	// RVA: 0x12D8E54 Offset: 0x12D8E54 VA: 0x12D8E54
+	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC8C4AC Offset: 0xC8C4AC VA: 0xC8C4AC
+[RequireComponent] // RVA: 0xC8C4AC Offset: 0xC8C4AC VA: 0xC8C4AC
+[AddComponentMenu] // RVA: 0xC8C4AC Offset: 0xC8C4AC VA: 0xC8C4AC
+[Serializable]
+public class Vignetting : PostEffectsBase // TypeDefIndex: 4268
+{
+	// Fields
+	public Vignetting.AberrationMode mode; // 0x1C
+	public float intensity; // 0x20
+	public float chromaticAberration; // 0x24
+	public float axialAberration; // 0x28
+	public float blur; // 0x2C
+	public float blurSpread; // 0x30
+	public float luminanceDependency; // 0x34
+	public float blurDistance; // 0x38
+	public Shader vignetteShader; // 0x40
+	private Material vignetteMaterial; // 0x48
+	public Shader separableBlurShader; // 0x50
+	private Material separableBlurMaterial; // 0x58
+	public Shader chromAberrationShader; // 0x60
+	private Material chromAberrationMaterial; // 0x68
+
+	// Methods
+
+	// RVA: 0x12DD460 Offset: 0x12DD460 VA: 0x12DD460
+	public void .ctor() { }
+
+	// RVA: 0x12DD4BC Offset: 0x12DD4BC VA: 0x12DD4BC Slot: 8
+	public override bool CheckResources() { }
+
+	// RVA: 0x12DD55C Offset: 0x12DD55C VA: 0x12DD55C Slot: 17
+	public virtual void OnRenderImage(RenderTexture source, RenderTexture destination) { }
+}
+
+// Namespace: 
+public enum Vignetting.AberrationMode // TypeDefIndex: 4269
+{
+	// Fields
+	public int value__; // 0x0
+	public const Vignetting.AberrationMode Simple = 0;
+	public const Vignetting.AberrationMode Advanced = 1;
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC8C544 Offset: 0xC8C544 VA: 0xC8C544
+[AddComponentMenu] // RVA: 0xC8C544 Offset: 0xC8C544 VA: 0xC8C544
+public class VortexEffect : ImageEffectBase // TypeDefIndex: 4270
+{
+	// Fields
+	public Vector2 radius; // 0x28
+	public float angle; // 0x30
+	public Vector2 center; // 0x34
+
+	// Methods
+
+	// RVA: 0x12DDC3C Offset: 0x12DDC3C VA: 0x12DDC3C
+	public void .ctor() { }
+
+	// RVA: 0x12DDCB8 Offset: 0x12DDCB8 VA: 0x12DDCB8
+	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC8C5E0 Offset: 0xC8C5E0 VA: 0xC8C5E0
+internal static class <PrivateImplementationDetails> // TypeDefIndex: 4271
+{
+	// Fields
+	internal static readonly <PrivateImplementationDetails>.$ArrayType=12 $field-E429CCA3F703A39CC5954A6572FEC9086135B34E /*Metadata offset 0x77DA2A*/; // 0x0
+	internal static readonly <PrivateImplementationDetails>.$ArrayType=16 $field-F6444A7EB9D7B3AD9C84109EC3785F7EF69B38AB /*Metadata offset 0x77DA36*/; // 0xC
+	internal static readonly <PrivateImplementationDetails>.$ArrayType=32 $field-6E6A61216CF092D83DB18A984502C2FB6C541ED7 /*Metadata offset 0x77DA46*/; // 0x1C
+}
+
+// Namespace: 
+private struct <PrivateImplementationDetails>.$ArrayType=12 // TypeDefIndex: 4272
+{}
+
+// Namespace: 
+private struct <PrivateImplementationDetails>.$ArrayType=16 // TypeDefIndex: 4273
+{}
+
+// Namespace: 
+private struct <PrivateImplementationDetails>.$ArrayType=32 // TypeDefIndex: 4274
+{}
+
+// Namespace: 
+internal class <Module> // TypeDefIndex: 4275
+{}
+
+// Namespace: Adv.Core.Graphics
+public class CustomPostProcess : MonoBehaviour // TypeDefIndex: 4276
+{
+	// Fields
+	[SerializeField] // RVA: 0xCB2F80 Offset: 0xCB2F80 VA: 0xCB2F80
+	private bool dofEnabled; // 0x18
+	[SerializeField] // RVA: 0xCB2F90 Offset: 0xCB2F90 VA: 0xCB2F90
+	[RangeAttribute] // RVA: 0xCB2F90 Offset: 0xCB2F90 VA: 0xCB2F90
+	public float DofIntensity; // 0x1C
+	[SerializeField] // RVA: 0xCB2FD0 Offset: 0xCB2FD0 VA: 0xCB2FD0
+	[MinAttribute] // RVA: 0xCB2FD0 Offset: 0xCB2FD0 VA: 0xCB2FD0
+	public float DofTargetLength; // 0x20
+	[SerializeField] // RVA: 0xCB300C Offset: 0xCB300C VA: 0xCB300C
+	[MinAttribute] // RVA: 0xCB300C Offset: 0xCB300C VA: 0xCB300C
+	public float DofNearMinLength; // 0x24
+	[SerializeField] // RVA: 0xCB3048 Offset: 0xCB3048 VA: 0xCB3048
+	[MinAttribute] // RVA: 0xCB3048 Offset: 0xCB3048 VA: 0xCB3048
+	public float DofNearMaxLength; // 0x28
+	[SerializeField] // RVA: 0xCB3084 Offset: 0xCB3084 VA: 0xCB3084
+	[MinAttribute] // RVA: 0xCB3084 Offset: 0xCB3084 VA: 0xCB3084
+	public float DofFarMinLength; // 0x2C
+	[SerializeField] // RVA: 0xCB30C0 Offset: 0xCB30C0 VA: 0xCB30C0
+	[MinAttribute] // RVA: 0xCB30C0 Offset: 0xCB30C0 VA: 0xCB30C0
+	public float DofFarMaxLength; // 0x30
+	[SerializeField] // RVA: 0xCB30FC Offset: 0xCB30FC VA: 0xCB30FC
+	private float DofDepthLimit; // 0x34
+	[SerializeField] // RVA: 0xCB310C Offset: 0xCB310C VA: 0xCB310C
+	private Material dofMaterial; // 0x38
+	[SerializeField] // RVA: 0xCB311C Offset: 0xCB311C VA: 0xCB311C
+	private Material dofBlurMaterial; // 0x40
+	[SerializeField] // RVA: 0xCB312C Offset: 0xCB312C VA: 0xCB312C
+	private bool bloomEnabled; // 0x48
+	[SerializeField] // RVA: 0xCB313C Offset: 0xCB313C VA: 0xCB313C
+	[RangeAttribute] // RVA: 0xCB313C Offset: 0xCB313C VA: 0xCB313C
+	public float BloomThreshold; // 0x4C
+	[SerializeField] // RVA: 0xCB317C Offset: 0xCB317C VA: 0xCB317C
+	[RangeAttribute] // RVA: 0xCB317C Offset: 0xCB317C VA: 0xCB317C
+	public float BloomIntensity; // 0x50
+	[SerializeField] // RVA: 0xCB31BC Offset: 0xCB31BC VA: 0xCB31BC
+	[RangeAttribute] // RVA: 0xCB31BC Offset: 0xCB31BC VA: 0xCB31BC
+	public float BloomBlurSize; // 0x54
+	[SerializeField] // RVA: 0xCB31FC Offset: 0xCB31FC VA: 0xCB31FC
+	[RangeAttribute] // RVA: 0xCB31FC Offset: 0xCB31FC VA: 0xCB31FC
+	public int BloomBlurIterations; // 0x58
+	[SerializeField] // RVA: 0xCB323C Offset: 0xCB323C VA: 0xCB323C
+	private Material bloomMaterial; // 0x60
+
+	// Properties
+	public bool DofEnabled { get; set; }
+	public bool BloomEnabled { get; set; }
+
+	// Methods
+
+	// RVA: 0x159E5A0 Offset: 0x159E5A0 VA: 0x159E5A0
+	public void .ctor() { }
+
+	// RVA: 0x159E5E4 Offset: 0x159E5E4 VA: 0x159E5E4
+	public bool get_DofEnabled() { }
+
+	// RVA: 0x159E5EC Offset: 0x159E5EC VA: 0x159E5EC
+	public void set_DofEnabled(bool value) { }
+
+	// RVA: 0x159E614 Offset: 0x159E614 VA: 0x159E614
+	public bool get_BloomEnabled() { }
+
+	// RVA: 0x159E61C Offset: 0x159E61C VA: 0x159E61C
+	public void set_BloomEnabled(bool value) { }
+
+	// RVA: 0x159E664 Offset: 0x159E664 VA: 0x159E664
+	private void Awake() { }
+
+	// RVA: 0x159E818 Offset: 0x159E818 VA: 0x159E818
+	private void OnDestroy() { }
+
+	// RVA: 0x159E97C Offset: 0x159E97C VA: 0x159E97C
+	private void OnRenderImage(RenderTexture source, RenderTexture destination) { }
+
+	// RVA: 0x159EB30 Offset: 0x159EB30 VA: 0x159EB30
+	private void RenderDof(RenderTexture source, RenderTexture destination) { }
+
+	// RVA: 0x159F124 Offset: 0x159F124 VA: 0x159F124
+	private void RenderBloom(RenderTexture source, RenderTexture destination) { }
+}
+
+// Namespace: Adb.Core.Graphics
+[CreateAssetMenuAttribute] // RVA: 0xC90AE8 Offset: 0xC90AE8 VA: 0xC90AE8
+public class CustomPostProcessSetting : ScriptableObject // TypeDefIndex: 4277
+{
+	// Fields
+	[SerializeField] // RVA: 0xCB324C Offset: 0xCB324C VA: 0xCB324C
+	[TooltipAttribute] // RVA: 0xCB324C Offset: 0xCB324C VA: 0xCB324C
+	public bool DofEnabled; // 0x18
+	[HeaderAttribute] // RVA: 0xCB3298 Offset: 0xCB3298 VA: 0xCB3298
+	[SerializeField] // RVA: 0xCB3298 Offset: 0xCB3298 VA: 0xCB3298
+	[TooltipAttribute] // RVA: 0xCB3298 Offset: 0xCB3298 VA: 0xCB3298
+	public float DofFocusMinDistance; // 0x1C
+	[SerializeField] // RVA: 0xCB3308 Offset: 0xCB3308 VA: 0xCB3308
+	[TooltipAttribute] // RVA: 0xCB3308 Offset: 0xCB3308 VA: 0xCB3308
+	public CustomPostProcessSetting.DofSetting DofFocusMinSetting; // 0x20
+	[HeaderAttribute] // RVA: 0xCB3354 Offset: 0xCB3354 VA: 0xCB3354
+	[SerializeField] // RVA: 0xCB3354 Offset: 0xCB3354 VA: 0xCB3354
+	[TooltipAttribute] // RVA: 0xCB3354 Offset: 0xCB3354 VA: 0xCB3354
+	public float DofFocusMaxDistance; // 0x28
+	[SerializeField] // RVA: 0xCB33C4 Offset: 0xCB33C4 VA: 0xCB33C4
+	[TooltipAttribute] // RVA: 0xCB33C4 Offset: 0xCB33C4 VA: 0xCB33C4
+	public CustomPostProcessSetting.DofSetting DofFocusMaxSetting; // 0x30
+	[SerializeField] // RVA: 0xCB3410 Offset: 0xCB3410 VA: 0xCB3410
+	[TooltipAttribute] // RVA: 0xCB3410 Offset: 0xCB3410 VA: 0xCB3410
+	public bool BloomEnabled; // 0x38
+	[SerializeField] // RVA: 0xCB345C Offset: 0xCB345C VA: 0xCB345C
+	[TooltipAttribute] // RVA: 0xCB345C Offset: 0xCB345C VA: 0xCB345C
+	[RangeAttribute] // RVA: 0xCB345C Offset: 0xCB345C VA: 0xCB345C
+	public float BloomThreshold; // 0x3C
+	[SerializeField] // RVA: 0xCB34C0 Offset: 0xCB34C0 VA: 0xCB34C0
+	[TooltipAttribute] // RVA: 0xCB34C0 Offset: 0xCB34C0 VA: 0xCB34C0
+	[RangeAttribute] // RVA: 0xCB34C0 Offset: 0xCB34C0 VA: 0xCB34C0
+	public float BloomIntensity; // 0x40
+	[SerializeField] // RVA: 0xCB3524 Offset: 0xCB3524 VA: 0xCB3524
+	[TooltipAttribute] // RVA: 0xCB3524 Offset: 0xCB3524 VA: 0xCB3524
+	[RangeAttribute] // RVA: 0xCB3524 Offset: 0xCB3524 VA: 0xCB3524
+	public float BloomBlurSize; // 0x44
+	[SerializeField] // RVA: 0xCB3588 Offset: 0xCB3588 VA: 0xCB3588
+	[TooltipAttribute] // RVA: 0xCB3588 Offset: 0xCB3588 VA: 0xCB3588
+	[RangeAttribute] // RVA: 0xCB3588 Offset: 0xCB3588 VA: 0xCB3588
+	public int BloomBlurIterations; // 0x48
+
+	// Methods
+
+	// RVA: 0x159E26C Offset: 0x159E26C VA: 0x159E26C
+	public void .ctor() { }
+
+	// RVA: 0x159E2A8 Offset: 0x159E2A8 VA: 0x159E2A8
+	public float RangeRatio(float ratio, float min, float max) { }
+
+	// RVA: 0x159E2B8 Offset: 0x159E2B8 VA: 0x159E2B8
+	public float DofIntensity(float distance) { }
+
+	// RVA: 0x159E3AC Offset: 0x159E3AC VA: 0x159E3AC
+	public float DofNearMinLength(float distance) { }
+
+	// RVA: 0x159E40C Offset: 0x159E40C VA: 0x159E40C
+	public float DofNearMaxLength(float distance) { }
+
+	// RVA: 0x159E46C Offset: 0x159E46C VA: 0x159E46C
+	public float DofFarMinLength(float distance) { }
+
+	// RVA: 0x159E4CC Offset: 0x159E4CC VA: 0x159E4CC
+	public float DofFarMaxLength(float distance) { }
+
+	// RVA: 0x159E318 Offset: 0x159E318 VA: 0x159E318
+	private float GetDofDistanceRatio(float distance) { }
+}
+
+// Namespace: 
+[Serializable]
+public class CustomPostProcessSetting.DofSetting // TypeDefIndex: 4278
+{
+	// Fields
+	[SerializeField] // RVA: 0xCB35EC Offset: 0xCB35EC VA: 0xCB35EC
+	[TooltipAttribute] // RVA: 0xCB35EC Offset: 0xCB35EC VA: 0xCB35EC
+	[RangeAttribute] // RVA: 0xCB35EC Offset: 0xCB35EC VA: 0xCB35EC
+	public float intensity; // 0x10
+	[SerializeField] // RVA: 0xCB3650 Offset: 0xCB3650 VA: 0xCB3650
+	[TooltipAttribute] // RVA: 0xCB3650 Offset: 0xCB3650 VA: 0xCB3650
+	[MinAttribute] // RVA: 0xCB3650 Offset: 0xCB3650 VA: 0xCB3650
+	public float nearMinLength; // 0x14
+	[SerializeField] // RVA: 0xCB36B0 Offset: 0xCB36B0 VA: 0xCB36B0
+	[TooltipAttribute] // RVA: 0xCB36B0 Offset: 0xCB36B0 VA: 0xCB36B0
+	[MinAttribute] // RVA: 0xCB36B0 Offset: 0xCB36B0 VA: 0xCB36B0
+	public float nearMaxLength; // 0x18
+	[SerializeField] // RVA: 0xCB3710 Offset: 0xCB3710 VA: 0xCB3710
+	[TooltipAttribute] // RVA: 0xCB3710 Offset: 0xCB3710 VA: 0xCB3710
+	[MinAttribute] // RVA: 0xCB3710 Offset: 0xCB3710 VA: 0xCB3710
+	public float farMinLength; // 0x1C
+	[SerializeField] // RVA: 0xCB3770 Offset: 0xCB3770 VA: 0xCB3770
+	[TooltipAttribute] // RVA: 0xCB3770 Offset: 0xCB3770 VA: 0xCB3770
+	[MinAttribute] // RVA: 0xCB3770 Offset: 0xCB3770 VA: 0xCB3770
+	public float farMaxLength; // 0x20
+
+	// Methods
+
+	// RVA: 0x159E52C Offset: 0x159E52C VA: 0x159E52C
+	public void .ctor() { }
+}
+
+// Namespace: Adv.Core.Graphics
+public class GraphicSetting : MonoBehaviour // TypeDefIndex: 4279
+{
+	// Fields
+	[SerializeField] // RVA: 0xCB37D0 Offset: 0xCB37D0 VA: 0xCB37D0
+	private float shadowTargetDistanceMin; // 0x18
+	[SerializeField] // RVA: 0xCB37E0 Offset: 0xCB37E0 VA: 0xCB37E0
+	private float shadowTargetDistanceMax; // 0x1C
+	[SerializeField] // RVA: 0xCB37F0 Offset: 0xCB37F0 VA: 0xCB37F0
+	private GraphicSetting.ShadowSetting[] shadowSettings; // 0x20
+	[CompilerGeneratedAttribute] // RVA: 0xCB3800 Offset: 0xCB3800 VA: 0xCB3800
+	[DebuggerBrowsableAttribute] // RVA: 0xCB3800 Offset: 0xCB3800 VA: 0xCB3800
+	private static GraphicSetting <Instance>k__BackingField; // 0x0
+	private GraphicSetting.ShadowSetting currentShadowSetting; // 0x28
+
+	// Properties
+	public float ShadowDistanceMin { get; }
+	public float ShadowDistanceMax { get; }
+	public float ShadowTargetDistanceMin { get; }
+	public float ShadowTargetDistanceMax { get; }
+	public static GraphicSetting Instance { get; set; }
+
+	// Methods
+
+	// RVA: 0x159F618 Offset: 0x159F618 VA: 0x159F618
+	public void .ctor() { }
+
+	// RVA: 0x159F620 Offset: 0x159F620 VA: 0x159F620
+	public float get_ShadowDistanceMin() { }
+
+	// RVA: 0x159F704 Offset: 0x159F704 VA: 0x159F704
+	public float get_ShadowDistanceMax() { }
+
+	// RVA: 0x159F730 Offset: 0x159F730 VA: 0x159F730
+	public float get_ShadowTargetDistanceMin() { }
+
+	// RVA: 0x159F738 Offset: 0x159F738 VA: 0x159F738
+	public float get_ShadowTargetDistanceMax() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33318 Offset: 0xD33318 VA: 0xD33318
+	// RVA: 0x159F740 Offset: 0x159F740 VA: 0x159F740
+	public static GraphicSetting get_Instance() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33328 Offset: 0xD33328 VA: 0xD33328
+	// RVA: 0x159F790 Offset: 0x159F790 VA: 0x159F790
+	private static void set_Instance(GraphicSetting value) { }
+
+	// RVA: 0x159F7E4 Offset: 0x159F7E4 VA: 0x159F7E4
+	public void Awake() { }
+
+	// RVA: 0x159F64C Offset: 0x159F64C VA: 0x159F64C
+	private GraphicSetting.ShadowSetting GetShadowSetting() { }
+}
+
+// Namespace: 
+[Serializable]
+public class GraphicSetting.ShadowSetting // TypeDefIndex: 4280
+{
+	// Fields
+	[SerializeField] // RVA: 0xCB383C Offset: 0xCB383C VA: 0xCB383C
+	public ShadowResolution resolution; // 0x10
+	[SerializeField] // RVA: 0xCB384C Offset: 0xCB384C VA: 0xCB384C
+	public float distanceMin; // 0x14
+	[SerializeField] // RVA: 0xCB385C Offset: 0xCB385C VA: 0xCB385C
+	public float distanceMax; // 0x18
+
+	// Methods
+
+	// RVA: 0x159F838 Offset: 0x159F838 VA: 0x159F838
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class PrefabLightmapData : MonoBehaviour // TypeDefIndex: 4281
+{
+	// Fields
+	[SerializeField] // RVA: 0xCB386C Offset: 0xCB386C VA: 0xCB386C
+	private PrefabLightmapData.RendererInfo[] m_RendererInfo; // 0x18
+	[SerializeField] // RVA: 0xCB387C Offset: 0xCB387C VA: 0xCB387C
+	private Texture2D[] m_Lightmaps; // 0x20
+	[SerializeField] // RVA: 0xCB388C Offset: 0xCB388C VA: 0xCB388C
+	private Texture2D[] m_LightmapsDir; // 0x28
+	[SerializeField] // RVA: 0xCB389C Offset: 0xCB389C VA: 0xCB389C
+	private Texture2D[] m_ShadowMasks; // 0x30
+	[SerializeField] // RVA: 0xCB38AC Offset: 0xCB38AC VA: 0xCB38AC
+	private PrefabLightmapData.LightInfo[] m_LightInfo; // 0x38
+	[SerializeField] // RVA: 0xCB38BC Offset: 0xCB38BC VA: 0xCB38BC
+	private LightProbes m_lightProbes; // 0x40
+	[SerializeField] // RVA: 0xCB38CC Offset: 0xCB38CC VA: 0xCB38CC
+	private LightmapsMode m_LightMode; // 0x48
+	private LightmapData[] originalLightmaps; // 0x50
+	private LightmapsMode originalLightmapsMode; // 0x58
+
+	// Methods
+
+	// RVA: 0x1BD6F28 Offset: 0x1BD6F28 VA: 0x1BD6F28
+	public void .ctor() { }
+
+	// RVA: 0x1BD6F30 Offset: 0x1BD6F30 VA: 0x1BD6F30
+	private void Awake() { }
+
+	// RVA: 0x1BD6F34 Offset: 0x1BD6F34 VA: 0x1BD6F34
+	private void Init() { }
+
+	// RVA: 0x1BD7628 Offset: 0x1BD7628 VA: 0x1BD7628
+	private void OnDestroy() { }
+
+	// RVA: 0x1BD7390 Offset: 0x1BD7390 VA: 0x1BD7390
+	private static void ApplyRendererInfo(PrefabLightmapData.RendererInfo[] infos, int[] lightmapOffsetIndex, PrefabLightmapData.LightInfo[] lightsInfo) { }
+}
+
+// Namespace: 
+[Serializable]
+private struct PrefabLightmapData.RendererInfo // TypeDefIndex: 4282
+{
+	// Fields
+	public Renderer renderer; // 0x0
+	public int lightmapIndex; // 0x8
+	public LightProbeUsage lightProbeUsage; // 0xC
+	public Vector4 lightmapOffsetScale; // 0x10
+	public ReflectionProbeUsage reflectionProbeUsage; // 0x20
+	public Transform probeAnchor; // 0x28
+}
+
+// Namespace: 
+[Serializable]
+private struct PrefabLightmapData.LightInfo // TypeDefIndex: 4283
+{
+	// Fields
+	public Light light; // 0x0
+	public int lightmapBaketype; // 0x8
+	public int mixedLightingMode; // 0xC
+}
+
+// Namespace: Adv.Core.Graphics
+[RequireComponent] // RVA: 0xC90B48 Offset: 0xC90B48 VA: 0xC90B48
+public class RendererScaler : MonoBehaviour // TypeDefIndex: 4284
+{
+	// Fields
+	public RendererScaler.RenderScale scale; // 0x18
+	private Camera cam; // 0x20
+	private RenderTexture renderTex; // 0x28
+	private CommandBuffer commandBuffer; // 0x30
+
+	// Methods
+
+	// RVA: 0x159F940 Offset: 0x159F940 VA: 0x159F940
+	public void .ctor() { }
+
+	// RVA: 0x159F950 Offset: 0x159F950 VA: 0x159F950
+	private void Start() { }
+
+	// RVA: 0x159F9E0 Offset: 0x159F9E0 VA: 0x159F9E0
+	public static void CreateRendererScaler() { }
+
+	// RVA: 0x159FAFC Offset: 0x159FAFC VA: 0x159FAFC
+	public void ChangeRenderSize() { }
+}
+
+// Namespace: 
+public enum RendererScaler.RenderScale // TypeDefIndex: 4285
+{
+	// Fields
+	public int value__; // 0x0
+	public const RendererScaler.RenderScale S12 = 12;
+	public const RendererScaler.RenderScale S25 = 25;
+	public const RendererScaler.RenderScale S50 = 50;
+	public const RendererScaler.RenderScale S75 = 75;
+	public const RendererScaler.RenderScale S100 = 100;
+}
+
+// Namespace: Adv.Core.Graphics
+[DisallowMultipleComponent] // RVA: 0xC90BAC Offset: 0xC90BAC VA: 0xC90BAC
+[RequireComponent] // RVA: 0xC90BAC Offset: 0xC90BAC VA: 0xC90BAC
+public class RenderOption : MonoBehaviour // TypeDefIndex: 4286
+{
+	// Fields
+	public RenderOption.Type type; // 0x18
+	private Material mat; // 0x20
+	private RenderOption.Grade setting; // 0x28
+
+	// Properties
+	public RenderOption.Grade Setting { get; set; }
+
+	// Methods
+
+	// RVA: 0x159F840 Offset: 0x159F840 VA: 0x159F840
+	public void .ctor() { }
+
+	// RVA: 0x159F848 Offset: 0x159F848 VA: 0x159F848
+	public RenderOption.Grade get_Setting() { }
+
+	// RVA: 0x159F850 Offset: 0x159F850 VA: 0x159F850
+	public void set_Setting(RenderOption.Grade value) { }
+
+	// RVA: 0x159F938 Offset: 0x159F938 VA: 0x159F938
+	public static RenderOption AttachComponent(GameObject gameObject) { }
+}
+
+// Namespace: 
+public enum RenderOption.Grade // TypeDefIndex: 4287
+{
+	// Fields
+	public int value__; // 0x0
+	public const RenderOption.Grade Normal = 0;
+	public const RenderOption.Grade Low = 1;
+}
+
+// Namespace: 
+public enum RenderOption.Type // TypeDefIndex: 4288
+{
+	// Fields
+	public int value__; // 0x0
+	public const RenderOption.Type Shadow = 0;
+}
+
+// Namespace: Adv.Core.Graphics.ScreenEffect
+public class ScreenEffectBlur : MonoBehaviour // TypeDefIndex: 4289
+{
+	// Fields
+	[SerializeField] // RVA: 0xCB38DC Offset: 0xCB38DC VA: 0xCB38DC
+	private AnimationCurve curve; // 0x18
+	[SerializeField] // RVA: 0xCB38EC Offset: 0xCB38EC VA: 0xCB38EC
+	private float intensity; // 0x20
+	[SerializeField] // RVA: 0xCB38FC Offset: 0xCB38FC VA: 0xCB38FC
+	private Material material; // 0x28
+	private ScreenEffectBlur.State state; // 0x30
+	private int nowFrame; // 0x34
+	private int startFrame; // 0x38
+	private int endFrame; // 0x3C
+	private int durationFrame; // 0x40
+	private RenderTexture captureTexture; // 0x48
+	private RenderTexture blurTexture; // 0x50
+
+	// Methods
+
+	// RVA: 0x159FE38 Offset: 0x159FE38 VA: 0x159FE38
+	public void .ctor() { }
+
+	// RVA: 0x159FE48 Offset: 0x159FE48 VA: 0x159FE48
+	private void Awake() { }
+

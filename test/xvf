@@ -1,0 +1,1000 @@
+	protected string selectStartModeName; // 0xB8
+	protected bool selectIsHiddenTruthSetting; // 0xC0
+
+	// Methods
+
+	// RVA: 0x1ACD1E0 Offset: 0x1ACD1E0 VA: 0x1ACD1E0
+	public void .ctor() { }
+
+	// RVA: 0x1ACD1E8 Offset: 0x1ACD1E8 VA: 0x1ACD1E8
+	protected void add_callbackFunc(ScriptConnectMenu.CallbackFunc value) { }
+
+	// RVA: 0x1ACD2D4 Offset: 0x1ACD2D4 VA: 0x1ACD2D4
+	protected void remove_callbackFunc(ScriptConnectMenu.CallbackFunc value) { }
+
+	// RVA: 0x1ACD3C0 Offset: 0x1ACD3C0 VA: 0x1ACD3C0
+	public void Open(ScriptConnectMenu.CallbackFunc callback) { }
+
+	// RVA: 0x1ACD774 Offset: 0x1ACD774 VA: 0x1ACD774
+	public void Close() { }
+
+	// RVA: 0x1ACDA0C Offset: 0x1ACDA0C VA: 0x1ACDA0C
+	protected void Callback(bool result) { }
+
+	// RVA: 0x1ACD7B4 Offset: 0x1ACD7B4 VA: 0x1ACD7B4
+	protected void EndInput() { }
+
+	// RVA: 0x1ACDC58 Offset: 0x1ACDC58 VA: 0x1ACDC58
+	public void OnChangeServerInput() { }
+
+	// RVA: 0x1ACDC5C Offset: 0x1ACDC5C VA: 0x1ACDC5C
+	public void OnClickHiddenTruth() { }
+
+	// RVA: 0x1ACDCB8 Offset: 0x1ACDCB8 VA: 0x1ACDCB8
+	public void OnClickForceCheckOn() { }
+
+	// RVA: 0x1ACDD90 Offset: 0x1ACDD90 VA: 0x1ACDD90
+	public void OnClickSelect() { }
+
+	// RVA: 0x1ACDF2C Offset: 0x1ACDF2C VA: 0x1ACDF2C
+	protected void OnEndSelectObject(ScriptConnectListViewMenu.ResultKind result, string path) { }
+
+	// RVA: 0x1ACE2B0 Offset: 0x1ACE2B0 VA: 0x1ACE2B0
+	protected void EndConnectScriptPlay() { }
+
+	// RVA: 0x1ACE368 Offset: 0x1ACE368 VA: 0x1ACE368
+	public void OnClickDecide() { }
+
+	// RVA: 0x1ACE5AC Offset: 0x1ACE5AC VA: 0x1ACE5AC
+	protected void EndPlayScript() { }
+
+	// RVA: 0x1ACE5B8 Offset: 0x1ACE5B8 VA: 0x1ACE5B8
+	public void OnClickCancel() { }
+
+	// RVA: 0x1ACDEFC Offset: 0x1ACDEFC VA: 0x1ACDEFC
+	public string GetJumpLineString() { }
+
+	// RVA: 0x1ACE204 Offset: 0x1ACE204 VA: 0x1ACE204
+	public int GetJumpLine() { }
+}
+
+// Namespace: 
+protected enum ScriptConnectMenu.State // TypeDefIndex: 11542
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptConnectMenu.State INIT = 0;
+	public const ScriptConnectMenu.State INPUT = 1;
+	public const ScriptConnectMenu.State INPUT_OBJECT_MENU = 2;
+	public const ScriptConnectMenu.State SELECTED = 3;
+	public const ScriptConnectMenu.State CLOSE = 4;
+	public const ScriptConnectMenu.State PLAY_SCRIPT = 5;
+}
+
+// Namespace: 
+public sealed class ScriptConnectMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 11543
+{
+	// Methods
+
+	// RVA: 0x1ACE610 Offset: 0x1ACE610 VA: 0x1ACE610
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1ACDA2C Offset: 0x1ACDA2C VA: 0x1ACDA2C Slot: 11
+	public virtual void Invoke(bool result) { }
+
+	// RVA: 0x1ACE620 Offset: 0x1ACE620 VA: 0x1ACE620 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1ACE6B0 Offset: 0x1ACE6B0 VA: 0x1ACE6B0 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public struct ScriptConnectData // TypeDefIndex: 11544
+{
+	// Fields
+	public string ConnectPath; // 0x0
+	public string ObjectPath; // 0x8
+	public Action EndCallback; // 0x10
+	public Action ErrorCallback; // 0x18
+	public int JumpLine; // 0x20
+	public bool IsView; // 0x24
+	public bool IsReboot; // 0x25
+
+	// Methods
+
+	// RVA: 0xDC4694 Offset: 0xDC4694 VA: 0xDC4694
+	public void .ctor(string connectPath, string objectPath, Action endCallback, Action errorCallback, int jumpLine = -1, bool isView = False) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC97494 Offset: 0xC97494 VA: 0xC97494
+public class ScriptDefaultFilePlayerMenu : MonoBehaviour // TypeDefIndex: 11545
+{
+	// Fields
+	protected const string DEFAULT_SCRIPT_PATH = "C:/Avalon/Temporary/ScriptData";
+	protected const string DEFAULT_SCRIPT_FILE_NAME = "DefaultScript.txt";
+	public GameObject serverSettingRootObject; // 0x18
+	public UIPopupList genderInput; // 0x20
+	public UIPopupList startModeInput; // 0x28
+	public UILineInput jumpLineObjectInput; // 0x30
+	public UIButton hiddenTruthButton; // 0x38
+	public UISprite hiddenTruthSprite; // 0x40
+	public UIButton forceCheckOnButton; // 0x48
+	public UISprite forceCheckOnSprite; // 0x50
+	public UIButton selectViewButton; // 0x58
+	public UIButton serverDecideButton; // 0x60
+	public UIButton serverCancelButton; // 0x68
+	public DebugTestRootComponent debugTestRootComponent; // 0x70
+	protected ScriptDefaultFilePlayerMenu.State state; // 0x78
+	[CompilerGeneratedAttribute] // RVA: 0xCECD00 Offset: 0xCECD00 VA: 0xCECD00
+	[DebuggerBrowsableAttribute] // RVA: 0xCECD00 Offset: 0xCECD00 VA: 0xCECD00
+	private ScriptDefaultFilePlayerMenu.CallbackFunc callbackFunc; // 0x80
+	protected string selectPlayerFilePath; // 0x88
+	protected string selectObjectPath; // 0x90
+	protected int selectGenderIndex; // 0x98
+	protected string selectStartModeName; // 0xA0
+	protected bool selectIsHiddenTruthSetting; // 0xA8
+
+	// Methods
+
+	// RVA: 0x1ACE6BC Offset: 0x1ACE6BC VA: 0x1ACE6BC
+	public void .ctor() { }
+
+	// RVA: 0x1ACE6C4 Offset: 0x1ACE6C4 VA: 0x1ACE6C4
+	protected void add_callbackFunc(ScriptDefaultFilePlayerMenu.CallbackFunc value) { }
+
+	// RVA: 0x1ACE7B0 Offset: 0x1ACE7B0 VA: 0x1ACE7B0
+	protected void remove_callbackFunc(ScriptDefaultFilePlayerMenu.CallbackFunc value) { }
+
+	// RVA: 0x1ACE89C Offset: 0x1ACE89C VA: 0x1ACE89C
+	public void Open(ScriptDefaultFilePlayerMenu.CallbackFunc callback) { }
+
+	// RVA: 0x1ACEB88 Offset: 0x1ACEB88 VA: 0x1ACEB88
+	public void Close() { }
+
+	// RVA: 0x1ACECE8 Offset: 0x1ACECE8 VA: 0x1ACECE8
+	protected void Callback(bool result) { }
+
+	// RVA: 0x1ACEBC8 Offset: 0x1ACEBC8 VA: 0x1ACEBC8
+	protected void EndInput() { }
+
+	// RVA: 0x1ACEF34 Offset: 0x1ACEF34 VA: 0x1ACEF34
+	public void OnClickHiddenTruth() { }
+
+	// RVA: 0x1ACEF90 Offset: 0x1ACEF90 VA: 0x1ACEF90
+	public void OnClickForceCheckOn() { }
+
+	// RVA: 0x1ACF068 Offset: 0x1ACF068 VA: 0x1ACF068
+	public void OnClickView() { }
+
+	// RVA: 0x1ACF328 Offset: 0x1ACF328 VA: 0x1ACF328
+	public void OnClickDecide() { }
+
+	// RVA: 0x1ACF538 Offset: 0x1ACF538 VA: 0x1ACF538
+	protected void EndPlayScript() { }
+
+	// RVA: 0x1ACF544 Offset: 0x1ACF544 VA: 0x1ACF544
+	public void OnClickCancel() { }
+
+	// RVA: 0x1ACF59C Offset: 0x1ACF59C VA: 0x1ACF59C
+	public string GetJumpLineString() { }
+
+	// RVA: 0x1ACF27C Offset: 0x1ACF27C VA: 0x1ACF27C
+	public int GetJumpLine() { }
+}
+
+// Namespace: 
+protected enum ScriptDefaultFilePlayerMenu.State // TypeDefIndex: 11546
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptDefaultFilePlayerMenu.State INIT = 0;
+	public const ScriptDefaultFilePlayerMenu.State INPUT = 1;
+	public const ScriptDefaultFilePlayerMenu.State INPUT_OBJECT_MENU = 2;
+	public const ScriptDefaultFilePlayerMenu.State SELECTED = 3;
+	public const ScriptDefaultFilePlayerMenu.State CLOSE = 4;
+	public const ScriptDefaultFilePlayerMenu.State PLAY_SCRIPT = 5;
+}
+
+// Namespace: 
+public sealed class ScriptDefaultFilePlayerMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 11547
+{
+	// Methods
+
+	// RVA: 0x1ACF5CC Offset: 0x1ACF5CC VA: 0x1ACF5CC
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1ACED08 Offset: 0x1ACED08 VA: 0x1ACED08 Slot: 11
+	public virtual void Invoke(bool result) { }
+
+	// RVA: 0x1ACF5DC Offset: 0x1ACF5DC VA: 0x1ACF5DC Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1ACF66C Offset: 0x1ACF66C VA: 0x1ACF66C Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC974CC Offset: 0xC974CC VA: 0xC974CC
+public class ScriptFilePlayerMenu : MonoBehaviour // TypeDefIndex: 11548
+{
+	// Fields
+	public GameObject serverSettingRootObject; // 0x18
+	public UILineInput dataScriptPathInput; // 0x20
+	public UILineInput dataScriptObjectInput; // 0x28
+	public UIPopupList genderInput; // 0x30
+	public UIPopupList startModeInput; // 0x38
+	public UILineInput jumpLineObjectInput; // 0x40
+	public UIButton hiddenTruthButton; // 0x48
+	public UISprite hiddenTruthSprite; // 0x50
+	public UIButton forceCheckOnButton; // 0x58
+	public UISprite forceCheckOnSprite; // 0x60
+	public UIButton selectListButton; // 0x68
+	public UIButton serverDecideButton; // 0x70
+	public UIButton serverCancelButton; // 0x78
+	public ScriptPlayListViewMenu scriptPlayListViewMenu; // 0x80
+	public DebugTestRootComponent debugTestRootComponent; // 0x88
+	protected ScriptFilePlayerMenu.State state; // 0x90
+	[CompilerGeneratedAttribute] // RVA: 0xCECD3C Offset: 0xCECD3C VA: 0xCECD3C
+	[DebuggerBrowsableAttribute] // RVA: 0xCECD3C Offset: 0xCECD3C VA: 0xCECD3C
+	private ScriptFilePlayerMenu.CallbackFunc callbackFunc; // 0x98
+	protected string selectPlayerFilePath; // 0xA0
+	protected string selectObjectPath; // 0xA8
+	protected int selectGenderIndex; // 0xB0
+	protected string selectStartModeName; // 0xB8
+	protected bool selectIsHiddenTruthSetting; // 0xC0
+
+	// Methods
+
+	// RVA: 0x1ACF8D0 Offset: 0x1ACF8D0 VA: 0x1ACF8D0
+	public void .ctor() { }
+
+	// RVA: 0x1ACF8D8 Offset: 0x1ACF8D8 VA: 0x1ACF8D8
+	protected void add_callbackFunc(ScriptFilePlayerMenu.CallbackFunc value) { }
+
+	// RVA: 0x1ACF9C4 Offset: 0x1ACF9C4 VA: 0x1ACF9C4
+	protected void remove_callbackFunc(ScriptFilePlayerMenu.CallbackFunc value) { }
+
+	// RVA: 0x1ACFAB0 Offset: 0x1ACFAB0 VA: 0x1ACFAB0
+	public void Open(ScriptFilePlayerMenu.CallbackFunc callback) { }
+
+	// RVA: 0x1ACFE64 Offset: 0x1ACFE64 VA: 0x1ACFE64
+	public void Close() { }
+
+	// RVA: 0x1AD00FC Offset: 0x1AD00FC VA: 0x1AD00FC
+	protected void Callback(bool result) { }
+
+	// RVA: 0x1ACFEA4 Offset: 0x1ACFEA4 VA: 0x1ACFEA4
+	protected void EndInput() { }
+
+	// RVA: 0x1AD0348 Offset: 0x1AD0348 VA: 0x1AD0348
+	public void OnChangeServerInput() { }
+
+	// RVA: 0x1AD034C Offset: 0x1AD034C VA: 0x1AD034C
+	public void OnClickHiddenTruth() { }
+
+	// RVA: 0x1AD03A8 Offset: 0x1AD03A8 VA: 0x1AD03A8
+	public void OnClickForceCheckOn() { }
+
+	// RVA: 0x1AD0480 Offset: 0x1AD0480 VA: 0x1AD0480
+	public void OnClickSelect() { }
+
+	// RVA: 0x1AD0624 Offset: 0x1AD0624 VA: 0x1AD0624
+	protected void OnEndSelectObject(ScriptPlayListViewMenu.ResultKind result, string path) { }
+
+	// RVA: 0x1AD09B0 Offset: 0x1AD09B0 VA: 0x1AD09B0
+	protected void EndPlayScriptSelectObject() { }
+
+	// RVA: 0x1AD0A70 Offset: 0x1AD0A70 VA: 0x1AD0A70
+	public void OnClickDecide() { }
+
+	// RVA: 0x1AD0CB4 Offset: 0x1AD0CB4 VA: 0x1AD0CB4
+	protected void EndPlayScript() { }
+
+	// RVA: 0x1AD0CC0 Offset: 0x1AD0CC0 VA: 0x1AD0CC0
+	public void OnClickCancel() { }
+
+	// RVA: 0x1AD05F4 Offset: 0x1AD05F4 VA: 0x1AD05F4
+	public string GetJumpLineString() { }
+
+	// RVA: 0x1AD0904 Offset: 0x1AD0904 VA: 0x1AD0904
+	public int GetJumpLine() { }
+}
+
+// Namespace: 
+protected enum ScriptFilePlayerMenu.State // TypeDefIndex: 11549
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptFilePlayerMenu.State INIT = 0;
+	public const ScriptFilePlayerMenu.State INPUT = 1;
+	public const ScriptFilePlayerMenu.State INPUT_OBJECT_MENU = 2;
+	public const ScriptFilePlayerMenu.State SELECTED = 3;
+	public const ScriptFilePlayerMenu.State CLOSE = 4;
+	public const ScriptFilePlayerMenu.State PLAY_SCRIPT = 5;
+}
+
+// Namespace: 
+public sealed class ScriptFilePlayerMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 11550
+{
+	// Methods
+
+	// RVA: 0x1AD0D18 Offset: 0x1AD0D18 VA: 0x1AD0D18
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x1AD011C Offset: 0x1AD011C VA: 0x1AD011C Slot: 11
+	public virtual void Invoke(bool result) { }
+
+	// RVA: 0x1AD0D28 Offset: 0x1AD0D28 VA: 0x1AD0D28 Slot: 12
+	public virtual IAsyncResult BeginInvoke(bool result, AsyncCallback callback, object object) { }
+
+	// RVA: 0x1AD0DB8 Offset: 0x1AD0DB8 VA: 0x1AD0DB8 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC97504 Offset: 0xC97504 VA: 0xC97504
+public class ScriptObjectListViewItem : ListViewItem // TypeDefIndex: 11551
+{
+	// Fields
+	public static bool DispEnableEncrypt; // 0x0
+	public static bool DispDisableEncrypt; // 0x1
+	protected string path; // 0x70
+
+	// Properties
+	public string TitleText { get; }
+	public string Name { get; }
+	public string Path { get; }
+	public bool IsDefaultEncrypt { get; }
+	public ScriptEncryptEntity EncryptEntity { get; }
+	public bool IsExistKey { get; }
+
+	// Methods
+
+	// RVA: 0x20A56C0 Offset: 0x20A56C0 VA: 0x20A56C0
+	public void .ctor(int index, string path) { }
+
+	// RVA: 0x20A56EC Offset: 0x20A56EC VA: 0x20A56EC Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x20A56F4 Offset: 0x20A56F4 VA: 0x20A56F4
+	public string get_TitleText() { }
+
+	// RVA: 0x20A5804 Offset: 0x20A5804 VA: 0x20A5804
+	public string get_Name() { }
+
+	// RVA: 0x20A59C0 Offset: 0x20A59C0 VA: 0x20A59C0
+	public string get_Path() { }
+
+	// RVA: 0x20A57E8 Offset: 0x20A57E8 VA: 0x20A57E8
+	public bool get_IsDefaultEncrypt() { }
+
+	// RVA: 0x20A5874 Offset: 0x20A5874 VA: 0x20A5874
+	public ScriptEncryptEntity get_EncryptEntity() { }
+
+	// RVA: 0x20A58EC Offset: 0x20A58EC VA: 0x20A58EC
+	public bool get_IsExistKey() { }
+
+	// RVA: 0x20A59C8 Offset: 0x20A59C8 VA: 0x20A59C8 Slot: 4
+	public override bool SetSortValue(ListViewSort sort) { }
+
+	// RVA: 0x20A5AB8 Offset: 0x20A5AB8 VA: 0x20A5AB8
+	private static void .cctor() { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC9753C Offset: 0xC9753C VA: 0xC9753C
+public class ScriptObjectListViewItemDraw : MonoBehaviour // TypeDefIndex: 11552
+{
+	// Fields
+	[SerializeField] // RVA: 0xCECD78 Offset: 0xCECD78 VA: 0xCECD78
+	protected UITexture baseImageTexture; // 0x18
+	[SerializeField] // RVA: 0xCECD88 Offset: 0xCECD88 VA: 0xCECD88
+	protected UILabel titleTextLabel; // 0x20
+
+	// Methods
+
+	// RVA: 0x20A5B18 Offset: 0x20A5B18 VA: 0x20A5B18
+	public void .ctor() { }
+
+	// RVA: 0x20A5B20 Offset: 0x20A5B20 VA: 0x20A5B20
+	public void SetItem(ScriptObjectListViewItem item, ScriptObjectListViewItemDraw.DispMode mode) { }
+}
+
+// Namespace: 
+public enum ScriptObjectListViewItemDraw.DispMode // TypeDefIndex: 11553
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptObjectListViewItemDraw.DispMode INVISIBLE = 0;
+	public const ScriptObjectListViewItemDraw.DispMode INVALID = 1;
+	public const ScriptObjectListViewItemDraw.DispMode VALID = 2;
+	public const ScriptObjectListViewItemDraw.DispMode INPUT = 3;
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC97574 Offset: 0xC97574 VA: 0xC97574
+public class ScriptObjectListViewManager : ListViewManager // TypeDefIndex: 11554
+{
+	// Fields
+	protected ScriptObjectListViewManager.InitMode initMode; // 0x138
+	[CompilerGeneratedAttribute] // RVA: 0xCECD98 Offset: 0xCECD98 VA: 0xCECD98
+	[DebuggerBrowsableAttribute] // RVA: 0xCECD98 Offset: 0xCECD98 VA: 0xCECD98
+	private ScriptObjectListViewManager.CallbackFunc callbackFunc; // 0x140
+	protected int callbackCount; // 0x148
+
+	// Properties
+	public List<ScriptObjectListViewObject> ObjectList { get; }
+
+	// Methods
+
+	// RVA: 0x20A5CC0 Offset: 0x20A5CC0 VA: 0x20A5CC0
+	public void .ctor() { }
+
+	// RVA: 0x20A5CC8 Offset: 0x20A5CC8 VA: 0x20A5CC8
+	protected void add_callbackFunc(ScriptObjectListViewManager.CallbackFunc value) { }
+
+	// RVA: 0x20A5DB8 Offset: 0x20A5DB8 VA: 0x20A5DB8
+	protected void remove_callbackFunc(ScriptObjectListViewManager.CallbackFunc value) { }
+
+	// RVA: 0x20A5EA8 Offset: 0x20A5EA8 VA: 0x20A5EA8
+	public List<ScriptObjectListViewObject> get_ObjectList() { }
+
+	// RVA: 0x20A6074 Offset: 0x20A6074 VA: 0x20A6074
+	public void CreateList(AssetData data) { }
+
+	// RVA: 0x20A61BC Offset: 0x20A61BC VA: 0x20A61BC
+	public void DestroyList() { }
+
+	// RVA: 0x20A61C4 Offset: 0x20A61C4 VA: 0x20A61C4
+	public ScriptObjectListViewItem GetItem(int index) { }
+
+	// RVA: 0x20A626C Offset: 0x20A626C VA: 0x20A626C Slot: 4
+	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
+
+	// RVA: 0x20A63A4 Offset: 0x20A63A4 VA: 0x20A63A4
+	public void SetMode(ScriptObjectListViewManager.InitMode mode) { }
+
+	// RVA: 0x20A63AC Offset: 0x20A63AC VA: 0x20A63AC
+	public void SetMode(ScriptObjectListViewManager.InitMode mode, ScriptObjectListViewManager.CallbackFunc callback) { }
+
+	// RVA: 0x20A6604 Offset: 0x20A6604 VA: 0x20A6604
+	protected void RequestListObject(ScriptObjectListViewObject.InitMode mode, float delay) { }
+
+	// RVA: 0x20A6410 Offset: 0x20A6410 VA: 0x20A6410
+	protected void RequestListObject(ScriptObjectListViewObject.InitMode mode) { }
+
+	// RVA: 0x20A6914 Offset: 0x20A6914 VA: 0x20A6914
+	protected void OnMoveEnd() { }
+
+	// RVA: 0x20A6C3C Offset: 0x20A6C3C VA: 0x20A6C3C
+	protected void OnClickListView(ListViewObject obj) { }
+}
+
+// Namespace: 
+public enum ScriptObjectListViewManager.InitMode // TypeDefIndex: 11555
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptObjectListViewManager.InitMode NONE = 0;
+	public const ScriptObjectListViewManager.InitMode INPUT = 1;
+}
+
+// Namespace: 
+public enum ScriptObjectListViewManager.ResultKind // TypeDefIndex: 11556
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptObjectListViewManager.ResultKind NONE = 0;
+	public const ScriptObjectListViewManager.ResultKind CANCEL = 1;
+	public const ScriptObjectListViewManager.ResultKind PLAY = 2;
+	public const ScriptObjectListViewManager.ResultKind VIEW_PLAY = 3;
+}
+
+// Namespace: 
+public sealed class ScriptObjectListViewManager.CallbackFunc : MulticastDelegate // TypeDefIndex: 11557
+{
+	// Methods
+
+	// RVA: 0x20A6D04 Offset: 0x20A6D04 VA: 0x20A6D04
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x20A69F8 Offset: 0x20A69F8 VA: 0x20A69F8 Slot: 11
+	public virtual void Invoke(ScriptObjectListViewManager.ResultKind result, ScriptObjectListViewItem item) { }
+
+	// RVA: 0x20A6D14 Offset: 0x20A6D14 VA: 0x20A6D14 Slot: 12
+	public virtual IAsyncResult BeginInvoke(ScriptObjectListViewManager.ResultKind result, ScriptObjectListViewItem item, AsyncCallback callback, object object) { }
+
+	// RVA: 0x20A6DAC Offset: 0x20A6DAC VA: 0x20A6DAC Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC975AC Offset: 0xC975AC VA: 0xC975AC
+public class ScriptObjectListViewMenu : MonoBehaviour // TypeDefIndex: 11558
+{
+	// Fields
+	public GameObject scriptTestObjectRootObject; // 0x18
+	public UIButton scriptTestObjectCancelButton; // 0x20
+	public ScriptObjectListViewManager listViewManager; // 0x28
+	public UILabel scriptTestDefaultNameLabel; // 0x30
+	public UILineInput jumpLineObjectInput; // 0x38
+	public UIButton forceCheckOnButton; // 0x40
+	public UISprite forceCheckOnSprite; // 0x48
+	public UIButton forceObi169Button; // 0x50
+	public UISprite forceObi169Sprite; // 0x58
+	public UIButton dispDisableDecryptScriptButton; // 0x60
+	public UISprite dispDisableDecryptScriptSprite; // 0x68
+	public UIButton dispEnableDecryptScriptButton; // 0x70
+	public UISprite dispEnableDecryptScriptSprite; // 0x78
+	protected ScriptObjectListViewMenu.State state; // 0x80
+	protected string path; // 0x88
+	protected AssetData scriptAsset; // 0x90
+	[CompilerGeneratedAttribute] // RVA: 0xCECDD4 Offset: 0xCECDD4 VA: 0xCECDD4
+	[DebuggerBrowsableAttribute] // RVA: 0xCECDD4 Offset: 0xCECDD4 VA: 0xCECDD4
+	private ScriptObjectListViewMenu.CallbackFunc callbackFunc; // 0x98
+
+	// Methods
+
+	// RVA: 0x20A6DB8 Offset: 0x20A6DB8 VA: 0x20A6DB8
+	public void .ctor() { }
+
+	// RVA: 0x20A6DC0 Offset: 0x20A6DC0 VA: 0x20A6DC0
+	protected void add_callbackFunc(ScriptObjectListViewMenu.CallbackFunc value) { }
+
+	// RVA: 0x20A6EAC Offset: 0x20A6EAC VA: 0x20A6EAC
+	protected void remove_callbackFunc(ScriptObjectListViewMenu.CallbackFunc value) { }
+
+	// RVA: 0x20A6F98 Offset: 0x20A6F98 VA: 0x20A6F98
+	public void Open(string assetName, ScriptObjectListViewMenu.CallbackFunc callback) { }
+
+	// RVA: 0x20A7420 Offset: 0x20A7420 VA: 0x20A7420
+	protected void EndLoadAsset(AssetData data) { }
+
+	// RVA: 0x20A746C Offset: 0x20A746C VA: 0x20A746C
+	public void Close() { }
+
+	// RVA: 0x20A71BC Offset: 0x20A71BC VA: 0x20A71BC
+	protected void StartInput() { }
+
+	// RVA: 0x20A7530 Offset: 0x20A7530 VA: 0x20A7530
+	public void EndInput() { }
+
+	// RVA: 0x20A764C Offset: 0x20A764C VA: 0x20A764C
+	protected void Callback(ScriptObjectListViewMenu.ResultKind result, string objectName) { }
+
+	// RVA: 0x20A78AC Offset: 0x20A78AC VA: 0x20A78AC
+	protected void OnClickItem(ScriptObjectListViewManager.ResultKind result, ScriptObjectListViewItem item) { }
+
+	// RVA: 0x20A7958 Offset: 0x20A7958 VA: 0x20A7958
+	public void OnClickCancel() { }
+
+	// RVA: 0x20A79B4 Offset: 0x20A79B4 VA: 0x20A79B4
+	public void OnClickForceCheckOn() { }
+
+	// RVA: 0x20A7A8C Offset: 0x20A7A8C VA: 0x20A7A8C
+	public void OnClickForceObi169() { }
+
+	// RVA: 0x20A7B6C Offset: 0x20A7B6C VA: 0x20A7B6C
+	public string GetJumpLineString() { }
+
+	// RVA: 0x20A7B9C Offset: 0x20A7B9C VA: 0x20A7B9C
+	public int GetJumpLine() { }
+
+	// RVA: 0x20A7C48 Offset: 0x20A7C48 VA: 0x20A7C48
+	private void ListUpdate() { }
+
+	// RVA: 0x20A7C84 Offset: 0x20A7C84 VA: 0x20A7C84
+	public void OnDispChangeEnableDecrypt() { }
+
+	// RVA: 0x20A7D34 Offset: 0x20A7D34 VA: 0x20A7D34
+	public void OnDispChangeDisableDecrypt() { }
+}
+
+// Namespace: 
+public enum ScriptObjectListViewMenu.ResultKind // TypeDefIndex: 11559
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptObjectListViewMenu.ResultKind NONE = 0;
+	public const ScriptObjectListViewMenu.ResultKind CANCEL = 1;
+	public const ScriptObjectListViewMenu.ResultKind PLAY = 2;
+	public const ScriptObjectListViewMenu.ResultKind VIEW_PLAY = 3;
+}
+
+// Namespace: 
+protected enum ScriptObjectListViewMenu.State // TypeDefIndex: 11560
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptObjectListViewMenu.State INIT = 0;
+	public const ScriptObjectListViewMenu.State LOAD = 1;
+	public const ScriptObjectListViewMenu.State INPUT = 2;
+	public const ScriptObjectListViewMenu.State INPUT_OBJECT_MENU = 3;
+	public const ScriptObjectListViewMenu.State SELECTED = 4;
+	public const ScriptObjectListViewMenu.State CLOSE = 5;
+}
+
+// Namespace: 
+public sealed class ScriptObjectListViewMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 11561
+{
+	// Methods
+
+	// RVA: 0x20A7DE4 Offset: 0x20A7DE4 VA: 0x20A7DE4
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x20A7668 Offset: 0x20A7668 VA: 0x20A7668 Slot: 11
+	public virtual void Invoke(ScriptObjectListViewMenu.ResultKind result, string objectName) { }
+
+	// RVA: 0x20A7DF4 Offset: 0x20A7DF4 VA: 0x20A7DF4 Slot: 12
+	public virtual IAsyncResult BeginInvoke(ScriptObjectListViewMenu.ResultKind result, string objectName, AsyncCallback callback, object object) { }
+
+	// RVA: 0x20A7E8C Offset: 0x20A7E8C VA: 0x20A7E8C Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC975E4 Offset: 0xC975E4 VA: 0xC975E4
+public class ScriptObjectListViewObject : ListViewObject // TypeDefIndex: 11562
+{
+	// Fields
+	protected ScriptObjectListViewObject.State state; // 0x6C
+	[CompilerGeneratedAttribute] // RVA: 0xCECE10 Offset: 0xCECE10 VA: 0xCECE10
+	[DebuggerBrowsableAttribute] // RVA: 0xCECE10 Offset: 0xCECE10 VA: 0xCECE10
+	private Action callbackFunc; // 0x70
+	protected ScriptObjectListViewItemDraw itemDraw; // 0x78
+	protected ScriptObjectListViewItemDraw.DispMode dispMode; // 0x80
+	protected GameObject dragObject; // 0x88
+
+	// Methods
+
+	// RVA: 0x20A7E98 Offset: 0x20A7E98 VA: 0x20A7E98
+	public void .ctor() { }
+
+	// RVA: 0x20A7F00 Offset: 0x20A7F00 VA: 0x20A7F00
+	protected void add_callbackFunc(Action value) { }
+
+	// RVA: 0x20A7FEC Offset: 0x20A7FEC VA: 0x20A7FEC
+	protected void remove_callbackFunc(Action value) { }
+
+	// RVA: 0x20A80D8 Offset: 0x20A80D8 VA: 0x20A80D8
+	protected void Awake() { }
+
+	// RVA: 0x20A814C Offset: 0x20A814C VA: 0x20A814C
+	private void Start() { }
+
+	// RVA: 0x20A8160 Offset: 0x20A8160 VA: 0x20A8160
+	private void OnDestroy() { }
+
+	// RVA: 0x20A820C Offset: 0x20A820C VA: 0x20A820C
+	public ScriptObjectListViewItem GetItem() { }
+
+	// RVA: 0x20A8290 Offset: 0x20A8290 VA: 0x20A8290 Slot: 6
+	public override void SetItem(ListViewItem item, ListViewItemSeed seed) { }
+
+	// RVA: 0x20A829C Offset: 0x20A829C VA: 0x20A829C Slot: 8
+	public override GameObject CreateDragObject() { }
+
+	// RVA: 0x20A8324 Offset: 0x20A8324 VA: 0x20A8324
+	public void Init(ScriptObjectListViewObject.InitMode initMode, Action callbackFunc, float delay, Vector3 position) { }
+
+	// RVA: 0x20A680C Offset: 0x20A680C VA: 0x20A680C
+	public void Init(ScriptObjectListViewObject.InitMode initMode, Action callbackFunc, float delay) { }
+
+	// RVA: 0x20A6890 Offset: 0x20A6890 VA: 0x20A6890
+	public void Init(ScriptObjectListViewObject.InitMode initMode, Action callbackFunc) { }
+
+	// RVA: 0x20A6324 Offset: 0x20A6324 VA: 0x20A6324
+	public void Init(ScriptObjectListViewObject.InitMode initMode) { }
+
+	// RVA: 0x20A84E8 Offset: 0x20A84E8 VA: 0x20A84E8
+	protected void SetupDisp() { }
+
+	// RVA: 0x20A85F8 Offset: 0x20A85F8 VA: 0x20A85F8
+	protected void EventMoveEnd() { }
+}
+
+// Namespace: 
+public enum ScriptObjectListViewObject.InitMode // TypeDefIndex: 11563
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptObjectListViewObject.InitMode INVISIBLE = 0;
+	public const ScriptObjectListViewObject.InitMode INVALID = 1;
+	public const ScriptObjectListViewObject.InitMode VALID = 2;
+	public const ScriptObjectListViewObject.InitMode INPUT = 3;
+}
+
+// Namespace: 
+protected enum ScriptObjectListViewObject.State // TypeDefIndex: 11564
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptObjectListViewObject.State INIT = 0;
+	public const ScriptObjectListViewObject.State IDLE = 1;
+	public const ScriptObjectListViewObject.State MOVE = 2;
+	public const ScriptObjectListViewObject.State INPUT = 3;
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC9761C Offset: 0xC9761C VA: 0xC9761C
+public class ScriptPlayListViewItem : ListViewItem // TypeDefIndex: 11565
+{
+	// Fields
+	protected string path; // 0x70
+
+	// Properties
+	public string TitleText { get; }
+	public string Path { get; }
+
+	// Methods
+
+	// RVA: 0x20A8620 Offset: 0x20A8620 VA: 0x20A8620
+	public void .ctor(int index, string path) { }
+
+	// RVA: 0x20A864C Offset: 0x20A864C VA: 0x20A864C Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x20A8654 Offset: 0x20A8654 VA: 0x20A8654
+	public string get_TitleText() { }
+
+	// RVA: 0x20A86C4 Offset: 0x20A86C4 VA: 0x20A86C4
+	public string get_Path() { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC97654 Offset: 0xC97654 VA: 0xC97654
+public class ScriptPlayListViewItemDraw : MonoBehaviour // TypeDefIndex: 11566
+{
+	// Fields
+	[SerializeField] // RVA: 0xCECE4C Offset: 0xCECE4C VA: 0xCECE4C
+	protected UITexture baseImageTexture; // 0x18
+	[SerializeField] // RVA: 0xCECE5C Offset: 0xCECE5C VA: 0xCECE5C
+	protected UILabel titleTextLabel; // 0x20
+
+	// Methods
+
+	// RVA: 0x20A86CC Offset: 0x20A86CC VA: 0x20A86CC
+	public void .ctor() { }
+
+	// RVA: 0x20A86D4 Offset: 0x20A86D4 VA: 0x20A86D4
+	public void SetItem(ScriptPlayListViewItem item, ScriptPlayListViewItemDraw.DispMode mode) { }
+}
+
+// Namespace: 
+public enum ScriptPlayListViewItemDraw.DispMode // TypeDefIndex: 11567
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptPlayListViewItemDraw.DispMode INVISIBLE = 0;
+	public const ScriptPlayListViewItemDraw.DispMode INVALID = 1;
+	public const ScriptPlayListViewItemDraw.DispMode VALID = 2;
+	public const ScriptPlayListViewItemDraw.DispMode INPUT = 3;
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC9768C Offset: 0xC9768C VA: 0xC9768C
+public class ScriptPlayListViewManager : ListViewManager // TypeDefIndex: 11568
+{
+	// Fields
+	public ScriptTextViewMenu scriptTextViewMenu; // 0x138
+	protected ScriptPlayListViewManager.InitMode initMode; // 0x140
+	[CompilerGeneratedAttribute] // RVA: 0xCECE6C Offset: 0xCECE6C VA: 0xCECE6C
+	[DebuggerBrowsableAttribute] // RVA: 0xCECE6C Offset: 0xCECE6C VA: 0xCECE6C
+	private ScriptPlayListViewManager.CallbackFunc callbackFunc; // 0x148
+	protected int callbackCount; // 0x150
+
+	// Properties
+	public List<ScriptPlayListViewObject> ObjectList { get; }
+
+	// Methods
+
+	// RVA: 0x20A8874 Offset: 0x20A8874 VA: 0x20A8874
+	public void .ctor() { }
+
+	// RVA: 0x20A887C Offset: 0x20A887C VA: 0x20A887C
+	protected void add_callbackFunc(ScriptPlayListViewManager.CallbackFunc value) { }
+
+	// RVA: 0x20A896C Offset: 0x20A896C VA: 0x20A896C
+	protected void remove_callbackFunc(ScriptPlayListViewManager.CallbackFunc value) { }
+
+	// RVA: 0x20A8A5C Offset: 0x20A8A5C VA: 0x20A8A5C
+	public List<ScriptPlayListViewObject> get_ObjectList() { }
+
+	// RVA: 0x20A8C28 Offset: 0x20A8C28 VA: 0x20A8C28
+	public void CreateList(string[] scriptFileList) { }
+
+	// RVA: 0x20A8D58 Offset: 0x20A8D58 VA: 0x20A8D58
+	public void DestroyList() { }
+
+	// RVA: 0x20A8D60 Offset: 0x20A8D60 VA: 0x20A8D60
+	public ScriptPlayListViewItem GetItem(int index) { }
+
+	// RVA: 0x20A8E08 Offset: 0x20A8E08 VA: 0x20A8E08 Slot: 4
+	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
+
+	// RVA: 0x20A8F40 Offset: 0x20A8F40 VA: 0x20A8F40
+	public void SetMode(ScriptPlayListViewManager.InitMode mode) { }
+
+	// RVA: 0x20A8F48 Offset: 0x20A8F48 VA: 0x20A8F48
+	public void SetMode(ScriptPlayListViewManager.InitMode mode, ScriptPlayListViewManager.CallbackFunc callback) { }
+
+	// RVA: 0x20A91A0 Offset: 0x20A91A0 VA: 0x20A91A0
+	protected void RequestListObject(ScriptPlayListViewObject.InitMode mode, float delay) { }
+
+	// RVA: 0x20A8FAC Offset: 0x20A8FAC VA: 0x20A8FAC
+	protected void RequestListObject(ScriptPlayListViewObject.InitMode mode) { }
+
+	// RVA: 0x20A94B0 Offset: 0x20A94B0 VA: 0x20A94B0
+	protected void OnMoveEnd() { }
+
+	// RVA: 0x20A97D8 Offset: 0x20A97D8 VA: 0x20A97D8
+	protected void OnClickListView(ListViewObject obj) { }
+
+	// RVA: 0x20A97DC Offset: 0x20A97DC VA: 0x20A97DC
+	protected void OnClickSingleListView(ListViewObject obj) { }
+
+	// RVA: 0x20A98A4 Offset: 0x20A98A4 VA: 0x20A98A4
+	protected void OnLongPushListView(ListViewObject obj) { }
+}
+
+// Namespace: 
+public enum ScriptPlayListViewManager.InitMode // TypeDefIndex: 11569
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptPlayListViewManager.InitMode NONE = 0;
+	public const ScriptPlayListViewManager.InitMode INPUT = 1;
+}
+
+// Namespace: 
+public enum ScriptPlayListViewManager.ResultKind // TypeDefIndex: 11570
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptPlayListViewManager.ResultKind NONE = 0;
+	public const ScriptPlayListViewManager.ResultKind CANCEL = 1;
+	public const ScriptPlayListViewManager.ResultKind PLAY = 2;
+	public const ScriptPlayListViewManager.ResultKind VIEW_PLAY = 3;
+}
+
+// Namespace: 
+public sealed class ScriptPlayListViewManager.CallbackFunc : MulticastDelegate // TypeDefIndex: 11571
+{
+	// Methods
+
+	// RVA: 0x20A996C Offset: 0x20A996C VA: 0x20A996C
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x20A9594 Offset: 0x20A9594 VA: 0x20A9594 Slot: 11
+	public virtual void Invoke(ScriptPlayListViewManager.ResultKind result, ScriptPlayListViewItem item) { }
+
+	// RVA: 0x20A997C Offset: 0x20A997C VA: 0x20A997C Slot: 12
+	public virtual IAsyncResult BeginInvoke(ScriptPlayListViewManager.ResultKind result, ScriptPlayListViewItem item, AsyncCallback callback, object object) { }
+
+	// RVA: 0x20A9A14 Offset: 0x20A9A14 VA: 0x20A9A14 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC976C4 Offset: 0xC976C4 VA: 0xC976C4
+public class ScriptPlayListViewMenu : MonoBehaviour // TypeDefIndex: 11572
+{
+	// Fields
+	public GameObject scriptTestObjectRootObject; // 0x18
+	public UIButton scriptTestObjectCancelButton; // 0x20
+	public UIButton scriptTestObjectUpdateButton; // 0x28
+	public ScriptPlayListViewManager listViewManager; // 0x30
+	public UILabel scriptTestDefaultNameLabel; // 0x38
+	public UILineInput jumpLineObjectInput; // 0x40
+	protected ScriptPlayListViewMenu.State state; // 0x48
+	protected string path; // 0x50
+	protected string[] scriptFileList; // 0x58
+	[CompilerGeneratedAttribute] // RVA: 0xCECEA8 Offset: 0xCECEA8 VA: 0xCECEA8
+	[DebuggerBrowsableAttribute] // RVA: 0xCECEA8 Offset: 0xCECEA8 VA: 0xCECEA8
+	private ScriptPlayListViewMenu.CallbackFunc callbackFunc; // 0x60
+
+	// Methods
+
+	// RVA: 0x20A9A20 Offset: 0x20A9A20 VA: 0x20A9A20
+	public void .ctor() { }
+
+	// RVA: 0x20A9A28 Offset: 0x20A9A28 VA: 0x20A9A28
+	protected void add_callbackFunc(ScriptPlayListViewMenu.CallbackFunc value) { }
+
+	// RVA: 0x20A9B14 Offset: 0x20A9B14 VA: 0x20A9B14
+	protected void remove_callbackFunc(ScriptPlayListViewMenu.CallbackFunc value) { }
+
+	// RVA: 0x20A9C00 Offset: 0x20A9C00 VA: 0x20A9C00
+	public void Open(string path, string objectName, string jumpLine, ScriptPlayListViewMenu.CallbackFunc callback) { }
+
+	// RVA: 0x20A9E34 Offset: 0x20A9E34 VA: 0x20A9E34
+	protected bool RequestList(string path) { }
+
+	// RVA: 0x20AA2EC Offset: 0x20AA2EC VA: 0x20AA2EC
+	protected void OnClickErrorDialog(bool isDecide) { }
+
+	// RVA: 0x20AA400 Offset: 0x20AA400 VA: 0x20AA400
+	public void Close() { }
+
+	// RVA: 0x20AA1F4 Offset: 0x20AA1F4 VA: 0x20AA1F4
+	protected void StartInput() { }
+
+	// RVA: 0x20AA338 Offset: 0x20AA338 VA: 0x20AA338
+	public void EndInput() { }
+
+	// RVA: 0x20AA3E4 Offset: 0x20AA3E4 VA: 0x20AA3E4
+	protected void Callback(ScriptPlayListViewMenu.ResultKind result, string objectName) { }
+
+	// RVA: 0x20AA6B4 Offset: 0x20AA6B4 VA: 0x20AA6B4
+	protected void OnClickItem(ScriptPlayListViewManager.ResultKind result, ScriptPlayListViewItem item) { }
+
+	// RVA: 0x20AA760 Offset: 0x20AA760 VA: 0x20AA760
+	public void OnClickCancel() { }
+
+	// RVA: 0x20AA7BC Offset: 0x20AA7BC VA: 0x20AA7BC
+	public void OnClickUpdate() { }
+
+	// RVA: 0x20AA828 Offset: 0x20AA828 VA: 0x20AA828
+	public string GetJumpLineString() { }
+
+	// RVA: 0x20AA858 Offset: 0x20AA858 VA: 0x20AA858
+	public int GetJumpLine() { }
+}
+
+// Namespace: 
+public enum ScriptPlayListViewMenu.ResultKind // TypeDefIndex: 11573
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptPlayListViewMenu.ResultKind NONE = 0;
+	public const ScriptPlayListViewMenu.ResultKind CANCEL = 1;
+	public const ScriptPlayListViewMenu.ResultKind PLAY = 2;
+	public const ScriptPlayListViewMenu.ResultKind VIEW_PLAY = 3;
+}
+
+// Namespace: 
+protected enum ScriptPlayListViewMenu.State // TypeDefIndex: 11574
+{
+	// Fields
+	public int value__; // 0x0
+	public const ScriptPlayListViewMenu.State INIT = 0;
+	public const ScriptPlayListViewMenu.State LOAD = 1;
+	public const ScriptPlayListViewMenu.State INIT_MOVE = 2;
+	public const ScriptPlayListViewMenu.State INPUT = 3;
+	public const ScriptPlayListViewMenu.State INPUT_OBJECT_MENU = 4;
+	public const ScriptPlayListViewMenu.State SELECTED = 5;
+	public const ScriptPlayListViewMenu.State CLOSE = 6;
+}
+
+// Namespace: 
+public sealed class ScriptPlayListViewMenu.CallbackFunc : MulticastDelegate // TypeDefIndex: 11575
+{
+	// Methods
+
+	// RVA: 0x20AA904 Offset: 0x20AA904 VA: 0x20AA904
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x20AA470 Offset: 0x20AA470 VA: 0x20AA470 Slot: 11
+	public virtual void Invoke(ScriptPlayListViewMenu.ResultKind result, string objectName) { }
+
+	// RVA: 0x20AA914 Offset: 0x20AA914 VA: 0x20AA914 Slot: 12
+	public virtual IAsyncResult BeginInvoke(ScriptPlayListViewMenu.ResultKind result, string objectName, AsyncCallback callback, object object) { }
+
+	// RVA: 0x20AA9AC Offset: 0x20AA9AC VA: 0x20AA9AC Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[AddComponentMenu] // RVA: 0xC976FC Offset: 0xC976FC VA: 0xC976FC
+public class ScriptPlayListViewObject : ListViewObject // TypeDefIndex: 11576
+{
+	// Fields
+	protected ScriptPlayListViewObject.State state; // 0x6C
+	[CompilerGeneratedAttribute] // RVA: 0xCECEE4 Offset: 0xCECEE4 VA: 0xCECEE4
+	[DebuggerBrowsableAttribute] // RVA: 0xCECEE4 Offset: 0xCECEE4 VA: 0xCECEE4
+	private Action callbackFunc; // 0x70
+	protected ScriptPlayListViewItemDraw itemDraw; // 0x78
+	protected ScriptPlayListViewItemDraw.DispMode dispMode; // 0x80
+	protected GameObject dragObject; // 0x88

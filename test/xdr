@@ -1,0 +1,1000 @@
+	public void .ctor(string message, string fileName) { }
+
+	// RVA: 0x272A014 Offset: 0x272A014 VA: 0x272A014
+	protected void .ctor(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0x272A0F4 Offset: 0x272A0F4 VA: 0x272A0F4 Slot: 6
+	public override string get_Message() { }
+
+	// RVA: 0x272A234 Offset: 0x272A234 VA: 0x272A234 Slot: 10
+	public override void GetObjectData(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0x272A2FC Offset: 0x272A2FC VA: 0x272A2FC Slot: 3
+	public override string ToString() { }
+}
+
+// Namespace: System.IO
+[ComVisibleAttribute] // RVA: 0xC3146C Offset: 0xC3146C VA: 0xC3146C
+[FlagsAttribute] // RVA: 0xC3146C Offset: 0xC3146C VA: 0xC3146C
+[Serializable]
+public enum FileOptions // TypeDefIndex: 278
+{
+	// Fields
+	public int value__; // 0x0
+	public const FileOptions None = 0;
+	public const FileOptions Encrypted = 16384;
+	public const FileOptions DeleteOnClose = 67108864;
+	public const FileOptions SequentialScan = 134217728;
+	public const FileOptions RandomAccess = 268435456;
+	public const FileOptions Asynchronous = 1073741824;
+	public const FileOptions WriteThrough = -2147483648;
+}
+
+// Namespace: System.IO
+[FlagsAttribute] // RVA: 0xC314A8 Offset: 0xC314A8 VA: 0xC314A8
+[ComVisibleAttribute] // RVA: 0xC314A8 Offset: 0xC314A8 VA: 0xC314A8
+[Serializable]
+public enum FileShare // TypeDefIndex: 279
+{
+	// Fields
+	public int value__; // 0x0
+	public const FileShare None = 0;
+	public const FileShare Read = 1;
+	public const FileShare Write = 2;
+	public const FileShare ReadWrite = 3;
+	public const FileShare Delete = 4;
+	public const FileShare Inheritable = 16;
+}
+
+// Namespace: System.IO
+[ComVisibleAttribute] // RVA: 0xC314E4 Offset: 0xC314E4 VA: 0xC314E4
+public class FileStream : Stream // TypeDefIndex: 280
+{
+	// Fields
+	private FileAccess access; // 0x10
+	private bool owner; // 0x14
+	private bool async; // 0x15
+	private bool canseek; // 0x16
+	private long append_startpos; // 0x18
+	private bool anonymous; // 0x20
+	private byte[] buf; // 0x28
+	private int buf_size; // 0x30
+	private int buf_length; // 0x34
+	private int buf_offset; // 0x38
+	private bool buf_dirty; // 0x3C
+	private long buf_start; // 0x40
+	private string name; // 0x48
+	private IntPtr handle; // 0x50
+
+	// Properties
+	public override bool CanRead { get; }
+	public override bool CanWrite { get; }
+	public override bool CanSeek { get; }
+	public override long Length { get; }
+	public override long Position { get; set; }
+
+	// Methods
+
+	[ObsoleteAttribute] // RVA: 0xC38A04 Offset: 0xC38A04 VA: 0xC38A04
+	// RVA: 0x272A51C Offset: 0x272A51C VA: 0x272A51C
+	public void .ctor(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize, bool isAsync) { }
+
+	// RVA: 0x272A52C Offset: 0x272A52C VA: 0x272A52C
+	internal void .ctor(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize, bool isAsync, bool noBuffering) { }
+
+	// RVA: 0x272A8F4 Offset: 0x272A8F4 VA: 0x272A8F4
+	public void .ctor(string path, FileMode mode) { }
+
+	// RVA: 0x272B17C Offset: 0x272B17C VA: 0x272B17C
+	public void .ctor(string path, FileMode mode, FileAccess access) { }
+
+	// RVA: 0x2728B30 Offset: 0x2728B30 VA: 0x2728B30
+	public void .ctor(string path, FileMode mode, FileAccess access, FileShare share) { }
+
+	// RVA: 0x272829C Offset: 0x272829C VA: 0x272829C
+	public void .ctor(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize) { }
+
+	// RVA: 0x272B1F0 Offset: 0x272B1F0 VA: 0x272B1F0
+	internal void .ctor(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize, bool isAsync, bool anonymous) { }
+
+	// RVA: 0x272A960 Offset: 0x272A960 VA: 0x272A960
+	internal void .ctor(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize, bool anonymous, FileOptions options) { }
+
+	// RVA: 0x272B3E0 Offset: 0x272B3E0 VA: 0x272B3E0 Slot: 5
+	public override bool get_CanRead() { }
+
+	// RVA: 0x272B3F4 Offset: 0x272B3F4 VA: 0x272B3F4 Slot: 7
+	public override bool get_CanWrite() { }
+
+	// RVA: 0x272B408 Offset: 0x272B408 VA: 0x272B408 Slot: 6
+	public override bool get_CanSeek() { }
+
+	// RVA: 0x272B410 Offset: 0x272B410 VA: 0x272B410 Slot: 9
+	public override long get_Length() { }
+
+	// RVA: 0x272B5C4 Offset: 0x272B5C4 VA: 0x272B5C4 Slot: 10
+	public override long get_Position() { }
+
+	// RVA: 0x272B6DC Offset: 0x272B6DC VA: 0x272B6DC Slot: 11
+	public override void set_Position(long value) { }
+
+	// RVA: 0x272B834 Offset: 0x272B834 VA: 0x272B834 Slot: 20
+	public override int ReadByte() { }
+
+	// RVA: 0x272BB7C Offset: 0x272BB7C VA: 0x272BB7C Slot: 24
+	public override void WriteByte(byte value) { }
+
+	// RVA: 0x272BD5C Offset: 0x272BD5C VA: 0x272BD5C Slot: 19
+	public override int Read([In] [Out] byte[] array, int offset, int count) { }
+
+	// RVA: 0x272BFD0 Offset: 0x272BFD0 VA: 0x272BFD0
+	private int ReadInternal(byte[] dest, int offset, int count) { }
+
+	// RVA: 0x272C0E0 Offset: 0x272C0E0 VA: 0x272C0E0 Slot: 25
+	public override IAsyncResult BeginRead(byte[] array, int offset, int numBytes, AsyncCallback userCallback, object stateObject) { }
+
+	// RVA: 0x272C5F8 Offset: 0x272C5F8 VA: 0x272C5F8 Slot: 27
+	public override int EndRead(IAsyncResult asyncResult) { }
+
+	// RVA: 0x272C8D8 Offset: 0x272C8D8 VA: 0x272C8D8 Slot: 23
+	public override void Write(byte[] array, int offset, int count) { }
+
+	// RVA: 0x272CB28 Offset: 0x272CB28 VA: 0x272CB28
+	private void WriteInternal(byte[] src, int offset, int count) { }
+
+	// RVA: 0x272CD2C Offset: 0x272CD2C VA: 0x272CD2C Slot: 26
+	public override IAsyncResult BeginWrite(byte[] array, int offset, int numBytes, AsyncCallback userCallback, object stateObject) { }
+
+	// RVA: 0x272D578 Offset: 0x272D578 VA: 0x272D578 Slot: 28
+	public override void EndWrite(IAsyncResult asyncResult) { }
+
+	// RVA: 0x272D834 Offset: 0x272D834 VA: 0x272D834 Slot: 21
+	public override long Seek(long offset, SeekOrigin origin) { }
+
+	// RVA: 0x272DAAC Offset: 0x272DAAC VA: 0x272DAAC Slot: 22
+	public override void SetLength(long value) { }
+
+	// RVA: 0x272DCE8 Offset: 0x272DCE8 VA: 0x272DCE8 Slot: 18
+	public override void Flush() { }
+
+	// RVA: 0x272DDBC Offset: 0x272DDBC VA: 0x272DDBC Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x272DE3C Offset: 0x272DE3C VA: 0x272DE3C Slot: 12
+	protected override void Dispose(bool disposing) { }
+
+	// RVA: 0x272C078 Offset: 0x272C078 VA: 0x272C078
+	private int ReadSegment(byte[] dest, int dest_offset, int count) { }
+
+	// RVA: 0x272CCB0 Offset: 0x272CCB0 VA: 0x272CCB0
+	private int WriteSegment(byte[] src, int src_offset, int count) { }
+
+	// RVA: 0x272D31C Offset: 0x272D31C VA: 0x272D31C
+	private void FlushBuffer(Stream st) { }
+
+	// RVA: 0x272BD54 Offset: 0x272BD54 VA: 0x272BD54
+	private void FlushBuffer() { }
+
+	// RVA: 0x272B5AC Offset: 0x272B5AC VA: 0x272B5AC
+	private void FlushBufferIfDirty() { }
+
+	// RVA: 0x272BB3C Offset: 0x272BB3C VA: 0x272BB3C
+	private void RefillBuffer() { }
+
+	// RVA: 0x272B9FC Offset: 0x272B9FC VA: 0x272B9FC
+	private int ReadData(IntPtr handle, byte[] buf, int offset, int count) { }
+
+	// RVA: 0x272A7F4 Offset: 0x272A7F4 VA: 0x272A7F4
+	private void InitBuffer(int size, bool noBuffering) { }
+
+	// RVA: 0x272B340 Offset: 0x272B340 VA: 0x272B340
+	private string GetSecureFileName(string filename) { }
+
+	// RVA: 0x272B278 Offset: 0x272B278 VA: 0x272B278
+	private string GetSecureFileName(string filename, bool full) { }
+}
+
+// Namespace: 
+private sealed class FileStream.ReadDelegate : MulticastDelegate // TypeDefIndex: 281
+{
+	// Methods
+
+	// RVA: 0x272C534 Offset: 0x272C534 VA: 0x272C534
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x272E05C Offset: 0x272E05C VA: 0x272E05C Slot: 11
+	public virtual int Invoke(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x272C544 Offset: 0x272C544 VA: 0x272C544 Slot: 12
+	public virtual IAsyncResult BeginInvoke(byte[] buffer, int offset, int count, AsyncCallback callback, object object) { }
+
+	// RVA: 0x272C89C Offset: 0x272C89C VA: 0x272C89C Slot: 13
+	public virtual int EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+private sealed class FileStream.WriteDelegate : MulticastDelegate // TypeDefIndex: 282
+{
+	// Methods
+
+	// RVA: 0x272D4B4 Offset: 0x272D4B4 VA: 0x272D4B4
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x272E450 Offset: 0x272E450 VA: 0x272E450 Slot: 11
+	public virtual void Invoke(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x272D4C4 Offset: 0x272D4C4 VA: 0x272D4C4 Slot: 12
+	public virtual IAsyncResult BeginInvoke(byte[] buffer, int offset, int count, AsyncCallback callback, object object) { }
+
+	// RVA: 0x272D828 Offset: 0x272D828 VA: 0x272D828 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: System.IO
+internal class FileStreamAsyncResult : IAsyncResult // TypeDefIndex: 283
+{
+	// Fields
+	private object state; // 0x10
+	private bool completed; // 0x18
+	private ManualResetEvent wh; // 0x20
+	private AsyncCallback cb; // 0x28
+	private bool completedSynch; // 0x30
+	public int Count; // 0x34
+	public int OriginalCount; // 0x38
+	public int BytesRead; // 0x3C
+	private AsyncCallback realcb; // 0x40
+
+	// Properties
+	public object AsyncState { get; }
+	public bool CompletedSynchronously { get; }
+	public WaitHandle AsyncWaitHandle { get; }
+	public bool IsCompleted { get; }
+
+	// Methods
+
+	// RVA: 0x272D258 Offset: 0x272D258 VA: 0x272D258
+	public void .ctor(AsyncCallback cb, object state) { }
+
+	// RVA: 0x272E840 Offset: 0x272E840 VA: 0x272E840
+	private static void CBWrapper(IAsyncResult ares) { }
+
+	// RVA: 0x272E934 Offset: 0x272E934 VA: 0x272E934 Slot: 4
+	public object get_AsyncState() { }
+
+	// RVA: 0x272E93C Offset: 0x272E93C VA: 0x272E93C Slot: 6
+	public bool get_CompletedSynchronously() { }
+
+	// RVA: 0x272E944 Offset: 0x272E944 VA: 0x272E944 Slot: 5
+	public WaitHandle get_AsyncWaitHandle() { }
+
+	// RVA: 0x272E94C Offset: 0x272E94C VA: 0x272E94C Slot: 7
+	public bool get_IsCompleted() { }
+}
+
+// Namespace: System.IO
+[ComVisibleAttribute] // RVA: 0xC314F8 Offset: 0xC314F8 VA: 0xC314F8
+[Serializable]
+public abstract class FileSystemInfo : MarshalByRefObject, ISerializable // TypeDefIndex: 284
+{
+	// Fields
+	protected string FullPath; // 0x18
+	protected string OriginalPath; // 0x20
+	internal MonoIOStat stat; // 0x28
+	internal bool valid; // 0x58
+
+	// Properties
+	public abstract bool Exists { get; }
+	public abstract string Name { get; }
+	public virtual string FullName { get; }
+	public string Extension { get; }
+
+	// Methods
+
+	// RVA: 0x2726D88 Offset: 0x2726D88 VA: 0x2726D88
+	protected void .ctor() { }
+
+	// RVA: 0x27273A4 Offset: 0x27273A4 VA: 0x27273A4
+	protected void .ctor(SerializationInfo info, StreamingContext context) { }
+
+	[ComVisibleAttribute] // RVA: 0xC38A3C Offset: 0xC38A3C VA: 0xC38A3C
+	// RVA: 0x272E954 Offset: 0x272E954 VA: 0x272E954 Slot: 7
+	public virtual void GetObjectData(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: -1 Offset: -1 Slot: 8
+	public abstract bool get_Exists();
+
+	// RVA: -1 Offset: -1 Slot: 9
+	public abstract string get_Name();
+
+	// RVA: 0x272EA50 Offset: 0x272EA50 VA: 0x272EA50 Slot: 10
+	public virtual string get_FullName() { }
+
+	// RVA: 0x272EA58 Offset: 0x272EA58 VA: 0x272EA58
+	public string get_Extension() { }
+
+	// RVA: 0x272747C Offset: 0x272747C VA: 0x272747C
+	internal void Refresh(bool force) { }
+
+	// RVA: 0x272EC28 Offset: 0x272EC28 VA: 0x272EC28 Slot: 11
+	internal virtual void InternalRefresh() { }
+
+	// RVA: 0x2726DB4 Offset: 0x2726DB4 VA: 0x2726DB4
+	internal void CheckPath(string path) { }
+}
+
+// Namespace: System.IO
+[ComVisibleAttribute] // RVA: 0xC3150C Offset: 0xC3150C VA: 0xC3150C
+[Serializable]
+public class IOException : SystemException // TypeDefIndex: 285
+{
+	// Methods
+
+	// RVA: 0x2729C88 Offset: 0x2729C88 VA: 0x2729C88
+	public void .ctor() { }
+
+	// RVA: 0x2724370 Offset: 0x2724370 VA: 0x2724370
+	public void .ctor(string message) { }
+
+	// RVA: 0x272EC2C Offset: 0x272EC2C VA: 0x272EC2C
+	public void .ctor(string message, Exception innerException) { }
+
+	// RVA: 0x2727870 Offset: 0x2727870 VA: 0x2727870
+	protected void .ctor(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0x272EC34 Offset: 0x272EC34 VA: 0x272EC34
+	public void .ctor(string message, int hresult) { }
+}
+
+// Namespace: System.IO
+[ComVisibleAttribute] // RVA: 0xC31520 Offset: 0xC31520 VA: 0xC31520
+[MonoTODOAttribute] // RVA: 0xC31520 Offset: 0xC31520 VA: 0xC31520
+[Serializable]
+public class MemoryStream : Stream // TypeDefIndex: 286
+{
+	// Fields
+	private bool canWrite; // 0x10
+	private bool allowGetBuffer; // 0x11
+	private int capacity; // 0x14
+	private int length; // 0x18
+	private byte[] internalBuffer; // 0x20
+	private int initialIndex; // 0x28
+	private bool expandable; // 0x2C
+	private bool streamClosed; // 0x2D
+	private int position; // 0x30
+	private int dirty_bytes; // 0x34
+
+	// Properties
+	public override bool CanRead { get; }
+	public override bool CanSeek { get; }
+	public override bool CanWrite { get; }
+	public virtual int Capacity { get; set; }
+	public override long Length { get; }
+	public override long Position { get; set; }
+
+	// Methods
+
+	// RVA: 0x272D314 Offset: 0x272D314 VA: 0x272D314
+	public void .ctor() { }
+
+	// RVA: 0x272ECD0 Offset: 0x272ECD0 VA: 0x272ECD0
+	public void .ctor(int capacity) { }
+
+	// RVA: 0x272EDBC Offset: 0x272EDBC VA: 0x272EDBC
+	public void .ctor(byte[] buffer) { }
+
+	// RVA: 0x272EFEC Offset: 0x272EFEC VA: 0x272EFEC
+	public void .ctor(byte[] buffer, bool writable) { }
+
+	// RVA: 0x272F0C8 Offset: 0x272F0C8 VA: 0x272F0C8
+	public void .ctor(byte[] buffer, int index, int count) { }
+
+	// RVA: 0x272EE94 Offset: 0x272EE94 VA: 0x272EE94
+	private void InternalConstructor(byte[] buffer, int index, int count, bool writable, bool publicallyVisible) { }
+
+	// RVA: 0x272F168 Offset: 0x272F168 VA: 0x272F168
+	private void CheckIfClosedThrowDisposed() { }
+
+	// RVA: 0x272F1F4 Offset: 0x272F1F4 VA: 0x272F1F4 Slot: 5
+	public override bool get_CanRead() { }
+
+	// RVA: 0x272F204 Offset: 0x272F204 VA: 0x272F204 Slot: 6
+	public override bool get_CanSeek() { }
+
+	// RVA: 0x272F214 Offset: 0x272F214 VA: 0x272F214 Slot: 7
+	public override bool get_CanWrite() { }
+
+	// RVA: 0x272F234 Offset: 0x272F234 VA: 0x272F234 Slot: 29
+	public virtual int get_Capacity() { }
+
+	// RVA: 0x272F260 Offset: 0x272F260 VA: 0x272F260 Slot: 30
+	public virtual void set_Capacity(int value) { }
+
+	// RVA: 0x272F570 Offset: 0x272F570 VA: 0x272F570 Slot: 9
+	public override long get_Length() { }
+
+	// RVA: 0x272F5A0 Offset: 0x272F5A0 VA: 0x272F5A0 Slot: 10
+	public override long get_Position() { }
+
+	// RVA: 0x272F5D0 Offset: 0x272F5D0 VA: 0x272F5D0 Slot: 11
+	public override void set_Position(long value) { }
+
+	// RVA: 0x272F6B4 Offset: 0x272F6B4 VA: 0x272F6B4 Slot: 12
+	protected override void Dispose(bool disposing) { }
+
+	// RVA: 0x272F6C0 Offset: 0x272F6C0 VA: 0x272F6C0 Slot: 18
+	public override void Flush() { }
+
+	// RVA: 0x272F6C4 Offset: 0x272F6C4 VA: 0x272F6C4 Slot: 31
+	public virtual byte[] GetBuffer() { }
+
+	// RVA: 0x272F748 Offset: 0x272F748 VA: 0x272F748 Slot: 19
+	public override int Read([In] [Out] byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x272F8BC Offset: 0x272F8BC VA: 0x272F8BC Slot: 20
+	public override int ReadByte() { }
+
+	// RVA: 0x272F938 Offset: 0x272F938 VA: 0x272F938 Slot: 21
+	public override long Seek(long offset, SeekOrigin loc) { }
+
+	// RVA: 0x272FAF8 Offset: 0x272FAF8 VA: 0x272FAF8
+	private int CalculateNewCapacity(int minimum) { }
+
+	// RVA: 0x272FB18 Offset: 0x272FB18 VA: 0x272FB18
+	private void Expand(int newSize) { }
+
+	// RVA: 0x272FB94 Offset: 0x272FB94 VA: 0x272FB94 Slot: 22
+	public override void SetLength(long value) { }
+
+	// RVA: 0x272FD10 Offset: 0x272FD10 VA: 0x272FD10 Slot: 32
+	public virtual byte[] ToArray() { }
+
+	// RVA: 0x272FDA4 Offset: 0x272FDA4 VA: 0x272FDA4 Slot: 23
+	public override void Write(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x272FF4C Offset: 0x272FF4C VA: 0x272FF4C Slot: 24
+	public override void WriteByte(byte value) { }
+
+	// RVA: 0x2730054 Offset: 0x2730054 VA: 0x2730054 Slot: 33
+	public virtual void WriteTo(Stream stream) { }
+}
+
+// Namespace: System.IO
+internal enum MonoFileType // TypeDefIndex: 287
+{
+	// Fields
+	public int value__; // 0x0
+	public const MonoFileType Unknown = 0;
+	public const MonoFileType Disk = 1;
+	public const MonoFileType Char = 2;
+	public const MonoFileType Pipe = 3;
+	public const MonoFileType Remote = 32768;
+}
+
+// Namespace: System.IO
+internal sealed class MonoIO // TypeDefIndex: 288
+{
+	// Fields
+	public static readonly FileAttributes InvalidFileAttributes; // 0x0
+	public static readonly IntPtr InvalidHandle; // 0x8
+
+	// Properties
+	public static IntPtr ConsoleOutput { get; }
+	public static IntPtr ConsoleInput { get; }
+	public static IntPtr ConsoleError { get; }
+	public static char VolumeSeparatorChar { get; }
+	public static char DirectorySeparatorChar { get; }
+	public static char AltDirectorySeparatorChar { get; }
+	public static char PathSeparator { get; }
+
+	// Methods
+
+	// RVA: 0x2730110 Offset: 0x2730110 VA: 0x2730110
+	private static void .cctor() { }
+
+	// RVA: 0x2725AD4 Offset: 0x2725AD4 VA: 0x2725AD4
+	public static Exception GetException(MonoIOError error) { }
+
+	// RVA: 0x27246CC Offset: 0x27246CC VA: 0x27246CC
+	public static Exception GetException(string path, MonoIOError error) { }
+
+	// RVA: 0x27246C8 Offset: 0x27246C8 VA: 0x27246C8
+	public static bool CreateDirectory(string path, out MonoIOError error) { }
+
+	// RVA: 0x27251FC Offset: 0x27251FC VA: 0x27251FC
+	public static bool RemoveDirectory(string path, out MonoIOError error) { }
+
+	// RVA: 0x2726D84 Offset: 0x2726D84 VA: 0x2726D84
+	public static string[] GetFileSystemEntries(string path, string path_with_pattern, int attrs, int mask, out MonoIOError error) { }
+
+	// RVA: 0x2725AD0 Offset: 0x2725AD0 VA: 0x2725AD0
+	public static string GetCurrentDirectory(out MonoIOError error) { }
+
+	// RVA: 0x2728A94 Offset: 0x2728A94 VA: 0x2728A94
+	public static bool MoveFile(string path, string dest, out MonoIOError error) { }
+
+	// RVA: 0x2728200 Offset: 0x2728200 VA: 0x2728200
+	public static bool CopyFile(string path, string dest, bool overwrite, out MonoIOError error) { }
+
+	// RVA: 0x27251F8 Offset: 0x27251F8 VA: 0x27251F8
+	public static bool DeleteFile(string path, out MonoIOError error) { }
+
+	// RVA: 0x27282C0 Offset: 0x27282C0 VA: 0x27282C0
+	public static FileAttributes GetFileAttributes(string path, out MonoIOError error) { }
+
+	// RVA: 0x272A7F0 Offset: 0x272A7F0 VA: 0x272A7F0
+	public static MonoFileType GetFileType(IntPtr handle, out MonoIOError error) { }
+
+	// RVA: 0x2727F7C Offset: 0x2727F7C VA: 0x2727F7C
+	public static bool Exists(string path, out MonoIOError error) { }
+
+	// RVA: 0x2726CE8 Offset: 0x2726CE8 VA: 0x2726CE8
+	public static bool ExistsFile(string path, out MonoIOError error) { }
+
+	// RVA: 0x272595C Offset: 0x272595C VA: 0x272595C
+	public static bool ExistsDirectory(string path, out MonoIOError error) { }
+
+	// RVA: 0x2725160 Offset: 0x2725160 VA: 0x2725160
+	public static bool ExistsSymlink(string path, out MonoIOError error) { }
+
+	// RVA: 0x2728534 Offset: 0x2728534 VA: 0x2728534
+	public static bool GetFileStat(string path, out MonoIOStat stat, out MonoIOError error) { }
+
+	// RVA: 0x272B3DC Offset: 0x272B3DC VA: 0x272B3DC
+	public static IntPtr Open(string filename, FileMode mode, FileAccess access, FileShare share, FileOptions options, out MonoIOError error) { }
+
+	// RVA: 0x272E054 Offset: 0x272E054 VA: 0x272E054
+	public static bool Close(IntPtr handle, out MonoIOError error) { }
+
+	// RVA: 0x272E058 Offset: 0x272E058 VA: 0x272E058
+	public static int Read(IntPtr handle, byte[] dest, int dest_offset, int count, out MonoIOError error) { }
+
+	// RVA: 0x272CCAC Offset: 0x272CCAC VA: 0x272CCAC
+	public static int Write(IntPtr handle, [In] byte[] src, int src_offset, int count, out MonoIOError error) { }
+
+	// RVA: 0x272A8F0 Offset: 0x272A8F0 VA: 0x272A8F0
+	public static long Seek(IntPtr handle, long offset, SeekOrigin origin, out MonoIOError error) { }
+
+	// RVA: 0x272B5C0 Offset: 0x272B5C0 VA: 0x272B5C0
+	public static long GetLength(IntPtr handle, out MonoIOError error) { }
+
+	// RVA: 0x272DCE4 Offset: 0x272DCE4 VA: 0x272DCE4
+	public static bool SetLength(IntPtr handle, long length, out MonoIOError error) { }
+
+	// RVA: 0x2730184 Offset: 0x2730184 VA: 0x2730184
+	public static IntPtr get_ConsoleOutput() { }
+
+	// RVA: 0x2730188 Offset: 0x2730188 VA: 0x2730188
+	public static IntPtr get_ConsoleInput() { }
+
+	// RVA: 0x273018C Offset: 0x273018C VA: 0x273018C
+	public static IntPtr get_ConsoleError() { }
+
+	// RVA: 0x2730190 Offset: 0x2730190 VA: 0x2730190
+	public static char get_VolumeSeparatorChar() { }
+
+	// RVA: 0x2730194 Offset: 0x2730194 VA: 0x2730194
+	public static char get_DirectorySeparatorChar() { }
+
+	// RVA: 0x2730198 Offset: 0x2730198 VA: 0x2730198
+	public static char get_AltDirectorySeparatorChar() { }
+
+	// RVA: 0x273019C Offset: 0x273019C VA: 0x273019C
+	public static char get_PathSeparator() { }
+
+	// RVA: 0x27301A0 Offset: 0x27301A0 VA: 0x27301A0
+	public static bool RemapPath(string path, out string newPath) { }
+}
+
+// Namespace: System.IO
+internal enum MonoIOError // TypeDefIndex: 289
+{
+	// Fields
+	public int value__; // 0x0
+	public const MonoIOError ERROR_SUCCESS = 0;
+	public const MonoIOError ERROR_FILE_NOT_FOUND = 2;
+	public const MonoIOError ERROR_PATH_NOT_FOUND = 3;
+	public const MonoIOError ERROR_TOO_MANY_OPEN_FILES = 4;
+	public const MonoIOError ERROR_ACCESS_DENIED = 5;
+	public const MonoIOError ERROR_INVALID_HANDLE = 6;
+	public const MonoIOError ERROR_INVALID_DRIVE = 15;
+	public const MonoIOError ERROR_NOT_SAME_DEVICE = 17;
+	public const MonoIOError ERROR_NO_MORE_FILES = 18;
+	public const MonoIOError ERROR_WRITE_FAULT = 29;
+	public const MonoIOError ERROR_READ_FAULT = 30;
+	public const MonoIOError ERROR_GEN_FAILURE = 31;
+	public const MonoIOError ERROR_SHARING_VIOLATION = 32;
+	public const MonoIOError ERROR_LOCK_VIOLATION = 33;
+	public const MonoIOError ERROR_HANDLE_DISK_FULL = 39;
+	public const MonoIOError ERROR_FILE_EXISTS = 80;
+	public const MonoIOError ERROR_CANNOT_MAKE = 82;
+	public const MonoIOError ERROR_INVALID_PARAMETER = 87;
+	public const MonoIOError ERROR_BROKEN_PIPE = 109;
+	public const MonoIOError ERROR_INVALID_NAME = 123;
+	public const MonoIOError ERROR_DIR_NOT_EMPTY = 145;
+	public const MonoIOError ERROR_ALREADY_EXISTS = 183;
+	public const MonoIOError ERROR_FILENAME_EXCED_RANGE = 206;
+	public const MonoIOError ERROR_ENCRYPTION_FAILED = 6000;
+}
+
+// Namespace: System.IO
+internal struct MonoIOStat // TypeDefIndex: 290
+{
+	// Fields
+	public string Name; // 0x0
+	public FileAttributes Attributes; // 0x8
+	public long Length; // 0x10
+	public long CreationTime; // 0x18
+	public long LastAccessTime; // 0x20
+	public long LastWriteTime; // 0x28
+}
+
+// Namespace: System.IO
+[ComVisibleAttribute] // RVA: 0xC31570 Offset: 0xC31570 VA: 0xC31570
+public static class Path // TypeDefIndex: 291
+{
+	// Fields
+	[ObsoleteAttribute] // RVA: 0xC3766C Offset: 0xC3766C VA: 0xC3766C
+	public static readonly char[] InvalidPathChars; // 0x0
+	public static readonly char AltDirectorySeparatorChar; // 0x8
+	public static readonly char DirectorySeparatorChar; // 0xA
+	public static readonly char PathSeparator; // 0xC
+	internal static readonly string DirectorySeparatorStr; // 0x10
+	public static readonly char VolumeSeparatorChar; // 0x18
+	internal static readonly char[] PathSeparatorChars; // 0x20
+	private static readonly bool dirEqualsVolume; // 0x28
+
+	// Methods
+
+	// RVA: 0x2730260 Offset: 0x2730260 VA: 0x2730260
+	private static void .cctor() { }
+
+	// RVA: 0x2730490 Offset: 0x2730490 VA: 0x2730490
+	public static string ChangeExtension(string path, string extension) { }
+
+	// RVA: 0x27269F0 Offset: 0x27269F0 VA: 0x27269F0
+	public static string Combine(string path1, string path2) { }
+
+	// RVA: 0x2730A04 Offset: 0x2730A04 VA: 0x2730A04
+	internal static string CleanPath(string s) { }
+
+	// RVA: 0x2726658 Offset: 0x2726658 VA: 0x2726658
+	public static string GetDirectoryName(string path) { }
+
+	// RVA: 0x272EAD4 Offset: 0x272EAD4 VA: 0x272EAD4
+	public static string GetExtension(string path) { }
+
+	// RVA: 0x2726F38 Offset: 0x2726F38 VA: 0x2726F38
+	public static string GetFileName(string path) { }
+
+	// RVA: 0x273144C Offset: 0x273144C VA: 0x273144C
+	public static string GetFileNameWithoutExtension(string path) { }
+
+	// RVA: 0x2726ED4 Offset: 0x2726ED4 VA: 0x2726ED4
+	public static string GetFullPath(string path) { }
+
+	// RVA: 0x2731CA4 Offset: 0x2731CA4 VA: 0x2731CA4
+	internal static string WindowsDriveAdjustment(string path) { }
+
+	// RVA: 0x27314B8 Offset: 0x27314B8 VA: 0x27314B8
+	internal static string InsecureGetFullPath(string path) { }
+
+	// RVA: 0x27320D0 Offset: 0x27320D0 VA: 0x27320D0
+	private static bool IsDsc(char c) { }
+
+	// RVA: 0x2730F28 Offset: 0x2730F28 VA: 0x2730F28
+	public static string GetPathRoot(string path) { }
+
+	// RVA: 0x2730818 Offset: 0x2730818 VA: 0x2730818
+	public static bool IsPathRooted(string path) { }
+
+	// RVA: 0x2732BC8 Offset: 0x2732BC8 VA: 0x2732BC8
+	public static char[] GetInvalidFileNameChars() { }
+
+	// RVA: 0x2730400 Offset: 0x2730400 VA: 0x2730400
+	public static char[] GetInvalidPathChars() { }
+
+	// RVA: 0x273076C Offset: 0x273076C VA: 0x273076C
+	private static int findExtension(string path) { }
+
+	// RVA: 0x2732C84 Offset: 0x2732C84 VA: 0x2732C84
+	private static string GetServerAndShare(string path) { }
+
+	// RVA: 0x2732E50 Offset: 0x2732E50 VA: 0x2732E50
+	private static bool SameRoot(string root, string path) { }
+
+	// RVA: 0x2732174 Offset: 0x2732174 VA: 0x2732174
+	private static string CanonicalizePath(string path) { }
+
+	// RVA: 0x2733244 Offset: 0x2733244 VA: 0x2733244
+	internal static bool IsPathSubsetOf(string subset, string path) { }
+}
+
+// Namespace: System.IO
+[ComVisibleAttribute] // RVA: 0xC31584 Offset: 0xC31584 VA: 0xC31584
+[Serializable]
+public class PathTooLongException : IOException // TypeDefIndex: 292
+{
+	// Methods
+
+	// RVA: 0x27334A0 Offset: 0x27334A0 VA: 0x27334A0
+	public void .ctor() { }
+
+	// RVA: 0x273017C Offset: 0x273017C VA: 0x273017C
+	public void .ctor(string message) { }
+
+	// RVA: 0x2733500 Offset: 0x2733500 VA: 0x2733500
+	protected void .ctor(SerializationInfo info, StreamingContext context) { }
+}
+
+// Namespace: System.IO
+[ComVisibleAttribute] // RVA: 0xC31598 Offset: 0xC31598 VA: 0xC31598
+[Serializable]
+public enum SearchOption // TypeDefIndex: 293
+{
+	// Fields
+	public int value__; // 0x0
+	public const SearchOption TopDirectoryOnly = 0;
+	public const SearchOption AllDirectories = 1;
+}
+
+// Namespace: System.IO
+internal class SearchPattern // TypeDefIndex: 294
+{
+	// Fields
+	internal static readonly char[] WildcardChars; // 0x0
+	internal static readonly char[] InvalidChars; // 0x8
+
+	// Methods
+
+	// RVA: 0x2733508 Offset: 0x2733508 VA: 0x2733508
+	private static void .cctor() { }
+}
+
+// Namespace: System.IO
+[ComVisibleAttribute] // RVA: 0xC315AC Offset: 0xC315AC VA: 0xC315AC
+[Serializable]
+public enum SeekOrigin // TypeDefIndex: 295
+{
+	// Fields
+	public int value__; // 0x0
+	public const SeekOrigin Begin = 0;
+	public const SeekOrigin Current = 1;
+	public const SeekOrigin End = 2;
+}
+
+// Namespace: System.IO
+[ComVisibleAttribute] // RVA: 0xC315C0 Offset: 0xC315C0 VA: 0xC315C0
+[Serializable]
+public abstract class Stream : IDisposable // TypeDefIndex: 296
+{
+	// Fields
+	public static readonly Stream Null; // 0x0
+
+	// Properties
+	public abstract bool CanRead { get; }
+	public abstract bool CanSeek { get; }
+	public abstract bool CanWrite { get; }
+	[ComVisibleAttribute] // RVA: 0xC3B268 Offset: 0xC3B268 VA: 0xC3B268
+	public virtual bool CanTimeout { get; }
+	public abstract long Length { get; }
+	public abstract long Position { get; set; }
+	[ComVisibleAttribute] // RVA: 0xC3B27C Offset: 0xC3B27C VA: 0xC3B27C
+	public virtual int ReadTimeout { get; set; }
+	[ComVisibleAttribute] // RVA: 0xC3B290 Offset: 0xC3B290 VA: 0xC3B290
+	public virtual int WriteTimeout { get; set; }
+
+	// Methods
+
+	// RVA: 0x272A7E8 Offset: 0x272A7E8 VA: 0x272A7E8
+	protected void .ctor() { }
+
+	// RVA: 0x2733664 Offset: 0x2733664 VA: 0x2733664
+	private static void .cctor() { }
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract bool get_CanRead();
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract bool get_CanSeek();
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract bool get_CanWrite();
+
+	// RVA: 0x27336CC Offset: 0x27336CC VA: 0x27336CC Slot: 8
+	public virtual bool get_CanTimeout() { }
+
+	// RVA: -1 Offset: -1 Slot: 9
+	public abstract long get_Length();
+
+	// RVA: -1 Offset: -1 Slot: 10
+	public abstract long get_Position();
+
+	// RVA: -1 Offset: -1 Slot: 11
+	public abstract void set_Position(long value);
+
+	// RVA: 0x27336D4 Offset: 0x27336D4 VA: 0x27336D4 Slot: 4
+	public void Dispose() { }
+
+	// RVA: 0x27336E0 Offset: 0x27336E0 VA: 0x27336E0 Slot: 12
+	protected virtual void Dispose(bool disposing) { }
+
+	// RVA: 0x27336E4 Offset: 0x27336E4 VA: 0x27336E4 Slot: 13
+	public virtual void Close() { }
+
+	// RVA: 0x27336F4 Offset: 0x27336F4 VA: 0x27336F4 Slot: 14
+	public virtual int get_ReadTimeout() { }
+
+	// RVA: 0x2733768 Offset: 0x2733768 VA: 0x2733768 Slot: 15
+	public virtual void set_ReadTimeout(int value) { }
+
+	// RVA: 0x27337DC Offset: 0x27337DC VA: 0x27337DC Slot: 16
+	public virtual int get_WriteTimeout() { }
+
+	// RVA: 0x2733850 Offset: 0x2733850 VA: 0x2733850 Slot: 17
+	public virtual void set_WriteTimeout(int value) { }
+
+	// RVA: -1 Offset: -1 Slot: 18
+	public abstract void Flush();
+
+	// RVA: -1 Offset: -1 Slot: 19
+	public abstract int Read([In] [Out] byte[] buffer, int offset, int count);
+
+	// RVA: 0x27338C4 Offset: 0x27338C4 VA: 0x27338C4 Slot: 20
+	public virtual int ReadByte() { }
+
+	// RVA: -1 Offset: -1 Slot: 21
+	public abstract long Seek(long offset, SeekOrigin origin);
+
+	// RVA: -1 Offset: -1 Slot: 22
+	public abstract void SetLength(long value);
+
+	// RVA: -1 Offset: -1 Slot: 23
+	public abstract void Write(byte[] buffer, int offset, int count);
+
+	// RVA: 0x2733974 Offset: 0x2733974 VA: 0x2733974 Slot: 24
+	public virtual void WriteByte(byte value) { }
+
+	// RVA: 0x272C35C Offset: 0x272C35C VA: 0x272C35C Slot: 25
+	public virtual IAsyncResult BeginRead(byte[] buffer, int offset, int count, AsyncCallback callback, object state) { }
+
+	// RVA: 0x272D084 Offset: 0x272D084 VA: 0x272D084 Slot: 26
+	public virtual IAsyncResult BeginWrite(byte[] buffer, int offset, int count, AsyncCallback callback, object state) { }
+
+	// RVA: 0x272C744 Offset: 0x272C744 VA: 0x272C744 Slot: 27
+	public virtual int EndRead(IAsyncResult asyncResult) { }
+
+	// RVA: 0x272D6C8 Offset: 0x272D6C8 VA: 0x272D6C8 Slot: 28
+	public virtual void EndWrite(IAsyncResult asyncResult) { }
+}
+
+// Namespace: System.IO
+internal class NullStream : Stream // TypeDefIndex: 297
+{
+	// Properties
+	public override bool CanRead { get; }
+	public override bool CanSeek { get; }
+	public override bool CanWrite { get; }
+	public override long Length { get; }
+	public override long Position { get; set; }
+
+	// Methods
+
+	// RVA: 0x27301A4 Offset: 0x27301A4 VA: 0x27301A4
+	public void .ctor() { }
+
+	// RVA: 0x273020C Offset: 0x273020C VA: 0x273020C Slot: 5
+	public override bool get_CanRead() { }
+
+	// RVA: 0x2730214 Offset: 0x2730214 VA: 0x2730214 Slot: 6
+	public override bool get_CanSeek() { }
+
+	// RVA: 0x273021C Offset: 0x273021C VA: 0x273021C Slot: 7
+	public override bool get_CanWrite() { }
+
+	// RVA: 0x2730224 Offset: 0x2730224 VA: 0x2730224 Slot: 9
+	public override long get_Length() { }
+
+	// RVA: 0x273022C Offset: 0x273022C VA: 0x273022C Slot: 10
+	public override long get_Position() { }
+
+	// RVA: 0x2730234 Offset: 0x2730234 VA: 0x2730234 Slot: 11
+	public override void set_Position(long value) { }
+
+	// RVA: 0x2730238 Offset: 0x2730238 VA: 0x2730238 Slot: 18
+	public override void Flush() { }
+
+	// RVA: 0x273023C Offset: 0x273023C VA: 0x273023C Slot: 19
+	public override int Read(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x2730244 Offset: 0x2730244 VA: 0x2730244 Slot: 20
+	public override int ReadByte() { }
+
+	// RVA: 0x273024C Offset: 0x273024C VA: 0x273024C Slot: 21
+	public override long Seek(long offset, SeekOrigin origin) { }
+
+	// RVA: 0x2730254 Offset: 0x2730254 VA: 0x2730254 Slot: 22
+	public override void SetLength(long value) { }
+
+	// RVA: 0x2730258 Offset: 0x2730258 VA: 0x2730258 Slot: 23
+	public override void Write(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x273025C Offset: 0x273025C VA: 0x273025C Slot: 24
+	public override void WriteByte(byte value) { }
+}
+
+// Namespace: System.IO
+internal class StreamAsyncResult : IAsyncResult // TypeDefIndex: 298
+{
+	// Fields
+	private object state; // 0x10
+	private bool completed; // 0x18
+	private bool done; // 0x19
+	private Exception exc; // 0x20
+	private int nbytes; // 0x28
+	private ManualResetEvent wh; // 0x30
+
+	// Properties
+	public object AsyncState { get; }
+	public WaitHandle AsyncWaitHandle { get; }
+	public virtual bool CompletedSynchronously { get; }
+	public bool IsCompleted { get; }
+	public Exception Exception { get; }
+	public int NBytes { get; }
+	public bool Done { get; set; }
+
+	// Methods
+
+	// RVA: 0x2733A18 Offset: 0x2733A18 VA: 0x2733A18
+	public void .ctor(object state) { }
+
+	// RVA: 0x2733A54 Offset: 0x2733A54 VA: 0x2733A54
+	public void SetComplete(Exception e) { }
+
+	// RVA: 0x2733A4C Offset: 0x2733A4C VA: 0x2733A4C
+	public void SetComplete(Exception e, int nbytes) { }
+
+	// RVA: 0x2733B0C Offset: 0x2733B0C VA: 0x2733B0C Slot: 4
+	public object get_AsyncState() { }
+
+	// RVA: 0x2733B14 Offset: 0x2733B14 VA: 0x2733B14 Slot: 5
+	public WaitHandle get_AsyncWaitHandle() { }
+
+	// RVA: 0x2733BF4 Offset: 0x2733BF4 VA: 0x2733BF4 Slot: 8
+	public virtual bool get_CompletedSynchronously() { }
+
+	// RVA: 0x2733BFC Offset: 0x2733BFC VA: 0x2733BFC Slot: 7
+	public bool get_IsCompleted() { }
+
+	// RVA: 0x2733B04 Offset: 0x2733B04 VA: 0x2733B04
+	public Exception get_Exception() { }
+
+	// RVA: 0x2733AE8 Offset: 0x2733AE8 VA: 0x2733AE8
+	public int get_NBytes() { }
+
+	// RVA: 0x2733AF0 Offset: 0x2733AF0 VA: 0x2733AF0
+	public bool get_Done() { }
+
+	// RVA: 0x2733AF8 Offset: 0x2733AF8 VA: 0x2733AF8
+	public void set_Done(bool value) { }
+}
+
+// Namespace: System.IO
+[ComVisibleAttribute] // RVA: 0xC315D4 Offset: 0xC315D4 VA: 0xC315D4
+[Serializable]
+public class StreamReader : TextReader // TypeDefIndex: 299
+{
+	// Fields
+	private byte[] input_buffer; // 0x10
+	private char[] decoded_buffer; // 0x18
+	private int decoded_count; // 0x20
+	private int pos; // 0x24
+	private int buffer_size; // 0x28
+	private int do_checks; // 0x2C
+	private Encoding encoding; // 0x30
+	private Decoder decoder; // 0x38
+	private Stream base_stream; // 0x40
+	private bool mayBlock; // 0x48
+	private StringBuilder line_builder; // 0x50
+	public static readonly StreamReader Null; // 0x0
+	private bool foundCR; // 0x58
+

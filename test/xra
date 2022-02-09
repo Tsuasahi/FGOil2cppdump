@@ -1,0 +1,1000 @@
+	// RVA: 0x15B6AC8 Offset: 0x15B6AC8 VA: 0x15B6AC8
+	public bool IsTreasureDvc() { }
+
+	// RVA: 0x15B6AD0 Offset: 0x15B6AD0 VA: 0x15B6AD0
+	public void SetTreasureDvc(bool flag) { }
+}
+
+// Namespace: 
+public class BattleCommandComponent : BaseMonoBehaviour // TypeDefIndex: 8982
+{
+	// Fields
+	public Transform objectRoot; // 0x18
+	public UISprite bg; // 0x20
+	public UISprite icon; // 0x28
+	public UISprite text; // 0x30
+	public UITexture facetex; // 0x38
+	public UITexture nobletex; // 0x40
+	public UISprite friendIcon; // 0x48
+	public UISprite sealedSprite; // 0x50
+	public UISprite unusableNpSprite; // 0x58
+	public UISprite donotactSprite; // 0x60
+	public UISprite dontuseSprite; // 0x68
+	public UISprite donotsleepSprite; // 0x70
+	public UISprite donotPermanentSleep; // 0x78
+	public UISprite unusableShortageStarSprite; // 0x80
+	public UILabel displayRemainingTurn; // 0x88
+	public UISprite donotActTypeSprite; // 0x90
+	public UISprite donotActWithTypeSp; // 0x98
+	public DrumRollLabel criticallabel; // 0xA0
+	public GameObject criticalObject; // 0xA8
+	public GameObject tr_criticaleffect; // 0xB0
+	public GameObject effect_addcritical; // 0xB8
+	public GameObject effect_cricomplete; // 0xC0
+	public GameObject effect_fullcricomplete; // 0xC8
+	public Transform buffRoot; // 0xD0
+	public BattleServantBuffIconComponent[] buffIconList; // 0xD8
+	private BattleCommandSealStatus sealStatus; // 0xE0
+	private bool isCodeTextureView; // 0xE8
+	private bool isInBattle; // 0xE9
+	[SerializeField] // RVA: 0xCD10E4 Offset: 0xCD10E4 VA: 0xCD10E4
+	private Transform codeObject; // 0xF0
+	[SerializeField] // RVA: 0xCD10F4 Offset: 0xCD10F4 VA: 0xCD10F4
+	private UITexture codeTexture; // 0xF8
+	[SerializeField] // RVA: 0xCD1104 Offset: 0xCD1104 VA: 0xCD1104
+	protected UISprite codeSprite; // 0x100
+	[SerializeField] // RVA: 0xCD1114 Offset: 0xCD1114 VA: 0xCD1114
+	private UILabel chargeTurnLabel; // 0x108
+	[SerializeField] // RVA: 0xCD1124 Offset: 0xCD1124 VA: 0xCD1124
+	private UILabel remainingTurnLabel; // 0x110
+	[SerializeField] // RVA: 0xCD1134 Offset: 0xCD1134 VA: 0xCD1134
+	private Transform[] stateArrowPoints; // 0x118
+	[SerializeField] // RVA: 0xCD1144 Offset: 0xCD1144 VA: 0xCD1144
+	private Transform[] stateCodePoints; // 0x120
+	public UIWidget nomalwidget; // 0x128
+	private BattlePerformance perf; // 0x130
+	private BattleCommandData data; // 0x138
+	private BattleServantData svtData; // 0x140
+	private GameObject target; // 0x148
+	private int index; // 0x150
+	private bool selectflg; // 0x154
+	private GameObject[] effectobj; // 0x158
+	private bool newMatriarl; // 0x160
+	private GameObject[] addObjectList; // 0x168
+	private BuffList.TYPE[] qabTypes; // 0x170
+	private BuffList.TYPE[] noneTdQabTypes; // 0x178
+	private BuffList.TYPE[] tdTypes; // 0x180
+	private BuffList.TYPE[] otherTypes; // 0x188
+	private static readonly string SEALED_CARDTYPE_ICON_ARTS; // 0x0
+	private static readonly string SEALED_CARDTYPE_ICON_BUSTER; // 0x8
+	private static readonly string SEALED_CARDTYPE_ICON_QUICK; // 0x10
+	private const int effectdepth = 7;
+	private int basedepth; // 0x190
+	public UILabel svtId_label; // 0x198
+	private Spawner spawner; // 0x1A0
+	private GameObject nobleGaugeEffect; // 0x1A8
+	[SerializeField] // RVA: 0xCD1154 Offset: 0xCD1154 VA: 0xCD1154
+	private GameObject LockInfo; // 0x1B0
+	[SerializeField] // RVA: 0xCD1164 Offset: 0xCD1164 VA: 0xCD1164
+	protected UILabel powerUpCardValue; // 0x1B8
+	[SerializeField] // RVA: 0xCD1174 Offset: 0xCD1174 VA: 0xCD1174
+	private UISprite powerUpCardIcon; // 0x1C0
+	[SerializeField] // RVA: 0xCD1184 Offset: 0xCD1184 VA: 0xCD1184
+	private UISprite nowTreasureDeviceTypeImage; // 0x1C8
+	[SerializeField] // RVA: 0xCD1194 Offset: 0xCD1194 VA: 0xCD1194
+	public UILabel restTreasureDeviceChangeTurnLabel; // 0x1D0
+	[SerializeField] // RVA: 0xCD11A4 Offset: 0xCD11A4 VA: 0xCD11A4
+	private UISprite specialCardBuffIcon; // 0x1D8
+	[SerializeField] // RVA: 0xCD11B4 Offset: 0xCD11B4 VA: 0xCD11B4
+	private UILabel specialCardBuffTurn; // 0x1E0
+	[SerializeField] // RVA: 0xCD11C4 Offset: 0xCD11C4 VA: 0xCD11C4
+	private UIAtlas commandAtlas; // 0x1E8
+	private List<BattleCommandComponent.CardBuffData> specialCardBuffList; // 0x1F0
+	private int cardBuffListIndex; // 0x1F8
+	private bool isCardBuffAlphaAnim; // 0x1FC
+	private float cardBuffAlphaFor; // 0x200
+	private float cardBuffAlphaAnimTime; // 0x204
+	private const float CARD_BUFF_ICON_ALPHA_ANIM_RATE = 0.5;
+	private const float CARD_BUFF_ICON_ALPHA_ANIM_INTERVAL = 3;
+	private bool isChangedBuffIcon; // 0x208
+	private Dictionary<string, GameObject> cardEffectDict; // 0x210
+	private bool isCountUp; // 0x218
+	[CompilerGeneratedAttribute] // RVA: 0xCD11D4 Offset: 0xCD11D4 VA: 0xCD11D4
+	private static Predicate<BattleCommandComponent.CardBuffData> <>f__am$cache0; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xCD11E4 Offset: 0xCD11E4 VA: 0xCD11E4
+	private static Comparison<BattleCommandComponent.CardBuffData> <>f__am$cache1; // 0x20
+	[CompilerGeneratedAttribute] // RVA: 0xCD11F4 Offset: 0xCD11F4 VA: 0xCD11F4
+	private static Predicate<BattleCommandComponent.CardBuffData> <>f__am$cache2; // 0x28
+
+	// Properties
+	public BattleCommandSealStatus SealStatus { get; }
+	public bool isSealed { get; }
+	public bool isKindOfDontAction { get; }
+
+	// Methods
+
+	// RVA: 0x15B6DDC Offset: 0x15B6DDC VA: 0x15B6DDC
+	public void .ctor() { }
+
+	// RVA: 0x15B6F8C Offset: 0x15B6F8C VA: 0x15B6F8C
+	public BattleCommandSealStatus get_SealStatus() { }
+
+	// RVA: 0x15B7064 Offset: 0x15B7064 VA: 0x15B7064
+	public bool get_isSealed() { }
+
+	// RVA: 0x15B7168 Offset: 0x15B7168 VA: 0x15B7168
+	public bool get_isKindOfDontAction() { }
+
+	// RVA: 0x15B7268 Offset: 0x15B7268 VA: 0x15B7268
+	public void Initialize() { }
+
+	// RVA: 0x15B7358 Offset: 0x15B7358 VA: 0x15B7358
+	public void setTarget(GameObject target) { }
+
+	// RVA: 0x15B7360 Offset: 0x15B7360 VA: 0x15B7360
+	public void setShader(string shaderName) { }
+
+	// RVA: 0x15B744C Offset: 0x15B744C VA: 0x15B744C
+	public void setDepth(int basedepth) { }
+
+	// RVA: 0x15B79EC Offset: 0x15B79EC VA: 0x15B79EC
+	public int getPowerUpDepth() { }
+
+	// RVA: 0x15B7A8C Offset: 0x15B7A8C VA: 0x15B7A8C
+	public void setPerf(BattlePerformance inPerf) { }
+
+	// RVA: 0x15B7A94 Offset: 0x15B7A94 VA: 0x15B7A94
+	public BattleCommandData GetCommandData() { }
+
+	// RVA: 0x15B7A9C Offset: 0x15B7A9C VA: 0x15B7A9C
+	public void setData(BattleCommandData indata, BattleServantData insvtData, bool isAttack = False, bool isShowBuffIcon = True, bool isTDTypeChangeWindow = False) { }
+
+	// RVA: 0x15B971C Offset: 0x15B971C VA: 0x15B971C
+	public void setData(BattleServantData svtData, int index) { }
+
+	// RVA: 0x15B9AA8 Offset: 0x15B9AA8 VA: 0x15B9AA8
+	public void setAttackCommandData(BattleCommandComponent comp) { }
+
+	// RVA: 0x15B9B74 Offset: 0x15B9B74 VA: 0x15B9B74
+	public BattleCommandData getcommandData() { }
+
+	// RVA: 0x15B9B7C Offset: 0x15B9B7C VA: 0x15B9B7C
+	public void addObject(string name, BattleCommandComponent.ADDOBJECT_TYPE type) { }
+
+	// RVA: 0x15B9EA4 Offset: 0x15B9EA4 VA: 0x15B9EA4
+	public void resetAddObject() { }
+
+	// RVA: 0x15BA110 Offset: 0x15BA110 VA: 0x15BA110
+	public void transformSvtFace(BattleServantData svtData) { }
+
+	// RVA: 0x15B7FEC Offset: 0x15B7FEC VA: 0x15B7FEC
+	public void updateView(bool initFlg = True, bool isAttack = False, bool isShowBuffIcon = True, bool isTDTypeChangeWindow = False, bool isCharaHide = False) { }
+
+	// RVA: 0x15BADB8 Offset: 0x15BADB8 VA: 0x15BADB8
+	private UISprite ChoiceUnusableMarkSprite() { }
+
+	// RVA: 0x15BB018 Offset: 0x15BB018 VA: 0x15BB018
+	private string getCardTypeSealSpriteName(int commandType) { }
+
+	// RVA: 0x15BB494 Offset: 0x15BB494 VA: 0x15BB494
+	public void initView() { }
+
+	// RVA: 0x15BAD34 Offset: 0x15BAD34 VA: 0x15BAD34
+	public void InitUnusableMarks() { }
+
+	// RVA: 0x15BB498 Offset: 0x15BB498 VA: 0x15BB498
+	public void startMoveFloat() { }
+
+	// RVA: 0x15BB794 Offset: 0x15BB794 VA: 0x15BB794
+	public void stopAnimation() { }
+
+	// RVA: 0x15BBA0C Offset: 0x15BBA0C VA: 0x15BBA0C
+	public void playOpenNobleCard() { }
+
+	// RVA: 0x15BBBAC Offset: 0x15BBBAC VA: 0x15BBBAC
+	public void SetNobleGaugeEffect(GameObject effect) { }
+
+	// RVA: 0x15BBBB4 Offset: 0x15BBBB4 VA: 0x15BBBB4
+	public void ReleaseNobleGaugeEffect() { }
+
+	// RVA: 0x15BA450 Offset: 0x15BA450 VA: 0x15BA450
+	public void setBuffIconList(BattleBuffData buffData) { }
+
+	// RVA: 0x15BBC90 Offset: 0x15BBC90 VA: 0x15BBC90
+	public void addFirstAura(GameObject effect) { }
+
+	// RVA: 0x15BBD38 Offset: 0x15BBD38 VA: 0x15BBD38
+	public void stopFirstAura() { }
+
+	// RVA: 0x15BBE68 Offset: 0x15BBE68 VA: 0x15BBE68
+	public void setMoveMode() { }
+
+	// RVA: 0x15BBF8C Offset: 0x15BBF8C VA: 0x15BBF8C
+	public void setSelectStamp(GameObject stamp) { }
+
+	// RVA: 0x15BBE8C Offset: 0x15BBE8C VA: 0x15BBE8C
+	public void resetSelectStamp() { }
+
+	// RVA: 0x15BC008 Offset: 0x15BC008 VA: 0x15BC008
+	public void updateSelectedEffect() { }
+
+	// RVA: 0x15BC3D0 Offset: 0x15BC3D0 VA: 0x15BC3D0
+	public void openCard() { }
+
+	// RVA: 0x15BC41C Offset: 0x15BC41C VA: 0x15BC41C
+	public void ResetPassStarCount() { }
+
+	// RVA: 0x15BC450 Offset: 0x15BC450 VA: 0x15BC450
+	public int GetPassStarCount() { }
+
+	// RVA: 0x15BC4F0 Offset: 0x15BC4F0 VA: 0x15BC4F0
+	public int getCriticalCount() { }
+
+	// RVA: 0x15BC558 Offset: 0x15BC558 VA: 0x15BC558
+	public bool IsMaxCritical() { }
+
+	// RVA: 0x15BC59C Offset: 0x15BC59C VA: 0x15BC59C
+	public bool IsMaxViewCritical() { }
+
+	// RVA: 0x15BC604 Offset: 0x15BC604 VA: 0x15BC604
+	public bool checkCriticalPointValid() { }
+
+	// RVA: 0x15BC634 Offset: 0x15BC634 VA: 0x15BC634
+	public void startCountUp() { }
+
+	// RVA: 0x15BC788 Offset: 0x15BC788 VA: 0x15BC788
+	public void updateCount(bool isNonAnimation = False) { }
+
+	// RVA: 0x15BCA20 Offset: 0x15BCA20 VA: 0x15BCA20
+	public void SetUntrueCount(int count, bool isInitZero = False) { }
+
+	// RVA: 0x15BCB3C Offset: 0x15BCB3C VA: 0x15BCB3C
+	private GameObject GetSpawnerObj(GameObject prefab, Transform parent) { }
+
+	// RVA: 0x15BCD10 Offset: 0x15BCD10 VA: 0x15BCD10
+	public void compCriticallabel() { }
+
+	// RVA: 0x15B8F94 Offset: 0x15B8F94 VA: 0x15B8F94
+	public void setCriticalObject(bool flg) { }
+
+	// RVA: 0x15BCDA8 Offset: 0x15BCDA8 VA: 0x15BCDA8
+	public void addCriticalBuff(GameObject obj) { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD3A934 Offset: 0xD3A934 VA: 0xD3A934
+	// RVA: 0x15BCEAC Offset: 0x15BCEAC VA: 0x15BCEAC
+	private IEnumerator delayFrame(Action action) { }
+
+	// RVA: 0x15BCF24 Offset: 0x15BCF24 VA: 0x15BCF24
+	public bool checkObject() { }
+
+	// RVA: 0x15BCF34 Offset: 0x15BCF34 VA: 0x15BCF34
+	public bool checkMark(int mark) { }
+
+	// RVA: 0x15BCF54 Offset: 0x15BCF54 VA: 0x15BCF54
+	public int getMarkIndex() { }
+
+	// RVA: 0x15BCF6C Offset: 0x15BCF6C VA: 0x15BCF6C
+	public bool isTreasureDvc() { }
+
+	// RVA: 0x15BCF8C Offset: 0x15BCF8C VA: 0x15BCF8C
+	public int getSvtId() { }
+
+	// RVA: 0x15BCFB8 Offset: 0x15BCFB8 VA: 0x15BCFB8
+	public int getSvtLimitCount() { }
+
+	// RVA: 0x15BCFEC Offset: 0x15BCFEC VA: 0x15BCFEC
+	public int getCommandType() { }
+
+	// RVA: 0x15BD018 Offset: 0x15BD018 VA: 0x15BD018
+	public int getUniqueID() { }
+
+	// RVA: 0x15BD044 Offset: 0x15BD044 VA: 0x15BD044
+	public void setSelect(bool flg) { }
+
+	// RVA: 0x15BD050 Offset: 0x15BD050 VA: 0x15BD050
+	public bool isSelect() { }
+
+	// RVA: 0x15BD058 Offset: 0x15BD058 VA: 0x15BD058
+	public void resetComboData() { }
+
+	// RVA: 0x15BD14C Offset: 0x15BD14C VA: 0x15BD14C
+	public void flashComboType(int index, BattleComboData combo) { }
+
+	// RVA: 0x15BD82C Offset: 0x15BD82C VA: 0x15BD82C
+	public void flashType(bool flg) { }
+
+	// RVA: 0x15BD914 Offset: 0x15BD914 VA: 0x15BD914
+	public void flashComboSvt(int index, BattleComboData combo) { }
+
+	// RVA: 0x15BE0CC Offset: 0x15BE0CC VA: 0x15BE0CC
+	public void resetCriticalLabel() { }
+
+	// RVA: 0x15BE128 Offset: 0x15BE128 VA: 0x15BE128
+	public void attachEffect(string name, int index) { }
+
+	// RVA: 0x15BE320 Offset: 0x15BE320 VA: 0x15BE320
+	public void playAttackEffect(bool flg) { }
+
+	// RVA: 0x15BE374 Offset: 0x15BE374 VA: 0x15BE374
+	public void playAddAttackEffect(bool flg) { }
+
+	// RVA: 0x15BE3C0 Offset: 0x15BE3C0 VA: 0x15BE3C0
+	public void playNpAttackEffect(float ftime) { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD3A944 Offset: 0xD3A944 VA: 0xD3A944
+	// RVA: 0x15BD878 Offset: 0x15BD878 VA: 0x15BD878
+	private IEnumerator fadeoutEffect(bool isTresure = False) { }
+
+	// RVA: 0x15BE888 Offset: 0x15BE888 VA: 0x15BE888
+	public void hideOutCard() { }
+
+	// RVA: 0x15BEB44 Offset: 0x15BEB44 VA: 0x15BEB44
+	public void OnClickEvent() { }
+
+	// RVA: 0x15BEC18 Offset: 0x15BEC18 VA: 0x15BEC18
+	public void OnLongPressEvent(Object obj) { }
+
+	// RVA: 0x15BB3C8 Offset: 0x15BB3C8 VA: 0x15BB3C8
+	public void setTouchFlg(bool flg) { }
+
+	// RVA: 0x15BECEC Offset: 0x15BECEC VA: 0x15BECEC
+	private bool IsValidVoiceType(string voiceTypeId) { }
+
+	// RVA: 0x15BEDEC Offset: 0x15BEDEC VA: 0x15BEDEC
+	public void selectCard(int targetIndex) { }
+
+	// RVA: 0x15BF754 Offset: 0x15BF754 VA: 0x15BF754
+	public void SetCardColor(Color color) { }
+
+	// RVA: 0x15B8FCC Offset: 0x15B8FCC VA: 0x15B8FCC
+	public void SetCommandCodeActive(Color color, bool isFirst = False) { }
+
+	// RVA: 0x15BFBF8 Offset: 0x15BFBF8 VA: 0x15BFBF8
+	public void SetLabelActive(bool active) { }
+
+	// RVA: 0x15BFC8C Offset: 0x15BFC8C VA: 0x15BFC8C
+	public void resetSelect() { }
+
+	// RVA: 0x15BFDF0 Offset: 0x15BFDF0 VA: 0x15BFDF0
+	public void startComboCard() { }
+
+	// RVA: 0x15BD9A4 Offset: 0x15BD9A4 VA: 0x15BD9A4
+	public void flashServant() { }
+
+	// RVA: 0x15B7DFC Offset: 0x15B7DFC VA: 0x15B7DFC
+	private void DestroyEffectObject1() { }
+
+	// RVA: 0x15BFE20 Offset: 0x15BFE20 VA: 0x15BFE20
+	public void endFashSvt() { }
+
+	// RVA: 0x15BD190 Offset: 0x15BD190 VA: 0x15BD190
+	public void flashTypeCard() { }
+
+	// RVA: 0x15BFE24 Offset: 0x15BFE24 VA: 0x15BFE24
+	public void endFashTypeCard() { }
+
+	// RVA: 0x15BFF28 Offset: 0x15BFF28 VA: 0x15BFF28
+	public void updateClassMag(BattleServantData targetSvt) { }
+
+	// RVA: 0x15C0220 Offset: 0x15C0220 VA: 0x15C0220
+	public void SetCommandCodeMode(bool isTextureMode) { }
+
+	// RVA: 0x15C022C Offset: 0x15C022C VA: 0x15C022C
+	public void SetIsInBattle(bool value) { }
+
+	// RVA: 0x15C0238 Offset: 0x15C0238 VA: 0x15C0238
+	public void SetCommandCodeView(long userCommandCodeId) { }
+
+	// RVA: 0x15BB108 Offset: 0x15BB108 VA: 0x15BB108
+	public void SetCommandCodeView(int commandCodeId) { }
+
+	// RVA: 0x15C04C0 Offset: 0x15C04C0 VA: 0x15C04C0
+	public void SwitchChangeObjPos(bool isUp) { }
+
+	// RVA: 0x15C08C0 Offset: 0x15C08C0 VA: 0x15C08C0
+	public void SetFixedCommandCardBuff(bool active, int turn, int addOrder) { }
+
+	// RVA: 0x15C0BC0 Offset: 0x15C0BC0 VA: 0x15C0BC0
+	public void UpdateFixedCommandCard() { }
+
+	// RVA: 0x15C0E80 Offset: 0x15C0E80 VA: 0x15C0E80
+	public void SetTreasureDeviceTypeChange(bool active, int turn = 0) { }
+
+	// RVA: 0x15C1028 Offset: 0x15C1028 VA: 0x15C1028
+	public void SetLockInfo(bool isLock) { }
+
+	// RVA: 0x15B946C Offset: 0x15B946C VA: 0x15B946C
+	public void SetPowerUpCardValue(int powerUpValue) { }
+
+	// RVA: 0x15B95C8 Offset: 0x15B95C8 VA: 0x15B95C8
+	public void SetPowerUpCardIcon(int powerUpValue, AtlasManager.CARD_ICON_TYPE iconType = 2, bool isBright = True) { }
+
+	// RVA: 0x15BAE54 Offset: 0x15BAE54 VA: 0x15BAE54
+	protected void SetActiveComponent(Component component, bool value) { }
+
+	// RVA: 0x15BACAC Offset: 0x15BACAC VA: 0x15BACAC
+	public void UpdateTDTypeChange(bool isForceHide = False) { }
+
+	// RVA: 0x15C10D8 Offset: 0x15C10D8 VA: 0x15C10D8
+	public void SetUnusableShortageStarSprite() { }
+
+	// RVA: 0x15C1194 Offset: 0x15C1194 VA: 0x15C1194
+	public void SetDonotSleepSprite() { }
+
+	// RVA: 0x15C1250 Offset: 0x15C1250 VA: 0x15C1250
+	public void SetDonotPermanentSleepSprite() { }
+
+	// RVA: 0x15BB2F8 Offset: 0x15BB2F8 VA: 0x15BB2F8
+	public void SetCardBuffAlphaAnimFlag(bool active) { }
+
+	// RVA: 0x15C130C Offset: 0x15C130C VA: 0x15C130C
+	public void SetActiveSpecialCardBuffIcon(bool active) { }
+
+	// RVA: 0x15C08DC Offset: 0x15C08DC VA: 0x15C08DC
+	private void SetSpecialCommandCardBuffData(BuffList.TYPE buffType, bool active, int turn, int addOrder) { }
+
+	// RVA: 0x15C141C Offset: 0x15C141C VA: 0x15C141C
+	public void SetCommandCardTypeChange(bool active, int turn, int addOrder) { }
+
+	// RVA: 0x15C1438 Offset: 0x15C1438 VA: 0x15C1438
+	public void UpdateCommandCardTypeChange() { }
+
+	// RVA: 0x15C179C Offset: 0x15C179C VA: 0x15C179C
+	public void ResetCardBuffIconAlphaAnim() { }
+
+	// RVA: 0x15C1848 Offset: 0x15C1848 VA: 0x15C1848
+	public void UpdateSpecialCardBuffIconAlpha(float deltaTime) { }
+
+	// RVA: 0x15C1B68 Offset: 0x15C1B68 VA: 0x15C1B68
+	public void ChangeSpecialCommandCardBuffIcon() { }
+
+	// RVA: 0x15C1C58 Offset: 0x15C1C58 VA: 0x15C1C58
+	public void HidePowerUpValueLabelActive(bool isCommandCardUnderIcon) { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD3A954 Offset: 0xD3A954 VA: 0xD3A954
+	// RVA: 0x15C1AF8 Offset: 0x15C1AF8 VA: 0x15C1AF8
+	private IEnumerator coroutineUpdateSpecialBuffIcon() { }
+
+	// RVA: 0x15C1D64 Offset: 0x15C1D64 VA: 0x15C1D64
+	public void UpdateCommandCardEffect() { }
+
+	// RVA: 0x15BE9F0 Offset: 0x15BE9F0 VA: 0x15BE9F0
+	public void CardEffectSetActive(bool value) { }
+
+	// RVA: 0x15C20FC Offset: 0x15C20FC VA: 0x15C20FC
+	public void ClearCardEffect() { }
+
+	// RVA: 0x15C2298 Offset: 0x15C2298 VA: 0x15C2298
+	public void ChangeCardEffectMaskForInside() { }
+
+	// RVA: 0x15C2464 Offset: 0x15C2464 VA: 0x15C2464
+	private static void .cctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3A964 Offset: 0xD3A964 VA: 0xD3A964
+	// RVA: 0x15C24EC Offset: 0x15C24EC VA: 0x15C24EC
+	private bool <setBuffIconList>m__0(BattleBuffData.BuffData buff) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3A974 Offset: 0xD3A974 VA: 0xD3A974
+	// RVA: 0x15C2568 Offset: 0x15C2568 VA: 0x15C2568
+	private bool <setBuffIconList>m__1(BattleBuffData.BuffData buff) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3A984 Offset: 0xD3A984 VA: 0xD3A984
+	// RVA: 0x15C25D4 Offset: 0x15C25D4 VA: 0x15C25D4
+	private static bool <UpdateFixedCommandCard>m__2(BattleCommandComponent.CardBuffData c) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3A994 Offset: 0xD3A994 VA: 0xD3A994
+	// RVA: 0x15C2604 Offset: 0x15C2604 VA: 0x15C2604
+	private static int <SetSpecialCommandCardBuffData>m__3(BattleCommandComponent.CardBuffData a, BattleCommandComponent.CardBuffData b) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3A9A4 Offset: 0xD3A9A4 VA: 0xD3A9A4
+	// RVA: 0x15C2644 Offset: 0x15C2644 VA: 0x15C2644
+	private static bool <UpdateCommandCardTypeChange>m__4(BattleCommandComponent.CardBuffData c) { }
+}
+
+// Namespace: 
+public enum BattleCommandComponent.ADDOBJECT_TYPE // TypeDefIndex: 8983
+{
+	// Fields
+	public int value__; // 0x0
+	public const BattleCommandComponent.ADDOBJECT_TYPE ARROW_RESIST = 0;
+	public const BattleCommandComponent.ADDOBJECT_TYPE ARROW_WEAK = 1;
+	public const BattleCommandComponent.ADDOBJECT_TYPE MAX = 2;
+}
+
+// Namespace: 
+public enum BattleCommandComponent.EFFECT_OBJ_TYPE // TypeDefIndex: 8984
+{
+	// Fields
+	public int value__; // 0x0
+	public const BattleCommandComponent.EFFECT_OBJ_TYPE ICON_FLASH = 0;
+	public const BattleCommandComponent.EFFECT_OBJ_TYPE COMMAND_BURN = 1;
+	public const BattleCommandComponent.EFFECT_OBJ_TYPE NOBLE_EFFECT = 2;
+	public const BattleCommandComponent.EFFECT_OBJ_TYPE COMMAND_UP_DETAIL = 3;
+	public const BattleCommandComponent.EFFECT_OBJ_TYPE FIRST_AURA = 4;
+	public const BattleCommandComponent.EFFECT_OBJ_TYPE SELECT_MARK = 5;
+}
+
+// Namespace: 
+public enum BattleCommandComponent.ARROW_POS_TYPE // TypeDefIndex: 8985
+{
+	// Fields
+	public int value__; // 0x0
+	public const BattleCommandComponent.ARROW_POS_TYPE NOMAL = 0;
+	public const BattleCommandComponent.ARROW_POS_TYPE CODE = 1;
+	public const BattleCommandComponent.ARROW_POS_TYPE SUPPORT_CODE = 2;
+}
+
+// Namespace: 
+public enum BattleCommandComponent.CODE_POS_TYPE // TypeDefIndex: 8986
+{
+	// Fields
+	public int value__; // 0x0
+	public const BattleCommandComponent.CODE_POS_TYPE NOMAL = 0;
+	public const BattleCommandComponent.CODE_POS_TYPE SUPPORT_CODE = 1;
+}
+
+// Namespace: 
+public class BattleCommandComponent.CardBuffData // TypeDefIndex: 8987
+{
+	// Fields
+	public BuffList.TYPE buffType; // 0x10
+	public int restTurn; // 0x14
+	public int addOrder; // 0x18
+
+	// Methods
+
+	// RVA: 0x15C13DC Offset: 0x15C13DC VA: 0x15C13DC
+	public void .ctor(BuffList.TYPE type, int turn, int order) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB0040 Offset: 0xCB0040 VA: 0xCB0040
+private sealed class BattleCommandComponent.<addCriticalBuff>c__AnonStorey3 // TypeDefIndex: 8988
+{
+	// Fields
+	internal GameObject obj; // 0x10
+	internal BattleCommandComponent $this; // 0x18
+
+	// Methods
+
+	// RVA: 0x15BCEA4 Offset: 0x15BCEA4 VA: 0x15BCEA4
+	public void .ctor() { }
+
+	// RVA: 0x15C26B0 Offset: 0x15C26B0 VA: 0x15C26B0
+	internal void <>m__0() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB0050 Offset: 0xCB0050 VA: 0xCB0050
+private sealed class BattleCommandComponent.<delayFrame>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8989
+{
+	// Fields
+	internal Action action; // 0x10
+	internal object $current; // 0x18
+	internal bool $disposing; // 0x20
+	internal int $PC; // 0x24
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xD482E4 Offset: 0xD482E4 VA: 0xD482E4
+	// RVA: 0x15BCF1C Offset: 0x15BCF1C VA: 0x15BCF1C
+	public void .ctor() { }
+
+	// RVA: 0x15C2A58 Offset: 0x15C2A58 VA: 0x15C2A58 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD482F4 Offset: 0xD482F4 VA: 0xD482F4
+	// RVA: 0x15C2AF0 Offset: 0x15C2AF0 VA: 0x15C2AF0 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD48304 Offset: 0xD48304 VA: 0xD48304
+	// RVA: 0x15C2AF8 Offset: 0x15C2AF8 VA: 0x15C2AF8 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD48314 Offset: 0xD48314 VA: 0xD48314
+	// RVA: 0x15C2B00 Offset: 0x15C2B00 VA: 0x15C2B00 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD48324 Offset: 0xD48324 VA: 0xD48324
+	// RVA: 0x15C2B14 Offset: 0x15C2B14 VA: 0x15C2B14 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB0060 Offset: 0xCB0060 VA: 0xCB0060
+private sealed class BattleCommandComponent.<fadeoutEffect>c__Iterator1 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8990
+{
+	// Fields
+	internal bool isTresure; // 0x10
+	internal BattleCommandComponent $this; // 0x18
+	internal object $current; // 0x20
+	internal bool $disposing; // 0x28
+	internal int $PC; // 0x2C
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xD48334 Offset: 0xD48334 VA: 0xD48334
+	// RVA: 0x15BE880 Offset: 0x15BE880 VA: 0x15BE880
+	public void .ctor() { }
+
+	// RVA: 0x15C2B7C Offset: 0x15C2B7C VA: 0x15C2B7C Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD48344 Offset: 0xD48344 VA: 0xD48344
+	// RVA: 0x15C2F48 Offset: 0x15C2F48 VA: 0x15C2F48 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD48354 Offset: 0xD48354 VA: 0xD48354
+	// RVA: 0x15C2F50 Offset: 0x15C2F50 VA: 0x15C2F50 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD48364 Offset: 0xD48364 VA: 0xD48364
+	// RVA: 0x15C2F58 Offset: 0x15C2F58 VA: 0x15C2F58 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD48374 Offset: 0xD48374 VA: 0xD48374
+	// RVA: 0x15C2F6C Offset: 0x15C2F6C VA: 0x15C2F6C Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB0070 Offset: 0xCB0070 VA: 0xCB0070
+private sealed class BattleCommandComponent.<SetSpecialCommandCardBuffData>c__AnonStorey4 // TypeDefIndex: 8991
+{
+	// Fields
+	internal BuffList.TYPE buffType; // 0x10
+
+	// Methods
+
+	// RVA: 0x15C13D4 Offset: 0x15C13D4 VA: 0x15C13D4
+	public void .ctor() { }
+
+	// RVA: 0x15C2674 Offset: 0x15C2674 VA: 0x15C2674
+	internal bool <>m__0(BattleCommandComponent.CardBuffData c) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB0080 Offset: 0xCB0080 VA: 0xCB0080
+private sealed class BattleCommandComponent.<coroutineUpdateSpecialBuffIcon>c__Iterator2 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 8992
+{
+	// Fields
+	internal BattleCommandComponent $this; // 0x10
+	internal object $current; // 0x18
+	internal bool $disposing; // 0x20
+	internal int $PC; // 0x24
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xD48384 Offset: 0xD48384 VA: 0xD48384
+	// RVA: 0x15C1D5C Offset: 0x15C1D5C VA: 0x15C1D5C
+	public void .ctor() { }
+
+	// RVA: 0x15C27A8 Offset: 0x15C27A8 VA: 0x15C27A8 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD48394 Offset: 0xD48394 VA: 0xD48394
+	// RVA: 0x15C29CC Offset: 0x15C29CC VA: 0x15C29CC Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD483A4 Offset: 0xD483A4 VA: 0xD483A4
+	// RVA: 0x15C29D4 Offset: 0x15C29D4 VA: 0x15C29D4 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD483B4 Offset: 0xD483B4 VA: 0xD483B4
+	// RVA: 0x15C29DC Offset: 0x15C29DC VA: 0x15C29DC Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD483C4 Offset: 0xD483C4 VA: 0xD483C4
+	// RVA: 0x15C29F0 Offset: 0x15C29F0 VA: 0x15C29F0 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+public class BattleCommandData // TypeDefIndex: 8993
+{
+	// Fields
+	[PackKeyAttribute] // RVA: 0xCD1204 Offset: 0xCD1204 VA: 0xCD1204
+	public int _type; // 0x10
+	[PackKeyAttribute] // RVA: 0xCD123C Offset: 0xCD123C VA: 0xCD123C
+	public int svtId; // 0x14
+	[PackKeyAttribute] // RVA: 0xCD1274 Offset: 0xCD1274 VA: 0xCD1274
+	public int svtlimit; // 0x18
+	[PackKeyAttribute] // RVA: 0xCD12AC Offset: 0xCD12AC VA: 0xCD12AC
+	public int attri; // 0x1C
+	[PackKeyAttribute] // RVA: 0xCD12E4 Offset: 0xCD12E4 VA: 0xCD12E4
+	public int follower; // 0x20
+	[PackKeyAttribute] // RVA: 0xCD131C Offset: 0xCD131C VA: 0xCD131C
+	public int _loadsvtLimit; // 0x24
+	public static readonly int PASS_STAR_DENOMINATOR; // 0x0
+	[PackKeyAttribute] // RVA: 0xCD1354 Offset: 0xCD1354 VA: 0xCD1354
+	public int uniqueId; // 0x28
+	[PackKeyAttribute] // RVA: 0xCD138C Offset: 0xCD138C VA: 0xCD138C
+	public int markindex; // 0x2C
+	[PackKeyAttribute] // RVA: 0xCD13C4 Offset: 0xCD13C4 VA: 0xCD13C4
+	public int treasureDvc; // 0x30
+	[PackKeyAttribute] // RVA: 0xCD13FC Offset: 0xCD13FC VA: 0xCD13FC
+	public bool flgEventJoin; // 0x34
+	[PackKeyAttribute] // RVA: 0xCD1434 Offset: 0xCD1434 VA: 0xCD1434
+	public int starBonus; // 0x38
+	[PackKeyAttribute] // RVA: 0xCD146C Offset: 0xCD146C VA: 0xCD146C
+	public int starcount; // 0x3C
+	private int passStarCount; // 0x40
+	private bool critical; // 0x44
+	[PackKeyAttribute] // RVA: 0xCD14A4 Offset: 0xCD14A4 VA: 0xCD14A4
+	public bool isCriticalMiss; // 0x45
+	[PackKeyAttribute] // RVA: 0xCD14DC Offset: 0xCD14DC VA: 0xCD14DC
+	public long userCommandCodeId; // 0x48
+	[PackKeyAttribute] // RVA: 0xCD1514 Offset: 0xCD1514 VA: 0xCD1514
+	public int commandCodeId; // 0x50
+	[PackKeyAttribute] // RVA: 0xCD154C Offset: 0xCD154C VA: 0xCD154C
+	public int commandCardParam; // 0x54
+	[PackKeyAttribute] // RVA: 0xCD1584 Offset: 0xCD1584 VA: 0xCD1584
+	public int servantCardIdsIndex; // 0x58
+	[PackKeyAttribute] // RVA: 0xCD15BC Offset: 0xCD15BC VA: 0xCD15BC
+	public int imageSvtId; // 0x5C
+	private BattleCommandData.CriticalDecisionType execCriticalDecisionType; // 0x60
+	private int criticalHitValue; // 0x64
+	private BattleBuffData battleBuffData; // 0x68
+	private int selectedType; // 0x70
+	private bool flash; // 0x74
+	private bool sameflg; // 0x75
+	private int samecount; // 0x78
+	private int actionIndex; // 0x7C
+	private int addAtk; // 0x80
+	private int addCritical; // 0x84
+	private int addTdGauge; // 0x88
+	private int chainCount; // 0x8C
+
+	// Properties
+	public int type { get; set; }
+	public int loadSvtLimit { get; set; }
+	public int ActionIndex { get; set; }
+	public int AddAtk { get; }
+	public int AddCritical { get; }
+	public int AddTdGauge { get; }
+	public int ChainCount { get; set; }
+
+	// Methods
+
+	// RVA: 0x15C2FD4 Offset: 0x15C2FD4 VA: 0x15C2FD4
+	public void .ctor() { }
+
+	// RVA: 0x15B9958 Offset: 0x15B9958 VA: 0x15B9958
+	public void .ctor(BattleCommand.TYPE type, int svtId, int limitCount, int imageSvtId = 0) { }
+
+	// RVA: 0x15C2FF8 Offset: 0x15C2FF8 VA: 0x15C2FF8
+	public void .ctor(BattleCommandData command) { }
+
+	// RVA: 0x15BAFA8 Offset: 0x15BAFA8 VA: 0x15BAFA8
+	public int get_type() { }
+
+	// RVA: 0x15B7FE4 Offset: 0x15B7FE4 VA: 0x15B7FE4
+	public void set_type(int value) { }
+
+	// RVA: 0x15BA3F4 Offset: 0x15BA3F4 VA: 0x15BA3F4
+	public void set_loadSvtLimit(int value) { }
+
+	// RVA: 0x15BA434 Offset: 0x15BA434 VA: 0x15BA434
+	public int get_loadSvtLimit() { }
+
+	// RVA: 0x15C30C8 Offset: 0x15C30C8 VA: 0x15C30C8
+	public void setFollowerType(Follower.Type type) { }
+
+	// RVA: 0x15BACA4 Offset: 0x15BACA4 VA: 0x15BACA4
+	public Follower.Type getFollowerType() { }
+
+	// RVA: 0x15B7FD4 Offset: 0x15B7FD4 VA: 0x15B7FD4
+	public bool isTreasureDvc() { }
+
+	// RVA: 0x15BAC6C Offset: 0x15BAC6C VA: 0x15BAC6C
+	public bool isArts() { }
+
+	// RVA: 0x15BAC34 Offset: 0x15BAC34 VA: 0x15BAC34
+	public bool isBuster() { }
+
+	// RVA: 0x15BAC50 Offset: 0x15BAC50 VA: 0x15BAC50
+	public bool isQuick() { }
+
+	// RVA: 0x15BAC88 Offset: 0x15BAC88 VA: 0x15BAC88
+	public bool isAddAttack() { }
+
+	// RVA: 0x15BA3FC Offset: 0x15BA3FC VA: 0x15BA3FC
+	public bool isBlank() { }
+
+	// RVA: 0x15BA3EC Offset: 0x15BA3EC VA: 0x15BA3EC
+	public int getUniqueId() { }
+
+	// RVA: 0x15BB48C Offset: 0x15BB48C VA: 0x15BB48C
+	public int getServantId() { }
+
+	// RVA: 0x15BA418 Offset: 0x15BA418 VA: 0x15BA418
+	public int GetImageServantId() { }
+
+	// RVA: 0x15BCFE4 Offset: 0x15BCFE4 VA: 0x15BCFE4
+	public int getServantLimitCount() { }
+
+	// RVA: 0x15B6B34 Offset: 0x15B6B34 VA: 0x15B6B34
+	public int getCommandType() { }
+
+	// RVA: 0x15C30D0 Offset: 0x15C30D0 VA: 0x15C30D0
+	public int getAttri() { }
+
+	// RVA: 0x15C30D8 Offset: 0x15C30D8 VA: 0x15C30D8
+	public void setTypeAddAttack() { }
+
+	// RVA: 0x15C30EC Offset: 0x15C30EC VA: 0x15C30EC
+	public void ClearCommandCode() { }
+
+	// RVA: 0x15B6B38 Offset: 0x15B6B38 VA: 0x15B6B38
+	public int get_ActionIndex() { }
+
+	// RVA: 0x15C3100 Offset: 0x15C3100 VA: 0x15C3100
+	public void set_ActionIndex(int value) { }
+
+	// RVA: 0x15C3108 Offset: 0x15C3108 VA: 0x15C3108
+	public int get_AddAtk() { }
+
+	// RVA: 0x15C3110 Offset: 0x15C3110 VA: 0x15C3110
+	public int get_AddCritical() { }
+
+	// RVA: 0x15C3118 Offset: 0x15C3118 VA: 0x15C3118
+	public int get_AddTdGauge() { }
+
+	// RVA: 0x15C3120 Offset: 0x15C3120 VA: 0x15C3120
+	public int get_ChainCount() { }
+
+	// RVA: 0x15C3128 Offset: 0x15C3128 VA: 0x15C3128
+	public void set_ChainCount(int value) { }
+
+	// RVA: 0x15C3130 Offset: 0x15C3130 VA: 0x15C3130
+	public void setCombo(BattleComboData combo, int index) { }
+
+	// RVA: 0x15C321C Offset: 0x15C321C VA: 0x15C321C
+	public bool isBusterChain() { }
+
+	// RVA: 0x15C3248 Offset: 0x15C3248 VA: 0x15C3248
+	public bool isFlash() { }
+
+	// RVA: 0x15C3250 Offset: 0x15C3250 VA: 0x15C3250
+	public bool isPair() { }
+
+	// RVA: 0x15C3270 Offset: 0x15C3270 VA: 0x15C3270
+	public bool isThree() { }
+
+	// RVA: 0x15C3290 Offset: 0x15C3290 VA: 0x15C3290
+	public int[] getIndividualities() { }
+
+	// RVA: 0x15C32B8 Offset: 0x15C32B8 VA: 0x15C32B8
+	public bool isSingle() { }
+
+	// RVA: 0x15C32E4 Offset: 0x15C32E4 VA: 0x15C32E4
+	public bool isGrand() { }
+
+	// RVA: 0x15C3310 Offset: 0x15C3310 VA: 0x15C3310
+	public bool checkLastAttack() { }
+
+	// RVA: 0x15C3364 Offset: 0x15C3364 VA: 0x15C3364
+	public int getChainBonus() { }
+
+	// RVA: 0x15C3374 Offset: 0x15C3374 VA: 0x15C3374
+	public bool isCritical() { }
+
+	// RVA: 0x15C337C Offset: 0x15C337C VA: 0x15C337C
+	public bool checkCriticalRate(int count) { }
+
+	// RVA: 0x15C3394 Offset: 0x15C3394 VA: 0x15C3394
+	public bool checkCriticalRate(int rate, int count) { }
+
+	// RVA: 0x15BC47C Offset: 0x15BC47C VA: 0x15BC47C
+	public int getPassStarCount() { }
+
+	// RVA: 0x15BC448 Offset: 0x15BC448 VA: 0x15BC448
+	public void ResetPassStar() { }
+
+	// RVA: 0x15C33A8 Offset: 0x15C33A8 VA: 0x15C33A8
+	public void addCriticalPoint(int count) { }
+
+	// RVA: 0x15C3470 Offset: 0x15C3470 VA: 0x15C3470
+	public void removeCriticalPoint(int count) { }
+
+	// RVA: 0x15C3484 Offset: 0x15C3484 VA: 0x15C3484
+	public void resetCriticalPoint() { }
+
+	// RVA: 0x15B8F74 Offset: 0x15B8F74 VA: 0x15B8F74
+	public int getCriticalPoint() { }
+
+	// RVA: 0x15BC58C Offset: 0x15BC58C VA: 0x15BC58C
+	public bool checkCriticalMax() { }
+
+	// RVA: 0x15C348C Offset: 0x15C348C VA: 0x15C348C
+	public bool checkCriticalZero() { }
+
+	// RVA: 0x15BFBE8 Offset: 0x15BFBE8 VA: 0x15BFBE8
+	public bool IsEnableCommandCode() { }
+
+	// RVA: 0x15B9A38 Offset: 0x15B9A38 VA: 0x15B9A38
+	public void SetCommandCardParam(int[] commandCodeParams, int index) { }
+
+	// RVA: 0x15C349C Offset: 0x15C349C VA: 0x15C349C
+	public void SetCriticalDecisionType(BattleCommandData.CriticalDecisionType type) { }
+
+	// RVA: 0x15C3524 Offset: 0x15C3524 VA: 0x15C3524
+	public void UpdateCritical(BattleServantData actSvt, BattleServantData optSvt, bool isUpdateFirst = False) { }
+
+	// RVA: 0x15C3624 Offset: 0x15C3624 VA: 0x15C3624
+	private void UpdateCommandType() { }
+
+	// RVA: 0x15B9AA0 Offset: 0x15B9AA0 VA: 0x15B9AA0
+	public void SetBattleBuffData(BattleBuffData setData) { }
+
+	// RVA: 0x15C365C Offset: 0x15C365C VA: 0x15C365C
+	public bool IsCommandCardTypeChanged() { }
+
+	// RVA: 0x15C3698 Offset: 0x15C3698 VA: 0x15C3698
+	public BattleBuffData.BuffData GetCommandCardTypeChangeBuff() { }
+
+	// RVA: 0x15C36AC Offset: 0x15C36AC VA: 0x15C36AC
+	public int GetOriginalType() { }
+
+	// RVA: 0x15C36B4 Offset: 0x15C36B4 VA: 0x15C36B4
+	public void SetSelectedType() { }
+
+	// RVA: 0x15C36E8 Offset: 0x15C36E8 VA: 0x15C36E8
+	public void ResetSelectedType() { }
+
+	// RVA: 0x15C2284 Offset: 0x15C2284 VA: 0x15C2284
+	public BattleBuffData.BuffData[] GetCommandCodeBuffArray() { }
+
+	// RVA: 0x15C36F4 Offset: 0x15C36F4 VA: 0x15C36F4
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public enum BattleCommandData.CriticalDecisionType // TypeDefIndex: 8994
+{
+	// Fields
+	public int value__; // 0x0
+	public const BattleCommandData.CriticalDecisionType NONE = 0;
+	public const BattleCommandData.CriticalDecisionType ENEMY_NORMAL = 1;
+	public const BattleCommandData.CriticalDecisionType FORCE = 2;
+}
+
+// Namespace: 
+public class BattleTreasureDeviceCommandData : BattleCommandData // TypeDefIndex: 8995
+{
+	// Methods
+
+	// RVA: 0x1AE7D6C Offset: 0x1AE7D6C VA: 0x1AE7D6C
+	public void .ctor(BattleServantData svtData) { }
+}
+
+// Namespace: 
+public class BattleCommandParamComponent : BaseMonoBehaviour // TypeDefIndex: 8996
+{
+	// Fields
+	public Transform NumberTr; // 0x18
+	public Transform YakuTr; // 0x20
+	private GameObject numberobj; // 0x28
+	private GameObject[] yakuobj; // 0x30
+
+	// Methods
+
+	// RVA: 0x15C3748 Offset: 0x15C3748 VA: 0x15C3748
+	public void .ctor() { }
+
+	// RVA: 0x15C3750 Offset: 0x15C3750 VA: 0x15C3750
+	public void setInit() { }
+
+	// RVA: 0x15C38A4 Offset: 0x15C38A4 VA: 0x15C38A4

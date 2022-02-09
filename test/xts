@@ -1,0 +1,1000 @@
+	// RVA: 0x1FB3EA4 Offset: 0x1FB3EA4 VA: 0x1FB3EA4
+	private ServantSellConfirmListViewItem.ServantAttributeKind GetAttribute(ServantSellConfirmListViewItem.Type type) { }
+
+	// RVA: 0x1FB3F18 Offset: 0x1FB3F18 VA: 0x1FB3F18
+	private bool GetIsEquippedCommandCodeServant(ServantSellConfirmListViewItem.Type type) { }
+
+	// RVA: 0x1FB35FC Offset: 0x1FB35FC VA: 0x1FB35FC
+	private void SetServantUses(ServantSellConfirmListViewItem.Type type, long[] partyUserServantList, long[] partyUserEquipList) { }
+
+	// RVA: 0x1FB40F4 Offset: 0x1FB40F4 VA: 0x1FB40F4
+	private int GetPartyIndex(long userServantId, long[] ids, bool isEquip) { }
+
+	// RVA: 0x1FB3884 Offset: 0x1FB3884 VA: 0x1FB3884
+	private void SetSortValues(ServantSellConfirmListViewItem.Type type) { }
+
+	// RVA: 0x1FB3CA4 Offset: 0x1FB3CA4 VA: 0x1FB3CA4
+	private void ClearIconLabelInfo(IconLabelInfo iconLabelInfo) { }
+
+	// RVA: 0x1FB41A0 Offset: 0x1FB41A0 VA: 0x1FB41A0
+	public void ModifyItem(bool isFavorite) { }
+
+	// RVA: 0x1FB41B4 Offset: 0x1FB41B4 VA: 0x1FB41B4
+	public void setUserServantEntity(UserServantEntity entity) { }
+
+	// RVA: 0x1FB41BC Offset: 0x1FB41BC VA: 0x1FB41BC
+	public void setUserCommandCodeEntity(UserCommandCodeEntity entity) { }
+
+	// RVA: 0x1FB41C4 Offset: 0x1FB41C4 VA: 0x1FB41C4
+	public long get_UserSvtId() { }
+
+	// RVA: 0x1FB4260 Offset: 0x1FB4260 VA: 0x1FB4260
+	public bool get_IsCanNotSelect() { }
+
+	// RVA: 0x1FB42A8 Offset: 0x1FB42A8 VA: 0x1FB42A8
+	public bool get_IsEventJoin() { }
+
+	// RVA: 0x1FB42BC Offset: 0x1FB42BC VA: 0x1FB42BC
+	public bool get_IsSellEnableServant() { }
+
+	// RVA: 0x1FB42CC Offset: 0x1FB42CC VA: 0x1FB42CC
+	public IconLabelInfo get_IconLabelInfo1() { }
+
+	// RVA: 0x1FB42D4 Offset: 0x1FB42D4 VA: 0x1FB42D4
+	public IconLabelInfo get_IconLabelInfo2() { }
+
+	// RVA: 0x1FB42DC Offset: 0x1FB42DC VA: 0x1FB42DC
+	public bool get_IsDispLock() { }
+
+	// RVA: 0x1FB42FC Offset: 0x1FB42FC VA: 0x1FB42FC
+	public bool get_IsDispChoice() { }
+
+	// RVA: 0x1FB431C Offset: 0x1FB431C VA: 0x1FB431C
+	public bool get_IsHeroine() { }
+
+	// RVA: 0x1FB4330 Offset: 0x1FB4330 VA: 0x1FB4330
+	public long get_UserCommandCodeId() { }
+}
+
+// Namespace: 
+private enum ServantSellConfirmListViewItem.Type // TypeDefIndex: 10565
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellConfirmListViewItem.Type NONE = 0;
+	public const ServantSellConfirmListViewItem.Type SERVANT = 1;
+	public const ServantSellConfirmListViewItem.Type COMMAND_CODE = 2;
+}
+
+// Namespace: 
+private enum ServantSellConfirmListViewItem.ServantAttributeKind // TypeDefIndex: 10566
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellConfirmListViewItem.ServantAttributeKind NONE = 0;
+	public const ServantSellConfirmListViewItem.ServantAttributeKind HEROINE = 1;
+	public const ServantSellConfirmListViewItem.ServantAttributeKind LIMITED = 2;
+}
+
+// Namespace: 
+public class ServantSellConfirmListViewItemDraw : BaseMonoBehaviour // TypeDefIndex: 10567
+{
+	// Fields
+	[SerializeField] // RVA: 0xCE3148 Offset: 0xCE3148 VA: 0xCE3148
+	private UICommonButton baseButton; // 0x18
+	[SerializeField] // RVA: 0xCE3158 Offset: 0xCE3158 VA: 0xCE3158
+	private ServantFaceIconComponent servantFaceIcon; // 0x20
+	[SerializeField] // RVA: 0xCE3168 Offset: 0xCE3168 VA: 0xCE3168
+	private FlashingIconComponent partyIcon; // 0x28
+	[SerializeField] // RVA: 0xCE3178 Offset: 0xCE3178 VA: 0xCE3178
+	private UISprite useSprite; // 0x30
+	[SerializeField] // RVA: 0xCE3188 Offset: 0xCE3188 VA: 0xCE3188
+	private UISprite lockSprite; // 0x38
+	[SerializeField] // RVA: 0xCE3198 Offset: 0xCE3198 VA: 0xCE3198
+	private UISprite choiceSprite; // 0x40
+	[SerializeField] // RVA: 0xCE31A8 Offset: 0xCE31A8 VA: 0xCE31A8
+	private UISprite maskSprite; // 0x48
+	[SerializeField] // RVA: 0xCE31B8 Offset: 0xCE31B8 VA: 0xCE31B8
+	private UILabel warningLabel; // 0x50
+	[SerializeField] // RVA: 0xCE31C8 Offset: 0xCE31C8 VA: 0xCE31C8
+	private DragSelectComponent dragSelect; // 0x58
+	[SerializeField] // RVA: 0xCE31D8 Offset: 0xCE31D8 VA: 0xCE31D8
+	private UISprite materialTdSprite; // 0x60
+
+	// Methods
+
+	// RVA: 0x1FB43CC Offset: 0x1FB43CC VA: 0x1FB43CC
+	public void .ctor() { }
+
+	// RVA: 0x1FB43D4 Offset: 0x1FB43D4 VA: 0x1FB43D4
+	public void SetItem(ServantSellConfirmListViewItem item, ServantSellConfirmListViewItemDraw.DispMode dispMode, bool isSelectEnable, ServantSellConfirmListViewManager.ModeKind modeKind) { }
+
+	// RVA: 0x1FB46D4 Offset: 0x1FB46D4 VA: 0x1FB46D4
+	private void SetSpriteActive(UISprite sprite, bool isActive) { }
+
+	// RVA: 0x1FB4AF0 Offset: 0x1FB4AF0 VA: 0x1FB4AF0
+	private void SetLabelText(UILabel label, string text) { }
+
+	// RVA: 0x1FB45C8 Offset: 0x1FB45C8 VA: 0x1FB45C8
+	private void SetServantFaceIcon(ServantSellConfirmListViewItem item, bool isServant, bool isCommandCode) { }
+
+	// RVA: 0x1FB49A0 Offset: 0x1FB49A0 VA: 0x1FB49A0
+	private void SetWarningText(ServantSellConfirmListViewItem item, ServantSellConfirmListViewManager.ModeKind modeKind, bool isServant, bool isCommandCode) { }
+
+	// RVA: 0x1FB4B98 Offset: 0x1FB4B98 VA: 0x1FB4B98
+	private string GetStatusText(ServantSellConfirmListViewItem item, bool isServant, bool isCommandCode) { }
+
+	// RVA: 0x1FB4DFC Offset: 0x1FB4DFC VA: 0x1FB4DFC
+	public void SetInput(ServantSellConfirmListViewItem item, bool isSelectEnable) { }
+
+	// RVA: 0x1FB4794 Offset: 0x1FB4794 VA: 0x1FB4794
+	private void SetDisp(ServantSellConfirmListViewItem item, bool isSelectEnable) { }
+
+	// RVA: 0x1FB4EF4 Offset: 0x1FB4EF4 VA: 0x1FB4EF4
+	public static ServantSellConfirmListViewItemDraw.DispMode GetDispMode(ServantSellConfirmListViewObject.InitMode initMode) { }
+}
+
+// Namespace: 
+public enum ServantSellConfirmListViewItemDraw.DispMode // TypeDefIndex: 10568
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellConfirmListViewItemDraw.DispMode INVISIBLE = 0;
+	public const ServantSellConfirmListViewItemDraw.DispMode INVALID = 1;
+	public const ServantSellConfirmListViewItemDraw.DispMode VALID = 2;
+	public const ServantSellConfirmListViewItemDraw.DispMode INPUT = 3;
+}
+
+// Namespace: 
+public class ServantSellConfirmListViewManager : ListViewManager // TypeDefIndex: 10569
+{
+	// Fields
+	[SerializeField] // RVA: 0xCE31E8 Offset: 0xCE31E8 VA: 0xCE31E8
+	private ServantOperationManager parentManager; // 0x138
+	private ServantSellConfirmListViewManager.InitMode initMode; // 0x140
+	private ServantSellConfirmListViewManager.ModeKind modeKind; // 0x144
+	private Action<ServantSellConfirmListViewItem> onSelectItem; // 0x148
+	private int callbackCount; // 0x150
+	private ServantSellConfirmListViewManager.Kind kind; // 0x154
+	[CompilerGeneratedAttribute] // RVA: 0xCE31F8 Offset: 0xCE31F8 VA: 0xCE31F8
+	private static Comparison<UserServantEntity> <>f__am$cache0; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xCE3208 Offset: 0xCE3208 VA: 0xCE3208
+	private static Comparison<UserCommandCodeEntity> <>f__am$cache1; // 0x8
+
+	// Properties
+	public List<ServantSellConfirmListViewObject> ObjectList { get; }
+	public List<ServantSellConfirmListViewObject> ClippingObjectList { get; }
+
+	// Methods
+
+	// RVA: 0x1FB4F18 Offset: 0x1FB4F18 VA: 0x1FB4F18
+	public void .ctor() { }
+
+	// RVA: 0x1FB4F20 Offset: 0x1FB4F20 VA: 0x1FB4F20
+	public List<ServantSellConfirmListViewObject> get_ObjectList() { }
+
+	// RVA: 0x1FB50AC Offset: 0x1FB50AC VA: 0x1FB50AC
+	public List<ServantSellConfirmListViewObject> get_ClippingObjectList() { }
+
+	// RVA: 0x1FB52F8 Offset: 0x1FB52F8 VA: 0x1FB52F8
+	public void CreateList(ServantSellConfirmListViewManager.Kind kind, long[] servantIds, long[] commandCodeids, bool isExceeded, bool isSellLastServant) { }
+
+	// RVA: 0x1FB5388 Offset: 0x1FB5388 VA: 0x1FB5388
+	private void CreateServantList(long[] servantIds, bool isExceeded, bool isSellLastServant) { }
+
+	// RVA: 0x1FB587C Offset: 0x1FB587C VA: 0x1FB587C
+	public void CreateSortServantList(long[] servantIds, bool isExceeded, bool isSellLastServant) { }
+
+	// RVA: 0x1FB5D8C Offset: 0x1FB5D8C VA: 0x1FB5D8C
+	private List<UserServantEntity> GetSvtSortEntList(List<long> servantIds) { }
+
+	// RVA: 0x1FB56E0 Offset: 0x1FB56E0 VA: 0x1FB56E0
+	private void CreateCommandCodeList(long[] commandCodeIds, bool isExceeded, bool isSellLastServant) { }
+
+	// RVA: 0x1FB5FF0 Offset: 0x1FB5FF0 VA: 0x1FB5FF0
+	public void CreateCommandCodeResultList(List<long> commandCodeIds, bool isExceeded, bool isSellLastServant) { }
+
+	// RVA: 0x1FB61F8 Offset: 0x1FB61F8 VA: 0x1FB61F8
+	private List<UserCommandCodeEntity> GetSortEntList(List<long> commandCodeIds) { }
+
+	// RVA: 0x1FB6458 Offset: 0x1FB6458 VA: 0x1FB6458
+	public void DestroyList() { }
+
+	// RVA: 0x1FB6460 Offset: 0x1FB6460 VA: 0x1FB6460
+	public void ModifyItem(long selectedId) { }
+
+	// RVA: 0x1FB6A38 Offset: 0x1FB6A38 VA: 0x1FB6A38 Slot: 4
+	protected override void SetObjectItem(ListViewObject obj, ListViewItem item) { }
+
+	// RVA: 0x1FB6D38 Offset: 0x1FB6D38 VA: 0x1FB6D38
+	public void SetMode(ServantSellConfirmListViewManager.InitMode mode, Action<ServantSellConfirmListViewItem> onSelectItem) { }
+
+	// RVA: 0x1FB6D40 Offset: 0x1FB6D40 VA: 0x1FB6D40
+	public void SetMode(ServantSellConfirmListViewManager.InitMode initMode) { }
+
+	// RVA: 0x1FB6DB4 Offset: 0x1FB6DB4 VA: 0x1FB6DB4
+	private void RequestListObject(ServantSellConfirmListViewObject.InitMode mode) { }
+
+	// RVA: 0x1FB6F40 Offset: 0x1FB6F40 VA: 0x1FB6F40
+	private void OnMoveEnd() { }
+
+	// RVA: 0x1FB7004 Offset: 0x1FB7004 VA: 0x1FB7004
+	private void OnClickSelectListView(ServantSellConfirmListViewItem selectItem) { }
+
+	// RVA: 0x1FB7008 Offset: 0x1FB7008 VA: 0x1FB7008
+	private void OnLongPushListView(ServantSellConfirmListViewItem selectItem) { }
+
+	// RVA: 0x1FB700C Offset: 0x1FB700C VA: 0x1FB700C
+	private void CallOnSelectitem(ServantSellConfirmListViewItem selectItem) { }
+
+	// RVA: 0x1FB7084 Offset: 0x1FB7084 VA: 0x1FB7084
+	public long GetAmountSortValue(int svtId) { }
+
+	// RVA: 0x1FB71F0 Offset: 0x1FB71F0 VA: 0x1FB71F0
+	public long GetCommandCodeAmountSortValue(int commandCodeId) { }
+
+	// RVA: 0x1FB7324 Offset: 0x1FB7324 VA: 0x1FB7324
+	public bool IsDragEnable(ServantSellConfirmListViewItem item) { }
+
+	// RVA: 0x1FB732C Offset: 0x1FB732C VA: 0x1FB732C
+	public bool IsSelectEnable(ServantSellConfirmListViewItem item, int addSum = 0, int addServantSum = 0) { }
+
+	// RVA: 0x1FB7334 Offset: 0x1FB7334 VA: 0x1FB7334
+	private void OnClickListView(ListViewObject obj) { }
+
+	// RVA: 0x1FB7338 Offset: 0x1FB7338 VA: 0x1FB7338
+	public ServantSellConfirmListViewManager.ModeKind GetModeKind() { }
+
+	// RVA: 0x1FB7340 Offset: 0x1FB7340 VA: 0x1FB7340
+	public bool IsDragStart() { }
+
+	// RVA: 0x1FB7348 Offset: 0x1FB7348 VA: 0x1FB7348
+	public bool GetDragSelect() { }
+
+	// RVA: 0x1FB7350 Offset: 0x1FB7350 VA: 0x1FB7350
+	public void SetDragStart(int startIndex, bool isDragSelect) { }
+
+	// RVA: 0x1FB7354 Offset: 0x1FB7354 VA: 0x1FB7354
+	public void SetDragMove(int moveIndex) { }
+
+	// RVA: 0x1FB7358 Offset: 0x1FB7358 VA: 0x1FB7358
+	public void SetDragEnd() { }
+
+	// RVA: 0x1FB735C Offset: 0x1FB735C VA: 0x1FB735C
+	public void CancelDragEnd() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3EA04 Offset: 0xD3EA04 VA: 0xD3EA04
+	// RVA: 0x1FB7360 Offset: 0x1FB7360 VA: 0x1FB7360
+	private static int <GetSvtSortEntList>m__0(UserServantEntity a, UserServantEntity b) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3EA14 Offset: 0xD3EA14 VA: 0xD3EA14
+	// RVA: 0x1FB7484 Offset: 0x1FB7484 VA: 0x1FB7484
+	private static int <GetSortEntList>m__1(UserCommandCodeEntity a, UserCommandCodeEntity b) { }
+}
+
+// Namespace: 
+public enum ServantSellConfirmListViewManager.Kind // TypeDefIndex: 10570
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellConfirmListViewManager.Kind SERVANT = 0;
+	public const ServantSellConfirmListViewManager.Kind SERVANT_EQUIP = 1;
+	public const ServantSellConfirmListViewManager.Kind COMMAND_CODE = 2;
+	public const ServantSellConfirmListViewManager.Kind SELL = 3;
+}
+
+// Namespace: 
+public enum ServantSellConfirmListViewManager.ModeKind // TypeDefIndex: 10571
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellConfirmListViewManager.ModeKind SELECT = 0;
+	public const ServantSellConfirmListViewManager.ModeKind LOCK = 1;
+	public const ServantSellConfirmListViewManager.ModeKind CHOICE = 2;
+}
+
+// Namespace: 
+public enum ServantSellConfirmListViewManager.InitMode // TypeDefIndex: 10572
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellConfirmListViewManager.InitMode NONE = 0;
+	public const ServantSellConfirmListViewManager.InitMode VALID = 1;
+	public const ServantSellConfirmListViewManager.InitMode INPUT = 2;
+}
+
+// Namespace: 
+public class ServantSellConfirmListViewObject : ListViewObject // TypeDefIndex: 10573
+{
+	// Fields
+	[SerializeField] // RVA: 0xCE3218 Offset: 0xCE3218 VA: 0xCE3218
+	private UITouchPress touchPress; // 0x70
+	private ServantSellConfirmListViewObject.State state; // 0x78
+	[CompilerGeneratedAttribute] // RVA: 0xCE3228 Offset: 0xCE3228 VA: 0xCE3228
+	[DebuggerBrowsableAttribute] // RVA: 0xCE3228 Offset: 0xCE3228 VA: 0xCE3228
+	private Action onMoveEnd; // 0x80
+	private ServantSellConfirmListViewItemDraw itemDraw; // 0x88
+	private ServantSellConfirmListViewItemDraw.DispMode dispMode; // 0x90
+	private GameObject dragObject; // 0x98
+
+	// Methods
+
+	// RVA: 0x1FB760C Offset: 0x1FB760C VA: 0x1FB760C
+	public void .ctor() { }
+
+	// RVA: 0x1FB7674 Offset: 0x1FB7674 VA: 0x1FB7674
+	private void add_onMoveEnd(Action value) { }
+
+	// RVA: 0x1FB7760 Offset: 0x1FB7760 VA: 0x1FB7760
+	private void remove_onMoveEnd(Action value) { }
+
+	// RVA: 0x1FB784C Offset: 0x1FB784C VA: 0x1FB784C
+	private void Awake() { }
+
+	// RVA: 0x1FB78C0 Offset: 0x1FB78C0 VA: 0x1FB78C0
+	private void OnDestroy() { }
+
+	// RVA: 0x1FB5274 Offset: 0x1FB5274 VA: 0x1FB5274
+	public ServantSellConfirmListViewItem GetItem() { }
+
+	// RVA: 0x1FB796C Offset: 0x1FB796C VA: 0x1FB796C Slot: 6
+	public override void SetItem(ListViewItem item, ListViewItemSeed seed) { }
+
+	// RVA: 0x1FB799C Offset: 0x1FB799C VA: 0x1FB799C Slot: 5
+	public override void SetItem(ListViewItem item) { }
+
+	// RVA: 0x1FB7994 Offset: 0x1FB7994 VA: 0x1FB7994
+	private void InitItem() { }
+
+	// RVA: 0x1FB79C4 Offset: 0x1FB79C4 VA: 0x1FB79C4 Slot: 9
+	public override void SetInput(bool isInput) { }
+
+	// RVA: 0x1FB7B90 Offset: 0x1FB7B90 VA: 0x1FB7B90 Slot: 7
+	public override bool IsCanDrag() { }
+
+	// RVA: 0x1FB7CB8 Offset: 0x1FB7CB8 VA: 0x1FB7CB8 Slot: 8
+	public override GameObject CreateDragObject() { }
+
+	// RVA: 0x1FB6B1C Offset: 0x1FB6B1C VA: 0x1FB6B1C
+	public void Init(ServantSellConfirmListViewObject.InitMode initMode, Action onMoveEnd) { }
+
+	// RVA: 0x1FB7F94 Offset: 0x1FB7F94 VA: 0x1FB7F94
+	private ServantSellConfirmListViewObject.State GetState(ServantSellConfirmListViewObject.InitMode initMode) { }
+
+	// RVA: 0x1FB7FB4 Offset: 0x1FB7FB4 VA: 0x1FB7FB4
+	private void CallOnMoveEnd() { }
+
+	// RVA: 0x1FB7DA4 Offset: 0x1FB7DA4 VA: 0x1FB7DA4
+	public void SetupDisp() { }
+
+	// RVA: 0x1FB7FD0 Offset: 0x1FB7FD0 VA: 0x1FB7FD0
+	public void OnClickSelect() { }
+
+	// RVA: 0x1FB81E4 Offset: 0x1FB81E4 VA: 0x1FB81E4
+	public void OnLongPush() { }
+
+	// RVA: 0x1FB8330 Offset: 0x1FB8330 VA: 0x1FB8330
+	public void OnDragDropStart() { }
+
+	// RVA: 0x1FB83BC Offset: 0x1FB83BC VA: 0x1FB83BC
+	public void OnLongRelease() { }
+}
+
+// Namespace: 
+public enum ServantSellConfirmListViewObject.InitMode // TypeDefIndex: 10574
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellConfirmListViewObject.InitMode INVISIBLE = 0;
+	public const ServantSellConfirmListViewObject.InitMode INVALID = 1;
+	public const ServantSellConfirmListViewObject.InitMode VALID = 2;
+	public const ServantSellConfirmListViewObject.InitMode INPUT = 3;
+	public const ServantSellConfirmListViewObject.InitMode MODIFY = 4;
+}
+
+// Namespace: 
+private enum ServantSellConfirmListViewObject.State // TypeDefIndex: 10575
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellConfirmListViewObject.State INIT = 0;
+	public const ServantSellConfirmListViewObject.State IDLE = 1;
+	public const ServantSellConfirmListViewObject.State MOVE = 2;
+	public const ServantSellConfirmListViewObject.State INPUT = 3;
+}
+
+// Namespace: 
+public class ServantSellConfirmMenu : BaseDialog // TypeDefIndex: 10576
+{
+	// Fields
+	private readonly int DEFAULT_MESSAGE_LABEL_FONT_SIZE; // 0x58
+	private readonly int ALERT_MESSAGE_LABEL_FONT_SIZE; // 0x5C
+	private readonly int DEFAULT_INFO_LABEL_FONT_SIZE; // 0x60
+	private readonly int SELL_SELECT_LABEL_FONT_SIZE; // 0x64
+	private readonly int QP_NUM_LABEL_SIZE; // 0x68
+	private readonly int PRI_NUM_LABEL_SIZE; // 0x6C
+	[SerializeField] // RVA: 0xCE3264 Offset: 0xCE3264 VA: 0xCE3264
+	private UILabel titleLabel; // 0x70
+	[SerializeField] // RVA: 0xCE3274 Offset: 0xCE3274 VA: 0xCE3274
+	private UILabel messageLabel; // 0x78
+	[SerializeField] // RVA: 0xCE3284 Offset: 0xCE3284 VA: 0xCE3284
+	private UILabel info1Label; // 0x80
+	[SerializeField] // RVA: 0xCE3294 Offset: 0xCE3294 VA: 0xCE3294
+	private UILabel info2Label; // 0x88
+	[SerializeField] // RVA: 0xCE32A4 Offset: 0xCE32A4 VA: 0xCE32A4
+	private UILabel info3Label; // 0x90
+	[SerializeField] // RVA: 0xCE32B4 Offset: 0xCE32B4 VA: 0xCE32B4
+	private UILabel warningLabel; // 0x98
+	[SerializeField] // RVA: 0xCE32C4 Offset: 0xCE32C4 VA: 0xCE32C4
+	private UILabel decideLabel; // 0xA0
+	[SerializeField] // RVA: 0xCE32D4 Offset: 0xCE32D4 VA: 0xCE32D4
+	private UILabel cancelLabel; // 0xA8
+	[SerializeField] // RVA: 0xCE32E4 Offset: 0xCE32E4 VA: 0xCE32E4
+	private UILabel closeLabel; // 0xB0
+	[SerializeField] // RVA: 0xCE32F4 Offset: 0xCE32F4 VA: 0xCE32F4
+	private UICommonButton decideButton; // 0xB8
+	[SerializeField] // RVA: 0xCE3304 Offset: 0xCE3304 VA: 0xCE3304
+	private UICommonButton cancelButton; // 0xC0
+	[SerializeField] // RVA: 0xCE3314 Offset: 0xCE3314 VA: 0xCE3314
+	private UICommonButton closeButton; // 0xC8
+	[SerializeField] // RVA: 0xCE3324 Offset: 0xCE3324 VA: 0xCE3324
+	private GameObject commonInfoObj; // 0xD0
+	[SerializeField] // RVA: 0xCE3334 Offset: 0xCE3334 VA: 0xCE3334
+	private GameObject sellLastSvtWarningInfoObj; // 0xD8
+	[SerializeField] // RVA: 0xCE3344 Offset: 0xCE3344 VA: 0xCE3344
+	private UILabel lastSvtWarningMsgLabel1; // 0xE0
+	[SerializeField] // RVA: 0xCE3354 Offset: 0xCE3354 VA: 0xCE3354
+	private UILabel lastSvtWarningMsgLabel2; // 0xE8
+	[SerializeField] // RVA: 0xCE3364 Offset: 0xCE3364 VA: 0xCE3364
+	private UILabel lastSvtWarningMsgLabel3; // 0xF0
+	[SerializeField] // RVA: 0xCE3374 Offset: 0xCE3374 VA: 0xCE3374
+	private UILabel lastSvtWarningMsgLabel4; // 0xF8
+	[SerializeField] // RVA: 0xCE3384 Offset: 0xCE3384 VA: 0xCE3384
+	private UILabel upperLabel; // 0x100
+	[SerializeField] // RVA: 0xCE3394 Offset: 0xCE3394 VA: 0xCE3394
+	private UILabel lowerLabel; // 0x108
+	[SerializeField] // RVA: 0xCE33A4 Offset: 0xCE33A4 VA: 0xCE33A4
+	private ServantSellConfirmListViewManager servantSellConfirmListViewManager; // 0x110
+	[SerializeField] // RVA: 0xCE33B4 Offset: 0xCE33B4 VA: 0xCE33B4
+	private ServantSellMaxAlertDialog servantSellMaxAlertDialog; // 0x118
+	[SerializeField] // RVA: 0xCE33C4 Offset: 0xCE33C4 VA: 0xCE33C4
+	private GameObject listViewBg; // 0x120
+	[SerializeField] // RVA: 0xCE33D4 Offset: 0xCE33D4 VA: 0xCE33D4
+	private UILabel QpLabel; // 0x128
+	[SerializeField] // RVA: 0xCE33E4 Offset: 0xCE33E4 VA: 0xCE33E4
+	private UILabel QpNumLabel; // 0x130
+	[SerializeField] // RVA: 0xCE33F4 Offset: 0xCE33F4 VA: 0xCE33F4
+	private UILabel ManaLabel; // 0x138
+	[SerializeField] // RVA: 0xCE3404 Offset: 0xCE3404 VA: 0xCE3404
+	private UILabel ManaNumLabel; // 0x140
+	[SerializeField] // RVA: 0xCE3414 Offset: 0xCE3414 VA: 0xCE3414
+	private UILabel RareLabel; // 0x148
+	[SerializeField] // RVA: 0xCE3424 Offset: 0xCE3424 VA: 0xCE3424
+	private UILabel RareNumLabel; // 0x150
+	[SerializeField] // RVA: 0xCE3434 Offset: 0xCE3434 VA: 0xCE3434
+	private UILabel RareLabel2; // 0x158
+	private bool[] servantTypeFlags; // 0x160
+	private bool[] isRareFlags; // 0x168
+	private ServantSellConfirmMenu.State state; // 0x170
+	private bool isMaxQpChecked; // 0x174
+	private Action<int> onSellServantConfirm; // 0x178
+	private Action onClose; // 0x180
+	private ServantSellConfirmMenu.Kind kind; // 0x188
+	private UserGameEntity userGameEntity; // 0x190
+	private long servantStatusId; // 0x198
+	private long commandCodeStatusId; // 0x1A0
+	private const int BuyDecide = 1;
+	private const int BuyCancel = 0;
+	private int getQP; // 0x1A8
+	private int getMana; // 0x1AC
+	private int getRarePri; // 0x1B0
+	private List<long> lastSvtCommandCodeList; // 0x1B8
+	private bool isTwoLinesWarning; // 0x1C0
+	[CompilerGeneratedAttribute] // RVA: 0xCE3444 Offset: 0xCE3444 VA: 0xCE3444
+	private static Predicate<long> <>f__am$cache0; // 0x0
+
+	// Properties
+	public bool IsCommandCodeRemoveResult { get; }
+
+	// Methods
+
+	// RVA: 0x1FB84DC Offset: 0x1FB84DC VA: 0x1FB84DC
+	public void .ctor() { }
+
+	// RVA: 0x1FB8584 Offset: 0x1FB8584 VA: 0x1FB8584
+	public bool get_IsCommandCodeRemoveResult() { }
+
+	// RVA: 0x1FB85F0 Offset: 0x1FB85F0 VA: 0x1FB85F0
+	public void ClearCommandCodeRemoveResult() { }
+
+	// RVA: 0x1FB8650 Offset: 0x1FB8650 VA: 0x1FB8650
+	public void Init() { }
+
+	// RVA: 0x1FB867C Offset: 0x1FB867C VA: 0x1FB867C
+	private void TextClear() { }
+
+	// RVA: 0x1FB8A88 Offset: 0x1FB8A88 VA: 0x1FB8A88
+	public void Open(ServantSellConfirmMenu.Kind kind, long[] servantIdList, long[] commandCodeIdList, Action<int> onSellServantConfirm) { }
+
+	// RVA: 0x1FBA5F4 Offset: 0x1FBA5F4 VA: 0x1FBA5F4
+	public void OpenSellEquippedLastSvtWarning(ServantSellConfirmMenu.Kind kind, long[] servantIdList, Action<int> callback) { }
+
+	// RVA: 0x1FBADBC Offset: 0x1FBADBC VA: 0x1FBADBC
+	public void OpenCommandCodeRemoveResult(Action<int> callback) { }
+
+	// RVA: 0x1FB8DB4 Offset: 0x1FB8DB4 VA: 0x1FB8DB4
+	private void SetObjectsActive(ServantSellConfirmMenu.Kind kind) { }
+
+	// RVA: 0x1FBAB9C Offset: 0x1FBAB9C VA: 0x1FBAB9C
+	private bool GetIsOnlyCloseButton(ServantSellConfirmMenu.Kind kind) { }
+
+	// RVA: 0x1FBB174 Offset: 0x1FBB174 VA: 0x1FBB174
+	private bool GetIsShowCommonInfoObj(ServantSellConfirmMenu.Kind kind) { }
+
+	// RVA: 0x1FB8EC8 Offset: 0x1FB8EC8 VA: 0x1FB8EC8
+	private void SetMessageStatusByServant(long[] servantIds, out bool isMaterial, out bool isExceeded, out bool isEquipedCommandCode) { }
+
+	// RVA: 0x1FB93F4 Offset: 0x1FB93F4 VA: 0x1FB93F4
+	private void SetMessageStatusByCommandCode(long[] commandCodeIds) { }
+
+	// RVA: 0x1FB9898 Offset: 0x1FB9898 VA: 0x1FB9898
+	private void SetInfoLabels(ServantSellConfirmMenu.Kind kind, bool isNoWarning) { }
+
+	// RVA: 0x1FBA014 Offset: 0x1FBA014 VA: 0x1FBA014
+	private void SetNumLabels(ServantSellConfirmMenu.Kind kind, int getQp, int getMana, int getRarePri) { }
+
+	// RVA: 0x1FBB21C Offset: 0x1FBB21C VA: 0x1FBB21C
+	private float GetNumLabelWidth(out float qpWidth, out float manaWidth, out float rarePriWidth) { }
+
+	// RVA: 0x1FB9600 Offset: 0x1FB9600 VA: 0x1FB9600
+	private void SetMessageText(ServantSellConfirmMenu.Kind kind) { }
+
+	// RVA: 0x1FBB48C Offset: 0x1FBB48C VA: 0x1FBB48C
+	private string GetMessageText(ServantSellConfirmMenu.Kind kind, bool isBoth) { }
+
+	// RVA: 0x1FB97BC Offset: 0x1FB97BC VA: 0x1FB97BC
+	private void SetWarningText(ServantSellConfirmMenu.Kind kind, bool isMaterial, bool isExceeded, bool isEquippedCommandCode, out bool isNoWarning) { }
+
+	// RVA: 0x1FBB7BC Offset: 0x1FBB7BC VA: 0x1FBB7BC
+	private string GetWarningText(ServantSellConfirmMenu.Kind kind, bool isMaterial, bool isExceeded, bool isEquippedCommandCode) { }
+
+	// RVA: 0x1FBA520 Offset: 0x1FBA520 VA: 0x1FBA520
+	private void SetListViewManager(ServantSellConfirmMenu.Kind kind, long[] servantIdList, long[] commandCodeIdList, bool isExceeded) { }
+
+	// RVA: 0x1FBBC34 Offset: 0x1FBBC34 VA: 0x1FBBC34
+	private void SetLastServantWarningMessageLabels(ServantSellConfirmMenu.Kind kind) { }
+
+	// RVA: 0x1FBB3E8 Offset: 0x1FBB3E8 VA: 0x1FBB3E8
+	private bool IsBoth(bool[] flags) { }
+
+	// RVA: 0x1FBBC38 Offset: 0x1FBBC38 VA: 0x1FBBC38
+	private void EndOpen() { }
+
+	// RVA: 0x1FBBCF4 Offset: 0x1FBBCF4 VA: 0x1FBBCF4
+	public void Close() { }
+
+	// RVA: 0x1FBBCFC Offset: 0x1FBBCFC VA: 0x1FBBCFC
+	public void Close(Action callback) { }
+
+	// RVA: 0x1FBBD8C Offset: 0x1FBBD8C VA: 0x1FBBD8C
+	private void EndClose() { }
+
+	// RVA: 0x1FBBDD8 Offset: 0x1FBBDD8 VA: 0x1FBBDD8
+	private void CallOnClose() { }
+
+	// RVA: 0x1FBBDF4 Offset: 0x1FBBDF4 VA: 0x1FBBDF4
+	private void CallOnSellServantConfirm(int result) { }
+
+	// RVA: 0x1FBBE6C Offset: 0x1FBBE6C VA: 0x1FBBE6C
+	public void OnClickDecide() { }
+
+	// RVA: 0x1FBC5F0 Offset: 0x1FBC5F0 VA: 0x1FBC5F0
+	private void OpenQpMaxAlert(string title, string message, string getable) { }
+
+	// RVA: 0x1FBC958 Offset: 0x1FBC958 VA: 0x1FBC958
+	private void TransitionToCombineScene() { }
+
+	// RVA: 0x1FBC050 Offset: 0x1FBC050 VA: 0x1FBC050
+	private bool GetIsQpMaxAlert(out string title, out string message, out string getable) { }
+
+	// RVA: 0x1FBC548 Offset: 0x1FBC548 VA: 0x1FBC548
+	private void SellServantDecide() { }
+
+	// RVA: 0x1FBC9D0 Offset: 0x1FBC9D0 VA: 0x1FBC9D0
+	public void EndMaxErrorDialog() { }
+
+	// RVA: 0x1FBC9E0 Offset: 0x1FBC9E0 VA: 0x1FBC9E0
+	public void OnClickCancel() { }
+
+	// RVA: 0x1FBCAA4 Offset: 0x1FBCAA4 VA: 0x1FBCAA4
+	public void OnClickClose() { }
+
+	// RVA: 0x1FBCB38 Offset: 0x1FBCB38 VA: 0x1FBCB38
+	public void DestroyList() { }
+
+	// RVA: 0x1FBCBD4 Offset: 0x1FBCBD4 VA: 0x1FBCBD4
+	public void ModifyItem(long selectedId) { }
+
+	// RVA: 0x1FBCC08 Offset: 0x1FBCC08 VA: 0x1FBCC08
+	private void OnSelectServantDetail(ServantSellConfirmListViewItem selectItem) { }
+
+	// RVA: 0x1FBCE74 Offset: 0x1FBCE74 VA: 0x1FBCE74
+	private void EndShowServant(bool isDecide) { }
+
+	// RVA: 0x1FBCF2C Offset: 0x1FBCF2C VA: 0x1FBCF2C
+	private void EndCloseShowServant() { }
+
+	// RVA: 0x1FBCD54 Offset: 0x1FBCD54 VA: 0x1FBCD54
+	private void OnSelectCommandCodeDetail(ServantSellConfirmListViewItem selectItem) { }
+
+	// RVA: 0x1FBCFCC Offset: 0x1FBCFCC VA: 0x1FBCFCC
+	private void EndShowCommandCode(bool isDecide) { }
+
+	// RVA: 0x1FBD084 Offset: 0x1FBD084 VA: 0x1FBD084
+	private void EndCloseShowCommandCode() { }
+
+	// RVA: 0x1FBB17C Offset: 0x1FBB17C VA: 0x1FBB17C
+	private void SetLabelLocalPositionY(UILabel label, float y) { }
+
+	// RVA: 0x1FBD124 Offset: 0x1FBD124 VA: 0x1FBD124
+	public static ServantSellConfirmMenu.Kind GetServantSellConfirmKindOnOpenConfirm(ServantOperationManager.Kind tabKind, bool isNoServant, bool isSellEquipedCommandCodeLastServant) { }
+
+	// RVA: 0x1FBD174 Offset: 0x1FBD174 VA: 0x1FBD174
+	public static ServantSellConfirmMenu.Kind GetServantSellConfirmKindOnRequestEnd(ServantOperationManager.Kind tabKind, bool isError) { }
+
+	// RVA: 0x1FBD1B8 Offset: 0x1FBD1B8 VA: 0x1FBD1B8
+	public void OnEnable() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3EA24 Offset: 0xD3EA24 VA: 0xD3EA24
+	// RVA: 0x1FBD260 Offset: 0x1FBD260 VA: 0x1FBD260
+	private static bool <OpenSellEquippedLastSvtWarning>m__0(long s) { }
+}
+
+// Namespace: 
+public enum ServantSellConfirmMenu.Kind // TypeDefIndex: 10577
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellConfirmMenu.Kind SELECT_SERVANT = 0;
+	public const ServantSellConfirmMenu.Kind SELECT_SERVANT_EQUIP = 1;
+	public const ServantSellConfirmMenu.Kind SELECT_SERVANT_EXCEEDED = 2;
+	public const ServantSellConfirmMenu.Kind SELECT_COMMAND_CODE = 3;
+	public const ServantSellConfirmMenu.Kind SELECT_LAST_SVT = 4;
+	public const ServantSellConfirmMenu.Kind SELL_SERVANT = 5;
+	public const ServantSellConfirmMenu.Kind SELL_SERVANT_EQUIP = 6;
+	public const ServantSellConfirmMenu.Kind SELL_COMMAND_CODE = 7;
+	public const ServantSellConfirmMenu.Kind SELL_ERROR_SERVANT = 8;
+	public const ServantSellConfirmMenu.Kind SELL_ERROR_SERVANT_EQUIP = 9;
+	public const ServantSellConfirmMenu.Kind SELL_ERROR_COMMAND_CODE = 10;
+	public const ServantSellConfirmMenu.Kind NO_SELECT_SERVANT = 11;
+	public const ServantSellConfirmMenu.Kind NO_SELECT_SERVANT_EQUIP = 12;
+	public const ServantSellConfirmMenu.Kind NO_SELECT_COMMAND_CODE = 13;
+}
+
+// Namespace: 
+private enum ServantSellConfirmMenu.State // TypeDefIndex: 10578
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellConfirmMenu.State INIT = 0;
+	public const ServantSellConfirmMenu.State OPEN = 1;
+	public const ServantSellConfirmMenu.State INPUT = 2;
+	public const ServantSellConfirmMenu.State SELECTED = 3;
+	public const ServantSellConfirmMenu.State CLOSE = 4;
+}
+
+// Namespace: 
+private enum ServantSellConfirmMenu.ServantType // TypeDefIndex: 10579
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellConfirmMenu.ServantType SERVANT = 0;
+	public const ServantSellConfirmMenu.ServantType SERVANT_EQUIP = 1;
+	public const ServantSellConfirmMenu.ServantType COMMAND_CODE = 2;
+	public const ServantSellConfirmMenu.ServantType SUM = 3;
+}
+
+// Namespace: 
+public class ServantSellMaxAlertDialog : BaseDialog // TypeDefIndex: 10580
+{
+	// Fields
+	[SerializeField] // RVA: 0xCE3454 Offset: 0xCE3454 VA: 0xCE3454
+	private UILabel titleLabel; // 0x58
+	[SerializeField] // RVA: 0xCE3464 Offset: 0xCE3464 VA: 0xCE3464
+	private UILabel messageLabel; // 0x60
+	[SerializeField] // RVA: 0xCE3474 Offset: 0xCE3474 VA: 0xCE3474
+	private UILabel getableLabel; // 0x68
+	[SerializeField] // RVA: 0xCE3484 Offset: 0xCE3484 VA: 0xCE3484
+	private UICommonButton decideButton; // 0x70
+	[SerializeField] // RVA: 0xCE3494 Offset: 0xCE3494 VA: 0xCE3494
+	private UICommonButton transitionButton; // 0x78
+	[SerializeField] // RVA: 0xCE34A4 Offset: 0xCE34A4 VA: 0xCE34A4
+	private UICommonButton closeButton; // 0x80
+	[SerializeField] // RVA: 0xCE34B4 Offset: 0xCE34B4 VA: 0xCE34B4
+	private UILabel decideLabel; // 0x88
+	[SerializeField] // RVA: 0xCE34C4 Offset: 0xCE34C4 VA: 0xCE34C4
+	private UILabel transitionLabel; // 0x90
+	[SerializeField] // RVA: 0xCE34D4 Offset: 0xCE34D4 VA: 0xCE34D4
+	private UILabel closeLabel; // 0x98
+	private ServantSellMaxAlertDialog.State state; // 0xA0
+	private Action onDecide; // 0xA8
+	private Action onTransition; // 0xB0
+	private Action onClose; // 0xB8
+
+	// Methods
+
+	// RVA: 0x1FBD26C Offset: 0x1FBD26C VA: 0x1FBD26C
+	public void .ctor() { }
+
+	// RVA: 0x1FBD2D4 Offset: 0x1FBD2D4 VA: 0x1FBD2D4
+	private void Init() { }
+
+	// RVA: 0x1FBC784 Offset: 0x1FBC784 VA: 0x1FBC784
+	public void Open(string title, string message, string getable, string decide, string transition, string close, Action onDecide, Action onTransition, Action onClose) { }
+
+	// RVA: 0x1FBD55C Offset: 0x1FBD55C VA: 0x1FBD55C
+	private void EndOpen() { }
+
+	// RVA: 0x1FBD568 Offset: 0x1FBD568 VA: 0x1FBD568
+	private void Close(Action onCloseEnd) { }
+
+	// RVA: 0x1FBD640 Offset: 0x1FBD640 VA: 0x1FBD640
+	private void EndClose() { }
+
+	// RVA: 0x1FBD644 Offset: 0x1FBD644 VA: 0x1FBD644
+	private void OnClickDecide() { }
+
+	// RVA: 0x1FBD698 Offset: 0x1FBD698 VA: 0x1FBD698
+	private void OnClickTransition() { }
+
+	// RVA: 0x1FBD7CC Offset: 0x1FBD7CC VA: 0x1FBD7CC
+	private void OnClickClose() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3EA34 Offset: 0xD3EA34 VA: 0xD3EA34
+	// RVA: 0x1FBD88C Offset: 0x1FBD88C VA: 0x1FBD88C
+	private void <OnClickTransition>m__0() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD3EA44 Offset: 0xD3EA44 VA: 0xD3EA44
+	// RVA: 0x1FBD8C0 Offset: 0x1FBD8C0 VA: 0x1FBD8C0
+	private void <OnClickClose>m__1() { }
+}
+
+// Namespace: 
+private enum ServantSellMaxAlertDialog.State // TypeDefIndex: 10581
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellMaxAlertDialog.State NONE = 0;
+	public const ServantSellMaxAlertDialog.State INIT = 1;
+	public const ServantSellMaxAlertDialog.State OPEN = 2;
+	public const ServantSellMaxAlertDialog.State INPUT = 3;
+	public const ServantSellMaxAlertDialog.State SELECTED = 4;
+	public const ServantSellMaxAlertDialog.State CLOSE = 5;
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCB1490 Offset: 0xCB1490 VA: 0xCB1490
+private sealed class ServantSellMaxAlertDialog.<Close>c__AnonStorey0 // TypeDefIndex: 10582
+{
+	// Fields
+	internal Action onCloseEnd; // 0x10
+	internal ServantSellMaxAlertDialog $this; // 0x18
+
+	// Methods
+
+	// RVA: 0x1FBD638 Offset: 0x1FBD638 VA: 0x1FBD638
+	public void .ctor() { }
+
+	// RVA: 0x1FBD8D4 Offset: 0x1FBD8D4 VA: 0x1FBD8D4
+	internal void <>m__0() { }
+}
+
+// Namespace: 
+public class ServantSellMenu : BaseMenu // TypeDefIndex: 10583
+{
+	// Fields
+	[SerializeField] // RVA: 0xCE34E4 Offset: 0xCE34E4 VA: 0xCE34E4
+	private ServantOperationManager servantOperationManager; // 0x58
+	[SerializeField] // RVA: 0xCE34F4 Offset: 0xCE34F4 VA: 0xCE34F4
+	private UILabel servantTabLabel; // 0x60
+	[SerializeField] // RVA: 0xCE3504 Offset: 0xCE3504 VA: 0xCE3504
+	private UILabel servantEquipTabLabel; // 0x68
+	[SerializeField] // RVA: 0xCE3514 Offset: 0xCE3514 VA: 0xCE3514
+	private UILabel commandCodeTabLabel; // 0x70
+	[SerializeField] // RVA: 0xCE3524 Offset: 0xCE3524 VA: 0xCE3524
+	private UISprite servantTabTitleSprite; // 0x78
+	[SerializeField] // RVA: 0xCE3534 Offset: 0xCE3534 VA: 0xCE3534
+	private UISprite servantEquipTabTitleSprite; // 0x80
+	[SerializeField] // RVA: 0xCE3544 Offset: 0xCE3544 VA: 0xCE3544
+	private UISprite commandCodeTabTitleSprite; // 0x88
+	[SerializeField] // RVA: 0xCE3554 Offset: 0xCE3554 VA: 0xCE3554
+	private UISprite servantTabSprite; // 0x90
+	[SerializeField] // RVA: 0xCE3564 Offset: 0xCE3564 VA: 0xCE3564
+	private UISprite servantEquipTabSprite; // 0x98
+	[SerializeField] // RVA: 0xCE3574 Offset: 0xCE3574 VA: 0xCE3574
+	private UISprite commandCodeTabSprite; // 0xA0
+	[SerializeField] // RVA: 0xCE3584 Offset: 0xCE3584 VA: 0xCE3584
+	private UICommonButton servantTabButton; // 0xA8
+	[SerializeField] // RVA: 0xCE3594 Offset: 0xCE3594 VA: 0xCE3594
+	private UICommonButton servantEquipTabButton; // 0xB0
+	[SerializeField] // RVA: 0xCE35A4 Offset: 0xCE35A4 VA: 0xCE35A4
+	private UICommonButton commandCodeTabButton; // 0xB8
+	private ServantSellMenu.State state; // 0xC0
+	private Action<ServantSellMenu.ResultKind, long[], long[]> onSelectSellServant; // 0xC8
+	private Action onOpen; // 0xD0
+	private Action onClose; // 0xD8
+	private ServantOperationManager.Kind tabKind; // 0xE0
+	private long servantStatusId; // 0xE8
+	private long commandCodeStatusId; // 0xF0
+
+	// Properties
+	public bool IsSellEquipedCmdCodeLastServant { get; }
+
+	// Methods
+
+	// RVA: 0x1FBD914 Offset: 0x1FBD914 VA: 0x1FBD914
+	public void .ctor() { }
+
+	// RVA: 0x1FBD97C Offset: 0x1FBD97C VA: 0x1FBD97C
+	public ServantOperationManager.Kind GetTabKind() { }
+
+	// RVA: 0x1FBD984 Offset: 0x1FBD984 VA: 0x1FBD984
+	public bool get_IsSellEquipedCmdCodeLastServant() { }
+
+	// RVA: 0x1FBD9B4 Offset: 0x1FBD9B4 VA: 0x1FBD9B4
+	public void Init() { }
+
+	// RVA: 0x1FBD9F8 Offset: 0x1FBD9F8 VA: 0x1FBD9F8
+	public void Init(ServantOperationManager.Kind tabToInit) { }
+
+	// RVA: 0x1FBDA4C Offset: 0x1FBDA4C VA: 0x1FBDA4C
+	public void Open(Action<ServantSellMenu.ResultKind, long[], long[]> onSelectSellServant, Action onOpen) { }
+
+	// RVA: 0x1FBDC90 Offset: 0x1FBDC90 VA: 0x1FBDC90
+	private void EndOpen() { }
+
+	// RVA: 0x1FBDD6C Offset: 0x1FBDD6C VA: 0x1FBDD6C
+	private void CallOnOpen() { }
+
+	// RVA: 0x1FBDD88 Offset: 0x1FBDD88 VA: 0x1FBDD88
+	public void Close(Action callback) { }
+
+	// RVA: 0x1FBDE38 Offset: 0x1FBDE38 VA: 0x1FBDE38
+	private void EndClose() { }
+
+	// RVA: 0x1FBDE74 Offset: 0x1FBDE74 VA: 0x1FBDE74
+	private void CallOnClose() { }
+
+	// RVA: 0x1FBDB74 Offset: 0x1FBDB74 VA: 0x1FBDB74
+	private void SetTabKind(ServantOperationManager.Kind kind, bool isInit = False) { }
+
+	// RVA: 0x1FBDE90 Offset: 0x1FBDE90 VA: 0x1FBDE90
+	private void SetTabLabel(ServantOperationManager.Kind kind) { }
+
+	// RVA: 0x1FBE338 Offset: 0x1FBE338 VA: 0x1FBE338
+	private void SetTabButton(UICommonButton tabButton, UISprite titleSprite, UISprite tabSprite, ServantOperationManager.Kind selectedKind, ServantOperationManager.Kind tabKind, bool isInit) { }
+
+	// RVA: 0x1FBE4B0 Offset: 0x1FBE4B0 VA: 0x1FBE4B0
+	private string GetTabTitleSpriteName(ServantOperationManager.Kind kind, bool isSelected) { }
+
+	// RVA: 0x1FBE580 Offset: 0x1FBE580 VA: 0x1FBE580
+	public void OnClickTabServant() { }
+
+	// RVA: 0x1FBE630 Offset: 0x1FBE630 VA: 0x1FBE630
+	public void OnClickTabServantEquip() { }
+
+	// RVA: 0x1FBE704 Offset: 0x1FBE704 VA: 0x1FBE704
+	public void OnClickTabCommandCode() { }
+
+	// RVA: 0x1FBE7B4 Offset: 0x1FBE7B4 VA: 0x1FBE7B4
+	private void CallOnSelectServant(ServantSellMenu.ResultKind result, long[] servantList, long[] commandCodeList) { }
+
+	// RVA: 0x1FBE848 Offset: 0x1FBE848 VA: 0x1FBE848
+	private void OnSelectSellServant(ServantOperationManager.ActionKind kind, long[] servantList, long[] commandCodeList) { }
+
+	// RVA: 0x1FBEAD4 Offset: 0x1FBEAD4 VA: 0x1FBEAD4
+	private void EndShowServant(bool isDecide, bool isIndividualityChanged, int questId) { }
+
+	// RVA: 0x1FBEC10 Offset: 0x1FBEC10 VA: 0x1FBEC10
+	private void EndShowCommandCode(bool isDecide, bool isIndividualityChanged) { }
+
+	// RVA: 0x1FBECE0 Offset: 0x1FBECE0 VA: 0x1FBECE0
+	private void EndCloseShowServant() { }
+
+	// RVA: 0x1FBED84 Offset: 0x1FBED84 VA: 0x1FBED84
+	private void EndCloseShowServantQuestJump() { }
+
+	// RVA: 0x1FBEDF0 Offset: 0x1FBEDF0 VA: 0x1FBEDF0
+	public void InitBackListView() { }
+
+	// RVA: 0x1FBEE20 Offset: 0x1FBEE20 VA: 0x1FBEE20
+	public void ModifyListItem(long[] selectedSvtIds, long[] selectedCommandCodeIds) { }
+}
+
+// Namespace: 
+public enum ServantSellMenu.ResultKind // TypeDefIndex: 10584
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellMenu.ResultKind CANCEL = 0;
+	public const ServantSellMenu.ResultKind DECIDE = 1;
+}
+
+// Namespace: 
+private enum ServantSellMenu.State // TypeDefIndex: 10585
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantSellMenu.State INIT = 0;
+	public const ServantSellMenu.State OPEN = 1;
+	public const ServantSellMenu.State INPUT = 2;
+	public const ServantSellMenu.State SELECTED = 3;
+	public const ServantSellMenu.State CLOSE = 4;
+	public const ServantSellMenu.State SHOW_SERVANT_DETAIL = 5;
+}
+
+// Namespace: 
+public class ShopActionManager : MonoBehaviour // TypeDefIndex: 10586
+{
+	// Fields
+	private List<ShopActionEntity> shopActionList; // 0x18
+	private Action afterCallback; // 0x20
+	private bool isVoicePlaying; // 0x28
+	private bool isVoiceWaiting; // 0x29
+
+	// Methods
+
+	// RVA: 0x18938A8 Offset: 0x18938A8 VA: 0x18938A8
+	public void .ctor() { }
+
+	// RVA: 0x1893918 Offset: 0x1893918 VA: 0x1893918
+	public void SetShopAction(List<ShopActionEntity> shopActionEntityList, Action callback) { }
+
+	// RVA: 0x1893920 Offset: 0x1893920 VA: 0x1893920
+	public void ExecutionShopAction() { }
+
+	// RVA: 0x1893C5C Offset: 0x1893C5C VA: 0x1893C5C
+	private void VoiceEnd() { }
+
+	// RVA: 0x1893D1C Offset: 0x1893D1C VA: 0x1893D1C
+	public bool IsVoiceWait() { }
+}
+
+// Namespace: 
+public class ShopBuyItemConfirmMenu : BaseDialog // TypeDefIndex: 10587
+{
+	// Fields
+	public static readonly string VALENTINE_BTN_NAME; // 0x0
+	public static readonly string DECIED_BTN_NAME_DEFAULT; // 0x8
+	public static readonly string DECIED_BTN_NAME_LIMIT_MATERIAL; // 0x10
+	private static readonly int PRICE_DATA_LABEL_MAX_WIDTH; // 0x18
+	[SerializeField] // RVA: 0xCE35B4 Offset: 0xCE35B4 VA: 0xCE35B4
+	private UICrossNarrowLabel nameLabel; // 0x58
+	[SerializeField] // RVA: 0xCE35C4 Offset: 0xCE35C4 VA: 0xCE35C4
+	private UILabel messageLabel; // 0x60
+	[SerializeField] // RVA: 0xCE35D4 Offset: 0xCE35D4 VA: 0xCE35D4
+	private UILabel warningLabel; // 0x68
+	[SerializeField] // RVA: 0xCE35E4 Offset: 0xCE35E4 VA: 0xCE35E4
+	private UILabel freeLabel; // 0x70
+	[SerializeField] // RVA: 0xCE35F4 Offset: 0xCE35F4 VA: 0xCE35F4
+	private UILabel presentAheadLabel; // 0x78
+	[SerializeField] // RVA: 0xCE3604 Offset: 0xCE3604 VA: 0xCE3604
+	private UILabel textOnMask; // 0x80
+	[SerializeField] // RVA: 0xCE3614 Offset: 0xCE3614 VA: 0xCE3614
+	private UICommonButton decideButton; // 0x88
+	[SerializeField] // RVA: 0xCE3624 Offset: 0xCE3624 VA: 0xCE3624
+	private UISprite decideButtonImg; // 0x90
+	[SerializeField] // RVA: 0xCE3634 Offset: 0xCE3634 VA: 0xCE3634
+	private UICommonButton cancelButton; // 0x98
+	[SerializeField] // RVA: 0xCE3644 Offset: 0xCE3644 VA: 0xCE3644
+	private ItemIconComponent itemIcon; // 0xA0
+	[SerializeField] // RVA: 0xCE3654 Offset: 0xCE3654 VA: 0xCE3654
+	private UICrossNarrowLabel nameTextLabel; // 0xA8
+	[SerializeField] // RVA: 0xCE3664 Offset: 0xCE3664 VA: 0xCE3664
+	private UISprite itemMaskeSprite; // 0xB0
+	[SerializeField] // RVA: 0xCE3674 Offset: 0xCE3674 VA: 0xCE3674
+	private UISprite bandSprite; // 0xB8
+	[SerializeField] // RVA: 0xCE3684 Offset: 0xCE3684 VA: 0xCE3684
+	private GameObject priceInfoFree; // 0xC0
+	[SerializeField] // RVA: 0xCE3694 Offset: 0xCE3694 VA: 0xCE3694
+	private GameObject priceInfo1; // 0xC8

@@ -1,0 +1,1000 @@
+	private IWebProxy proxy; // 0xB0
+	private bool sendChunked; // 0xB8
+	private ServicePoint servicePoint; // 0xC0
+	private int timeout; // 0xC8
+	private WebConnectionStream writeStream; // 0xD0
+	private HttpWebResponse webResponse; // 0xD8
+	private WebAsyncResult asyncWrite; // 0xE0
+	private WebAsyncResult asyncRead; // 0xE8
+	private EventHandler abortHandler; // 0xF0
+	private int aborted; // 0xF8
+	private bool gotRequestStream; // 0xFC
+	private int redirects; // 0x100
+	private bool expectContinue; // 0x104
+	private bool authCompleted; // 0x105
+	private byte[] bodyBuffer; // 0x108
+	private int bodyBufferLength; // 0x110
+	private bool getResponseCalled; // 0x114
+	private Exception saved_exc; // 0x118
+	private object locker; // 0x120
+	private bool is_ntlm_auth; // 0x128
+	private bool finished_reading; // 0x129
+	internal WebConnection WebConnection; // 0x130
+	private DecompressionMethods auto_decomp; // 0x138
+	private int maxResponseHeadersLength; // 0x13C
+	private static int defaultMaxResponseHeadersLength; // 0x0
+	private int readWriteTimeout; // 0x140
+	private bool unsafe_auth_blah; // 0x144
+
+	// Properties
+	internal bool UsesNtlmAuthentication { get; }
+	public string Accept { get; set; }
+	public Uri Address { get; }
+	public bool AllowAutoRedirect { get; set; }
+	public bool AllowWriteStreamBuffering { get; set; }
+	public DecompressionMethods AutomaticDecompression { get; set; }
+	internal bool InternalAllowBuffering { get; }
+	public X509CertificateCollection ClientCertificates { get; set; }
+	public string Connection { get; set; }
+	public override string ConnectionGroupName { get; set; }
+	public override long ContentLength { get; set; }
+	internal long InternalContentLength { set; }
+	public override string ContentType { get; set; }
+	public HttpContinueDelegate ContinueDelegate { get; set; }
+	public CookieContainer CookieContainer { get; set; }
+	public override ICredentials Credentials { get; set; }
+	[MonoTODOAttribute] // RVA: 0xC3F8FC Offset: 0xC3F8FC VA: 0xC3F8FC
+	public static RequestCachePolicy DefaultCachePolicy { get; set; }
+	[MonoTODOAttribute] // RVA: 0xC3F90C Offset: 0xC3F90C VA: 0xC3F90C
+	public static int DefaultMaximumErrorResponseLength { get; set; }
+	public string Expect { get; set; }
+	public bool HaveResponse { get; }
+	public override WebHeaderCollection Headers { get; set; }
+	public DateTime IfModifiedSince { get; set; }
+	public bool KeepAlive { get; set; }
+	public int MaximumAutomaticRedirections { get; set; }
+	[MonoTODOAttribute] // RVA: 0xC3F91C Offset: 0xC3F91C VA: 0xC3F91C
+	public int MaximumResponseHeadersLength { get; set; }
+	[MonoTODOAttribute] // RVA: 0xC3F954 Offset: 0xC3F954 VA: 0xC3F954
+	public static int DefaultMaximumResponseHeadersLength { get; set; }
+	public int ReadWriteTimeout { get; set; }
+	public string MediaType { get; set; }
+	public override string Method { get; set; }
+	public bool Pipelined { get; set; }
+	public override bool PreAuthenticate { get; set; }
+	public Version ProtocolVersion { get; set; }
+	public override IWebProxy Proxy { get; set; }
+	public string Referer { get; set; }
+	public override Uri RequestUri { get; }
+	public bool SendChunked { get; set; }
+	public ServicePoint ServicePoint { get; }
+	public override int Timeout { get; set; }
+	public string TransferEncoding { get; set; }
+	public override bool UseDefaultCredentials { get; set; }
+	public string UserAgent { get; set; }
+	public bool UnsafeAuthenticatedConnectionSharing { get; set; }
+	internal bool GotRequestStream { get; }
+	internal bool ExpectContinue { get; set; }
+	internal Uri AuthUri { get; }
+	internal bool ProxyQuery { get; }
+	internal bool FinishedReading { get; set; }
+	internal bool Aborted { get; }
+
+	// Methods
+
+	// RVA: 0xF4E188 Offset: 0xF4E188 VA: 0xF4E188
+	public void .ctor(Uri uri) { }
+
+	[ObsoleteAttribute] // RVA: 0xC3E088 Offset: 0xC3E088 VA: 0xC3E088
+	// RVA: 0xF4EA88 Offset: 0xF4EA88 VA: 0xF4EA88
+	protected void .ctor(SerializationInfo serializationInfo, StreamingContext streamingContext) { }
+
+	// RVA: 0xF4F378 Offset: 0xF4F378 VA: 0xF4F378
+	private static void .cctor() { }
+
+	// RVA: 0xF4F3CC Offset: 0xF4F3CC VA: 0xF4F3CC Slot: 6
+	private void System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext) { }
+
+	// RVA: 0xF4F3DC Offset: 0xF4F3DC VA: 0xF4F3DC
+	internal bool get_UsesNtlmAuthentication() { }
+
+	// RVA: 0xF4F3E4 Offset: 0xF4F3E4 VA: 0xF4F3E4
+	public string get_Accept() { }
+
+	// RVA: 0xF4F448 Offset: 0xF4F448 VA: 0xF4F448
+	public void set_Accept(string value) { }
+
+	// RVA: 0xF4F550 Offset: 0xF4F550 VA: 0xF4F550
+	public Uri get_Address() { }
+
+	// RVA: 0xF4F558 Offset: 0xF4F558 VA: 0xF4F558
+	public bool get_AllowAutoRedirect() { }
+
+	// RVA: 0xF4F560 Offset: 0xF4F560 VA: 0xF4F560
+	public void set_AllowAutoRedirect(bool value) { }
+
+	// RVA: 0xF4F56C Offset: 0xF4F56C VA: 0xF4F56C
+	public bool get_AllowWriteStreamBuffering() { }
+
+	// RVA: 0xF4F574 Offset: 0xF4F574 VA: 0xF4F574
+	public void set_AllowWriteStreamBuffering(bool value) { }
+
+	// RVA: 0xF4F580 Offset: 0xF4F580 VA: 0xF4F580
+	private static Exception GetMustImplement() { }
+
+	// RVA: 0xF4F5DC Offset: 0xF4F5DC VA: 0xF4F5DC
+	public DecompressionMethods get_AutomaticDecompression() { }
+
+	// RVA: 0xF4F5E4 Offset: 0xF4F5E4 VA: 0xF4F5E4
+	public void set_AutomaticDecompression(DecompressionMethods value) { }
+
+	// RVA: 0xF4F60C Offset: 0xF4F60C VA: 0xF4F60C
+	internal bool get_InternalAllowBuffering() { }
+
+	// RVA: 0xF4F7C0 Offset: 0xF4F7C0 VA: 0xF4F7C0
+	public X509CertificateCollection get_ClientCertificates() { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E0C4 Offset: 0xC3E0C4 VA: 0xC3E0C4
+	// RVA: 0xF4F82C Offset: 0xF4F82C VA: 0xF4F82C
+	public void set_ClientCertificates(X509CertificateCollection value) { }
+
+	// RVA: 0xF4F898 Offset: 0xF4F898 VA: 0xF4F898
+	public string get_Connection() { }
+
+	// RVA: 0xF4F8FC Offset: 0xF4F8FC VA: 0xF4F8FC
+	public void set_Connection(string value) { }
+
+	// RVA: 0xF4FB00 Offset: 0xF4FB00 VA: 0xF4FB00 Slot: 9
+	public override string get_ConnectionGroupName() { }
+
+	// RVA: 0xF4FB08 Offset: 0xF4FB08 VA: 0xF4FB08 Slot: 10
+	public override void set_ConnectionGroupName(string value) { }
+
+	// RVA: 0xF4FB10 Offset: 0xF4FB10 VA: 0xF4FB10 Slot: 11
+	public override long get_ContentLength() { }
+
+	// RVA: 0xF4FB18 Offset: 0xF4FB18 VA: 0xF4FB18 Slot: 12
+	public override void set_ContentLength(long value) { }
+
+	// RVA: 0xF4FBC4 Offset: 0xF4FBC4 VA: 0xF4FBC4
+	internal void set_InternalContentLength(long value) { }
+
+	// RVA: 0xF4FBCC Offset: 0xF4FBCC VA: 0xF4FBCC Slot: 13
+	public override string get_ContentType() { }
+
+	// RVA: 0xF4FC30 Offset: 0xF4FC30 VA: 0xF4FC30 Slot: 14
+	public override void set_ContentType(string value) { }
+
+	// RVA: 0xF4FD04 Offset: 0xF4FD04 VA: 0xF4FD04
+	public HttpContinueDelegate get_ContinueDelegate() { }
+
+	// RVA: 0xF4FD0C Offset: 0xF4FD0C VA: 0xF4FD0C
+	public void set_ContinueDelegate(HttpContinueDelegate value) { }
+
+	// RVA: 0xF4FD14 Offset: 0xF4FD14 VA: 0xF4FD14
+	public CookieContainer get_CookieContainer() { }
+
+	// RVA: 0xF4FD1C Offset: 0xF4FD1C VA: 0xF4FD1C
+	public void set_CookieContainer(CookieContainer value) { }
+
+	// RVA: 0xF4FD24 Offset: 0xF4FD24 VA: 0xF4FD24 Slot: 15
+	public override ICredentials get_Credentials() { }
+
+	// RVA: 0xF4FD2C Offset: 0xF4FD2C VA: 0xF4FD2C Slot: 16
+	public override void set_Credentials(ICredentials value) { }
+
+	// RVA: 0xF4FD34 Offset: 0xF4FD34 VA: 0xF4FD34
+	public static RequestCachePolicy get_DefaultCachePolicy() { }
+
+	// RVA: 0xF4FDA0 Offset: 0xF4FDA0 VA: 0xF4FDA0
+	public static void set_DefaultCachePolicy(RequestCachePolicy value) { }
+
+	// RVA: 0xF4FE0C Offset: 0xF4FE0C VA: 0xF4FE0C
+	public static int get_DefaultMaximumErrorResponseLength() { }
+
+	// RVA: 0xF4FE78 Offset: 0xF4FE78 VA: 0xF4FE78
+	public static void set_DefaultMaximumErrorResponseLength(int value) { }
+
+	// RVA: 0xF4FEE4 Offset: 0xF4FEE4 VA: 0xF4FEE4
+	public string get_Expect() { }
+
+	// RVA: 0xF4FF48 Offset: 0xF4FF48 VA: 0xF4FF48
+	public void set_Expect(string value) { }
+
+	// RVA: 0xF500C4 Offset: 0xF500C4 VA: 0xF500C4
+	public bool get_HaveResponse() { }
+
+	// RVA: 0xF500CC Offset: 0xF500CC VA: 0xF500CC Slot: 17
+	public override WebHeaderCollection get_Headers() { }
+
+	// RVA: 0xF500D4 Offset: 0xF500D4 VA: 0xF500D4 Slot: 18
+	public override void set_Headers(WebHeaderCollection value) { }
+
+	// RVA: 0xF501F8 Offset: 0xF501F8 VA: 0xF501F8
+	public DateTime get_IfModifiedSince() { }
+
+	// RVA: 0xF50428 Offset: 0xF50428 VA: 0xF50428
+	public void set_IfModifiedSince(DateTime value) { }
+
+	// RVA: 0xF504DC Offset: 0xF504DC VA: 0xF504DC
+	public bool get_KeepAlive() { }
+
+	// RVA: 0xF504E4 Offset: 0xF504E4 VA: 0xF504E4
+	public void set_KeepAlive(bool value) { }
+
+	// RVA: 0xF504F0 Offset: 0xF504F0 VA: 0xF504F0
+	public int get_MaximumAutomaticRedirections() { }
+
+	// RVA: 0xF504F8 Offset: 0xF504F8 VA: 0xF504F8
+	public void set_MaximumAutomaticRedirections(int value) { }
+
+	// RVA: 0xF505A0 Offset: 0xF505A0 VA: 0xF505A0
+	public int get_MaximumResponseHeadersLength() { }
+
+	// RVA: 0xF505A8 Offset: 0xF505A8 VA: 0xF505A8
+	public void set_MaximumResponseHeadersLength(int value) { }
+
+	// RVA: 0xF505B0 Offset: 0xF505B0 VA: 0xF505B0
+	public static int get_DefaultMaximumResponseHeadersLength() { }
+
+	// RVA: 0xF50618 Offset: 0xF50618 VA: 0xF50618
+	public static void set_DefaultMaximumResponseHeadersLength(int value) { }
+
+	// RVA: 0xF50684 Offset: 0xF50684 VA: 0xF50684
+	public int get_ReadWriteTimeout() { }
+
+	// RVA: 0xF5068C Offset: 0xF5068C VA: 0xF5068C
+	public void set_ReadWriteTimeout(int value) { }
+
+	// RVA: 0xF50768 Offset: 0xF50768 VA: 0xF50768
+	public string get_MediaType() { }
+
+	// RVA: 0xF50770 Offset: 0xF50770 VA: 0xF50770
+	public void set_MediaType(string value) { }
+
+	// RVA: 0xF50778 Offset: 0xF50778 VA: 0xF50778 Slot: 19
+	public override string get_Method() { }
+
+	// RVA: 0xF50780 Offset: 0xF50780 VA: 0xF50780 Slot: 20
+	public override void set_Method(string value) { }
+
+	// RVA: 0xF50868 Offset: 0xF50868 VA: 0xF50868
+	public bool get_Pipelined() { }
+
+	// RVA: 0xF50870 Offset: 0xF50870 VA: 0xF50870
+	public void set_Pipelined(bool value) { }
+
+	// RVA: 0xF5087C Offset: 0xF5087C VA: 0xF5087C Slot: 21
+	public override bool get_PreAuthenticate() { }
+
+	// RVA: 0xF50884 Offset: 0xF50884 VA: 0xF50884 Slot: 22
+	public override void set_PreAuthenticate(bool value) { }
+
+	// RVA: 0xF50890 Offset: 0xF50890 VA: 0xF50890
+	public Version get_ProtocolVersion() { }
+
+	// RVA: 0xF50898 Offset: 0xF50898 VA: 0xF50898
+	public void set_ProtocolVersion(Version value) { }
+
+	// RVA: 0xF5099C Offset: 0xF5099C VA: 0xF5099C Slot: 23
+	public override IWebProxy get_Proxy() { }
+
+	// RVA: 0xF509A4 Offset: 0xF509A4 VA: 0xF509A4 Slot: 24
+	public override void set_Proxy(IWebProxy value) { }
+
+	// RVA: 0xF509D0 Offset: 0xF509D0 VA: 0xF509D0
+	public string get_Referer() { }
+
+	// RVA: 0xF50A34 Offset: 0xF50A34 VA: 0xF50A34
+	public void set_Referer(string value) { }
+
+	// RVA: 0xF50B10 Offset: 0xF50B10 VA: 0xF50B10 Slot: 25
+	public override Uri get_RequestUri() { }
+
+	// RVA: 0xF50B18 Offset: 0xF50B18 VA: 0xF50B18
+	public bool get_SendChunked() { }
+
+	// RVA: 0xF50B20 Offset: 0xF50B20 VA: 0xF50B20
+	public void set_SendChunked(bool value) { }
+
+	// RVA: 0xF50B4C Offset: 0xF50B4C VA: 0xF50B4C
+	public ServicePoint get_ServicePoint() { }
+
+	// RVA: 0xF50C48 Offset: 0xF50C48 VA: 0xF50C48 Slot: 26
+	public override int get_Timeout() { }
+
+	// RVA: 0xF50C50 Offset: 0xF50C50 VA: 0xF50C50 Slot: 27
+	public override void set_Timeout(int value) { }
+
+	// RVA: 0xF50CEC Offset: 0xF50CEC VA: 0xF50CEC
+	public string get_TransferEncoding() { }
+
+	// RVA: 0xF50D50 Offset: 0xF50D50 VA: 0xF50D50
+	public void set_TransferEncoding(string value) { }
+
+	// RVA: 0xF50F00 Offset: 0xF50F00 VA: 0xF50F00 Slot: 28
+	public override bool get_UseDefaultCredentials() { }
+
+	// RVA: 0xF50F88 Offset: 0xF50F88 VA: 0xF50F88 Slot: 29
+	public override void set_UseDefaultCredentials(bool value) { }
+
+	// RVA: 0xF51030 Offset: 0xF51030 VA: 0xF51030
+	public string get_UserAgent() { }
+
+	// RVA: 0xF51094 Offset: 0xF51094 VA: 0xF51094
+	public void set_UserAgent(string value) { }
+
+	// RVA: 0xF51108 Offset: 0xF51108 VA: 0xF51108
+	public bool get_UnsafeAuthenticatedConnectionSharing() { }
+
+	// RVA: 0xF51110 Offset: 0xF51110 VA: 0xF51110
+	public void set_UnsafeAuthenticatedConnectionSharing(bool value) { }
+
+	// RVA: 0xF5111C Offset: 0xF5111C VA: 0xF5111C
+	internal bool get_GotRequestStream() { }
+
+	// RVA: 0xF51124 Offset: 0xF51124 VA: 0xF51124
+	internal bool get_ExpectContinue() { }
+
+	// RVA: 0xF5112C Offset: 0xF5112C VA: 0xF5112C
+	internal void set_ExpectContinue(bool value) { }
+
+	// RVA: 0xF51138 Offset: 0xF51138 VA: 0xF51138
+	internal Uri get_AuthUri() { }
+
+	// RVA: 0xF51140 Offset: 0xF51140 VA: 0xF51140
+	internal bool get_ProxyQuery() { }
+
+	// RVA: 0xF50B50 Offset: 0xF50B50 VA: 0xF50B50
+	internal ServicePoint GetServicePoint() { }
+
+	// RVA: 0xF511A8 Offset: 0xF511A8 VA: 0xF511A8
+	public void AddRange(int range) { }
+
+	// RVA: 0xF51484 Offset: 0xF51484 VA: 0xF51484
+	public void AddRange(int from, int to) { }
+
+	// RVA: 0xF51208 Offset: 0xF51208 VA: 0xF51208
+	public void AddRange(string rangeSpecifier, int range) { }
+
+	// RVA: 0xF514EC Offset: 0xF514EC VA: 0xF514EC
+	public void AddRange(string rangeSpecifier, int from, int to) { }
+
+	// RVA: 0xF518F0 Offset: 0xF518F0 VA: 0xF518F0 Slot: 31
+	public override IAsyncResult BeginGetRequestStream(AsyncCallback callback, object state) { }
+
+	// RVA: 0xF51DD4 Offset: 0xF51DD4 VA: 0xF51DD4 Slot: 33
+	public override Stream EndGetRequestStream(IAsyncResult asyncResult) { }
+
+	// RVA: 0xF51EFC Offset: 0xF51EFC VA: 0xF51EFC Slot: 35
+	public override Stream GetRequestStream() { }
+
+	// RVA: 0xF52190 Offset: 0xF52190 VA: 0xF52190
+	private void CheckIfForceWrite() { }
+
+	// RVA: 0xF52220 Offset: 0xF52220 VA: 0xF52220 Slot: 32
+	public override IAsyncResult BeginGetResponse(AsyncCallback callback, object state) { }
+
+	// RVA: 0xF52554 Offset: 0xF52554 VA: 0xF52554 Slot: 34
+	public override WebResponse EndGetResponse(IAsyncResult asyncResult) { }
+
+	// RVA: 0xF526E0 Offset: 0xF526E0 VA: 0xF526E0 Slot: 36
+	public override WebResponse GetResponse() { }
+
+	// RVA: 0xF527E0 Offset: 0xF527E0 VA: 0xF527E0
+	internal bool get_FinishedReading() { }
+
+	// RVA: 0xF527E8 Offset: 0xF527E8 VA: 0xF527E8
+	internal void set_FinishedReading(bool value) { }
+
+	// RVA: 0xF51DA8 Offset: 0xF51DA8 VA: 0xF51DA8
+	internal bool get_Aborted() { }
+
+	// RVA: 0xF527F4 Offset: 0xF527F4 VA: 0xF527F4 Slot: 30
+	public override void Abort() { }
+
+	// RVA: 0xF52C14 Offset: 0xF52C14 VA: 0xF52C14 Slot: 37
+	protected override void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext) { }
+
+	// RVA: 0xF4F4C4 Offset: 0xF4F4C4 VA: 0xF4F4C4
+	private void CheckRequestStarted() { }
+
+	// RVA: 0xF53080 Offset: 0xF53080 VA: 0xF53080
+	internal void DoContinueDelegate(int statusCode, WebHeaderCollection headers) { }
+
+	// RVA: 0xF53094 Offset: 0xF53094 VA: 0xF53094
+	private bool Redirect(WebAsyncResult result, HttpStatusCode code) { }
+
+	// RVA: 0xF53554 Offset: 0xF53554 VA: 0xF53554
+	private string GetHeaders() { }
+
+	// RVA: 0xF53A60 Offset: 0xF53A60 VA: 0xF53A60
+	private void DoPreAuthenticate() { }
+
+	// RVA: 0xF53CA8 Offset: 0xF53CA8 VA: 0xF53CA8
+	internal void SetWriteStreamError(WebExceptionStatus status, Exception exc) { }
+
+	// RVA: 0xF53E78 Offset: 0xF53E78 VA: 0xF53E78
+	internal void SendRequestHeaders(bool propagate_error) { }
+
+	// RVA: 0xF54600 Offset: 0xF54600 VA: 0xF54600
+	internal void SetWriteStream(WebConnectionStream stream) { }
+
+	// RVA: 0xF54918 Offset: 0xF54918 VA: 0xF54918
+	internal void SetResponseError(WebExceptionStatus status, Exception e, string where) { }
+
+	// RVA: 0xF54B44 Offset: 0xF54B44 VA: 0xF54B44
+	private void CheckSendError(WebConnectionData data) { }
+
+	// RVA: 0xF54D3C Offset: 0xF54D3C VA: 0xF54D3C
+	private void HandleNtlmAuth(WebAsyncResult r) { }
+
+	// RVA: 0xF55010 Offset: 0xF55010 VA: 0xF55010
+	internal void SetResponseData(WebConnectionData data) { }
+
+	// RVA: 0xF56258 Offset: 0xF56258 VA: 0xF56258
+	private bool CheckAuthorization(WebResponse response, HttpStatusCode code) { }
+
+	// RVA: 0xF55CBC Offset: 0xF55CBC VA: 0xF55CBC
+	private bool CheckFinalStatus(WebAsyncResult result) { }
+}
+
+// Namespace: System.Net
+[Serializable]
+public class HttpWebResponse : WebResponse, IDisposable, ISerializable // TypeDefIndex: 1577
+{
+	// Fields
+	private Uri uri; // 0x18
+	private WebHeaderCollection webHeaders; // 0x20
+	private CookieCollection cookieCollection; // 0x28
+	private string method; // 0x30
+	private Version version; // 0x38
+	private HttpStatusCode statusCode; // 0x40
+	private string statusDescription; // 0x48
+	private long contentLength; // 0x50
+	private string contentType; // 0x58
+	private CookieContainer cookie_container; // 0x60
+	private bool disposed; // 0x68
+	private Stream stream; // 0x70
+	private string[] cookieExpiresFormats; // 0x78
+	[CompilerGeneratedAttribute] // RVA: 0xC3D0C4 Offset: 0xC3D0C4 VA: 0xC3D0C4
+	private static Dictionary<string, int> <>f__switch$map8; // 0x0
+
+	// Properties
+	public string CharacterSet { get; }
+	public string ContentEncoding { get; }
+	public override long ContentLength { get; }
+	public override string ContentType { get; }
+	public CookieCollection Cookies { get; set; }
+	public override WebHeaderCollection Headers { get; }
+	[MonoTODOAttribute] // RVA: 0xC3F98C Offset: 0xC3F98C VA: 0xC3F98C
+	public override bool IsMutuallyAuthenticated { get; }
+	public DateTime LastModified { get; }
+	public string Method { get; }
+	public Version ProtocolVersion { get; }
+	public override Uri ResponseUri { get; }
+	public string Server { get; }
+	public HttpStatusCode StatusCode { get; }
+	public string StatusDescription { get; }
+
+	// Methods
+
+	// RVA: 0xF55860 Offset: 0xF55860 VA: 0xF55860
+	internal void .ctor(Uri uri, string method, WebConnectionData data, CookieContainer container) { }
+
+	[ObsoleteAttribute] // RVA: 0xC3E0D4 Offset: 0xC3E0D4 VA: 0xC3E0D4
+	// RVA: 0xF56778 Offset: 0xF56778 VA: 0xF56778
+	protected void .ctor(SerializationInfo serializationInfo, StreamingContext streamingContext) { }
+
+	// RVA: 0xF56C54 Offset: 0xF56C54 VA: 0xF56C54 Slot: 7
+	private void System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext) { }
+
+	// RVA: 0xF56C64 Offset: 0xF56C64 VA: 0xF56C64 Slot: 6
+	private void System.IDisposable.Dispose() { }
+
+	// RVA: 0xF56D04 Offset: 0xF56D04 VA: 0xF56D04
+	public string get_CharacterSet() { }
+
+	// RVA: 0xF56E10 Offset: 0xF56E10 VA: 0xF56E10
+	public string get_ContentEncoding() { }
+
+	// RVA: 0xF56F68 Offset: 0xF56F68 VA: 0xF56F68 Slot: 8
+	public override long get_ContentLength() { }
+
+	// RVA: 0xF56F70 Offset: 0xF56F70 VA: 0xF56F70 Slot: 10
+	public override string get_ContentType() { }
+
+	// RVA: 0xF56FEC Offset: 0xF56FEC VA: 0xF56FEC
+	public CookieCollection get_Cookies() { }
+
+	// RVA: 0xF57060 Offset: 0xF57060 VA: 0xF57060
+	public void set_Cookies(CookieCollection value) { }
+
+	// RVA: 0xF57088 Offset: 0xF57088 VA: 0xF57088 Slot: 12
+	public override WebHeaderCollection get_Headers() { }
+
+	// RVA: 0xF57090 Offset: 0xF57090 VA: 0xF57090
+	private static Exception GetMustImplement() { }
+
+	// RVA: 0xF570EC Offset: 0xF570EC VA: 0xF570EC Slot: 14
+	public override bool get_IsMutuallyAuthenticated() { }
+
+	// RVA: 0xF57138 Offset: 0xF57138 VA: 0xF57138
+	public DateTime get_LastModified() { }
+
+	// RVA: 0xF57274 Offset: 0xF57274 VA: 0xF57274
+	public string get_Method() { }
+
+	// RVA: 0xF57298 Offset: 0xF57298 VA: 0xF57298
+	public Version get_ProtocolVersion() { }
+
+	// RVA: 0xF572BC Offset: 0xF572BC VA: 0xF572BC Slot: 15
+	public override Uri get_ResponseUri() { }
+
+	// RVA: 0xF572E0 Offset: 0xF572E0 VA: 0xF572E0
+	public string get_Server() { }
+
+	// RVA: 0xF56250 Offset: 0xF56250 VA: 0xF56250
+	public HttpStatusCode get_StatusCode() { }
+
+	// RVA: 0xF56610 Offset: 0xF56610 VA: 0xF56610
+	public string get_StatusDescription() { }
+
+	// RVA: 0xF5734C Offset: 0xF5734C VA: 0xF5734C
+	public string GetResponseHeader(string headerName) { }
+
+	// RVA: 0xF54C30 Offset: 0xF54C30 VA: 0xF54C30
+	internal void ReadAll() { }
+
+	// RVA: 0xF573F0 Offset: 0xF573F0 VA: 0xF573F0 Slot: 17
+	public override Stream GetResponseStream() { }
+
+	// RVA: 0xF574BC Offset: 0xF574BC VA: 0xF574BC Slot: 18
+	protected override void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext) { }
+
+	// RVA: 0xF57684 Offset: 0xF57684 VA: 0xF57684 Slot: 16
+	public override void Close() { }
+
+	// RVA: 0xF56CC0 Offset: 0xF56CC0 VA: 0xF56CC0
+	private void Dispose(bool disposing) { }
+
+	// RVA: 0xF56EB0 Offset: 0xF56EB0 VA: 0xF56EB0
+	private void CheckDisposed() { }
+
+	// RVA: 0xF56634 Offset: 0xF56634 VA: 0xF56634
+	private void FillCookies() { }
+
+	// RVA: 0xF57728 Offset: 0xF57728 VA: 0xF57728
+	private void SetCookie(string header) { }
+
+	// RVA: 0xF58070 Offset: 0xF58070 VA: 0xF58070
+	private void SetCookie2(string cookies_str) { }
+
+	// RVA: 0xF5816C Offset: 0xF5816C VA: 0xF5816C
+	private DateTime TryParseCookieExpires(string value) { }
+}
+
+// Namespace: System.Net
+internal class CookieParser // TypeDefIndex: 1578
+{
+	// Fields
+	private string header; // 0x10
+	private int pos; // 0x18
+	private int length; // 0x1C
+
+	// Methods
+
+	// RVA: 0xECE59C Offset: 0xECE59C VA: 0xECE59C
+	public void .ctor(string header) { }
+
+	// RVA: 0xECE5A4 Offset: 0xECE5A4 VA: 0xECE5A4
+	public void .ctor(string header, int position) { }
+
+	// RVA: 0xECE5FC Offset: 0xECE5FC VA: 0xECE5FC
+	public bool GetNextNameValue(out string name, out string val) { }
+
+	// RVA: 0xECE708 Offset: 0xECE708 VA: 0xECE708
+	private string GetCookieName() { }
+
+	// RVA: 0xECE880 Offset: 0xECE880 VA: 0xECE880
+	private string GetCookieValue() { }
+}
+
+// Namespace: System.Net
+public interface IAuthenticationModule // TypeDefIndex: 1579
+{
+	// Properties
+	public abstract string AuthenticationType { get; }
+	public abstract bool CanPreAuthenticate { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract Authorization Authenticate(string challenge, WebRequest request, ICredentials credentials);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract Authorization PreAuthenticate(WebRequest request, ICredentials credentials);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract string get_AuthenticationType();
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract bool get_CanPreAuthenticate();
+}
+
+// Namespace: System.Net
+public interface ICertificatePolicy // TypeDefIndex: 1580
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract bool CheckValidationResult(ServicePoint srvPoint, X509Certificate certificate, WebRequest request, int certificateProblem);
+}
+
+// Namespace: System.Net
+public interface ICredentials // TypeDefIndex: 1581
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract NetworkCredential GetCredential(Uri uri, string authType);
+}
+
+// Namespace: System.Net
+public interface ICredentialPolicy // TypeDefIndex: 1582
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract bool ShouldSendCredential(Uri challengeUri, WebRequest request, NetworkCredential credential, IAuthenticationModule authenticationModule);
+}
+
+// Namespace: System.Net
+public interface ICredentialsByHost // TypeDefIndex: 1583
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract NetworkCredential GetCredential(string host, int port, string authType);
+}
+
+// Namespace: System.Net
+[Serializable]
+public class IPAddress // TypeDefIndex: 1584
+{
+	// Fields
+	private long m_Address; // 0x10
+	private AddressFamily m_Family; // 0x18
+	private ushort[] m_Numbers; // 0x20
+	private long m_ScopeId; // 0x28
+	public static readonly IPAddress Any; // 0x0
+	public static readonly IPAddress Broadcast; // 0x8
+	public static readonly IPAddress Loopback; // 0x10
+	public static readonly IPAddress None; // 0x18
+	public static readonly IPAddress IPv6Any; // 0x20
+	public static readonly IPAddress IPv6Loopback; // 0x28
+	public static readonly IPAddress IPv6None; // 0x30
+	private int m_HashCode; // 0x30
+
+	// Properties
+	[ObsoleteAttribute] // RVA: 0xC3F99C Offset: 0xC3F99C VA: 0xC3F99C
+	public long Address { get; set; }
+	internal long InternalIPv4Address { get; }
+	public bool IsIPv6LinkLocal { get; }
+	public bool IsIPv6SiteLocal { get; }
+	public bool IsIPv6Multicast { get; }
+	public long ScopeId { get; set; }
+	public AddressFamily AddressFamily { get; }
+
+	// Methods
+
+	// RVA: 0xF583E0 Offset: 0xF583E0 VA: 0xF583E0
+	public void .ctor(long addr) { }
+
+	// RVA: 0xF58414 Offset: 0xF58414 VA: 0xF58414
+	public void .ctor(byte[] address) { }
+
+	// RVA: 0xF58574 Offset: 0xF58574 VA: 0xF58574
+	public void .ctor(byte[] address, long scopeId) { }
+
+	// RVA: 0xF586A0 Offset: 0xF586A0 VA: 0xF586A0
+	internal void .ctor(ushort[] address, long scopeId) { }
+
+	// RVA: 0xF58850 Offset: 0xF58850 VA: 0xF58850
+	private static void .cctor() { }
+
+	// RVA: 0xF58AEC Offset: 0xF58AEC VA: 0xF58AEC
+	private static short SwapShort(short number) { }
+
+	// RVA: 0xF58AF8 Offset: 0xF58AF8 VA: 0xF58AF8
+	private static int SwapInt(int number) { }
+
+	// RVA: 0xF58B00 Offset: 0xF58B00 VA: 0xF58B00
+	private static long SwapLong(long number) { }
+
+	// RVA: 0xF587B0 Offset: 0xF587B0 VA: 0xF587B0
+	public static short HostToNetworkOrder(short host) { }
+
+	// RVA: 0xF58B08 Offset: 0xF58B08 VA: 0xF58B08
+	public static int HostToNetworkOrder(int host) { }
+
+	// RVA: 0xF58BA4 Offset: 0xF58BA4 VA: 0xF58BA4
+	public static long HostToNetworkOrder(long host) { }
+
+	// RVA: 0xF58C40 Offset: 0xF58C40 VA: 0xF58C40
+	public static short NetworkToHostOrder(short network) { }
+
+	// RVA: 0xF58CE0 Offset: 0xF58CE0 VA: 0xF58CE0
+	public static int NetworkToHostOrder(int network) { }
+
+	// RVA: 0xF58D7C Offset: 0xF58D7C VA: 0xF58D7C
+	public static long NetworkToHostOrder(long network) { }
+
+	// RVA: 0xF58958 Offset: 0xF58958 VA: 0xF58958
+	public static IPAddress Parse(string ipString) { }
+
+	// RVA: 0xF58E18 Offset: 0xF58E18 VA: 0xF58E18
+	public static bool TryParse(string ipString, out IPAddress address) { }
+
+	// RVA: 0xF58F08 Offset: 0xF58F08 VA: 0xF58F08
+	private static IPAddress ParseIPV4(string ip) { }
+
+	// RVA: 0xF58A1C Offset: 0xF58A1C VA: 0xF58A1C
+	private static IPAddress ParseIPV6(string ip) { }
+
+	// RVA: 0xF59DF8 Offset: 0xF59DF8 VA: 0xF59DF8
+	public long get_Address() { }
+
+	// RVA: 0xF59E8C Offset: 0xF59E8C VA: 0xF59E8C
+	public void set_Address(long value) { }
+
+	// RVA: 0xF59F2C Offset: 0xF59F2C VA: 0xF59F2C
+	internal long get_InternalIPv4Address() { }
+
+	// RVA: 0xF59F34 Offset: 0xF59F34 VA: 0xF59F34
+	public bool get_IsIPv6LinkLocal() { }
+
+	// RVA: 0xF59FEC Offset: 0xF59FEC VA: 0xF59FEC
+	public bool get_IsIPv6SiteLocal() { }
+
+	// RVA: 0xF5A0A4 Offset: 0xF5A0A4 VA: 0xF5A0A4
+	public bool get_IsIPv6Multicast() { }
+
+	// RVA: 0xF5A158 Offset: 0xF5A158 VA: 0xF5A158
+	public long get_ScopeId() { }
+
+	// RVA: 0xF5A1EC Offset: 0xF5A1EC VA: 0xF5A1EC
+	public void set_ScopeId(long value) { }
+
+	// RVA: 0xF5A28C Offset: 0xF5A28C VA: 0xF5A28C
+	public byte[] GetAddressBytes() { }
+
+	// RVA: 0xF5A3CC Offset: 0xF5A3CC VA: 0xF5A3CC
+	public AddressFamily get_AddressFamily() { }
+
+	// RVA: 0xF4C3BC Offset: 0xF4C3BC VA: 0xF4C3BC
+	public static bool IsLoopback(IPAddress addr) { }
+
+	// RVA: 0xF5A3D4 Offset: 0xF5A3D4 VA: 0xF5A3D4 Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0xF5A588 Offset: 0xF5A588 VA: 0xF5A588
+	private static string ToString(long addr) { }
+
+	// RVA: 0xF5A984 Offset: 0xF5A984 VA: 0xF5A984 Slot: 0
+	public override bool Equals(object other) { }
+
+	// RVA: 0xF5AAD8 Offset: 0xF5AAD8 VA: 0xF5AAD8 Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0xF5AD28 Offset: 0xF5AD28 VA: 0xF5AD28
+	private static int Hash(int i, int j, int k, int l) { }
+}
+
+// Namespace: System.Net
+[Serializable]
+public class IPEndPoint : EndPoint // TypeDefIndex: 1585
+{
+	// Fields
+	public const int MaxPort = 65535;
+	public const int MinPort = 0;
+	private IPAddress address; // 0x10
+	private int port; // 0x18
+
+	// Properties
+	public IPAddress Address { get; set; }
+	public override AddressFamily AddressFamily { get; }
+	public int Port { get; set; }
+
+	// Methods
+
+	// RVA: 0xF5AD50 Offset: 0xF5AD50 VA: 0xF5AD50
+	public void .ctor(IPAddress address, int port) { }
+
+	// RVA: 0xF5AEA4 Offset: 0xF5AEA4 VA: 0xF5AEA4
+	public void .ctor(long iaddr, int port) { }
+
+	// RVA: 0xF4C3B4 Offset: 0xF4C3B4 VA: 0xF4C3B4
+	public IPAddress get_Address() { }
+
+	// RVA: 0xF5AE00 Offset: 0xF5AE00 VA: 0xF5AE00
+	public void set_Address(IPAddress value) { }
+
+	// RVA: 0xF5AF34 Offset: 0xF5AF34 VA: 0xF5AF34 Slot: 4
+	public override AddressFamily get_AddressFamily() { }
+
+	// RVA: 0xF4C0A8 Offset: 0xF4C0A8 VA: 0xF4C0A8
+	public int get_Port() { }
+
+	// RVA: 0xF5AE08 Offset: 0xF5AE08 VA: 0xF5AE08
+	public void set_Port(int value) { }
+
+	// RVA: 0xF5AF60 Offset: 0xF5AF60 VA: 0xF5AF60 Slot: 5
+	public override EndPoint Create(SocketAddress socketAddress) { }
+
+	// RVA: 0xF5B51C Offset: 0xF5B51C VA: 0xF5B51C Slot: 6
+	public override SocketAddress Serialize() { }
+
+	// RVA: 0xF5B8A0 Offset: 0xF5B8A0 VA: 0xF5B8A0 Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0xF5B96C Offset: 0xF5B96C VA: 0xF5B96C Slot: 0
+	public override bool Equals(object obj) { }
+
+	// RVA: 0xF5BA38 Offset: 0xF5BA38 VA: 0xF5BA38 Slot: 2
+	public override int GetHashCode() { }
+}
+
+// Namespace: System.Net
+public class IPHostEntry // TypeDefIndex: 1586
+{
+	// Fields
+	private IPAddress[] addressList; // 0x10
+	private string[] aliases; // 0x18
+	private string hostName; // 0x20
+
+	// Properties
+	public IPAddress[] AddressList { get; set; }
+	public string[] Aliases { get; set; }
+	public string HostName { get; set; }
+
+	// Methods
+
+	// RVA: 0xF5BA7C Offset: 0xF5BA7C VA: 0xF5BA7C
+	public void .ctor() { }
+
+	// RVA: 0xF5BA84 Offset: 0xF5BA84 VA: 0xF5BA84
+	public IPAddress[] get_AddressList() { }
+
+	// RVA: 0xF5BA8C Offset: 0xF5BA8C VA: 0xF5BA8C
+	public void set_AddressList(IPAddress[] value) { }
+
+	// RVA: 0xF5BA94 Offset: 0xF5BA94 VA: 0xF5BA94
+	public string[] get_Aliases() { }
+
+	// RVA: 0xF5BA9C Offset: 0xF5BA9C VA: 0xF5BA9C
+	public void set_Aliases(string[] value) { }
+
+	// RVA: 0xF5BAA4 Offset: 0xF5BAA4 VA: 0xF5BAA4
+	public string get_HostName() { }
+
+	// RVA: 0xF5BAAC Offset: 0xF5BAAC VA: 0xF5BAAC
+	public void set_HostName(string value) { }
+}
+
+// Namespace: System.Net
+[DefaultMemberAttribute] // RVA: 0xC3C994 Offset: 0xC3C994 VA: 0xC3C994
+[Serializable]
+internal class IPv6Address // TypeDefIndex: 1587
+{
+	// Fields
+	private ushort[] address; // 0x10
+	private int prefixLength; // 0x18
+	private long scopeId; // 0x20
+	public static readonly IPv6Address Loopback; // 0x0
+	public static readonly IPv6Address Unspecified; // 0x8
+
+	// Properties
+	public ushort[] Address { get; }
+	public int PrefixLength { get; }
+	public long ScopeId { get; set; }
+	public ushort Item { get; }
+	public AddressFamily AddressFamily { get; }
+
+	// Methods
+
+	// RVA: 0xF5A8A0 Offset: 0xF5A8A0 VA: 0xF5A8A0
+	public void .ctor(ushort[] addr) { }
+
+	// RVA: 0xF5BAB4 Offset: 0xF5BAB4 VA: 0xF5BAB4
+	public void .ctor(ushort[] addr, int prefixLength) { }
+
+	// RVA: 0xF5BB60 Offset: 0xF5BB60 VA: 0xF5BB60
+	public void .ctor(ushort[] addr, int prefixLength, int scopeId) { }
+
+	// RVA: 0xF5BB8C Offset: 0xF5BB8C VA: 0xF5BB8C
+	private static void .cctor() { }
+
+	// RVA: 0xF5BC08 Offset: 0xF5BC08 VA: 0xF5BC08
+	public static IPv6Address Parse(string ipString) { }
+
+	// RVA: 0xF5BCFC Offset: 0xF5BCFC VA: 0xF5BCFC
+	private static int Fill(ushort[] addr, string ipString) { }
+
+	// RVA: 0xF5BF04 Offset: 0xF5BF04 VA: 0xF5BF04
+	private static bool TryParse(string prefix, out int res) { }
+
+	// RVA: 0xF59678 Offset: 0xF59678 VA: 0xF59678
+	public static bool TryParse(string ipString, out IPv6Address result) { }
+
+	// RVA: 0xF59DE8 Offset: 0xF59DE8 VA: 0xF59DE8
+	public ushort[] get_Address() { }
+
+	// RVA: 0xF5BF8C Offset: 0xF5BF8C VA: 0xF5BF8C
+	public int get_PrefixLength() { }
+
+	// RVA: 0xF59DF0 Offset: 0xF59DF0 VA: 0xF59DF0
+	public long get_ScopeId() { }
+
+	// RVA: 0xF5A97C Offset: 0xF5A97C VA: 0xF5A97C
+	public void set_ScopeId(long value) { }
+
+	// RVA: 0xF5BF94 Offset: 0xF5BF94 VA: 0xF5BF94
+	public ushort get_Item(int index) { }
+
+	// RVA: 0xF5BFE8 Offset: 0xF5BFE8 VA: 0xF5BFE8
+	public AddressFamily get_AddressFamily() { }
+
+	// RVA: 0xF5BFF0 Offset: 0xF5BFF0 VA: 0xF5BFF0
+	public static bool IsLoopback(IPv6Address addr) { }
+
+	// RVA: 0xF5C14C Offset: 0xF5C14C VA: 0xF5C14C
+	private static ushort SwapUShort(ushort number) { }
+
+	// RVA: 0xF5C158 Offset: 0xF5C158 VA: 0xF5C158
+	private int AsIPv4Int() { }
+
+	// RVA: 0xF5C224 Offset: 0xF5C224 VA: 0xF5C224
+	public bool IsIPv4Compatible() { }
+
+	// RVA: 0xF5C2A8 Offset: 0xF5C2A8 VA: 0xF5C2A8
+	public bool IsIPv4Mapped() { }
+
+	// RVA: 0xF5C348 Offset: 0xF5C348 VA: 0xF5C348 Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0xF5C6E4 Offset: 0xF5C6E4 VA: 0xF5C6E4
+	public string ToString(bool fullLength) { }
+
+	// RVA: 0xF5C8E4 Offset: 0xF5C8E4 VA: 0xF5C8E4 Slot: 0
+	public override bool Equals(object other) { }
+
+	// RVA: 0xF5CB6C Offset: 0xF5CB6C VA: 0xF5CB6C Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0xF5CDA8 Offset: 0xF5CDA8 VA: 0xF5CDA8
+	private static int Hash(int i, int j, int k, int l) { }
+}
+
+// Namespace: System.Net
+public interface IWebProxy // TypeDefIndex: 1588
+{
+	// Properties
+	public abstract ICredentials Credentials { get; set; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract ICredentials get_Credentials();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void set_Credentials(ICredentials value);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract Uri GetProxy(Uri destination);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract bool IsBypassed(Uri host);
+}
+
+// Namespace: System.Net

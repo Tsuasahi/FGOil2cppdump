@@ -1,0 +1,1000 @@
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public class TlsNullCompression : TlsCompression // TypeDefIndex: 4989
+{
+	// Methods
+
+	// RVA: 0x266D648 Offset: 0x266D648 VA: 0x266D648
+	public void .ctor() { }
+
+	// RVA: 0x2684134 Offset: 0x2684134 VA: 0x2684134 Slot: 6
+	public virtual Stream Compress(Stream output) { }
+
+	// RVA: 0x268413C Offset: 0x268413C VA: 0x268413C Slot: 7
+	public virtual Stream Decompress(Stream output) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public interface TlsPeer // TypeDefIndex: 4990
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract bool ShouldUseGmtUnixTime();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void NotifySecureRenegotiation(bool secureRenegotiation);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract TlsCompression GetCompression();
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract TlsCipher GetCipher();
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void NotifyAlertRaised(byte alertLevel, byte alertDescription, string message, Exception cause);
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract void NotifyAlertReceived(byte alertLevel, byte alertDescription);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract void NotifyHandshakeComplete();
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public abstract class TlsProtocol // TypeDefIndex: 4991
+{
+	// Fields
+	public static readonly string TLS_ERROR_MESSAGE; // 0x0
+	protected const short CS_START = 0;
+	protected const short CS_CLIENT_HELLO = 1;
+	protected const short CS_SERVER_HELLO = 2;
+	protected const short CS_SERVER_SUPPLEMENTAL_DATA = 3;
+	protected const short CS_SERVER_CERTIFICATE = 4;
+	protected const short CS_CERTIFICATE_STATUS = 5;
+	protected const short CS_SERVER_KEY_EXCHANGE = 6;
+	protected const short CS_CERTIFICATE_REQUEST = 7;
+	protected const short CS_SERVER_HELLO_DONE = 8;
+	protected const short CS_CLIENT_SUPPLEMENTAL_DATA = 9;
+	protected const short CS_CLIENT_CERTIFICATE = 10;
+	protected const short CS_CLIENT_KEY_EXCHANGE = 11;
+	protected const short CS_CERTIFICATE_VERIFY = 12;
+	protected const short CS_CLIENT_FINISHED = 13;
+	protected const short CS_SERVER_SESSION_TICKET = 14;
+	protected const short CS_SERVER_FINISHED = 15;
+	protected const short CS_END = 16;
+	protected const short ADS_MODE_1_Nsub1 = 0;
+	protected const short ADS_MODE_0_N = 1;
+	protected const short ADS_MODE_0_N_FIRSTONLY = 2;
+	private ByteQueue mApplicationDataQueue; // 0x10
+	private ByteQueue mAlertQueue; // 0x18
+	private ByteQueue mHandshakeQueue; // 0x20
+	internal RecordStream mRecordStream; // 0x28
+	protected SecureRandom mSecureRandom; // 0x30
+	private TlsStream mTlsStream; // 0x38
+	private bool mClosed; // 0x40
+	private bool mFailedWithError; // 0x41
+	private bool mAppDataReady; // 0x42
+	private bool mAppDataSplitEnabled; // 0x43
+	private int mAppDataSplitMode; // 0x44
+	private byte[] mExpectedVerifyData; // 0x48
+	protected TlsSession mTlsSession; // 0x50
+	protected SessionParameters mSessionParameters; // 0x58
+	protected SecurityParameters mSecurityParameters; // 0x60
+	protected Certificate mPeerCertificate; // 0x68
+	protected int[] mOfferedCipherSuites; // 0x70
+	protected byte[] mOfferedCompressionMethods; // 0x78
+	protected IDictionary mClientExtensions; // 0x80
+	protected IDictionary mServerExtensions; // 0x88
+	protected short mConnectionState; // 0x90
+	protected bool mResumedSession; // 0x92
+	protected bool mReceivedChangeCipherSpec; // 0x93
+	protected bool mSecureRenegotiation; // 0x94
+	protected bool mAllowCertificateStatus; // 0x95
+	protected bool mExpectSessionTicket; // 0x96
+	protected bool mBlocking; // 0x97
+	protected ByteQueueStream mInputBuffers; // 0x98
+	protected ByteQueueStream mOutputBuffer; // 0xA0
+
+	// Properties
+	protected abstract TlsContext Context { get; }
+	internal abstract AbstractTlsContext ContextAdmin { get; }
+	protected abstract TlsPeer Peer { get; }
+	public virtual Stream Stream { get; }
+	public virtual bool IsClosed { get; }
+
+	// Methods
+
+	// RVA: 0x2674C3C Offset: 0x2674C3C VA: 0x2674C3C
+	public void .ctor(Stream stream, SecureRandom secureRandom) { }
+
+	// RVA: 0x2674CD8 Offset: 0x2674CD8 VA: 0x2674CD8
+	public void .ctor(Stream input, Stream output, SecureRandom secureRandom) { }
+
+	// RVA: 0x2674E40 Offset: 0x2674E40 VA: 0x2674E40
+	public void .ctor(SecureRandom secureRandom) { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	protected abstract TlsContext get_Context();
+
+	// RVA: -1 Offset: -1 Slot: 5
+	internal abstract AbstractTlsContext get_ContextAdmin();
+
+	// RVA: -1 Offset: -1 Slot: 6
+	protected abstract TlsPeer get_Peer();
+
+	// RVA: 0x2684144 Offset: 0x2684144 VA: 0x2684144 Slot: 7
+	protected virtual void HandleChangeCipherSpecMessage() { }
+
+	// RVA: -1 Offset: -1 Slot: 8
+	protected abstract void HandleHandshakeMessage(byte type, byte[] buf);
+
+	// RVA: 0x2684148 Offset: 0x2684148 VA: 0x2684148 Slot: 9
+	protected virtual void HandleWarningMessage(byte description) { }
+
+	// RVA: 0x268414C Offset: 0x268414C VA: 0x268414C Slot: 10
+	protected virtual void ApplyMaxFragmentLengthExtension() { }
+
+	// RVA: 0x268424C Offset: 0x268424C VA: 0x268424C Slot: 11
+	protected virtual void CheckReceivedChangeCipherSpec(bool expected) { }
+
+	// RVA: 0x26754EC Offset: 0x26754EC VA: 0x26754EC Slot: 12
+	protected virtual void CleanupHandshake() { }
+
+	// RVA: 0x26842E4 Offset: 0x26842E4 VA: 0x26842E4 Slot: 13
+	protected virtual void BlockForHandshake() { }
+
+	// RVA: 0x2684330 Offset: 0x2684330 VA: 0x2684330 Slot: 14
+	protected virtual void CompleteHandshake() { }
+
+	// RVA: 0x266DC60 Offset: 0x266DC60 VA: 0x266DC60
+	protected internal void ProcessRecord(byte protocol, byte[] buf, int offset, int len) { }
+
+	// RVA: 0x2684B6C Offset: 0x2684B6C VA: 0x2684B6C
+	private void ProcessHandshake() { }
+
+	// RVA: 0x26849D0 Offset: 0x26849D0 VA: 0x26849D0
+	private void ProcessApplicationData() { }
+
+	// RVA: 0x2684778 Offset: 0x2684778 VA: 0x2684778
+	private void ProcessAlert() { }
+
+	// RVA: 0x26849D4 Offset: 0x26849D4 VA: 0x26849D4
+	private void ProcessChangeCipherSpec(byte[] buf, int off, int len) { }
+
+	// RVA: 0x2684EC4 Offset: 0x2684EC4 VA: 0x2684EC4 Slot: 15
+	protected internal virtual int ApplicationDataAvailable() { }
+
+	// RVA: 0x2684EF4 Offset: 0x2684EF4 VA: 0x2684EF4 Slot: 16
+	protected internal virtual int ReadApplicationData(byte[] buf, int offset, int len) { }
+
+	// RVA: 0x2685078 Offset: 0x2685078 VA: 0x2685078 Slot: 17
+	protected virtual void SafeReadRecord() { }
+
+	// RVA: 0x2685250 Offset: 0x2685250 VA: 0x2685250 Slot: 18
+	protected virtual void SafeWriteRecord(byte type, byte[] buf, int offset, int len) { }
+
+	// RVA: 0x2685408 Offset: 0x2685408 VA: 0x2685408 Slot: 19
+	protected internal virtual void WriteData(byte[] buf, int offset, int len) { }
+
+	// RVA: 0x268563C Offset: 0x268563C VA: 0x268563C Slot: 20
+	protected virtual void SetAppDataSplitMode(int appDataSplitMode) { }
+
+	// RVA: 0x2685740 Offset: 0x2685740 VA: 0x2685740 Slot: 21
+	protected virtual void WriteHandshakeMessage(byte[] buf, int off, int len) { }
+
+	// RVA: 0x26857E8 Offset: 0x26857E8 VA: 0x26857E8 Slot: 22
+	public virtual Stream get_Stream() { }
+
+	// RVA: 0x2685878 Offset: 0x2685878 VA: 0x2685878 Slot: 23
+	public virtual void OfferInput(byte[] input) { }
+
+	// RVA: 0x2685A5C Offset: 0x2685A5C VA: 0x2685A5C Slot: 24
+	public virtual int GetAvailableInputBytes() { }
+
+	// RVA: 0x2685AF8 Offset: 0x2685AF8 VA: 0x2685AF8 Slot: 25
+	public virtual int ReadInput(byte[] buffer, int offset, int length) { }
+
+	// RVA: 0x2685BE0 Offset: 0x2685BE0 VA: 0x2685BE0 Slot: 26
+	public virtual void OfferOutput(byte[] buffer, int offset, int length) { }
+
+	// RVA: 0x2685CDC Offset: 0x2685CDC VA: 0x2685CDC Slot: 27
+	public virtual int GetAvailableOutputBytes() { }
+
+	// RVA: 0x2685D88 Offset: 0x2685D88 VA: 0x2685D88 Slot: 28
+	public virtual int ReadOutput(byte[] buffer, int offset, int length) { }
+
+	// RVA: 0x2685E5C Offset: 0x2685E5C VA: 0x2685E5C Slot: 29
+	protected virtual void FailWithError(byte alertLevel, byte alertDescription, string message, Exception cause) { }
+
+	// RVA: 0x2685FB8 Offset: 0x2685FB8 VA: 0x2685FB8 Slot: 30
+	protected virtual void InvalidateSession() { }
+
+	// RVA: 0x2686090 Offset: 0x2686090 VA: 0x2686090 Slot: 31
+	protected virtual void ProcessFinishedMessage(MemoryStream buf) { }
+
+	// RVA: 0x26861B0 Offset: 0x26861B0 VA: 0x26861B0 Slot: 32
+	protected virtual void RaiseAlert(byte alertLevel, byte alertDescription, string message, Exception cause) { }
+
+	// RVA: 0x2686324 Offset: 0x2686324 VA: 0x2686324 Slot: 33
+	protected virtual void RaiseWarning(byte alertDescription, string message) { }
+
+	// RVA: 0x268634C Offset: 0x268634C VA: 0x268634C Slot: 34
+	protected virtual void SendCertificateMessage(Certificate certificate) { }
+
+	// RVA: 0x26865FC Offset: 0x26865FC VA: 0x26865FC Slot: 35
+	protected virtual void SendChangeCipherSpecMessage() { }
+
+	// RVA: 0x26866BC Offset: 0x26866BC VA: 0x26866BC Slot: 36
+	protected virtual void SendFinishedMessage() { }
+
+	// RVA: 0x26868B0 Offset: 0x26868B0 VA: 0x26868B0 Slot: 37
+	protected virtual void SendSupplementalDataMessage(IList supplementalData) { }
+
+	// RVA: 0x2686D80 Offset: 0x2686D80 VA: 0x2686D80 Slot: 38
+	protected virtual byte[] CreateVerifyData(bool isServer) { }
+
+	// RVA: 0x2686EEC Offset: 0x2686EEC VA: 0x2686EEC Slot: 39
+	public virtual void Close() { }
+
+	// RVA: 0x2686F00 Offset: 0x2686F00 VA: 0x2686F00 Slot: 40
+	protected virtual void HandleClose(bool user_canceled) { }
+
+	// RVA: 0x2686FC4 Offset: 0x2686FC4 VA: 0x2686FC4 Slot: 41
+	protected internal virtual void Flush() { }
+
+	// RVA: 0x2686FFC Offset: 0x2686FFC VA: 0x2686FFC Slot: 42
+	public virtual bool get_IsClosed() { }
+
+	// RVA: 0x2687020 Offset: 0x2687020 VA: 0x2687020 Slot: 43
+	protected virtual short ProcessMaxFragmentLengthExtension(IDictionary clientExtensions, IDictionary serverExtensions, byte alertDescription) { }
+
+	// RVA: 0x26870F4 Offset: 0x26870F4 VA: 0x26870F4 Slot: 44
+	protected virtual void RefuseRenegotiation() { }
+
+	// RVA: 0x2676A38 Offset: 0x2676A38 VA: 0x2676A38
+	protected internal static void AssertEmpty(MemoryStream buf) { }
+
+	// RVA: 0x26753A4 Offset: 0x26753A4 VA: 0x26753A4
+	protected internal static byte[] CreateRandomBlock(bool useGmtUnixTime, IRandomGenerator randomGenerator) { }
+
+	// RVA: 0x26782DC Offset: 0x26782DC VA: 0x26782DC
+	protected internal static byte[] CreateRenegotiationInfo(byte[] renegotiated_connection) { }
+
+	// RVA: 0x2676ED0 Offset: 0x2676ED0 VA: 0x2676ED0
+	protected internal static void EstablishMasterSecret(TlsContext context, TlsKeyExchange keyExchange) { }
+
+	// RVA: 0x2676D20 Offset: 0x2676D20 VA: 0x2676D20
+	protected internal static byte[] GetCurrentPrfHash(TlsContext context, TlsHandshakeHash handshakeHash, byte[] sslSender) { }
+
+	// RVA: 0x2670088 Offset: 0x2670088 VA: 0x2670088
+	protected internal static IDictionary ReadExtensions(MemoryStream input) { }
+
+	// RVA: 0x2676AF4 Offset: 0x2676AF4 VA: 0x2676AF4
+	protected internal static IList ReadSupplementalDataMessage(MemoryStream input) { }
+
+	// RVA: 0x26706B0 Offset: 0x26706B0 VA: 0x26706B0
+	protected internal static void WriteExtensions(Stream output, IDictionary extensions) { }
+
+	// RVA: 0x26871D4 Offset: 0x26871D4 VA: 0x26871D4
+	protected internal static void WriteSelectedExtensions(Stream output, IDictionary extensions, bool selectEmpty) { }
+
+	// RVA: 0x268695C Offset: 0x268695C VA: 0x268695C
+	protected internal static void WriteSupplementalData(Stream output, IList supplementalData) { }
+
+	// RVA: 0x26784B8 Offset: 0x26784B8 VA: 0x26784B8
+	protected internal static int GetPrfAlgorithm(TlsContext context, int ciphersuite) { }
+
+	// RVA: 0x2687704 Offset: 0x2687704 VA: 0x2687704
+	private static void .cctor() { }
+}
+
+// Namespace: 
+internal class TlsProtocol.HandshakeMessage : MemoryStream // TypeDefIndex: 4992
+{
+	// Methods
+
+	// RVA: 0x2678744 Offset: 0x2678744 VA: 0x2678744
+	internal void .ctor(byte handshakeType) { }
+
+	// RVA: 0x2686814 Offset: 0x2686814 VA: 0x2686814
+	internal void .ctor(byte handshakeType, int length) { }
+
+	// RVA: 0x2678F30 Offset: 0x2678F30 VA: 0x2678F30
+	internal void Write(byte[] data) { }
+
+	// RVA: 0x267874C Offset: 0x267874C VA: 0x267874C
+	internal void WriteToRecordStream(TlsProtocol protocol) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public class TlsRsaKeyExchange : AbstractTlsKeyExchange // TypeDefIndex: 4993
+{
+	// Fields
+	protected AsymmetricKeyParameter mServerPublicKey; // 0x28
+	protected RsaKeyParameters mRsaServerPublicKey; // 0x30
+	protected TlsEncryptionCredentials mServerCredentials; // 0x38
+	protected byte[] mPremasterSecret; // 0x40
+
+	// Methods
+
+	// RVA: 0x2687760 Offset: 0x2687760 VA: 0x2687760
+	public void .ctor(IList supportedSignatureAlgorithms) { }
+
+	// RVA: 0x2687774 Offset: 0x2687774 VA: 0x2687774 Slot: 21
+	public override void SkipServerCredentials() { }
+
+	// RVA: 0x26877DC Offset: 0x26877DC VA: 0x26877DC Slot: 23
+	public override void ProcessServerCredentials(TlsCredentials serverCredentials) { }
+
+	// RVA: 0x2687970 Offset: 0x2687970 VA: 0x2687970 Slot: 22
+	public override void ProcessServerCertificate(Certificate serverCertificate) { }
+
+	// RVA: 0x2687C0C Offset: 0x2687C0C VA: 0x2687C0C Slot: 28
+	public override void ValidateCertificateRequest(CertificateRequest certificateRequest) { }
+
+	// RVA: 0x2687D10 Offset: 0x2687D10 VA: 0x2687D10 Slot: 30
+	public override void ProcessClientCredentials(TlsCredentials clientCredentials) { }
+
+	// RVA: 0x2687DA0 Offset: 0x2687DA0 VA: 0x2687DA0 Slot: 32
+	public override void GenerateClientKeyExchange(Stream output) { }
+
+	// RVA: 0x2688204 Offset: 0x2688204 VA: 0x2688204 Slot: 33
+	public override void ProcessClientKeyExchange(Stream input) { }
+
+	// RVA: 0x268833C Offset: 0x268833C VA: 0x268833C Slot: 34
+	public override byte[] GeneratePremasterSecret() { }
+
+	// RVA: 0x26883C0 Offset: 0x26883C0 VA: 0x26883C0 Slot: 35
+	protected virtual RsaKeyParameters ValidateRsaPublicKey(RsaKeyParameters key) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public class TlsRsaSigner : AbstractTlsSigner // TypeDefIndex: 4994
+{
+	// Methods
+
+	// RVA: 0x2679178 Offset: 0x2679178 VA: 0x2679178
+	public void .ctor() { }
+
+	// RVA: 0x2688474 Offset: 0x2688474 VA: 0x2688474 Slot: 16
+	public override byte[] GenerateRawSignature(SignatureAndHashAlgorithm algorithm, AsymmetricKeyParameter privateKey, byte[] hash) { }
+
+	// RVA: 0x26886A8 Offset: 0x26886A8 VA: 0x26886A8 Slot: 18
+	public override bool VerifyRawSignature(SignatureAndHashAlgorithm algorithm, byte[] sigBytes, AsymmetricKeyParameter publicKey, byte[] hash) { }
+
+	// RVA: 0x268883C Offset: 0x268883C VA: 0x268883C Slot: 20
+	public override ISigner CreateSigner(SignatureAndHashAlgorithm algorithm, AsymmetricKeyParameter privateKey) { }
+
+	// RVA: 0x268895C Offset: 0x268895C VA: 0x268895C Slot: 22
+	public override ISigner CreateVerifyer(SignatureAndHashAlgorithm algorithm, AsymmetricKeyParameter publicKey) { }
+
+	// RVA: 0x268897C Offset: 0x268897C VA: 0x268897C Slot: 23
+	public override bool IsValidPublicKey(AsymmetricKeyParameter publicKey) { }
+
+	// RVA: 0x2688A10 Offset: 0x2688A10 VA: 0x2688A10 Slot: 24
+	protected virtual ISigner MakeSigner(SignatureAndHashAlgorithm algorithm, bool raw, bool forSigning, ICipherParameters cp) { }
+
+	// RVA: 0x2688CCC Offset: 0x2688CCC VA: 0x2688CCC Slot: 25
+	protected virtual IAsymmetricBlockCipher CreateRsaImpl() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public abstract class TlsRsaUtilities // TypeDefIndex: 4995
+{
+	// Methods
+
+	// RVA: 0x2688D48 Offset: 0x2688D48 VA: 0x2688D48
+	protected void .ctor() { }
+
+	// RVA: 0x2687DD8 Offset: 0x2687DD8 VA: 0x2687DD8
+	public static byte[] GenerateEncryptedPreMasterSecret(TlsContext context, RsaKeyParameters rsaServerPublicKey, Stream output) { }
+
+	// RVA: 0x2688D50 Offset: 0x2688D50 VA: 0x2688D50
+	public static byte[] SafeDecryptPreMasterSecret(TlsContext context, RsaKeyParameters rsaServerPrivateKey, byte[] encryptedPreMasterSecret) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public interface TlsServer : TlsPeer // TypeDefIndex: 4996
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void Init(TlsServerContext context);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract void NotifyClientVersion(ProtocolVersion clientVersion);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void NotifyFallback(bool isFallback);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract void NotifyOfferedCipherSuites(int[] offeredCipherSuites);
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void NotifyOfferedCompressionMethods(byte[] offeredCompressionMethods);
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract void ProcessClientExtensions(IDictionary clientExtensions);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract ProtocolVersion GetServerVersion();
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract int GetSelectedCipherSuite();
+
+	// RVA: -1 Offset: -1 Slot: 8
+	public abstract byte GetSelectedCompressionMethod();
+
+	// RVA: -1 Offset: -1 Slot: 9
+	public abstract IDictionary GetServerExtensions();
+
+	// RVA: -1 Offset: -1 Slot: 10
+	public abstract IList GetServerSupplementalData();
+
+	// RVA: -1 Offset: -1 Slot: 11
+	public abstract TlsCredentials GetCredentials();
+
+	// RVA: -1 Offset: -1 Slot: 12
+	public abstract CertificateStatus GetCertificateStatus();
+
+	// RVA: -1 Offset: -1 Slot: 13
+	public abstract TlsKeyExchange GetKeyExchange();
+
+	// RVA: -1 Offset: -1 Slot: 14
+	public abstract CertificateRequest GetCertificateRequest();
+
+	// RVA: -1 Offset: -1 Slot: 15
+	public abstract void ProcessClientSupplementalData(IList clientSupplementalData);
+
+	// RVA: -1 Offset: -1 Slot: 16
+	public abstract void NotifyClientCertificate(Certificate clientCertificate);
+
+	// RVA: -1 Offset: -1 Slot: 17
+	public abstract NewSessionTicket GetNewSessionTicket();
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public interface TlsServerContext : TlsContext // TypeDefIndex: 4997
+{}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+internal class TlsServerContextImpl : AbstractTlsContext, TlsServerContext, TlsContext // TypeDefIndex: 4998
+{
+	// Properties
+	public override bool IsServer { get; }
+
+	// Methods
+
+	// RVA: 0x23AB7E8 Offset: 0x23AB7E8 VA: 0x23AB7E8
+	internal void .ctor(SecureRandom secureRandom, SecurityParameters securityParameters) { }
+
+	// RVA: 0x23AB868 Offset: 0x23AB868 VA: 0x23AB868 Slot: 17
+	public override bool get_IsServer() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public interface TlsSession // TypeDefIndex: 4999
+{
+	// Properties
+	public abstract byte[] SessionID { get; }
+	public abstract bool IsResumable { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract SessionParameters ExportSessionParameters();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract byte[] get_SessionID();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void Invalidate();
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract bool get_IsResumable();
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+internal class TlsSessionImpl : TlsSession // TypeDefIndex: 5000
+{
+	// Fields
+	internal readonly byte[] mSessionID; // 0x10
+	internal SessionParameters mSessionParameters; // 0x18
+
+	// Properties
+	public virtual byte[] SessionID { get; }
+	public virtual bool IsResumable { get; }
+
+	// Methods
+
+	// RVA: 0x23AB870 Offset: 0x23AB870 VA: 0x23AB870
+	internal void .ctor(byte[] sessionID, SessionParameters sessionParameters) { }
+
+	// RVA: 0x23AB96C Offset: 0x23AB96C VA: 0x23AB96C Slot: 8
+	public virtual SessionParameters ExportSessionParameters() { }
+
+	// RVA: 0x23AB9FC Offset: 0x23AB9FC VA: 0x23AB9FC Slot: 9
+	public virtual byte[] get_SessionID() { }
+
+	// RVA: 0x23ABA34 Offset: 0x23ABA34 VA: 0x23ABA34 Slot: 10
+	public virtual void Invalidate() { }
+
+	// RVA: 0x23ABAC0 Offset: 0x23ABAC0 VA: 0x23ABAC0 Slot: 11
+	public virtual bool get_IsResumable() { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public interface TlsSigner // TypeDefIndex: 5001
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void Init(TlsContext context);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract byte[] GenerateRawSignature(AsymmetricKeyParameter privateKey, byte[] md5AndSha1);
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract byte[] GenerateRawSignature(SignatureAndHashAlgorithm algorithm, AsymmetricKeyParameter privateKey, byte[] hash);
+
+	// RVA: -1 Offset: -1 Slot: 3
+	public abstract bool VerifyRawSignature(byte[] sigBytes, AsymmetricKeyParameter publicKey, byte[] md5AndSha1);
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract bool VerifyRawSignature(SignatureAndHashAlgorithm algorithm, byte[] sigBytes, AsymmetricKeyParameter publicKey, byte[] hash);
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract ISigner CreateSigner(AsymmetricKeyParameter privateKey);
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract ISigner CreateSigner(SignatureAndHashAlgorithm algorithm, AsymmetricKeyParameter privateKey);
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract ISigner CreateVerifyer(AsymmetricKeyParameter publicKey);
+
+	// RVA: -1 Offset: -1 Slot: 8
+	public abstract ISigner CreateVerifyer(SignatureAndHashAlgorithm algorithm, AsymmetricKeyParameter publicKey);
+
+	// RVA: -1 Offset: -1 Slot: 9
+	public abstract bool IsValidPublicKey(AsymmetricKeyParameter publicKey);
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public interface TlsSignerCredentials : TlsCredentials // TypeDefIndex: 5002
+{
+	// Properties
+	public abstract SignatureAndHashAlgorithm SignatureAndHashAlgorithm { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract byte[] GenerateCertificateSignature(byte[] hash);
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract SignatureAndHashAlgorithm get_SignatureAndHashAlgorithm();
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+internal class TlsStream : Stream // TypeDefIndex: 5003
+{
+	// Fields
+	private readonly TlsProtocol handler; // 0x10
+
+	// Properties
+	public override bool CanRead { get; }
+	public override bool CanSeek { get; }
+	public override bool CanWrite { get; }
+	public override long Length { get; }
+	public override long Position { get; set; }
+
+	// Methods
+
+	// RVA: 0x23ABB00 Offset: 0x23ABB00 VA: 0x23ABB00
+	internal void .ctor(TlsProtocol handler) { }
+
+	// RVA: 0x23ABB7C Offset: 0x23ABB7C VA: 0x23ABB7C Slot: 5
+	public override bool get_CanRead() { }
+
+	// RVA: 0x23ABBC0 Offset: 0x23ABBC0 VA: 0x23ABBC0 Slot: 6
+	public override bool get_CanSeek() { }
+
+	// RVA: 0x23ABBC8 Offset: 0x23ABBC8 VA: 0x23ABBC8 Slot: 7
+	public override bool get_CanWrite() { }
+
+	// RVA: 0x23ABC0C Offset: 0x23ABC0C VA: 0x23ABC0C Slot: 13
+	public override void Close() { }
+
+	// RVA: 0x23ABC54 Offset: 0x23ABC54 VA: 0x23ABC54 Slot: 18
+	public override void Flush() { }
+
+	// RVA: 0x23ABC8C Offset: 0x23ABC8C VA: 0x23ABC8C Slot: 9
+	public override long get_Length() { }
+
+	// RVA: 0x23ABCF4 Offset: 0x23ABCF4 VA: 0x23ABCF4 Slot: 10
+	public override long get_Position() { }
+
+	// RVA: 0x23ABD5C Offset: 0x23ABD5C VA: 0x23ABD5C Slot: 11
+	public override void set_Position(long value) { }
+
+	// RVA: 0x23ABDC4 Offset: 0x23ABDC4 VA: 0x23ABDC4 Slot: 19
+	public override int Read(byte[] buf, int off, int len) { }
+
+	// RVA: 0x23ABE1C Offset: 0x23ABE1C VA: 0x23ABE1C Slot: 20
+	public override int ReadByte() { }
+
+	// RVA: 0x23ABECC Offset: 0x23ABECC VA: 0x23ABECC Slot: 21
+	public override long Seek(long offset, SeekOrigin origin) { }
+
+	// RVA: 0x23ABF34 Offset: 0x23ABF34 VA: 0x23ABF34 Slot: 22
+	public override void SetLength(long value) { }
+
+	// RVA: 0x23ABF9C Offset: 0x23ABF9C VA: 0x23ABF9C Slot: 23
+	public override void Write(byte[] buf, int off, int len) { }
+
+	// RVA: 0x23ABFF4 Offset: 0x23ABFF4 VA: 0x23ABFF4 Slot: 24
+	public override void WriteByte(byte b) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public class TlsStreamCipher : TlsCipher // TypeDefIndex: 5004
+{
+	// Fields
+	protected readonly TlsContext context; // 0x10
+	protected readonly IStreamCipher encryptCipher; // 0x18
+	protected readonly IStreamCipher decryptCipher; // 0x20
+	protected readonly TlsMac writeMac; // 0x28
+	protected readonly TlsMac readMac; // 0x30
+	protected readonly bool usesNonce; // 0x38
+
+	// Methods
+
+	// RVA: 0x23AC0A8 Offset: 0x23AC0A8 VA: 0x23AC0A8
+	public void .ctor(TlsContext context, IStreamCipher clientWriteCipher, IStreamCipher serverWriteCipher, IDigest clientWriteDigest, IDigest serverWriteDigest, int cipherKeySize, bool usesNonce) { }
+
+	// RVA: 0x23AC934 Offset: 0x23AC934 VA: 0x23AC934 Slot: 7
+	public virtual int GetPlaintextLimit(int ciphertextLimit) { }
+
+	// RVA: 0x23AC974 Offset: 0x23AC974 VA: 0x23AC974 Slot: 8
+	public virtual byte[] EncodePlaintext(long seqNo, byte type, byte[] plaintext, int offset, int len) { }
+
+	// RVA: 0x23ACBB0 Offset: 0x23ACBB0 VA: 0x23ACBB0 Slot: 9
+	public virtual byte[] DecodeCiphertext(long seqNo, byte type, byte[] ciphertext, int offset, int len) { }
+
+	// RVA: 0x23ACDA8 Offset: 0x23ACDA8 VA: 0x23ACDA8 Slot: 10
+	protected virtual void CheckMac(long seqNo, byte type, byte[] recBuf, int recStart, int recEnd, byte[] calcBuf, int calcOff, int calcLen) { }
+
+	// RVA: 0x23ACEC4 Offset: 0x23ACEC4 VA: 0x23ACEC4 Slot: 11
+	protected virtual void UpdateIV(IStreamCipher cipher, bool forEncryption, long seqNo) { }
+}
+
+// Namespace: Org.BouncyCastle.Crypto.Tls
+public abstract class TlsUtilities // TypeDefIndex: 5005
+{
+	// Fields
+	public static readonly byte[] EmptyBytes; // 0x0
+	public static readonly short[] EmptyShorts; // 0x8
+	public static readonly int[] EmptyInts; // 0x10
+	public static readonly long[] EmptyLongs; // 0x18
+	internal static readonly byte[] SSL_CLIENT; // 0x20
+	internal static readonly byte[] SSL_SERVER; // 0x28
+	internal static readonly byte[][] SSL3_CONST; // 0x30
+
+	// Methods
+
+	// RVA: 0x23AD1B0 Offset: 0x23AD1B0 VA: 0x23AD1B0
+	protected void .ctor() { }
+
+	// RVA: 0x23AD1B8 Offset: 0x23AD1B8 VA: 0x23AD1B8
+	public static void CheckUint8(int i) { }
+
+	// RVA: 0x23AD268 Offset: 0x23AD268 VA: 0x23AD268
+	public static void CheckUint8(long i) { }
+
+	// RVA: 0x23AD318 Offset: 0x23AD318 VA: 0x23AD318
+	public static void CheckUint16(int i) { }
+
+	// RVA: 0x23AD3C8 Offset: 0x23AD3C8 VA: 0x23AD3C8
+	public static void CheckUint16(long i) { }
+
+	// RVA: 0x23AD478 Offset: 0x23AD478 VA: 0x23AD478
+	public static void CheckUint24(int i) { }
+
+	// RVA: 0x23AD528 Offset: 0x23AD528 VA: 0x23AD528
+	public static void CheckUint24(long i) { }
+
+	// RVA: 0x23AD5D8 Offset: 0x23AD5D8 VA: 0x23AD5D8
+	public static void CheckUint32(long i) { }
+
+	// RVA: 0x23AD688 Offset: 0x23AD688 VA: 0x23AD688
+	public static void CheckUint48(long i) { }
+
+	// RVA: 0x23AD738 Offset: 0x23AD738 VA: 0x23AD738
+	public static void CheckUint64(long i) { }
+
+	// RVA: 0x23AD25C Offset: 0x23AD25C VA: 0x23AD25C
+	public static bool IsValidUint8(int i) { }
+
+	// RVA: 0x23AD30C Offset: 0x23AD30C VA: 0x23AD30C
+	public static bool IsValidUint8(long i) { }
+
+	// RVA: 0x23AD3BC Offset: 0x23AD3BC VA: 0x23AD3BC
+	public static bool IsValidUint16(int i) { }
+
+	// RVA: 0x23AD46C Offset: 0x23AD46C VA: 0x23AD46C
+	public static bool IsValidUint16(long i) { }
+
+	// RVA: 0x23AD51C Offset: 0x23AD51C VA: 0x23AD51C
+	public static bool IsValidUint24(int i) { }
+
+	// RVA: 0x23AD5CC Offset: 0x23AD5CC VA: 0x23AD5CC
+	public static bool IsValidUint24(long i) { }
+
+	// RVA: 0x23AD67C Offset: 0x23AD67C VA: 0x23AD67C
+	public static bool IsValidUint32(long i) { }
+
+	// RVA: 0x23AD72C Offset: 0x23AD72C VA: 0x23AD72C
+	public static bool IsValidUint48(long i) { }
+
+	// RVA: 0x23AD79C Offset: 0x23AD79C VA: 0x23AD79C
+	public static bool IsValidUint64(long i) { }
+
+	// RVA: 0x23AD7A4 Offset: 0x23AD7A4 VA: 0x23AD7A4
+	public static bool IsSsl(TlsContext context) { }
+
+	// RVA: 0x23AD870 Offset: 0x23AD870 VA: 0x23AD870
+	public static bool IsTlsV11(ProtocolVersion version) { }
+
+	// RVA: 0x23AD910 Offset: 0x23AD910 VA: 0x23AD910
+	public static bool IsTlsV11(TlsContext context) { }
+
+	// RVA: 0x23AD9F4 Offset: 0x23AD9F4 VA: 0x23AD9F4
+	public static bool IsTlsV12(ProtocolVersion version) { }
+
+	// RVA: 0x23ADA94 Offset: 0x23ADA94 VA: 0x23ADA94
+	public static bool IsTlsV12(TlsContext context) { }
+
+	// RVA: 0x23ADB78 Offset: 0x23ADB78 VA: 0x23ADB78
+	public static void WriteUint8(byte i, Stream output) { }
+
+	// RVA: 0x23ADBB8 Offset: 0x23ADBB8 VA: 0x23ADBB8
+	public static void WriteUint8(byte i, byte[] buf, int offset) { }
+
+	// RVA: 0x23ADC18 Offset: 0x23ADC18 VA: 0x23ADC18
+	public static void WriteUint16(int i, Stream output) { }
+
+	// RVA: 0x23ADC7C Offset: 0x23ADC7C VA: 0x23ADC7C
+	public static void WriteUint16(int i, byte[] buf, int offset) { }
+
+	// RVA: 0x23ADD0C Offset: 0x23ADD0C VA: 0x23ADD0C
+	public static void WriteUint24(int i, Stream output) { }
+
+	// RVA: 0x23ADDAC Offset: 0x23ADDAC VA: 0x23ADDAC
+	public static void WriteUint24(int i, byte[] buf, int offset) { }
+
+	// RVA: 0x23ADE6C Offset: 0x23ADE6C VA: 0x23ADE6C
+	public static void WriteUint32(long i, Stream output) { }
+
+	// RVA: 0x23ADF30 Offset: 0x23ADF30 VA: 0x23ADF30
+	public static void WriteUint32(long i, byte[] buf, int offset) { }
+
+	// RVA: 0x23AE020 Offset: 0x23AE020 VA: 0x23AE020
+	public static void WriteUint48(long i, Stream output) { }
+
+	// RVA: 0x23AE144 Offset: 0x23AE144 VA: 0x23AE144
+	public static void WriteUint48(long i, byte[] buf, int offset) { }
+
+	// RVA: 0x23AE294 Offset: 0x23AE294 VA: 0x23AE294
+	public static void WriteUint64(long i, Stream output) { }
+
+	// RVA: 0x23AD000 Offset: 0x23AD000 VA: 0x23AD000
+	public static void WriteUint64(long i, byte[] buf, int offset) { }
+
+	// RVA: 0x23AE418 Offset: 0x23AE418 VA: 0x23AE418
+	public static void WriteOpaque8(byte[] buf, Stream output) { }
+
+	// RVA: 0x23AE4E0 Offset: 0x23AE4E0 VA: 0x23AE4E0
+	public static void WriteOpaque16(byte[] buf, Stream output) { }
+
+	// RVA: 0x23AE5A0 Offset: 0x23AE5A0 VA: 0x23AE5A0
+	public static void WriteOpaque24(byte[] buf, Stream output) { }
+
+	// RVA: 0x23AE660 Offset: 0x23AE660 VA: 0x23AE660
+	public static void WriteUint8Array(byte[] uints, Stream output) { }
+
+	// RVA: 0x23AE6B8 Offset: 0x23AE6B8 VA: 0x23AE6B8
+	public static void WriteUint8Array(byte[] uints, byte[] buf, int offset) { }
+
+	// RVA: 0x23AE794 Offset: 0x23AE794 VA: 0x23AE794
+	public static void WriteUint8ArrayWithUint8Length(byte[] uints, Stream output) { }
+
+	// RVA: 0x23AE850 Offset: 0x23AE850 VA: 0x23AE850
+	public static void WriteUint8ArrayWithUint8Length(byte[] uints, byte[] buf, int offset) { }
+
+	// RVA: 0x23AE8FC Offset: 0x23AE8FC VA: 0x23AE8FC
+	public static void WriteUint16Array(int[] uints, Stream output) { }
+
+	// RVA: 0x23AE9C4 Offset: 0x23AE9C4 VA: 0x23AE9C4
+	public static void WriteUint16Array(int[] uints, byte[] buf, int offset) { }
+
+	// RVA: 0x23AEA98 Offset: 0x23AEA98 VA: 0x23AEA98
+	public static void WriteUint16ArrayWithUint16Length(int[] uints, Stream output) { }
+
+	// RVA: 0x23AEB34 Offset: 0x23AEB34 VA: 0x23AEB34
+	public static void WriteUint16ArrayWithUint16Length(int[] uints, byte[] buf, int offset) { }
+
+	// RVA: 0x23AEBDC Offset: 0x23AEBDC VA: 0x23AEBDC
+	public static byte[] EncodeOpaque8(byte[] buf) { }
+
+	// RVA: 0x23AEC68 Offset: 0x23AEC68 VA: 0x23AEC68
+	public static byte[] EncodeUint8ArrayWithUint8Length(byte[] uints) { }
+
+	// RVA: 0x23AED08 Offset: 0x23AED08 VA: 0x23AED08
+	public static byte[] EncodeUint16ArrayWithUint16Length(int[] uints) { }
+
+	// RVA: 0x23AEDAC Offset: 0x23AEDAC VA: 0x23AEDAC
+	public static byte ReadUint8(Stream input) { }
+
+	// RVA: 0x23AEE48 Offset: 0x23AEE48 VA: 0x23AEE48
+	public static byte ReadUint8(byte[] buf, int offset) { }
+
+	// RVA: 0x23AEE98 Offset: 0x23AEE98 VA: 0x23AEE98
+	public static int ReadUint16(Stream input) { }
+
+	// RVA: 0x23AEF5C Offset: 0x23AEF5C VA: 0x23AEF5C
+	public static int ReadUint16(byte[] buf, int offset) { }
+
+	// RVA: 0x23AEFE8 Offset: 0x23AEFE8 VA: 0x23AEFE8
+	public static int ReadUint24(Stream input) { }
+
+	// RVA: 0x23AF0E0 Offset: 0x23AF0E0 VA: 0x23AF0E0
+	public static int ReadUint24(byte[] buf, int offset) { }
+
+	// RVA: 0x23AF19C Offset: 0x23AF19C VA: 0x23AF19C
+	public static long ReadUint32(Stream input) { }
+
+	// RVA: 0x23AF2BC Offset: 0x23AF2BC VA: 0x23AF2BC
+	public static long ReadUint32(byte[] buf, int offset) { }
+
+	// RVA: 0x23AF3A8 Offset: 0x23AF3A8 VA: 0x23AF3A8
+	public static long ReadUint48(Stream input) { }
+
+	// RVA: 0x23AF428 Offset: 0x23AF428 VA: 0x23AF428
+	public static long ReadUint48(byte[] buf, int offset) { }
+
+	// RVA: 0x23AF4BC Offset: 0x23AF4BC VA: 0x23AF4BC
+	public static byte[] ReadAllOrNothing(int length, Stream input) { }
+
+	// RVA: 0x23AF5B4 Offset: 0x23AF5B4 VA: 0x23AF5B4
+	public static byte[] ReadFully(int length, Stream input) { }
+
+	// RVA: 0x23AF6A0 Offset: 0x23AF6A0 VA: 0x23AF6A0
+	public static void ReadFully(byte[] buf, Stream input) { }
+
+	// RVA: 0x23AF764 Offset: 0x23AF764 VA: 0x23AF764
+	public static byte[] ReadOpaque8(Stream input) { }
+
+	// RVA: 0x23AF7F4 Offset: 0x23AF7F4 VA: 0x23AF7F4
+	public static byte[] ReadOpaque16(Stream input) { }
+
+	// RVA: 0x23AF884 Offset: 0x23AF884 VA: 0x23AF884
+	public static byte[] ReadOpaque24(Stream input) { }
+
+	// RVA: 0x23AF8F0 Offset: 0x23AF8F0 VA: 0x23AF8F0
+	public static byte[] ReadUint8Array(int count, Stream input) { }
+
+	// RVA: 0x23AF9E0 Offset: 0x23AF9E0 VA: 0x23AF9E0
+	public static int[] ReadUint16Array(int count, Stream input) { }
+
+	// RVA: 0x23AFAD0 Offset: 0x23AFAD0 VA: 0x23AFAD0
+	public static ProtocolVersion ReadVersion(byte[] buf, int offset) { }
+
+	// RVA: 0x23AFBA8 Offset: 0x23AFBA8 VA: 0x23AFBA8
+	public static ProtocolVersion ReadVersion(Stream input) { }
+
+	// RVA: 0x23AFC98 Offset: 0x23AFC98 VA: 0x23AFC98
+	public static int ReadVersionRaw(byte[] buf, int offset) { }
+
+	// RVA: 0x23AFD20 Offset: 0x23AFD20 VA: 0x23AFD20
+	public static int ReadVersionRaw(Stream input) { }
+
+	// RVA: 0x23AFDE4 Offset: 0x23AFDE4 VA: 0x23AFDE4
+	public static Asn1Object ReadAsn1Object(byte[] encoding) { }
+
+	// RVA: 0x23AFF24 Offset: 0x23AFF24 VA: 0x23AFF24
+	public static Asn1Object ReadDerObject(byte[] encoding) { }
+
+	// RVA: 0x23B0000 Offset: 0x23B0000 VA: 0x23B0000
+	public static void WriteGmtUnixTime(byte[] buf, int offset) { }
+
+	// RVA: 0x23B0154 Offset: 0x23B0154 VA: 0x23B0154
+	public static void WriteVersion(ProtocolVersion version, Stream output) { }
+
+	// RVA: 0x23B01E4 Offset: 0x23B01E4 VA: 0x23B01E4
+	public static void WriteVersion(ProtocolVersion version, byte[] buf, int offset) { }
+
+	// RVA: 0x23B02AC Offset: 0x23B02AC VA: 0x23B02AC
+	public static IList GetDefaultDssSignatureAlgorithms() { }
+
+	// RVA: 0x23B041C Offset: 0x23B041C VA: 0x23B041C
+	public static IList GetDefaultECDsaSignatureAlgorithms() { }
+
+	// RVA: 0x23B04A0 Offset: 0x23B04A0 VA: 0x23B04A0
+	public static IList GetDefaultRsaSignatureAlgorithms() { }
+
+	// RVA: 0x23B0524 Offset: 0x23B0524 VA: 0x23B0524
+	public static byte[] GetExtensionData(IDictionary extensions, int extensionType) { }
+
+	// RVA: 0x23B067C Offset: 0x23B067C VA: 0x23B067C
+	public static IList GetDefaultSupportedSignatureAlgorithms() { }
+
+	// RVA: 0x23B0898 Offset: 0x23B0898 VA: 0x23B0898
+	public static SignatureAndHashAlgorithm GetSignatureAndHashAlgorithm(TlsContext context, TlsSignerCredentials signerCredentials) { }
+
+	// RVA: 0x23B09D0 Offset: 0x23B09D0 VA: 0x23B09D0
+	public static bool HasExpectedEmptyExtensionData(IDictionary extensions, int extensionType, byte alertDescription) { }
+
+	// RVA: 0x23B0A98 Offset: 0x23B0A98 VA: 0x23B0A98
+	public static TlsSession ImportSession(byte[] sessionID, SessionParameters sessionParameters) { }
+
+	// RVA: 0x23B0B08 Offset: 0x23B0B08 VA: 0x23B0B08
+	public static bool IsSignatureAlgorithmsExtensionAllowed(ProtocolVersion clientVersion) { }
+
+	// RVA: 0x23B0BA8 Offset: 0x23B0BA8 VA: 0x23B0BA8
+	public static void AddSignatureAlgorithmsExtension(IDictionary extensions, IList supportedSignatureAlgorithms) { }
+
+	// RVA: 0x23B0D6C Offset: 0x23B0D6C VA: 0x23B0D6C
+	public static IList GetSignatureAlgorithmsExtension(IDictionary extensions) { }
+
+	// RVA: 0x23B0CC4 Offset: 0x23B0CC4 VA: 0x23B0CC4
+	public static byte[] CreateSignatureAlgorithmsExtension(IList supportedSignatureAlgorithms) { }
+
+	// RVA: 0x23B0E08 Offset: 0x23B0E08 VA: 0x23B0E08
+	public static IList ReadSignatureAlgorithmsExtension(byte[] extensionData) { }
+
+	// RVA: 0x23B0F18 Offset: 0x23B0F18 VA: 0x23B0F18
+	public static void EncodeSupportedSignatureAlgorithms(IList supportedSignatureAlgorithms, bool allowAnonymous, Stream output) { }
+
+	// RVA: 0x23B14C0 Offset: 0x23B14C0 VA: 0x23B14C0
+	public static IList ParseSupportedSignatureAlgorithms(bool allowAnonymous, Stream input) { }
+
+	// RVA: 0x23B16AC Offset: 0x23B16AC VA: 0x23B16AC
+	public static void VerifySupportedSignatureAlgorithm(IList supportedSignatureAlgorithms, SignatureAndHashAlgorithm signatureAlgorithm) { }
+
+	// RVA: 0x23B1C38 Offset: 0x23B1C38 VA: 0x23B1C38
+	public static byte[] PRF(TlsContext context, byte[] secret, string asciiLabel, byte[] seed, int size) { }
+
+	// RVA: 0x23B2558 Offset: 0x23B2558 VA: 0x23B2558
+	public static byte[] PRF_legacy(byte[] secret, string asciiLabel, byte[] seed, int size) { }
+
+	// RVA: 0x23B1FE0 Offset: 0x23B1FE0 VA: 0x23B1FE0
+	internal static byte[] PRF_legacy(byte[] secret, byte[] label, byte[] labelSeed, int size) { }
+
+	// RVA: 0x23B1EE0 Offset: 0x23B1EE0 VA: 0x23B1EE0
+	internal static byte[] Concat(byte[] a, byte[] b) { }
+
+	// RVA: 0x23B2270 Offset: 0x23B2270 VA: 0x23B2270
+	internal static void HMacHash(IDigest digest, byte[] secret, byte[] seed, byte[] output) { }
+
+	// RVA: 0x23B2778 Offset: 0x23B2778 VA: 0x23B2778
+	internal static void ValidateKeyUsage(X509CertificateStructure c, int keyUsageBits) { }
+
+	// RVA: 0x23AC75C Offset: 0x23AC75C VA: 0x23AC75C
+	internal static byte[] CalculateKeyBlock(TlsContext context, int size) { }
+
+	// RVA: 0x23B28C8 Offset: 0x23B28C8 VA: 0x23B28C8
+	internal static byte[] CalculateKeyBlock_Ssl(byte[] master_secret, byte[] random, int size) { }
+
+	// RVA: 0x23B2F00 Offset: 0x23B2F00 VA: 0x23B2F00
+	internal static byte[] CalculateMasterSecret(TlsContext context, byte[] pre_master_secret) { }
+
+	// RVA: 0x23B3148 Offset: 0x23B3148 VA: 0x23B3148
+	internal static byte[] CalculateMasterSecret_Ssl(byte[] pre_master_secret, byte[] random) { }
+
+	// RVA: 0x23B3760 Offset: 0x23B3760 VA: 0x23B3760
+	internal static byte[] CalculateVerifyData(TlsContext context, string asciiLabel, byte[] handshakeHash) { }
+
+	// RVA: 0x23B2604 Offset: 0x23B2604 VA: 0x23B2604
+	public static IDigest CreateHash(byte hashAlgorithm) { }
+

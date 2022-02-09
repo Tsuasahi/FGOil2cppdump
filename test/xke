@@ -1,0 +1,1000 @@
+public sealed class AnssiObjectIdentifiers // TypeDefIndex: 4395
+{
+	// Fields
+	public static readonly DerObjectIdentifier FRP256v1; // 0x0
+
+	// Methods
+
+	// RVA: 0x2060470 Offset: 0x2060470 VA: 0x2060470
+	private void .ctor() { }
+
+	// RVA: 0x2060478 Offset: 0x2060478 VA: 0x2060478
+	private static void .cctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public abstract class Asn1Encodable : IAsn1Convertible // TypeDefIndex: 4396
+{
+	// Fields
+	public const string Der = "DER";
+	public const string Ber = "BER";
+
+	// Methods
+
+	// RVA: 0x20604F0 Offset: 0x20604F0 VA: 0x20604F0
+	protected void .ctor() { }
+
+	// RVA: 0x20604F8 Offset: 0x20604F8 VA: 0x20604F8
+	public byte[] GetEncoded() { }
+
+	// RVA: 0x20605C4 Offset: 0x20605C4 VA: 0x20605C4
+	public byte[] GetEncoded(string encoding) { }
+
+	// RVA: 0x20606C8 Offset: 0x20606C8 VA: 0x20606C8
+	public byte[] GetDerEncoded() { }
+
+	// RVA: 0x2060790 Offset: 0x2060790 VA: 0x2060790 Slot: 2
+	public sealed override int GetHashCode() { }
+
+	// RVA: 0x20607D8 Offset: 0x20607D8 VA: 0x20607D8 Slot: 0
+	public sealed override bool Equals(object obj) { }
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract Asn1Object ToAsn1Object();
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+[DefaultMemberAttribute] // RVA: 0xC90D80 Offset: 0xC90D80 VA: 0xC90D80
+public class Asn1EncodableVector : IEnumerable // TypeDefIndex: 4397
+{
+	// Fields
+	private IList v; // 0x10
+
+	// Properties
+	public Asn1Encodable Item { get; }
+	[ObsoleteAttribute] // RVA: 0xD4B9A4 Offset: 0xD4B9A4 VA: 0xD4B9A4
+	public int Size { get; }
+	public int Count { get; }
+
+	// Methods
+
+	// RVA: 0x2060904 Offset: 0x2060904 VA: 0x2060904
+	public void .ctor(Asn1Encodable[] v) { }
+
+	// RVA: 0x2060AAC Offset: 0x2060AAC VA: 0x2060AAC
+	public static Asn1EncodableVector FromEnumerable(IEnumerable e) { }
+
+	// RVA: 0x2060990 Offset: 0x2060990 VA: 0x2060990
+	public void Add(Asn1Encodable[] objs) { }
+
+	// RVA: 0x2060E7C Offset: 0x2060E7C VA: 0x2060E7C
+	public void AddOptional(Asn1Encodable[] objs) { }
+
+	// RVA: 0x2060F9C Offset: 0x2060F9C VA: 0x2060F9C
+	public Asn1Encodable get_Item(int index) { }
+
+	[ObsoleteAttribute] // RVA: 0xD348A8 Offset: 0xD348A8 VA: 0xD348A8
+	// RVA: 0x20610E8 Offset: 0x20610E8 VA: 0x20610E8
+	public Asn1Encodable Get(int index) { }
+
+	// RVA: 0x20610EC Offset: 0x20610EC VA: 0x20610EC
+	public int get_Size() { }
+
+	// RVA: 0x20611A0 Offset: 0x20611A0 VA: 0x20611A0
+	public int get_Count() { }
+
+	// RVA: 0x2061254 Offset: 0x2061254 VA: 0x2061254 Slot: 4
+	public IEnumerator GetEnumerator() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+[Serializable]
+public class Asn1Exception : IOException // TypeDefIndex: 4398
+{
+	// Methods
+
+	// RVA: 0x2061308 Offset: 0x2061308 VA: 0x2061308
+	public void .ctor() { }
+
+	// RVA: 0x2061310 Offset: 0x2061310 VA: 0x2061310
+	public void .ctor(string message) { }
+
+	// RVA: 0x2061318 Offset: 0x2061318 VA: 0x2061318
+	public void .ctor(string message, Exception exception) { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public abstract class Asn1Generator // TypeDefIndex: 4399
+{
+	// Fields
+	private Stream _out; // 0x10
+
+	// Properties
+	protected Stream Out { get; }
+
+	// Methods
+
+	// RVA: 0x2061320 Offset: 0x2061320 VA: 0x2061320
+	protected void .ctor(Stream outStream) { }
+
+	// RVA: 0x206134C Offset: 0x206134C VA: 0x206134C
+	protected Stream get_Out() { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void AddObject(Asn1Encodable obj);
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract Stream GetRawOutputStream();
+
+	// RVA: -1 Offset: -1 Slot: 6
+	public abstract void Close();
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class Asn1InputStream : FilterStream // TypeDefIndex: 4400
+{
+	// Fields
+	private readonly int limit; // 0x18
+	private readonly byte[][] tmpBuffers; // 0x20
+
+	// Methods
+
+	// RVA: 0x2061354 Offset: 0x2061354 VA: 0x2061354
+	public void .ctor(Stream inputStream) { }
+
+	// RVA: 0x206146C Offset: 0x206146C VA: 0x206146C
+	public void .ctor(Stream inputStream, int limit) { }
+
+	// RVA: 0x20614E8 Offset: 0x20614E8 VA: 0x20614E8
+	public void .ctor(byte[] input) { }
+
+	// RVA: 0x2061388 Offset: 0x2061388 VA: 0x2061388
+	internal static int FindLimit(Stream input) { }
+
+	// RVA: 0x2061570 Offset: 0x2061570 VA: 0x2061570
+	private Asn1Object BuildObject(int tag, int tagNo, int length) { }
+
+	// RVA: 0x20626AC Offset: 0x20626AC VA: 0x20626AC
+	internal Asn1EncodableVector BuildEncodableVector() { }
+
+	// RVA: 0x2062BCC Offset: 0x2062BCC VA: 0x2062BCC Slot: 29
+	internal virtual Asn1EncodableVector BuildDerEncodableVector(DefiniteLengthInputStream dIn) { }
+
+	// RVA: 0x2062C48 Offset: 0x2062C48 VA: 0x2062C48 Slot: 30
+	internal virtual DerSequence CreateDerSequence(DefiniteLengthInputStream dIn) { }
+
+	// RVA: 0x2062CDC Offset: 0x2062CDC VA: 0x2062CDC Slot: 31
+	internal virtual DerSet CreateDerSet(DefiniteLengthInputStream dIn) { }
+
+	// RVA: 0x20627BC Offset: 0x20627BC VA: 0x20627BC
+	public Asn1Object ReadObject() { }
+
+	// RVA: 0x2062D74 Offset: 0x2062D74 VA: 0x2062D74
+	internal static int ReadTagNumber(Stream s, int tag) { }
+
+	// RVA: 0x2062E98 Offset: 0x2062E98 VA: 0x2062E98
+	internal static int ReadLength(Stream s, int limit) { }
+
+	// RVA: 0x2063744 Offset: 0x2063744 VA: 0x2063744
+	internal static byte[] GetBuffer(DefiniteLengthInputStream defIn, byte[][] tmpBuffers) { }
+
+	// RVA: 0x2062208 Offset: 0x2062208 VA: 0x2062208
+	internal static Asn1Object CreatePrimitiveDerObject(int tagNo, DefiniteLengthInputStream defIn, byte[][] tmpBuffers) { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public abstract class Asn1Null : Asn1Object // TypeDefIndex: 4401
+{
+	// Methods
+
+	// RVA: 0x2064238 Offset: 0x2064238 VA: 0x2064238
+	internal void .ctor() { }
+
+	// RVA: 0x2064248 Offset: 0x2064248 VA: 0x2064248 Slot: 3
+	public override string ToString() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public abstract class Asn1Object : Asn1Encodable // TypeDefIndex: 4402
+{
+	// Methods
+
+	// RVA: 0x2064240 Offset: 0x2064240 VA: 0x2064240
+	protected void .ctor() { }
+
+	// RVA: 0x2064290 Offset: 0x2064290 VA: 0x2064290
+	public static Asn1Object FromByteArray(byte[] data) { }
+
+	// RVA: 0x206449C Offset: 0x206449C VA: 0x206449C
+	public static Asn1Object FromStream(Stream inStr) { }
+
+	// RVA: 0x20645D0 Offset: 0x20645D0 VA: 0x20645D0 Slot: 5
+	public sealed override Asn1Object ToAsn1Object() { }
+
+	// RVA: -1 Offset: -1 Slot: 6
+	internal abstract void Encode(DerOutputStream derOut);
+
+	// RVA: -1 Offset: -1 Slot: 7
+	protected abstract bool Asn1Equals(Asn1Object asn1Object);
+
+	// RVA: -1 Offset: -1 Slot: 8
+	protected abstract int Asn1GetHashCode();
+
+	// RVA: 0x20608F8 Offset: 0x20608F8 VA: 0x20608F8
+	internal bool CallAsn1Equals(Asn1Object obj) { }
+
+	// RVA: 0x20607CC Offset: 0x20607CC VA: 0x20607CC
+	internal int CallAsn1GetHashCode() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public abstract class Asn1OctetString : Asn1Object, Asn1OctetStringParser, IAsn1Convertible // TypeDefIndex: 4403
+{
+	// Fields
+	internal byte[] str; // 0x10
+
+	// Properties
+	public Asn1OctetStringParser Parser { get; }
+
+	// Methods
+
+	// RVA: 0x20645D4 Offset: 0x20645D4 VA: 0x20645D4
+	internal void .ctor(byte[] str) { }
+
+	// RVA: 0x2064678 Offset: 0x2064678 VA: 0x2064678
+	internal void .ctor(Asn1Encodable obj) { }
+
+	// RVA: 0x2064800 Offset: 0x2064800 VA: 0x2064800
+	public static Asn1OctetString GetInstance(Asn1TaggedObject obj, bool isExplicit) { }
+
+	// RVA: 0x20648D4 Offset: 0x20648D4 VA: 0x20648D4
+	public static Asn1OctetString GetInstance(object obj) { }
+
+	// RVA: 0x2065278 Offset: 0x2065278 VA: 0x2065278 Slot: 9
+	public Stream GetOctetStream() { }
+
+	// RVA: 0x20652E4 Offset: 0x20652E4 VA: 0x20652E4
+	public Asn1OctetStringParser get_Parser() { }
+
+	// RVA: 0x20652E8 Offset: 0x20652E8 VA: 0x20652E8 Slot: 10
+	public virtual byte[] GetOctets() { }
+
+	// RVA: 0x20652F0 Offset: 0x20652F0 VA: 0x20652F0 Slot: 8
+	protected override int Asn1GetHashCode() { }
+
+	// RVA: 0x2065310 Offset: 0x2065310 VA: 0x2065310 Slot: 7
+	protected override bool Asn1Equals(Asn1Object asn1Object) { }
+
+	// RVA: 0x20653E8 Offset: 0x20653E8 VA: 0x20653E8 Slot: 3
+	public override string ToString() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public interface Asn1OctetStringParser : IAsn1Convertible // TypeDefIndex: 4404
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract Stream GetOctetStream();
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class Asn1OutputStream : DerOutputStream // TypeDefIndex: 4405
+{
+	// Methods
+
+	// RVA: 0x20605BC Offset: 0x20605BC VA: 0x20605BC
+	public void .ctor(Stream os) { }
+
+	[ObsoleteAttribute] // RVA: 0xD348E0 Offset: 0xD348E0 VA: 0xD348E0
+	// RVA: 0x2065494 Offset: 0x2065494 VA: 0x2065494 Slot: 29
+	public override void WriteObject(object obj) { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+[Serializable]
+public class Asn1ParsingException : InvalidOperationException // TypeDefIndex: 4406
+{
+	// Methods
+
+	// RVA: 0x20655CC Offset: 0x20655CC VA: 0x20655CC
+	public void .ctor() { }
+
+	// RVA: 0x20655D4 Offset: 0x20655D4 VA: 0x20655D4
+	public void .ctor(string message) { }
+
+	// RVA: 0x20655DC Offset: 0x20655DC VA: 0x20655DC
+	public void .ctor(string message, Exception exception) { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+[DefaultMemberAttribute] // RVA: 0xC90DB8 Offset: 0xC90DB8 VA: 0xC90DB8
+public abstract class Asn1Sequence : Asn1Object, IEnumerable // TypeDefIndex: 4407
+{
+	// Fields
+	private readonly IList seq; // 0x10
+
+	// Properties
+	public virtual Asn1SequenceParser Parser { get; }
+	public virtual Asn1Encodable Item { get; }
+	[ObsoleteAttribute] // RVA: 0xD4B9DC Offset: 0xD4B9DC VA: 0xD4B9DC
+	public int Size { get; }
+	public virtual int Count { get; }
+
+	// Methods
+
+	// RVA: 0x20655E4 Offset: 0x20655E4 VA: 0x20655E4
+	protected internal void .ctor(int capacity) { }
+
+	// RVA: 0x2064A48 Offset: 0x2064A48 VA: 0x2064A48
+	public static Asn1Sequence GetInstance(object obj) { }
+
+	// RVA: 0x206566C Offset: 0x206566C VA: 0x206566C
+	public static Asn1Sequence GetInstance(Asn1TaggedObject obj, bool explicitly) { }
+
+	// RVA: 0x20659A8 Offset: 0x20659A8 VA: 0x20659A8 Slot: 10
+	public virtual IEnumerator GetEnumerator() { }
+
+	[ObsoleteAttribute] // RVA: 0xD34918 Offset: 0xD34918 VA: 0xD34918
+	// RVA: 0x2065A5C Offset: 0x2065A5C VA: 0x2065A5C
+	public IEnumerator GetObjects() { }
+
+	// RVA: 0x2065A68 Offset: 0x2065A68 VA: 0x2065A68 Slot: 11
+	public virtual Asn1SequenceParser get_Parser() { }
+
+	// RVA: 0x2065B14 Offset: 0x2065B14 VA: 0x2065B14 Slot: 12
+	public virtual Asn1Encodable get_Item(int index) { }
+
+	[ObsoleteAttribute] // RVA: 0xD34950 Offset: 0xD34950 VA: 0xD34950
+	// RVA: 0x2065C60 Offset: 0x2065C60 VA: 0x2065C60
+	public Asn1Encodable GetObjectAt(int index) { }
+
+	// RVA: 0x2065C6C Offset: 0x2065C6C VA: 0x2065C6C
+	public int get_Size() { }
+
+	// RVA: 0x2065C78 Offset: 0x2065C78 VA: 0x2065C78 Slot: 13
+	public virtual int get_Count() { }
+
+	// RVA: 0x2065D2C Offset: 0x2065D2C VA: 0x2065D2C Slot: 8
+	protected override int Asn1GetHashCode() { }
+
+	// RVA: 0x2065FC8 Offset: 0x2065FC8 VA: 0x2065FC8 Slot: 7
+	protected override bool Asn1Equals(Asn1Object asn1Object) { }
+
+	// RVA: 0x2066234 Offset: 0x2066234 VA: 0x2066234
+	private Asn1Encodable GetCurrent(IEnumerator e) { }
+
+	// RVA: 0x2066398 Offset: 0x2066398 VA: 0x2066398
+	protected internal void AddObject(Asn1Encodable obj) { }
+
+	// RVA: 0x2066460 Offset: 0x2066460 VA: 0x2066460 Slot: 3
+	public override string ToString() { }
+}
+
+// Namespace: 
+private class Asn1Sequence.Asn1SequenceParserImpl : Asn1SequenceParser, IAsn1Convertible // TypeDefIndex: 4408
+{
+	// Fields
+	private readonly Asn1Sequence outer; // 0x10
+	private readonly int max; // 0x18
+	private int index; // 0x1C
+
+	// Methods
+
+	// RVA: 0x2065AC8 Offset: 0x2065AC8 VA: 0x2065AC8
+	public void .ctor(Asn1Sequence outer) { }
+
+	// RVA: 0x206646C Offset: 0x206646C VA: 0x206646C Slot: 4
+	public IAsn1Convertible ReadObject() { }
+
+	// RVA: 0x20665C8 Offset: 0x20665C8 VA: 0x20665C8 Slot: 5
+	public Asn1Object ToAsn1Object() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public interface Asn1SequenceParser : IAsn1Convertible // TypeDefIndex: 4409
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IAsn1Convertible ReadObject();
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+[DefaultMemberAttribute] // RVA: 0xC90DF0 Offset: 0xC90DF0 VA: 0xC90DF0
+public abstract class Asn1Set : Asn1Object, IEnumerable // TypeDefIndex: 4410
+{
+	// Fields
+	private readonly IList _set; // 0x10
+
+	// Properties
+	public virtual Asn1Encodable Item { get; }
+	[ObsoleteAttribute] // RVA: 0xD4BA14 Offset: 0xD4BA14 VA: 0xD4BA14
+	public int Size { get; }
+	public virtual int Count { get; }
+	public Asn1SetParser Parser { get; }
+
+	// Methods
+
+	// RVA: 0x20665D0 Offset: 0x20665D0 VA: 0x20665D0
+	protected internal void .ctor(int capacity) { }
+
+	// RVA: 0x2066658 Offset: 0x2066658 VA: 0x2066658
+	public static Asn1Set GetInstance(object obj) { }
+
+	// RVA: 0x2066AEC Offset: 0x2066AEC VA: 0x2066AEC
+	public static Asn1Set GetInstance(Asn1TaggedObject obj, bool explicitly) { }
+
+	// RVA: 0x2067134 Offset: 0x2067134 VA: 0x2067134 Slot: 10
+	public virtual IEnumerator GetEnumerator() { }
+
+	[ObsoleteAttribute] // RVA: 0xD34988 Offset: 0xD34988 VA: 0xD34988
+	// RVA: 0x20671E8 Offset: 0x20671E8 VA: 0x20671E8
+	public IEnumerator GetObjects() { }
+
+	// RVA: 0x20671F4 Offset: 0x20671F4 VA: 0x20671F4 Slot: 11
+	public virtual Asn1Encodable get_Item(int index) { }
+
+	[ObsoleteAttribute] // RVA: 0xD349C0 Offset: 0xD349C0 VA: 0xD349C0
+	// RVA: 0x2067340 Offset: 0x2067340 VA: 0x2067340
+	public Asn1Encodable GetObjectAt(int index) { }
+
+	// RVA: 0x206734C Offset: 0x206734C VA: 0x206734C
+	public int get_Size() { }
+
+	// RVA: 0x2067358 Offset: 0x2067358 VA: 0x2067358 Slot: 12
+	public virtual int get_Count() { }
+
+	// RVA: 0x206740C Offset: 0x206740C VA: 0x206740C Slot: 13
+	public virtual Asn1Encodable[] ToArray() { }
+
+	// RVA: 0x2066568 Offset: 0x2066568 VA: 0x2066568
+	public Asn1SetParser get_Parser() { }
+
+	// RVA: 0x206758C Offset: 0x206758C VA: 0x206758C Slot: 8
+	protected override int Asn1GetHashCode() { }
+
+	// RVA: 0x2067828 Offset: 0x2067828 VA: 0x2067828 Slot: 7
+	protected override bool Asn1Equals(Asn1Object asn1Object) { }
+
+	// RVA: 0x2067A94 Offset: 0x2067A94 VA: 0x2067A94
+	private Asn1Encodable GetCurrent(IEnumerator e) { }
+
+	// RVA: 0x2067BF8 Offset: 0x2067BF8 VA: 0x2067BF8
+	protected internal void Sort() { }
+
+	// RVA: 0x20681D4 Offset: 0x20681D4 VA: 0x20681D4
+	protected internal void AddObject(Asn1Encodable obj) { }
+
+	// RVA: 0x206829C Offset: 0x206829C VA: 0x206829C Slot: 3
+	public override string ToString() { }
+}
+
+// Namespace: 
+private class Asn1Set.Asn1SetParserImpl : Asn1SetParser, IAsn1Convertible // TypeDefIndex: 4411
+{
+	// Fields
+	private readonly Asn1Set outer; // 0x10
+	private readonly int max; // 0x18
+	private int index; // 0x1C
+
+	// Methods
+
+	// RVA: 0x2067540 Offset: 0x2067540 VA: 0x2067540
+	public void .ctor(Asn1Set outer) { }
+
+	// RVA: 0x20682A8 Offset: 0x20682A8 VA: 0x20682A8 Slot: 4
+	public IAsn1Convertible ReadObject() { }
+
+	// RVA: 0x20683A4 Offset: 0x20683A4 VA: 0x20683A4 Slot: 6
+	public virtual Asn1Object ToAsn1Object() { }
+}
+
+// Namespace: 
+private class Asn1Set.DerComparer : IComparer // TypeDefIndex: 4412
+{
+	// Methods
+
+	// RVA: 0x20681CC Offset: 0x20681CC VA: 0x20681CC
+	public void .ctor() { }
+
+	// RVA: 0x20683AC Offset: 0x20683AC VA: 0x20683AC Slot: 4
+	public int Compare(object x, object y) { }
+
+	// RVA: 0x20685E8 Offset: 0x20685E8 VA: 0x20685E8
+	private bool AllZeroesFrom(byte[] bs, int pos) { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public interface Asn1SetParser : IAsn1Convertible // TypeDefIndex: 4413
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract IAsn1Convertible ReadObject();
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class Asn1StreamParser // TypeDefIndex: 4414
+{
+	// Fields
+	private readonly Stream _in; // 0x10
+	private readonly int _limit; // 0x18
+	private readonly byte[][] tmpBuffers; // 0x20
+
+	// Methods
+
+	// RVA: 0x2061C7C Offset: 0x2061C7C VA: 0x2061C7C
+	public void .ctor(Stream inStream) { }
+
+	// RVA: 0x20630B0 Offset: 0x20630B0 VA: 0x20630B0
+	public void .ctor(Stream inStream, int limit) { }
+
+	// RVA: 0x2068664 Offset: 0x2068664 VA: 0x2068664
+	public void .ctor(byte[] encoding) { }
+
+	// RVA: 0x20686EC Offset: 0x20686EC VA: 0x20686EC
+	internal IAsn1Convertible ReadIndef(int tagValue) { }
+
+	// RVA: 0x2068848 Offset: 0x2068848 VA: 0x2068848
+	internal IAsn1Convertible ReadImplicit(bool constructed, int tag) { }
+
+	// RVA: 0x2061CB0 Offset: 0x2061CB0 VA: 0x2061CB0
+	internal Asn1Object ReadTaggedObject(bool constructed, int tag) { }
+
+	// RVA: 0x2068D38 Offset: 0x2068D38 VA: 0x2068D38 Slot: 4
+	public virtual IAsn1Convertible ReadObject() { }
+
+	// RVA: 0x20692B4 Offset: 0x20692B4 VA: 0x20692B4
+	private void Set00Check(bool enabled) { }
+
+	// RVA: 0x2068ADC Offset: 0x2068ADC VA: 0x2068ADC
+	internal Asn1EncodableVector ReadVector() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public abstract class Asn1TaggedObject : Asn1Object, Asn1TaggedObjectParser, IAsn1Convertible // TypeDefIndex: 4415
+{
+	// Fields
+	internal int tagNo; // 0x10
+	internal bool explicitly; // 0x14
+	internal Asn1Encodable obj; // 0x18
+
+	// Properties
+	public int TagNo { get; }
+
+	// Methods
+
+	// RVA: 0x2069348 Offset: 0x2069348 VA: 0x2069348
+	protected void .ctor(int tagNo, Asn1Encodable obj) { }
+
+	// RVA: 0x2069390 Offset: 0x2069390 VA: 0x2069390
+	protected void .ctor(bool explicitly, int tagNo, Asn1Encodable obj) { }
+
+	// RVA: 0x206942C Offset: 0x206942C VA: 0x206942C
+	internal static bool IsConstructed(bool isExplicit, Asn1Object obj) { }
+
+	// RVA: 0x2069580 Offset: 0x2069580 VA: 0x2069580
+	public static Asn1TaggedObject GetInstance(Asn1TaggedObject obj, bool explicitly) { }
+
+	// RVA: 0x20696B4 Offset: 0x20696B4 VA: 0x20696B4
+	public static Asn1TaggedObject GetInstance(object obj) { }
+
+	// RVA: 0x20697EC Offset: 0x20697EC VA: 0x20697EC Slot: 7
+	protected override bool Asn1Equals(Asn1Object asn1Object) { }
+
+	// RVA: 0x206990C Offset: 0x206990C VA: 0x206990C Slot: 8
+	protected override int Asn1GetHashCode() { }
+
+	// RVA: 0x2069958 Offset: 0x2069958 VA: 0x2069958 Slot: 9
+	public int get_TagNo() { }
+
+	// RVA: 0x2065928 Offset: 0x2065928 VA: 0x2065928
+	public bool IsExplicit() { }
+
+	// RVA: 0x2069960 Offset: 0x2069960 VA: 0x2069960
+	public bool IsEmpty() { }
+
+	// RVA: 0x20648BC Offset: 0x20648BC VA: 0x20648BC
+	public Asn1Object GetObject() { }
+
+	// RVA: 0x2069968 Offset: 0x2069968 VA: 0x2069968 Slot: 10
+	public IAsn1Convertible GetObjectParser(int tag, bool isExplicit) { }
+
+	// RVA: 0x2069B28 Offset: 0x2069B28 VA: 0x2069B28 Slot: 3
+	public override string ToString() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public interface Asn1TaggedObjectParser : IAsn1Convertible // TypeDefIndex: 4416
+{
+	// Properties
+	public abstract int TagNo { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract int get_TagNo();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract IAsn1Convertible GetObjectParser(int tag, bool isExplicit);
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class Asn1Tags // TypeDefIndex: 4417
+{
+	// Fields
+	public const int Boolean = 1;
+	public const int Integer = 2;
+	public const int BitString = 3;
+	public const int OctetString = 4;
+	public const int Null = 5;
+	public const int ObjectIdentifier = 6;
+	public const int External = 8;
+	public const int Enumerated = 10;
+	public const int Sequence = 16;
+	public const int SequenceOf = 16;
+	public const int Set = 17;
+	public const int SetOf = 17;
+	public const int NumericString = 18;
+	public const int PrintableString = 19;
+	public const int T61String = 20;
+	public const int VideotexString = 21;
+	public const int IA5String = 22;
+	public const int UtcTime = 23;
+	public const int GeneralizedTime = 24;
+	public const int GraphicString = 25;
+	public const int VisibleString = 26;
+	public const int GeneralString = 27;
+	public const int UniversalString = 28;
+	public const int BmpString = 30;
+	public const int Utf8String = 12;
+	public const int Constructed = 32;
+	public const int Application = 64;
+	public const int Tagged = 128;
+
+	// Methods
+
+	// RVA: 0x2069D14 Offset: 0x2069D14 VA: 0x2069D14
+	public void .ctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerApplicationSpecific : DerApplicationSpecific // TypeDefIndex: 4418
+{
+	// Methods
+
+	// RVA: 0x2069D1C Offset: 0x2069D1C VA: 0x2069D1C
+	public void .ctor(int tagNo, Asn1EncodableVector vec) { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerApplicationSpecificParser : IAsn1ApplicationSpecificParser, IAsn1Convertible // TypeDefIndex: 4419
+{
+	// Fields
+	private readonly int tag; // 0x10
+	private readonly Asn1StreamParser parser; // 0x18
+
+	// Methods
+
+	// RVA: 0x206319C Offset: 0x206319C VA: 0x206319C
+	internal void .ctor(int tag, Asn1StreamParser parser) { }
+
+	// RVA: 0x2069F20 Offset: 0x2069F20 VA: 0x2069F20 Slot: 4
+	public IAsn1Convertible ReadObject() { }
+
+	// RVA: 0x20631D8 Offset: 0x20631D8 VA: 0x20631D8 Slot: 5
+	public Asn1Object ToAsn1Object() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerBitString : DerBitString // TypeDefIndex: 4420
+{
+	// Methods
+
+	// RVA: 0x2069F54 Offset: 0x2069F54 VA: 0x2069F54
+	public void .ctor(byte[] data, int padBits) { }
+
+	// RVA: 0x206A100 Offset: 0x206A100 VA: 0x206A100
+	public void .ctor(byte[] data) { }
+
+	// RVA: 0x206A180 Offset: 0x206A180 VA: 0x206A180
+	public void .ctor(int namedBits) { }
+
+	// RVA: 0x206A368 Offset: 0x206A368 VA: 0x206A368
+	public void .ctor(Asn1Encodable obj) { }
+
+	// RVA: 0x206A41C Offset: 0x206A41C VA: 0x206A41C Slot: 6
+	internal override void Encode(DerOutputStream derOut) { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerGenerator : Asn1Generator // TypeDefIndex: 4421
+{
+	// Fields
+	private bool _tagged; // 0x18
+	private bool _isExplicit; // 0x19
+	private int _tagNo; // 0x1C
+
+	// Methods
+
+	// RVA: 0x206A63C Offset: 0x206A63C VA: 0x206A63C
+	protected void .ctor(Stream outStream) { }
+
+	// RVA: 0x206A668 Offset: 0x206A668 VA: 0x206A668
+	public void .ctor(Stream outStream, int tagNo, bool isExplicit) { }
+
+	// RVA: 0x206A6B8 Offset: 0x206A6B8 VA: 0x206A6B8 Slot: 4
+	public override void AddObject(Asn1Encodable obj) { }
+
+	// RVA: 0x206A750 Offset: 0x206A750 VA: 0x206A750 Slot: 5
+	public override Stream GetRawOutputStream() { }
+
+	// RVA: 0x206A758 Offset: 0x206A758 VA: 0x206A758 Slot: 6
+	public override void Close() { }
+
+	// RVA: 0x206A830 Offset: 0x206A830 VA: 0x206A830
+	private void WriteHdr(int tag) { }
+
+	// RVA: 0x206A8A4 Offset: 0x206A8A4 VA: 0x206A8A4
+	protected void WriteBerHeader(int tag) { }
+
+	// RVA: 0x206A90C Offset: 0x206A90C VA: 0x206A90C
+	protected void WriteBerBody(Stream contentStream) { }
+
+	// RVA: 0x206A75C Offset: 0x206A75C VA: 0x206A75C
+	protected void WriteBerEnd() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerOctetString : DerOctetString, IEnumerable // TypeDefIndex: 4422
+{
+	// Fields
+	private const int MaxLength = 1000;
+	private readonly IEnumerable octs; // 0x18
+
+	// Methods
+
+	// RVA: 0x206A920 Offset: 0x206A920 VA: 0x206A920
+	public void .ctor(byte[] str) { }
+
+	// RVA: 0x2061F40 Offset: 0x2061F40 VA: 0x2061F40
+	public void .ctor(IEnumerable octets) { }
+
+	// RVA: 0x206ACD8 Offset: 0x206ACD8 VA: 0x206ACD8
+	public void .ctor(Asn1Object obj) { }
+
+	// RVA: 0x206ACE0 Offset: 0x206ACE0 VA: 0x206ACE0
+	public void .ctor(Asn1Encodable obj) { }
+
+	// RVA: 0x2064EDC Offset: 0x2064EDC VA: 0x2064EDC
+	public static BerOctetString FromSequence(Asn1Sequence seq) { }
+
+	// RVA: 0x206A928 Offset: 0x206A928 VA: 0x206A928
+	private static byte[] ToBytes(IEnumerable octs) { }
+
+	// RVA: 0x206AD28 Offset: 0x206AD28 VA: 0x206AD28 Slot: 10
+	public override byte[] GetOctets() { }
+
+	// RVA: 0x206AD30 Offset: 0x206AD30 VA: 0x206AD30 Slot: 11
+	public IEnumerator GetEnumerator() { }
+
+	[ObsoleteAttribute] // RVA: 0xD349F8 Offset: 0xD349F8 VA: 0xD349F8
+	// RVA: 0x206AFAC Offset: 0x206AFAC VA: 0x206AFAC
+	public IEnumerator GetObjects() { }
+
+	// RVA: 0x206ADF0 Offset: 0x206ADF0 VA: 0x206ADF0
+	private IList GenerateOcts() { }
+
+	// RVA: 0x206AFB0 Offset: 0x206AFB0 VA: 0x206AFB0 Slot: 6
+	internal override void Encode(DerOutputStream derOut) { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerOctetStringParser : Asn1OctetStringParser, IAsn1Convertible // TypeDefIndex: 4423
+{
+	// Fields
+	private readonly Asn1StreamParser _parser; // 0x10
+
+	// Methods
+
+	// RVA: 0x20633F0 Offset: 0x20633F0 VA: 0x20633F0
+	internal void .ctor(Asn1StreamParser parser) { }
+
+	// RVA: 0x206B350 Offset: 0x206B350 VA: 0x206B350 Slot: 4
+	public Stream GetOctetStream() { }
+
+	// RVA: 0x206341C Offset: 0x206341C VA: 0x206341C Slot: 5
+	public Asn1Object ToAsn1Object() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerOutputStream : DerOutputStream // TypeDefIndex: 4424
+{
+	// Methods
+
+	// RVA: 0x206A748 Offset: 0x206A748 VA: 0x206A748
+	public void .ctor(Stream os) { }
+
+	[ObsoleteAttribute] // RVA: 0xD34A30 Offset: 0xD34A30 VA: 0xD34A30
+	// RVA: 0x206B3F4 Offset: 0x206B3F4 VA: 0x206B3F4 Slot: 29
+	public override void WriteObject(object obj) { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerSequence : DerSequence // TypeDefIndex: 4425
+{
+	// Fields
+	public static readonly BerSequence Empty; // 0x0
+
+	// Methods
+
+	// RVA: 0x206B52C Offset: 0x206B52C VA: 0x206B52C
+	public void .ctor() { }
+
+	// RVA: 0x2065930 Offset: 0x2065930 VA: 0x2065930
+	public void .ctor(Asn1Encodable obj) { }
+
+	// RVA: 0x206B594 Offset: 0x206B594 VA: 0x206B594
+	public void .ctor(Asn1Encodable[] v) { }
+
+	// RVA: 0x206B60C Offset: 0x206B60C VA: 0x206B60C
+	public void .ctor(Asn1EncodableVector v) { }
+
+	// RVA: 0x2068C90 Offset: 0x2068C90 VA: 0x2068C90
+	public static BerSequence FromVector(Asn1EncodableVector v) { }
+
+	// RVA: 0x206B684 Offset: 0x206B684 VA: 0x206B684 Slot: 6
+	internal override void Encode(DerOutputStream derOut) { }
+
+	// RVA: 0x206BA2C Offset: 0x206BA2C VA: 0x206BA2C
+	private static void .cctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerSequenceGenerator : BerGenerator // TypeDefIndex: 4426
+{
+	// Methods
+
+	// RVA: 0x206BA8C Offset: 0x206BA8C VA: 0x206BA8C
+	public void .ctor(Stream outStream) { }
+
+	// RVA: 0x206BAC0 Offset: 0x206BAC0 VA: 0x206BAC0
+	public void .ctor(Stream outStream, int tagNo, bool isExplicit) { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerSequenceParser : Asn1SequenceParser, IAsn1Convertible // TypeDefIndex: 4427
+{
+	// Fields
+	private readonly Asn1StreamParser _parser; // 0x10
+
+	// Methods
+
+	// RVA: 0x20635BC Offset: 0x20635BC VA: 0x20635BC
+	internal void .ctor(Asn1StreamParser parser) { }
+
+	// RVA: 0x206BB18 Offset: 0x206BB18 VA: 0x206BB18 Slot: 4
+	public IAsn1Convertible ReadObject() { }
+
+	// RVA: 0x20635E8 Offset: 0x20635E8 VA: 0x20635E8 Slot: 5
+	public Asn1Object ToAsn1Object() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerSet : DerSet // TypeDefIndex: 4428
+{
+	// Fields
+	public static readonly BerSet Empty; // 0x0
+
+	// Methods
+
+	// RVA: 0x206BB4C Offset: 0x206BB4C VA: 0x206BB4C
+	public void .ctor() { }
+
+	// RVA: 0x206BBB4 Offset: 0x206BBB4 VA: 0x206BBB4
+	public void .ctor(Asn1Encodable obj) { }
+
+	// RVA: 0x206BC2C Offset: 0x206BC2C VA: 0x206BC2C
+	public void .ctor(Asn1EncodableVector v) { }
+
+	// RVA: 0x206BCA8 Offset: 0x206BCA8 VA: 0x206BCA8
+	internal void .ctor(Asn1EncodableVector v, bool needsSorting) { }
+
+	// RVA: 0x206BD28 Offset: 0x206BD28 VA: 0x206BD28
+	public static BerSet FromVector(Asn1EncodableVector v) { }
+
+	// RVA: 0x206BDD0 Offset: 0x206BDD0 VA: 0x206BDD0
+	internal static BerSet FromVector(Asn1EncodableVector v, bool needsSorting) { }
+
+	// RVA: 0x206BE88 Offset: 0x206BE88 VA: 0x206BE88 Slot: 6
+	internal override void Encode(DerOutputStream derOut) { }
+
+	// RVA: 0x206C230 Offset: 0x206C230 VA: 0x206C230
+	private static void .cctor() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerSetGenerator : BerGenerator // TypeDefIndex: 4429
+{
+	// Methods
+
+	// RVA: 0x206C290 Offset: 0x206C290 VA: 0x206C290
+	public void .ctor(Stream outStream) { }
+
+	// RVA: 0x206C2C4 Offset: 0x206C2C4 VA: 0x206C2C4
+	public void .ctor(Stream outStream, int tagNo, bool isExplicit) { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerSetParser : Asn1SetParser, IAsn1Convertible // TypeDefIndex: 4430
+{
+	// Fields
+	private readonly Asn1StreamParser _parser; // 0x10
+
+	// Methods
+
+	// RVA: 0x2063668 Offset: 0x2063668 VA: 0x2063668
+	internal void .ctor(Asn1StreamParser parser) { }
+
+	// RVA: 0x206C31C Offset: 0x206C31C VA: 0x206C31C Slot: 4
+	public IAsn1Convertible ReadObject() { }
+
+	// RVA: 0x2063694 Offset: 0x2063694 VA: 0x2063694 Slot: 5
+	public Asn1Object ToAsn1Object() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerTaggedObject : DerTaggedObject // TypeDefIndex: 4431
+{
+	// Methods
+
+	// RVA: 0x206C350 Offset: 0x206C350 VA: 0x206C350
+	public void .ctor(int tagNo, Asn1Encodable obj) { }
+
+	// RVA: 0x2068C84 Offset: 0x2068C84 VA: 0x2068C84
+	public void .ctor(bool explicitly, int tagNo, Asn1Encodable obj) { }
+
+	// RVA: 0x206C358 Offset: 0x206C358 VA: 0x206C358
+	public void .ctor(int tagNo) { }
+
+	// RVA: 0x206C3E0 Offset: 0x206C3E0 VA: 0x206C3E0 Slot: 6
+	internal override void Encode(DerOutputStream derOut) { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+public class BerTaggedObjectParser : Asn1TaggedObjectParser, IAsn1Convertible // TypeDefIndex: 4432
+{
+	// Fields
+	private bool _constructed; // 0x10
+	private int _tagNumber; // 0x14
+	private Asn1StreamParser _parser; // 0x18
+
+	// Properties
+	public bool IsConstructed { get; }
+	public int TagNo { get; }
+
+	// Methods
+
+	[ObsoleteAttribute] // RVA: 0xD34A68 Offset: 0xD34A68 VA: 0xD34A68
+	// RVA: 0x206C95C Offset: 0x206C95C VA: 0x206C95C
+	internal void .ctor(int baseTag, int tagNumber, Stream contentStream) { }
+
+	// RVA: 0x2063268 Offset: 0x2063268 VA: 0x2063268
+	internal void .ctor(bool constructed, int tagNumber, Asn1StreamParser parser) { }
+
+	// RVA: 0x206CA00 Offset: 0x206CA00 VA: 0x206CA00
+	public bool get_IsConstructed() { }
+
+	// RVA: 0x206CA08 Offset: 0x206CA08 VA: 0x206CA08 Slot: 4
+	public int get_TagNo() { }
+
+	// RVA: 0x206CA10 Offset: 0x206CA10 VA: 0x206CA10 Slot: 5
+	public IAsn1Convertible GetObjectParser(int tag, bool isExplicit) { }
+
+	// RVA: 0x20632B0 Offset: 0x20632B0 VA: 0x20632B0 Slot: 6
+	public Asn1Object ToAsn1Object() { }
+}
+
+// Namespace: Org.BouncyCastle.Asn1
+internal class ConstructedOctetStream : BaseInputStream // TypeDefIndex: 4433

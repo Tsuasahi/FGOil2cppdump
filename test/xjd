@@ -1,0 +1,1000 @@
+	public USTimelineContainer TimelineContainer { get; }
+	public GameObject AffectedObject { get; }
+	public bool IsFireAndForgetEvent { get; }
+	public bool FireOnSkip { get; set; }
+
+	// Methods
+
+	// RVA: 0xFE21DC Offset: 0xFE21DC VA: 0xFE21DC
+	public float get_FireTime() { }
+
+	// RVA: 0xFE21E4 Offset: 0xFE21E4 VA: 0xFE21E4
+	public void set_FireTime(float value) { }
+
+	// RVA: 0xFE22F4 Offset: 0xFE22F4 VA: 0xFE22F4
+	public float get_Duration() { }
+
+	// RVA: 0xFE22FC Offset: 0xFE22FC VA: 0xFE22FC
+	public void set_Duration(float value) { }
+
+	// RVA: 0xFE224C Offset: 0xFE224C VA: 0xFE224C
+	public USSequencer get_Sequence() { }
+
+	// RVA: 0xFE2304 Offset: 0xFE2304 VA: 0xFE2304
+	public USTimelineBase get_Timeline() { }
+
+	// RVA: 0xFE26B0 Offset: 0xFE26B0 VA: 0xFE26B0
+	public USTimelineContainer get_TimelineContainer() { }
+
+	// RVA: 0xFE281C Offset: 0xFE281C VA: 0xFE281C
+	public GameObject get_AffectedObject() { }
+
+	// RVA: 0xFE2A8C Offset: 0xFE2A8C VA: 0xFE2A8C
+	public void SetSerializedAdditionalObjectsPaths(string[] paths) { }
+
+	// RVA: 0xFE2A94 Offset: 0xFE2A94 VA: 0xFE2A94
+	public void FixupAdditionalObjects() { }
+
+	// RVA: 0xFE2C4C Offset: 0xFE2C4C VA: 0xFE2C4C
+	public bool get_IsFireAndForgetEvent() { }
+
+	// RVA: 0xFE2C5C Offset: 0xFE2C5C VA: 0xFE2C5C
+	public bool get_FireOnSkip() { }
+
+	// RVA: 0xFE2C64 Offset: 0xFE2C64 VA: 0xFE2C64
+	public void set_FireOnSkip(bool value) { }
+
+	// RVA: -1 Offset: -1 Slot: 4
+	public abstract void FireEvent();
+
+	// RVA: -1 Offset: -1 Slot: 5
+	public abstract void ProcessEvent(float runningTime);
+
+	// RVA: 0xFE2C70 Offset: 0xFE2C70 VA: 0xFE2C70 Slot: 6
+	public virtual void PauseEvent() { }
+
+	// RVA: 0xFE2C74 Offset: 0xFE2C74 VA: 0xFE2C74 Slot: 7
+	public virtual void ResumeEvent() { }
+
+	// RVA: 0xFE2C78 Offset: 0xFE2C78 VA: 0xFE2C78 Slot: 8
+	public virtual void StopEvent() { }
+
+	// RVA: 0xFE2C7C Offset: 0xFE2C7C VA: 0xFE2C7C Slot: 9
+	public virtual void EndEvent() { }
+
+	// RVA: 0xFE2C80 Offset: 0xFE2C80 VA: 0xFE2C80 Slot: 10
+	public virtual void UndoEvent() { }
+
+	// RVA: 0xFE2C84 Offset: 0xFE2C84 VA: 0xFE2C84 Slot: 11
+	public virtual void ManuallySetTime(float deltaTime) { }
+
+	// RVA: 0xFE2C88 Offset: 0xFE2C88 VA: 0xFE2C88 Slot: 12
+	public virtual Transform[] GetAdditionalObjects() { }
+
+	// RVA: 0xFE2CD4 Offset: 0xFE2CD4 VA: 0xFE2CD4 Slot: 13
+	public virtual void SetAdditionalObjects(Transform[] additionalObjects) { }
+
+	// RVA: 0xFE2CD8 Offset: 0xFE2CD8 VA: 0xFE2CD8 Slot: 14
+	public virtual bool HasValidAdditionalObjects() { }
+
+	// RVA: 0xFE2CE0 Offset: 0xFE2CE0 VA: 0xFE2CE0 Slot: 15
+	public virtual void MakeUnique() { }
+
+	// RVA: 0xFE2CE4 Offset: 0xFE2CE4 VA: 0xFE2CE4
+	protected void .ctor() { }
+}
+
+// Namespace: WellFired
+public enum UILayer // TypeDefIndex: 3738
+{
+	// Fields
+	public int value__; // 0x0
+	public const UILayer Front = 0;
+	public const UILayer Middle = 1;
+	public const UILayer Back = 2;
+}
+
+// Namespace: WellFired
+public enum UIPosition // TypeDefIndex: 3739
+{
+	// Fields
+	public int value__; // 0x0
+	public const UIPosition Center = 0;
+	public const UIPosition TopLeft = 1;
+	public const UIPosition TopRight = 2;
+	public const UIPosition BottomLeft = 3;
+	public const UIPosition BottomRight = 4;
+}
+
+// Namespace: WellFired
+[ExtensionAttribute] // RVA: 0xC89794 Offset: 0xC89794 VA: 0xC89794
+public static class TransformExtensions // TypeDefIndex: 3740
+{
+	// Methods
+
+	[ExtensionAttribute] // RVA: 0xC8A488 Offset: 0xC8A488 VA: 0xC8A488
+	// RVA: 0xFE206C Offset: 0xFE206C VA: 0xFE206C
+	public static string GetFullHierarchyPath(Transform transform) { }
+}
+
+// Namespace: WellFired
+[Serializable]
+public class USObserverKeyframe : ScriptableObject // TypeDefIndex: 3741
+{
+	// Fields
+	public USTimelineObserver observer; // 0x18
+	public bool prevActiveState; // 0x20
+	private AudioListener cachedListener; // 0x28
+	private BaseTransition transition; // 0x30
+	[SerializeField] // RVA: 0xC89D78 Offset: 0xC89D78 VA: 0xC89D78
+	private TypeOfTransition transitionType; // 0x38
+	[SerializeField] // RVA: 0xC89D88 Offset: 0xC89D88 VA: 0xC89D88
+	private float transitionDuration; // 0x3C
+	[SerializeField] // RVA: 0xC89D98 Offset: 0xC89D98 VA: 0xC89D98
+	private Camera camera; // 0x40
+	[SerializeField] // RVA: 0xC89DA8 Offset: 0xC89DA8 VA: 0xC89DA8
+	public string cameraPath; // 0x48
+	[SerializeField] // RVA: 0xC89DB8 Offset: 0xC89DB8 VA: 0xC89DB8
+	private float fireTime; // 0x50
+	[SerializeField] // RVA: 0xC89DC8 Offset: 0xC89DC8 VA: 0xC89DC8
+	private List<Camera> additionalSourceCameras; // 0x58
+	[SerializeField] // RVA: 0xC89DD8 Offset: 0xC89DD8 VA: 0xC89DD8
+	private List<Camera> additionalDestinationCameras; // 0x60
+	[CompilerGeneratedAttribute] // RVA: 0xC89DE8 Offset: 0xC89DE8 VA: 0xC89DE8
+	private bool <Fired>k__BackingField; // 0x68
+
+	// Properties
+	public bool Fired { get; set; }
+	public float FireTime { get; set; }
+	public float TransitionDuration { get; set; }
+	public TypeOfTransition TransitionType { get; set; }
+	public BaseTransition ActiveTransition { get; set; }
+	public Camera KeyframeCamera { get; set; }
+	public AudioListener AudioListener { get; set; }
+
+	// Methods
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8A498 Offset: 0xC8A498 VA: 0xC8A498
+	// RVA: 0xFE55B0 Offset: 0xFE55B0 VA: 0xFE55B0
+	public bool get_Fired() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8A4A8 Offset: 0xC8A4A8 VA: 0xC8A4A8
+	// RVA: 0xFE55B8 Offset: 0xFE55B8 VA: 0xFE55B8
+	private void set_Fired(bool value) { }
+
+	// RVA: 0xFE55C4 Offset: 0xFE55C4 VA: 0xFE55C4
+	public void set_FireTime(float value) { }
+
+	// RVA: 0xFE56B4 Offset: 0xFE56B4 VA: 0xFE56B4
+	public float get_FireTime() { }
+
+	// RVA: 0xFE56BC Offset: 0xFE56BC VA: 0xFE56BC
+	public float get_TransitionDuration() { }
+
+	// RVA: 0xFE56D4 Offset: 0xFE56D4 VA: 0xFE56D4
+	public void set_TransitionDuration(float value) { }
+
+	// RVA: 0xFE56DC Offset: 0xFE56DC VA: 0xFE56DC
+	public TypeOfTransition get_TransitionType() { }
+
+	// RVA: 0xFE56E4 Offset: 0xFE56E4 VA: 0xFE56E4
+	public void set_TransitionType(TypeOfTransition value) { }
+
+	// RVA: 0xFE56EC Offset: 0xFE56EC VA: 0xFE56EC
+	public BaseTransition get_ActiveTransition() { }
+
+	// RVA: 0xFE56F4 Offset: 0xFE56F4 VA: 0xFE56F4
+	public void set_ActiveTransition(BaseTransition value) { }
+
+	// RVA: 0xFE56FC Offset: 0xFE56FC VA: 0xFE56FC
+	public void set_KeyframeCamera(Camera value) { }
+
+	// RVA: 0xFE5704 Offset: 0xFE5704 VA: 0xFE5704
+	public Camera get_KeyframeCamera() { }
+
+	// RVA: 0xFE570C Offset: 0xFE570C VA: 0xFE570C
+	public void set_AudioListener(AudioListener value) { }
+
+	// RVA: 0xFE5710 Offset: 0xFE5710 VA: 0xFE5710
+	public AudioListener get_AudioListener() { }
+
+	// RVA: 0xFE57B4 Offset: 0xFE57B4 VA: 0xFE57B4
+	public void Fire(Camera previousCamera) { }
+
+	// RVA: 0xFE59B8 Offset: 0xFE59B8 VA: 0xFE59B8
+	public void UnFire() { }
+
+	// RVA: 0xFE5A60 Offset: 0xFE5A60 VA: 0xFE5A60
+	public void End() { }
+
+	// RVA: 0xFE5A94 Offset: 0xFE5A94 VA: 0xFE5A94
+	public void Revert() { }
+
+	// RVA: 0xFE5BA4 Offset: 0xFE5BA4 VA: 0xFE5BA4
+	public void ProcessFromOnGUI() { }
+
+	// RVA: 0xFE5BB8 Offset: 0xFE5BB8 VA: 0xFE5BB8
+	public void Process(float time) { }
+
+	// RVA: 0xFE5C00 Offset: 0xFE5C00 VA: 0xFE5C00
+	public void .ctor() { }
+}
+
+// Namespace: WellFired
+public enum PropertyTypeInfo // TypeDefIndex: 3742
+{
+	// Fields
+	public int value__; // 0x0
+	public const PropertyTypeInfo None = -1;
+	public const PropertyTypeInfo Int = 0;
+	public const PropertyTypeInfo Long = 1;
+	public const PropertyTypeInfo Float = 2;
+	public const PropertyTypeInfo Double = 3;
+	public const PropertyTypeInfo Bool = 4;
+	public const PropertyTypeInfo Vec2 = 5;
+	public const PropertyTypeInfo Vec3 = 6;
+	public const PropertyTypeInfo Vec4 = 7;
+	public const PropertyTypeInfo Quat = 8;
+	public const PropertyTypeInfo Colour = 9;
+}
+
+// Namespace: WellFired
+public class Modification // TypeDefIndex: 3743
+{
+	// Fields
+	public USInternalCurve curve; // 0x10
+	public float newTime; // 0x18
+	public float newValue; // 0x1C
+
+	// Methods
+
+	// RVA: 0xFDDA44 Offset: 0xFDDA44 VA: 0xFDDA44
+	public void .ctor(USInternalCurve curve, float newTime, float newValue) { }
+}
+
+// Namespace: WellFired
+[Serializable]
+public class USPropertyInfo : ScriptableObject // TypeDefIndex: 3744
+{
+	// Fields
+	[SerializeField] // RVA: 0xC89DF8 Offset: 0xC89DF8 VA: 0xC89DF8
+	private PropertyTypeInfo propertyType; // 0x18
+	[SerializeField] // RVA: 0xC89E08 Offset: 0xC89E08 VA: 0xC89E08
+	private Component component; // 0x20
+	[SerializeField] // RVA: 0xC89E18 Offset: 0xC89E18 VA: 0xC89E18
+	private string componentType; // 0x28
+	public string propertyName; // 0x30
+	public string fieldName; // 0x38
+	private PropertyInfo cachedPropertyInfo; // 0x40
+	private FieldInfo cachedFieldInfo; // 0x48
+	public List<USInternalCurve> curves; // 0x50
+	[ObsoleteAttribute] // RVA: 0xC89E28 Offset: 0xC89E28 VA: 0xC89E28
+	public AnimationCurve curves0; // 0x58
+	[ObsoleteAttribute] // RVA: 0xC89E60 Offset: 0xC89E60 VA: 0xC89E60
+	public AnimationCurve curves1; // 0x60
+	[ObsoleteAttribute] // RVA: 0xC89E98 Offset: 0xC89E98 VA: 0xC89E98
+	public AnimationCurve curves2; // 0x68
+	[ObsoleteAttribute] // RVA: 0xC89ED0 Offset: 0xC89ED0 VA: 0xC89ED0
+	public AnimationCurve curves3; // 0x70
+	private bool tmpBool; // 0x78
+	private Keyframe tmpKeyframe; // 0x7C
+	private Vector2 tmpVector2; // 0x98
+	private Vector3 tmpVector3; // 0xA0
+	private Vector4 tmpVector4; // 0xAC
+	private Quaternion tmpQuat; // 0xBC
+	private Color tmpColour; // 0xCC
+	[SerializeField] // RVA: 0xC89F08 Offset: 0xC89F08 VA: 0xC89F08
+	private int baseInt; // 0xDC
+	[SerializeField] // RVA: 0xC89F18 Offset: 0xC89F18 VA: 0xC89F18
+	private long baseLong; // 0xE0
+	[SerializeField] // RVA: 0xC89F28 Offset: 0xC89F28 VA: 0xC89F28
+	private float baseFloat; // 0xE8
+	[SerializeField] // RVA: 0xC89F38 Offset: 0xC89F38 VA: 0xC89F38
+	private double baseDouble; // 0xF0
+	[SerializeField] // RVA: 0xC89F48 Offset: 0xC89F48 VA: 0xC89F48
+	private bool baseBool; // 0xF8
+	[SerializeField] // RVA: 0xC89F58 Offset: 0xC89F58 VA: 0xC89F58
+	private Vector2 baseVector2; // 0xFC
+	[SerializeField] // RVA: 0xC89F68 Offset: 0xC89F68 VA: 0xC89F68
+	private Vector3 baseVector3; // 0x104
+	[SerializeField] // RVA: 0xC89F78 Offset: 0xC89F78 VA: 0xC89F78
+	private Vector4 baseVector4; // 0x110
+	[SerializeField] // RVA: 0xC89F88 Offset: 0xC89F88 VA: 0xC89F88
+	private Quaternion baseQuat; // 0x120
+	[SerializeField] // RVA: 0xC89F98 Offset: 0xC89F98 VA: 0xC89F98
+	private Color baseColour; // 0x130
+	private float previousTime; // 0x140
+	[SerializeField] // RVA: 0xC89FA8 Offset: 0xC89FA8 VA: 0xC89FA8
+	private string internalName; // 0x148
+
+	// Properties
+	public PropertyInfo propertyInfo { get; set; }
+	public FieldInfo fieldInfo { get; set; }
+	public bool UseCurrentValue { get; set; }
+	public Component Component { get; set; }
+	public string ComponentType { get; set; }
+	public string PropertyName { get; set; }
+	public PropertyTypeInfo PropertyType { get; }
+	public string InternalName { get; set; }
+
+	// Methods
+
+	// RVA: 0xFE5CA0 Offset: 0xFE5CA0 VA: 0xFE5CA0
+	public PropertyInfo get_propertyInfo() { }
+
+	// RVA: 0xFE5E14 Offset: 0xFE5E14 VA: 0xFE5E14
+	public void set_propertyInfo(PropertyInfo value) { }
+
+	// RVA: 0xFE5E58 Offset: 0xFE5E58 VA: 0xFE5E58
+	public FieldInfo get_fieldInfo() { }
+
+	// RVA: 0xFE5FD0 Offset: 0xFE5FD0 VA: 0xFE5FD0
+	public void set_fieldInfo(FieldInfo value) { }
+
+	// RVA: 0xFE6014 Offset: 0xFE6014 VA: 0xFE6014
+	public bool get_UseCurrentValue() { }
+
+	// RVA: 0xFE6104 Offset: 0xFE6104 VA: 0xFE6104
+	public void set_UseCurrentValue(bool value) { }
+
+	// RVA: 0xFE622C Offset: 0xFE622C VA: 0xFE622C
+	public Component get_Component() { }
+
+	// RVA: 0xFE6234 Offset: 0xFE6234 VA: 0xFE6234
+	public void set_Component(Component value) { }
+
+	// RVA: 0xFE6320 Offset: 0xFE6320 VA: 0xFE6320
+	public string get_ComponentType() { }
+
+	// RVA: 0xFE62F8 Offset: 0xFE62F8 VA: 0xFE62F8
+	public void set_ComponentType(string value) { }
+
+	// RVA: 0xFE6500 Offset: 0xFE6500 VA: 0xFE6500
+	public string get_PropertyName() { }
+
+	// RVA: 0xFE65C8 Offset: 0xFE65C8 VA: 0xFE65C8
+	private void set_PropertyName(string value) { }
+
+	// RVA: 0xFE65CC Offset: 0xFE65CC VA: 0xFE65CC
+	public PropertyTypeInfo get_PropertyType() { }
+
+	// RVA: 0xFE65D4 Offset: 0xFE65D4 VA: 0xFE65D4
+	public string get_InternalName() { }
+
+	// RVA: 0xFE65DC Offset: 0xFE65DC VA: 0xFE65DC
+	public void set_InternalName(string value) { }
+
+	// RVA: 0xFE65E4 Offset: 0xFE65E4 VA: 0xFE65E4
+	public void CreatePropertyInfo(PropertyTypeInfo createdPropertyType) { }
+
+	// RVA: 0xFE6BE8 Offset: 0xFE6BE8 VA: 0xFE6BE8
+	public void SetValue(float time) { }
+
+	// RVA: 0xFE780C Offset: 0xFE780C VA: 0xFE780C
+	public void AddKeyframe(List<USInternalCurve> settingCurves, object ourValue, float time, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE8F08 Offset: 0xFE8F08 VA: 0xFE8F08
+	public void AddKeyframe(float time, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE8FD4 Offset: 0xFE8FD4 VA: 0xFE8FD4
+	public void AddKeyframe(object ourValue, float time, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE8DAC Offset: 0xFE8DAC VA: 0xFE8DAC
+	private void AddKeyframe(USInternalCurve curve, Keyframe keyframe, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE897C Offset: 0xFE897C VA: 0xFE897C
+	private void AddKeyframe(int ourValue, float time, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE8A50 Offset: 0xFE8A50 VA: 0xFE8A50
+	private void AddKeyframe(long ourValue, float time, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE8B24 Offset: 0xFE8B24 VA: 0xFE8B24
+	private void AddKeyframe(float ourValue, float time, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE8BF8 Offset: 0xFE8BF8 VA: 0xFE8BF8
+	private void AddKeyframe(double ourValue, float time, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE8CCC Offset: 0xFE8CCC VA: 0xFE8CCC
+	private void AddKeyframe(bool ourValue, float time, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE934C Offset: 0xFE934C VA: 0xFE934C
+	private void AddKeyframe(Vector2 ourValue, float time, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE9498 Offset: 0xFE9498 VA: 0xFE9498
+	private void AddKeyframe(Vector3 ourValue, float time, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE964C Offset: 0xFE964C VA: 0xFE964C
+	private void AddKeyframe(Vector4 ourValue, float time, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE9870 Offset: 0xFE9870 VA: 0xFE9870
+	private void AddKeyframe(Quaternion ourValue, float time, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE9A94 Offset: 0xFE9A94 VA: 0xFE9A94
+	private void AddKeyframe(Color ourValue, float time, CurveAutoTangentModes tangentMode) { }
+
+	// RVA: 0xFE6684 Offset: 0xFE6684 VA: 0xFE6684
+	private void CreatePropertyCurves() { }
+
+	// RVA: 0xFE9CB8 Offset: 0xFE9CB8 VA: 0xFE9CB8
+	public object GetValueForTime(float time) { }
+
+	// RVA: 0xFEA418 Offset: 0xFEA418 VA: 0xFEA418
+	public List<Modification> GetModifiedCurvesAtTime(float runningTime) { }
+
+	// RVA: 0xFEB824 Offset: 0xFEB824 VA: 0xFEB824
+	public void StoreBaseState() { }
+
+	// RVA: 0xFEBA9C Offset: 0xFEBA9C VA: 0xFEBA9C
+	public void RestoreBaseState() { }
+
+	// RVA: 0xFE8680 Offset: 0xFE8680 VA: 0xFE8680
+	public static PropertyTypeInfo GetMappedType(Type type) { }
+
+	// RVA: 0xFEBC74 Offset: 0xFEBC74 VA: 0xFEBC74
+	public static Type GetMappedType(PropertyTypeInfo type) { }
+
+	// RVA: 0xFEBDF0 Offset: 0xFEBDF0 VA: 0xFEBDF0
+	private float GetValue(int curveIndex) { }
+
+	// RVA: 0xFE7734 Offset: 0xFE7734 VA: 0xFE7734
+	private void BuildForCurrentValue(int curveIndex) { }
+
+	// RVA: 0xFEC104 Offset: 0xFEC104 VA: 0xFEC104
+	public string GetJSON() { }
+
+	// RVA: 0xFEC1D0 Offset: 0xFEC1D0 VA: 0xFEC1D0
+	public void .ctor() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC897A4 Offset: 0xC897A4 VA: 0xC897A4
+[Serializable]
+private sealed class USPropertyInfo.<>c // TypeDefIndex: 3745
+{
+	// Fields
+	public static readonly USPropertyInfo.<>c <>9; // 0x0
+	public static Func<USInternalCurve, bool> <>9__37_0; // 0x8
+
+	// Methods
+
+	// RVA: 0xFEC384 Offset: 0xFEC384 VA: 0xFEC384
+	private static void .cctor() { }
+
+	// RVA: 0xFEC3E8 Offset: 0xFEC3E8 VA: 0xFEC3E8
+	public void .ctor() { }
+
+	// RVA: 0xFEC3F0 Offset: 0xFEC3F0 VA: 0xFEC3F0
+	internal bool <get_UseCurrentValue>b__37_0(USInternalCurve curve) { }
+}
+
+// Namespace: WellFired
+public class USRecord // TypeDefIndex: 3746
+{
+	// Methods
+
+	// RVA: 0xFEC41C Offset: 0xFEC41C VA: 0xFEC41C
+	public static int GetFramerate() { }
+
+	// RVA: 0xFEC564 Offset: 0xFEC564 VA: 0xFEC564
+	public static int GetUpscaleAmount() { }
+}
+
+// Namespace: 
+public enum USRecord.PlayerResolution // TypeDefIndex: 3747
+{
+	// Fields
+	public int value__; // 0x0
+	public const USRecord.PlayerResolution _1920x1080 = 0;
+	public const USRecord.PlayerResolution _1280x720 = 1;
+	public const USRecord.PlayerResolution _960x540 = 2;
+	public const USRecord.PlayerResolution _854x480 = 3;
+	public const USRecord.PlayerResolution _720x576 = 4;
+	public const USRecord.PlayerResolution _640x480 = 5;
+	public const USRecord.PlayerResolution _Custom = 6;
+}
+
+// Namespace: 
+public enum USRecord.FrameRate // TypeDefIndex: 3748
+{
+	// Fields
+	public int value__; // 0x0
+	public const USRecord.FrameRate _24 = 0;
+	public const USRecord.FrameRate _25 = 1;
+	public const USRecord.FrameRate _30 = 2;
+	public const USRecord.FrameRate _50 = 3;
+	public const USRecord.FrameRate _60 = 4;
+}
+
+// Namespace: 
+public enum USRecord.Upscaling // TypeDefIndex: 3749
+{
+	// Fields
+	public int value__; // 0x0
+	public const USRecord.Upscaling _1 = 0;
+	public const USRecord.Upscaling _2 = 1;
+	public const USRecord.Upscaling _4 = 2;
+	public const USRecord.Upscaling _8 = 3;
+}
+
+// Namespace: WellFired
+public static class USRecordRuntimePreferences // TypeDefIndex: 3750
+{
+	// Fields
+	private static string resolutionPref; // 0x0
+	private static string frameRatePref; // 0x8
+	private static string upscaleAmountPref; // 0x10
+	private static string pathPref; // 0x18
+	private static string presetNamePref; // 0x20
+	private static string presetPref; // 0x28
+	private static string selectedPresetPref; // 0x30
+	private static USRecord.PlayerResolution defaultResolution; // 0x38
+	private static USRecord.FrameRate defaultFrameRate; // 0x3C
+	private static USRecord.Upscaling defaultUpscaling; // 0x40
+	private static string defaultPreset; // 0x48
+	private static int defaultSelectedPreset; // 0x50
+
+	// Properties
+	public static USRecord.FrameRate FrameRate { get; }
+	public static USRecord.Upscaling UpscaleAmount { get; }
+	public static string CapturePath { get; }
+
+	// Methods
+
+	// RVA: 0xFEC498 Offset: 0xFEC498 VA: 0xFEC498
+	public static USRecord.FrameRate get_FrameRate() { }
+
+	// RVA: 0xFEC5E0 Offset: 0xFEC5E0 VA: 0xFEC5E0
+	public static USRecord.Upscaling get_UpscaleAmount() { }
+
+	// RVA: 0xFEC6AC Offset: 0xFEC6AC VA: 0xFEC6AC
+	public static string get_CapturePath() { }
+
+	// RVA: 0xFEC780 Offset: 0xFEC780 VA: 0xFEC780
+	public static string GetDefaultCapturePath() { }
+
+	// RVA: 0xFEC84C Offset: 0xFEC84C VA: 0xFEC84C
+	private static void .cctor() { }
+}
+
+// Namespace: WellFired
+public class USRecordSequence : MonoBehaviour // TypeDefIndex: 3751
+{
+	// Fields
+	private bool isRecording; // 0x18
+	private bool recordOnStart; // 0x19
+	private int imageCount; // 0x1C
+	private int captureFrameRate; // 0x20
+	private int upscaleAmount; // 0x24
+	private string capturePath; // 0x28
+
+	// Properties
+	public int CaptureFrameRate { set; }
+	public int UpscaleAmount { set; }
+	public string CapturePath { set; }
+	public bool RecordOnStart { set; }
+
+	// Methods
+
+	// RVA: 0xFEC964 Offset: 0xFEC964 VA: 0xFEC964
+	public void set_CaptureFrameRate(int value) { }
+
+	// RVA: 0xFEC9E8 Offset: 0xFEC9E8 VA: 0xFEC9E8
+	public void set_UpscaleAmount(int value) { }
+
+	// RVA: 0xFECA6C Offset: 0xFECA6C VA: 0xFECA6C
+	public void set_CapturePath(string value) { }
+
+	// RVA: 0xFECA74 Offset: 0xFECA74 VA: 0xFECA74
+	public void set_RecordOnStart(bool value) { }
+
+	// RVA: 0xFECA80 Offset: 0xFECA80 VA: 0xFECA80
+	private void Start() { }
+
+	// RVA: 0xFECA90 Offset: 0xFECA90 VA: 0xFECA90
+	private void LateUpdate() { }
+
+	// RVA: 0xFECCA8 Offset: 0xFECCA8 VA: 0xFECCA8
+	public void StartRecording() { }
+
+	// RVA: 0xFECCB4 Offset: 0xFECCB4 VA: 0xFECCB4
+	public void PauseRecording() { }
+
+	// RVA: 0xFECCBC Offset: 0xFECCBC VA: 0xFECCBC
+	public void StopRecording() { }
+
+	// RVA: 0xFECCC8 Offset: 0xFECCC8 VA: 0xFECCC8
+	public void .ctor() { }
+}
+
+// Namespace: WellFired
+[ExecuteInEditMode] // RVA: 0xC897B4 Offset: 0xC897B4 VA: 0xC897B4
+[Serializable]
+public class USSequencer : MonoBehaviour // TypeDefIndex: 3752
+{
+	// Fields
+	[SerializeField] // RVA: 0xC89FB8 Offset: 0xC89FB8 VA: 0xC89FB8
+	private List<Transform> observedObjects; // 0x18
+	[SerializeField] // RVA: 0xC89FC8 Offset: 0xC89FC8 VA: 0xC89FC8
+	private float runningTime; // 0x20
+	[SerializeField] // RVA: 0xC89FD8 Offset: 0xC89FD8 VA: 0xC89FD8
+	private float playbackRate; // 0x24
+	[SerializeField] // RVA: 0xC89FE8 Offset: 0xC89FE8 VA: 0xC89FE8
+	private int version; // 0x28
+	[SerializeField] // RVA: 0xC89FF8 Offset: 0xC89FF8 VA: 0xC89FF8
+	private float duration; // 0x2C
+	[SerializeField] // RVA: 0xC8A008 Offset: 0xC8A008 VA: 0xC8A008
+	private bool isLoopingSequence; // 0x30
+	[SerializeField] // RVA: 0xC8A018 Offset: 0xC8A018 VA: 0xC8A018
+	private bool isPingPongingSequence; // 0x31
+	[SerializeField] // RVA: 0xC8A028 Offset: 0xC8A028 VA: 0xC8A028
+	private bool updateOnFixedUpdate; // 0x32
+	[SerializeField] // RVA: 0xC8A038 Offset: 0xC8A038 VA: 0xC8A038
+	private bool autoplay; // 0x33
+	private bool playing; // 0x34
+	private bool isFreshPlayback; // 0x35
+	private float previousTime; // 0x38
+	private float minPlaybackRate; // 0x3C
+	private float maxPlaybackRate; // 0x40
+	private float setSkipTime; // 0x44
+	private USTimelineContainer[] timelineContainers; // 0x48
+	public USSequencer.PlaybackDelegate PlaybackStarted; // 0x50
+	public USSequencer.PlaybackDelegate PlaybackStopped; // 0x58
+	public USSequencer.PlaybackDelegate PlaybackPaused; // 0x60
+	public USSequencer.PlaybackDelegate PlaybackFinished; // 0x68
+	public USSequencer.UpdateDelegate BeforeUpdate; // 0x70
+	public USSequencer.UpdateDelegate AfterUpdate; // 0x78
+	public USSequencer.PlaybackDelegate OnRunningTimeSet; // 0x80
+
+	// Properties
+	public int Version { get; set; }
+	public List<Transform> ObservedObjects { get; }
+	public float Duration { get; set; }
+	public bool IsPlaying { get; }
+	public bool IsLopping { get; set; }
+	public bool IsPingPonging { get; set; }
+	public bool IsComplete { get; set; }
+	public float RunningTime { get; set; }
+	public float PlaybackRate { get; set; }
+	public float MinPlaybackRate { get; }
+	public float MaxPlaybackRate { get; }
+	public bool HasSequenceBeenStarted { get; }
+	public USTimelineContainer[] TimelineContainers { get; }
+	public USTimelineContainer[] SortedTimelineContainers { get; }
+	public int TimelineContainerCount { get; }
+	public int ObservedObjectCount { get; }
+	public bool UpdateOnFixedUpdate { get; set; }
+	public static float SequenceUpdateRate { get; }
+
+	// Methods
+
+	// RVA: 0xFECFEC Offset: 0xFECFEC VA: 0xFECFEC
+	public int get_Version() { }
+
+	// RVA: 0xFECFF4 Offset: 0xFECFF4 VA: 0xFECFF4
+	public void set_Version(int value) { }
+
+	// RVA: 0xFECFFC Offset: 0xFECFFC VA: 0xFECFFC
+	public List<Transform> get_ObservedObjects() { }
+
+	// RVA: 0xFDE684 Offset: 0xFDE684 VA: 0xFDE684
+	public float get_Duration() { }
+
+	// RVA: 0xFED004 Offset: 0xFED004 VA: 0xFED004
+	public void set_Duration(float value) { }
+
+	// RVA: 0xFDE094 Offset: 0xFDE094 VA: 0xFDE094
+	public bool get_IsPlaying() { }
+
+	// RVA: 0xFED01C Offset: 0xFED01C VA: 0xFED01C
+	public bool get_IsLopping() { }
+
+	// RVA: 0xFED024 Offset: 0xFED024 VA: 0xFED024
+	public void set_IsLopping(bool value) { }
+
+	// RVA: 0xFED030 Offset: 0xFED030 VA: 0xFED030
+	public bool get_IsPingPonging() { }
+
+	// RVA: 0xFED038 Offset: 0xFED038 VA: 0xFED038
+	public void set_IsPingPonging(bool value) { }
+
+	// RVA: 0xFED044 Offset: 0xFED044 VA: 0xFED044
+	public bool get_IsComplete() { }
+
+	// RVA: 0xFED068 Offset: 0xFED068 VA: 0xFED068
+	public void set_IsComplete(bool value) { }
+
+	// RVA: 0xFDE67C Offset: 0xFDE67C VA: 0xFDE67C
+	public float get_RunningTime() { }
+
+	// RVA: 0xFDE68C Offset: 0xFDE68C VA: 0xFDE68C
+	public void set_RunningTime(float value) { }
+
+	// RVA: 0xFED1C8 Offset: 0xFED1C8 VA: 0xFED1C8
+	public float get_PlaybackRate() { }
+
+	// RVA: 0xFED640 Offset: 0xFED640 VA: 0xFED640
+	public void set_PlaybackRate(float value) { }
+
+	// RVA: 0xFED6D0 Offset: 0xFED6D0 VA: 0xFED6D0
+	public float get_MinPlaybackRate() { }
+
+	// RVA: 0xFED6D8 Offset: 0xFED6D8 VA: 0xFED6D8
+	public float get_MaxPlaybackRate() { }
+
+	// RVA: 0xFED6E0 Offset: 0xFED6E0 VA: 0xFED6E0
+	public bool get_HasSequenceBeenStarted() { }
+
+	// RVA: 0xFED06C Offset: 0xFED06C VA: 0xFED06C
+	public USTimelineContainer[] get_TimelineContainers() { }
+
+	// RVA: 0xFED6F0 Offset: 0xFED6F0 VA: 0xFED6F0
+	public USTimelineContainer[] get_SortedTimelineContainers() { }
+
+	// RVA: 0xFED790 Offset: 0xFED790 VA: 0xFED790
+	public int get_TimelineContainerCount() { }
+
+	// RVA: 0xFED7BC Offset: 0xFED7BC VA: 0xFED7BC
+	public int get_ObservedObjectCount() { }
+
+	// RVA: 0xFED81C Offset: 0xFED81C VA: 0xFED81C
+	public bool get_UpdateOnFixedUpdate() { }
+
+	// RVA: 0xFED824 Offset: 0xFED824 VA: 0xFED824
+	public void set_UpdateOnFixedUpdate(bool value) { }
+
+	// RVA: 0xFED830 Offset: 0xFED830 VA: 0xFED830
+	public static float get_SequenceUpdateRate() { }
+
+	// RVA: 0xFED854 Offset: 0xFED854 VA: 0xFED854
+	private void OnDestroy() { }
+
+	// RVA: 0xFED8A8 Offset: 0xFED8A8 VA: 0xFED8A8
+	private void Start() { }
+
+	// RVA: 0xFEDDBC Offset: 0xFEDDBC VA: 0xFEDDBC
+	public void TogglePlayback() { }
+
+	// RVA: 0xFDE878 Offset: 0xFDE878 VA: 0xFDE878
+	public void Play() { }
+
+	// RVA: 0xFDE0D8 Offset: 0xFDE0D8 VA: 0xFDE0D8
+	public void Pause() { }
+
+	// RVA: 0xFE1CB4 Offset: 0xFE1CB4 VA: 0xFE1CB4
+	public void Stop() { }
+
+	// RVA: 0xFEDDF8 Offset: 0xFEDDF8 VA: 0xFEDDF8
+	private void End() { }
+
+	// RVA: 0xFEDF94 Offset: 0xFEDF94 VA: 0xFEDF94
+	public USTimelineContainer CreateNewTimelineContainer(Transform affectedObject) { }
+
+	// RVA: 0xFEE22C Offset: 0xFEE22C VA: 0xFEE22C
+	public bool HasTimelineContainerFor(Transform affectedObject) { }
+
+	// RVA: 0xFEE32C Offset: 0xFEE32C VA: 0xFEE32C
+	public USTimelineContainer GetTimelineContainerFor(Transform affectedObject) { }
+
+	// RVA: 0xFEE42C Offset: 0xFEE42C VA: 0xFEE42C
+	public void DeleteTimelineContainer(USTimelineContainer timelineContainer) { }
+
+	// RVA: 0xFEE4B4 Offset: 0xFEE4B4 VA: 0xFEE4B4
+	public void RemoveObservedObject(Transform observedObject) { }
+
+	// RVA: 0xFE0E9C Offset: 0xFE0E9C VA: 0xFE0E9C
+	public void SkipTimelineTo(float time) { }
+
+	// RVA: 0xFEE560 Offset: 0xFEE560 VA: 0xFEE560
+	public void SetPlaybackRate(float rate) { }
+
+	// RVA: 0xFEE564 Offset: 0xFEE564 VA: 0xFEE564
+	public void SetPlaybackTime(float time) { }
+
+	// RVA: 0xFEE568 Offset: 0xFEE568 VA: 0xFEE568
+	public void UpdateSequencer(float deltaTime) { }
+
+	// RVA: 0xFEECE8 Offset: 0xFEECE8 VA: 0xFEECE8
+	private IEnumerator UpdateSequencerCoroutine() { }
+
+	// RVA: 0xFEED88 Offset: 0xFEED88 VA: 0xFEED88
+	private void FixedUpdate() { }
+
+	// RVA: 0xFEEDD4 Offset: 0xFEEDD4 VA: 0xFEEDD4
+	public void ResetCachedData() { }
+
+	// RVA: 0xFEEEF0 Offset: 0xFEEEF0 VA: 0xFEEEF0
+	public void .ctor() { }
+}
+
+// Namespace: 
+public sealed class USSequencer.PlaybackDelegate : MulticastDelegate // TypeDefIndex: 3753
+{
+	// Methods
+
+	// RVA: 0xFDE09C Offset: 0xFDE09C VA: 0xFDE09C
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0xFED2A0 Offset: 0xFED2A0 VA: 0xFED2A0 Slot: 11
+	public virtual void Invoke(USSequencer sequencer) { }
+
+	// RVA: 0xFEF538 Offset: 0xFEF538 VA: 0xFEF538 Slot: 12
+	public virtual IAsyncResult BeginInvoke(USSequencer sequencer, AsyncCallback callback, object object) { }
+
+	// RVA: 0xFEF55C Offset: 0xFEF55C VA: 0xFEF55C Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+public sealed class USSequencer.UpdateDelegate : MulticastDelegate // TypeDefIndex: 3754
+{
+	// Methods
+
+	// RVA: 0xFEF324 Offset: 0xFEF324 VA: 0xFEF324
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0xFEE88C Offset: 0xFEE88C VA: 0xFEE88C Slot: 11
+	public virtual void Invoke(USSequencer sequencer, float newRunningTime) { }
+
+	// RVA: 0xFEF568 Offset: 0xFEF568 VA: 0xFEF568 Slot: 12
+	public virtual IAsyncResult BeginInvoke(USSequencer sequencer, float newRunningTime, AsyncCallback callback, object object) { }
+
+	// RVA: 0xFEF604 Offset: 0xFEF604 VA: 0xFEF604 Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC897C4 Offset: 0xC897C4 VA: 0xC897C4
+private sealed class USSequencer.<UpdateSequencerCoroutine>d__85 : IEnumerator<object>, IDisposable, IEnumerator // TypeDefIndex: 3755
+{
+	// Fields
+	private int <>1__state; // 0x10
+	private object <>2__current; // 0x18
+	public USSequencer <>4__this; // 0x20
+	private WaitForSeconds <wait>5__2; // 0x28
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<System.Object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xC8A4B8 Offset: 0xC8A4B8 VA: 0xC8A4B8
+	// RVA: 0xFEED5C Offset: 0xFEED5C VA: 0xFEED5C
+	public void .ctor(int <>1__state) { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC8A4C8 Offset: 0xC8A4C8 VA: 0xC8A4C8
+	// RVA: 0xFEF3BC Offset: 0xFEF3BC VA: 0xFEF3BC Slot: 8
+	private void System.IDisposable.Dispose() { }
+
+	// RVA: 0xFEF3C0 Offset: 0xFEF3C0 VA: 0xFEF3C0 Slot: 6
+	private bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC8A4D8 Offset: 0xC8A4D8 VA: 0xC8A4D8
+	// RVA: 0xFEF4C0 Offset: 0xFEF4C0 VA: 0xFEF4C0 Slot: 4
+	private object System.Collections.Generic.IEnumerator<System.Object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC8A4E8 Offset: 0xC8A4E8 VA: 0xC8A4E8
+	// RVA: 0xFEF4C8 Offset: 0xFEF4C8 VA: 0xFEF4C8 Slot: 7
+	private void System.Collections.IEnumerator.Reset() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xC8A4F8 Offset: 0xC8A4F8 VA: 0xC8A4F8
+	// RVA: 0xFEF530 Offset: 0xFEF530 VA: 0xFEF530 Slot: 5
+	private object System.Collections.IEnumerator.get_Current() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xC897D4 Offset: 0xC897D4 VA: 0xC897D4
+[Serializable]
+private sealed class USSequencer.<>c // TypeDefIndex: 3756
+{
+	// Fields
+	public static readonly USSequencer.<>c <>9; // 0x0
+	public static USSequencer.PlaybackDelegate <>9__88_0; // 0x8
+	public static USSequencer.PlaybackDelegate <>9__88_1; // 0x10
+	public static USSequencer.PlaybackDelegate <>9__88_2; // 0x18
+	public static USSequencer.PlaybackDelegate <>9__88_3; // 0x20
+	public static USSequencer.UpdateDelegate <>9__88_4; // 0x28
+	public static USSequencer.UpdateDelegate <>9__88_5; // 0x30
+	public static USSequencer.PlaybackDelegate <>9__88_6; // 0x38
+
+	// Methods
+
+	// RVA: 0xFEF334 Offset: 0xFEF334 VA: 0xFEF334
+	private static void .cctor() { }
+
+	// RVA: 0xFEF398 Offset: 0xFEF398 VA: 0xFEF398
+	public void .ctor() { }
+
+	// RVA: 0xFEF3A0 Offset: 0xFEF3A0 VA: 0xFEF3A0
+	internal void <.ctor>b__88_0(USSequencer <p0>) { }
+
+	// RVA: 0xFEF3A4 Offset: 0xFEF3A4 VA: 0xFEF3A4
+	internal void <.ctor>b__88_1(USSequencer <p0>) { }
+
+	// RVA: 0xFEF3A8 Offset: 0xFEF3A8 VA: 0xFEF3A8
+	internal void <.ctor>b__88_2(USSequencer <p0>) { }
+
+	// RVA: 0xFEF3AC Offset: 0xFEF3AC VA: 0xFEF3AC
+	internal void <.ctor>b__88_3(USSequencer <p0>) { }
+
+	// RVA: 0xFEF3B0 Offset: 0xFEF3B0 VA: 0xFEF3B0
+	internal void <.ctor>b__88_4(USSequencer <p0>, float <p1>) { }
+
+	// RVA: 0xFEF3B4 Offset: 0xFEF3B4 VA: 0xFEF3B4
+	internal void <.ctor>b__88_5(USSequencer <p0>, float <p1>) { }
+
+	// RVA: 0xFEF3B8 Offset: 0xFEF3B8 VA: 0xFEF3B8
+	internal void <.ctor>b__88_6(USSequencer <p0>) { }
+}
+
+// Namespace: WellFired
+public struct LerpedQuaternion // TypeDefIndex: 3757
+{
+	// Fields
+	private bool slerp; // 0x0
+	public float duration; // 0x4
+	private Quaternion currentValue; // 0x8
+	private Quaternion target; // 0x18
+	private Quaternion source; // 0x28
+	private float startTime; // 0x38
+
+	// Properties
+	public Quaternion SmoothValue { get; set; }
+
+	// Methods
+
+	// RVA: 0xBB9AF0 Offset: 0xBB9AF0 VA: 0xBB9AF0
+	public Quaternion get_SmoothValue() { }
+
+	// RVA: 0xBB9AF8 Offset: 0xBB9AF8 VA: 0xBB9AF8
+	public void set_SmoothValue(Quaternion value) { }
+
+	// RVA: 0xBB9B00 Offset: 0xBB9B00 VA: 0xBB9B00
+	public void .ctor(Quaternion quaternion) { }
+}
+
+// Namespace: WellFired
+[Serializable]
+public class Spline // TypeDefIndex: 3758
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xC8A048 Offset: 0xC8A048 VA: 0xC8A048
+	private int <CurrentSegment>k__BackingField; // 0x10
+	[CompilerGeneratedAttribute] // RVA: 0xC8A058 Offset: 0xC8A058 VA: 0xC8A058
+	private bool <IsClosed>k__BackingField; // 0x14
+	[CompilerGeneratedAttribute] // RVA: 0xC8A068 Offset: 0xC8A068 VA: 0xC8A068
+	private bool <IsReversed>k__BackingField; // 0x15
+	[SerializeField] // RVA: 0xC8A078 Offset: 0xC8A078 VA: 0xC8A078
+	private Color splineColor; // 0x18
+	[SerializeField] // RVA: 0xC8A088 Offset: 0xC8A088 VA: 0xC8A088
+	private float displayResolution; // 0x28
+	[SerializeField] // RVA: 0xC8A098 Offset: 0xC8A098 VA: 0xC8A098
+	private AbstractSplineSolver splineSolver; // 0x30
+
+	// Properties
+	public bool IsClosed { get; }
+	public Color SplineColor { get; set; }
+	public float DisplayResolution { get; set; }
+	public List<SplineKeyframe> Nodes { get; }
+	public AbstractSplineSolver SplineSolver { get; set; }
+
+	// Methods
+
+	[CompilerGeneratedAttribute] // RVA: 0xC8A508 Offset: 0xC8A508 VA: 0xC8A508
+	// RVA: 0xFE1080 Offset: 0xFE1080 VA: 0xFE1080
+	public bool get_IsClosed() { }
+
+	// RVA: 0xFE1088 Offset: 0xFE1088 VA: 0xFE1088
+	public Color get_SplineColor() { }
+
+	// RVA: 0xFE1094 Offset: 0xFE1094 VA: 0xFE1094
+	public void set_SplineColor(Color value) { }
+
+	// RVA: 0xFE10A0 Offset: 0xFE10A0 VA: 0xFE10A0
+	public float get_DisplayResolution() { }
+
+	// RVA: 0xFE10A8 Offset: 0xFE10A8 VA: 0xFE10A8
+	public void set_DisplayResolution(float value) { }
+
+	// RVA: 0xFE10B0 Offset: 0xFE10B0 VA: 0xFE10B0
+	public List<SplineKeyframe> get_Nodes() { }

@@ -1,0 +1,1000 @@
+	private byte[] l3b; // 0x40
+	private byte[] l4sb; // 0x48
+	private byte[] l4tb; // 0x50
+	private byte[] l4kb; // 0x58
+	private byte[] l4wb; // 0x60
+	private byte[] l5b; // 0x68
+	private string source; // 0x70
+	private bool processLevel2; // 0x78
+	private bool frenchSort; // 0x79
+	private bool frenchSorted; // 0x7A
+	private int lcid; // 0x7C
+	private CompareOptions options; // 0x80
+
+	// Methods
+
+	// RVA: 0x127EA6C Offset: 0x127EA6C VA: 0x127EA6C
+	public void .ctor(int lcid) { }
+
+	// RVA: 0x1285524 Offset: 0x1285524 VA: 0x1285524
+	public void Reset() { }
+
+	// RVA: 0x127EA74 Offset: 0x127EA74 VA: 0x127EA74
+	internal void Initialize(CompareOptions options, int lcid, string s, bool frenchSort) { }
+
+	// RVA: 0x127F6E4 Offset: 0x127F6E4 VA: 0x127F6E4
+	internal void AppendCJKExtension(byte lv1msb, byte lv1lsb) { }
+
+	// RVA: 0x127F858 Offset: 0x127F858 VA: 0x127F858
+	internal void AppendKana(byte category, byte lv1, byte lv2, byte lv3, bool isSmallKana, byte markType, bool isKatakana, bool isHalfWidth) { }
+
+	// RVA: 0x127F554 Offset: 0x127F554 VA: 0x127F554
+	internal void AppendNormal(byte category, byte lv1, byte lv2, byte lv3) { }
+
+	// RVA: 0x1285630 Offset: 0x1285630 VA: 0x1285630
+	private void AppendLevel5(byte category, byte lv1) { }
+
+	// RVA: 0x1285534 Offset: 0x1285534 VA: 0x1285534
+	private void AppendBufferPrimitive(byte value, ref byte[] buf, ref int bidx) { }
+
+	// RVA: 0x127F034 Offset: 0x127F034 VA: 0x127F034
+	public SortKey GetResultAndReset() { }
+
+	// RVA: 0x1285C1C Offset: 0x1285C1C VA: 0x1285C1C
+	private int GetOptimizedLength(byte[] data, int len, byte defaultValue) { }
+
+	// RVA: 0x12856DC Offset: 0x12856DC VA: 0x12856DC
+	public SortKey GetResult() { }
+}
+
+// Namespace: Mono.Math.Prime.Generator
+internal abstract class PrimeGeneratorBase // TypeDefIndex: 110
+{
+	// Properties
+	public virtual ConfidenceFactor Confidence { get; }
+	public virtual PrimalityTest PrimalityTest { get; }
+	public virtual int TrialDivisionBounds { get; }
+
+	// Methods
+
+	// RVA: 0x128B940 Offset: 0x128B940 VA: 0x128B940
+	protected void .ctor() { }
+
+	// RVA: 0x128B948 Offset: 0x128B948 VA: 0x128B948 Slot: 4
+	public virtual ConfidenceFactor get_Confidence() { }
+
+	// RVA: 0x128B950 Offset: 0x128B950 VA: 0x128B950 Slot: 5
+	public virtual PrimalityTest get_PrimalityTest() { }
+
+	// RVA: 0x128B9C4 Offset: 0x128B9C4 VA: 0x128B9C4 Slot: 6
+	public virtual int get_TrialDivisionBounds() { }
+
+	// RVA: -1 Offset: -1 Slot: 7
+	public abstract BigInteger GenerateNewPrime(int bits);
+}
+
+// Namespace: Mono.Math.Prime.Generator
+internal class SequentialSearchPrimeGeneratorBase : PrimeGeneratorBase // TypeDefIndex: 111
+{
+	// Methods
+
+	// RVA: 0x12888BC Offset: 0x12888BC VA: 0x12888BC
+	public void .ctor() { }
+
+	// RVA: 0x128B9CC Offset: 0x128B9CC VA: 0x128B9CC Slot: 8
+	protected virtual BigInteger GenerateSearchBase(int bits, object context) { }
+
+	// RVA: 0x128BA54 Offset: 0x128BA54 VA: 0x128BA54 Slot: 7
+	public override BigInteger GenerateNewPrime(int bits) { }
+
+	// RVA: 0x128BA64 Offset: 0x128BA64 VA: 0x128BA64 Slot: 9
+	public virtual BigInteger GenerateNewPrime(int bits, object context) { }
+
+	// RVA: 0x128C164 Offset: 0x128C164 VA: 0x128C164 Slot: 10
+	protected virtual bool IsPrimeAcceptable(BigInteger bi, object context) { }
+}
+
+// Namespace: Mono.Math.Prime
+internal enum ConfidenceFactor // TypeDefIndex: 112
+{
+	// Fields
+	public int value__; // 0x0
+	public const ConfidenceFactor ExtraLow = 0;
+	public const ConfidenceFactor Low = 1;
+	public const ConfidenceFactor Medium = 2;
+	public const ConfidenceFactor High = 3;
+	public const ConfidenceFactor ExtraHigh = 4;
+	public const ConfidenceFactor Provable = 5;
+}
+
+// Namespace: Mono.Math.Prime
+internal sealed class PrimalityTests // TypeDefIndex: 113
+{
+	// Methods
+
+	// RVA: 0x128C244 Offset: 0x128C244 VA: 0x128C244
+	private static int GetSPPRounds(BigInteger bi, ConfidenceFactor confidence) { }
+
+	// RVA: 0x12887F0 Offset: 0x12887F0 VA: 0x12887F0
+	public static bool Test(BigInteger n, ConfidenceFactor confidence) { }
+
+	// RVA: 0x128C614 Offset: 0x128C614 VA: 0x128C614
+	public static bool RabinMillerTest(BigInteger n, ConfidenceFactor confidence) { }
+
+	// RVA: 0x128C404 Offset: 0x128C404 VA: 0x128C404
+	public static bool SmallPrimeSppTest(BigInteger bi, ConfidenceFactor confidence) { }
+}
+
+// Namespace: Mono.Math
+internal class BigInteger // TypeDefIndex: 114
+{
+	// Fields
+	private uint length; // 0x10
+	private uint[] data; // 0x18
+	internal static readonly uint[] smallPrimes; // 0x0
+	private static RandomNumberGenerator rng; // 0x8
+
+	// Properties
+	private static RandomNumberGenerator Rng { get; }
+
+	// Methods
+
+	// RVA: 0x1285CB0 Offset: 0x1285CB0 VA: 0x1285CB0
+	public void .ctor(BigInteger.Sign sign, uint len) { }
+
+	// RVA: 0x1285D2C Offset: 0x1285D2C VA: 0x1285D2C
+	public void .ctor(BigInteger bi) { }
+
+	// RVA: 0x1285E3C Offset: 0x1285E3C VA: 0x1285E3C
+	public void .ctor(BigInteger bi, uint len) { }
+
+	// RVA: 0x1285F54 Offset: 0x1285F54 VA: 0x1285F54
+	public void .ctor(byte[] inData) { }
+
+	// RVA: 0x1286434 Offset: 0x1286434 VA: 0x1286434
+	public void .ctor(uint ui) { }
+
+	// RVA: 0x12864D4 Offset: 0x12864D4 VA: 0x12864D4
+	private static void .cctor() { }
+
+	// RVA: 0x1286550 Offset: 0x1286550 VA: 0x1286550
+	private static RandomNumberGenerator get_Rng() { }
+
+	// RVA: 0x1286618 Offset: 0x1286618 VA: 0x1286618
+	public static BigInteger GenerateRandom(int bits, RandomNumberGenerator rng) { }
+
+	// RVA: 0x12867F8 Offset: 0x12867F8 VA: 0x12867F8
+	public static BigInteger GenerateRandom(int bits) { }
+
+	// RVA: 0x1286864 Offset: 0x1286864 VA: 0x1286864
+	public void Randomize(RandomNumberGenerator rng) { }
+
+	// RVA: 0x1286B88 Offset: 0x1286B88 VA: 0x1286B88
+	public void Randomize() { }
+
+	// RVA: 0x1286AEC Offset: 0x1286AEC VA: 0x1286AEC
+	public int BitCount() { }
+
+	// RVA: 0x1286BF4 Offset: 0x1286BF4 VA: 0x1286BF4
+	public bool TestBit(uint bitNum) { }
+
+	// RVA: 0x1286C64 Offset: 0x1286C64 VA: 0x1286C64
+	public bool TestBit(int bitNum) { }
+
+	// RVA: 0x1286D88 Offset: 0x1286D88 VA: 0x1286D88
+	public void SetBit(uint bitNum) { }
+
+	// RVA: 0x1286D90 Offset: 0x1286D90 VA: 0x1286D90
+	public void SetBit(uint bitNum, bool value) { }
+
+	// RVA: 0x1286E24 Offset: 0x1286E24 VA: 0x1286E24
+	public int LowestSetBit() { }
+
+	// RVA: 0x1286EB0 Offset: 0x1286EB0 VA: 0x1286EB0
+	public byte[] GetBytes() { }
+
+	// RVA: 0x1287034 Offset: 0x1287034 VA: 0x1287034
+	public string ToString(uint radix) { }
+
+	// RVA: 0x1287094 Offset: 0x1287094 VA: 0x1287094
+	public string ToString(uint radix, string characterSet) { }
+
+	// RVA: 0x12863A8 Offset: 0x12863A8 VA: 0x12863A8
+	private void Normalize() { }
+
+	// RVA: 0x1287478 Offset: 0x1287478 VA: 0x1287478
+	public void Clear() { }
+
+	// RVA: 0x12874F0 Offset: 0x12874F0 VA: 0x12874F0 Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0x1287584 Offset: 0x1287584 VA: 0x1287584 Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0x128758C Offset: 0x128758C VA: 0x128758C Slot: 0
+	public override bool Equals(object o) { }
+
+	// RVA: 0x1287AB8 Offset: 0x1287AB8 VA: 0x1287AB8
+	public BigInteger ModInverse(BigInteger modulus) { }
+
+	// RVA: 0x1288268 Offset: 0x1288268 VA: 0x1288268
+	public BigInteger ModPow(BigInteger exp, BigInteger n) { }
+
+	// RVA: 0x1288520 Offset: 0x1288520 VA: 0x1288520
+	public bool IsProbablePrime() { }
+
+	// RVA: 0x1288844 Offset: 0x1288844 VA: 0x1288844
+	public static BigInteger GeneratePseudoPrime(int bits) { }
+
+	// RVA: 0x12888C4 Offset: 0x12888C4 VA: 0x12888C4
+	public void Incr2() { }
+
+	// RVA: 0x1288770 Offset: 0x1288770 VA: 0x1288770
+	public static BigInteger op_Implicit(uint value) { }
+
+	// RVA: 0x12889FC Offset: 0x12889FC VA: 0x12889FC
+	public static BigInteger op_Implicit(int value) { }
+
+	// RVA: 0x1288AA4 Offset: 0x1288AA4 VA: 0x1288AA4
+	public static BigInteger op_Addition(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x1288E60 Offset: 0x1288E60 VA: 0x1288E60
+	public static BigInteger op_Subtraction(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x12887EC Offset: 0x12887EC VA: 0x12887EC
+	public static uint op_Modulus(BigInteger bi, uint ui) { }
+
+	// RVA: 0x1289344 Offset: 0x1289344 VA: 0x1289344
+	public static BigInteger op_Modulus(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x1289C54 Offset: 0x1289C54 VA: 0x1289C54
+	public static BigInteger op_Division(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x1289C98 Offset: 0x1289C98 VA: 0x1289C98
+	public static BigInteger op_Multiply(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x1289FD0 Offset: 0x1289FD0 VA: 0x1289FD0
+	public static BigInteger op_Multiply(BigInteger bi, int i) { }
+
+	// RVA: 0x128A248 Offset: 0x128A248 VA: 0x128A248
+	public static BigInteger op_LeftShift(BigInteger bi1, int shiftVal) { }
+
+	// RVA: 0x128A50C Offset: 0x128A50C VA: 0x128A50C
+	public static BigInteger op_RightShift(BigInteger bi1, int shiftVal) { }
+
+	// RVA: 0x1286A68 Offset: 0x1286A68 VA: 0x1286A68
+	public static bool op_Equality(BigInteger bi1, uint ui) { }
+
+	// RVA: 0x12873F4 Offset: 0x12873F4 VA: 0x12873F4
+	public static bool op_Inequality(BigInteger bi1, uint ui) { }
+
+	// RVA: 0x128771C Offset: 0x128771C VA: 0x128771C
+	public static bool op_Equality(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x128A740 Offset: 0x128A740 VA: 0x128A740
+	public static bool op_Inequality(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x128A810 Offset: 0x128A810 VA: 0x128A810
+	public static bool op_GreaterThan(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x128A82C Offset: 0x128A82C VA: 0x128A82C
+	public static bool op_LessThan(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x128A844 Offset: 0x128A844 VA: 0x128A844
+	public static bool op_GreaterThanOrEqual(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x12887D0 Offset: 0x12887D0 VA: 0x12887D0
+	public static bool op_LessThanOrEqual(BigInteger bi1, BigInteger bi2) { }
+}
+
+// Namespace: 
+public enum BigInteger.Sign // TypeDefIndex: 115
+{
+	// Fields
+	public int value__; // 0x0
+	public const BigInteger.Sign Negative = -1;
+	public const BigInteger.Sign Zero = 0;
+	public const BigInteger.Sign Positive = 1;
+}
+
+// Namespace: 
+internal sealed class BigInteger.ModulusRing // TypeDefIndex: 116
+{
+	// Fields
+	private BigInteger mod; // 0x10
+	private BigInteger constant; // 0x18
+
+	// Methods
+
+	// RVA: 0x12882EC Offset: 0x12882EC VA: 0x12882EC
+	public void .ctor(BigInteger modulus) { }
+
+	// RVA: 0x128B3B4 Offset: 0x128B3B4 VA: 0x128B3B4
+	public void BarrettReduction(BigInteger x) { }
+
+	// RVA: 0x128B6F8 Offset: 0x128B6F8 VA: 0x128B6F8
+	public BigInteger Multiply(BigInteger a, BigInteger b) { }
+
+	// RVA: 0x128B18C Offset: 0x128B18C VA: 0x128B18C
+	public BigInteger Difference(BigInteger a, BigInteger b) { }
+
+	// RVA: 0x12883F4 Offset: 0x12883F4 VA: 0x12883F4
+	public BigInteger Pow(BigInteger a, BigInteger k) { }
+
+	// RVA: 0x128B8C8 Offset: 0x128B8C8 VA: 0x128B8C8
+	public BigInteger Pow(uint b, BigInteger exp) { }
+}
+
+// Namespace: 
+private sealed class BigInteger.Kernel // TypeDefIndex: 117
+{
+	// Methods
+
+	// RVA: 0x1288B90 Offset: 0x1288B90 VA: 0x1288B90
+	public static BigInteger AddSameSign(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x1288FE8 Offset: 0x1288FE8 VA: 0x1288FE8
+	public static BigInteger Subtract(BigInteger big, BigInteger small) { }
+
+	// RVA: 0x128A860 Offset: 0x128A860 VA: 0x128A860
+	public static void MinusEq(BigInteger big, BigInteger small) { }
+
+	// RVA: 0x128AA3C Offset: 0x128AA3C VA: 0x128AA3C
+	public static void PlusEq(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x12877EC Offset: 0x12877EC VA: 0x12877EC
+	public static BigInteger.Sign Compare(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x1287300 Offset: 0x1287300 VA: 0x1287300
+	public static uint SingleByteDivideInPlace(BigInteger n, uint d) { }
+
+	// RVA: 0x1289294 Offset: 0x1289294 VA: 0x1289294
+	public static uint DwordMod(BigInteger n, uint d) { }
+
+	// RVA: 0x128AD18 Offset: 0x128AD18 VA: 0x128AD18
+	public static BigInteger[] DwordDivMod(BigInteger n, uint d) { }
+
+	// RVA: 0x128938C Offset: 0x128938C VA: 0x128938C
+	public static BigInteger[] multiByteDivide(BigInteger bi1, BigInteger bi2) { }
+
+	// RVA: 0x128A24C Offset: 0x128A24C VA: 0x128A24C
+	public static BigInteger LeftShift(BigInteger bi, int n) { }
+
+	// RVA: 0x128A510 Offset: 0x128A510 VA: 0x128A510
+	public static BigInteger RightShift(BigInteger bi, int n) { }
+
+	// RVA: 0x128A0DC Offset: 0x128A0DC VA: 0x128A0DC
+	public static BigInteger MultiplyByDword(BigInteger n, uint f) { }
+
+	// RVA: 0x1289ED0 Offset: 0x1289ED0 VA: 0x1289ED0
+	public static void Multiply(uint[] x, uint xOffset, uint xLen, uint[] y, uint yOffset, uint yLen, uint[] d, uint dOffset) { }
+
+	// RVA: 0x128AF70 Offset: 0x128AF70 VA: 0x128AF70
+	public static void MultiplyMod2p32pmod(uint[] x, int xOffset, int xLen, uint[] y, int yOffest, int yLen, uint[] d, int dOffset, int mod) { }
+
+	// RVA: 0x128B0C4 Offset: 0x128B0C4 VA: 0x128B0C4
+	public static uint modInverse(BigInteger bi, uint modulus) { }
+
+	// RVA: 0x1287ABC Offset: 0x1287ABC VA: 0x1287ABC
+	public static BigInteger modInverse(BigInteger bi, BigInteger modulus) { }
+}
+
+// Namespace: Mono.Security.Authenticode
+internal class AuthenticodeBase // TypeDefIndex: 118
+{
+	// Fields
+	private byte[] fileblock; // 0x10
+	private FileStream fs; // 0x18
+	private int blockNo; // 0x20
+	private int blockLength; // 0x24
+	private int peOffset; // 0x28
+	private int dirSecurityOffset; // 0x2C
+	private int dirSecuritySize; // 0x30
+	private int coffSymbolTableOffset; // 0x34
+
+	// Properties
+	internal int PEOffset { get; }
+
+	// Methods
+
+	// RVA: 0x128EEA4 Offset: 0x128EEA4 VA: 0x128EEA4
+	public void .ctor() { }
+
+	// RVA: 0x128EF08 Offset: 0x128EF08 VA: 0x128EF08
+	internal int get_PEOffset() { }
+
+	// RVA: 0x128F1CC Offset: 0x128F1CC VA: 0x128F1CC
+	internal void Open(string filename) { }
+
+	// RVA: 0x128F264 Offset: 0x128F264 VA: 0x128F264
+	internal void Close() { }
+
+	// RVA: 0x128EF3C Offset: 0x128EF3C VA: 0x128EF3C
+	internal bool ReadFirstBlock() { }
+
+	// RVA: 0x128F344 Offset: 0x128F344 VA: 0x128F344
+	internal byte[] GetSecurityEntry() { }
+
+	// RVA: 0x128F440 Offset: 0x128F440 VA: 0x128F440
+	internal byte[] GetHash(HashAlgorithm hash) { }
+}
+
+// Namespace: Mono.Security.Authenticode
+internal class AuthenticodeDeformatter : AuthenticodeBase // TypeDefIndex: 119
+{
+	// Fields
+	private string filename; // 0x38
+	private byte[] hash; // 0x40
+	private X509CertificateCollection coll; // 0x48
+	private ASN1 signedHash; // 0x50
+	private DateTime timestamp; // 0x58
+	private X509Certificate signingCertificate; // 0x68
+	private int reason; // 0x70
+	private bool trustedRoot; // 0x74
+	private bool trustedTimestampRoot; // 0x75
+	private byte[] entry; // 0x78
+	private X509Chain signerChain; // 0x80
+	private X509Chain timestampChain; // 0x88
+	[CompilerGeneratedAttribute] // RVA: 0xC3755C Offset: 0xC3755C VA: 0xC3755C
+	private static Dictionary<string, int> <>f__switch$map5; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC3756C Offset: 0xC3756C VA: 0xC3756C
+	private static Dictionary<string, int> <>f__switch$map6; // 0x8
+	[CompilerGeneratedAttribute] // RVA: 0xC3757C Offset: 0xC3757C VA: 0xC3757C
+	private static Dictionary<string, int> <>f__switch$map7; // 0x10
+
+	// Properties
+	public string FileName { set; }
+	public X509Certificate SigningCertificate { get; }
+
+	// Methods
+
+	// RVA: 0x128FACC Offset: 0x128FACC VA: 0x128FACC
+	public void .ctor() { }
+
+	// RVA: 0x128FB5C Offset: 0x128FB5C VA: 0x128FB5C
+	public void .ctor(string fileName) { }
+
+	// RVA: 0x128FB88 Offset: 0x128FB88 VA: 0x128FB88
+	public void set_FileName(string value) { }
+
+	// RVA: 0x1290128 Offset: 0x1290128 VA: 0x1290128
+	public X509Certificate get_SigningCertificate() { }
+
+	// RVA: 0x128FD60 Offset: 0x128FD60 VA: 0x128FD60
+	private bool CheckSignature(string fileName) { }
+
+	// RVA: 0x1290FB0 Offset: 0x1290FB0 VA: 0x1290FB0
+	private bool CompareIssuerSerial(string issuer, byte[] serial, X509Certificate x509) { }
+
+	// RVA: 0x1290130 Offset: 0x1290130 VA: 0x1290130
+	private bool VerifySignature(PKCS7.SignedData sd, byte[] calculatedMessageDigest, HashAlgorithm ha) { }
+
+	// RVA: 0x129113C Offset: 0x129113C VA: 0x129113C
+	private bool VerifyCounterSignature(PKCS7.SignerInfo cs, byte[] signature) { }
+
+	// RVA: 0x128FC9C Offset: 0x128FC9C VA: 0x128FC9C
+	private void Reset() { }
+}
+
+// Namespace: Mono.Security.Cryptography
+internal sealed class CryptoConvert // TypeDefIndex: 120
+{
+	// Methods
+
+	// RVA: 0x1292CAC Offset: 0x1292CAC VA: 0x1292CAC
+	private void .ctor() { }
+
+	// RVA: 0x1292CB4 Offset: 0x1292CB4 VA: 0x1292CB4
+	private static int ToInt32LE(byte[] bytes, int offset) { }
+
+	// RVA: 0x1292DA8 Offset: 0x1292DA8 VA: 0x1292DA8
+	private static uint ToUInt32LE(byte[] bytes, int offset) { }
+
+	// RVA: 0x1292E9C Offset: 0x1292E9C VA: 0x1292E9C
+	private static byte[] GetBytesLE(int val) { }
+
+	// RVA: 0x1292F88 Offset: 0x1292F88 VA: 0x1292F88
+	private static byte[] Trim(byte[] array) { }
+
+	// RVA: 0x1293068 Offset: 0x1293068 VA: 0x1293068
+	public static RSA FromCapiPrivateKeyBlob(byte[] blob) { }
+
+	// RVA: 0x1293070 Offset: 0x1293070 VA: 0x1293070
+	public static RSA FromCapiPrivateKeyBlob(byte[] blob, int offset) { }
+
+	// RVA: 0x1293630 Offset: 0x1293630 VA: 0x1293630
+	public static DSA FromCapiPrivateKeyBlobDSA(byte[] blob) { }
+
+	// RVA: 0x1293638 Offset: 0x1293638 VA: 0x1293638
+	public static DSA FromCapiPrivateKeyBlobDSA(byte[] blob, int offset) { }
+
+	// RVA: 0x1293AE4 Offset: 0x1293AE4 VA: 0x1293AE4
+	public static byte[] ToCapiPrivateKeyBlob(RSA rsa) { }
+
+	// RVA: 0x1294048 Offset: 0x1294048 VA: 0x1294048
+	public static byte[] ToCapiPrivateKeyBlob(DSA dsa) { }
+
+	// RVA: 0x129443C Offset: 0x129443C VA: 0x129443C
+	public static RSA FromCapiPublicKeyBlob(byte[] blob) { }
+
+	// RVA: 0x1294444 Offset: 0x1294444 VA: 0x1294444
+	public static RSA FromCapiPublicKeyBlob(byte[] blob, int offset) { }
+
+	// RVA: 0x12948F4 Offset: 0x12948F4 VA: 0x12948F4
+	public static DSA FromCapiPublicKeyBlobDSA(byte[] blob) { }
+
+	// RVA: 0x12948FC Offset: 0x12948FC VA: 0x12948FC
+	public static DSA FromCapiPublicKeyBlobDSA(byte[] blob, int offset) { }
+
+	// RVA: 0x1294DB8 Offset: 0x1294DB8 VA: 0x1294DB8
+	public static byte[] ToCapiPublicKeyBlob(RSA rsa) { }
+
+	// RVA: 0x1295144 Offset: 0x1295144 VA: 0x1295144
+	public static byte[] ToCapiPublicKeyBlob(DSA dsa) { }
+
+	// RVA: 0x1295538 Offset: 0x1295538 VA: 0x1295538
+	public static RSA FromCapiKeyBlob(byte[] blob) { }
+
+	// RVA: 0x1295540 Offset: 0x1295540 VA: 0x1295540
+	public static RSA FromCapiKeyBlob(byte[] blob, int offset) { }
+
+	// RVA: 0x12956C4 Offset: 0x12956C4 VA: 0x12956C4
+	public static DSA FromCapiKeyBlobDSA(byte[] blob) { }
+
+	// RVA: 0x12956CC Offset: 0x12956CC VA: 0x12956CC
+	public static DSA FromCapiKeyBlobDSA(byte[] blob, int offset) { }
+
+	// RVA: 0x1295818 Offset: 0x1295818 VA: 0x1295818
+	public static byte[] ToCapiKeyBlob(AsymmetricAlgorithm keypair, bool includePrivateKey) { }
+
+	// RVA: 0x1295930 Offset: 0x1295930 VA: 0x1295930
+	public static byte[] ToCapiKeyBlob(RSA rsa, bool includePrivateKey) { }
+
+	// RVA: 0x12959DC Offset: 0x12959DC VA: 0x12959DC
+	public static byte[] ToCapiKeyBlob(DSA dsa, bool includePrivateKey) { }
+
+	// RVA: 0x1295A88 Offset: 0x1295A88 VA: 0x1295A88
+	public static string ToHex(byte[] input) { }
+
+	// RVA: 0x1295BD8 Offset: 0x1295BD8 VA: 0x1295BD8
+	private static byte FromHexChar(char c) { }
+
+	// RVA: 0x1295CA8 Offset: 0x1295CA8 VA: 0x1295CA8
+	public static byte[] FromHex(string hex) { }
+}
+
+// Namespace: Mono.Security.Cryptography
+internal sealed class KeyBuilder // TypeDefIndex: 121
+{
+	// Fields
+	private static RandomNumberGenerator rng; // 0x0
+
+	// Properties
+	private static RandomNumberGenerator Rng { get; }
+
+	// Methods
+
+	// RVA: 0x1241E70 Offset: 0x1241E70 VA: 0x1241E70
+	private void .ctor() { }
+
+	// RVA: 0x1241E78 Offset: 0x1241E78 VA: 0x1241E78
+	private static RandomNumberGenerator get_Rng() { }
+
+	// RVA: 0x1241EE8 Offset: 0x1241EE8 VA: 0x1241EE8
+	public static byte[] Key(int size) { }
+
+	// RVA: 0x1241F68 Offset: 0x1241F68 VA: 0x1241F68
+	public static byte[] IV(int size) { }
+}
+
+// Namespace: Mono.Security.Cryptography
+internal class BlockProcessor // TypeDefIndex: 122
+{
+	// Fields
+	private ICryptoTransform transform; // 0x10
+	private byte[] block; // 0x18
+	private int blockSize; // 0x20
+	private int blockCount; // 0x24
+
+	// Methods
+
+	// RVA: 0x1292744 Offset: 0x1292744 VA: 0x1292744
+	public void .ctor(ICryptoTransform transform) { }
+
+	// RVA: 0x1292814 Offset: 0x1292814 VA: 0x1292814
+	public void .ctor(ICryptoTransform transform, int blockSize) { }
+
+	// RVA: 0x1292890 Offset: 0x1292890 VA: 0x1292890 Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x1292914 Offset: 0x1292914 VA: 0x1292914
+	public void Initialize() { }
+
+	// RVA: 0x1292948 Offset: 0x1292948 VA: 0x1292948
+	public void Core(byte[] rgb) { }
+
+	// RVA: 0x1292984 Offset: 0x1292984 VA: 0x1292984
+	public void Core(byte[] rgb, int ib, int cb) { }
+
+	// RVA: 0x1292BDC Offset: 0x1292BDC VA: 0x1292BDC
+	public byte[] Final() { }
+}
+
+// Namespace: Mono.Security.Cryptography
+internal class DSAManaged : DSA // TypeDefIndex: 123
+{
+	// Fields
+	private const int defaultKeySize = 1024;
+	private bool keypairGenerated; // 0x20
+	private bool m_disposed; // 0x21
+	private BigInteger p; // 0x28
+	private BigInteger q; // 0x30
+	private BigInteger g; // 0x38
+	private BigInteger x; // 0x40
+	private BigInteger y; // 0x48
+	private BigInteger j; // 0x50
+	private BigInteger seed; // 0x58
+	private int counter; // 0x60
+	private bool j_missing; // 0x64
+	private RandomNumberGenerator rng; // 0x68
+	private DSAManaged.KeyGeneratedEventHandler KeyGenerated; // 0x70
+
+	// Properties
+	private RandomNumberGenerator Random { get; }
+	public override int KeySize { get; }
+	public override string KeyExchangeAlgorithm { get; }
+	public bool PublicOnly { get; }
+	public override string SignatureAlgorithm { get; }
+
+	// Methods
+
+	// RVA: 0x123F40C Offset: 0x123F40C VA: 0x123F40C
+	public void .ctor() { }
+
+	// RVA: 0x123F414 Offset: 0x123F414 VA: 0x123F414
+	public void .ctor(int dwKeySize) { }
+
+	// RVA: 0x123F50C Offset: 0x123F50C VA: 0x123F50C
+	public void add_KeyGenerated(DSAManaged.KeyGeneratedEventHandler value) { }
+
+	// RVA: 0x123F5D0 Offset: 0x123F5D0 VA: 0x123F5D0
+	public void remove_KeyGenerated(DSAManaged.KeyGeneratedEventHandler value) { }
+
+	// RVA: 0x123F694 Offset: 0x123F694 VA: 0x123F694 Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x123F714 Offset: 0x123F714 VA: 0x123F714
+	private void Generate() { }
+
+	// RVA: 0x123FE90 Offset: 0x123FE90 VA: 0x123FE90
+	private void GenerateKeyPair() { }
+
+	// RVA: 0x124037C Offset: 0x124037C VA: 0x124037C
+	private void add(byte[] a, byte[] b, int value) { }
+
+	// RVA: 0x123F774 Offset: 0x123F774 VA: 0x123F774
+	private void GenerateParams(int keyLength) { }
+
+	// RVA: 0x12404A8 Offset: 0x12404A8 VA: 0x12404A8
+	private RandomNumberGenerator get_Random() { }
+
+	// RVA: 0x12404D4 Offset: 0x12404D4 VA: 0x12404D4 Slot: 6
+	public override int get_KeySize() { }
+
+	// RVA: 0x1240514 Offset: 0x1240514 VA: 0x1240514 Slot: 5
+	public override string get_KeyExchangeAlgorithm() { }
+
+	// RVA: 0x124051C Offset: 0x124051C VA: 0x124051C
+	public bool get_PublicOnly() { }
+
+	// RVA: 0x12405A4 Offset: 0x12405A4 VA: 0x12405A4 Slot: 9
+	public override string get_SignatureAlgorithm() { }
+
+	// RVA: 0x12405EC Offset: 0x12405EC VA: 0x12405EC
+	private byte[] NormalizeArray(byte[] array) { }
+
+	// RVA: 0x12406A4 Offset: 0x12406A4 VA: 0x12406A4 Slot: 14
+	public override DSAParameters ExportParameters(bool includePrivateParameters) { }
+
+	// RVA: 0x124099C Offset: 0x124099C VA: 0x124099C Slot: 15
+	public override void ImportParameters(DSAParameters parameters) { }
+
+	// RVA: 0x1240C7C Offset: 0x1240C7C VA: 0x1240C7C Slot: 13
+	public override byte[] CreateSignature(byte[] rgbHash) { }
+
+	// RVA: 0x1241044 Offset: 0x1241044 VA: 0x1241044 Slot: 16
+	public override bool VerifySignature(byte[] rgbHash, byte[] rgbSignature) { }
+
+	// RVA: 0x1241534 Offset: 0x1241534 VA: 0x1241534 Slot: 10
+	protected override void Dispose(bool disposing) { }
+}
+
+// Namespace: 
+public sealed class DSAManaged.KeyGeneratedEventHandler : MulticastDelegate // TypeDefIndex: 124
+{
+	// Methods
+
+	// RVA: 0x12417CC Offset: 0x12417CC VA: 0x12417CC
+	public void .ctor(object object, IntPtr method) { }
+
+	// RVA: 0x123FFBC Offset: 0x123FFBC VA: 0x123FFBC Slot: 11
+	public virtual void Invoke(object sender, EventArgs e) { }
+
+	// RVA: 0x12417DC Offset: 0x12417DC VA: 0x12417DC Slot: 12
+	public virtual IAsyncResult BeginInvoke(object sender, EventArgs e, AsyncCallback callback, object object) { }
+
+	// RVA: 0x124180C Offset: 0x124180C VA: 0x124180C Slot: 13
+	public virtual void EndInvoke(IAsyncResult result) { }
+}
+
+// Namespace: Mono.Security.Cryptography
+internal class HMACAlgorithm // TypeDefIndex: 125
+{
+	// Fields
+	private byte[] key; // 0x10
+	private byte[] hash; // 0x18
+	private HashAlgorithm algo; // 0x20
+	private string hashName; // 0x28
+	private BlockProcessor block; // 0x30
+
+	// Properties
+	public HashAlgorithm Algo { get; }
+	public string HashName { get; set; }
+	public byte[] Key { get; set; }
+
+	// Methods
+
+	// RVA: 0x1241818 Offset: 0x1241818 VA: 0x1241818
+	public void .ctor(string algoName) { }
+
+	// RVA: 0x12418D0 Offset: 0x12418D0 VA: 0x12418D0 Slot: 1
+	protected override void Finalize() { }
+
+	// RVA: 0x1241848 Offset: 0x1241848 VA: 0x1241848
+	private void CreateHash(string algoName) { }
+
+	// RVA: 0x1241958 Offset: 0x1241958 VA: 0x1241958
+	public void Dispose() { }
+
+	// RVA: 0x1241974 Offset: 0x1241974 VA: 0x1241974
+	public HashAlgorithm get_Algo() { }
+
+	// RVA: 0x124197C Offset: 0x124197C VA: 0x124197C
+	public string get_HashName() { }
+
+	// RVA: 0x1241984 Offset: 0x1241984 VA: 0x1241984
+	public void set_HashName(string value) { }
+
+	// RVA: 0x1241988 Offset: 0x1241988 VA: 0x1241988
+	public byte[] get_Key() { }
+
+	// RVA: 0x1241990 Offset: 0x1241990 VA: 0x1241990
+	public void set_Key(byte[] value) { }
+
+	// RVA: 0x1241A9C Offset: 0x1241A9C VA: 0x1241A9C
+	public void Initialize() { }
+
+	// RVA: 0x1241B50 Offset: 0x1241B50 VA: 0x1241B50
+	private byte[] KeySetup(byte[] key, byte padding) { }
+
+	// RVA: 0x1241C9C Offset: 0x1241C9C VA: 0x1241C9C
+	public void Core(byte[] rgb, int ib, int cb) { }
+
+	// RVA: 0x1241CEC Offset: 0x1241CEC VA: 0x1241CEC
+	public byte[] Final() { }
+}
+
+// Namespace: Mono.Security.Cryptography
+internal class KeyPairPersistence // TypeDefIndex: 126
+{
+	// Fields
+	private static bool _userPathExists; // 0x0
+	private static string _userPath; // 0x8
+	private static bool _machinePathExists; // 0x10
+	private static string _machinePath; // 0x18
+	private CspParameters _params; // 0x10
+	private string _keyvalue; // 0x18
+	private string _filename; // 0x20
+	private string _container; // 0x28
+	private static object lockobj; // 0x20
+
+	// Properties
+	public string Filename { get; }
+	public string KeyValue { get; set; }
+	public CspParameters Parameters { get; }
+	private static string UserPath { get; }
+	private static string MachinePath { get; }
+	private bool CanChange { get; }
+	private bool UseDefaultKeyContainer { get; }
+	private bool UseMachineKeyStore { get; }
+	private string ContainerName { get; }
+
+	// Methods
+
+	// RVA: 0x1241FE8 Offset: 0x1241FE8 VA: 0x1241FE8
+	public void .ctor(CspParameters parameters) { }
+
+	// RVA: 0x1241FF0 Offset: 0x1241FF0 VA: 0x1241FF0
+	public void .ctor(CspParameters parameters, string keyPair) { }
+
+	// RVA: 0x12421BC Offset: 0x12421BC VA: 0x12421BC
+	private static void .cctor() { }
+
+	// RVA: 0x1242240 Offset: 0x1242240 VA: 0x1242240
+	public string get_Filename() { }
+
+	// RVA: 0x1243004 Offset: 0x1243004 VA: 0x1243004
+	public string get_KeyValue() { }
+
+	// RVA: 0x124300C Offset: 0x124300C VA: 0x124300C
+	public void set_KeyValue(string value) { }
+
+	// RVA: 0x1243030 Offset: 0x1243030 VA: 0x1243030
+	public CspParameters get_Parameters() { }
+
+	// RVA: 0x1243038 Offset: 0x1243038 VA: 0x1243038
+	public bool Load() { }
+
+	// RVA: 0x1243360 Offset: 0x1243360 VA: 0x1243360
+	public void Save() { }
+
+	// RVA: 0x1243984 Offset: 0x1243984 VA: 0x1243984
+	public void Remove() { }
+
+	// RVA: 0x1242B68 Offset: 0x1242B68 VA: 0x1242B68
+	private static string get_UserPath() { }
+
+	// RVA: 0x12426CC Offset: 0x12426CC VA: 0x12426CC
+	private static string get_MachinePath() { }
+
+	// RVA: 0x1243AF4 Offset: 0x1243AF4 VA: 0x1243AF4
+	internal static bool _CanSecure(string root) { }
+
+	// RVA: 0x1243AF8 Offset: 0x1243AF8 VA: 0x1243AF8
+	internal static bool _ProtectUser(string path) { }
+
+	// RVA: 0x1243AFC Offset: 0x1243AFC VA: 0x1243AFC
+	internal static bool _ProtectMachine(string path) { }
+
+	// RVA: 0x1243B00 Offset: 0x1243B00 VA: 0x1243B00
+	internal static bool _IsUserProtected(string path) { }
+
+	// RVA: 0x1243B04 Offset: 0x1243B04 VA: 0x1243B04
+	internal static bool _IsMachineProtected(string path) { }
+
+	// RVA: 0x1243B08 Offset: 0x1243B08 VA: 0x1243B08
+	private static bool CanSecure(string path) { }
+
+	// RVA: 0x12438EC Offset: 0x12438EC VA: 0x12438EC
+	private static bool ProtectUser(string path) { }
+
+	// RVA: 0x1243854 Offset: 0x1243854 VA: 0x1243854
+	private static bool ProtectMachine(string path) { }
+
+	// RVA: 0x12439C4 Offset: 0x12439C4 VA: 0x12439C4
+	private static bool IsUserProtected(string path) { }
+
+	// RVA: 0x1243A5C Offset: 0x1243A5C VA: 0x1243A5C
+	private static bool IsMachineProtected(string path) { }
+
+	// RVA: 0x1243020 Offset: 0x1243020 VA: 0x1243020
+	private bool get_CanChange() { }
+
+	// RVA: 0x1243BE8 Offset: 0x1243BE8 VA: 0x1243BE8
+	private bool get_UseDefaultKeyContainer() { }
+
+	// RVA: 0x1242694 Offset: 0x1242694 VA: 0x1242694
+	private bool get_UseMachineKeyStore() { }
+
+	// RVA: 0x12424F4 Offset: 0x12424F4 VA: 0x12424F4
+	private string get_ContainerName() { }
+
+	// RVA: 0x12420A0 Offset: 0x12420A0 VA: 0x12420A0
+	private CspParameters Copy(CspParameters p) { }
+
+	// RVA: 0x1243198 Offset: 0x1243198 VA: 0x1243198
+	private void FromXml(string xml) { }
+
+	// RVA: 0x12435A4 Offset: 0x12435A4 VA: 0x12435A4
+	private string ToXml() { }
+}
+
+// Namespace: Mono.Security.Cryptography
+internal class MACAlgorithm // TypeDefIndex: 127
+{
+	// Fields
+	private SymmetricAlgorithm algo; // 0x10
+	private ICryptoTransform enc; // 0x18
+	private byte[] block; // 0x20
+	private int blockSize; // 0x28
+	private int blockCount; // 0x2C
+
+	// Methods
+
+	// RVA: 0x1243C20 Offset: 0x1243C20 VA: 0x1243C20
+	public void .ctor(SymmetricAlgorithm algorithm) { }
+
+	// RVA: 0x1243D10 Offset: 0x1243D10 VA: 0x1243D10
+	public void Initialize(byte[] key) { }
+
+	// RVA: 0x1243DA4 Offset: 0x1243DA4 VA: 0x1243DA4
+	public void Core(byte[] rgb, int ib, int cb) { }
+
+	// RVA: 0x1243FDC Offset: 0x1243FDC VA: 0x1243FDC
+	public byte[] Final() { }
+}
+
+// Namespace: Mono.Security.Cryptography
+internal sealed class PKCS1 // TypeDefIndex: 128
+{
+	// Fields
+	private static byte[] emptySHA1; // 0x0
+	private static byte[] emptySHA256; // 0x8
+	private static byte[] emptySHA384; // 0x10
+	private static byte[] emptySHA512; // 0x18
+
+	// Methods
+
+	// RVA: 0x12442C0 Offset: 0x12442C0 VA: 0x12442C0
+	private void .ctor() { }
+
+	// RVA: 0x12442C8 Offset: 0x12442C8 VA: 0x12442C8
+	private static void .cctor() { }
+
+	// RVA: 0x12443DC Offset: 0x12443DC VA: 0x12443DC
+	private static bool Compare(byte[] array1, byte[] array2) { }
+
+	// RVA: 0x12444A8 Offset: 0x12444A8 VA: 0x12444A8
+	private static byte[] xor(byte[] array1, byte[] array2) { }
+
+	// RVA: 0x12445C8 Offset: 0x12445C8 VA: 0x12445C8
+	private static byte[] GetEmptyHash(HashAlgorithm hash) { }
+
+	// RVA: 0x12447A0 Offset: 0x12447A0 VA: 0x12447A0
+	public static byte[] I2OSP(int x, int size) { }
+
+	// RVA: 0x1244840 Offset: 0x1244840 VA: 0x1244840
+	public static byte[] I2OSP(byte[] x, int size) { }
+
+	// RVA: 0x12448EC Offset: 0x12448EC VA: 0x12448EC
+	public static byte[] OS2IP(byte[] x) { }
+
+	// RVA: 0x12449D4 Offset: 0x12449D4 VA: 0x12449D4
+	public static byte[] RSAEP(RSA rsa, byte[] m) { }
+
+	// RVA: 0x1244A0C Offset: 0x1244A0C VA: 0x1244A0C
+	public static byte[] RSADP(RSA rsa, byte[] c) { }
+
+	// RVA: 0x1244A48 Offset: 0x1244A48 VA: 0x1244A48
+	public static byte[] RSASP1(RSA rsa, byte[] m) { }
+
+	// RVA: 0x1244A84 Offset: 0x1244A84 VA: 0x1244A84
+	public static byte[] RSAVP1(RSA rsa, byte[] s) { }
+
+	// RVA: 0x1244ABC Offset: 0x1244ABC VA: 0x1244ABC
+	public static byte[] Encrypt_OAEP(RSA rsa, HashAlgorithm hash, RandomNumberGenerator rng, byte[] M) { }
+
+	// RVA: 0x1245050 Offset: 0x1245050 VA: 0x1245050
+	public static byte[] Decrypt_OAEP(RSA rsa, HashAlgorithm hash, byte[] C) { }
+
+	// RVA: 0x12453D8 Offset: 0x12453D8 VA: 0x12453D8
+	public static byte[] Encrypt_v15(RSA rsa, RandomNumberGenerator rng, byte[] M) { }
+
+	// RVA: 0x12455CC Offset: 0x12455CC VA: 0x12455CC
+	public static byte[] Decrypt_v15(RSA rsa, byte[] C) { }
+
+	// RVA: 0x12457F4 Offset: 0x12457F4 VA: 0x12457F4
+	public static byte[] Sign_v15(RSA rsa, HashAlgorithm hash, byte[] hashValue) { }
+
+	// RVA: 0x1245C94 Offset: 0x1245C94 VA: 0x1245C94
+	public static bool Verify_v15(RSA rsa, HashAlgorithm hash, byte[] hashValue, byte[] signature) { }
+
+	// RVA: 0x1245D24 Offset: 0x1245D24 VA: 0x1245D24
+	public static bool Verify_v15(RSA rsa, HashAlgorithm hash, byte[] hashValue, byte[] signature, bool tryNonStandardEncoding) { }
+
+	// RVA: 0x12458B8 Offset: 0x12458B8 VA: 0x12458B8
+	public static byte[] Encode_v15(HashAlgorithm hash, byte[] hashValue, int emLength) { }
+
+	// RVA: 0x1244E3C Offset: 0x1244E3C VA: 0x1244E3C
+	public static byte[] MGF1(HashAlgorithm hash, byte[] mgfSeed, int maskLen) { }
+}

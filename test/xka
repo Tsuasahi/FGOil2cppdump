@@ -1,0 +1,1000 @@
+// Namespace: 
+private enum InflateBlocks.InflateBlockMode // TypeDefIndex: 4321
+{
+	// Fields
+	public int value__; // 0x0
+	public const InflateBlocks.InflateBlockMode TYPE = 0;
+	public const InflateBlocks.InflateBlockMode LENS = 1;
+	public const InflateBlocks.InflateBlockMode STORED = 2;
+	public const InflateBlocks.InflateBlockMode TABLE = 3;
+	public const InflateBlocks.InflateBlockMode BTREE = 4;
+	public const InflateBlocks.InflateBlockMode DTREE = 5;
+	public const InflateBlocks.InflateBlockMode CODES = 6;
+	public const InflateBlocks.InflateBlockMode DRY = 7;
+	public const InflateBlocks.InflateBlockMode DONE = 8;
+	public const InflateBlocks.InflateBlockMode BAD = 9;
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+internal static class InternalInflateConstants // TypeDefIndex: 4322
+{
+	// Fields
+	internal static readonly int[] InflateMask; // 0x0
+
+	// Methods
+
+	// RVA: 0x230D928 Offset: 0x230D928 VA: 0x230D928
+	private static void .cctor() { }
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+internal sealed class InflateCodes // TypeDefIndex: 4323
+{
+	// Fields
+	private const int START = 0;
+	private const int LEN = 1;
+	private const int LENEXT = 2;
+	private const int DIST = 3;
+	private const int DISTEXT = 4;
+	private const int COPY = 5;
+	private const int LIT = 6;
+	private const int WASH = 7;
+	private const int END = 8;
+	private const int BADCODE = 9;
+	internal int mode; // 0x10
+	internal int len; // 0x14
+	internal int[] tree; // 0x18
+	internal int tree_index; // 0x20
+	internal int need; // 0x24
+	internal int lit; // 0x28
+	internal int bitsToGet; // 0x2C
+	internal int dist; // 0x30
+	internal byte lbits; // 0x34
+	internal byte dbits; // 0x35
+	internal int[] ltree; // 0x38
+	internal int ltree_index; // 0x40
+	internal int[] dtree; // 0x48
+	internal int dtree_index; // 0x50
+
+	// Methods
+
+	// RVA: 0x2308250 Offset: 0x2308250 VA: 0x2308250
+	internal void .ctor() { }
+
+	// RVA: 0x2309BE4 Offset: 0x2309BE4 VA: 0x2309BE4
+	internal void Init(int bl, int bd, int[] tl, int tl_index, int[] td, int td_index) { }
+
+	// RVA: 0x2309C08 Offset: 0x2309C08 VA: 0x2309C08
+	internal int Process(InflateBlocks blocks, int r) { }
+
+	// RVA: 0x230B034 Offset: 0x230B034 VA: 0x230B034
+	internal int InflateFast(int bl, int bd, int[] tl, int tl_index, int[] td, int td_index, InflateBlocks s, ZlibCodec z) { }
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+internal sealed class InflateManager // TypeDefIndex: 4324
+{
+	// Fields
+	private const int PRESET_DICT = 32;
+	private const int Z_DEFLATED = 8;
+	private InflateManager.InflateManagerMode mode; // 0x10
+	internal ZlibCodec _codec; // 0x18
+	internal int method; // 0x20
+	internal uint computedCheck; // 0x24
+	internal uint expectedCheck; // 0x28
+	internal int marker; // 0x2C
+	private bool _handleRfc1950HeaderBytes; // 0x30
+	internal int wbits; // 0x34
+	internal InflateBlocks blocks; // 0x38
+	private static readonly byte[] mark; // 0x0
+
+	// Properties
+	internal bool HandleRfc1950HeaderBytes { get; set; }
+
+	// Methods
+
+	// RVA: 0x230C1C4 Offset: 0x230C1C4 VA: 0x230C1C4
+	public void .ctor() { }
+
+	// RVA: 0x230C1D4 Offset: 0x230C1D4 VA: 0x230C1D4
+	public void .ctor(bool expectRfc1950HeaderBytes) { }
+
+	// RVA: 0x230C20C Offset: 0x230C20C VA: 0x230C20C
+	internal bool get_HandleRfc1950HeaderBytes() { }
+
+	// RVA: 0x230C214 Offset: 0x230C214 VA: 0x230C214
+	internal void set_HandleRfc1950HeaderBytes(bool value) { }
+
+	// RVA: 0x230C220 Offset: 0x230C220 VA: 0x230C220
+	internal int Reset() { }
+
+	// RVA: 0x230C2AC Offset: 0x230C2AC VA: 0x230C2AC
+	internal int End() { }
+
+	// RVA: 0x230C2E4 Offset: 0x230C2E4 VA: 0x230C2E4
+	internal int Initialize(ZlibCodec codec, int w) { }
+
+	// RVA: 0x230C3F8 Offset: 0x230C3F8 VA: 0x230C3F8
+	internal int Inflate(FlushType flush) { }
+
+	// RVA: 0x230D2C4 Offset: 0x230D2C4 VA: 0x230D2C4
+	internal int SetDictionary(byte[] dictionary) { }
+
+	// RVA: 0x230D498 Offset: 0x230D498 VA: 0x230D498
+	internal int Sync() { }
+
+	// RVA: 0x230D770 Offset: 0x230D770 VA: 0x230D770
+	internal int SyncPoint(ZlibCodec z) { }
+
+	// RVA: 0x230D7A4 Offset: 0x230D7A4 VA: 0x230D7A4
+	private static void .cctor() { }
+}
+
+// Namespace: 
+private enum InflateManager.InflateManagerMode // TypeDefIndex: 4325
+{
+	// Fields
+	public int value__; // 0x0
+	public const InflateManager.InflateManagerMode METHOD = 0;
+	public const InflateManager.InflateManagerMode FLAG = 1;
+	public const InflateManager.InflateManagerMode DICT4 = 2;
+	public const InflateManager.InflateManagerMode DICT3 = 3;
+	public const InflateManager.InflateManagerMode DICT2 = 4;
+	public const InflateManager.InflateManagerMode DICT1 = 5;
+	public const InflateManager.InflateManagerMode DICT0 = 6;
+	public const InflateManager.InflateManagerMode BLOCKS = 7;
+	public const InflateManager.InflateManagerMode CHECK4 = 8;
+	public const InflateManager.InflateManagerMode CHECK3 = 9;
+	public const InflateManager.InflateManagerMode CHECK2 = 10;
+	public const InflateManager.InflateManagerMode CHECK1 = 11;
+	public const InflateManager.InflateManagerMode DONE = 12;
+	public const InflateManager.InflateManagerMode BAD = 13;
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+internal sealed class InfTree // TypeDefIndex: 4326
+{
+	// Fields
+	private const int MANY = 1440;
+	private const int Z_OK = 0;
+	private const int Z_STREAM_END = 1;
+	private const int Z_NEED_DICT = 2;
+	private const int Z_ERRNO = -1;
+	private const int Z_STREAM_ERROR = -2;
+	private const int Z_DATA_ERROR = -3;
+	private const int Z_MEM_ERROR = -4;
+	private const int Z_BUF_ERROR = -5;
+	private const int Z_VERSION_ERROR = -6;
+	internal const int fixed_bl = 9;
+	internal const int fixed_bd = 5;
+	internal static readonly int[] fixed_tl; // 0x0
+	internal static readonly int[] fixed_td; // 0x8
+	internal static readonly int[] cplens; // 0x10
+	internal static readonly int[] cplext; // 0x18
+	internal static readonly int[] cpdist; // 0x20
+	internal static readonly int[] cpdext; // 0x28
+	internal const int BMAX = 15;
+	internal int[] hn; // 0x10
+	internal int[] v; // 0x18
+	internal int[] c; // 0x20
+	internal int[] r; // 0x28
+	internal int[] u; // 0x30
+	internal int[] x; // 0x38
+
+	// Methods
+
+	// RVA: 0x2306A64 Offset: 0x2306A64 VA: 0x2306A64
+	public void .ctor() { }
+
+	// RVA: 0x2306A6C Offset: 0x2306A6C VA: 0x2306A6C
+	private int huft_build(int[] b, int bindex, int n, int s, int[] d, int[] e, int[] t, int[] m, int[] hp, int[] hn, int[] v) { }
+
+	// RVA: 0x2307870 Offset: 0x2307870 VA: 0x2307870
+	internal int inflate_trees_bits(int[] c, int[] bb, int[] tb, int[] hp, ZlibCodec z) { }
+
+	// RVA: 0x2307BA4 Offset: 0x2307BA4 VA: 0x2307BA4
+	internal int inflate_trees_dynamic(int nl, int nd, int[] c, int[] bl, int[] bd, int[] tl, int[] td, int[] hp, ZlibCodec z) { }
+
+	// RVA: 0x2307E30 Offset: 0x2307E30 VA: 0x2307E30
+	internal static int inflate_trees_fixed(int[] bl, int[] bd, int[][] tl, int[][] td, ZlibCodec z) { }
+
+	// RVA: 0x23079C8 Offset: 0x23079C8 VA: 0x23079C8
+	private void initWorkArea(int vsize) { }
+
+	// RVA: 0x2307FD0 Offset: 0x2307FD0 VA: 0x2307FD0
+	private static void .cctor() { }
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+public enum FlushType // TypeDefIndex: 4327
+{
+	// Fields
+	public int value__; // 0x0
+	public const FlushType None = 0;
+	public const FlushType Partial = 1;
+	public const FlushType Sync = 2;
+	public const FlushType Full = 3;
+	public const FlushType Finish = 4;
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+public enum CompressionLevel // TypeDefIndex: 4328
+{
+	// Fields
+	public int value__; // 0x0
+	public const CompressionLevel None = 0;
+	public const CompressionLevel Level0 = 0;
+	public const CompressionLevel BestSpeed = 1;
+	public const CompressionLevel Level1 = 1;
+	public const CompressionLevel Level2 = 2;
+	public const CompressionLevel Level3 = 3;
+	public const CompressionLevel Level4 = 4;
+	public const CompressionLevel Level5 = 5;
+	public const CompressionLevel Default = 6;
+	public const CompressionLevel Level6 = 6;
+	public const CompressionLevel Level7 = 7;
+	public const CompressionLevel Level8 = 8;
+	public const CompressionLevel BestCompression = 9;
+	public const CompressionLevel Level9 = 9;
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+public enum CompressionStrategy // TypeDefIndex: 4329
+{
+	// Fields
+	public int value__; // 0x0
+	public const CompressionStrategy Default = 0;
+	public const CompressionStrategy Filtered = 1;
+	public const CompressionStrategy HuffmanOnly = 2;
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+public enum CompressionMode // TypeDefIndex: 4330
+{
+	// Fields
+	public int value__; // 0x0
+	public const CompressionMode Compress = 0;
+	public const CompressionMode Decompress = 1;
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+[GuidAttribute] // RVA: 0xC90CB8 Offset: 0xC90CB8 VA: 0xC90CB8
+internal class ZlibException : Exception // TypeDefIndex: 4331
+{
+	// Methods
+
+	// RVA: 0x222C904 Offset: 0x222C904 VA: 0x222C904
+	public void .ctor() { }
+
+	// RVA: 0x222BD78 Offset: 0x222BD78 VA: 0x222BD78
+	public void .ctor(string s) { }
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+internal class SharedUtils // TypeDefIndex: 4332
+{
+	// Methods
+
+	// RVA: 0x230D9A4 Offset: 0x230D9A4 VA: 0x230D9A4
+	public void .ctor() { }
+
+	// RVA: 0x2307864 Offset: 0x2307864 VA: 0x2307864
+	public static int URShift(int number, int bits) { }
+
+	// RVA: 0x230D9AC Offset: 0x230D9AC VA: 0x230D9AC
+	public static int ReadInput(TextReader sourceTextReader, byte[] target, int start, int count) { }
+
+	// RVA: 0x230DB00 Offset: 0x230DB00 VA: 0x230DB00
+	internal static byte[] ToByteArray(string sourceString) { }
+
+	// RVA: 0x230DB84 Offset: 0x230DB84 VA: 0x230DB84
+	internal static char[] ToCharArray(byte[] byteArray) { }
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+internal static class InternalConstants // TypeDefIndex: 4333
+{
+	// Fields
+	internal static readonly int MAX_BITS; // 0x0
+	internal static readonly int BL_CODES; // 0x4
+	internal static readonly int D_CODES; // 0x8
+	internal static readonly int LITERALS; // 0xC
+	internal static readonly int LENGTH_CODES; // 0x10
+	internal static readonly int L_CODES; // 0x14
+	internal static readonly int MAX_BL_BITS; // 0x18
+	internal static readonly int REP_3_6; // 0x1C
+	internal static readonly int REPZ_3_10; // 0x20
+	internal static readonly int REPZ_11_138; // 0x24
+
+	// Methods
+
+	// RVA: 0x230D858 Offset: 0x230D858 VA: 0x230D858
+	private static void .cctor() { }
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+internal sealed class StaticTree // TypeDefIndex: 4334
+{
+	// Fields
+	internal static readonly short[] lengthAndLiteralsTreeCodes; // 0x0
+	internal static readonly short[] distTreeCodes; // 0x8
+	internal static readonly StaticTree Literals; // 0x10
+	internal static readonly StaticTree Distances; // 0x18
+	internal static readonly StaticTree BitLengths; // 0x20
+	internal short[] treeCodes; // 0x10
+	internal int[] extraBits; // 0x18
+	internal int extraBase; // 0x20
+	internal int elems; // 0x24
+	internal int maxLength; // 0x28
+
+	// Methods
+
+	// RVA: 0x230DC0C Offset: 0x230DC0C VA: 0x230DC0C
+	private void .ctor(short[] treeCodes, int[] extraBits, int extraBase, int elems, int maxLength) { }
+
+	// RVA: 0x230DC60 Offset: 0x230DC60 VA: 0x230DC60
+	private static void .cctor() { }
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+public sealed class Adler // TypeDefIndex: 4335
+{
+	// Fields
+	private static readonly uint BASE; // 0x0
+	private static readonly int NMAX; // 0x4
+
+	// Methods
+
+	// RVA: 0x22FBB74 Offset: 0x22FBB74 VA: 0x22FBB74
+	public void .ctor() { }
+
+	// RVA: 0x22FBB7C Offset: 0x22FBB7C VA: 0x22FBB7C
+	public static uint Adler32(uint adler, byte[] buf, int index, int len) { }
+
+	// RVA: 0x22FC0EC Offset: 0x22FC0EC VA: 0x22FC0EC
+	private static void .cctor() { }
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+internal enum ZlibStreamFlavor // TypeDefIndex: 4336
+{
+	// Fields
+	public int value__; // 0x0
+	public const ZlibStreamFlavor ZLIB = 1950;
+	public const ZlibStreamFlavor DEFLATE = 1951;
+	public const ZlibStreamFlavor GZIP = 1952;
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+internal class ZlibBaseStream : Stream // TypeDefIndex: 4337
+{
+	// Fields
+	protected internal ZlibCodec _z; // 0x10
+	protected internal ZlibBaseStream.StreamMode _streamMode; // 0x18
+	protected internal FlushType _flushMode; // 0x1C
+	protected internal ZlibStreamFlavor _flavor; // 0x20
+	protected internal CompressionMode _compressionMode; // 0x24
+	protected internal CompressionLevel _level; // 0x28
+	protected internal bool _leaveOpen; // 0x2C
+	protected internal byte[] _workingBuffer; // 0x30
+	protected internal int _bufferSize; // 0x38
+	protected internal int windowBitsMax; // 0x3C
+	protected internal byte[] _buf1; // 0x40
+	protected internal Stream _stream; // 0x48
+	protected internal CompressionStrategy Strategy; // 0x50
+	private CRC32 crc; // 0x58
+	protected internal string _GzipFileName; // 0x60
+	protected internal string _GzipComment; // 0x68
+	protected internal DateTime _GzipMtime; // 0x70
+	protected internal int _gzipHeaderByteCount; // 0x80
+	private bool nomoreinput; // 0x84
+
+	// Properties
+	internal int Crc32 { get; }
+	protected internal bool _wantCompress { get; }
+	private ZlibCodec z { get; }
+	private byte[] workingBuffer { get; }
+	public override bool CanRead { get; }
+	public override bool CanSeek { get; }
+	public override bool CanWrite { get; }
+	public override long Length { get; }
+	public override long Position { get; set; }
+
+	// Methods
+
+	// RVA: 0x2303564 Offset: 0x2303564 VA: 0x2303564
+	public void .ctor(Stream stream, CompressionMode compressionMode, CompressionLevel level, ZlibStreamFlavor flavor, bool leaveOpen) { }
+
+	// RVA: 0x2303640 Offset: 0x2303640 VA: 0x2303640
+	public void .ctor(Stream stream, CompressionMode compressionMode, CompressionLevel level, ZlibStreamFlavor flavor, bool leaveOpen, int windowBits) { }
+
+	// RVA: 0x23057F4 Offset: 0x23057F4 VA: 0x23057F4
+	internal int get_Crc32() { }
+
+	// RVA: 0x2305EF0 Offset: 0x2305EF0 VA: 0x2305EF0
+	protected internal bool get__wantCompress() { }
+
+	// RVA: 0x230E9FC Offset: 0x230E9FC VA: 0x230E9FC
+	private ZlibCodec get_z() { }
+
+	// RVA: 0x230EAFC Offset: 0x230EAFC VA: 0x230EAFC
+	private byte[] get_workingBuffer() { }
+
+	// RVA: 0x230EB5C Offset: 0x230EB5C VA: 0x230EB5C Slot: 23
+	public override void Write(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x230EEA8 Offset: 0x230EEA8 VA: 0x230EEA8
+	private void finish() { }
+
+	// RVA: 0x230F6B4 Offset: 0x230F6B4 VA: 0x230F6B4
+	private void end() { }
+
+	// RVA: 0x230F71C Offset: 0x230F71C VA: 0x230F71C Slot: 13
+	public override void Close() { }
+
+	// RVA: 0x230F7D0 Offset: 0x230F7D0 VA: 0x230F7D0 Slot: 18
+	public override void Flush() { }
+
+	// RVA: 0x230F808 Offset: 0x230F808 VA: 0x230F808 Slot: 21
+	public override long Seek(long offset, SeekOrigin origin) { }
+
+	// RVA: 0x230F870 Offset: 0x230F870 VA: 0x230F870 Slot: 22
+	public override void SetLength(long value) { }
+
+	// RVA: 0x230F8C4 Offset: 0x230F8C4 VA: 0x230F8C4
+	private string ReadZeroTerminatedString() { }
+
+	// RVA: 0x230FAC8 Offset: 0x230FAC8 VA: 0x230FAC8
+	private int _ReadAndValidateGzipHeader() { }
+
+	// RVA: 0x230FEA4 Offset: 0x230FEA4 VA: 0x230FEA4 Slot: 19
+	public override int Read(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x231045C Offset: 0x231045C VA: 0x231045C Slot: 5
+	public override bool get_CanRead() { }
+
+	// RVA: 0x2310490 Offset: 0x2310490 VA: 0x2310490 Slot: 6
+	public override bool get_CanSeek() { }
+
+	// RVA: 0x23104C4 Offset: 0x23104C4 VA: 0x23104C4 Slot: 7
+	public override bool get_CanWrite() { }
+
+	// RVA: 0x23104F8 Offset: 0x23104F8 VA: 0x23104F8 Slot: 9
+	public override long get_Length() { }
+
+	// RVA: 0x231052C Offset: 0x231052C VA: 0x231052C Slot: 10
+	public override long get_Position() { }
+
+	// RVA: 0x2310594 Offset: 0x2310594 VA: 0x2310594 Slot: 11
+	public override void set_Position(long value) { }
+
+	// RVA: 0x230436C Offset: 0x230436C VA: 0x230436C
+	public static void CompressString(string s, Stream compressor) { }
+
+	// RVA: 0x2304678 Offset: 0x2304678 VA: 0x2304678
+	public static void CompressBuffer(byte[] b, Stream compressor) { }
+
+	// RVA: 0x230491C Offset: 0x230491C VA: 0x230491C
+	public static string UncompressString(byte[] compressed, Stream decompressor) { }
+
+	// RVA: 0x2304DE4 Offset: 0x2304DE4 VA: 0x2304DE4
+	public static byte[] UncompressBuffer(byte[] compressed, Stream decompressor) { }
+}
+
+// Namespace: 
+internal enum ZlibBaseStream.StreamMode // TypeDefIndex: 4338
+{
+	// Fields
+	public int value__; // 0x0
+	public const ZlibBaseStream.StreamMode Writer = 0;
+	public const ZlibBaseStream.StreamMode Reader = 1;
+	public const ZlibBaseStream.StreamMode Undefined = 2;
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+internal sealed class ZlibCodec // TypeDefIndex: 4339
+{
+	// Fields
+	public byte[] InputBuffer; // 0x10
+	public int NextIn; // 0x18
+	public int AvailableBytesIn; // 0x1C
+	public long TotalBytesIn; // 0x20
+	public byte[] OutputBuffer; // 0x28
+	public int NextOut; // 0x30
+	public int AvailableBytesOut; // 0x34
+	public long TotalBytesOut; // 0x38
+	public string Message; // 0x40
+	internal DeflateManager dstate; // 0x48
+	internal InflateManager istate; // 0x50
+	internal uint _Adler32; // 0x58
+	public CompressionLevel CompressLevel; // 0x5C
+	public int WindowBits; // 0x60
+	public CompressionStrategy Strategy; // 0x64
+
+	// Properties
+	public int Adler32 { get; }
+
+	// Methods
+
+	// RVA: 0x222BC4C Offset: 0x222BC4C VA: 0x222BC4C
+	public void .ctor() { }
+
+	// RVA: 0x222BC60 Offset: 0x222BC60 VA: 0x222BC60
+	public void .ctor(CompressionMode mode) { }
+
+	// RVA: 0x222BD8C Offset: 0x222BD8C VA: 0x222BD8C
+	public int get_Adler32() { }
+
+	// RVA: 0x222BD80 Offset: 0x222BD80 VA: 0x222BD80
+	public int InitializeInflate() { }
+
+	// RVA: 0x222BDA0 Offset: 0x222BDA0 VA: 0x222BDA0
+	public int InitializeInflate(bool expectRfc1950Header) { }
+
+	// RVA: 0x222BD94 Offset: 0x222BD94 VA: 0x222BD94
+	public int InitializeInflate(int windowBits) { }
+
+	// RVA: 0x222BDB0 Offset: 0x222BDB0 VA: 0x222BDB0
+	public int InitializeInflate(int windowBits, bool expectRfc1950Header) { }
+
+	// RVA: 0x222BE90 Offset: 0x222BE90 VA: 0x222BE90
+	public int Inflate(FlushType flush) { }
+
+	// RVA: 0x222BF30 Offset: 0x222BF30 VA: 0x222BF30
+	public int EndInflate() { }
+
+	// RVA: 0x222BFC8 Offset: 0x222BFC8 VA: 0x222BFC8
+	public int SyncInflate() { }
+
+	// RVA: 0x222BD70 Offset: 0x222BD70 VA: 0x222BD70
+	public int InitializeDeflate() { }
+
+	// RVA: 0x222C164 Offset: 0x222C164 VA: 0x222C164
+	public int InitializeDeflate(CompressionLevel level) { }
+
+	// RVA: 0x222C174 Offset: 0x222C174 VA: 0x222C174
+	public int InitializeDeflate(CompressionLevel level, bool wantRfc1950Header) { }
+
+	// RVA: 0x222C184 Offset: 0x222C184 VA: 0x222C184
+	public int InitializeDeflate(CompressionLevel level, int bits) { }
+
+	// RVA: 0x222C194 Offset: 0x222C194 VA: 0x222C194
+	public int InitializeDeflate(CompressionLevel level, int bits, bool wantRfc1950Header) { }
+
+	// RVA: 0x222C058 Offset: 0x222C058 VA: 0x222C058
+	private int _InternalInitializeDeflate(bool wantRfc1950Header) { }
+
+	// RVA: 0x222C1A4 Offset: 0x222C1A4 VA: 0x222C1A4
+	public int Deflate(FlushType flush) { }
+
+	// RVA: 0x222C244 Offset: 0x222C244 VA: 0x222C244
+	public int EndDeflate() { }
+
+	// RVA: 0x222C2D8 Offset: 0x222C2D8 VA: 0x222C2D8
+	public void ResetDeflate() { }
+
+	// RVA: 0x222C368 Offset: 0x222C368 VA: 0x222C368
+	public int SetDeflateParams(CompressionLevel level, CompressionStrategy strategy) { }
+
+	// RVA: 0x222C410 Offset: 0x222C410 VA: 0x222C410
+	public int SetDictionary(byte[] dictionary) { }
+
+	// RVA: 0x222C4D0 Offset: 0x222C4D0 VA: 0x222C4D0
+	internal void flush_pending() { }
+
+	// RVA: 0x222C7E8 Offset: 0x222C7E8 VA: 0x222C7E8
+	internal int read_buf(byte[] buf, int start, int size) { }
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+public static class ZlibConstants // TypeDefIndex: 4340
+{
+	// Fields
+	public const int WindowBitsMax = 15;
+	public const int WindowBitsDefault = 15;
+	public const int Z_OK = 0;
+	public const int Z_STREAM_END = 1;
+	public const int Z_NEED_DICT = 2;
+	public const int Z_STREAM_ERROR = -2;
+	public const int Z_DATA_ERROR = -3;
+	public const int Z_BUF_ERROR = -5;
+	public const int WorkingBufferSizeDefault = 16384;
+	public const int WorkingBufferSizeMin = 1024;
+}
+
+// Namespace: BestHTTP.Decompression.Zlib
+internal sealed class ZTree // TypeDefIndex: 4341
+{
+	// Fields
+	private static readonly int HEAP_SIZE; // 0x0
+	internal static readonly int[] ExtraLengthBits; // 0x8
+	internal static readonly int[] ExtraDistanceBits; // 0x10
+	internal static readonly int[] extra_blbits; // 0x18
+	internal static readonly sbyte[] bl_order; // 0x20
+	internal const int Buf_size = 16;
+	private static readonly sbyte[] _dist_code; // 0x28
+	internal static readonly sbyte[] LengthCode; // 0x30
+	internal static readonly int[] LengthBase; // 0x38
+	internal static readonly int[] DistanceBase; // 0x40
+	internal short[] dyn_tree; // 0x10
+	internal int max_code; // 0x18
+	internal StaticTree staticTree; // 0x20
+
+	// Methods
+
+	// RVA: 0x22FC310 Offset: 0x22FC310 VA: 0x22FC310
+	public void .ctor() { }
+
+	// RVA: 0x22FE694 Offset: 0x22FE694 VA: 0x22FE694
+	internal static int DistanceCode(int dist) { }
+
+	// RVA: 0x230DE58 Offset: 0x230DE58 VA: 0x230DE58
+	internal void gen_bitlen(DeflateManager s) { }
+
+	// RVA: 0x22FD178 Offset: 0x22FD178 VA: 0x22FD178
+	internal void build_tree(DeflateManager s) { }
+
+	// RVA: 0x230E548 Offset: 0x230E548 VA: 0x230E548
+	internal static void gen_codes(short[] tree, int max_code, short[] bl_count) { }
+
+	// RVA: 0x230E7B8 Offset: 0x230E7B8 VA: 0x230E7B8
+	internal static int bi_reverse(int code, int len) { }
+
+	// RVA: 0x230E7E0 Offset: 0x230E7E0 VA: 0x230E7E0
+	private static void .cctor() { }
+}
+
+// Namespace: BestHTTP.Extensions
+[ExtensionAttribute] // RVA: 0xC90CF0 Offset: 0xC90CF0 VA: 0xC90CF0
+public static class Extensions // TypeDefIndex: 4342
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xCB463C Offset: 0xCB463C VA: 0xCB463C
+	private static Func<char, bool> <>f__am$cache0; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xCB464C Offset: 0xCB464C VA: 0xCB464C
+	private static Func<char, bool> <>f__am$cache1; // 0x8
+	[CompilerGeneratedAttribute] // RVA: 0xCB465C Offset: 0xCB465C VA: 0xCB465C
+	private static Func<char, bool> <>f__am$cache2; // 0x10
+
+	// Methods
+
+	[ExtensionAttribute] // RVA: 0xD339F8 Offset: 0xD339F8 VA: 0xD339F8
+	// RVA: 0x222C974 Offset: 0x222C974 VA: 0x222C974
+	public static string AsciiToString(byte[] bytes) { }
+
+	[ExtensionAttribute] // RVA: 0xD33A08 Offset: 0xD33A08 VA: 0xD33A08
+	// RVA: 0x222CA74 Offset: 0x222CA74 VA: 0x222CA74
+	public static byte[] GetASCIIBytes(string str) { }
+
+	[ExtensionAttribute] // RVA: 0xD33A18 Offset: 0xD33A18 VA: 0xD33A18
+	// RVA: 0x222CB8C Offset: 0x222CB8C VA: 0x222CB8C
+	public static void SendAsASCII(BinaryWriter stream, string str) { }
+
+	[ExtensionAttribute] // RVA: 0xD33A28 Offset: 0xD33A28 VA: 0xD33A28
+	// RVA: 0x222CC34 Offset: 0x222CC34 VA: 0x222CC34
+	public static void WriteLine(FileStream fs) { }
+
+	[ExtensionAttribute] // RVA: 0xD33A38 Offset: 0xD33A38 VA: 0xD33A38
+	// RVA: 0x222CCC8 Offset: 0x222CCC8 VA: 0x222CCC8
+	public static void WriteLine(FileStream fs, string line) { }
+
+	[ExtensionAttribute] // RVA: 0xD33A48 Offset: 0xD33A48 VA: 0xD33A48
+	// RVA: 0x222CD30 Offset: 0x222CD30 VA: 0x222CD30
+	public static void WriteLine(FileStream fs, string format, object[] values) { }
+
+	[ExtensionAttribute] // RVA: 0xD33A58 Offset: 0xD33A58 VA: 0xD33A58
+	// RVA: 0x222CDF8 Offset: 0x222CDF8 VA: 0x222CDF8
+	public static string[] FindOption(string str, string option) { }
+
+	[ExtensionAttribute] // RVA: 0xD33A68 Offset: 0xD33A68 VA: 0xD33A68
+	// RVA: 0x222CFE0 Offset: 0x222CFE0 VA: 0x222CFE0
+	public static int ToInt32(string str, int defaultValue = 0) { }
+
+	[ExtensionAttribute] // RVA: 0xD33A78 Offset: 0xD33A78 VA: 0xD33A78
+	// RVA: 0x222D0B4 Offset: 0x222D0B4 VA: 0x222D0B4
+	public static long ToInt64(string str, long defaultValue = 0) { }
+
+	[ExtensionAttribute] // RVA: 0xD33A88 Offset: 0xD33A88 VA: 0xD33A88
+	// RVA: 0x222D188 Offset: 0x222D188 VA: 0x222D188
+	public static DateTime ToDateTime(string str, DateTime defaultValue) { }
+
+	[ExtensionAttribute] // RVA: 0xD33A98 Offset: 0xD33A98 VA: 0xD33A98
+	// RVA: 0x222D2A8 Offset: 0x222D2A8 VA: 0x222D2A8
+	public static string ToStrOrEmpty(string str) { }
+
+	[ExtensionAttribute] // RVA: 0xD33AA8 Offset: 0xD33AA8 VA: 0xD33AA8
+	// RVA: 0x222D31C Offset: 0x222D31C VA: 0x222D31C
+	public static string CalculateMD5Hash(string input) { }
+
+	[ExtensionAttribute] // RVA: 0xD33AB8 Offset: 0xD33AB8 VA: 0xD33AB8
+	// RVA: 0x222D330 Offset: 0x222D330 VA: 0x222D330
+	public static string CalculateMD5Hash(byte[] input) { }
+
+	[ExtensionAttribute] // RVA: 0xD33AC8 Offset: 0xD33AC8 VA: 0xD33AC8
+	// RVA: 0x222D46C Offset: 0x222D46C VA: 0x222D46C
+	internal static string Read(string str, ref int pos, char block, bool needResult = True) { }
+
+	[ExtensionAttribute] // RVA: 0xD33AD8 Offset: 0xD33AD8 VA: 0xD33AD8
+	// RVA: 0x222D540 Offset: 0x222D540 VA: 0x222D540
+	internal static string Read(string str, ref int pos, Func<char, bool> block, bool needResult = True) { }
+
+	[ExtensionAttribute] // RVA: 0xD33AE8 Offset: 0xD33AE8 VA: 0xD33AE8
+	// RVA: 0x222D7C0 Offset: 0x222D7C0 VA: 0x222D7C0
+	internal static string ReadPossibleQuotedText(string str, ref int pos) { }
+
+	[ExtensionAttribute] // RVA: 0xD33AF8 Offset: 0xD33AF8 VA: 0xD33AF8
+	// RVA: 0x222D6C4 Offset: 0x222D6C4 VA: 0x222D6C4
+	internal static void SkipWhiteSpace(string str, ref int pos) { }
+
+	[ExtensionAttribute] // RVA: 0xD33B08 Offset: 0xD33B08 VA: 0xD33B08
+	// RVA: 0x222D924 Offset: 0x222D924 VA: 0x222D924
+	internal static string TrimAndLower(string str) { }
+
+	[ExtensionAttribute] // RVA: 0xD33B18 Offset: 0xD33B18 VA: 0xD33B18
+	// RVA: 0x222DAE8 Offset: 0x222DAE8 VA: 0x222DAE8
+	internal static Nullable<char> Peek(string str, int pos) { }
+
+	[ExtensionAttribute] // RVA: 0xD33B28 Offset: 0xD33B28 VA: 0xD33B28
+	// RVA: 0x222DBA0 Offset: 0x222DBA0 VA: 0x222DBA0
+	internal static List<HeaderValue> ParseOptionalHeader(string str) { }
+
+	[ExtensionAttribute] // RVA: 0xD33B38 Offset: 0xD33B38 VA: 0xD33B38
+	// RVA: 0x222DD9C Offset: 0x222DD9C VA: 0x222DD9C
+	internal static List<HeaderValue> ParseQualityParams(string str) { }
+
+	[ExtensionAttribute] // RVA: 0xD33B48 Offset: 0xD33B48 VA: 0xD33B48
+	// RVA: 0x222DF80 Offset: 0x222DF80 VA: 0x222DF80
+	public static void ReadBuffer(Stream stream, byte[] buffer) { }
+
+	[ExtensionAttribute] // RVA: 0xD33B58 Offset: 0xD33B58 VA: 0xD33B58
+	// RVA: 0x222E04C Offset: 0x222E04C VA: 0x222E04C
+	public static void WriteAll(MemoryStream ms, byte[] buffer) { }
+
+	[ExtensionAttribute] // RVA: 0xD33B68 Offset: 0xD33B68 VA: 0xD33B68
+	// RVA: 0x222E0A8 Offset: 0x222E0A8 VA: 0x222E0A8
+	public static void WriteString(MemoryStream ms, string str) { }
+
+	[ExtensionAttribute] // RVA: 0xD33B78 Offset: 0xD33B78 VA: 0xD33B78
+	// RVA: 0x222E144 Offset: 0x222E144 VA: 0x222E144
+	public static void WriteLine(MemoryStream ms) { }
+
+	[ExtensionAttribute] // RVA: 0xD33B88 Offset: 0xD33B88 VA: 0xD33B88
+	// RVA: 0x222E1B4 Offset: 0x222E1B4 VA: 0x222E1B4
+	public static void WriteLine(MemoryStream ms, string str) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33B98 Offset: 0xD33B98 VA: 0xD33B98
+	// RVA: 0x222E1D8 Offset: 0x222E1D8 VA: 0x222E1D8
+	private static bool <ReadPossibleQuotedText>m__0(char ch) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33BA8 Offset: 0xD33BA8 VA: 0xD33BA8
+	// RVA: 0x222E1F4 Offset: 0x222E1F4 VA: 0x222E1F4
+	private static bool <ParseOptionalHeader>m__1(char ch) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33BB8 Offset: 0xD33BB8 VA: 0xD33BB8
+	// RVA: 0x222E210 Offset: 0x222E210 VA: 0x222E210
+	private static bool <ParseQualityParams>m__2(char ch) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCAD9E0 Offset: 0xCAD9E0 VA: 0xCAD9E0
+private sealed class Extensions.<Read>c__AnonStorey0 // TypeDefIndex: 4343
+{
+	// Fields
+	internal char block; // 0x10
+
+	// Methods
+
+	// RVA: 0x222D538 Offset: 0x222D538 VA: 0x222D538
+	public void .ctor() { }
+
+	// RVA: 0x222E22C Offset: 0x222E22C VA: 0x222E22C
+	internal bool <>m__0(char ch) { }
+}
+
+// Namespace: BestHTTP.Extensions
+public static class ExceptionHelper // TypeDefIndex: 4344
+{
+	// Methods
+
+	// RVA: 0x222C90C Offset: 0x222C90C VA: 0x222C90C
+	public static Exception ServerClosedTCPStream() { }
+}
+
+// Namespace: BestHTTP.Extensions
+public sealed class HeaderParser : KeyValuePairList // TypeDefIndex: 4345
+{
+	// Methods
+
+	// RVA: 0x222E23C Offset: 0x222E23C VA: 0x222E23C
+	public void .ctor(string headerStr) { }
+
+	// RVA: 0x222E278 Offset: 0x222E278 VA: 0x222E278
+	private List<HeaderValue> Parse(string headerStr) { }
+}
+
+// Namespace: BestHTTP.Extensions
+public sealed class HeaderValue // TypeDefIndex: 4346
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xCB466C Offset: 0xCB466C VA: 0xCB466C
+	[DebuggerBrowsableAttribute] // RVA: 0xCB466C Offset: 0xCB466C VA: 0xCB466C
+	private string <Key>k__BackingField; // 0x10
+	[CompilerGeneratedAttribute] // RVA: 0xCB46A8 Offset: 0xCB46A8 VA: 0xCB46A8
+	[DebuggerBrowsableAttribute] // RVA: 0xCB46A8 Offset: 0xCB46A8 VA: 0xCB46A8
+	private string <Value>k__BackingField; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xCB46E4 Offset: 0xCB46E4 VA: 0xCB46E4
+	[DebuggerBrowsableAttribute] // RVA: 0xCB46E4 Offset: 0xCB46E4 VA: 0xCB46E4
+	private List<HeaderValue> <Options>k__BackingField; // 0x20
+	[CompilerGeneratedAttribute] // RVA: 0xCB4720 Offset: 0xCB4720 VA: 0xCB4720
+	private static Func<char, bool> <>f__am$cache0; // 0x0
+
+	// Properties
+	public string Key { get; set; }
+	public string Value { get; set; }
+	public List<HeaderValue> Options { get; set; }
+	public bool HasValue { get; }
+
+	// Methods
+
+	// RVA: 0x222E4C0 Offset: 0x222E4C0 VA: 0x222E4C0
+	public void .ctor() { }
+
+	// RVA: 0x222DD68 Offset: 0x222DD68 VA: 0x222DD68
+	public void .ctor(string key) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33BC8 Offset: 0xD33BC8 VA: 0xD33BC8
+	// RVA: 0x222E628 Offset: 0x222E628 VA: 0x222E628
+	public string get_Key() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33BD8 Offset: 0xD33BD8 VA: 0xD33BD8
+	// RVA: 0x222E620 Offset: 0x222E620 VA: 0x222E620
+	public void set_Key(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33BE8 Offset: 0xD33BE8 VA: 0xD33BE8
+	// RVA: 0x222E630 Offset: 0x222E630 VA: 0x222E630
+	public string get_Value() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33BF8 Offset: 0xD33BF8 VA: 0xD33BF8
+	// RVA: 0x222DD94 Offset: 0x222DD94 VA: 0x222DD94
+	public void set_Value(string value) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33C08 Offset: 0xD33C08 VA: 0xD33C08
+	// RVA: 0x222E638 Offset: 0x222E638 VA: 0x222E638
+	public List<HeaderValue> get_Options() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33C18 Offset: 0xD33C18 VA: 0xD33C18
+	// RVA: 0x222E640 Offset: 0x222E640 VA: 0x222E640
+	public void set_Options(List<HeaderValue> value) { }
+
+	// RVA: 0x222E648 Offset: 0x222E648 VA: 0x222E648
+	public bool get_HasValue() { }
+
+	// RVA: 0x222E4C8 Offset: 0x222E4C8 VA: 0x222E4C8
+	public void Parse(string headerStr, ref int pos) { }
+
+	// RVA: 0x222EAE8 Offset: 0x222EAE8 VA: 0x222EAE8
+	public bool TryGetOption(string key, out HeaderValue option) { }
+
+	// RVA: 0x222E6C0 Offset: 0x222E6C0 VA: 0x222E6C0
+	private void ParseImplementation(string headerStr, ref int pos, bool isOptionIsAnOption) { }
+
+	// RVA: 0x222EC38 Offset: 0x222EC38 VA: 0x222EC38 Slot: 3
+	public override string ToString() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33C28 Offset: 0xD33C28 VA: 0xD33C28
+	// RVA: 0x222ED14 Offset: 0x222ED14 VA: 0x222ED14
+	private static bool <ParseImplementation>m__0(char ch) { }
+}
+
+// Namespace: BestHTTP.Extensions
+public interface IHeartbeat // TypeDefIndex: 4347
+{
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void OnHeartbeatUpdate(TimeSpan dif);
+}
+
+// Namespace: BestHTTP.Extensions
+public sealed class HeartbeatManager // TypeDefIndex: 4348
+{
+	// Fields
+	private List<IHeartbeat> Heartbeats; // 0x10
+	private IHeartbeat[] UpdateArray; // 0x18
+	private DateTime LastUpdate; // 0x20
+
+	// Methods
+
+	// RVA: 0x222ED40 Offset: 0x222ED40 VA: 0x222ED40
+	public void .ctor() { }
+
+	// RVA: 0x222EDE0 Offset: 0x222EDE0 VA: 0x222EDE0
+	public void Subscribe(IHeartbeat heartbeat) { }
+
+	// RVA: 0x222EEF0 Offset: 0x222EEF0 VA: 0x222EEF0
+	public void Unsubscribe(IHeartbeat heartbeat) { }
+
+	// RVA: 0x222EFD0 Offset: 0x222EFD0 VA: 0x222EFD0
+	public void Update() { }
+}
+
+// Namespace: BestHTTP.Extensions
+public class KeyValuePairList // TypeDefIndex: 4349
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xCB4730 Offset: 0xCB4730 VA: 0xCB4730
+	[DebuggerBrowsableAttribute] // RVA: 0xCB4730 Offset: 0xCB4730 VA: 0xCB4730
+	private List<HeaderValue> <Values>k__BackingField; // 0x10
+
+	// Properties
+	public List<HeaderValue> Values { get; set; }
+
+	// Methods
+
+	// RVA: 0x222E270 Offset: 0x222E270 VA: 0x222E270
+	public void .ctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33C38 Offset: 0xD33C38 VA: 0xD33C38
+	// RVA: 0x222F388 Offset: 0x222F388 VA: 0x222F388
+	public List<HeaderValue> get_Values() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33C48 Offset: 0xD33C48 VA: 0xD33C48
+	// RVA: 0x222E4B8 Offset: 0x222E4B8 VA: 0x222E4B8
+	protected void set_Values(List<HeaderValue> value) { }
+
+	// RVA: 0x222F390 Offset: 0x222F390 VA: 0x222F390
+	public bool TryGet(string valueKeyName, out HeaderValue param) { }
+}
+
+// Namespace: BestHTTP.Extensions
+public sealed class WWWAuthenticateHeaderParser : KeyValuePairList // TypeDefIndex: 4350
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xCB476C Offset: 0xCB476C VA: 0xCB476C
+	private static Func<char, bool> <>f__am$cache0; // 0x0
+
+	// Methods
+
+	// RVA: 0x222F4C8 Offset: 0x222F4C8 VA: 0x222F4C8
+	public void .ctor(string headerValue) { }
+
+	// RVA: 0x222F4FC Offset: 0x222F4FC VA: 0x222F4FC
+	private List<HeaderValue> ParseQuotedHeader(string str) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD33C58 Offset: 0xD33C58 VA: 0xD33C58
+	// RVA: 0x222F6D8 Offset: 0x222F6D8 VA: 0x222F6D8
+	private static bool <ParseQuotedHeader>m__0(char ch) { }
+}
+
+// Namespace: BestHTTP.Forms
+public class HTTPFieldData // TypeDefIndex: 4351
+{
+	// Fields
+	[CompilerGeneratedAttribute] // RVA: 0xCB477C Offset: 0xCB477C VA: 0xCB477C
+	[DebuggerBrowsableAttribute] // RVA: 0xCB477C Offset: 0xCB477C VA: 0xCB477C
+	private string <Name>k__BackingField; // 0x10
+	[CompilerGeneratedAttribute] // RVA: 0xCB47B8 Offset: 0xCB47B8 VA: 0xCB47B8
+	[DebuggerBrowsableAttribute] // RVA: 0xCB47B8 Offset: 0xCB47B8 VA: 0xCB47B8
+	private string <FileName>k__BackingField; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xCB47F4 Offset: 0xCB47F4 VA: 0xCB47F4
+	[DebuggerBrowsableAttribute] // RVA: 0xCB47F4 Offset: 0xCB47F4 VA: 0xCB47F4
+	private string <MimeType>k__BackingField; // 0x20
+	[CompilerGeneratedAttribute] // RVA: 0xCB4830 Offset: 0xCB4830 VA: 0xCB4830
+	[DebuggerBrowsableAttribute] // RVA: 0xCB4830 Offset: 0xCB4830 VA: 0xCB4830
+	private Encoding <Encoding>k__BackingField; // 0x28
+	[CompilerGeneratedAttribute] // RVA: 0xCB486C Offset: 0xCB486C VA: 0xCB486C
+	[DebuggerBrowsableAttribute] // RVA: 0xCB486C Offset: 0xCB486C VA: 0xCB486C
+	private string <Text>k__BackingField; // 0x30
+	[CompilerGeneratedAttribute] // RVA: 0xCB48A8 Offset: 0xCB48A8 VA: 0xCB48A8
+	[DebuggerBrowsableAttribute] // RVA: 0xCB48A8 Offset: 0xCB48A8 VA: 0xCB48A8
+	private byte[] <Binary>k__BackingField; // 0x38
+
+	// Properties
+	public string Name { get; set; }
+	public string FileName { get; set; }
+	public string MimeType { get; set; }
+	public Encoding Encoding { get; set; }
+	public string Text { get; set; }
+	public byte[] Binary { get; set; }
+	public byte[] Payload { get; }
+

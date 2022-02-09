@@ -1,0 +1,1000 @@
+
+	// RVA: 0x12F2964 Offset: 0x12F2964 VA: 0x12F2964
+	public void BuildCodes() { }
+
+	// RVA: 0x12F32F0 Offset: 0x12F32F0 VA: 0x12F32F0
+	public void BuildTree() { }
+
+	// RVA: 0x12F4074 Offset: 0x12F4074 VA: 0x12F4074
+	public int GetEncodedLength() { }
+
+	// RVA: 0x12F3DF8 Offset: 0x12F3DF8 VA: 0x12F3DF8
+	public void CalcBLFreq(DeflaterHuffman.Tree blTree) { }
+
+	// RVA: 0x12F2BE4 Offset: 0x12F2BE4 VA: 0x12F2BE4
+	public void WriteTree(DeflaterHuffman.Tree blTree) { }
+
+	// RVA: 0x12F414C Offset: 0x12F414C VA: 0x12F414C
+	private void BuildLength(int[] childs) { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Zip.Compression
+public class DeflaterPending : PendingBuffer // TypeDefIndex: 3671
+{
+	// Methods
+
+	// RVA: 0x12EED40 Offset: 0x12EED40 VA: 0x12EED40
+	public void .ctor() { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Zip.Compression
+public class Inflater // TypeDefIndex: 3672
+{
+	// Fields
+	private static readonly int[] CPLENS; // 0x0
+	private static readonly int[] CPLEXT; // 0x8
+	private static readonly int[] CPDIST; // 0x10
+	private static readonly int[] CPDEXT; // 0x18
+	private int mode; // 0x10
+	private int readAdler; // 0x14
+	private int neededBits; // 0x18
+	private int repLength; // 0x1C
+	private int repDist; // 0x20
+	private int uncomprLen; // 0x24
+	private bool isLastBlock; // 0x28
+	private long totalOut; // 0x30
+	private long totalIn; // 0x38
+	private bool noHeader; // 0x40
+	private readonly StreamManipulator input; // 0x48
+	private OutputWindow outputWindow; // 0x50
+	private InflaterDynHeader dynHeader; // 0x58
+	private InflaterHuffmanTree litlenTree; // 0x60
+	private InflaterHuffmanTree distTree; // 0x68
+	private Adler32 adler; // 0x70
+
+	// Properties
+	public bool IsNeedingInput { get; }
+	public bool IsNeedingDictionary { get; }
+	public bool IsFinished { get; }
+	public long TotalOut { get; }
+	public int RemainingInput { get; }
+
+	// Methods
+
+	// RVA: 0x12ECC5C Offset: 0x12ECC5C VA: 0x12ECC5C
+	public void .ctor(bool noHeader) { }
+
+	// RVA: 0x12EDF20 Offset: 0x12EDF20 VA: 0x12EDF20
+	public void Reset() { }
+
+	// RVA: 0x12F486C Offset: 0x12F486C VA: 0x12F486C
+	private bool DecodeHeader() { }
+
+	// RVA: 0x12F4AF4 Offset: 0x12F4AF4 VA: 0x12F4AF4
+	private bool DecodeDict() { }
+
+	// RVA: 0x12F4B84 Offset: 0x12F4B84 VA: 0x12F4B84
+	private bool DecodeHuffman() { }
+
+	// RVA: 0x12F55C8 Offset: 0x12F55C8 VA: 0x12F55C8
+	private bool DecodeChksum() { }
+
+	// RVA: 0x12F58B8 Offset: 0x12F58B8 VA: 0x12F58B8
+	private bool Decode() { }
+
+	// RVA: 0x12F6554 Offset: 0x12F6554 VA: 0x12F6554
+	public void SetInput(byte[] buffer, int index, int count) { }
+
+	// RVA: 0x12F678C Offset: 0x12F678C VA: 0x12F678C
+	public int Inflate(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x12F6AEC Offset: 0x12F6AEC VA: 0x12F6AEC
+	public bool get_IsNeedingInput() { }
+
+	// RVA: 0x12F6B20 Offset: 0x12F6B20 VA: 0x12F6B20
+	public bool get_IsNeedingDictionary() { }
+
+	// RVA: 0x12ED738 Offset: 0x12ED738 VA: 0x12ED738
+	public bool get_IsFinished() { }
+
+	// RVA: 0x12EDED8 Offset: 0x12EDED8 VA: 0x12EDED8
+	public long get_TotalOut() { }
+
+	// RVA: 0x12EDEE0 Offset: 0x12EDEE0 VA: 0x12EDEE0
+	public int get_RemainingInput() { }
+
+	// RVA: 0x12F6B58 Offset: 0x12F6B58 VA: 0x12F6B58
+	private static void .cctor() { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Zip.Compression
+internal class InflaterDynHeader // TypeDefIndex: 3673
+{
+	// Fields
+	private static readonly int[] repMin; // 0x0
+	private static readonly int[] repBits; // 0x8
+	private static readonly int[] BL_ORDER; // 0x10
+	private byte[] blLens; // 0x10
+	private byte[] litdistLens; // 0x18
+	private InflaterHuffmanTree blTree; // 0x20
+	private int mode; // 0x28
+	private int lnum; // 0x2C
+	private int dnum; // 0x30
+	private int blnum; // 0x34
+	private int num; // 0x38
+	private int repSymbol; // 0x3C
+	private byte lastLen; // 0x40
+	private int ptr; // 0x44
+
+	// Methods
+
+	// RVA: 0x12F5EBC Offset: 0x12F5EBC VA: 0x12F5EBC
+	public bool Decode(StreamManipulator input) { }
+
+	// RVA: 0x12F6410 Offset: 0x12F6410 VA: 0x12F6410
+	public InflaterHuffmanTree BuildLitLenTree() { }
+
+	// RVA: 0x12F64B4 Offset: 0x12F64B4 VA: 0x12F64B4
+	public InflaterHuffmanTree BuildDistTree() { }
+
+	// RVA: 0x12F5D94 Offset: 0x12F5D94 VA: 0x12F5D94
+	public void .ctor() { }
+
+	// RVA: 0x12F6C9C Offset: 0x12F6C9C VA: 0x12F6C9C
+	private static void .cctor() { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Zip.Compression
+public class InflaterHuffmanTree // TypeDefIndex: 3674
+{
+	// Fields
+	private short[] tree; // 0x10
+	public static InflaterHuffmanTree defLitLenTree; // 0x0
+	public static InflaterHuffmanTree defDistTree; // 0x8
+
+	// Methods
+
+	// RVA: 0x12F6D80 Offset: 0x12F6D80 VA: 0x12F6D80
+	private static void .cctor() { }
+
+	// RVA: 0x12F6C6C Offset: 0x12F6C6C VA: 0x12F6C6C
+	public void .ctor(byte[] codeLengths) { }
+
+	// RVA: 0x12F70A0 Offset: 0x12F70A0 VA: 0x12F70A0
+	private void BuildTree(byte[] codeLengths) { }
+
+	// RVA: 0x12F51B4 Offset: 0x12F51B4 VA: 0x12F51B4
+	public int GetSymbol(StreamManipulator input) { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Zip.Compression
+public class PendingBuffer // TypeDefIndex: 3675
+{
+	// Fields
+	private readonly byte[] buffer_; // 0x10
+	private int start; // 0x18
+	private int end; // 0x1C
+	private uint bits; // 0x20
+	private int bitCount; // 0x24
+
+	// Properties
+	public int BitCount { get; }
+	public bool IsFlushed { get; }
+
+	// Methods
+
+	// RVA: 0x12F4784 Offset: 0x12F4784 VA: 0x12F4784
+	public void .ctor(int bufferSize) { }
+
+	// RVA: 0x12EEFA8 Offset: 0x12EEFA8 VA: 0x12EEFA8
+	public void Reset() { }
+
+	// RVA: 0x12F31F8 Offset: 0x12F31F8 VA: 0x12F31F8
+	public void WriteShort(int value) { }
+
+	// RVA: 0x12F32A4 Offset: 0x12F32A4 VA: 0x12F32A4
+	public void WriteBlock(byte[] block, int offset, int length) { }
+
+	// RVA: 0x12EFDD0 Offset: 0x12EFDD0 VA: 0x12EFDD0
+	public int get_BitCount() { }
+
+	// RVA: 0x12EFEB8 Offset: 0x12EFEB8 VA: 0x12EFEB8
+	public void AlignToByte() { }
+
+	// RVA: 0x12EFDD8 Offset: 0x12EFDD8 VA: 0x12EFDD8
+	public void WriteBits(int b, int count) { }
+
+	// RVA: 0x12EFAAC Offset: 0x12EFAAC VA: 0x12EFAAC
+	public void WriteShortMSB(int s) { }
+
+	// RVA: 0x12EF118 Offset: 0x12EF118 VA: 0x12EF118
+	public bool get_IsFlushed() { }
+
+	// RVA: 0x12EFBB4 Offset: 0x12EFBB4 VA: 0x12EFBB4
+	public int Flush(byte[] output, int offset, int length) { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Zip.Compression.Streams
+public class DeflaterOutputStream : Stream // TypeDefIndex: 3676
+{
+	// Fields
+	private ICryptoTransform cryptoTransform_; // 0x10
+	protected byte[] AESAuthCode; // 0x18
+	private byte[] buffer_; // 0x20
+	protected Deflater deflater_; // 0x28
+	protected Stream baseOutputStream_; // 0x30
+	private bool isClosed_; // 0x38
+	private bool isStreamOwner_; // 0x39
+
+	// Properties
+	public bool IsStreamOwner { get; }
+	public override bool CanRead { get; }
+	public override bool CanSeek { get; }
+	public override bool CanWrite { get; }
+	public override long Length { get; }
+	public override long Position { get; set; }
+
+	// Methods
+
+	// RVA: 0x12EE2A4 Offset: 0x12EE2A4 VA: 0x12EE2A4
+	public void .ctor(Stream baseOutputStream, Deflater deflater, int bufferSize) { }
+
+	// RVA: 0x12EEA78 Offset: 0x12EEA78 VA: 0x12EEA78 Slot: 29
+	public virtual void Finish() { }
+
+	// RVA: 0x12EE848 Offset: 0x12EE848 VA: 0x12EE848
+	public bool get_IsStreamOwner() { }
+
+	// RVA: 0x12F75DC Offset: 0x12F75DC VA: 0x12F75DC
+	protected void EncryptBlock(byte[] buffer, int offset, int length) { }
+
+	// RVA: 0x12F76B8 Offset: 0x12F76B8 VA: 0x12F76B8
+	protected void Deflate() { }
+
+	// RVA: 0x12F7834 Offset: 0x12F7834 VA: 0x12F7834 Slot: 5
+	public override bool get_CanRead() { }
+
+	// RVA: 0x12F783C Offset: 0x12F783C VA: 0x12F783C Slot: 6
+	public override bool get_CanSeek() { }
+
+	// RVA: 0x12F7844 Offset: 0x12F7844 VA: 0x12F7844 Slot: 7
+	public override bool get_CanWrite() { }
+
+	// RVA: 0x12F7878 Offset: 0x12F7878 VA: 0x12F7878 Slot: 9
+	public override long get_Length() { }
+
+	// RVA: 0x12F78AC Offset: 0x12F78AC VA: 0x12F78AC Slot: 10
+	public override long get_Position() { }
+
+	// RVA: 0x12F78E0 Offset: 0x12F78E0 VA: 0x12F78E0 Slot: 11
+	public override void set_Position(long value) { }
+
+	// RVA: 0x12F7954 Offset: 0x12F7954 VA: 0x12F7954 Slot: 21
+	public override long Seek(long offset, SeekOrigin origin) { }
+
+	// RVA: 0x12F79C8 Offset: 0x12F79C8 VA: 0x12F79C8 Slot: 22
+	public override void SetLength(long value) { }
+
+	// RVA: 0x12F7A3C Offset: 0x12F7A3C VA: 0x12F7A3C Slot: 20
+	public override int ReadByte() { }
+
+	// RVA: 0x12F7AB0 Offset: 0x12F7AB0 VA: 0x12F7AB0 Slot: 19
+	public override int Read(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x12F7B24 Offset: 0x12F7B24 VA: 0x12F7B24 Slot: 25
+	public override IAsyncResult BeginRead(byte[] buffer, int offset, int count, AsyncCallback callback, object state) { }
+
+	// RVA: 0x12F7B98 Offset: 0x12F7B98 VA: 0x12F7B98 Slot: 26
+	public override IAsyncResult BeginWrite(byte[] buffer, int offset, int count, AsyncCallback callback, object state) { }
+
+	// RVA: 0x12F7C0C Offset: 0x12F7C0C VA: 0x12F7C0C Slot: 18
+	public override void Flush() { }
+
+	// RVA: 0x12F7C6C Offset: 0x12F7C6C VA: 0x12F7C6C Slot: 13
+	public override void Close() { }
+
+	// RVA: 0x12F7DEC Offset: 0x12F7DEC VA: 0x12F7DEC
+	private void GetAuthCodeIfAES() { }
+
+	// RVA: 0x12F7E70 Offset: 0x12F7E70 VA: 0x12F7E70 Slot: 24
+	public override void WriteByte(byte value) { }
+
+	// RVA: 0x12EE728 Offset: 0x12EE728 VA: 0x12EE728 Slot: 23
+	public override void Write(byte[] buffer, int offset, int count) { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Zip.Compression.Streams
+public class InflaterInputBuffer // TypeDefIndex: 3677
+{
+	// Fields
+	private int rawLength; // 0x10
+	private byte[] rawData; // 0x18
+	private int clearTextLength; // 0x20
+	private byte[] clearText; // 0x28
+	private int available; // 0x30
+	private ICryptoTransform cryptoTransform; // 0x38
+	private Stream inputStream; // 0x40
+
+	// Properties
+	public int Available { get; set; }
+
+	// Methods
+
+	// RVA: 0x12F7F14 Offset: 0x12F7F14 VA: 0x12F7F14
+	public void .ctor(Stream stream, int bufferSize) { }
+
+	// RVA: 0x12EDC6C Offset: 0x12EDC6C VA: 0x12EDC6C
+	public int get_Available() { }
+
+	// RVA: 0x12EDF18 Offset: 0x12EDF18 VA: 0x12EDF18
+	public void set_Available(int value) { }
+
+	// RVA: 0x12F7F98 Offset: 0x12F7F98 VA: 0x12F7F98
+	public void SetInflaterInput(Inflater inflater) { }
+
+	// RVA: 0x12EDC74 Offset: 0x12EDC74 VA: 0x12EDC74
+	public void Fill() { }
+
+	// RVA: 0x12EDFA8 Offset: 0x12EDFA8 VA: 0x12EDFA8
+	public int ReadClearTextBuffer(byte[] outBuffer, int offset, int length) { }
+
+	// RVA: 0x12EDDE0 Offset: 0x12EDDE0 VA: 0x12EDDE0
+	public int ReadLeByte() { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Zip.Compression.Streams
+public class InflaterInputStream : Stream // TypeDefIndex: 3678
+{
+	// Fields
+	protected Inflater inf; // 0x10
+	protected InflaterInputBuffer inputBuffer; // 0x18
+	private Stream baseInputStream; // 0x20
+	private bool isClosed; // 0x28
+	private bool isStreamOwner; // 0x29
+
+	// Properties
+	public override bool CanRead { get; }
+	public override bool CanSeek { get; }
+	public override bool CanWrite { get; }
+	public override long Length { get; }
+	public override long Position { get; set; }
+
+	// Methods
+
+	// RVA: 0x12ECD3C Offset: 0x12ECD3C VA: 0x12ECD3C
+	public void .ctor(Stream baseInputStream, Inflater inflater, int bufferSize) { }
+
+	// RVA: 0x12F8008 Offset: 0x12F8008 VA: 0x12F8008
+	protected void Fill() { }
+
+	// RVA: 0x12F80F8 Offset: 0x12F80F8 VA: 0x12F80F8 Slot: 5
+	public override bool get_CanRead() { }
+
+	// RVA: 0x12F812C Offset: 0x12F812C VA: 0x12F812C Slot: 6
+	public override bool get_CanSeek() { }
+
+	// RVA: 0x12F8134 Offset: 0x12F8134 VA: 0x12F8134 Slot: 7
+	public override bool get_CanWrite() { }
+
+	// RVA: 0x12F813C Offset: 0x12F813C VA: 0x12F813C Slot: 9
+	public override long get_Length() { }
+
+	// RVA: 0x12F81B0 Offset: 0x12F81B0 VA: 0x12F81B0 Slot: 10
+	public override long get_Position() { }
+
+	// RVA: 0x12F81E4 Offset: 0x12F81E4 VA: 0x12F81E4 Slot: 11
+	public override void set_Position(long value) { }
+
+	// RVA: 0x12F8258 Offset: 0x12F8258 VA: 0x12F8258 Slot: 18
+	public override void Flush() { }
+
+	// RVA: 0x12F8290 Offset: 0x12F8290 VA: 0x12F8290 Slot: 21
+	public override long Seek(long offset, SeekOrigin origin) { }
+
+	// RVA: 0x12F8304 Offset: 0x12F8304 VA: 0x12F8304 Slot: 22
+	public override void SetLength(long value) { }
+
+	// RVA: 0x12F8378 Offset: 0x12F8378 VA: 0x12F8378 Slot: 23
+	public override void Write(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x12F83EC Offset: 0x12F83EC VA: 0x12F83EC Slot: 24
+	public override void WriteByte(byte value) { }
+
+	// RVA: 0x12F8460 Offset: 0x12F8460 VA: 0x12F8460 Slot: 26
+	public override IAsyncResult BeginWrite(byte[] buffer, int offset, int count, AsyncCallback callback, object state) { }
+
+	// RVA: 0x12F84D4 Offset: 0x12F84D4 VA: 0x12F84D4 Slot: 13
+	public override void Close() { }
+
+	// RVA: 0x12ED5A0 Offset: 0x12ED5A0 VA: 0x12ED5A0 Slot: 19
+	public override int Read(byte[] buffer, int offset, int count) { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Zip.Compression.Streams
+public class OutputWindow // TypeDefIndex: 3679
+{
+	// Fields
+	private byte[] window; // 0x10
+	private int windowEnd; // 0x18
+	private int windowFilled; // 0x1C
+
+	// Methods
+
+	// RVA: 0x12F50C4 Offset: 0x12F50C4 VA: 0x12F50C4
+	public void Write(int value) { }
+
+	// RVA: 0x12F8524 Offset: 0x12F8524 VA: 0x12F8524
+	private void SlowRepeat(int repStart, int length, int distance) { }
+
+	// RVA: 0x12F5418 Offset: 0x12F5418 VA: 0x12F5418
+	public void Repeat(int length, int distance) { }
+
+	// RVA: 0x12F5D9C Offset: 0x12F5D9C VA: 0x12F5D9C
+	public int CopyStored(StreamManipulator input, int length) { }
+
+	// RVA: 0x12F50B4 Offset: 0x12F50B4 VA: 0x12F50B4
+	public int GetFreeSpace() { }
+
+	// RVA: 0x12F6AE4 Offset: 0x12F6AE4 VA: 0x12F6AE4
+	public int GetAvailable() { }
+
+	// RVA: 0x12F69C8 Offset: 0x12F69C8 VA: 0x12F69C8
+	public int CopyOutput(byte[] output, int offset, int len) { }
+
+	// RVA: 0x12F4864 Offset: 0x12F4864 VA: 0x12F4864
+	public void Reset() { }
+
+	// RVA: 0x12F47FC Offset: 0x12F47FC VA: 0x12F47FC
+	public void .ctor() { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Zip.Compression.Streams
+public class StreamManipulator // TypeDefIndex: 3680
+{
+	// Fields
+	private byte[] window_; // 0x10
+	private int windowStart_; // 0x18
+	private int windowEnd_; // 0x1C
+	private uint buffer_; // 0x20
+	private int bitsInBuffer_; // 0x24
+
+	// Properties
+	public int AvailableBits { get; }
+	public int AvailableBytes { get; }
+	public bool IsNeedingInput { get; }
+
+	// Methods
+
+	// RVA: 0x12F49D0 Offset: 0x12F49D0 VA: 0x12F49D0
+	public int PeekBits(int bitCount) { }
+
+	// RVA: 0x12F4ADC Offset: 0x12F4ADC VA: 0x12F4ADC
+	public void DropBits(int bitCount) { }
+
+	// RVA: 0x12F75D4 Offset: 0x12F75D4 VA: 0x12F75D4
+	public int get_AvailableBits() { }
+
+	// RVA: 0x12F6B44 Offset: 0x12F6B44 VA: 0x12F6B44
+	public int get_AvailableBytes() { }
+
+	// RVA: 0x12F5D7C Offset: 0x12F5D7C VA: 0x12F5D7C
+	public void SkipToByteBoundary() { }
+
+	// RVA: 0x12F5EAC Offset: 0x12F5EAC VA: 0x12F5EAC
+	public bool get_IsNeedingInput() { }
+
+	// RVA: 0x12F85EC Offset: 0x12F85EC VA: 0x12F85EC
+	public int CopyBytes(byte[] output, int offset, int length) { }
+
+	// RVA: 0x12F485C Offset: 0x12F485C VA: 0x12F485C
+	public void Reset() { }
+
+	// RVA: 0x12F65BC Offset: 0x12F65BC VA: 0x12F65BC
+	public void SetInput(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x12F47F4 Offset: 0x12F47F4 VA: 0x12F47F4
+	public void .ctor() { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.GZip
+[Serializable]
+public class GZipException : SharpZipBaseException // TypeDefIndex: 3681
+{
+	// Methods
+
+	// RVA: 0x12ECBC0 Offset: 0x12ECBC0 VA: 0x12ECBC0
+	protected void .ctor(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0x12ECBC8 Offset: 0x12ECBC8 VA: 0x12ECBC8
+	public void .ctor() { }
+
+	// RVA: 0x12ECBD0 Offset: 0x12ECBD0 VA: 0x12ECBD0
+	public void .ctor(string message) { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.GZip
+public class GZipInputStream : InflaterInputStream // TypeDefIndex: 3682
+{
+	// Fields
+	protected Crc32 crc; // 0x30
+	private bool readGZIPHeader; // 0x38
+	private bool completedLastBlock; // 0x39
+
+	// Methods
+
+	// RVA: 0x12ECBD8 Offset: 0x12ECBD8 VA: 0x12ECBD8
+	public void .ctor(Stream baseInputStream) { }
+
+	// RVA: 0x12ECBE0 Offset: 0x12ECBE0 VA: 0x12ECBE0
+	public void .ctor(Stream baseInputStream, int size) { }
+
+	// RVA: 0x12ECE94 Offset: 0x12ECE94 VA: 0x12ECE94 Slot: 19
+	public override int Read(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x12ED084 Offset: 0x12ED084 VA: 0x12ED084
+	private bool ReadHeader() { }
+
+	// RVA: 0x12ED780 Offset: 0x12ED780 VA: 0x12ED780
+	private void ReadFooter() { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.GZip
+public class GZipOutputStream : DeflaterOutputStream // TypeDefIndex: 3683
+{
+	// Fields
+	protected Crc32 crc; // 0x40
+	private GZipOutputStream.OutputState state_; // 0x48
+
+	// Methods
+
+	// RVA: 0x12EE0D0 Offset: 0x12EE0D0 VA: 0x12EE0D0
+	public void .ctor(Stream baseOutputStream) { }
+
+	// RVA: 0x12EE0D8 Offset: 0x12EE0D8 VA: 0x12EE0D8
+	public void .ctor(Stream baseOutputStream, int size) { }
+
+	// RVA: 0x12EE450 Offset: 0x12EE450 VA: 0x12EE450 Slot: 23
+	public override void Write(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x12EE788 Offset: 0x12EE788 VA: 0x12EE788 Slot: 13
+	public override void Close() { }
+
+	// RVA: 0x12EE850 Offset: 0x12EE850 VA: 0x12EE850 Slot: 29
+	public override void Finish() { }
+
+	// RVA: 0x12EE540 Offset: 0x12EE540 VA: 0x12EE540
+	private void WriteHeader() { }
+}
+
+// Namespace: 
+private enum GZipOutputStream.OutputState // TypeDefIndex: 3684
+{
+	// Fields
+	public int value__; // 0x0
+	public const GZipOutputStream.OutputState Header = 0;
+	public const GZipOutputStream.OutputState Footer = 1;
+	public const GZipOutputStream.OutputState Finished = 2;
+	public const GZipOutputStream.OutputState Closed = 3;
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Encryption
+internal class ZipAESTransform : ICryptoTransform, IDisposable // TypeDefIndex: 3685
+{
+	// Fields
+	private int _blockSize; // 0x10
+	private readonly ICryptoTransform _encryptor; // 0x18
+	private readonly byte[] _counterNonce; // 0x20
+	private byte[] _encryptBuffer; // 0x28
+	private int _encrPos; // 0x30
+	private HMACSHA1 _hmacsha1; // 0x38
+	private bool _finalised; // 0x40
+	private bool _writeMode; // 0x41
+
+	// Properties
+	public int InputBlockSize { get; }
+	public int OutputBlockSize { get; }
+	public bool CanTransformMultipleBlocks { get; }
+	public bool CanReuseTransform { get; }
+
+	// Methods
+
+	// RVA: 0x12EC6D4 Offset: 0x12EC6D4 VA: 0x12EC6D4 Slot: 8
+	public int TransformBlock(byte[] inputBuffer, int inputOffset, int inputCount, byte[] outputBuffer, int outputOffset) { }
+
+	// RVA: 0x12EC9B8 Offset: 0x12EC9B8 VA: 0x12EC9B8
+	public byte[] GetAuthCode() { }
+
+	// RVA: 0x12ECA78 Offset: 0x12ECA78 VA: 0x12ECA78 Slot: 9
+	public byte[] TransformFinalBlock(byte[] inputBuffer, int inputOffset, int inputCount) { }
+
+	// RVA: 0x12ECAEC Offset: 0x12ECAEC VA: 0x12ECAEC Slot: 6
+	public int get_InputBlockSize() { }
+
+	// RVA: 0x12ECAF4 Offset: 0x12ECAF4 VA: 0x12ECAF4 Slot: 7
+	public int get_OutputBlockSize() { }
+
+	// RVA: 0x12ECAFC Offset: 0x12ECAFC VA: 0x12ECAFC Slot: 5
+	public bool get_CanTransformMultipleBlocks() { }
+
+	// RVA: 0x12ECB04 Offset: 0x12ECB04 VA: 0x12ECB04 Slot: 4
+	public bool get_CanReuseTransform() { }
+
+	// RVA: 0x12ECB0C Offset: 0x12ECB0C VA: 0x12ECB0C Slot: 10
+	public void Dispose() { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Checksum
+public sealed class Adler32 : IChecksum // TypeDefIndex: 3686
+{
+	// Fields
+	private static readonly uint BASE; // 0x0
+	private uint checkValue; // 0x10
+
+	// Properties
+	public long Value { get; }
+
+	// Methods
+
+	// RVA: 0x12EBD58 Offset: 0x12EBD58 VA: 0x12EBD58
+	public void .ctor() { }
+
+	// RVA: 0x12EBD84 Offset: 0x12EBD84 VA: 0x12EBD84 Slot: 4
+	public void Reset() { }
+
+	// RVA: 0x12EBD90 Offset: 0x12EBD90 VA: 0x12EBD90 Slot: 5
+	public long get_Value() { }
+
+	// RVA: 0x12EBD98 Offset: 0x12EBD98 VA: 0x12EBD98 Slot: 6
+	public void Update(int bval) { }
+
+	// RVA: 0x12EBE44 Offset: 0x12EBE44 VA: 0x12EBE44 Slot: 7
+	public void Update(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x12EC0A0 Offset: 0x12EC0A0 VA: 0x12EC0A0
+	private static void .cctor() { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Checksum
+public sealed class Crc32 : IChecksum // TypeDefIndex: 3687
+{
+	// Fields
+	private static readonly uint crcInit; // 0x0
+	private static readonly uint crcXor; // 0x4
+	private static readonly uint[] crcTable; // 0x8
+	private uint checkValue; // 0x10
+
+	// Properties
+	public long Value { get; }
+
+	// Methods
+
+	// RVA: 0x12EC2C8 Offset: 0x12EC2C8 VA: 0x12EC2C8
+	public void .ctor() { }
+
+	// RVA: 0x12EC2F0 Offset: 0x12EC2F0 VA: 0x12EC2F0 Slot: 4
+	public void Reset() { }
+
+	// RVA: 0x12EC360 Offset: 0x12EC360 VA: 0x12EC360 Slot: 5
+	public long get_Value() { }
+
+	// RVA: 0x12EC3D4 Offset: 0x12EC3D4 VA: 0x12EC3D4 Slot: 6
+	public void Update(int bval) { }
+
+	// RVA: 0x12EC494 Offset: 0x12EC494 VA: 0x12EC494 Slot: 7
+	public void Update(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x12EC63C Offset: 0x12EC63C VA: 0x12EC63C
+	private static void .cctor() { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Checksum
+public interface IChecksum // TypeDefIndex: 3688
+{
+	// Properties
+	public abstract long Value { get; }
+
+	// Methods
+
+	// RVA: -1 Offset: -1 Slot: 0
+	public abstract void Reset();
+
+	// RVA: -1 Offset: -1 Slot: 1
+	public abstract long get_Value();
+
+	// RVA: -1 Offset: -1 Slot: 2
+	public abstract void Update(int bval);
+}
+
+// Namespace: ICSharpCode.SharpZipLib.Checksum
+public sealed class BZip2Crc : IChecksum // TypeDefIndex: 3689
+{
+	// Fields
+	private static readonly uint crcInit; // 0x0
+	private static readonly uint crcXor; // 0x4
+	private static readonly uint[] crcTable; // 0x8
+	private uint checkValue; // 0x10
+
+	// Properties
+	public long Value { get; }
+
+	// Methods
+
+	// RVA: 0x12E1D38 Offset: 0x12E1D38 VA: 0x12E1D38
+	public void .ctor() { }
+
+	// RVA: 0x12EC0F4 Offset: 0x12EC0F4 VA: 0x12EC0F4 Slot: 4
+	public void Reset() { }
+
+	// RVA: 0x12EC164 Offset: 0x12EC164 VA: 0x12EC164 Slot: 5
+	public long get_Value() { }
+
+	// RVA: 0x12EC170 Offset: 0x12EC170 VA: 0x12EC170 Slot: 6
+	public void Update(int bval) { }
+
+	// RVA: 0x12EC230 Offset: 0x12EC230 VA: 0x12EC230
+	private static void .cctor() { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.BZip2
+internal sealed class BZip2Constants // TypeDefIndex: 3690
+{
+	// Fields
+	public static readonly int[] RandomNumbers; // 0x0
+
+	// Methods
+
+	// RVA: 0x12E1994 Offset: 0x12E1994 VA: 0x12E1994
+	private static void .cctor() { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.BZip2
+[Serializable]
+public class BZip2Exception : SharpZipBaseException // TypeDefIndex: 3691
+{
+	// Methods
+
+	// RVA: 0x12E1A10 Offset: 0x12E1A10 VA: 0x12E1A10
+	protected void .ctor(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0x12E1A20 Offset: 0x12E1A20 VA: 0x12E1A20
+	public void .ctor() { }
+
+	// RVA: 0x12E1A30 Offset: 0x12E1A30 VA: 0x12E1A30
+	public void .ctor(string message) { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.BZip2
+public class BZip2InputStream : Stream // TypeDefIndex: 3692
+{
+	// Fields
+	private int last; // 0x10
+	private int origPtr; // 0x14
+	private int blockSize100k; // 0x18
+	private bool blockRandomised; // 0x1C
+	private int bsBuff; // 0x20
+	private int bsLive; // 0x24
+	private IChecksum mCrc; // 0x28
+	private bool[] inUse; // 0x30
+	private int nInUse; // 0x38
+	private byte[] seqToUnseq; // 0x40
+	private byte[] unseqToSeq; // 0x48
+	private byte[] selector; // 0x50
+	private byte[] selectorMtf; // 0x58
+	private int[] tt; // 0x60
+	private byte[] ll8; // 0x68
+	private int[] unzftab; // 0x70
+	private int[][] limit; // 0x78
+	private int[][] baseArray; // 0x80
+	private int[][] perm; // 0x88
+	private int[] minLens; // 0x90
+	private Stream baseStream; // 0x98
+	private bool streamEnd; // 0xA0
+	private int currentChar; // 0xA4
+	private int currentState; // 0xA8
+	private int storedBlockCRC; // 0xAC
+	private int storedCombinedCRC; // 0xB0
+	private int computedBlockCRC; // 0xB4
+	private uint computedCombinedCRC; // 0xB8
+	private int count; // 0xBC
+	private int chPrev; // 0xC0
+	private int ch2; // 0xC4
+	private int tPos; // 0xC8
+	private int rNToGo; // 0xCC
+	private int rTPos; // 0xD0
+	private int i2; // 0xD4
+	private int j2; // 0xD8
+	private byte z; // 0xDC
+	private bool isStreamOwner; // 0xDD
+
+	// Properties
+	public bool IsStreamOwner { get; }
+	public override bool CanRead { get; }
+	public override bool CanSeek { get; }
+	public override bool CanWrite { get; }
+	public override long Length { get; }
+	public override long Position { get; set; }
+
+	// Methods
+
+	// RVA: 0x12E1A40 Offset: 0x12E1A40 VA: 0x12E1A40
+	public void .ctor(Stream stream) { }
+
+	// RVA: 0x12E2270 Offset: 0x12E2270 VA: 0x12E2270
+	public bool get_IsStreamOwner() { }
+
+	// RVA: 0x12E2278 Offset: 0x12E2278 VA: 0x12E2278 Slot: 5
+	public override bool get_CanRead() { }
+
+	// RVA: 0x12E22AC Offset: 0x12E22AC VA: 0x12E22AC Slot: 6
+	public override bool get_CanSeek() { }
+
+	// RVA: 0x12E22E0 Offset: 0x12E22E0 VA: 0x12E22E0 Slot: 7
+	public override bool get_CanWrite() { }
+
+	// RVA: 0x12E22E8 Offset: 0x12E22E8 VA: 0x12E22E8 Slot: 9
+	public override long get_Length() { }
+
+	// RVA: 0x12E231C Offset: 0x12E231C VA: 0x12E231C Slot: 10
+	public override long get_Position() { }
+
+	// RVA: 0x12E2350 Offset: 0x12E2350 VA: 0x12E2350 Slot: 11
+	public override void set_Position(long value) { }
+
+	// RVA: 0x12E23C4 Offset: 0x12E23C4 VA: 0x12E23C4 Slot: 18
+	public override void Flush() { }
+
+	// RVA: 0x12E23E0 Offset: 0x12E23E0 VA: 0x12E23E0 Slot: 21
+	public override long Seek(long offset, SeekOrigin origin) { }
+
+	// RVA: 0x12E2454 Offset: 0x12E2454 VA: 0x12E2454 Slot: 22
+	public override void SetLength(long value) { }
+
+	// RVA: 0x12E24C8 Offset: 0x12E24C8 VA: 0x12E24C8 Slot: 23
+	public override void Write(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x12E253C Offset: 0x12E253C VA: 0x12E253C Slot: 24
+	public override void WriteByte(byte value) { }
+
+	// RVA: 0x12E25B0 Offset: 0x12E25B0 VA: 0x12E25B0 Slot: 19
+	public override int Read(byte[] buffer, int offset, int count) { }
+
+	// RVA: 0x12E26D4 Offset: 0x12E26D4 VA: 0x12E26D4 Slot: 13
+	public override void Close() { }
+
+	// RVA: 0x12E26F4 Offset: 0x12E26F4 VA: 0x12E26F4 Slot: 20
+	public override int ReadByte() { }
+
+	// RVA: 0x12E2C44 Offset: 0x12E2C44 VA: 0x12E2C44
+	private void MakeMaps() { }
+
+	// RVA: 0x12E1D6C Offset: 0x12E1D6C VA: 0x12E1D6C
+	private void Initialize() { }
+
+	// RVA: 0x12E1E18 Offset: 0x12E1E18 VA: 0x12E1E18
+	private void InitBlock() { }
+
+	// RVA: 0x12E3B74 Offset: 0x12E3B74 VA: 0x12E3B74
+	private void EndBlock() { }
+
+	// RVA: 0x12E2E30 Offset: 0x12E2E30 VA: 0x12E2E30
+	private void Complete() { }
+
+	// RVA: 0x12E1D60 Offset: 0x12E1D60 VA: 0x12E1D60
+	private void BsSetStream(Stream stream) { }
+
+	// RVA: 0x12E3CC4 Offset: 0x12E3CC4 VA: 0x12E3CC4
+	private void FillBuffer() { }
+
+	// RVA: 0x12E2F48 Offset: 0x12E2F48 VA: 0x12E2F48
+	private int BsR(int n) { }
+
+	// RVA: 0x12E2D30 Offset: 0x12E2D30 VA: 0x12E2D30
+	private char BsGetUChar() { }
+
+	// RVA: 0x12E3E28 Offset: 0x12E3E28 VA: 0x12E3E28
+	private int BsGetIntVS(int numBits) { }
+
+	// RVA: 0x12E2EE0 Offset: 0x12E2EE0 VA: 0x12E2EE0
+	private int BsGetInt32() { }
+
+	// RVA: 0x12E3E2C Offset: 0x12E3E2C VA: 0x12E3E2C
+	private void RecvDecodingTables() { }
+
+	// RVA: 0x12E2FAC Offset: 0x12E2FAC VA: 0x12E2FAC
+	private void GetAndMoveToFrontDecode() { }
+
+	// RVA: 0x12E2014 Offset: 0x12E2014 VA: 0x12E2014
+	private void SetupBlock() { }
+
+	// RVA: 0x12E4A50 Offset: 0x12E4A50 VA: 0x12E4A50
+	private void SetupRandPartA() { }
+
+	// RVA: 0x12E4C74 Offset: 0x12E4C74 VA: 0x12E4C74
+	private void SetupNoRandPartA() { }
+
+	// RVA: 0x12E2760 Offset: 0x12E2760 VA: 0x12E2760
+	private void SetupRandPartB() { }
+
+	// RVA: 0x12E2918 Offset: 0x12E2918 VA: 0x12E2918
+	private void SetupRandPartC() { }
+
+	// RVA: 0x12E2A30 Offset: 0x12E2A30 VA: 0x12E2A30
+	private void SetupNoRandPartB() { }
+
+	// RVA: 0x12E2B2C Offset: 0x12E2B2C VA: 0x12E2B2C
+	private void SetupNoRandPartC() { }
+
+	// RVA: 0x12E2D48 Offset: 0x12E2D48 VA: 0x12E2D48
+	private void SetDecompressStructureSizes(int newSize100k) { }
+
+	// RVA: 0x12E3DB4 Offset: 0x12E3DB4 VA: 0x12E3DB4
+	private static void CompressedStreamEOF() { }
+
+	// RVA: 0x12E49DC Offset: 0x12E49DC VA: 0x12E49DC
+	private static void BlockOverrun() { }
+
+	// RVA: 0x12E2E6C Offset: 0x12E2E6C VA: 0x12E2E6C
+	private static void BadBlockHeader() { }
+
+	// RVA: 0x12E3C50 Offset: 0x12E3C50 VA: 0x12E3C50
+	private static void CrcError() { }
+
+	// RVA: 0x12E4610 Offset: 0x12E4610 VA: 0x12E4610
+	private static void HbCreateDecodeTables(int[] limit, int[] baseArray, int[] perm, char[] length, int minLen, int maxLen, int alphaSize) { }
+}
+
+// Namespace: ICSharpCode.SharpZipLib.BZip2
+public class BZip2OutputStream : Stream // TypeDefIndex: 3693
+{
+	// Fields
+	private readonly int[] increments; // 0x10
+	private bool isStreamOwner; // 0x18
+	private int last; // 0x1C
+	private int origPtr; // 0x20
+	private int blockSize100k; // 0x24
+	private bool blockRandomised; // 0x28
+	private int bytesOut; // 0x2C
+	private int bsBuff; // 0x30
+	private int bsLive; // 0x34
+	private IChecksum mCrc; // 0x38
+	private bool[] inUse; // 0x40
+	private int nInUse; // 0x48
+	private char[] seqToUnseq; // 0x50
+	private char[] unseqToSeq; // 0x58
+	private char[] selector; // 0x60
+	private char[] selectorMtf; // 0x68
+	private byte[] block; // 0x70
+	private int[] quadrant; // 0x78
+	private int[] zptr; // 0x80
+	private short[] szptr; // 0x88
+	private int[] ftab; // 0x90
+	private int nMTF; // 0x98
+	private int[] mtfFreq; // 0xA0
+	private int workFactor; // 0xA8
+	private int workDone; // 0xAC
+	private int workLimit; // 0xB0
+	private bool firstAttempt; // 0xB4
+	private int nBlocksRandomised; // 0xB8
+	private int currentChar; // 0xBC
+	private int runLength; // 0xC0
+	private uint blockCRC; // 0xC4
+	private uint combinedCRC; // 0xC8
+	private int allowableBlockSize; // 0xCC
+	private Stream baseStream; // 0xD0
+	private bool disposed_; // 0xD8
+	private BZip2OutputStream.StackElement[] stack; // 0xE0
+
+	// Properties
+	public bool IsStreamOwner { get; }
+	public override bool CanRead { get; }
+	public override bool CanSeek { get; }
+	public override bool CanWrite { get; }
+	public override long Length { get; }
+	public override long Position { get; set; }
+
+	// Methods
+
+	// RVA: 0x12E4E04 Offset: 0x12E4E04 VA: 0x12E4E04
+	public void .ctor(Stream stream) { }
+
+	// RVA: 0x12E4E0C Offset: 0x12E4E0C VA: 0x12E4E0C

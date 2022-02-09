@@ -1,0 +1,1000 @@
+	// RVA: 0x17EC810 Offset: 0x17EC810 VA: 0x17EC810
+	public void RequestTerminalSceneChange() { }
+
+	// RVA: 0x17EC950 Offset: 0x17EC950 VA: 0x17EC950
+	public void RequestSelectedSceneChange() { }
+
+	// RVA: 0x17ED044 Offset: 0x17ED044 VA: 0x17ED044
+	public static void UpdateNoticeNumber() { }
+
+	// RVA: 0x17ED350 Offset: 0x17ED350 VA: 0x17ED350
+	public static void SetMenuBtnColliderEnable(bool isEnable, bool isGray = False) { }
+
+	// RVA: 0x17ED558 Offset: 0x17ED558 VA: 0x17ED558
+	public static void SetMenuBtnAct(Action act) { }
+
+	// RVA: 0x17ED5D0 Offset: 0x17ED5D0 VA: 0x17ED5D0
+	public static void SetDispBtnColliderEnable(bool is_enable, MainMenuBarButton.Kind kind = 8) { }
+
+	// RVA: 0x17ED77C Offset: 0x17ED77C VA: 0x17ED77C
+	public static void SetDispBtnAct(MainMenuBarButton.Kind kind, Action act) { }
+
+	// RVA: 0x17ED890 Offset: 0x17ED890 VA: 0x17ED890
+	public static void FrameIn(bool is_force = False) { }
+
+	// RVA: 0x17EDB84 Offset: 0x17EDB84 VA: 0x17EDB84
+	public static void FrameOut(bool is_force = False) { }
+}
+
+// Namespace: 
+public enum MainMenuBar.Kind // TypeDefIndex: 6498
+{
+	// Fields
+	public int value__; // 0x0
+	public const MainMenuBar.Kind NONE = 0;
+	public const MainMenuBar.Kind TERMINAL = 1;
+	public const MainMenuBar.Kind AREA = 2;
+	public const MainMenuBar.Kind FORMATION = 3;
+	public const MainMenuBar.Kind SUMMON = 4;
+	public const MainMenuBar.Kind COMBINE = 5;
+	public const MainMenuBar.Kind SHOP = 6;
+	public const MainMenuBar.Kind FRIEND = 7;
+	public const MainMenuBar.Kind MYROOM = 8;
+	public const MainMenuBar.Kind LATEST_SCENARIO = 9;
+}
+
+// Namespace: 
+public class MainMenuBarBase : MonoBehaviour // TypeDefIndex: 6499
+{
+	// Fields
+	public const float FRAME_IN_OUT_MV_SPD_TIME = 0.25;
+	public const float FRAME_OUT_POS_Y = -90;
+	public static readonly Vector3 NOTICE_NUMBER_POS_MENU_BTN; // 0x0
+	public static readonly Vector3 NOTICE_NUMBER_POS_DISP_BTN; // 0xC
+	private const float MENU_OPEN_POS_Y = -185;
+	private const float MENU_CLOSE_POS_Y = -328;
+	private const float MENU_CLOSE_HIDE_POS_Y = -420;
+	private const float MENU_OPEN_CLOSE_TIME = 0.034;
+	private const float MENU_OPEN_TIME = 0.034;
+	private const float MENU_CLOSE_TIME = 0.034;
+	private static readonly float ITEM_ICON_ALPHA_ANIM_SPD_RATE; // 0x18
+	public static readonly float ITEM_ICON_ALPHA_ANIM_TIME_INTERVAL; // 0x1C
+	public UIPanel rootPanel; // 0x18
+	[SerializeField] // RVA: 0xCC08F0 Offset: 0xCC08F0 VA: 0xCC08F0
+	private MainMenuBarButton terminalBtn; // 0x20
+	[SerializeField] // RVA: 0xCC0900 Offset: 0xCC0900 VA: 0xCC0900
+	private MainMenuBarButton partyBtn; // 0x28
+	[SerializeField] // RVA: 0xCC0910 Offset: 0xCC0910 VA: 0xCC0910
+	private MainMenuBarButton summonBtn; // 0x30
+	[SerializeField] // RVA: 0xCC0920 Offset: 0xCC0920 VA: 0xCC0920
+	private MainMenuBarButton combineBtn; // 0x38
+	[SerializeField] // RVA: 0xCC0930 Offset: 0xCC0930 VA: 0xCC0930
+	private MainMenuBarButton shopBtn; // 0x40
+	[SerializeField] // RVA: 0xCC0940 Offset: 0xCC0940 VA: 0xCC0940
+	private MainMenuBarButton friendBtn; // 0x48
+	[SerializeField] // RVA: 0xCC0950 Offset: 0xCC0950 VA: 0xCC0950
+	private MainMenuBarButton myroomBtn; // 0x50
+	[SerializeField] // RVA: 0xCC0960 Offset: 0xCC0960 VA: 0xCC0960
+	private MainMenuBarButton latestScenarioBtn; // 0x58
+	private List<MainMenuBarButton> mDispBtnList; // 0x60
+	public GameObject menuComp; // 0x68
+	public UISprite menuStateImg; // 0x70
+	public UIButton menuStateBtn; // 0x78
+	public UIButton menuFrameBnt; // 0x80
+	[SerializeField] // RVA: 0xCC0970 Offset: 0xCC0970 VA: 0xCC0970
+	private BoxCollider mOutSide; // 0x88
+	[SerializeField] // RVA: 0xCC0980 Offset: 0xCC0980 VA: 0xCC0980
+	private GameObject mNoticeNumberPrefab; // 0x90
+	[SerializeField] // RVA: 0xCC0990 Offset: 0xCC0990 VA: 0xCC0990
+	private UISprite mNewItemSp; // 0x98
+	[SerializeField] // RVA: 0xCC09A0 Offset: 0xCC09A0 VA: 0xCC09A0
+	private GameObject mLimitedItemIconRoot; // 0xA0
+	[SerializeField] // RVA: 0xCC09B0 Offset: 0xCC09B0 VA: 0xCC09B0
+	private UISprite mPeriodLimitedItemSp; // 0xA8
+	[SerializeField] // RVA: 0xCC09C0 Offset: 0xCC09C0 VA: 0xCC09C0
+	private UISprite mMonthlyLimitedItemSp; // 0xB0
+	[SerializeField] // RVA: 0xCC09D0 Offset: 0xCC09D0 VA: 0xCC09D0
+	private UISprite mExchangeServantItemSp; // 0xB8
+	[SerializeField] // RVA: 0xCC09E0 Offset: 0xCC09E0 VA: 0xCC09E0
+	private UILabel mPeriodLimitedTimeLb; // 0xC0
+	[SerializeField] // RVA: 0xCC09F0 Offset: 0xCC09F0 VA: 0xCC09F0
+	private UILabel mMonthlyLimitedTimeLb; // 0xC8
+	[SerializeField] // RVA: 0xCC0A00 Offset: 0xCC0A00 VA: 0xCC0A00
+	private UILabel mExchangeServantItemLb; // 0xD0
+	[SerializeField] // RVA: 0xCC0A10 Offset: 0xCC0A10 VA: 0xCC0A10
+	private GameObject mExchangeServantTimeRoot; // 0xD8
+	[SerializeField] // RVA: 0xCC0A20 Offset: 0xCC0A20 VA: 0xCC0A20
+	private UIWidget mShopIconRoot; // 0xE0
+	[SerializeField] // RVA: 0xCC0A30 Offset: 0xCC0A30 VA: 0xCC0A30
+	private UISprite StartUpSummonSp; // 0xE8
+	[SerializeField] // RVA: 0xCC0A40 Offset: 0xCC0A40 VA: 0xCC0A40
+	private UILabel StartUpSummonLb; // 0xF0
+	[SerializeField] // RVA: 0xCC0A50 Offset: 0xCC0A50 VA: 0xCC0A50
+	private GameObject summonCampainObject; // 0xF8
+	[SerializeField] // RVA: 0xCC0A60 Offset: 0xCC0A60 VA: 0xCC0A60
+	private UILabel summonCampainLabel1; // 0x100
+	[SerializeField] // RVA: 0xCC0A70 Offset: 0xCC0A70 VA: 0xCC0A70
+	private UILabel summonCampainLabel2; // 0x108
+	[SerializeField] // RVA: 0xCC0A80 Offset: 0xCC0A80 VA: 0xCC0A80
+	private UILabel summonCampainNumLabel; // 0x110
+	private UIAtlas mExchangeServantItemDefaultAtlas; // 0x118
+	private string mExchangeServantItemDefaultSpriteName; // 0x120
+	protected PlayMakerFSM activeSceneFSM; // 0x128
+	protected MainMenuBar.Kind kind; // 0x130
+	protected SceneList.Type selectedType; // 0x134
+	protected string selectedKind; // 0x138
+	private object selectedObject; // 0x140
+	private Hashtable table; // 0x148
+	protected bool isOpen; // 0x150
+	private Collider closeCol; // 0x158
+	private Action mMenuBtnAct; // 0x160
+	private Action[] mDispBtnActList; // 0x168
+	private bool mIsCloseHideMode; // 0x170
+	private NoticeNumberComponent mMenuNoticeNumber; // 0x178
+	private NoticeNumberComponent mSummonNoticeNumber; // 0x180
+	private NoticeNumberComponent mFriendNoticeNumber; // 0x188
+	private bool mIsActiveShopEvent; // 0x190
+	private float mFrameInPosY; // 0x194
+	private bool isSwitchMenuMoving; // 0x198
+	private ShopNotice shopNotice; // 0x1A0
+	private ShopNoticeTween shopNoticeTween; // 0x1A8
+	private ShopNoticeRemainTime shopNoticeRemainTime; // 0x1B0
+	private ShopNoticeRemainTimeLabel periodShopNoticeRemainTimeLabel; // 0x1B8
+	private ShopNoticeRemainTimeLabel monthlyShopNoticeRemainTimeLabel; // 0x1C0
+	private ShopNoticeRemainTimeLabel exchangeServantShopNoticeRemainTimeLabel; // 0x1C8
+	public UISkinSprite backCloseSprite; // 0x1D0
+	public UISkinSprite backOpenSprite; // 0x1D8
+	public GameObject menuGrid; // 0x1E0
+	[CompilerGeneratedAttribute] // RVA: 0xCC0A90 Offset: 0xCC0A90 VA: 0xCC0A90
+	private static Action <>f__am$cache0; // 0x20
+
+	// Properties
+	public bool IsEnableOutSideCollider { get; }
+	public bool IsCloseHideMode { get; set; }
+
+	// Methods
+
+	// RVA: 0x17EDBFC Offset: 0x17EDBFC VA: 0x17EDBFC
+	public void .ctor() { }
+
+	// RVA: 0x17EB75C Offset: 0x17EB75C VA: 0x17EB75C
+	public bool get_IsEnableOutSideCollider() { }
+
+	// RVA: 0x17EDCAC Offset: 0x17EDCAC VA: 0x17EDCAC
+	public bool get_IsCloseHideMode() { }
+
+	// RVA: 0x17EC474 Offset: 0x17EC474 VA: 0x17EC474
+	public void set_IsCloseHideMode(bool value) { }
+
+	// RVA: 0x17EDCB4 Offset: 0x17EDCB4 VA: 0x17EDCB4
+	private void BackActive(bool isOpen) { }
+
+	// RVA: 0x17EDE04 Offset: 0x17EDE04 VA: 0x17EDE04
+	private void Start() { }
+
+	// RVA: 0x17EDE0C Offset: 0x17EDE0C VA: 0x17EDE0C
+	private void Awake() { }
+
+	// RVA: 0x17ED0B0 Offset: 0x17ED0B0 VA: 0x17ED0B0
+	public void UpdateNoticeNumber() { }
+
+	// RVA: 0x17EC9E8 Offset: 0x17EC9E8 VA: 0x17EC9E8
+	public void SetActiveScene(SceneRootComponent scene, MainMenuBar.Kind kind, int panelDepth, Camera cam) { }
+
+	// RVA: 0x17EE5FC Offset: 0x17EE5FC VA: 0x17EE5FC
+	public void OnClickOutSide() { }
+
+	// RVA: 0x17ECC68 Offset: 0x17ECC68 VA: 0x17ECC68
+	public void SetButtonKind(MainMenuBar.Kind kind) { }
+
+	// RVA: 0x17ECC70 Offset: 0x17ECC70 VA: 0x17ECC70
+	public void SetMenuActive(bool isActive) { }
+
+	// RVA: 0x17ECCAC Offset: 0x17ECCAC VA: 0x17ECCAC
+	public void SetButtonActive(MainMenuBar.Kind kind, bool isActive) { }
+
+	// RVA: 0x17ECF10 Offset: 0x17ECF10 VA: 0x17ECF10
+	public void RequestTerminalSceneChange() { }
+
+	// RVA: 0x17ECFA8 Offset: 0x17ECFA8 VA: 0x17ECFA8
+	public void RequestSelectedSceneChange() { }
+
+	// RVA: 0x17ECE48 Offset: 0x17ECE48 VA: 0x17ECE48
+	public void RequestSelectedSignal() { }
+
+	// RVA: 0x17EEA28 Offset: 0x17EEA28 VA: 0x17EEA28
+	protected void SendSelectSignal(SceneList.Type type, string message, object obj) { }
+
+	// RVA: 0x17EEB2C Offset: 0x17EEB2C VA: 0x17EEB2C
+	public void OnClickUnivMenu() { }
+
+	// RVA: 0x17EE5F0 Offset: 0x17EE5F0 VA: 0x17EE5F0
+	public void CloseMenu(bool is_play_se = True) { }
+
+	// RVA: 0x17EEB6C Offset: 0x17EEB6C VA: 0x17EEB6C
+	private void SwitchMenu(bool is_open, bool is_play_se = True) { }
+
+	// RVA: 0x17EF56C Offset: 0x17EF56C VA: 0x17EF56C
+	private void CheckTerminalButtonEnable() { }
+
+	// RVA: 0x17EE7E8 Offset: 0x17EE7E8 VA: 0x17EE7E8
+	private void CheckLatestScenarioButtonEnable() { }
+
+	// RVA: 0x17EF7F0 Offset: 0x17EF7F0 VA: 0x17EF7F0
+	private void ResetShopNoticeDraw() { }
+
+	// RVA: 0x17EF360 Offset: 0x17EF360 VA: 0x17EF360
+	private void ResetShopNotice() { }
+
+	// RVA: 0x17EF3D0 Offset: 0x17EF3D0 VA: 0x17EF3D0
+	private void ResetSummonNoticeDraw() { }
+
+	// RVA: 0x17F0F94 Offset: 0x17F0F94 VA: 0x17F0F94
+	private void openMenuStateImg() { }
+
+	// RVA: 0x17F106C Offset: 0x17F106C VA: 0x17F106C
+	private void closeMenuStateImg() { }
+
+	// RVA: 0x17F1144 Offset: 0x17F1144 VA: 0x17F1144
+	private void onMoveComplete() { }
+
+	// RVA: 0x17EF290 Offset: 0x17EF290 VA: 0x17EF290
+	private void SetOutSideColliderEnable(bool is_enable) { }
+
+	// RVA: 0x17F1220 Offset: 0x17F1220 VA: 0x17F1220
+	public void OnClickCommon(MainMenuBarButton.Kind kind, bool isEnabled) { }
+
+	// RVA: 0x17F1338 Offset: 0x17F1338 VA: 0x17F1338
+	public void OnClickTerminal() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD36FF0 Offset: 0xD36FF0 VA: 0xD36FF0
+	// RVA: 0x17F1960 Offset: 0x17F1960 VA: 0x17F1960
+	private IEnumerator SetTerminalQuestListClose(Action callback) { }
+
+	// RVA: 0x17F19FC Offset: 0x17F19FC VA: 0x17F19FC
+	private bool IsSpotSelectWait() { }
+
+	// RVA: 0x17F1B48 Offset: 0x17F1B48 VA: 0x17F1B48
+	public void OnClickFormation() { }
+
+	// RVA: 0x17F1BDC Offset: 0x17F1BDC VA: 0x17F1BDC
+	public void OnClickSummon() { }
+
+	// RVA: 0x17F1C70 Offset: 0x17F1C70 VA: 0x17F1C70
+	public void OnClickCombine() { }
+
+	// RVA: 0x17F1D04 Offset: 0x17F1D04 VA: 0x17F1D04
+	public void OnClickShop() { }
+
+	// RVA: 0x17F1D98 Offset: 0x17F1D98 VA: 0x17F1D98
+	public void OnClickFriend() { }
+
+	// RVA: 0x17F1E2C Offset: 0x17F1E2C VA: 0x17F1E2C
+	public void OnClickMyroom() { }
+
+	// RVA: 0x17F1EC0 Offset: 0x17F1EC0 VA: 0x17F1EC0
+	public void OnClickLatestScenario() { }
+
+	// RVA: 0x17EF61C Offset: 0x17EF61C VA: 0x17EF61C
+	private bool GetJumpSceneInfo(out int warId, out int questId) { }
+
+	// RVA: 0x17ED3D4 Offset: 0x17ED3D4 VA: 0x17ED3D4
+	public void SetMenuBtnColliderEnable(bool isEnable, bool isGray = False) { }
+
+	// RVA: 0x17ED5C8 Offset: 0x17ED5C8 VA: 0x17ED5C8
+	public void SetMenuBtnAct(Action act) { }
+
+	// RVA: 0x17ED654 Offset: 0x17ED654 VA: 0x17ED654
+	public void SetDispBtnColliderEnable(bool is_enable, MainMenuBarButton.Kind kind = 8) { }
+
+	// RVA: 0x17ED800 Offset: 0x17ED800 VA: 0x17ED800
+	public void SetDispBtnAct(MainMenuBarButton.Kind kind, Action act) { }
+
+	// RVA: 0x17F1FD0 Offset: 0x17F1FD0 VA: 0x17F1FD0
+	public void FrameIn(bool is_force = False) { }
+
+	// RVA: 0x17F1FDC Offset: 0x17F1FDC VA: 0x17F1FDC
+	public void FrameOut(bool is_force = False) { }
+
+	// RVA: 0x17ED908 Offset: 0x17ED908 VA: 0x17ED908
+	public void FrameInOut(bool is_framein, bool is_force = False) { }
+
+	// RVA: 0x17F1FF0 Offset: 0x17F1FF0 VA: 0x17F1FF0
+	private static void .cctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD37000 Offset: 0xD37000 VA: 0xD37000
+	// RVA: 0x17F20D0 Offset: 0x17F20D0 VA: 0x17F20D0
+	private void <ResetShopNoticeDraw>m__0() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD37010 Offset: 0xD37010 VA: 0xD37010
+	// RVA: 0x17F2218 Offset: 0x17F2218 VA: 0x17F2218
+	private static void <OnClickTerminal>m__1() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCAEAB0 Offset: 0xCAEAB0 VA: 0xCAEAB0
+private sealed class MainMenuBarBase.<SetTerminalQuestListClose>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 6500
+{
+	// Fields
+	internal Action callback; // 0x10
+	internal MainMenuBarBase $this; // 0x18
+	internal object $current; // 0x20
+	internal bool $disposing; // 0x28
+	internal int $PC; // 0x2C
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xD460A4 Offset: 0xD460A4 VA: 0xD460A4
+	// RVA: 0x17F19F4 Offset: 0x17F19F4 VA: 0x17F19F4
+	public void .ctor() { }
+
+	// RVA: 0x17F2364 Offset: 0x17F2364 VA: 0x17F2364 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD460B4 Offset: 0xD460B4 VA: 0xD460B4
+	// RVA: 0x17F2540 Offset: 0x17F2540 VA: 0x17F2540 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD460C4 Offset: 0xD460C4 VA: 0xD460C4
+	// RVA: 0x17F2548 Offset: 0x17F2548 VA: 0x17F2548 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD460D4 Offset: 0xD460D4 VA: 0xD460D4
+	// RVA: 0x17F2550 Offset: 0x17F2550 VA: 0x17F2550 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD460E4 Offset: 0xD460E4 VA: 0xD460E4
+	// RVA: 0x17F2564 Offset: 0x17F2564 VA: 0x17F2564 Slot: 6
+	public void Reset() { }
+
+	// RVA: 0x17F25CC Offset: 0x17F25CC VA: 0x17F25CC
+	internal bool <>m__0() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCAEAC0 Offset: 0xCAEAC0 VA: 0xCAEAC0
+private sealed class MainMenuBarBase.<FrameInOut>c__AnonStorey1 // TypeDefIndex: 6501
+{
+	// Fields
+	internal GameObject tgt_obj; // 0x10
+	internal MoveObject mo; // 0x18
+	internal float tgt_y; // 0x20
+
+	// Methods
+
+	// RVA: 0x17F1FE8 Offset: 0x17F1FE8 VA: 0x17F1FE8
+	public void .ctor() { }
+
+	// RVA: 0x17F2310 Offset: 0x17F2310 VA: 0x17F2310
+	internal void <>m__0() { }
+
+	// RVA: 0x17F2350 Offset: 0x17F2350 VA: 0x17F2350
+	internal void <>m__1() { }
+}
+
+// Namespace: 
+public class ManagementManager : SingletonMonoBehaviour<ManagementManager> // TypeDefIndex: 6502
+{
+	// Fields
+	protected static readonly string PushStateSendedKey; // 0x0
+	protected static readonly string RebootCacheClearKey; // 0x8
+	private static readonly string DATE_TIME_DISP_FORMAT; // 0x10
+	protected static bool isDuringStartup; // 0x18
+	private bool isInitializingData; // 0x18
+	public SceneList.Type scenetype; // 0x1C
+	public AvalonSceneManager AvalonSceneManager; // 0x20
+	public GameObject debugInfoRootObject; // 0x28
+	public UILabel statusLabel; // 0x30
+	[CompilerGeneratedAttribute] // RVA: 0xCC0AA0 Offset: 0xCC0AA0 VA: 0xCC0AA0
+	[DebuggerBrowsableAttribute] // RVA: 0xCC0AA0 Offset: 0xCC0AA0 VA: 0xCC0AA0
+	private AvalonVideoPlayer <videoPlayer>k__BackingField; // 0x38
+	protected bool isReadAuth; // 0x40
+	protected bool isReadGameData; // 0x41
+	protected bool isPlayLogo; // 0x42
+	protected bool isErrorDialog; // 0x43
+	private readonly int downloadParallelMax; // 0x44
+	protected bool IsQuitDialogOpen; // 0x48
+	protected bool IsQuitFlag; // 0x49
+	protected bool _IsInitialized; // 0x4A
+
+	// Properties
+	public AvalonVideoPlayer videoPlayer { get; set; }
+	public static int DownloadParallelMax { get; }
+	public static bool IsDuringStartup { get; }
+
+	// Methods
+
+	// RVA: 0x17F2600 Offset: 0x17F2600 VA: 0x17F2600
+	public void .ctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD37020 Offset: 0xD37020 VA: 0xD37020
+	// RVA: 0x17F2658 Offset: 0x17F2658 VA: 0x17F2658
+	public AvalonVideoPlayer get_videoPlayer() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD37030 Offset: 0xD37030 VA: 0xD37030
+	// RVA: 0x17F2660 Offset: 0x17F2660 VA: 0x17F2660
+	private void set_videoPlayer(AvalonVideoPlayer value) { }
+
+	// RVA: 0x17F2668 Offset: 0x17F2668 VA: 0x17F2668
+	public static int get_DownloadParallelMax() { }
+
+	// RVA: 0x17F26C4 Offset: 0x17F26C4 VA: 0x17F26C4
+	public static bool get_IsDuringStartup() { }
+
+	// RVA: 0x17F272C Offset: 0x17F272C VA: 0x17F272C
+	public static void CompletionStartup() { }
+
+	// RVA: 0x17F2794 Offset: 0x17F2794 VA: 0x17F2794
+	public static void RebootCacheClear() { }
+
+	// RVA: 0x17F2844 Offset: 0x17F2844 VA: 0x17F2844
+	protected void Awake() { }
+
+	// RVA: 0x17F28E4 Offset: 0x17F28E4 VA: 0x17F28E4
+	private void Start() { }
+
+	// RVA: 0x17F2DEC Offset: 0x17F2DEC VA: 0x17F2DEC
+	private void createMovieObj() { }
+
+	// RVA: 0x17F2FF8 Offset: 0x17F2FF8 VA: 0x17F2FF8
+	public void reboot(bool isLogin = False) { }
+
+	// RVA: 0x17F2AC4 Offset: 0x17F2AC4 VA: 0x17F2AC4
+	private void AdManagerInitializeErrorLogOutputRatio(string errorText, string exceptionMessage, float ratio) { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD37040 Offset: 0xD37040 VA: 0xD37040
+	// RVA: 0x17F2F40 Offset: 0x17F2F40 VA: 0x17F2F40
+	private IEnumerator startCheckAll(bool isReboot, bool isLogin) { }
+
+	// RVA: 0x17F3398 Offset: 0x17F3398 VA: 0x17F3398
+	public void startUpCacheClear() { }
+
+	// RVA: 0x17F33F8 Offset: 0x17F33F8 VA: 0x17F33F8
+	public void titleCacheClear() { }
+
+	// RVA: 0x17F34F8 Offset: 0x17F34F8 VA: 0x17F34F8
+	protected void callbackPlayLogo() { }
+
+	// RVA: 0x17F3504 Offset: 0x17F3504 VA: 0x17F3504
+	protected void EndLogDialog(bool isDecide) { }
+
+	// RVA: 0x17F350C Offset: 0x17F350C VA: 0x17F350C
+	protected void EndRetryDialog(bool isDecide) { }
+
+	// RVA: 0x17F3520 Offset: 0x17F3520 VA: 0x17F3520
+	protected void EndQuitDialog(bool isDecide) { }
+
+	// RVA: 0x17F3528 Offset: 0x17F3528 VA: 0x17F3528
+	protected void EndDifferentCreateUserServerDialog(bool isDecide) { }
+
+	// RVA: 0x17F3594 Offset: 0x17F3594 VA: 0x17F3594
+	protected void callbackAccountRegist(string result) { }
+
+	// RVA: 0x17F35A0 Offset: 0x17F35A0 VA: 0x17F35A0
+	protected void callbackTopGameData(string result) { }
+
+	// RVA: 0x17F35AC Offset: 0x17F35AC VA: 0x17F35AC
+	protected void requestLogin() { }
+
+	// RVA: 0x17F3654 Offset: 0x17F3654 VA: 0x17F3654
+	protected void callbackTopLogin(string result) { }
+
+	// RVA: 0x17F3778 Offset: 0x17F3778 VA: 0x17F3778
+	protected void callbackTopHome(string result) { }
+
+	// RVA: 0x17F3818 Offset: 0x17F3818 VA: 0x17F3818
+	protected void requestTerminalLogin() { }
+
+	// RVA: 0x17F38C0 Offset: 0x17F38C0 VA: 0x17F38C0
+	protected void callbackTerminalTopLogin(string result) { }
+
+	// RVA: 0x17F39E0 Offset: 0x17F39E0 VA: 0x17F39E0
+	protected void callbackTerminalTopHome(string result) { }
+
+	// RVA: 0x17F3A7C Offset: 0x17F3A7C VA: 0x17F3A7C
+	protected bool IsInitialized() { }
+
+	// RVA: 0x17F3AE4 Offset: 0x17F3AE4 VA: 0x17F3AE4
+	protected bool IsLoading() { }
+
+	// RVA: 0x17F3BAC Offset: 0x17F3BAC VA: 0x17F3BAC
+	private void Update() { }
+
+	// RVA: 0x17F3BE0 Offset: 0x17F3BE0 VA: 0x17F3BE0
+	public void BuildInfoOff() { }
+
+	// RVA: 0x17F3CA0 Offset: 0x17F3CA0 VA: 0x17F3CA0
+	public void BuildInfoOn(bool boot = False) { }
+
+	// RVA: 0x17F3CA4 Offset: 0x17F3CA4 VA: 0x17F3CA4
+	public void BuildInfoDisp(bool boot = False) { }
+
+	[RuntimeInitializeOnLoadMethodAttribute] // RVA: 0xD37050 Offset: 0xD37050 VA: 0xD37050
+	// RVA: 0x17F3D10 Offset: 0x17F3D10 VA: 0x17F3D10
+	public static void OnRuntimeMethodLoad() { }
+
+	// RVA: 0x17F3D4C Offset: 0x17F3D4C VA: 0x17F3D4C
+	private static void .cctor() { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCAEAD0 Offset: 0xCAEAD0 VA: 0xCAEAD0
+private sealed class ManagementManager.<startCheckAll>c__Iterator0 : IEnumerator, IDisposable, IEnumerator<object> // TypeDefIndex: 6503
+{
+	// Fields
+	internal bool isReboot; // 0x10
+	internal NetworkManager.ReadResult <readResult>__0; // 0x14
+	internal long <freeSize1>__1; // 0x18
+	internal long <freeSize2>__1; // 0x20
+	internal long <freeSize>__1; // 0x28
+	internal AccountRegistRequest <request>__2; // 0x30
+	internal bool <isCacheCheck>__0; // 0x38
+	internal DataManager.ReadMasterVersionResult <readMasterVersionResult>__4; // 0x3C
+	internal TopGameDataRequest <request>__4; // 0x40
+	internal WaitForEndOfFrame <wait>__4; // 0x48
+	internal DataManager.ReadMasterDataResult <readMasterDataResult>__5; // 0x50
+	internal DataManager.UpdateMasterDataResult <updateMasterResult>__4; // 0x54
+	internal long <size>__6; // 0x58
+	internal bool <isLoad>__0; // 0x60
+	internal long <allSize>__7; // 0x68
+	internal long <size>__8; // 0x70
+	internal long <allSize>__9; // 0x78
+	internal bool <isUnityIapAvailable>__0; // 0x80
+	internal bool isLogin; // 0x81
+	internal ManagementManager $this; // 0x88
+	internal object $current; // 0x90
+	internal bool $disposing; // 0x98
+	internal int $PC; // 0x9C
+	private ManagementManager.<startCheckAll>c__Iterator0.<startCheckAll>c__AnonStorey2 $locvar0; // 0xA0
+
+	// Properties
+	private object System.Collections.Generic.IEnumerator<object>.Current { get; }
+	private object System.Collections.IEnumerator.Current { get; }
+
+	// Methods
+
+	[DebuggerHiddenAttribute] // RVA: 0xD460F4 Offset: 0xD460F4 VA: 0xD460F4
+	// RVA: 0x17F3390 Offset: 0x17F3390 VA: 0x17F3390
+	public void .ctor() { }
+
+	// RVA: 0x17F3DE0 Offset: 0x17F3DE0 VA: 0x17F3DE0 Slot: 5
+	public bool MoveNext() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD46104 Offset: 0xD46104 VA: 0xD46104
+	// RVA: 0x17F5FC0 Offset: 0x17F5FC0 VA: 0x17F5FC0 Slot: 8
+	private object System.Collections.Generic.IEnumerator<object>.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD46114 Offset: 0xD46114 VA: 0xD46114
+	// RVA: 0x17F5FC8 Offset: 0x17F5FC8 VA: 0x17F5FC8 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD46124 Offset: 0xD46124 VA: 0xD46124
+	// RVA: 0x17F5FD0 Offset: 0x17F5FD0 VA: 0x17F5FD0 Slot: 7
+	public void Dispose() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD46134 Offset: 0xD46134 VA: 0xD46134
+	// RVA: 0x17F5FE4 Offset: 0x17F5FE4 VA: 0x17F5FE4 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: 
+private sealed class ManagementManager.<startCheckAll>c__Iterator0.<startCheckAll>c__AnonStorey2 // TypeDefIndex: 6504
+{
+	// Fields
+	internal bool isDecide; // 0x10
+	internal bool confirmed; // 0x11
+	internal ManagementManager.<startCheckAll>c__Iterator0 <>f__ref$0; // 0x18
+
+	// Methods
+
+	// RVA: 0x17F5FB8 Offset: 0x17F5FB8 VA: 0x17F5FB8
+	public void .ctor() { }
+
+	// RVA: 0x17F604C Offset: 0x17F604C VA: 0x17F604C
+	internal void <>m__0(bool flag) { }
+}
+
+// Namespace: 
+private sealed class ManagementManager.<startCheckAll>c__Iterator0.<startCheckAll>c__AnonStorey2.<startCheckAll>c__AnonStorey1 // TypeDefIndex: 6505
+{
+	// Fields
+	internal bool flag; // 0x10
+	internal ManagementManager.<startCheckAll>c__Iterator0.<startCheckAll>c__AnonStorey2 <>f__ref$2; // 0x18
+
+	// Methods
+
+	// RVA: 0x17F613C Offset: 0x17F613C VA: 0x17F613C
+	public void .ctor() { }
+
+	// RVA: 0x17F6144 Offset: 0x17F6144 VA: 0x17F6144
+	internal void <>m__0() { }
+}
+
+// Namespace: 
+public class ManagerConfig // TypeDefIndex: 6506
+{
+	// Fields
+	public static readonly string AppVer; // 0x0
+	public static readonly string verCode; // 0x8
+	public static readonly string AppBuildDate; // 0x10
+	public static readonly string SaveDataVer; // 0x18
+	public static readonly string MasterDataCacheVer; // 0x20
+	public static readonly float TIMEOUT; // 0x28
+	public static readonly float GAME_DATA_TIMEOUT; // 0x2C
+	public static readonly float WORK_TIME; // 0x30
+	public static readonly float SLOW_LOAD_WAIT_TIME; // 0x34
+	public static readonly float SLOW_CONNECT_WAIT_TIME; // 0x38
+	public static readonly long SERVER_TIME_OVER_LIMIT; // 0x40
+	public static readonly float DOWNLOAD_RETRY_DELAY_TIME; // 0x48
+	public static readonly int RETRY_COUNT; // 0x4C
+	public static readonly int WIDTH; // 0x50
+	public static readonly int WIDTH_21_9; // 0x54
+	public static readonly int HEIGHT; // 0x58
+	public static readonly long LIMIT_FREE_SIZE; // 0x60
+	public static readonly float MINIMUM_ENABLE_ALPHA; // 0x68
+	public static readonly string AndroidPackageName; // 0x70
+	public static readonly string iOSApplicationID; // 0x78
+	public static readonly string PlatformName; // 0x80
+	public static readonly bool ReleaseNetworkSecurity; // 0x88
+	public static readonly string ReleaseGameServerAddress; // 0x90
+	public static readonly string ReleaseDataServerAddress; // 0x98
+	public static readonly string ReleaseWebServerAddress; // 0xA0
+	public static readonly bool ReviewNetworkSecurity; // 0xA8
+	public static readonly string ReviewGameServerAddress; // 0xB0
+	public static readonly string ReviewDataServerAddress; // 0xB8
+	public static readonly string ReviewWebServerAddress; // 0xC0
+	public static readonly bool StagingNetworkSecurity; // 0xC8
+	public static readonly string StagingGameServerAddress; // 0xD0
+	public static readonly string StagingDataServerAddress; // 0xD8
+	public static readonly string StagingWebServerAddress; // 0xE0
+	public static readonly bool GameCloneNetworkSecurity; // 0xE8
+	public static readonly string GameCloneGameServerAddress; // 0xF0
+	public static readonly string GameCloneDataServerAddress; // 0xF8
+	public static readonly string GameCloneWebServerAddress; // 0x100
+	public static readonly bool ReleaseCloneNetworkSecurity; // 0x108
+	public static readonly string ReleaseCloneGameServerAddress; // 0x110
+	public static readonly string ReleaseCloneDataServerAddress; // 0x118
+	public static readonly string ReleaseCloneWebServerAddress; // 0x120
+	public static readonly bool DebugNetworkSecurity; // 0x128
+	public static readonly string DebugGameServerAddress; // 0x130
+	public static readonly string DebugDataServerAddress; // 0x138
+	public static readonly string DebugWebServerAddress; // 0x140
+	public static readonly bool EventDevNetworkSecurity; // 0x148
+	public static readonly string EventDevGameServerAddress; // 0x150
+	public static readonly string EventDevDataServerAddress; // 0x158
+	public static readonly string EventDevWebServerAddress; // 0x160
+	public static readonly bool DevelopNetworkSecurity; // 0x168
+	public static readonly string DevelopGameServerAddress; // 0x170
+	public static readonly string DevelopDataServerAddress; // 0x178
+	public static readonly string DevelopWebServerAddress; // 0x180
+	public static readonly bool QaNetworkSecurity; // 0x188
+	public static readonly string QaGameServerAddress; // 0x190
+	public static readonly string QaDataServerAddress; // 0x198
+	public static readonly string QaWebServerAddress; // 0x1A0
+	public static readonly bool DevNetworkSecurity; // 0x1A8
+	public static readonly string DevGameServerAddress; // 0x1B0
+	public static readonly bool PlanNetworkSecurity; // 0x1B8
+	public static readonly string PlanGameServerAddress; // 0x1C0
+	public static readonly string PlanDataServerAddress; // 0x1C8
+	public static readonly bool LimitNetworkSecurity; // 0x1D0
+	public static readonly string LimitGameServerAddress; // 0x1D8
+	public static readonly string LimitDataServerAddress; // 0x1E0
+	public static readonly bool PlayNetworkSecurity; // 0x1E8
+	public static readonly string PlayGameServerAddress; // 0x1F0
+	public static readonly string PlayDataServerAddress; // 0x1F8
+	public static readonly bool DesignNetworkSecurity; // 0x200
+	public static readonly string DesignGameServerAddress; // 0x208
+	public static readonly string DesignDataServerAddress; // 0x210
+	public static readonly bool VersionUpNetworkSecurity; // 0x218
+	public static readonly string VersionUp1GameServerAddress; // 0x220
+	public static readonly string VersionUp1DataServerAddress; // 0x228
+	public static readonly string VersionUpWebServerAddress; // 0x230
+	public static readonly bool StressNetworkSecurity; // 0x238
+	public static readonly string StressGameServerAddress; // 0x240
+	public static readonly string StressDataServerAddress; // 0x248
+	public static readonly string DevDataServerAddress; // 0x250
+	public static readonly string DevWebServerAddress; // 0x258
+	public static readonly string ScriptGameServerAddress; // 0x260
+	public static readonly string ScriptDataServerAddress; // 0x268
+	public static readonly bool IsTrueTargetPlatform; // 0x270
+	public static readonly bool UseClientNetworkParameterCheck; // 0x271
+	public static readonly bool IsNetworkMock; // 0x272
+	public static readonly string ServerDefaultType; // 0x278
+	public static readonly bool UseAppServer; // 0x280
+	public static readonly bool UseDebugCommand; // 0x281
+	public static readonly bool UseStandaloneAsset; // 0x282
+	public static readonly bool UseMock; // 0x283
+	public static readonly bool UseWebViewAuthoring; // 0x284
+
+	// Methods
+
+	// RVA: 0x17F6198 Offset: 0x17F6198 VA: 0x17F6198
+	public void .ctor() { }
+
+	// RVA: 0x17F61A0 Offset: 0x17F61A0 VA: 0x17F61A0
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class MdcStr // TypeDefIndex: 6507
+{
+	// Fields
+	protected const int WRITE_BUFFER_SIZE = 16384;
+
+	// Methods
+
+	// RVA: 0x1BBACD0 Offset: 0x1BBACD0 VA: 0x1BBACD0
+	public void .ctor() { }
+
+	// RVA: 0x1BBACD8 Offset: 0x1BBACD8 VA: 0x1BBACD8
+	public static string Ec(ref Nullable<uint> crc, string str, uint eorData = 0) { }
+
+	// RVA: 0x1BBB44C Offset: 0x1BBB44C VA: 0x1BBB44C
+	public static string Dc(string str, uint eorData = 0, Nullable<uint> crc) { }
+}
+
+// Namespace: 
+public class MemoryWarningReciever : MonoBehaviour // TypeDefIndex: 6508
+{
+	// Fields
+	private float prevExecuteTime; // 0x18
+	private int executionCount; // 0x1C
+	public float PeriodInterval; // 0x20
+	public int PeriodExecutionCount; // 0x24
+
+	// Methods
+
+	// RVA: 0x16D571C Offset: 0x16D571C VA: 0x16D571C
+	public void .ctor() { }
+
+	// RVA: 0x16D5730 Offset: 0x16D5730 VA: 0x16D5730
+	private void Awake() { }
+
+	// RVA: 0x16D57D4 Offset: 0x16D57D4 VA: 0x16D57D4
+	public void DidReceiveMemoryWarning() { }
+}
+
+// Namespace: 
+public class NetworkManager : SingletonMonoBehaviour<NetworkManager> // TypeDefIndex: 6509
+{
+	// Fields
+	public static readonly string FILE_URL_SCHEME; // 0x0
+	protected static readonly long WebCacheTime; // 0x8
+	protected static DateTime dtUnixEpoch; // 0x10
+	protected static long serverTime; // 0x20
+	protected static long serverOffsetTime; // 0x28
+	protected static bool isErrorServerTimeLimitOver; // 0x30
+	private static long serverTimeChkMovie; // 0x38
+	protected static long nowTime; // 0x40
+	protected static string userAgent; // 0x48
+	protected static string userCreateServer; // 0x50
+	protected static string userId; // 0x58
+	protected static string authKey; // 0x60
+	protected static string secretKey; // 0x68
+	protected static string userName; // 0x70
+	protected static int genderType; // 0x78
+	protected static int month; // 0x7C
+	protected static int day; // 0x80
+	protected static string sessionId; // 0x88
+	protected static bool isRebootBlock; // 0x90
+	protected static bool isLogin; // 0x91
+	protected static string friendCode; // 0x98
+	protected static string registrationVersion; // 0xA0
+	protected static string registrationId; // 0xA8
+	protected static string serverSettingType; // 0xB0
+	protected static bool serverSettingSecurity; // 0xB8
+	protected static string gameServerSettingAddress; // 0xC0
+	protected static string dataServerSettingAddress; // 0xC8
+	protected static string webServerSettingAddress; // 0xD0
+	protected static string dataServerFolder; // 0xD8
+	protected static bool serverRedirectSecurity; // 0xE0
+	protected static string gameServerRedirectAddress; // 0xE8
+	protected static string dataServerRedirectAddress; // 0xF0
+	protected static string webServerRedirectAddress; // 0xF8
+	protected static bool serverSecurity; // 0x100
+	protected static string gameServerAddress; // 0x108
+	protected static string dataServerAddress; // 0x110
+	protected static string webServerAddress; // 0x118
+	protected static string webViewBaseURL; // 0x120
+	protected static Dictionary<string, string> webViewAddress; // 0x128
+	private readonly string[] spkiHashList; // 0x18
+	[HideInInspector] // RVA: 0xCC0ADC Offset: 0xCC0ADC VA: 0xCC0ADC
+	[SerializeField] // RVA: 0xCC0ADC Offset: 0xCC0ADC VA: 0xCC0ADC
+	protected string mAndroidApiKey; // 0x20
+	[HideInInspector] // RVA: 0xCC0B14 Offset: 0xCC0B14 VA: 0xCC0B14
+	[SerializeField] // RVA: 0xCC0B14 Offset: 0xCC0B14 VA: 0xCC0B14
+	protected string mAndroidProjectId; // 0x28
+	[HideInInspector] // RVA: 0xCC0B4C Offset: 0xCC0B4C VA: 0xCC0B4C
+	[SerializeField] // RVA: 0xCC0B4C Offset: 0xCC0B4C VA: 0xCC0B4C
+	protected string mIosApplicationId; // 0x30
+	[HideInInspector] // RVA: 0xCC0B84 Offset: 0xCC0B84 VA: 0xCC0B84
+	[SerializeField] // RVA: 0xCC0B84 Offset: 0xCC0B84 VA: 0xCC0B84
+	protected string mMk; // 0x38
+	[HideInInspector] // RVA: 0xCC0BBC Offset: 0xCC0BBC VA: 0xCC0BBC
+	[SerializeField] // RVA: 0xCC0BBC Offset: 0xCC0BBC VA: 0xCC0BBC
+	protected string mCv; // 0x40
+	[HideInInspector] // RVA: 0xCC0BF4 Offset: 0xCC0BF4 VA: 0xCC0BF4
+	[SerializeField] // RVA: 0xCC0BF4 Offset: 0xCC0BF4 VA: 0xCC0BF4
+	protected string mAuGameServerPublicKey; // 0x48
+	protected ResponseCommandBase[] commandList; // 0x50
+	protected Dictionary<string, ResponseCommandBase> commandLookup; // 0x58
+	protected Queue<RequestBase> communicationWaitList; // 0x60
+	protected RequestBase communicationWork; // 0x68
+	protected ResponseData[] communicationWorkResponseList; // 0x70
+	protected Coroutine communicationCoroutine; // 0x78
+	protected RequestBase cacheRefreshWork; // 0x80
+	protected ResponseData[] cacheRefreshWorkResponseList; // 0x88
+	protected Action errorCallbackFunc; // 0x90
+	protected NetworkManager.LoginCallbackFunc loginCallbackFunc; // 0x98
+	protected string loginResponseResult; // 0xA0
+	protected NetworkManager.StoreCallbackFunc storeCallbackFunc; // 0xA8
+	protected bool isWaitDebugDialog; // 0xB0
+	[CompilerGeneratedAttribute] // RVA: 0xCC0C2C Offset: 0xCC0C2C VA: 0xCC0C2C
+	[DebuggerBrowsableAttribute] // RVA: 0xCC0C2C Offset: 0xCC0C2C VA: 0xCC0C2C
+	private bool <isWaitUserAgent>k__BackingField; // 0xB1
+	protected static readonly string AUTHMD5_KEY_TYPE; // 0x130
+	[CompilerGeneratedAttribute] // RVA: 0xCC0C68 Offset: 0xCC0C68 VA: 0xCC0C68
+	private static Dictionary<string, int> <>f__switch$map4; // 0x138
+	[CompilerGeneratedAttribute] // RVA: 0xCC0C78 Offset: 0xCC0C78 VA: 0xCC0C78
+	private static Dictionary<string, int> <>f__switch$map5; // 0x140
+
+	// Properties
+	public static bool IsRebootBlock { get; }
+	public static string UserCreateServer { get; }
+	public static bool IsLogin { get; }
+	public static long UserId { get; }
+	public bool isWaitUserAgent { get; set; }
+
+	// Methods
+
+	// RVA: 0x18BB8C4 Offset: 0x18BB8C4 VA: 0x18BB8C4
+	public void .ctor() { }
+
+	// RVA: 0x18BBACC Offset: 0x18BBACC VA: 0x18BBACC
+	public static bool get_IsRebootBlock() { }
+
+	// RVA: 0x18BBB34 Offset: 0x18BBB34 VA: 0x18BBB34
+	public static bool CheckUserCreateServer() { }
+
+	// RVA: 0x18BBC20 Offset: 0x18BBC20 VA: 0x18BBC20
+	public static string get_UserCreateServer() { }
+
+	// RVA: 0x18BBC88 Offset: 0x18BBC88 VA: 0x18BBC88
+	public static bool get_IsLogin() { }
+
+	// RVA: 0x18BBCF0 Offset: 0x18BBCF0 VA: 0x18BBCF0
+	public static long get_UserId() { }
+
+	// RVA: 0x18BBD94 Offset: 0x18BBD94 VA: 0x18BBD94
+	public static bool CommunicationIsBusy() { }
+
+	// RVA: 0x18BBDF8 Offset: 0x18BBDF8 VA: 0x18BBDF8
+	public static int GetTerminalDispState() { }
+
+	// RVA: 0x18BBE9C Offset: 0x18BBE9C VA: 0x18BBE9C
+	public void EntryService(NetworkManager.ResultCallbackFunc callback) { }
+
+	// RVA: 0x18BC2FC Offset: 0x18BC2FC VA: 0x18BC2FC
+	public void ReleseService() { }
+
+	// RVA: 0x18BC300 Offset: 0x18BC300 VA: 0x18BC300
+	protected void Start() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD37064 Offset: 0xD37064 VA: 0xD37064
+	// RVA: 0x18BC32C Offset: 0x18BC32C VA: 0x18BC32C
+	protected IEnumerator TimeUpdate() { }
+
+	[DebuggerHiddenAttribute] // RVA: 0xD37074 Offset: 0xD37074 VA: 0xD37074
+	// RVA: 0x18BC390 Offset: 0x18BC390 VA: 0x18BC390
+	public IEnumerator Initialize() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD37084 Offset: 0xD37084 VA: 0xD37084
+	// RVA: 0x18BC408 Offset: 0x18BC408 VA: 0x18BC408
+	public bool get_isWaitUserAgent() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD37094 Offset: 0xD37094 VA: 0xD37094
+	// RVA: 0x18BC410 Offset: 0x18BC410 VA: 0x18BC410
+	private void set_isWaitUserAgent(bool value) { }
+
+	// RVA: 0x18BC41C Offset: 0x18BC41C VA: 0x18BC41C
+	private void InitializeUserAgent() { }
+
+	// RVA: 0x18BC4BC Offset: 0x18BC4BC VA: 0x18BC4BC
+	private void SetUserAgent(string userAgent) { }
+
+	// RVA: 0x18BC538 Offset: 0x18BC538 VA: 0x18BC538
+	private string getUserAgent() { }
+
+	// RVA: 0x18BC598 Offset: 0x18BC598 VA: 0x18BC598
+	public bool ReadOldSignup() { }
+
+	// RVA: 0x18BC974 Offset: 0x18BC974 VA: 0x18BC974
+	public bool ReadSignup() { }
+
+	// RVA: 0x18BCD70 Offset: 0x18BCD70 VA: 0x18BCD70
+	public void GetSignup(out string userName, out int genderType, out int month, out int day) { }
+
+	// RVA: 0x18BCE2C Offset: 0x18BCE2C VA: 0x18BCE2C
+	public void SetSignup(string userName, int genderType) { }
+
+	// RVA: 0x18BCEB0 Offset: 0x18BCEB0 VA: 0x18BCEB0
+	public void SetSignup(string userName, int genderType, int month, int day) { }
+
+	// RVA: 0x18BCF54 Offset: 0x18BCF54 VA: 0x18BCF54
+	public void WriteSignup() { }
+
+	// RVA: 0x18BD1B4 Offset: 0x18BD1B4 VA: 0x18BD1B4
+	public bool ReadFriendCode() { }
+
+	// RVA: 0x18BD54C Offset: 0x18BD54C VA: 0x18BD54C
+	public void SetFriendCode(string friendCode) { }
+
+	// RVA: 0x18BD5BC Offset: 0x18BD5BC VA: 0x18BD5BC
+	public void WriteFriendCode() { }
+
+	// RVA: 0x18BD7B0 Offset: 0x18BD7B0 VA: 0x18BD7B0
+	public string GetFriendCode() { }
+
+	// RVA: 0x18BD818 Offset: 0x18BD818 VA: 0x18BD818
+	public string GetDispFriendCode() { }
+
+	// RVA: 0x18BD8DC Offset: 0x18BD8DC VA: 0x18BD8DC
+	protected void OnApplicationPause(bool isPause) { }
+
+	// RVA: 0x18BD8E8 Offset: 0x18BD8E8 VA: 0x18BD8E8
+	public bool CheckServerLimitTime() { }
+
+	// RVA: 0x18BDCD4 Offset: 0x18BDCD4 VA: 0x18BDCD4
+	public static bool GetDebugSlowConnect() { }
+
+	// RVA: 0x18BDCDC Offset: 0x18BDCDC VA: 0x18BDCDC
+	public static void SetDebugSlowConnect(bool flag) { }
+
+	// RVA: 0x18BDCE0 Offset: 0x18BDCE0 VA: 0x18BDCE0
+	public static void SwitchingDebugSlowConnect() { }
+
+	// RVA: 0x18BDCE4 Offset: 0x18BDCE4 VA: 0x18BDCE4
+	public static long GetLastServerTime() { }
+
+	// RVA: 0x18BDD4C Offset: 0x18BDD4C VA: 0x18BDD4C
+	public static void SetServerTimeChkMovie(long serverTimeChkMovie) { }
+
+	// RVA: 0x18BDDB8 Offset: 0x18BDDB8 VA: 0x18BDDB8
+	public static long GetServerTimeChkMovie() { }
+
+	// RVA: 0x18BDE20 Offset: 0x18BDE20 VA: 0x18BDE20
+	protected static string GetAuthCode(SortedDictionary<string, string> headers) { }
+
+	// RVA: 0x18BE3B4 Offset: 0x18BE3B4 VA: 0x18BE3B4
+	public void ClearAuth() { }
+
+	// RVA: 0x18BE424 Offset: 0x18BE424 VA: 0x18BE424
+	public NetworkManager.ReadResult ReadAuth() { }
+
+	// RVA: 0x18BF390 Offset: 0x18BF390 VA: 0x18BF390
+	public void SetAuth(string userId, string authKey, string secretKey) { }
+
+	// RVA: 0x18BEB14 Offset: 0x18BEB14 VA: 0x18BEB14
+	protected int SyncAuth() { }
+
+	// RVA: 0x18BF420 Offset: 0x18BF420 VA: 0x18BF420
+	public string LoadAuthMd5(string fname) { }
+
+	// RVA: 0x18BF734 Offset: 0x18BF734 VA: 0x18BF734
+	public void WriteAuth() { }
+
+	// RVA: 0x18BF80C Offset: 0x18BF80C VA: 0x18BF80C
+	protected bool WriteAuthFile(string fname) { }
+
+	// RVA: 0x18BDAD4 Offset: 0x18BDAD4 VA: 0x18BDAD4
+	public static long getTime() { }
+
+	// RVA: 0x18BFDFC Offset: 0x18BFDFC VA: 0x18BFDFC
+	public static long getTime(DateTime dateTime) { }
+
+	// RVA: 0x18BFE94 Offset: 0x18BFE94 VA: 0x18BFE94
+	public static long getLocalTime() { }

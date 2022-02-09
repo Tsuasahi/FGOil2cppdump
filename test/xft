@@ -1,0 +1,1000 @@
+internal class GlobalProxySelection.EmptyWebProxy : IWebProxy // TypeDefIndex: 1558
+{
+	// Fields
+	private ICredentials credentials; // 0x10
+
+	// Properties
+	public ICredentials Credentials { get; set; }
+
+	// Methods
+
+	// RVA: 0xF44978 Offset: 0xF44978 VA: 0xF44978
+	internal void .ctor() { }
+
+	// RVA: 0xF44980 Offset: 0xF44980 VA: 0xF44980 Slot: 4
+	public ICredentials get_Credentials() { }
+
+	// RVA: 0xF44988 Offset: 0xF44988 VA: 0xF44988 Slot: 5
+	public void set_Credentials(ICredentials value) { }
+
+	// RVA: 0xF44990 Offset: 0xF44990 VA: 0xF44990 Slot: 6
+	public Uri GetProxy(Uri destination) { }
+
+	// RVA: 0xF44998 Offset: 0xF44998 VA: 0xF44998 Slot: 7
+	public bool IsBypassed(Uri host) { }
+}
+
+// Namespace: System.Net
+internal sealed class HttpConnection // TypeDefIndex: 1559
+{
+	// Fields
+	private const int BufferSize = 8192;
+	private Socket sock; // 0x10
+	private Stream stream; // 0x18
+	private EndPointListener epl; // 0x20
+	private MemoryStream ms; // 0x28
+	private byte[] buffer; // 0x30
+	private HttpListenerContext context; // 0x38
+	private StringBuilder current_line; // 0x40
+	private ListenerPrefix prefix; // 0x48
+	private RequestStream i_stream; // 0x50
+	private ResponseStream o_stream; // 0x58
+	private bool chunked; // 0x60
+	private int chunked_uses; // 0x64
+	private bool context_bound; // 0x68
+	private bool secure; // 0x69
+	private AsymmetricAlgorithm key; // 0x70
+	private HttpConnection.InputState input_state; // 0x78
+	private HttpConnection.LineState line_state; // 0x7C
+	private int position; // 0x80
+
+	// Properties
+	public int ChunkedUses { get; }
+	public IPEndPoint LocalEndPoint { get; }
+	public IPEndPoint RemoteEndPoint { get; }
+	public bool IsSecure { get; }
+	public ListenerPrefix Prefix { get; set; }
+
+	// Methods
+
+	// RVA: 0xF449A0 Offset: 0xF449A0 VA: 0xF449A0
+	public void .ctor(Socket sock, EndPointListener epl, bool secure, X509Certificate2 cert, AsymmetricAlgorithm key) { }
+
+	// RVA: 0xF44C0C Offset: 0xF44C0C VA: 0xF44C0C
+	private AsymmetricAlgorithm OnPVKSelection(X509Certificate certificate, string targetHost) { }
+
+	// RVA: 0xF44B74 Offset: 0xF44B74 VA: 0xF44B74
+	private void Init() { }
+
+	// RVA: 0xF44CB8 Offset: 0xF44CB8 VA: 0xF44CB8
+	public int get_ChunkedUses() { }
+
+	// RVA: 0xF44CC0 Offset: 0xF44CC0 VA: 0xF44CC0
+	public IPEndPoint get_LocalEndPoint() { }
+
+	// RVA: 0xF44DA4 Offset: 0xF44DA4 VA: 0xF44DA4
+	public IPEndPoint get_RemoteEndPoint() { }
+
+	// RVA: 0xF44E88 Offset: 0xF44E88 VA: 0xF44E88
+	public bool get_IsSecure() { }
+
+	// RVA: 0xF44E90 Offset: 0xF44E90 VA: 0xF44E90
+	public ListenerPrefix get_Prefix() { }
+
+	// RVA: 0xF44E98 Offset: 0xF44E98 VA: 0xF44E98
+	public void set_Prefix(ListenerPrefix value) { }
+
+	// RVA: 0xF44EA0 Offset: 0xF44EA0 VA: 0xF44EA0
+	public void BeginReadRequest() { }
+
+	// RVA: 0xF45114 Offset: 0xF45114 VA: 0xF45114
+	public RequestStream GetRequestStream(bool chunked, long contentlength) { }
+
+	// RVA: 0xF45394 Offset: 0xF45394 VA: 0xF45394
+	public ResponseStream GetResponseStream() { }
+
+	// RVA: 0xF45468 Offset: 0xF45468 VA: 0xF45468
+	private void OnRead(IAsyncResult ares) { }
+
+	// RVA: 0xF45DC0 Offset: 0xF45DC0 VA: 0xF45DC0
+	private bool ProcessInput(MemoryStream ms) { }
+
+	// RVA: 0xF46870 Offset: 0xF46870 VA: 0xF46870
+	private string ReadLine(byte[] buffer, int offset, int len, ref int used) { }
+
+	// RVA: 0xF45834 Offset: 0xF45834 VA: 0xF45834
+	public void SendError(string msg, int status) { }
+
+	// RVA: 0xF45D74 Offset: 0xF45D74 VA: 0xF45D74
+	public void SendError() { }
+
+	// RVA: 0xF480EC Offset: 0xF480EC VA: 0xF480EC
+	private void Unbind() { }
+
+	// RVA: 0xF48140 Offset: 0xF48140 VA: 0xF48140
+	public void Close() { }
+
+	// RVA: 0xF44FF8 Offset: 0xF44FF8 VA: 0xF44FF8
+	private void CloseSocket() { }
+
+	// RVA: 0xF45A58 Offset: 0xF45A58 VA: 0xF45A58
+	internal void Close(bool force_close) { }
+}
+
+// Namespace: 
+private enum HttpConnection.InputState // TypeDefIndex: 1560
+{
+	// Fields
+	public int value__; // 0x0
+	public const HttpConnection.InputState RequestLine = 0;
+	public const HttpConnection.InputState Headers = 1;
+}
+
+// Namespace: 
+private enum HttpConnection.LineState // TypeDefIndex: 1561
+{
+	// Fields
+	public int value__; // 0x0
+	public const HttpConnection.LineState None = 0;
+	public const HttpConnection.LineState CR = 1;
+	public const HttpConnection.LineState LF = 2;
+}
+
+// Namespace: System.Net
+public sealed class HttpListener : IDisposable // TypeDefIndex: 1562
+{
+	// Fields
+	private AuthenticationSchemes auth_schemes; // 0x10
+	private HttpListenerPrefixCollection prefixes; // 0x18
+	private AuthenticationSchemeSelector auth_selector; // 0x20
+	private string realm; // 0x28
+	private bool ignore_write_exceptions; // 0x30
+	private bool unsafe_ntlm_auth; // 0x31
+	private bool listening; // 0x32
+	private bool disposed; // 0x33
+	private Hashtable registry; // 0x38
+	private ArrayList ctx_queue; // 0x40
+	private ArrayList wait_queue; // 0x48
+
+	// Properties
+	public AuthenticationSchemes AuthenticationSchemes { get; set; }
+	public AuthenticationSchemeSelector AuthenticationSchemeSelectorDelegate { get; set; }
+	public bool IgnoreWriteExceptions { get; set; }
+	public bool IsListening { get; }
+	public static bool IsSupported { get; }
+	public HttpListenerPrefixCollection Prefixes { get; }
+	public string Realm { get; set; }
+	[MonoTODOAttribute] // RVA: 0xC3F854 Offset: 0xC3F854 VA: 0xC3F854
+	public bool UnsafeConnectionNtlmAuthentication { get; set; }
+
+	// Methods
+
+	// RVA: 0xF4859C Offset: 0xF4859C VA: 0xF4859C
+	public void .ctor() { }
+
+	// RVA: 0xF486F4 Offset: 0xF486F4 VA: 0xF486F4 Slot: 4
+	private void System.IDisposable.Dispose() { }
+
+	// RVA: 0xF487B4 Offset: 0xF487B4 VA: 0xF487B4
+	public AuthenticationSchemes get_AuthenticationSchemes() { }
+
+	// RVA: 0xF487BC Offset: 0xF487BC VA: 0xF487BC
+	public void set_AuthenticationSchemes(AuthenticationSchemes value) { }
+
+	// RVA: 0xF48898 Offset: 0xF48898 VA: 0xF48898
+	public AuthenticationSchemeSelector get_AuthenticationSchemeSelectorDelegate() { }
+
+	// RVA: 0xF488A0 Offset: 0xF488A0 VA: 0xF488A0
+	public void set_AuthenticationSchemeSelectorDelegate(AuthenticationSchemeSelector value) { }
+
+	// RVA: 0xF45460 Offset: 0xF45460 VA: 0xF45460
+	public bool get_IgnoreWriteExceptions() { }
+
+	// RVA: 0xF488C8 Offset: 0xF488C8 VA: 0xF488C8
+	public void set_IgnoreWriteExceptions(bool value) { }
+
+	// RVA: 0xF488F4 Offset: 0xF488F4 VA: 0xF488F4
+	public bool get_IsListening() { }
+
+	// RVA: 0xF488FC Offset: 0xF488FC VA: 0xF488FC
+	public static bool get_IsSupported() { }
+
+	// RVA: 0xF48904 Offset: 0xF48904 VA: 0xF48904
+	public HttpListenerPrefixCollection get_Prefixes() { }
+
+	// RVA: 0xF48928 Offset: 0xF48928 VA: 0xF48928
+	public string get_Realm() { }
+
+	// RVA: 0xF48930 Offset: 0xF48930 VA: 0xF48930
+	public void set_Realm(string value) { }
+
+	// RVA: 0xF48958 Offset: 0xF48958 VA: 0xF48958
+	public bool get_UnsafeConnectionNtlmAuthentication() { }
+
+	// RVA: 0xF48960 Offset: 0xF48960 VA: 0xF48960
+	public void set_UnsafeConnectionNtlmAuthentication(bool value) { }
+
+	// RVA: 0xF4898C Offset: 0xF4898C VA: 0xF4898C
+	public void Abort() { }
+
+	// RVA: 0xF489A8 Offset: 0xF489A8 VA: 0xF489A8
+	public void Close() { }
+
+	// RVA: 0xF4872C Offset: 0xF4872C VA: 0xF4872C
+	private void Close(bool force) { }
+
+	// RVA: 0xF489E8 Offset: 0xF489E8 VA: 0xF489E8
+	private void Cleanup(bool close_existing) { }
+
+	// RVA: 0xF496D0 Offset: 0xF496D0 VA: 0xF496D0
+	public IAsyncResult BeginGetContext(AsyncCallback callback, object state) { }
+
+	// RVA: 0xF4A1B0 Offset: 0xF4A1B0 VA: 0xF4A1B0
+	public HttpListenerContext EndGetContext(IAsyncResult asyncResult) { }
+
+	// RVA: 0xF4A718 Offset: 0xF4A718 VA: 0xF4A718
+	internal AuthenticationSchemes SelectAuthenticationScheme(HttpListenerContext context) { }
+
+	// RVA: 0xF4A764 Offset: 0xF4A764 VA: 0xF4A764
+	public HttpListenerContext GetContext() { }
+
+	// RVA: 0xF4A87C Offset: 0xF4A87C VA: 0xF4A87C
+	public void Start() { }
+
+	// RVA: 0xF4A900 Offset: 0xF4A900 VA: 0xF4A900
+	public void Stop() { }
+
+	// RVA: 0xF487E4 Offset: 0xF487E4 VA: 0xF487E4
+	internal void CheckDisposed() { }
+
+	// RVA: 0xF499EC Offset: 0xF499EC VA: 0xF499EC
+	private HttpListenerContext GetContextFromQueue() { }
+
+	// RVA: 0xF4A92C Offset: 0xF4A92C VA: 0xF4A92C
+	internal void RegisterContext(HttpListenerContext context) { }
+
+	// RVA: 0xF4ABD4 Offset: 0xF4ABD4 VA: 0xF4ABD4
+	internal void UnregisterContext(HttpListenerContext context) { }
+}
+
+// Namespace: System.Net
+public class HttpListenerBasicIdentity : GenericIdentity // TypeDefIndex: 1563
+{
+	// Fields
+	private string password; // 0x20
+
+	// Properties
+	public virtual string Password { get; }
+
+	// Methods
+
+	// RVA: 0xF4AD14 Offset: 0xF4AD14 VA: 0xF4AD14
+	public void .ctor(string username, string password) { }
+
+	// RVA: 0xF4AD84 Offset: 0xF4AD84 VA: 0xF4AD84 Slot: 4
+	public virtual string get_Password() { }
+}
+
+// Namespace: System.Net
+public sealed class HttpListenerContext // TypeDefIndex: 1564
+{
+	// Fields
+	private HttpListenerRequest request; // 0x10
+	private HttpListenerResponse response; // 0x18
+	private IPrincipal user; // 0x20
+	private HttpConnection cnc; // 0x28
+	private string error; // 0x30
+	private int err_status; // 0x38
+	internal HttpListener Listener; // 0x40
+
+	// Properties
+	internal int ErrorStatus { get; set; }
+	internal string ErrorMessage { get; set; }
+	internal bool HaveError { get; }
+	internal HttpConnection Connection { get; }
+	public HttpListenerRequest Request { get; }
+	public HttpListenerResponse Response { get; }
+	public IPrincipal User { get; }
+
+	// Methods
+
+	// RVA: 0xF44C14 Offset: 0xF44C14 VA: 0xF44C14
+	internal void .ctor(HttpConnection cnc) { }
+
+	// RVA: 0xF480E4 Offset: 0xF480E4 VA: 0xF480E4
+	internal int get_ErrorStatus() { }
+
+	// RVA: 0xF46A28 Offset: 0xF46A28 VA: 0xF46A28
+	internal void set_ErrorStatus(int value) { }
+
+	// RVA: 0xF480DC Offset: 0xF480DC VA: 0xF480DC
+	internal string get_ErrorMessage() { }
+
+	// RVA: 0xF46A20 Offset: 0xF46A20 VA: 0xF46A20
+	internal void set_ErrorMessage(string value) { }
+
+	// RVA: 0xF46194 Offset: 0xF46194 VA: 0xF46194
+	internal bool get_HaveError() { }
+
+	// RVA: 0xF49564 Offset: 0xF49564 VA: 0xF49564
+	internal HttpConnection get_Connection() { }
+
+	// RVA: 0xF461A4 Offset: 0xF461A4 VA: 0xF461A4
+	public HttpListenerRequest get_Request() { }
+
+	// RVA: 0xF45284 Offset: 0xF45284 VA: 0xF45284
+	public HttpListenerResponse get_Response() { }
+
+	// RVA: 0xF4AF34 Offset: 0xF4AF34 VA: 0xF4AF34
+	public IPrincipal get_User() { }
+
+	// RVA: 0xF4A58C Offset: 0xF4A58C VA: 0xF4A58C
+	internal void ParseAuthentication(AuthenticationSchemes expectedSchemes) { }
+
+	// RVA: 0xF4AF3C Offset: 0xF4AF3C VA: 0xF4AF3C
+	internal IPrincipal ParseBasicAuthentication(string authData) { }
+}
+
+// Namespace: System.Net
+[Serializable]
+public class HttpListenerException : Win32Exception // TypeDefIndex: 1565
+{
+	// Properties
+	public override int ErrorCode { get; }
+
+	// Methods
+
+	// RVA: 0xF4B1C0 Offset: 0xF4B1C0 VA: 0xF4B1C0
+	public void .ctor() { }
+
+	// RVA: 0xF4B1C8 Offset: 0xF4B1C8 VA: 0xF4B1C8
+	public void .ctor(int errorCode) { }
+
+	// RVA: 0xF4B1D0 Offset: 0xF4B1D0 VA: 0xF4B1D0
+	public void .ctor(int errorCode, string message) { }
+
+	// RVA: 0xF4B1D8 Offset: 0xF4B1D8 VA: 0xF4B1D8
+	protected void .ctor(SerializationInfo serializationInfo, StreamingContext streamingContext) { }
+
+	// RVA: 0xF4B1E0 Offset: 0xF4B1E0 VA: 0xF4B1E0 Slot: 12
+	public override int get_ErrorCode() { }
+}
+
+// Namespace: System.Net
+public class HttpListenerPrefixCollection : IEnumerable, ICollection<string>, IEnumerable<string> // TypeDefIndex: 1566
+{
+	// Fields
+	private List<string> prefixes; // 0x10
+	private HttpListener listener; // 0x18
+
+	// Properties
+	public int Count { get; }
+	public bool IsReadOnly { get; }
+	public bool IsSynchronized { get; }
+
+	// Methods
+
+	// RVA: 0xF48670 Offset: 0xF48670 VA: 0xF48670
+	internal void .ctor(HttpListener listener) { }
+
+	// RVA: 0xF4B1E8 Offset: 0xF4B1E8 VA: 0xF4B1E8 Slot: 4
+	private IEnumerator System.Collections.IEnumerable.GetEnumerator() { }
+
+	// RVA: 0xF4A81C Offset: 0xF4A81C VA: 0xF4A81C Slot: 5
+	public int get_Count() { }
+
+	// RVA: 0xF4B27C Offset: 0xF4B27C VA: 0xF4B27C Slot: 6
+	public bool get_IsReadOnly() { }
+
+	// RVA: 0xF4B284 Offset: 0xF4B284 VA: 0xF4B284
+	public bool get_IsSynchronized() { }
+
+	// RVA: 0xF4B28C Offset: 0xF4B28C VA: 0xF4B28C Slot: 7
+	public void Add(string uriPrefix) { }
+
+	// RVA: 0xF4B6B4 Offset: 0xF4B6B4 VA: 0xF4B6B4 Slot: 8
+	public void Clear() { }
+
+	// RVA: 0xF4B780 Offset: 0xF4B780 VA: 0xF4B780 Slot: 9
+	public bool Contains(string uriPrefix) { }
+
+	// RVA: 0xF4B808 Offset: 0xF4B808 VA: 0xF4B808 Slot: 10
+	public void CopyTo(string[] array, int offset) { }
+
+	// RVA: 0xF4B898 Offset: 0xF4B898 VA: 0xF4B898
+	public void CopyTo(Array array, int offset) { }
+
+	// RVA: 0xF4B980 Offset: 0xF4B980 VA: 0xF4B980 Slot: 12
+	public IEnumerator<string> GetEnumerator() { }
+
+	// RVA: 0xF4BA14 Offset: 0xF4BA14 VA: 0xF4BA14 Slot: 11
+	public bool Remove(string uriPrefix) { }
+}
+
+// Namespace: System.Net
+public sealed class HttpListenerRequest // TypeDefIndex: 1567
+{
+	// Fields
+	private string[] accept_types; // 0x10
+	private Encoding content_encoding; // 0x18
+	private long content_length; // 0x20
+	private bool cl_set; // 0x28
+	private CookieCollection cookies; // 0x30
+	private WebHeaderCollection headers; // 0x38
+	private string method; // 0x40
+	private Stream input_stream; // 0x48
+	private Version version; // 0x50
+	private NameValueCollection query_string; // 0x58
+	private string raw_url; // 0x60
+	private Guid identifier; // 0x68
+	private Uri url; // 0x78
+	private Uri referrer; // 0x80
+	private string[] user_languages; // 0x88
+	private HttpListenerContext context; // 0x90
+	private bool is_chunked; // 0x98
+	private static byte[] _100continue; // 0x0
+	private static readonly string[] no_body_methods; // 0x8
+	private static char[] separators; // 0x10
+	[CompilerGeneratedAttribute] // RVA: 0xC3D0B4 Offset: 0xC3D0B4 VA: 0xC3D0B4
+	private static Dictionary<string, int> <>f__switch$map7; // 0x18
+
+	// Properties
+	public string[] AcceptTypes { get; }
+	[MonoTODOAttribute] // RVA: 0xC3F88C Offset: 0xC3F88C VA: 0xC3F88C
+	public int ClientCertificateError { get; }
+	public Encoding ContentEncoding { get; }
+	public long ContentLength64 { get; }
+	public string ContentType { get; }
+	public CookieCollection Cookies { get; }
+	public bool HasEntityBody { get; }
+	public NameValueCollection Headers { get; }
+	public string HttpMethod { get; }
+	public Stream InputStream { get; }
+	[MonoTODOAttribute] // RVA: 0xC3F8C4 Offset: 0xC3F8C4 VA: 0xC3F8C4
+	public bool IsAuthenticated { get; }
+	public bool IsLocal { get; }
+	public bool IsSecureConnection { get; }
+	public bool KeepAlive { get; }
+	public IPEndPoint LocalEndPoint { get; }
+	public Version ProtocolVersion { get; }
+	public NameValueCollection QueryString { get; }
+	public string RawUrl { get; }
+	public IPEndPoint RemoteEndPoint { get; }
+	public Guid RequestTraceIdentifier { get; }
+	public Uri Url { get; }
+	public Uri UrlReferrer { get; }
+	public string UserAgent { get; }
+	public string UserHostAddress { get; }
+	public string UserHostName { get; }
+	public string[] UserLanguages { get; }
+
+	// Methods
+
+	// RVA: 0xF4AD8C Offset: 0xF4AD8C VA: 0xF4AD8C
+	internal void .ctor(HttpListenerContext context) { }
+
+	// RVA: 0xF4BB40 Offset: 0xF4BB40 VA: 0xF4BB40
+	private static void .cctor() { }
+
+	// RVA: 0xF46A30 Offset: 0xF46A30 VA: 0xF46A30
+	internal void SetRequestLine(string req) { }
+
+	// RVA: 0xF4BD58 Offset: 0xF4BD58 VA: 0xF4BD58
+	private void CreateQueryString(string query) { }
+
+	// RVA: 0xF461AC Offset: 0xF461AC VA: 0xF461AC
+	internal void FinishInitialization() { }
+
+	// RVA: 0xF4C0B0 Offset: 0xF4C0B0 VA: 0xF4C0B0
+	internal static string Unquote(string str) { }
+
+	// RVA: 0xF46DEC Offset: 0xF46DEC VA: 0xF46DEC
+	internal void AddHeader(string header) { }
+
+	// RVA: 0xF48160 Offset: 0xF48160 VA: 0xF48160
+	internal bool FlushInput() { }
+
+	// RVA: 0xF4C190 Offset: 0xF4C190 VA: 0xF4C190
+	public string[] get_AcceptTypes() { }
+
+	// RVA: 0xF4C198 Offset: 0xF4C198 VA: 0xF4C198
+	public int get_ClientCertificateError() { }
+
+	// RVA: 0xF4C1A0 Offset: 0xF4C1A0 VA: 0xF4C1A0
+	public Encoding get_ContentEncoding() { }
+
+	// RVA: 0xF4C214 Offset: 0xF4C214 VA: 0xF4C214
+	public long get_ContentLength64() { }
+
+	// RVA: 0xF4C21C Offset: 0xF4C21C VA: 0xF4C21C
+	public string get_ContentType() { }
+
+	// RVA: 0xF4C280 Offset: 0xF4C280 VA: 0xF4C280
+	public CookieCollection get_Cookies() { }
+
+	// RVA: 0xF4C164 Offset: 0xF4C164 VA: 0xF4C164
+	public bool get_HasEntityBody() { }
+
+	// RVA: 0xF48148 Offset: 0xF48148 VA: 0xF48148
+	public NameValueCollection get_Headers() { }
+
+	// RVA: 0xF4C2EC Offset: 0xF4C2EC VA: 0xF4C2EC
+	public string get_HttpMethod() { }
+
+	// RVA: 0xF4C188 Offset: 0xF4C188 VA: 0xF4C188
+	public Stream get_InputStream() { }
+
+	// RVA: 0xF4C2F4 Offset: 0xF4C2F4 VA: 0xF4C2F4
+	public bool get_IsAuthenticated() { }
+
+	// RVA: 0xF4C2FC Offset: 0xF4C2FC VA: 0xF4C2FC
+	public bool get_IsLocal() { }
+
+	// RVA: 0xF4C030 Offset: 0xF4C030 VA: 0xF4C030
+	public bool get_IsSecureConnection() { }
+
+	// RVA: 0xF4C4D0 Offset: 0xF4C4D0 VA: 0xF4C4D0
+	public bool get_KeepAlive() { }
+
+	// RVA: 0xF4C06C Offset: 0xF4C06C VA: 0xF4C06C
+	public IPEndPoint get_LocalEndPoint() { }
+
+	// RVA: 0xF48158 Offset: 0xF48158 VA: 0xF48158
+	public Version get_ProtocolVersion() { }
+
+	// RVA: 0xF4C4D8 Offset: 0xF4C4D8 VA: 0xF4C4D8
+	public NameValueCollection get_QueryString() { }
+
+	// RVA: 0xF4C4E0 Offset: 0xF4C4E0 VA: 0xF4C4E0
+	public string get_RawUrl() { }
+
+	// RVA: 0xF4C378 Offset: 0xF4C378 VA: 0xF4C378
+	public IPEndPoint get_RemoteEndPoint() { }
+
+	// RVA: 0xF4C4E8 Offset: 0xF4C4E8 VA: 0xF4C4E8
+	public Guid get_RequestTraceIdentifier() { }
+
+	// RVA: 0xF4C4F4 Offset: 0xF4C4F4 VA: 0xF4C4F4
+	public Uri get_Url() { }
+
+	// RVA: 0xF4C4FC Offset: 0xF4C4FC VA: 0xF4C4FC
+	public Uri get_UrlReferrer() { }
+
+	// RVA: 0xF4C504 Offset: 0xF4C504 VA: 0xF4C504
+	public string get_UserAgent() { }
+
+	// RVA: 0xF4BFFC Offset: 0xF4BFFC VA: 0xF4BFFC
+	public string get_UserHostAddress() { }
+
+	// RVA: 0xF4BF98 Offset: 0xF4BF98 VA: 0xF4BF98
+	public string get_UserHostName() { }
+
+	// RVA: 0xF4C568 Offset: 0xF4C568 VA: 0xF4C568
+	public string[] get_UserLanguages() { }
+
+	// RVA: 0xF4C570 Offset: 0xF4C570 VA: 0xF4C570
+	public IAsyncResult BeginGetClientCertificate(AsyncCallback requestCallback, object state) { }
+
+	// RVA: 0xF4C578 Offset: 0xF4C578 VA: 0xF4C578
+	public X509Certificate2 EndGetClientCertificate(IAsyncResult asyncResult) { }
+
+	// RVA: 0xF4C580 Offset: 0xF4C580 VA: 0xF4C580
+	public X509Certificate2 GetClientCertificate() { }
+}
+
+// Namespace: System.Net
+public sealed class HttpListenerResponse : IDisposable // TypeDefIndex: 1568
+{
+	// Fields
+	private bool disposed; // 0x10
+	private Encoding content_encoding; // 0x18
+	private long content_length; // 0x20
+	private bool cl_set; // 0x28
+	private string content_type; // 0x30
+	private CookieCollection cookies; // 0x38
+	private WebHeaderCollection headers; // 0x40
+	private bool keep_alive; // 0x48
+	private ResponseStream output_stream; // 0x50
+	private Version version; // 0x58
+	private string location; // 0x60
+	private int status_code; // 0x68
+	private string status_description; // 0x70
+	private bool chunked; // 0x78
+	private HttpListenerContext context; // 0x80
+	internal bool HeadersSent; // 0x88
+	private bool force_close_chunked; // 0x89
+
+	// Properties
+	internal bool ForceCloseChunked { get; }
+	public Encoding ContentEncoding { get; set; }
+	public long ContentLength64 { get; set; }
+	public string ContentType { get; set; }
+	public CookieCollection Cookies { get; set; }
+	public WebHeaderCollection Headers { get; set; }
+	public bool KeepAlive { get; set; }
+	public Stream OutputStream { get; }
+	public Version ProtocolVersion { get; set; }
+	public string RedirectLocation { get; set; }
+	public bool SendChunked { get; set; }
+	public int StatusCode { get; set; }
+	public string StatusDescription { get; set; }
+
+	// Methods
+
+	// RVA: 0xF4AE68 Offset: 0xF4AE68 VA: 0xF4AE68
+	internal void .ctor(HttpListenerContext context) { }
+
+	// RVA: 0xF4C588 Offset: 0xF4C588 VA: 0xF4C588 Slot: 4
+	private void System.IDisposable.Dispose() { }
+
+	// RVA: 0xF4829C Offset: 0xF4829C VA: 0xF4829C
+	internal bool get_ForceCloseChunked() { }
+
+	// RVA: 0xF47F70 Offset: 0xF47F70 VA: 0xF47F70
+	public Encoding get_ContentEncoding() { }
+
+	// RVA: 0xF4C5DC Offset: 0xF4C5DC VA: 0xF4C5DC
+	public void set_ContentEncoding(Encoding value) { }
+
+	// RVA: 0xF4C6E0 Offset: 0xF4C6E0 VA: 0xF4C6E0
+	public long get_ContentLength64() { }
+
+	// RVA: 0xF4C6E8 Offset: 0xF4C6E8 VA: 0xF4C6E8
+	public void set_ContentLength64(long value) { }
+
+	// RVA: 0xF4C830 Offset: 0xF4C830 VA: 0xF4C830
+	public string get_ContentType() { }
+
+	// RVA: 0xF47B34 Offset: 0xF47B34 VA: 0xF47B34
+	public void set_ContentType(string value) { }
+
+	// RVA: 0xF4C838 Offset: 0xF4C838 VA: 0xF4C838
+	public CookieCollection get_Cookies() { }
+
+	// RVA: 0xF4C8A4 Offset: 0xF4C8A4 VA: 0xF4C8A4
+	public void set_Cookies(CookieCollection value) { }
+
+	// RVA: 0xF4C8AC Offset: 0xF4C8AC VA: 0xF4C8AC
+	public WebHeaderCollection get_Headers() { }
+
+	// RVA: 0xF4C8B4 Offset: 0xF4C8B4 VA: 0xF4C8B4
+	public void set_Headers(WebHeaderCollection value) { }
+
+	// RVA: 0xF4C8BC Offset: 0xF4C8BC VA: 0xF4C8BC
+	public bool get_KeepAlive() { }
+
+	// RVA: 0xF4C8C4 Offset: 0xF4C8C4 VA: 0xF4C8C4
+	public void set_KeepAlive(bool value) { }
+
+	// RVA: 0xF4C9CC Offset: 0xF4C9CC VA: 0xF4C9CC
+	public Stream get_OutputStream() { }
+
+	// RVA: 0xF4CA1C Offset: 0xF4CA1C VA: 0xF4CA1C
+	public Version get_ProtocolVersion() { }
+
+	// RVA: 0xF4CA24 Offset: 0xF4CA24 VA: 0xF4CA24
+	public void set_ProtocolVersion(Version value) { }
+
+	// RVA: 0xF4CC04 Offset: 0xF4CC04 VA: 0xF4CC04
+	public string get_RedirectLocation() { }
+
+	// RVA: 0xF4CC0C Offset: 0xF4CC0C VA: 0xF4CC0C
+	public void set_RedirectLocation(string value) { }
+
+	// RVA: 0xF4CD10 Offset: 0xF4CD10 VA: 0xF4CD10
+	public bool get_SendChunked() { }
+
+	// RVA: 0xF4528C Offset: 0xF4528C VA: 0xF4528C
+	public void set_SendChunked(bool value) { }
+
+	// RVA: 0xF48150 Offset: 0xF48150 VA: 0xF48150
+	public int get_StatusCode() { }
+
+	// RVA: 0xF479EC Offset: 0xF479EC VA: 0xF479EC
+	public void set_StatusCode(int value) { }
+
+	// RVA: 0xF47C38 Offset: 0xF47C38 VA: 0xF47C38
+	internal static string GetStatusDescription(int code) { }
+
+	// RVA: 0xF4CD18 Offset: 0xF4CD18 VA: 0xF4CD18
+	public string get_StatusDescription() { }
+
+	// RVA: 0xF4CD20 Offset: 0xF4CD20 VA: 0xF4CD20
+	public void set_StatusDescription(string value) { }
+
+	// RVA: 0xF4CD28 Offset: 0xF4CD28 VA: 0xF4CD28
+	public void Abort() { }
+
+	// RVA: 0xF4CD3C Offset: 0xF4CD3C VA: 0xF4CD3C
+	public void AddHeader(string name, string value) { }
+
+	// RVA: 0xF4CEBC Offset: 0xF4CEBC VA: 0xF4CEBC
+	public void AppendCookie(Cookie cookie) { }
+
+	// RVA: 0xF4CF70 Offset: 0xF4CF70 VA: 0xF4CF70
+	public void AppendHeader(string name, string value) { }
+
+	// RVA: 0xF4C590 Offset: 0xF4C590 VA: 0xF4C590
+	private void Close(bool force) { }
+
+	// RVA: 0xF4D0F0 Offset: 0xF4D0F0 VA: 0xF4D0F0
+	public void Close() { }
+
+	// RVA: 0xF47FE4 Offset: 0xF47FE4 VA: 0xF47FE4
+	public void Close(byte[] responseEntity, bool willBlock) { }
+
+	// RVA: 0xF4D104 Offset: 0xF4D104 VA: 0xF4D104
+	public void CopyFrom(HttpListenerResponse templateResponse) { }
+
+	// RVA: 0xF4D1A8 Offset: 0xF4D1A8 VA: 0xF4D1A8
+	public void Redirect(string url) { }
+
+	// RVA: 0xF4D1D4 Offset: 0xF4D1D4 VA: 0xF4D1D4
+	private bool FindCookie(Cookie cookie) { }
+
+	// RVA: 0xF4D64C Offset: 0xF4D64C VA: 0xF4D64C
+	internal void SendHeaders(bool closing, MemoryStream ms) { }
+
+	// RVA: 0xF4E004 Offset: 0xF4E004 VA: 0xF4E004
+	public void SetCookie(Cookie cookie) { }
+}
+
+// Namespace: System.Net
+internal class HttpRequestCreator : IWebRequestCreate // TypeDefIndex: 1569
+{
+	// Methods
+
+	// RVA: 0xF4E120 Offset: 0xF4E120 VA: 0xF4E120
+	internal void .ctor() { }
+
+	// RVA: 0xF4E128 Offset: 0xF4E128 VA: 0xF4E128 Slot: 4
+	public WebRequest Create(Uri uri) { }
+}
+
+// Namespace: System.Net
+public enum HttpRequestHeader // TypeDefIndex: 1570
+{
+	// Fields
+	public int value__; // 0x0
+	public const HttpRequestHeader CacheControl = 0;
+	public const HttpRequestHeader Connection = 1;
+	public const HttpRequestHeader Date = 2;
+	public const HttpRequestHeader KeepAlive = 3;
+	public const HttpRequestHeader Pragma = 4;
+	public const HttpRequestHeader Trailer = 5;
+	public const HttpRequestHeader TransferEncoding = 6;
+	public const HttpRequestHeader Upgrade = 7;
+	public const HttpRequestHeader Via = 8;
+	public const HttpRequestHeader Warning = 9;
+	public const HttpRequestHeader Allow = 10;
+	public const HttpRequestHeader ContentLength = 11;
+	public const HttpRequestHeader ContentType = 12;
+	public const HttpRequestHeader ContentEncoding = 13;
+	public const HttpRequestHeader ContentLanguage = 14;
+	public const HttpRequestHeader ContentLocation = 15;
+	public const HttpRequestHeader ContentMd5 = 16;
+	public const HttpRequestHeader ContentRange = 17;
+	public const HttpRequestHeader Expires = 18;
+	public const HttpRequestHeader LastModified = 19;
+	public const HttpRequestHeader Accept = 20;
+	public const HttpRequestHeader AcceptCharset = 21;
+	public const HttpRequestHeader AcceptEncoding = 22;
+	public const HttpRequestHeader AcceptLanguage = 23;
+	public const HttpRequestHeader Authorization = 24;
+	public const HttpRequestHeader Cookie = 25;
+	public const HttpRequestHeader Expect = 26;
+	public const HttpRequestHeader From = 27;
+	public const HttpRequestHeader Host = 28;
+	public const HttpRequestHeader IfMatch = 29;
+	public const HttpRequestHeader IfModifiedSince = 30;
+	public const HttpRequestHeader IfNoneMatch = 31;
+	public const HttpRequestHeader IfRange = 32;
+	public const HttpRequestHeader IfUnmodifiedSince = 33;
+	public const HttpRequestHeader MaxForwards = 34;
+	public const HttpRequestHeader ProxyAuthorization = 35;
+	public const HttpRequestHeader Referer = 36;
+	public const HttpRequestHeader Range = 37;
+	public const HttpRequestHeader Te = 38;
+	public const HttpRequestHeader Translate = 39;
+	public const HttpRequestHeader UserAgent = 40;
+}
+
+// Namespace: System.Net
+public enum HttpResponseHeader // TypeDefIndex: 1571
+{
+	// Fields
+	public int value__; // 0x0
+	public const HttpResponseHeader CacheControl = 0;
+	public const HttpResponseHeader Connection = 1;
+	public const HttpResponseHeader Date = 2;
+	public const HttpResponseHeader KeepAlive = 3;
+	public const HttpResponseHeader Pragma = 4;
+	public const HttpResponseHeader Trailer = 5;
+	public const HttpResponseHeader TransferEncoding = 6;
+	public const HttpResponseHeader Upgrade = 7;
+	public const HttpResponseHeader Via = 8;
+	public const HttpResponseHeader Warning = 9;
+	public const HttpResponseHeader Allow = 10;
+	public const HttpResponseHeader ContentLength = 11;
+	public const HttpResponseHeader ContentType = 12;
+	public const HttpResponseHeader ContentEncoding = 13;
+	public const HttpResponseHeader ContentLanguage = 14;
+	public const HttpResponseHeader ContentLocation = 15;
+	public const HttpResponseHeader ContentMd5 = 16;
+	public const HttpResponseHeader ContentRange = 17;
+	public const HttpResponseHeader Expires = 18;
+	public const HttpResponseHeader LastModified = 19;
+	public const HttpResponseHeader AcceptRanges = 20;
+	public const HttpResponseHeader Age = 21;
+	public const HttpResponseHeader ETag = 22;
+	public const HttpResponseHeader Location = 23;
+	public const HttpResponseHeader ProxyAuthenticate = 24;
+	public const HttpResponseHeader RetryAfter = 25;
+	public const HttpResponseHeader Server = 26;
+	public const HttpResponseHeader SetCookie = 27;
+	public const HttpResponseHeader Vary = 28;
+	public const HttpResponseHeader WwwAuthenticate = 29;
+}
+
+// Namespace: System.Net
+public enum HttpStatusCode // TypeDefIndex: 1572
+{
+	// Fields
+	public int value__; // 0x0
+	public const HttpStatusCode Continue = 100;
+	public const HttpStatusCode SwitchingProtocols = 101;
+	public const HttpStatusCode OK = 200;
+	public const HttpStatusCode Created = 201;
+	public const HttpStatusCode Accepted = 202;
+	public const HttpStatusCode NonAuthoritativeInformation = 203;
+	public const HttpStatusCode NoContent = 204;
+	public const HttpStatusCode ResetContent = 205;
+	public const HttpStatusCode PartialContent = 206;
+	public const HttpStatusCode MultipleChoices = 300;
+	public const HttpStatusCode Ambiguous = 300;
+	public const HttpStatusCode MovedPermanently = 301;
+	public const HttpStatusCode Moved = 301;
+	public const HttpStatusCode Found = 302;
+	public const HttpStatusCode Redirect = 302;
+	public const HttpStatusCode SeeOther = 303;
+	public const HttpStatusCode RedirectMethod = 303;
+	public const HttpStatusCode NotModified = 304;
+	public const HttpStatusCode UseProxy = 305;
+	public const HttpStatusCode Unused = 306;
+	public const HttpStatusCode TemporaryRedirect = 307;
+	public const HttpStatusCode RedirectKeepVerb = 307;
+	public const HttpStatusCode BadRequest = 400;
+	public const HttpStatusCode Unauthorized = 401;
+	public const HttpStatusCode PaymentRequired = 402;
+	public const HttpStatusCode Forbidden = 403;
+	public const HttpStatusCode NotFound = 404;
+	public const HttpStatusCode MethodNotAllowed = 405;
+	public const HttpStatusCode NotAcceptable = 406;
+	public const HttpStatusCode ProxyAuthenticationRequired = 407;
+	public const HttpStatusCode RequestTimeout = 408;
+	public const HttpStatusCode Conflict = 409;
+	public const HttpStatusCode Gone = 410;
+	public const HttpStatusCode LengthRequired = 411;
+	public const HttpStatusCode PreconditionFailed = 412;
+	public const HttpStatusCode RequestEntityTooLarge = 413;
+	public const HttpStatusCode RequestUriTooLong = 414;
+	public const HttpStatusCode UnsupportedMediaType = 415;
+	public const HttpStatusCode RequestedRangeNotSatisfiable = 416;
+	public const HttpStatusCode ExpectationFailed = 417;
+	public const HttpStatusCode InternalServerError = 500;
+	public const HttpStatusCode NotImplemented = 501;
+	public const HttpStatusCode BadGateway = 502;
+	public const HttpStatusCode ServiceUnavailable = 503;
+	public const HttpStatusCode GatewayTimeout = 504;
+	public const HttpStatusCode HttpVersionNotSupported = 505;
+}
+
+// Namespace: System.Net
+internal class HttpStreamAsyncResult : IAsyncResult // TypeDefIndex: 1573
+{
+	// Fields
+	private object locker; // 0x10
+	private ManualResetEvent handle; // 0x18
+	private bool completed; // 0x20
+	internal byte[] Buffer; // 0x28
+	internal int Offset; // 0x30
+	internal int Count; // 0x34
+	internal AsyncCallback Callback; // 0x38
+	internal object State; // 0x40
+	internal int SynchRead; // 0x48
+	internal Exception Error; // 0x50
+
+	// Properties
+	public object AsyncState { get; }
+	public WaitHandle AsyncWaitHandle { get; }
+	public bool CompletedSynchronously { get; }
+	public bool IsCompleted { get; }
+
+	// Methods
+
+	// RVA: 0xF4E2FC Offset: 0xF4E2FC VA: 0xF4E2FC
+	public void .ctor() { }
+
+	// RVA: 0xF4E364 Offset: 0xF4E364 VA: 0xF4E364
+	public void Complete(Exception e) { }
+
+	// RVA: 0xF4E36C Offset: 0xF4E36C VA: 0xF4E36C
+	public void Complete() { }
+
+	// RVA: 0xF4E42C Offset: 0xF4E42C VA: 0xF4E42C Slot: 4
+	public object get_AsyncState() { }
+
+	// RVA: 0xF4E434 Offset: 0xF4E434 VA: 0xF4E434 Slot: 5
+	public WaitHandle get_AsyncWaitHandle() { }
+
+	// RVA: 0xF4E514 Offset: 0xF4E514 VA: 0xF4E514 Slot: 6
+	public bool get_CompletedSynchronously() { }
+
+	// RVA: 0xF4E528 Offset: 0xF4E528 VA: 0xF4E528 Slot: 7
+	public bool get_IsCompleted() { }
+}
+
+// Namespace: System.Net
+internal sealed class HttpUtility // TypeDefIndex: 1574
+{
+	// Methods
+
+	// RVA: 0xF4E568 Offset: 0xF4E568 VA: 0xF4E568
+	private void .ctor() { }
+
+	// RVA: 0xF4BF90 Offset: 0xF4BF90 VA: 0xF4BF90
+	public static string UrlDecode(string s) { }
+
+	// RVA: 0xF4E94C Offset: 0xF4E94C VA: 0xF4E94C
+	private static char[] GetChars(MemoryStream b, Encoding e) { }
+
+	// RVA: 0xF4E570 Offset: 0xF4E570 VA: 0xF4E570
+	public static string UrlDecode(string s, Encoding e) { }
+}
+
+// Namespace: System.Net
+public class HttpVersion // TypeDefIndex: 1575
+{
+	// Fields
+	public static readonly Version Version10; // 0x0
+	public static readonly Version Version11; // 0x8
+
+	// Methods
+
+	// RVA: 0xF4E9DC Offset: 0xF4E9DC VA: 0xF4E9DC
+	public void .ctor() { }
+
+	// RVA: 0xF4E9E4 Offset: 0xF4E9E4 VA: 0xF4E9E4
+	private static void .cctor() { }
+}
+
+// Namespace: System.Net
+[Serializable]
+public class HttpWebRequest : WebRequest, ISerializable // TypeDefIndex: 1576
+{
+	// Fields
+	private Uri requestUri; // 0x20
+	private Uri actualUri; // 0x28
+	private bool hostChanged; // 0x30
+	private bool allowAutoRedirect; // 0x31
+	private bool allowBuffering; // 0x32
+	private X509CertificateCollection certificates; // 0x38
+	private string connectionGroup; // 0x40
+	private long contentLength; // 0x48
+	private HttpContinueDelegate continueDelegate; // 0x50
+	private CookieContainer cookieContainer; // 0x58
+	private ICredentials credentials; // 0x60
+	private bool haveResponse; // 0x68
+	private bool haveRequest; // 0x69
+	private bool requestSent; // 0x6A
+	private WebHeaderCollection webHeaders; // 0x70
+	private bool keepAlive; // 0x78
+	private int maxAutoRedirect; // 0x7C
+	private string mediaType; // 0x80
+	private string method; // 0x88
+	private string initialMethod; // 0x90
+	private bool pipelined; // 0x98
+	private bool preAuthenticate; // 0x99
+	private bool usedPreAuth; // 0x9A
+	private Version version; // 0xA0
+	private Version actualVersion; // 0xA8

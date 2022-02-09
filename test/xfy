@@ -1,0 +1,1000 @@
+	private const string rsaOid = "1.2.840.113549.1.1.1";
+	private const string dsaOid = "1.2.840.10040.4.1";
+	private AsymmetricAlgorithm _key; // 0x10
+	private AsnEncodedData _keyValue; // 0x18
+	private AsnEncodedData _params; // 0x20
+	private Oid _oid; // 0x28
+	[CompilerGeneratedAttribute] // RVA: 0xC3D0D4 Offset: 0xC3D0D4 VA: 0xC3D0D4
+	private static Dictionary<string, int> <>f__switch$map9; // 0x0
+
+	// Properties
+	public AsnEncodedData EncodedKeyValue { get; }
+	public AsnEncodedData EncodedParameters { get; }
+	public AsymmetricAlgorithm Key { get; }
+	public Oid Oid { get; }
+
+	// Methods
+
+	// RVA: 0x11260A4 Offset: 0x11260A4 VA: 0x11260A4
+	public void .ctor(Oid oid, AsnEncodedData parameters, AsnEncodedData keyValue) { }
+
+	// RVA: 0x11261EC Offset: 0x11261EC VA: 0x11261EC
+	internal void .ctor(X509Certificate certificate) { }
+
+	// RVA: 0x1126668 Offset: 0x1126668 VA: 0x1126668
+	public AsnEncodedData get_EncodedKeyValue() { }
+
+	// RVA: 0x1126670 Offset: 0x1126670 VA: 0x1126670
+	public AsnEncodedData get_EncodedParameters() { }
+
+	// RVA: 0x1126678 Offset: 0x1126678 VA: 0x1126678
+	public AsymmetricAlgorithm get_Key() { }
+
+	// RVA: 0x11271F4 Offset: 0x11271F4 VA: 0x11271F4
+	public Oid get_Oid() { }
+
+	// RVA: 0x11271FC Offset: 0x11271FC VA: 0x11271FC
+	private static byte[] GetUnsignedBigInteger(byte[] integer) { }
+
+	// RVA: 0x1126CDC Offset: 0x1126CDC VA: 0x1126CDC
+	internal static DSA DecodeDSA(byte[] rawPublicKey, byte[] rawParameters) { }
+
+	// RVA: 0x1126900 Offset: 0x1126900 VA: 0x1126900
+	internal static RSA DecodeRSA(byte[] rawPublicKey) { }
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+public enum StoreLocation // TypeDefIndex: 1645
+{
+	// Fields
+	public int value__; // 0x0
+	public const StoreLocation CurrentUser = 1;
+	public const StoreLocation LocalMachine = 2;
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+public enum StoreName // TypeDefIndex: 1646
+{
+	// Fields
+	public int value__; // 0x0
+	public const StoreName AddressBook = 1;
+	public const StoreName AuthRoot = 2;
+	public const StoreName CertificateAuthority = 3;
+	public const StoreName Disallowed = 4;
+	public const StoreName My = 5;
+	public const StoreName Root = 6;
+	public const StoreName TrustedPeople = 7;
+	public const StoreName TrustedPublisher = 8;
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+[MonoTODOAttribute] // RVA: 0xC3CB2C Offset: 0xC3CB2C VA: 0xC3CB2C
+public sealed class X500DistinguishedName : AsnEncodedData // TypeDefIndex: 1647
+{
+	// Fields
+	private const X500DistinguishedNameFlags AllFlags = 29169;
+	private string name; // 0x20
+
+	// Properties
+	public string Name { get; }
+
+	// Methods
+
+	// RVA: 0x11272B4 Offset: 0x11272B4 VA: 0x11272B4
+	public void .ctor(AsnEncodedData encodedDistinguishedName) { }
+
+	// RVA: 0x11274B0 Offset: 0x11274B0 VA: 0x11274B0
+	public void .ctor(byte[] encodedDistinguishedName) { }
+
+	// RVA: 0x11275D4 Offset: 0x11275D4 VA: 0x11275D4
+	public void .ctor(string distinguishedName) { }
+
+	// RVA: 0x11275DC Offset: 0x11275DC VA: 0x11275DC
+	public void .ctor(string distinguishedName, X500DistinguishedNameFlags flag) { }
+
+	// RVA: 0x11279CC Offset: 0x11279CC VA: 0x11279CC
+	public void .ctor(X500DistinguishedName distinguishedName) { }
+
+	// RVA: 0x1127AA8 Offset: 0x1127AA8 VA: 0x1127AA8
+	public string get_Name() { }
+
+	// RVA: 0x112786C Offset: 0x112786C VA: 0x112786C
+	public string Decode(X500DistinguishedNameFlags flag) { }
+
+	// RVA: 0x1127B24 Offset: 0x1127B24 VA: 0x1127B24 Slot: 5
+	public override string Format(bool multiLine) { }
+
+	// RVA: 0x1127AB0 Offset: 0x1127AB0 VA: 0x1127AB0
+	private static string GetSeparator(X500DistinguishedNameFlags flag) { }
+
+	// RVA: 0x11273C0 Offset: 0x11273C0 VA: 0x11273C0
+	private void DecodeRawData() { }
+
+	// RVA: 0x1127C08 Offset: 0x1127C08 VA: 0x1127C08
+	private static string Canonize(string s) { }
+
+	// RVA: 0x1127E50 Offset: 0x1127E50 VA: 0x1127E50
+	internal static bool AreEqual(X500DistinguishedName name1, X500DistinguishedName name2) { }
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+[FlagsAttribute] // RVA: 0xC3CB64 Offset: 0xC3CB64 VA: 0xC3CB64
+public enum X500DistinguishedNameFlags // TypeDefIndex: 1648
+{
+	// Fields
+	public int value__; // 0x0
+	public const X500DistinguishedNameFlags None = 0;
+	public const X500DistinguishedNameFlags Reversed = 1;
+	public const X500DistinguishedNameFlags UseSemicolons = 16;
+	public const X500DistinguishedNameFlags DoNotUsePlusSign = 32;
+	public const X500DistinguishedNameFlags DoNotUseQuotes = 64;
+	public const X500DistinguishedNameFlags UseCommas = 128;
+	public const X500DistinguishedNameFlags UseNewLines = 256;
+	public const X500DistinguishedNameFlags UseUTF8Encoding = 4096;
+	public const X500DistinguishedNameFlags UseT61Encoding = 8192;
+	public const X500DistinguishedNameFlags ForceUTF8Encoding = 16384;
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+public sealed class X509BasicConstraintsExtension : X509Extension // TypeDefIndex: 1649
+{
+	// Fields
+	internal const string oid = "2.5.29.19";
+	internal const string friendlyName = "Basic Constraints";
+	private bool _certificateAuthority; // 0x21
+	private bool _hasPathLengthConstraint; // 0x22
+	private int _pathLengthConstraint; // 0x24
+	private AsnDecodeStatus _status; // 0x28
+
+	// Properties
+	public bool CertificateAuthority { get; }
+	public bool HasPathLengthConstraint { get; }
+	public int PathLengthConstraint { get; }
+
+	// Methods
+
+	// RVA: 0x1128074 Offset: 0x1128074 VA: 0x1128074
+	public void .ctor() { }
+
+	// RVA: 0x1123C50 Offset: 0x1123C50 VA: 0x1123C50
+	public void .ctor(AsnEncodedData encodedBasicConstraints, bool critical) { }
+
+	// RVA: 0x1128340 Offset: 0x1128340 VA: 0x1128340
+	public void .ctor(bool certificateAuthority, bool hasPathLengthConstraint, int pathLengthConstraint, bool critical) { }
+
+	// RVA: 0x11285E0 Offset: 0x11285E0 VA: 0x11285E0
+	public bool get_CertificateAuthority() { }
+
+	// RVA: 0x1128678 Offset: 0x1128678 VA: 0x1128678
+	public bool get_HasPathLengthConstraint() { }
+
+	// RVA: 0x1128710 Offset: 0x1128710 VA: 0x1128710
+	public int get_PathLengthConstraint() { }
+
+	// RVA: 0x11287A8 Offset: 0x11287A8 VA: 0x11287A8 Slot: 4
+	public override void CopyFrom(AsnEncodedData asnEncodedData) { }
+
+	// RVA: 0x1128118 Offset: 0x1128118 VA: 0x1128118
+	internal AsnDecodeStatus Decode(byte[] extension) { }
+
+	// RVA: 0x1128460 Offset: 0x1128460 VA: 0x1128460
+	internal byte[] Encode() { }
+
+	// RVA: 0x1123D18 Offset: 0x1123D18 VA: 0x1123D18 Slot: 6
+	internal override string ToString(bool multiLine) { }
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+public class X509Certificate2 : X509Certificate // TypeDefIndex: 1650
+{
+	// Fields
+	private bool _archived; // 0x38
+	private X509ExtensionCollection _extensions; // 0x40
+	private string _name; // 0x48
+	private string _serial; // 0x50
+	private PublicKey _publicKey; // 0x58
+	private X500DistinguishedName issuer_name; // 0x60
+	private X500DistinguishedName subject_name; // 0x68
+	private Oid signature_algorithm; // 0x70
+	private X509Certificate _cert; // 0x78
+	private static string empty_error; // 0x0
+	private static byte[] commonName; // 0x8
+	private static byte[] email; // 0x10
+	private static byte[] signedData; // 0x18
+
+	// Properties
+	public bool Archived { get; set; }
+	public X509ExtensionCollection Extensions { get; }
+	public string FriendlyName { get; set; }
+	public bool HasPrivateKey { get; }
+	public X500DistinguishedName IssuerName { get; }
+	public DateTime NotAfter { get; }
+	public DateTime NotBefore { get; }
+	public AsymmetricAlgorithm PrivateKey { get; set; }
+	public PublicKey PublicKey { get; }
+	public byte[] RawData { get; }
+	public string SerialNumber { get; }
+	public Oid SignatureAlgorithm { get; }
+	public X500DistinguishedName SubjectName { get; }
+	public string Thumbprint { get; }
+	public int Version { get; }
+	internal X509Certificate MonoCertificate { get; }
+
+	// Methods
+
+	// RVA: 0x1128A98 Offset: 0x1128A98 VA: 0x1128A98
+	public void .ctor() { }
+
+	// RVA: 0x1128B18 Offset: 0x1128B18 VA: 0x1128B18
+	public void .ctor(byte[] rawData) { }
+
+	// RVA: 0x1128BBC Offset: 0x1128BBC VA: 0x1128BBC
+	public void .ctor(byte[] rawData, string password) { }
+
+	// RVA: 0x1128C64 Offset: 0x1128C64 VA: 0x1128C64
+	public void .ctor(byte[] rawData, SecureString password) { }
+
+	// RVA: 0x1128D0C Offset: 0x1128D0C VA: 0x1128D0C
+	public void .ctor(byte[] rawData, string password, X509KeyStorageFlags keyStorageFlags) { }
+
+	// RVA: 0x1128DC0 Offset: 0x1128DC0 VA: 0x1128DC0
+	public void .ctor(byte[] rawData, SecureString password, X509KeyStorageFlags keyStorageFlags) { }
+
+	// RVA: 0x1128E74 Offset: 0x1128E74 VA: 0x1128E74
+	public void .ctor(string fileName) { }
+
+	// RVA: 0x1128F20 Offset: 0x1128F20 VA: 0x1128F20
+	public void .ctor(string fileName, string password) { }
+
+	// RVA: 0x1128FC8 Offset: 0x1128FC8 VA: 0x1128FC8
+	public void .ctor(string fileName, SecureString password) { }
+
+	// RVA: 0x1129070 Offset: 0x1129070 VA: 0x1129070
+	public void .ctor(string fileName, string password, X509KeyStorageFlags keyStorageFlags) { }
+
+	// RVA: 0x1129124 Offset: 0x1129124 VA: 0x1129124
+	public void .ctor(string fileName, SecureString password, X509KeyStorageFlags keyStorageFlags) { }
+
+	// RVA: 0x11291D8 Offset: 0x11291D8 VA: 0x11291D8
+	public void .ctor(IntPtr handle) { }
+
+	// RVA: 0x112929C Offset: 0x112929C VA: 0x112929C
+	public void .ctor(X509Certificate certificate) { }
+
+	// RVA: 0x1129360 Offset: 0x1129360 VA: 0x1129360
+	private static void .cctor() { }
+
+	// RVA: 0x11294C0 Offset: 0x11294C0 VA: 0x11294C0
+	public bool get_Archived() { }
+
+	// RVA: 0x1129574 Offset: 0x1129574 VA: 0x1129574
+	public void set_Archived(bool value) { }
+
+	// RVA: 0x1129638 Offset: 0x1129638 VA: 0x1129638
+	public X509ExtensionCollection get_Extensions() { }
+
+	// RVA: 0x1129DBC Offset: 0x1129DBC VA: 0x1129DBC
+	public string get_FriendlyName() { }
+
+	// RVA: 0x1129E70 Offset: 0x1129E70 VA: 0x1129E70
+	public void set_FriendlyName(string value) { }
+
+	// RVA: 0x1129F30 Offset: 0x1129F30 VA: 0x1129F30
+	public bool get_HasPrivateKey() { }
+
+	// RVA: 0x112A2BC Offset: 0x112A2BC VA: 0x112A2BC
+	public X500DistinguishedName get_IssuerName() { }
+
+	// RVA: 0x112A3CC Offset: 0x112A3CC VA: 0x112A3CC
+	public DateTime get_NotAfter() { }
+
+	// RVA: 0x112A4A8 Offset: 0x112A4A8 VA: 0x112A4A8
+	public DateTime get_NotBefore() { }
+
+	// RVA: 0x1129F4C Offset: 0x1129F4C VA: 0x1129F4C
+	public AsymmetricAlgorithm get_PrivateKey() { }
+
+	// RVA: 0x112A584 Offset: 0x112A584 VA: 0x112A584
+	public void set_PrivateKey(AsymmetricAlgorithm value) { }
+
+	// RVA: 0x112A72C Offset: 0x112A72C VA: 0x112A72C
+	public PublicKey get_PublicKey() { }
+
+	// RVA: 0x112A8D4 Offset: 0x112A8D4 VA: 0x112A8D4
+	public byte[] get_RawData() { }
+
+	// RVA: 0x112A98C Offset: 0x112A98C VA: 0x112A98C
+	public string get_SerialNumber() { }
+
+	// RVA: 0x112AB40 Offset: 0x112AB40 VA: 0x112AB40
+	public Oid get_SignatureAlgorithm() { }
+
+	// RVA: 0x112AC3C Offset: 0x112AC3C VA: 0x112AC3C
+	public X500DistinguishedName get_SubjectName() { }
+
+	// RVA: 0x112AD4C Offset: 0x112AD4C VA: 0x112AD4C
+	public string get_Thumbprint() { }
+
+	// RVA: 0x112AD54 Offset: 0x112AD54 VA: 0x112AD54
+	public int get_Version() { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E2A4 Offset: 0xC3E2A4 VA: 0xC3E2A4
+	// RVA: 0x112AE08 Offset: 0x112AE08 VA: 0x112AE08
+	public string GetNameInfo(X509NameType nameType, bool forIssuer) { }
+
+	// RVA: 0x112B130 Offset: 0x112B130 VA: 0x112B130
+	private ASN1 Find(byte[] oid, ASN1 dn) { }
+
+	// RVA: 0x112B268 Offset: 0x112B268 VA: 0x112B268
+	private string GetValueAsString(ASN1 pair) { }
+
+	// RVA: 0x112B4E0 Offset: 0x112B4E0 VA: 0x112B4E0
+	private void ImportPkcs12(byte[] rawData, string password) { }
+
+	// RVA: 0x112B778 Offset: 0x112B778 VA: 0x112B778 Slot: 27
+	public override void Import(byte[] rawData) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E2DC Offset: 0xC3E2DC VA: 0xC3E2DC
+	// RVA: 0x112B790 Offset: 0x112B790 VA: 0x112B790 Slot: 28
+	public override void Import(byte[] rawData, string password, X509KeyStorageFlags keyStorageFlags) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E314 Offset: 0xC3E314 VA: 0xC3E314
+	// RVA: 0x112BA1C Offset: 0x112BA1C VA: 0x112BA1C Slot: 29
+	public override void Import(byte[] rawData, SecureString password, X509KeyStorageFlags keyStorageFlags) { }
+
+	// RVA: 0x112BA30 Offset: 0x112BA30 VA: 0x112BA30 Slot: 30
+	public override void Import(string fileName) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E34C Offset: 0xC3E34C VA: 0xC3E34C
+	// RVA: 0x112BC4C Offset: 0x112BC4C VA: 0x112BC4C Slot: 31
+	public override void Import(string fileName, string password, X509KeyStorageFlags keyStorageFlags) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E384 Offset: 0xC3E384 VA: 0xC3E384
+	// RVA: 0x112BCEC Offset: 0x112BCEC VA: 0x112BCEC Slot: 32
+	public override void Import(string fileName, SecureString password, X509KeyStorageFlags keyStorageFlags) { }
+
+	// RVA: 0x112BAC0 Offset: 0x112BAC0 VA: 0x112BAC0
+	private static byte[] Load(string fileName) { }
+
+	// RVA: 0x112BD80 Offset: 0x112BD80 VA: 0x112BD80 Slot: 33
+	public override void Reset() { }
+
+	// RVA: 0x112BE10 Offset: 0x112BE10 VA: 0x112BE10 Slot: 3
+	public override string ToString() { }
+
+	// RVA: 0x112BE7C Offset: 0x112BE7C VA: 0x112BE7C Slot: 23
+	public override string ToString(bool verbose) { }
+
+	// RVA: 0x112C418 Offset: 0x112C418 VA: 0x112C418
+	private static void AppendBuffer(StringBuilder sb, byte[] buffer) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E3BC Offset: 0xC3E3BC VA: 0xC3E3BC
+	// RVA: 0x112C51C Offset: 0x112C51C VA: 0x112C51C
+	public bool Verify() { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E3F4 Offset: 0xC3E3F4 VA: 0xC3E3F4
+	// RVA: 0x112CCAC Offset: 0x112CCAC VA: 0x112CCAC
+	public static X509ContentType GetCertContentType(byte[] rawData) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E42C Offset: 0xC3E42C VA: 0xC3E42C
+	// RVA: 0x112D16C Offset: 0x112D16C VA: 0x112D16C
+	public static X509ContentType GetCertContentType(string fileName) { }
+
+	// RVA: 0x112D258 Offset: 0x112D258 VA: 0x112D258
+	internal X509Certificate get_MonoCertificate() { }
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+[DefaultMemberAttribute] // RVA: 0xC3CB74 Offset: 0xC3CB74 VA: 0xC3CB74
+public class X509Certificate2Collection : X509CertificateCollection // TypeDefIndex: 1651
+{
+	// Properties
+	public X509Certificate2 Item { get; set; }
+
+	// Methods
+
+	// RVA: 0x112D260 Offset: 0x112D260 VA: 0x112D260
+	public void .ctor() { }
+
+	// RVA: 0x112D270 Offset: 0x112D270 VA: 0x112D270
+	public void .ctor(X509Certificate2Collection certificates) { }
+
+	// RVA: 0x112D360 Offset: 0x112D360 VA: 0x112D360
+	public void .ctor(X509Certificate2 certificate) { }
+
+	// RVA: 0x112D450 Offset: 0x112D450 VA: 0x112D450
+	public void .ctor(X509Certificate2[] certificates) { }
+
+	// RVA: 0x112D598 Offset: 0x112D598 VA: 0x112D598
+	public X509Certificate2 get_Item(int index) { }
+
+	// RVA: 0x112D72C Offset: 0x112D72C VA: 0x112D72C
+	public void set_Item(int index, X509Certificate2 value) { }
+
+	// RVA: 0x112D390 Offset: 0x112D390 VA: 0x112D390
+	public int Add(X509Certificate2 certificate) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E464 Offset: 0xC3E464 VA: 0xC3E464
+	// RVA: 0x112D480 Offset: 0x112D480 VA: 0x112D480
+	public void AddRange(X509Certificate2[] certificates) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E49C Offset: 0xC3E49C VA: 0xC3E49C
+	// RVA: 0x112D2A0 Offset: 0x112D2A0 VA: 0x112D2A0
+	public void AddRange(X509Certificate2Collection certificates) { }
+
+	// RVA: 0x112D780 Offset: 0x112D780 VA: 0x112D780
+	public bool Contains(X509Certificate2 certificate) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E4D4 Offset: 0xC3E4D4 VA: 0xC3E4D4
+	// RVA: 0x112DB20 Offset: 0x112DB20 VA: 0x112DB20
+	public byte[] Export(X509ContentType contentType) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E50C Offset: 0xC3E50C VA: 0xC3E50C
+	// RVA: 0x112DB28 Offset: 0x112DB28 VA: 0x112DB28
+	public byte[] Export(X509ContentType contentType, string password) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E544 Offset: 0xC3E544 VA: 0xC3E544
+	// RVA: 0x112DCB8 Offset: 0x112DCB8 VA: 0x112DCB8
+	public X509Certificate2Collection Find(X509FindType findType, object findValue, bool validOnly) { }
+
+	// RVA: 0x112F2C4 Offset: 0x112F2C4 VA: 0x112F2C4
+	public X509Certificate2Enumerator GetEnumerator() { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E57C Offset: 0xC3E57C VA: 0xC3E57C
+	// RVA: 0x112F3F4 Offset: 0x112F3F4 VA: 0x112F3F4
+	public void Import(byte[] rawData) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E5B4 Offset: 0xC3E5B4 VA: 0xC3E5B4
+	// RVA: 0x112F484 Offset: 0x112F484 VA: 0x112F484
+	public void Import(byte[] rawData, string password, X509KeyStorageFlags keyStorageFlags) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E5EC Offset: 0xC3E5EC VA: 0xC3E5EC
+	// RVA: 0x112F52C Offset: 0x112F52C VA: 0x112F52C
+	public void Import(string fileName) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E624 Offset: 0xC3E624 VA: 0xC3E624
+	// RVA: 0x112F5BC Offset: 0x112F5BC VA: 0x112F5BC
+	public void Import(string fileName, string password, X509KeyStorageFlags keyStorageFlags) { }
+
+	// RVA: 0x112F664 Offset: 0x112F664 VA: 0x112F664
+	public void Insert(int index, X509Certificate2 certificate) { }
+
+	// RVA: 0x112F7AC Offset: 0x112F7AC VA: 0x112F7AC
+	public void Remove(X509Certificate2 certificate) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E65C Offset: 0xC3E65C VA: 0xC3E65C
+	// RVA: 0x112F984 Offset: 0x112F984 VA: 0x112F984
+	public void RemoveRange(X509Certificate2[] certificates) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E694 Offset: 0xC3E694 VA: 0xC3E694
+	// RVA: 0x112FA64 Offset: 0x112FA64 VA: 0x112FA64
+	public void RemoveRange(X509Certificate2Collection certificates) { }
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+public sealed class X509Certificate2Enumerator : IEnumerator // TypeDefIndex: 1652
+{
+	// Fields
+	private IEnumerator enumerator; // 0x10
+
+	// Properties
+	private object System.Collections.IEnumerator.Current { get; }
+	public X509Certificate2 Current { get; }
+
+	// Methods
+
+	// RVA: 0x112F324 Offset: 0x112F324 VA: 0x112F324
+	internal void .ctor(X509Certificate2Collection collection) { }
+
+	// RVA: 0x112FD38 Offset: 0x112FD38 VA: 0x112FD38 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	// RVA: 0x112FDEC Offset: 0x112FDEC VA: 0x112FDEC Slot: 5
+	private bool System.Collections.IEnumerator.MoveNext() { }
+
+	// RVA: 0x112FEA4 Offset: 0x112FEA4 VA: 0x112FEA4 Slot: 6
+	private void System.Collections.IEnumerator.Reset() { }
+
+	// RVA: 0x112FB40 Offset: 0x112FB40 VA: 0x112FB40
+	public X509Certificate2 get_Current() { }
+
+	// RVA: 0x112FC80 Offset: 0x112FC80 VA: 0x112FC80 Slot: 7
+	public bool MoveNext() { }
+
+	// RVA: 0x112FF5C Offset: 0x112FF5C VA: 0x112FF5C Slot: 8
+	public void Reset() { }
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+[DefaultMemberAttribute] // RVA: 0xC3CBAC Offset: 0xC3CBAC VA: 0xC3CBAC
+[Serializable]
+public class X509CertificateCollection : CollectionBase // TypeDefIndex: 1653
+{
+	// Properties
+	public X509Certificate Item { get; set; }
+
+	// Methods
+
+	// RVA: 0x112D268 Offset: 0x112D268 VA: 0x112D268
+	public void .ctor() { }
+
+	// RVA: 0x1130014 Offset: 0x1130014 VA: 0x1130014
+	public void .ctor(X509Certificate[] value) { }
+
+	// RVA: 0x113015C Offset: 0x113015C VA: 0x113015C
+	public void .ctor(X509CertificateCollection value) { }
+
+	// RVA: 0x11302AC Offset: 0x11302AC VA: 0x11302AC
+	public X509Certificate get_Item(int index) { }
+
+	// RVA: 0x11303A8 Offset: 0x11303A8 VA: 0x11303A8
+	public void set_Item(int index, X509Certificate value) { }
+
+	// RVA: 0x11303FC Offset: 0x11303FC VA: 0x11303FC
+	public int Add(X509Certificate value) { }
+
+	// RVA: 0x1130044 Offset: 0x1130044 VA: 0x1130044
+	public void AddRange(X509Certificate[] value) { }
+
+	// RVA: 0x113018C Offset: 0x113018C VA: 0x113018C
+	public void AddRange(X509CertificateCollection value) { }
+
+	// RVA: 0x11304BC Offset: 0x11304BC VA: 0x11304BC
+	public bool Contains(X509Certificate value) { }
+
+	// RVA: 0x1130704 Offset: 0x1130704 VA: 0x1130704
+	public void CopyTo(X509Certificate[] array, int index) { }
+
+	// RVA: 0x1130758 Offset: 0x1130758 VA: 0x1130758
+	public X509CertificateCollection.X509CertificateEnumerator GetEnumerator() { }
+
+	// RVA: 0x1130888 Offset: 0x1130888 VA: 0x1130888 Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0x11308C0 Offset: 0x11308C0 VA: 0x11308C0
+	public int IndexOf(X509Certificate value) { }
+
+	// RVA: 0x1130904 Offset: 0x1130904 VA: 0x1130904
+	public void Insert(int index, X509Certificate value) { }
+
+	// RVA: 0x1130958 Offset: 0x1130958 VA: 0x1130958
+	public void Remove(X509Certificate value) { }
+
+	// RVA: 0x1130640 Offset: 0x1130640 VA: 0x1130640
+	private bool Compare(byte[] array1, byte[] array2) { }
+}
+
+// Namespace: 
+public class X509CertificateCollection.X509CertificateEnumerator : IEnumerator // TypeDefIndex: 1654
+{
+	// Fields
+	private IEnumerator enumerator; // 0x10
+
+	// Properties
+	private object System.Collections.IEnumerator.Current { get; }
+	public X509Certificate Current { get; }
+
+	// Methods
+
+	// RVA: 0x11307B8 Offset: 0x11307B8 VA: 0x11307B8
+	public void .ctor(X509CertificateCollection mappings) { }
+
+	// RVA: 0x1130A84 Offset: 0x1130A84 VA: 0x1130A84 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	// RVA: 0x1130B38 Offset: 0x1130B38 VA: 0x1130B38 Slot: 5
+	private bool System.Collections.IEnumerator.MoveNext() { }
+
+	// RVA: 0x1130BF0 Offset: 0x1130BF0 VA: 0x1130BF0 Slot: 6
+	private void System.Collections.IEnumerator.Reset() { }
+
+	// RVA: 0x1130CA8 Offset: 0x1130CA8 VA: 0x1130CA8
+	public X509Certificate get_Current() { }
+
+	// RVA: 0x1130DE8 Offset: 0x1130DE8 VA: 0x1130DE8 Slot: 7
+	public bool MoveNext() { }
+
+	// RVA: 0x1130EA0 Offset: 0x1130EA0 VA: 0x1130EA0 Slot: 8
+	public void Reset() { }
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+public class X509Chain // TypeDefIndex: 1655
+{
+	// Fields
+	private StoreLocation location; // 0x10
+	private X509ChainElementCollection elements; // 0x18
+	private X509ChainPolicy policy; // 0x20
+	private X509ChainStatus[] status; // 0x28
+	private static X509ChainStatus[] Empty; // 0x0
+	private int max_path_length; // 0x30
+	private X500DistinguishedName working_issuer_name; // 0x38
+	private AsymmetricAlgorithm working_public_key; // 0x40
+	private X509ChainElement bce_restriction; // 0x48
+	private X509Store roots; // 0x50
+	private X509Store cas; // 0x58
+	private X509Certificate2Collection collection; // 0x60
+	[CompilerGeneratedAttribute] // RVA: 0xC3D0E4 Offset: 0xC3D0E4 VA: 0xC3D0E4
+	private static Dictionary<string, int> <>f__switch$mapB; // 0x8
+	[CompilerGeneratedAttribute] // RVA: 0xC3D0F4 Offset: 0xC3D0F4 VA: 0xC3D0F4
+	private static Dictionary<string, int> <>f__switch$mapC; // 0x10
+	[CompilerGeneratedAttribute] // RVA: 0xC3D104 Offset: 0xC3D104 VA: 0xC3D104
+	private static Dictionary<string, int> <>f__switch$mapD; // 0x18
+
+	// Properties
+	[MonoTODOAttribute] // RVA: 0xC3FB00 Offset: 0xC3FB00 VA: 0xC3FB00
+	public IntPtr ChainContext { get; }
+	public X509ChainElementCollection ChainElements { get; }
+	public X509ChainPolicy ChainPolicy { get; set; }
+	public X509ChainStatus[] ChainStatus { get; }
+	private X509Store Roots { get; }
+	private X509Store CertificateAuthorities { get; }
+	private X509Certificate2Collection CertificateCollection { get; }
+
+	// Methods
+
+	// RVA: 0x1130F58 Offset: 0x1130F58 VA: 0x1130F58
+	public void .ctor() { }
+
+	// RVA: 0x1130F60 Offset: 0x1130F60 VA: 0x1130F60
+	public void .ctor(bool useMachineContext) { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E6CC Offset: 0xC3E6CC VA: 0xC3E6CC
+	// RVA: 0x11310AC Offset: 0x11310AC VA: 0x11310AC
+	public void .ctor(IntPtr chainContext) { }
+
+	// RVA: 0x1131124 Offset: 0x1131124 VA: 0x1131124
+	private static void .cctor() { }
+
+	// RVA: 0x1131188 Offset: 0x1131188 VA: 0x1131188
+	public IntPtr get_ChainContext() { }
+
+	// RVA: 0x11311C8 Offset: 0x11311C8 VA: 0x11311C8
+	public X509ChainElementCollection get_ChainElements() { }
+
+	// RVA: 0x11311D0 Offset: 0x11311D0 VA: 0x11311D0
+	public X509ChainPolicy get_ChainPolicy() { }
+
+	// RVA: 0x11311D8 Offset: 0x11311D8 VA: 0x11311D8
+	public void set_ChainPolicy(X509ChainPolicy value) { }
+
+	// RVA: 0x11311E0 Offset: 0x11311E0 VA: 0x11311E0
+	public X509ChainStatus[] get_ChainStatus() { }
+
+	[MonoTODOAttribute] // RVA: 0xC3E704 Offset: 0xC3E704 VA: 0xC3E704
+	// RVA: 0x112C69C Offset: 0x112C69C VA: 0x112C69C
+	public bool Build(X509Certificate2 certificate) { }
+
+	// RVA: 0x1131254 Offset: 0x1131254 VA: 0x1131254
+	public void Reset() { }
+
+	// RVA: 0x1131908 Offset: 0x1131908 VA: 0x1131908
+	public static X509Chain Create() { }
+
+	// RVA: 0x11319F8 Offset: 0x11319F8 VA: 0x11319F8
+	private X509Store get_Roots() { }
+
+	// RVA: 0x1131A94 Offset: 0x1131A94 VA: 0x1131A94
+	private X509Store get_CertificateAuthorities() { }
+
+	// RVA: 0x1131B30 Offset: 0x1131B30 VA: 0x1131B30
+	private X509Certificate2Collection get_CertificateCollection() { }
+
+	// RVA: 0x1131324 Offset: 0x1131324 VA: 0x1131324
+	private X509ChainStatusFlags BuildChainFrom(X509Certificate2 certificate) { }
+
+	// RVA: 0x11321F4 Offset: 0x11321F4 VA: 0x11321F4
+	private X509Certificate2 SelectBestFromCollection(X509Certificate2 child, X509Certificate2Collection c) { }
+
+	// RVA: 0x1131D58 Offset: 0x1131D58 VA: 0x1131D58
+	private X509Certificate2 FindParent(X509Certificate2 certificate) { }
+
+	// RVA: 0x1131FC0 Offset: 0x1131FC0 VA: 0x1131FC0
+	private bool IsChainComplete(X509Certificate2 certificate) { }
+
+	// RVA: 0x11325E8 Offset: 0x11325E8 VA: 0x11325E8
+	private bool IsSelfIssued(X509Certificate2 certificate) { }
+
+	// RVA: 0x113147C Offset: 0x113147C VA: 0x113147C
+	private void ValidateChain(X509ChainStatusFlags flag) { }
+
+	// RVA: 0x11326A8 Offset: 0x11326A8 VA: 0x11326A8
+	private void Process(int n) { }
+
+	// RVA: 0x1132CBC Offset: 0x1132CBC VA: 0x1132CBC
+	private void PrepareForNextCertificate(int n) { }
+
+	// RVA: 0x1133250 Offset: 0x1133250 VA: 0x1133250
+	private void WrapUp() { }
+
+	// RVA: 0x113337C Offset: 0x113337C VA: 0x113337C
+	private void ProcessCertificateExtensions(X509ChainElement element) { }
+
+	// RVA: 0x1133320 Offset: 0x1133320 VA: 0x1133320
+	private bool IsSignedWith(X509Certificate2 signed, AsymmetricAlgorithm pubkey) { }
+
+	// RVA: 0x11324CC Offset: 0x11324CC VA: 0x11324CC
+	private string GetSubjectKeyIdentifier(X509Certificate2 certificate) { }
+
+	// RVA: 0x113243C Offset: 0x113243C VA: 0x113243C
+	private string GetAuthorityKeyIdentifier(X509Certificate2 certificate) { }
+
+	// RVA: 0x11337D0 Offset: 0x11337D0 VA: 0x11337D0
+	private string GetAuthorityKeyIdentifier(X509Crl crl) { }
+
+	// RVA: 0x1133654 Offset: 0x1133654 VA: 0x1133654
+	private string GetAuthorityKeyIdentifier(X509Extension ext) { }
+
+	// RVA: 0x1132FC4 Offset: 0x1132FC4 VA: 0x1132FC4
+	private void CheckRevocationOnChain(X509ChainStatusFlags flag) { }
+
+	// RVA: 0x1133860 Offset: 0x1133860 VA: 0x1133860
+	private X509ChainStatusFlags CheckRevocation(X509Certificate2 certificate, int ca, bool online) { }
+
+	// RVA: 0x1133960 Offset: 0x1133960 VA: 0x1133960
+	private X509ChainStatusFlags CheckRevocation(X509Certificate2 certificate, X509Certificate2 ca_cert, bool online) { }
+
+	// RVA: 0x1133BE0 Offset: 0x1133BE0 VA: 0x1133BE0
+	private X509Crl FindCrl(X509Certificate2 caCertificate) { }
+
+	// RVA: 0x1134878 Offset: 0x1134878 VA: 0x1134878
+	private bool ProcessCrlExtensions(X509Crl crl) { }
+
+	// RVA: 0x11343D8 Offset: 0x11343D8 VA: 0x11343D8
+	private bool ProcessCrlEntryExtensions(X509Crl.X509CrlEntry entry) { }
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+public class X509ChainElement // TypeDefIndex: 1656
+{
+	// Fields
+	private X509Certificate2 certificate; // 0x10
+	private X509ChainStatus[] status; // 0x18
+	private string info; // 0x20
+	private X509ChainStatusFlags compressed_status_flags; // 0x28
+
+	// Properties
+	public X509Certificate2 Certificate { get; }
+	public X509ChainStatus[] ChainElementStatus { get; }
+	public string Information { get; }
+	internal X509ChainStatusFlags StatusFlags { get; set; }
+
+	// Methods
+
+	// RVA: 0x1134D44 Offset: 0x1134D44 VA: 0x1134D44
+	internal void .ctor(X509Certificate2 certificate) { }
+
+	// RVA: 0x11326A0 Offset: 0x11326A0 VA: 0x11326A0
+	public X509Certificate2 get_Certificate() { }
+
+	// RVA: 0x113179C Offset: 0x113179C VA: 0x113179C
+	public X509ChainStatus[] get_ChainElementStatus() { }
+
+	// RVA: 0x1134DD0 Offset: 0x1134DD0 VA: 0x1134DD0
+	public string get_Information() { }
+
+	// RVA: 0x11321E4 Offset: 0x11321E4 VA: 0x11321E4
+	internal X509ChainStatusFlags get_StatusFlags() { }
+
+	// RVA: 0x11321EC Offset: 0x11321EC VA: 0x11321EC
+	internal void set_StatusFlags(X509ChainStatusFlags value) { }
+
+	// RVA: 0x1134DD8 Offset: 0x1134DD8 VA: 0x1134DD8
+	private int Count(X509ChainStatusFlags flags) { }
+
+	// RVA: 0x1134DFC Offset: 0x1134DFC VA: 0x1134DFC
+	private void Set(X509ChainStatus[] status, ref int position, X509ChainStatusFlags flags, X509ChainStatusFlags mask) { }
+
+	// RVA: 0x1132A58 Offset: 0x1132A58 VA: 0x1132A58
+	internal void UncompressFlags() { }
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+[DefaultMemberAttribute] // RVA: 0xC3CBE4 Offset: 0xC3CBE4 VA: 0xC3CBE4
+public sealed class X509ChainElementCollection : ICollection, IEnumerable // TypeDefIndex: 1657
+{
+	// Fields
+	private ArrayList _list; // 0x10
+
+	// Properties
+	public int Count { get; }
+	public bool IsSynchronized { get; }
+	public X509ChainElement Item { get; }
+	public object SyncRoot { get; }
+
+	// Methods
+
+	// RVA: 0x1131018 Offset: 0x1131018 VA: 0x1131018
+	internal void .ctor() { }
+
+	// RVA: 0x1135048 Offset: 0x1135048 VA: 0x1135048 Slot: 7
+	private void System.Collections.ICollection.CopyTo(Array array, int index) { }
+
+	// RVA: 0x1135098 Offset: 0x1135098 VA: 0x1135098 Slot: 8
+	private IEnumerator System.Collections.IEnumerable.GetEnumerator() { }
+
+	// RVA: 0x1131898 Offset: 0x1131898 VA: 0x1131898 Slot: 4
+	public int get_Count() { }
+
+	// RVA: 0x11351CC Offset: 0x11351CC VA: 0x11351CC Slot: 5
+	public bool get_IsSynchronized() { }
+
+	// RVA: 0x11320F0 Offset: 0x11320F0 VA: 0x11320F0
+	public X509ChainElement get_Item(int index) { }
+
+	// RVA: 0x1135204 Offset: 0x1135204 VA: 0x1135204 Slot: 6
+	public object get_SyncRoot() { }
+
+	// RVA: 0x113523C Offset: 0x113523C VA: 0x113523C
+	public void CopyTo(X509ChainElement[] array, int index) { }
+
+	// RVA: 0x11315F8 Offset: 0x11315F8 VA: 0x11315F8
+	public X509ChainElementEnumerator GetEnumerator() { }
+
+	// RVA: 0x1131CCC Offset: 0x1131CCC VA: 0x1131CCC
+	internal void Add(X509Certificate2 certificate) { }
+
+	// RVA: 0x11318D0 Offset: 0x11318D0 VA: 0x11318D0
+	internal void Clear() { }
+
+	// RVA: 0x1131E78 Offset: 0x1131E78 VA: 0x1131E78
+	internal bool Contains(X509Certificate2 certificate) { }
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+public sealed class X509ChainElementEnumerator : IEnumerator // TypeDefIndex: 1658
+{
+	// Fields
+	private IEnumerator enumerator; // 0x10
+
+	// Properties
+	private object System.Collections.IEnumerator.Current { get; }
+	public X509ChainElement Current { get; }
+
+	// Methods
+
+	// RVA: 0x11350FC Offset: 0x11350FC VA: 0x11350FC
+	internal void .ctor(IEnumerable enumerable) { }
+
+	// RVA: 0x113528C Offset: 0x113528C VA: 0x113528C Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	// RVA: 0x113165C Offset: 0x113165C VA: 0x113165C
+	public X509ChainElement get_Current() { }
+
+	// RVA: 0x11317AC Offset: 0x11317AC VA: 0x11317AC Slot: 5
+	public bool MoveNext() { }
+
+	// RVA: 0x1135340 Offset: 0x1135340 VA: 0x1135340 Slot: 6
+	public void Reset() { }
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+public sealed class X509ChainPolicy // TypeDefIndex: 1659
+{
+	// Fields
+	private OidCollection apps; // 0x10
+	private OidCollection cert; // 0x18
+	private X509Certificate2Collection store; // 0x20
+	private X509RevocationFlag rflag; // 0x28
+	private X509RevocationMode mode; // 0x2C
+	private TimeSpan timeout; // 0x30
+	private X509VerificationFlags vflags; // 0x38
+	private DateTime vtime; // 0x40
+
+	// Properties
+	public OidCollection ApplicationPolicy { get; }
+	public OidCollection CertificatePolicy { get; }
+	public X509Certificate2Collection ExtraStore { get; }
+	public X509RevocationFlag RevocationFlag { get; set; }
+	public X509RevocationMode RevocationMode { get; set; }
+	public TimeSpan UrlRetrievalTimeout { get; set; }
+	public X509VerificationFlags VerificationFlags { get; set; }
+	public DateTime VerificationTime { get; set; }
+
+	// Methods
+
+	// RVA: 0x1131084 Offset: 0x1131084 VA: 0x1131084
+	public void .ctor() { }
+
+	// RVA: 0x11354F8 Offset: 0x11354F8 VA: 0x11354F8
+	public OidCollection get_ApplicationPolicy() { }
+
+	// RVA: 0x1135500 Offset: 0x1135500 VA: 0x1135500
+	public OidCollection get_CertificatePolicy() { }
+
+	// RVA: 0x1131CC4 Offset: 0x1131CC4 VA: 0x1131CC4
+	public X509Certificate2Collection get_ExtraStore() { }
+
+	// RVA: 0x1133858 Offset: 0x1133858 VA: 0x1133858
+	public X509RevocationFlag get_RevocationFlag() { }
+
+	// RVA: 0x1135508 Offset: 0x1135508 VA: 0x1135508
+	public void set_RevocationFlag(X509RevocationFlag value) { }
+
+	// RVA: 0x1133850 Offset: 0x1133850 VA: 0x1133850
+	public X509RevocationMode get_RevocationMode() { }
+
+	// RVA: 0x11355A4 Offset: 0x11355A4 VA: 0x11355A4
+	public void set_RevocationMode(X509RevocationMode value) { }
+
+	// RVA: 0x1135640 Offset: 0x1135640 VA: 0x1135640
+	public TimeSpan get_UrlRetrievalTimeout() { }
+
+	// RVA: 0x1135648 Offset: 0x1135648 VA: 0x1135648
+	public void set_UrlRetrievalTimeout(TimeSpan value) { }
+
+	// RVA: 0x1131890 Offset: 0x1131890 VA: 0x1131890
+	public X509VerificationFlags get_VerificationFlags() { }
+
+	// RVA: 0x1135650 Offset: 0x1135650 VA: 0x1135650
+	public void set_VerificationFlags(X509VerificationFlags value) { }
+
+	// RVA: 0x1132430 Offset: 0x1132430 VA: 0x1132430
+	public DateTime get_VerificationTime() { }
+
+	// RVA: 0x11356EC Offset: 0x11356EC VA: 0x11356EC
+	public void set_VerificationTime(DateTime value) { }
+
+	// RVA: 0x11353F8 Offset: 0x11353F8 VA: 0x11353F8
+	public void Reset() { }
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+public struct X509ChainStatus // TypeDefIndex: 1660
+{
+	// Fields
+	private X509ChainStatusFlags status; // 0x0
+	private string info; // 0x8
+
+	// Properties
+	public X509ChainStatusFlags Status { get; set; }
+	public string StatusInformation { get; set; }
+
+	// Methods
+
+	// RVA: 0xBBB4A8 Offset: 0xBBB4A8 VA: 0xBBB4A8
+	internal void .ctor(X509ChainStatusFlags flag) { }
+
+	// RVA: 0xBBB4D4 Offset: 0xBBB4D4 VA: 0xBBB4D4
+	public X509ChainStatusFlags get_Status() { }
+
+	// RVA: 0xBBB4DC Offset: 0xBBB4DC VA: 0xBBB4DC
+	public void set_Status(X509ChainStatusFlags value) { }
+
+	// RVA: 0xBBB4E4 Offset: 0xBBB4E4 VA: 0xBBB4E4
+	public string get_StatusInformation() { }
+
+	// RVA: 0xBBB4EC Offset: 0xBBB4EC VA: 0xBBB4EC
+	public void set_StatusInformation(string value) { }
+
+	// RVA: 0x1134EAC Offset: 0x1134EAC VA: 0x1134EAC
+	internal static string GetInformation(X509ChainStatusFlags flags) { }
+}
+
+// Namespace: System.Security.Cryptography.X509Certificates
+[FlagsAttribute] // RVA: 0xC3CC1C Offset: 0xC3CC1C VA: 0xC3CC1C
+public enum X509ChainStatusFlags // TypeDefIndex: 1661
+{
+	// Fields
+	public int value__; // 0x0
+	public const X509ChainStatusFlags NoError = 0;
+	public const X509ChainStatusFlags NotTimeValid = 1;
+	public const X509ChainStatusFlags NotTimeNested = 2;
+	public const X509ChainStatusFlags Revoked = 4;
+	public const X509ChainStatusFlags NotSignatureValid = 8;
+	public const X509ChainStatusFlags NotValidForUsage = 16;
+	public const X509ChainStatusFlags UntrustedRoot = 32;
+	public const X509ChainStatusFlags RevocationStatusUnknown = 64;
+	public const X509ChainStatusFlags Cyclic = 128;
+	public const X509ChainStatusFlags InvalidExtension = 256;
+	public const X509ChainStatusFlags InvalidPolicyConstraints = 512;
+	public const X509ChainStatusFlags InvalidBasicConstraints = 1024;
+	public const X509ChainStatusFlags InvalidNameConstraints = 2048;
+	public const X509ChainStatusFlags HasNotSupportedNameConstraint = 4096;
+	public const X509ChainStatusFlags HasNotDefinedNameConstraint = 8192;
+	public const X509ChainStatusFlags HasNotPermittedNameConstraint = 16384;
+	public const X509ChainStatusFlags HasExcludedNameConstraint = 32768;
+	public const X509ChainStatusFlags PartialChain = 65536;
+	public const X509ChainStatusFlags CtlNotTimeValid = 131072;
+	public const X509ChainStatusFlags CtlNotSignatureValid = 262144;

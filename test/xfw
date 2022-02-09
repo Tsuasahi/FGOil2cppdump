@@ -1,0 +1,1000 @@
+	private AsyncCallback cb; // 0x20
+	private object state; // 0x28
+	private int nbytes; // 0x30
+	private IAsyncResult innerAsyncResult; // 0x38
+	private bool callbackDone; // 0x40
+	private Exception exc; // 0x48
+	private HttpWebResponse response; // 0x50
+	private Stream writeStream; // 0x58
+	private byte[] buffer; // 0x60
+	private int offset; // 0x68
+	private int size; // 0x6C
+	private object locker; // 0x70
+	public bool EndCalled; // 0x78
+	public bool AsyncWriteAll; // 0x79
+
+	// Properties
+	public object AsyncState { get; }
+	public WaitHandle AsyncWaitHandle { get; }
+	public bool CompletedSynchronously { get; }
+	public bool IsCompleted { get; }
+	internal bool GotException { get; }
+	internal Exception Exception { get; }
+	internal int NBytes { get; set; }
+	internal IAsyncResult InnerAsyncResult { get; set; }
+	internal Stream WriteStream { get; }
+	internal HttpWebResponse Response { get; }
+	internal byte[] Buffer { get; }
+	internal int Offset { get; }
+	internal int Size { get; }
+
+	// Methods
+
+	// RVA: 0x108EFC8 Offset: 0x108EFC8 VA: 0x108EFC8
+	public void .ctor(AsyncCallback cb, object state) { }
+
+	// RVA: 0x108F048 Offset: 0x108F048 VA: 0x108F048
+	public void .ctor(HttpWebRequest request, AsyncCallback cb, object state) { }
+
+	// RVA: 0x108F0C8 Offset: 0x108F0C8 VA: 0x108F0C8
+	public void .ctor(AsyncCallback cb, object state, byte[] buffer, int offset, int size) { }
+
+	// RVA: 0x108F16C Offset: 0x108F16C VA: 0x108F16C
+	internal void SetCompleted(bool synch, Exception e) { }
+
+	// RVA: 0x108F210 Offset: 0x108F210 VA: 0x108F210
+	internal void Reset() { }
+
+	// RVA: 0x108F2B0 Offset: 0x108F2B0 VA: 0x108F2B0
+	internal void SetCompleted(bool synch, int nbytes) { }
+
+	// RVA: 0x108F358 Offset: 0x108F358 VA: 0x108F358
+	internal void SetCompleted(bool synch, Stream writeStream) { }
+
+	// RVA: 0x108F400 Offset: 0x108F400 VA: 0x108F400
+	internal void SetCompleted(bool synch, HttpWebResponse response) { }
+
+	// RVA: 0x108F4A4 Offset: 0x108F4A4 VA: 0x108F4A4
+	internal void DoCallback() { }
+
+	// RVA: 0x108F4D0 Offset: 0x108F4D0 VA: 0x108F4D0
+	internal void WaitUntilComplete() { }
+
+	// RVA: 0x108F668 Offset: 0x108F668 VA: 0x108F668
+	internal bool WaitUntilComplete(int timeout, bool exitContext) { }
+
+	// RVA: 0x108F700 Offset: 0x108F700 VA: 0x108F700 Slot: 4
+	public object get_AsyncState() { }
+
+	// RVA: 0x108F588 Offset: 0x108F588 VA: 0x108F588 Slot: 5
+	public WaitHandle get_AsyncWaitHandle() { }
+
+	// RVA: 0x108F708 Offset: 0x108F708 VA: 0x108F708 Slot: 6
+	public bool get_CompletedSynchronously() { }
+
+	// RVA: 0x108F548 Offset: 0x108F548 VA: 0x108F548 Slot: 7
+	public bool get_IsCompleted() { }
+
+	// RVA: 0x108F710 Offset: 0x108F710 VA: 0x108F710
+	internal bool get_GotException() { }
+
+	// RVA: 0x108F720 Offset: 0x108F720 VA: 0x108F720
+	internal Exception get_Exception() { }
+
+	// RVA: 0x108F728 Offset: 0x108F728 VA: 0x108F728
+	internal int get_NBytes() { }
+
+	// RVA: 0x108F730 Offset: 0x108F730 VA: 0x108F730
+	internal void set_NBytes(int value) { }
+
+	// RVA: 0x108F738 Offset: 0x108F738 VA: 0x108F738
+	internal IAsyncResult get_InnerAsyncResult() { }
+
+	// RVA: 0x108F740 Offset: 0x108F740 VA: 0x108F740
+	internal void set_InnerAsyncResult(IAsyncResult value) { }
+
+	// RVA: 0x108F748 Offset: 0x108F748 VA: 0x108F748
+	internal Stream get_WriteStream() { }
+
+	// RVA: 0x108F750 Offset: 0x108F750 VA: 0x108F750
+	internal HttpWebResponse get_Response() { }
+
+	// RVA: 0x108F758 Offset: 0x108F758 VA: 0x108F758
+	internal byte[] get_Buffer() { }
+
+	// RVA: 0x108F760 Offset: 0x108F760 VA: 0x108F760
+	internal int get_Offset() { }
+
+	// RVA: 0x108F768 Offset: 0x108F768 VA: 0x108F768
+	internal int get_Size() { }
+}
+
+// Namespace: System.Net
+[ComVisibleAttribute] // RVA: 0xC3CA24 Offset: 0xC3CA24 VA: 0xC3CA24
+public class WebClient : Component // TypeDefIndex: 1615
+{
+	// Fields
+	private static readonly string urlEncodedCType; // 0x0
+	private static byte[] hexBytes; // 0x8
+	private ICredentials credentials; // 0x30
+	private WebHeaderCollection headers; // 0x38
+	private WebHeaderCollection responseHeaders; // 0x40
+	private Uri baseAddress; // 0x48
+	private string baseString; // 0x50
+	private NameValueCollection queryString; // 0x58
+	private bool is_busy; // 0x60
+	private bool async; // 0x61
+	private Thread async_thread; // 0x68
+	private Encoding encoding; // 0x70
+	private IWebProxy proxy; // 0x78
+	private DownloadDataCompletedEventHandler DownloadDataCompleted; // 0x80
+	private AsyncCompletedEventHandler DownloadFileCompleted; // 0x88
+	private DownloadProgressChangedEventHandler DownloadProgressChanged; // 0x90
+	private DownloadStringCompletedEventHandler DownloadStringCompleted; // 0x98
+	private OpenReadCompletedEventHandler OpenReadCompleted; // 0xA0
+	private OpenWriteCompletedEventHandler OpenWriteCompleted; // 0xA8
+	private UploadDataCompletedEventHandler UploadDataCompleted; // 0xB0
+	private UploadFileCompletedEventHandler UploadFileCompleted; // 0xB8
+	private UploadProgressChangedEventHandler UploadProgressChanged; // 0xC0
+	private UploadStringCompletedEventHandler UploadStringCompleted; // 0xC8
+	private UploadValuesCompletedEventHandler UploadValuesCompleted; // 0xD0
+
+	// Properties
+	public string BaseAddress { get; set; }
+	[MonoTODOAttribute] // RVA: 0xC3FA88 Offset: 0xC3FA88 VA: 0xC3FA88
+	public RequestCachePolicy CachePolicy { get; set; }
+	[MonoTODOAttribute] // RVA: 0xC3FA98 Offset: 0xC3FA98 VA: 0xC3FA98
+	public bool UseDefaultCredentials { get; set; }
+	public ICredentials Credentials { get; set; }
+	public WebHeaderCollection Headers { get; set; }
+	public NameValueCollection QueryString { get; set; }
+	public WebHeaderCollection ResponseHeaders { get; }
+	public Encoding Encoding { get; set; }
+	public IWebProxy Proxy { get; set; }
+	public bool IsBusy { get; }
+
+	// Methods
+
+	// RVA: 0x108F770 Offset: 0x108F770 VA: 0x108F770
+	public void .ctor() { }
+
+	// RVA: 0x108F7E4 Offset: 0x108F7E4 VA: 0x108F7E4
+	private static void .cctor() { }
+
+	// RVA: 0x108F90C Offset: 0x108F90C VA: 0x108F90C
+	public void add_DownloadDataCompleted(DownloadDataCompletedEventHandler value) { }
+
+	// RVA: 0x108F9D0 Offset: 0x108F9D0 VA: 0x108F9D0
+	public void remove_DownloadDataCompleted(DownloadDataCompletedEventHandler value) { }
+
+	// RVA: 0x108FA94 Offset: 0x108FA94 VA: 0x108FA94
+	public void add_DownloadFileCompleted(AsyncCompletedEventHandler value) { }
+
+	// RVA: 0x108FB58 Offset: 0x108FB58 VA: 0x108FB58
+	public void remove_DownloadFileCompleted(AsyncCompletedEventHandler value) { }
+
+	// RVA: 0x108FC1C Offset: 0x108FC1C VA: 0x108FC1C
+	public void add_DownloadProgressChanged(DownloadProgressChangedEventHandler value) { }
+
+	// RVA: 0x108FCE0 Offset: 0x108FCE0 VA: 0x108FCE0
+	public void remove_DownloadProgressChanged(DownloadProgressChangedEventHandler value) { }
+
+	// RVA: 0x108FDA4 Offset: 0x108FDA4 VA: 0x108FDA4
+	public void add_DownloadStringCompleted(DownloadStringCompletedEventHandler value) { }
+
+	// RVA: 0x108FE68 Offset: 0x108FE68 VA: 0x108FE68
+	public void remove_DownloadStringCompleted(DownloadStringCompletedEventHandler value) { }
+
+	// RVA: 0x108FF2C Offset: 0x108FF2C VA: 0x108FF2C
+	public void add_OpenReadCompleted(OpenReadCompletedEventHandler value) { }
+
+	// RVA: 0x108FFF0 Offset: 0x108FFF0 VA: 0x108FFF0
+	public void remove_OpenReadCompleted(OpenReadCompletedEventHandler value) { }
+
+	// RVA: 0x10900B4 Offset: 0x10900B4 VA: 0x10900B4
+	public void add_OpenWriteCompleted(OpenWriteCompletedEventHandler value) { }
+
+	// RVA: 0x1090178 Offset: 0x1090178 VA: 0x1090178
+	public void remove_OpenWriteCompleted(OpenWriteCompletedEventHandler value) { }
+
+	// RVA: 0x109023C Offset: 0x109023C VA: 0x109023C
+	public void add_UploadDataCompleted(UploadDataCompletedEventHandler value) { }
+
+	// RVA: 0x1090300 Offset: 0x1090300 VA: 0x1090300
+	public void remove_UploadDataCompleted(UploadDataCompletedEventHandler value) { }
+
+	// RVA: 0x10903C4 Offset: 0x10903C4 VA: 0x10903C4
+	public void add_UploadFileCompleted(UploadFileCompletedEventHandler value) { }
+
+	// RVA: 0x1090488 Offset: 0x1090488 VA: 0x1090488
+	public void remove_UploadFileCompleted(UploadFileCompletedEventHandler value) { }
+
+	// RVA: 0x109054C Offset: 0x109054C VA: 0x109054C
+	public void add_UploadProgressChanged(UploadProgressChangedEventHandler value) { }
+
+	// RVA: 0x1090610 Offset: 0x1090610 VA: 0x1090610
+	public void remove_UploadProgressChanged(UploadProgressChangedEventHandler value) { }
+
+	// RVA: 0x10906D4 Offset: 0x10906D4 VA: 0x10906D4
+	public void add_UploadStringCompleted(UploadStringCompletedEventHandler value) { }
+
+	// RVA: 0x1090798 Offset: 0x1090798 VA: 0x1090798
+	public void remove_UploadStringCompleted(UploadStringCompletedEventHandler value) { }
+
+	// RVA: 0x109085C Offset: 0x109085C VA: 0x109085C
+	public void add_UploadValuesCompleted(UploadValuesCompletedEventHandler value) { }
+
+	// RVA: 0x1090920 Offset: 0x1090920 VA: 0x1090920
+	public void remove_UploadValuesCompleted(UploadValuesCompletedEventHandler value) { }
+
+	// RVA: 0x10909E4 Offset: 0x10909E4 VA: 0x10909E4
+	public string get_BaseAddress() { }
+
+	// RVA: 0x1090AB8 Offset: 0x1090AB8 VA: 0x1090AB8
+	public void set_BaseAddress(string value) { }
+
+	// RVA: 0x1090B44 Offset: 0x1090B44 VA: 0x1090B44
+	private static Exception GetMustImplement() { }
+
+	// RVA: 0x1090BA0 Offset: 0x1090BA0 VA: 0x1090BA0
+	public RequestCachePolicy get_CachePolicy() { }
+
+	// RVA: 0x1090C0C Offset: 0x1090C0C VA: 0x1090C0C
+	public void set_CachePolicy(RequestCachePolicy value) { }
+
+	// RVA: 0x1090C78 Offset: 0x1090C78 VA: 0x1090C78
+	public bool get_UseDefaultCredentials() { }
+
+	// RVA: 0x1090CE4 Offset: 0x1090CE4 VA: 0x1090CE4
+	public void set_UseDefaultCredentials(bool value) { }
+
+	// RVA: 0x1090D50 Offset: 0x1090D50 VA: 0x1090D50
+	public ICredentials get_Credentials() { }
+
+	// RVA: 0x1090D58 Offset: 0x1090D58 VA: 0x1090D58
+	public void set_Credentials(ICredentials value) { }
+
+	// RVA: 0x1090D60 Offset: 0x1090D60 VA: 0x1090D60
+	public WebHeaderCollection get_Headers() { }
+
+	// RVA: 0x1090DCC Offset: 0x1090DCC VA: 0x1090DCC
+	public void set_Headers(WebHeaderCollection value) { }
+
+	// RVA: 0x1090DD4 Offset: 0x1090DD4 VA: 0x1090DD4
+	public NameValueCollection get_QueryString() { }
+
+	// RVA: 0x1090E40 Offset: 0x1090E40 VA: 0x1090E40
+	public void set_QueryString(NameValueCollection value) { }
+
+	// RVA: 0x1090E48 Offset: 0x1090E48 VA: 0x1090E48
+	public WebHeaderCollection get_ResponseHeaders() { }
+
+	// RVA: 0x1090E50 Offset: 0x1090E50 VA: 0x1090E50
+	public Encoding get_Encoding() { }
+
+	// RVA: 0x1090E58 Offset: 0x1090E58 VA: 0x1090E58
+	public void set_Encoding(Encoding value) { }
+
+	// RVA: 0x1090EF0 Offset: 0x1090EF0 VA: 0x1090EF0
+	public IWebProxy get_Proxy() { }
+
+	// RVA: 0x1090EF8 Offset: 0x1090EF8 VA: 0x1090EF8
+	public void set_Proxy(IWebProxy value) { }
+
+	// RVA: 0x1090F00 Offset: 0x1090F00 VA: 0x1090F00
+	public bool get_IsBusy() { }
+
+	// RVA: 0x1090F08 Offset: 0x1090F08 VA: 0x1090F08
+	private void CheckBusy() { }
+
+	// RVA: 0x1090F94 Offset: 0x1090F94 VA: 0x1090F94
+	private void SetBusy() { }
+
+	// RVA: 0x109101C Offset: 0x109101C VA: 0x109101C
+	public byte[] DownloadData(string address) { }
+
+	// RVA: 0x10910C8 Offset: 0x10910C8 VA: 0x10910C8
+	public byte[] DownloadData(Uri address) { }
+
+	// RVA: 0x10911E8 Offset: 0x10911E8 VA: 0x10911E8
+	private byte[] DownloadDataCore(Uri address, object userToken) { }
+
+	// RVA: 0x1091A0C Offset: 0x1091A0C VA: 0x1091A0C
+	public void DownloadFile(string address, string fileName) { }
+
+	// RVA: 0x1091ABC Offset: 0x1091ABC VA: 0x1091ABC
+	public void DownloadFile(Uri address, string fileName) { }
+
+	// RVA: 0x1091D2C Offset: 0x1091D2C VA: 0x1091D2C
+	private void DownloadFileCore(Uri address, string fileName, object userToken) { }
+
+	// RVA: 0x1092114 Offset: 0x1092114 VA: 0x1092114
+	public Stream OpenRead(string address) { }
+
+	// RVA: 0x10921BC Offset: 0x10921BC VA: 0x10921BC
+	public Stream OpenRead(Uri address) { }
+
+	// RVA: 0x1092434 Offset: 0x1092434 VA: 0x1092434
+	public Stream OpenWrite(string address) { }
+
+	// RVA: 0x10924E8 Offset: 0x10924E8 VA: 0x10924E8
+	public Stream OpenWrite(string address, string method) { }
+
+	// RVA: 0x10924E0 Offset: 0x10924E0 VA: 0x10924E0
+	public Stream OpenWrite(Uri address) { }
+
+	// RVA: 0x1092598 Offset: 0x1092598 VA: 0x1092598
+	public Stream OpenWrite(Uri address, string method) { }
+
+	// RVA: 0x109287C Offset: 0x109287C VA: 0x109287C
+	private string DetermineMethod(Uri address, string method, bool is_upload) { }
+
+	// RVA: 0x1092988 Offset: 0x1092988 VA: 0x1092988
+	public byte[] UploadData(string address, byte[] data) { }
+
+	// RVA: 0x1092A4C Offset: 0x1092A4C VA: 0x1092A4C
+	public byte[] UploadData(string address, string method, byte[] data) { }
+
+	// RVA: 0x1092A3C Offset: 0x1092A3C VA: 0x1092A3C
+	public byte[] UploadData(Uri address, byte[] data) { }
+
+	// RVA: 0x1092B0C Offset: 0x1092B0C VA: 0x1092B0C
+	public byte[] UploadData(Uri address, string method, byte[] data) { }
+
+	// RVA: 0x1092D7C Offset: 0x1092D7C VA: 0x1092D7C
+	private byte[] UploadDataCore(Uri address, string method, byte[] data, object userToken) { }
+
+	// RVA: 0x1093074 Offset: 0x1093074 VA: 0x1093074
+	public byte[] UploadFile(string address, string fileName) { }
+
+	// RVA: 0x1093128 Offset: 0x1093128 VA: 0x1093128
+	public byte[] UploadFile(Uri address, string fileName) { }
+
+	// RVA: 0x10933A8 Offset: 0x10933A8 VA: 0x10933A8
+	public byte[] UploadFile(string address, string method, string fileName) { }
+
+	// RVA: 0x1093138 Offset: 0x1093138 VA: 0x1093138
+	public byte[] UploadFile(Uri address, string method, string fileName) { }
+
+	// RVA: 0x10933E8 Offset: 0x10933E8 VA: 0x10933E8
+	private byte[] UploadFileCore(Uri address, string method, string fileName, object userToken) { }
+
+	// RVA: 0x1093B0C Offset: 0x1093B0C VA: 0x1093B0C
+	public byte[] UploadValues(string address, NameValueCollection data) { }
+
+	// RVA: 0x1093BD0 Offset: 0x1093BD0 VA: 0x1093BD0
+	public byte[] UploadValues(string address, string method, NameValueCollection data) { }
+
+	// RVA: 0x1093BC0 Offset: 0x1093BC0 VA: 0x1093BC0
+	public byte[] UploadValues(Uri address, NameValueCollection data) { }
+
+	// RVA: 0x1093C90 Offset: 0x1093C90 VA: 0x1093C90
+	public byte[] UploadValues(Uri address, string method, NameValueCollection data) { }
+
+	// RVA: 0x1093F00 Offset: 0x1093F00 VA: 0x1093F00
+	private byte[] UploadValuesCore(Uri uri, string method, NameValueCollection data, object userToken) { }
+
+	// RVA: 0x10949A8 Offset: 0x10949A8 VA: 0x10949A8
+	public string DownloadString(string address) { }
+
+	// RVA: 0x1094A7C Offset: 0x1094A7C VA: 0x1094A7C
+	public string DownloadString(Uri address) { }
+
+	// RVA: 0x1094DB4 Offset: 0x1094DB4 VA: 0x1094DB4
+	public string UploadString(string address, string data) { }
+
+	// RVA: 0x1094EC8 Offset: 0x1094EC8 VA: 0x1094EC8
+	public string UploadString(string address, string method, string data) { }
+
+	// RVA: 0x1094FEC Offset: 0x1094FEC VA: 0x1094FEC
+	public string UploadString(Uri address, string data) { }
+
+	// RVA: 0x1095134 Offset: 0x1095134 VA: 0x1095134
+	public string UploadString(Uri address, string method, string data) { }
+
+	// RVA: 0x10910C4 Offset: 0x10910C4 VA: 0x10910C4
+	private Uri CreateUri(string address) { }
+
+	// RVA: 0x1094B80 Offset: 0x1094B80 VA: 0x1094B80
+	private Uri CreateUri(Uri address) { }
+
+	// RVA: 0x10955AC Offset: 0x10955AC VA: 0x10955AC
+	private string GetQueryString(bool add_qmark) { }
+
+	// RVA: 0x1095288 Offset: 0x1095288 VA: 0x1095288
+	private Uri MakeUri(string path) { }
+
+	// RVA: 0x10913E4 Offset: 0x10913E4 VA: 0x10913E4
+	private WebRequest SetupRequest(Uri uri) { }
+
+	// RVA: 0x109280C Offset: 0x109280C VA: 0x109280C
+	private WebRequest SetupRequest(Uri uri, string method, bool is_upload) { }
+
+	// RVA: 0x109183C Offset: 0x109183C VA: 0x109183C
+	private byte[] ReadAll(Stream stream, int length, object userToken) { }
+
+	// RVA: 0x10959B8 Offset: 0x10959B8 VA: 0x10959B8
+	private string UrlEncode(string str) { }
+
+	// RVA: 0x1094770 Offset: 0x1094770 VA: 0x1094770
+	private static void UrlEncodeAndWrite(Stream stream, byte[] bytes) { }
+
+	// RVA: 0x1095C00 Offset: 0x1095C00 VA: 0x1095C00
+	public void CancelAsync() { }
+
+	// RVA: 0x1095CB0 Offset: 0x1095CB0 VA: 0x1095CB0
+	private void CompleteAsync() { }
+
+	// RVA: 0x1095CE4 Offset: 0x1095CE4 VA: 0x1095CE4
+	public void DownloadDataAsync(Uri address) { }
+
+	// RVA: 0x1095CEC Offset: 0x1095CEC VA: 0x1095CEC
+	public void DownloadDataAsync(Uri address, object userToken) { }
+
+	// RVA: 0x1095F78 Offset: 0x1095F78 VA: 0x1095F78
+	public void DownloadFileAsync(Uri address, string fileName) { }
+
+	// RVA: 0x1095F80 Offset: 0x1095F80 VA: 0x1095F80
+	public void DownloadFileAsync(Uri address, string fileName, object userToken) { }
+
+	// RVA: 0x1096278 Offset: 0x1096278 VA: 0x1096278
+	public void DownloadStringAsync(Uri address) { }
+
+	// RVA: 0x1096280 Offset: 0x1096280 VA: 0x1096280
+	public void DownloadStringAsync(Uri address, object userToken) { }
+
+	// RVA: 0x109650C Offset: 0x109650C VA: 0x109650C
+	public void OpenReadAsync(Uri address) { }
+
+	// RVA: 0x1096514 Offset: 0x1096514 VA: 0x1096514
+	public void OpenReadAsync(Uri address, object userToken) { }
+
+	// RVA: 0x10967A0 Offset: 0x10967A0 VA: 0x10967A0
+	public void OpenWriteAsync(Uri address) { }
+
+	// RVA: 0x10967AC Offset: 0x10967AC VA: 0x10967AC
+	public void OpenWriteAsync(Uri address, string method) { }
+
+	// RVA: 0x10967B4 Offset: 0x10967B4 VA: 0x10967B4
+	public void OpenWriteAsync(Uri address, string method, object userToken) { }
+
+	// RVA: 0x1096A90 Offset: 0x1096A90 VA: 0x1096A90
+	public void UploadDataAsync(Uri address, byte[] data) { }
+
+	// RVA: 0x1096AA4 Offset: 0x1096AA4 VA: 0x1096AA4
+	public void UploadDataAsync(Uri address, string method, byte[] data) { }
+
+	// RVA: 0x1096AAC Offset: 0x1096AAC VA: 0x1096AAC
+	public void UploadDataAsync(Uri address, string method, byte[] data, object userToken) { }
+
+	// RVA: 0x1096E04 Offset: 0x1096E04 VA: 0x1096E04
+	public void UploadFileAsync(Uri address, string fileName) { }
+
+	// RVA: 0x1096E18 Offset: 0x1096E18 VA: 0x1096E18
+	public void UploadFileAsync(Uri address, string method, string fileName) { }
+
+	// RVA: 0x1096E20 Offset: 0x1096E20 VA: 0x1096E20
+	public void UploadFileAsync(Uri address, string method, string fileName, object userToken) { }
+
+	// RVA: 0x1097178 Offset: 0x1097178 VA: 0x1097178
+	public void UploadStringAsync(Uri address, string data) { }
+
+	// RVA: 0x109718C Offset: 0x109718C VA: 0x109718C
+	public void UploadStringAsync(Uri address, string method, string data) { }
+
+	// RVA: 0x1097194 Offset: 0x1097194 VA: 0x1097194
+	public void UploadStringAsync(Uri address, string method, string data, object userToken) { }
+
+	// RVA: 0x10974EC Offset: 0x10974EC VA: 0x10974EC
+	public void UploadValuesAsync(Uri address, NameValueCollection values) { }
+
+	// RVA: 0x1097500 Offset: 0x1097500 VA: 0x1097500
+	public void UploadValuesAsync(Uri address, string method, NameValueCollection values) { }
+
+	// RVA: 0x1097508 Offset: 0x1097508 VA: 0x1097508
+	public void UploadValuesAsync(Uri address, string method, NameValueCollection values, object userToken) { }
+
+	// RVA: 0x1097860 Offset: 0x1097860 VA: 0x1097860 Slot: 16
+	protected virtual void OnDownloadDataCompleted(DownloadDataCompletedEventArgs args) { }
+
+	// RVA: 0x10978BC Offset: 0x10978BC VA: 0x10978BC Slot: 17
+	protected virtual void OnDownloadFileCompleted(AsyncCompletedEventArgs args) { }
+
+	// RVA: 0x1097918 Offset: 0x1097918 VA: 0x1097918 Slot: 18
+	protected virtual void OnDownloadProgressChanged(DownloadProgressChangedEventArgs e) { }
+
+	// RVA: 0x109793C Offset: 0x109793C VA: 0x109793C Slot: 19
+	protected virtual void OnDownloadStringCompleted(DownloadStringCompletedEventArgs args) { }
+
+	// RVA: 0x1097998 Offset: 0x1097998 VA: 0x1097998 Slot: 20
+	protected virtual void OnOpenReadCompleted(OpenReadCompletedEventArgs args) { }
+
+	// RVA: 0x10979F4 Offset: 0x10979F4 VA: 0x10979F4 Slot: 21
+	protected virtual void OnOpenWriteCompleted(OpenWriteCompletedEventArgs args) { }
+
+	// RVA: 0x1097A50 Offset: 0x1097A50 VA: 0x1097A50 Slot: 22
+	protected virtual void OnUploadDataCompleted(UploadDataCompletedEventArgs args) { }
+
+	// RVA: 0x1097AAC Offset: 0x1097AAC VA: 0x1097AAC Slot: 23
+	protected virtual void OnUploadFileCompleted(UploadFileCompletedEventArgs args) { }
+
+	// RVA: 0x1097B08 Offset: 0x1097B08 VA: 0x1097B08 Slot: 24
+	protected virtual void OnUploadProgressChanged(UploadProgressChangedEventArgs e) { }
+
+	// RVA: 0x1097B2C Offset: 0x1097B2C VA: 0x1097B2C Slot: 25
+	protected virtual void OnUploadStringCompleted(UploadStringCompletedEventArgs args) { }
+
+	// RVA: 0x1097B88 Offset: 0x1097B88 VA: 0x1097B88 Slot: 26
+	protected virtual void OnUploadValuesCompleted(UploadValuesCompletedEventArgs args) { }
+
+	// RVA: 0x1097BE4 Offset: 0x1097BE4 VA: 0x1097BE4 Slot: 27
+	protected virtual WebResponse GetWebResponse(WebRequest request, IAsyncResult result) { }
+
+	// RVA: 0x1097C58 Offset: 0x1097C58 VA: 0x1097C58 Slot: 28
+	protected virtual WebRequest GetWebRequest(Uri address) { }
+
+	// RVA: 0x1097CC0 Offset: 0x1097CC0 VA: 0x1097CC0 Slot: 29
+	protected virtual WebResponse GetWebResponse(WebRequest request) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC3E110 Offset: 0xC3E110 VA: 0xC3E110
+	// RVA: 0x1097D24 Offset: 0x1097D24 VA: 0x1097D24
+	private void <DownloadDataAsync>m__C(object state) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC3E120 Offset: 0xC3E120 VA: 0xC3E120
+	// RVA: 0x10980C8 Offset: 0x10980C8 VA: 0x10980C8
+	private void <DownloadFileAsync>m__D(object state) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC3E130 Offset: 0xC3E130 VA: 0xC3E130
+	// RVA: 0x10984AC Offset: 0x10984AC VA: 0x10984AC
+	private void <DownloadStringAsync>m__E(object state) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC3E140 Offset: 0xC3E140 VA: 0xC3E140
+	// RVA: 0x1098848 Offset: 0x1098848 VA: 0x1098848
+	private void <OpenReadAsync>m__F(object state) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC3E150 Offset: 0xC3E150 VA: 0xC3E150
+	// RVA: 0x1098C24 Offset: 0x1098C24 VA: 0x1098C24
+	private void <OpenWriteAsync>m__10(object state) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC3E160 Offset: 0xC3E160 VA: 0xC3E160
+	// RVA: 0x1099078 Offset: 0x1099078 VA: 0x1099078
+	private void <UploadDataAsync>m__11(object state) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC3E170 Offset: 0xC3E170 VA: 0xC3E170
+	// RVA: 0x1099508 Offset: 0x1099508 VA: 0x1099508
+	private void <UploadFileAsync>m__12(object state) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC3E180 Offset: 0xC3E180 VA: 0xC3E180
+	// RVA: 0x1099984 Offset: 0x1099984 VA: 0x1099984
+	private void <UploadStringAsync>m__13(object state) { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xC3E190 Offset: 0xC3E190 VA: 0xC3E190
+	// RVA: 0x1099DD8 Offset: 0x1099DD8 VA: 0x1099DD8
+	private void <UploadValuesAsync>m__14(object state) { }
+}
+
+// Namespace: System.Net
+internal enum ReadState // TypeDefIndex: 1616
+{
+	// Fields
+	public int value__; // 0x0
+	public const ReadState None = 0;
+	public const ReadState Status = 1;
+	public const ReadState Headers = 2;
+	public const ReadState Content = 3;
+}
+
+// Namespace: System.Net
+internal class WebConnection // TypeDefIndex: 1617
+{
+	// Fields
+	private ServicePoint sPoint; // 0x10
+	private Stream nstream; // 0x18
+	private Socket socket; // 0x20
+	private object socketLock; // 0x28
+	private WebExceptionStatus status; // 0x30
+	private WaitCallback initConn; // 0x38
+	private bool keepAlive; // 0x40
+	private byte[] buffer; // 0x48
+	private static AsyncCallback readDoneDelegate; // 0x0
+	private EventHandler abortHandler; // 0x50
+	private WebConnection.AbortHelper abortHelper; // 0x58
+	private ReadState readState; // 0x60
+	internal WebConnectionData Data; // 0x68
+	private bool chunkedRead; // 0x70
+	private ChunkStream chunkStream; // 0x78
+	private Queue queue; // 0x80
+	private bool reused; // 0x88
+	private int position; // 0x8C
+	private bool busy; // 0x90
+	private HttpWebRequest priority_request; // 0x98
+	private NetworkCredential ntlm_credentials; // 0xA0
+	private bool ntlm_authenticated; // 0xA8
+	private bool unsafe_sharing; // 0xA9
+	private bool ssl; // 0xAA
+	private bool certsAvailable; // 0xAB
+	private Exception connect_exception; // 0xB0
+	private static object classLock; // 0x8
+	private static Type sslStream; // 0x10
+	private static PropertyInfo piClient; // 0x18
+	private static PropertyInfo piServer; // 0x20
+	private static PropertyInfo piTrustFailure; // 0x28
+	private static MethodInfo method_GetSecurityPolicyFromNonMainThread; // 0x30
+
+	// Properties
+	internal bool Busy { get; }
+	internal bool Connected { get; }
+	internal HttpWebRequest PriorityRequest { set; }
+	internal bool NtlmAuthenticated { get; set; }
+	internal NetworkCredential NtlmCredential { get; set; }
+	internal bool UnsafeAuthenticatedConnectionSharing { get; set; }
+
+	// Methods
+
+	// RVA: 0x109A278 Offset: 0x109A278 VA: 0x109A278
+	public void .ctor(WebConnectionGroup group, ServicePoint sPoint) { }
+
+	// RVA: 0x109A3F4 Offset: 0x109A3F4 VA: 0x109A3F4
+	private static void .cctor() { }
+
+	// RVA: 0x109A498 Offset: 0x109A498 VA: 0x109A498
+	private bool CanReuse() { }
+
+	// RVA: 0x109A4DC Offset: 0x109A4DC VA: 0x109A4DC
+	private void LoggedThrow(Exception e) { }
+
+	// RVA: 0x109A598 Offset: 0x109A598 VA: 0x109A598
+	internal static Stream DownloadPolicy(string url, string proxy) { }
+
+	// RVA: 0x109A720 Offset: 0x109A720 VA: 0x109A720
+	private void CheckUnityWebSecurity(HttpWebRequest request) { }
+
+	// RVA: 0x109AF70 Offset: 0x109AF70 VA: 0x109AF70
+	private void Connect(HttpWebRequest request) { }
+
+	// RVA: 0x109B5D4 Offset: 0x109B5D4 VA: 0x109B5D4
+	private static void EnsureSSLStreamAvailable() { }
+
+	// RVA: 0x109B890 Offset: 0x109B890 VA: 0x109B890
+	private bool CreateTunnel(HttpWebRequest request, Stream stream, out byte[] buffer) { }
+
+	// RVA: 0x109BF90 Offset: 0x109BF90 VA: 0x109BF90
+	private WebHeaderCollection ReadHeaders(HttpWebRequest request, Stream stream, out byte[] retBuffer, out int status) { }
+
+	// RVA: 0x109C7BC Offset: 0x109C7BC VA: 0x109C7BC
+	private bool CreateStream(HttpWebRequest request) { }
+
+	// RVA: 0x109C29C Offset: 0x109C29C VA: 0x109C29C
+	private void HandleError(WebExceptionStatus st, Exception e, string where) { }
+
+	// RVA: 0x109CFBC Offset: 0x109CFBC VA: 0x109CFBC
+	private static void ReadDone(IAsyncResult result) { }
+
+	// RVA: 0x109E548 Offset: 0x109E548 VA: 0x109E548
+	private static bool ExpectContent(int statusCode) { }
+
+	// RVA: 0x109E5C0 Offset: 0x109E5C0 VA: 0x109E5C0
+	internal void GetCertificates() { }
+
+	// RVA: 0x109E004 Offset: 0x109E004 VA: 0x109E004
+	internal static void InitRead(object state) { }
+
+	// RVA: 0x109D6EC Offset: 0x109D6EC VA: 0x109D6EC
+	private int GetResponse(byte[] buffer, int max) { }
+
+	// RVA: 0x109E7CC Offset: 0x109E7CC VA: 0x109E7CC
+	private void InitConnection(object state) { }
+
+	// RVA: 0x109EBAC Offset: 0x109EBAC VA: 0x109EBAC
+	internal EventHandler SendRequest(HttpWebRequest request) { }
+
+	// RVA: 0x109ED40 Offset: 0x109ED40 VA: 0x109ED40
+	private void SendNext() { }
+
+	// RVA: 0x109EED0 Offset: 0x109EED0 VA: 0x109EED0
+	internal void NextRead() { }
+
+	// RVA: 0x109C4E0 Offset: 0x109C4E0 VA: 0x109C4E0
+	private static bool ReadLine(byte[] buffer, ref int start, int max, ref string output) { }
+
+	// RVA: 0x109F1A0 Offset: 0x109F1A0 VA: 0x109F1A0
+	internal IAsyncResult BeginRead(HttpWebRequest request, byte[] buffer, int offset, int size, AsyncCallback cb, object state) { }
+
+	// RVA: 0x109F4DC Offset: 0x109F4DC VA: 0x109F4DC
+	internal int EndRead(HttpWebRequest request, IAsyncResult result) { }
+
+	// RVA: 0x109FBD0 Offset: 0x109FBD0 VA: 0x109FBD0
+	private int EnsureRead(byte[] buffer, int offset, int size) { }
+
+	// RVA: 0x109B4EC Offset: 0x109B4EC VA: 0x109B4EC
+	private bool CompleteChunkedRead() { }
+
+	// RVA: 0x109FD54 Offset: 0x109FD54 VA: 0x109FD54
+	internal IAsyncResult BeginWrite(HttpWebRequest request, byte[] buffer, int offset, int size, AsyncCallback cb, object state) { }
+
+	// RVA: 0x109FFC0 Offset: 0x109FFC0 VA: 0x109FFC0
+	internal void EndWrite2(HttpWebRequest request, IAsyncResult result) { }
+
+	// RVA: 0x10A0300 Offset: 0x10A0300 VA: 0x10A0300
+	internal bool EndWrite(HttpWebRequest request, IAsyncResult result) { }
+
+	// RVA: 0x10A05F0 Offset: 0x10A05F0 VA: 0x10A05F0
+	internal int Read(HttpWebRequest request, byte[] buffer, int offset, int size) { }
+
+	// RVA: 0x10A0A5C Offset: 0x10A0A5C VA: 0x10A0A5C
+	internal bool Write(HttpWebRequest request, byte[] buffer, int offset, int size, ref string err_msg) { }
+
+	// RVA: 0x109CDB0 Offset: 0x109CDB0 VA: 0x109CDB0
+	internal void Close(bool sendNext) { }
+
+	// RVA: 0x10A0DFC Offset: 0x10A0DFC VA: 0x10A0DFC
+	private void Abort(object sender, EventArgs args) { }
+
+	// RVA: 0x10A1390 Offset: 0x10A1390 VA: 0x10A1390
+	internal void ResetNtlm() { }
+
+	// RVA: 0x10A139C Offset: 0x10A139C VA: 0x10A139C
+	internal bool get_Busy() { }
+
+	// RVA: 0x10A13D4 Offset: 0x10A13D4 VA: 0x10A13D4
+	internal bool get_Connected() { }
+
+	// RVA: 0x10A1464 Offset: 0x10A1464 VA: 0x10A1464
+	internal void set_PriorityRequest(HttpWebRequest value) { }
+
+	// RVA: 0x10A146C Offset: 0x10A146C VA: 0x10A146C
+	internal bool get_NtlmAuthenticated() { }
+
+	// RVA: 0x10A1474 Offset: 0x10A1474 VA: 0x10A1474
+	internal void set_NtlmAuthenticated(bool value) { }
+
+	// RVA: 0x10A1480 Offset: 0x10A1480 VA: 0x10A1480
+	internal NetworkCredential get_NtlmCredential() { }
+
+	// RVA: 0x10A1488 Offset: 0x10A1488 VA: 0x10A1488
+	internal void set_NtlmCredential(NetworkCredential value) { }
+
+	// RVA: 0x10A1490 Offset: 0x10A1490 VA: 0x10A1490
+	internal bool get_UnsafeAuthenticatedConnectionSharing() { }
+
+	// RVA: 0x10A1498 Offset: 0x10A1498 VA: 0x10A1498
+	internal void set_UnsafeAuthenticatedConnectionSharing(bool value) { }
+}
+
+// Namespace: 
+private class WebConnection.AbortHelper // TypeDefIndex: 1618
+{
+	// Fields
+	public WebConnection Connection; // 0x10
+
+	// Methods
+
+	// RVA: 0x109A3EC Offset: 0x109A3EC VA: 0x109A3EC
+	public void .ctor() { }
+
+	// RVA: 0x10A14A4 Offset: 0x10A14A4 VA: 0x10A14A4
+	public void Abort(object sender, EventArgs args) { }
+}
+
+// Namespace: System.Net
+internal class WebConnectionData // TypeDefIndex: 1619
+{
+	// Fields
+	public HttpWebRequest request; // 0x10
+	public int StatusCode; // 0x18
+	public string StatusDescription; // 0x20
+	public WebHeaderCollection Headers; // 0x28
+	public Version Version; // 0x30
+	public Stream stream; // 0x38
+	public string Challenge; // 0x40
+
+	// Methods
+
+	// RVA: 0x109A3DC Offset: 0x109A3DC VA: 0x109A3DC
+	public void .ctor() { }
+
+	// RVA: 0x10A1600 Offset: 0x10A1600 VA: 0x10A1600
+	public void Init() { }
+}
+
+// Namespace: System.Net
+internal class WebConnectionGroup // TypeDefIndex: 1620
+{
+	// Fields
+	private ServicePoint sPoint; // 0x10
+	private string name; // 0x18
+	private ArrayList connections; // 0x20
+	private Random rnd; // 0x28
+	private Queue queue; // 0x30
+
+	// Properties
+	public string Name { get; }
+	internal Queue Queue { get; }
+
+	// Methods
+
+	// RVA: 0x10A1614 Offset: 0x10A1614 VA: 0x10A1614
+	public void .ctor(ServicePoint sPoint, string name) { }
+
+	// RVA: 0x10A16B8 Offset: 0x10A16B8 VA: 0x10A16B8
+	public void Close() { }
+
+	// RVA: 0x10A190C Offset: 0x10A190C VA: 0x10A190C
+	public WebConnection GetConnection(HttpWebRequest request) { }
+
+	// RVA: 0x10A2060 Offset: 0x10A2060 VA: 0x10A2060
+	private static void PrepareSharingNtlm(WebConnection cnc, HttpWebRequest request) { }
+
+	// RVA: 0x10A1C78 Offset: 0x10A1C78 VA: 0x10A1C78
+	private WebConnection CreateOrReuseConnection(HttpWebRequest request) { }
+
+	// RVA: 0x10A2368 Offset: 0x10A2368 VA: 0x10A2368
+	public string get_Name() { }
+
+	// RVA: 0x109A3E4 Offset: 0x109A3E4 VA: 0x109A3E4
+	internal Queue get_Queue() { }
+}
+
+// Namespace: System.Net
+internal class WebConnectionStream : Stream // TypeDefIndex: 1621
+{
+	// Fields
+	private static byte[] crlf; // 0x0
+	private bool isRead; // 0x10
+	private WebConnection cnc; // 0x18
+	private HttpWebRequest request; // 0x20
+	private byte[] readBuffer; // 0x28
+	private int readBufferOffset; // 0x30
+	private int readBufferSize; // 0x34
+	private int contentLength; // 0x38
+	private int totalRead; // 0x3C
+	private long totalWritten; // 0x40
+	private bool nextReadCalled; // 0x48
+	private int pendingReads; // 0x4C
+	private int pendingWrites; // 0x50
+	private ManualResetEvent pending; // 0x58
+	private bool allowBuffering; // 0x60
+	private bool sendChunked; // 0x61
+	private MemoryStream writeBuffer; // 0x68
+	private bool requestWritten; // 0x70
+	private byte[] headers; // 0x78
+	private bool disposed; // 0x80
+	private bool headersSent; // 0x81
+	private object locker; // 0x88
+	private bool initRead; // 0x90
+	private bool read_eof; // 0x91
+	private bool complete_request_written; // 0x92
+	private int read_timeout; // 0x94
+	private int write_timeout; // 0x98
+
+	// Properties
+	internal HttpWebRequest Request { get; }
+	internal WebConnection Connection { get; }
+	public override bool CanTimeout { get; }
+	public override int ReadTimeout { get; set; }
+	public override int WriteTimeout { get; set; }
+	internal bool CompleteRequestWritten { get; }
+	internal bool SendChunked { set; }
+	internal byte[] ReadBuffer { set; }
+	internal int ReadBufferOffset { set; }
+	internal int ReadBufferSize { set; }
+	internal byte[] WriteBuffer { get; }
+	internal int WriteBufferLength { get; }
+	internal bool RequestWritten { get; }
+	public override bool CanSeek { get; }
+	public override bool CanRead { get; }
+	public override bool CanWrite { get; }
+	public override long Length { get; }
+	public override long Position { get; set; }
+
+	// Methods
+
+	// RVA: 0x109E238 Offset: 0x109E238 VA: 0x109E238
+	public void .ctor(WebConnection cnc) { }
+
+	// RVA: 0x109EA4C Offset: 0x109EA4C VA: 0x109EA4C
+	public void .ctor(WebConnection cnc, HttpWebRequest request) { }
+
+	// RVA: 0x10A28C4 Offset: 0x10A28C4 VA: 0x10A28C4
+	private static void .cctor() { }
+
+	// RVA: 0x10A2370 Offset: 0x10A2370 VA: 0x10A2370
+	private bool IsNtlmAuth() { }
+
+	// RVA: 0x109E4F4 Offset: 0x109E4F4 VA: 0x109E4F4
+	internal void CheckResponseInBuffer() { }
+
+	// RVA: 0x10A2978 Offset: 0x10A2978 VA: 0x10A2978
+	internal HttpWebRequest get_Request() { }
+
+	// RVA: 0x10A2980 Offset: 0x10A2980 VA: 0x10A2980
+	internal WebConnection get_Connection() { }
+
+	// RVA: 0x10A2988 Offset: 0x10A2988 VA: 0x10A2988 Slot: 8
+	public override bool get_CanTimeout() { }
+
+	// RVA: 0x10A2990 Offset: 0x10A2990 VA: 0x10A2990 Slot: 14
+	public override int get_ReadTimeout() { }
+
+	// RVA: 0x10A2998 Offset: 0x10A2998 VA: 0x10A2998 Slot: 15
+	public override void set_ReadTimeout(int value) { }
+
+	// RVA: 0x10A2A34 Offset: 0x10A2A34 VA: 0x10A2A34 Slot: 16
+	public override int get_WriteTimeout() { }
+
+	// RVA: 0x10A2A3C Offset: 0x10A2A3C VA: 0x10A2A3C Slot: 17
+	public override void set_WriteTimeout(int value) { }
+
+	// RVA: 0x10A2AD8 Offset: 0x10A2AD8 VA: 0x10A2AD8
+	internal bool get_CompleteRequestWritten() { }
+
+	// RVA: 0x10A2AE0 Offset: 0x10A2AE0 VA: 0x10A2AE0
+	internal void set_SendChunked(bool value) { }
+
+	// RVA: 0x109E4DC Offset: 0x109E4DC VA: 0x109E4DC
+	internal void set_ReadBuffer(byte[] value) { }
+
+	// RVA: 0x109E4E4 Offset: 0x109E4E4 VA: 0x109E4E4
+	internal void set_ReadBufferOffset(int value) { }
+
+	// RVA: 0x109E4EC Offset: 0x109E4EC VA: 0x109E4EC
+	internal void set_ReadBufferSize(int value) { }
+
+	// RVA: 0x10A2AEC Offset: 0x10A2AEC VA: 0x10A2AEC
+	internal byte[] get_WriteBuffer() { }
+
+	// RVA: 0x10A2B24 Offset: 0x10A2B24 VA: 0x10A2B24
+	internal int get_WriteBufferLength() { }
+
+	// RVA: 0x109E56C Offset: 0x109E56C VA: 0x109E56C
+	internal void ForceCompletion() { }
+
+	// RVA: 0x10A2B50 Offset: 0x10A2B50 VA: 0x10A2B50
+	internal void CheckComplete() { }
+
+	// RVA: 0x10A2520 Offset: 0x10A2520 VA: 0x10A2520
+	internal void ReadAll() { }
+
+	// RVA: 0x10A2BA4 Offset: 0x10A2BA4 VA: 0x10A2BA4
+	private void WriteCallbackWrapper(IAsyncResult r) { }
+
+	// RVA: 0x10A2E04 Offset: 0x10A2E04 VA: 0x10A2E04
+	private void ReadCallbackWrapper(IAsyncResult r) { }
+
+	// RVA: 0x10A3020 Offset: 0x10A3020 VA: 0x10A3020 Slot: 19
+	public override int Read(byte[] buffer, int offset, int size) { }
+
+	// RVA: 0x10A3228 Offset: 0x10A3228 VA: 0x10A3228 Slot: 25
+	public override IAsyncResult BeginRead(byte[] buffer, int offset, int size, AsyncCallback cb, object state) { }
+
+	// RVA: 0x10A3608 Offset: 0x10A3608 VA: 0x10A3608 Slot: 27
+	public override int EndRead(IAsyncResult r) { }
+
+	// RVA: 0x10A39E0 Offset: 0x10A39E0 VA: 0x10A39E0
+	private void WriteRequestAsyncCB(IAsyncResult r) { }
+
+	// RVA: 0x10A3D04 Offset: 0x10A3D04 VA: 0x10A3D04 Slot: 26
+	public override IAsyncResult BeginWrite(byte[] buffer, int offset, int size, AsyncCallback cb, object state) { }
+
+	// RVA: 0x10A4468 Offset: 0x10A4468 VA: 0x10A4468
+	private void CheckWriteOverflow(long contentLength, long totalWritten, long size) { }
+
+	// RVA: 0x10A4A34 Offset: 0x10A4A34 VA: 0x10A4A34 Slot: 28
+	public override void EndWrite(IAsyncResult r) { }
+
+	// RVA: 0x10A4DF4 Offset: 0x10A4DF4 VA: 0x10A4DF4 Slot: 23
+	public override void Write(byte[] buffer, int offset, int size) { }
+
+	// RVA: 0x10A4FFC Offset: 0x10A4FFC VA: 0x10A4FFC Slot: 18
+	public override void Flush() { }
+
+	// RVA: 0x10A5000 Offset: 0x10A5000 VA: 0x10A5000
+	internal void SetHeaders(byte[] buffer) { }
+
+	// RVA: 0x10A535C Offset: 0x10A535C VA: 0x10A535C
+	internal bool get_RequestWritten() { }
+
+	// RVA: 0x10A4544 Offset: 0x10A4544 VA: 0x10A4544
+	private IAsyncResult WriteRequestAsync(AsyncCallback cb, object state) { }
+
+	// RVA: 0x10A5224 Offset: 0x10A5224 VA: 0x10A5224

@@ -1,0 +1,1000 @@
+	public virtual byte[] Sign(DSA key) { }
+}
+
+// Namespace: Mono.Security.X509
+public class X509Certificate : ISerializable // TypeDefIndex: 1838
+{
+	// Fields
+	private ASN1 decoder; // 0x10
+	private byte[] m_encodedcert; // 0x18
+	private DateTime m_from; // 0x20
+	private DateTime m_until; // 0x30
+	private ASN1 issuer; // 0x40
+	private string m_issuername; // 0x48
+	private string m_keyalgo; // 0x50
+	private byte[] m_keyalgoparams; // 0x58
+	private ASN1 subject; // 0x60
+	private string m_subject; // 0x68
+	private byte[] m_publickey; // 0x70
+	private byte[] signature; // 0x78
+	private string m_signaturealgo; // 0x80
+	private byte[] m_signaturealgoparams; // 0x88
+	private byte[] certhash; // 0x90
+	private RSA _rsa; // 0x98
+	private DSA _dsa; // 0xA0
+	private int version; // 0xA8
+	private byte[] serialnumber; // 0xB0
+	private byte[] issuerUniqueID; // 0xB8
+	private byte[] subjectUniqueID; // 0xC0
+	private X509ExtensionCollection extensions; // 0xC8
+	private static string encoding_error; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC40004 Offset: 0xC40004 VA: 0xC40004
+	private static Dictionary<string, int> <>f__switch$mapF; // 0x8
+	[CompilerGeneratedAttribute] // RVA: 0xC40014 Offset: 0xC40014 VA: 0xC40014
+	private static Dictionary<string, int> <>f__switch$map10; // 0x10
+	[CompilerGeneratedAttribute] // RVA: 0xC40024 Offset: 0xC40024 VA: 0xC40024
+	private static Dictionary<string, int> <>f__switch$map11; // 0x18
+
+	// Properties
+	public DSA DSA { get; set; }
+	public X509ExtensionCollection Extensions { get; }
+	public byte[] Hash { get; }
+	public virtual string IssuerName { get; }
+	public virtual string KeyAlgorithm { get; }
+	public virtual byte[] KeyAlgorithmParameters { get; set; }
+	public virtual byte[] PublicKey { get; }
+	public virtual RSA RSA { get; set; }
+	public virtual byte[] RawData { get; }
+	public virtual byte[] SerialNumber { get; }
+	public virtual byte[] Signature { get; }
+	public virtual string SignatureAlgorithm { get; }
+	public virtual byte[] SignatureAlgorithmParameters { get; }
+	public virtual string SubjectName { get; }
+	public virtual DateTime ValidFrom { get; }
+	public virtual DateTime ValidUntil { get; }
+	public int Version { get; }
+	public bool IsCurrent { get; }
+	public byte[] IssuerUniqueIdentifier { get; }
+	public byte[] SubjectUniqueIdentifier { get; }
+	public bool IsSelfSigned { get; }
+
+	// Methods
+
+	// RVA: 0x1299BC4 Offset: 0x1299BC4 VA: 0x1299BC4
+	public void .ctor(byte[] data) { }
+
+	// RVA: 0x12ABA00 Offset: 0x12ABA00 VA: 0x12ABA00
+	protected void .ctor(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0x12ABB3C Offset: 0x12ABB3C VA: 0x12ABB3C
+	private static void .cctor() { }
+
+	// RVA: 0x12AAF14 Offset: 0x12AAF14 VA: 0x12AAF14
+	private void Parse(byte[] data) { }
+
+	// RVA: 0x12ABCFC Offset: 0x12ABCFC VA: 0x12ABCFC
+	private byte[] GetUnsignedBigInteger(byte[] integer) { }
+
+	// RVA: 0x129AD64 Offset: 0x129AD64 VA: 0x129AD64
+	public DSA get_DSA() { }
+
+	// RVA: 0x12ABDB4 Offset: 0x12ABDB4 VA: 0x12ABDB4
+	public void set_DSA(DSA value) { }
+
+	// RVA: 0x12ABDC4 Offset: 0x12ABDC4 VA: 0x12ABDC4
+	public X509ExtensionCollection get_Extensions() { }
+
+	// RVA: 0x12ABDCC Offset: 0x12ABDCC VA: 0x12ABDCC
+	public byte[] get_Hash() { }
+
+	// RVA: 0x12AC280 Offset: 0x12AC280 VA: 0x12AC280 Slot: 5
+	public virtual string get_IssuerName() { }
+
+	// RVA: 0x12AC288 Offset: 0x12AC288 VA: 0x12AC288 Slot: 6
+	public virtual string get_KeyAlgorithm() { }
+
+	// RVA: 0x12AC290 Offset: 0x12AC290 VA: 0x12AC290 Slot: 7
+	public virtual byte[] get_KeyAlgorithmParameters() { }
+
+	// RVA: 0x12AC35C Offset: 0x12AC35C VA: 0x12AC35C Slot: 8
+	public virtual void set_KeyAlgorithmParameters(byte[] value) { }
+
+	// RVA: 0x12AC364 Offset: 0x12AC364 VA: 0x12AC364 Slot: 9
+	public virtual byte[] get_PublicKey() { }
+
+	// RVA: 0x12AC430 Offset: 0x12AC430 VA: 0x12AC430 Slot: 10
+	public virtual RSA get_RSA() { }
+
+	// RVA: 0x12AC608 Offset: 0x12AC608 VA: 0x12AC608 Slot: 11
+	public virtual void set_RSA(RSA value) { }
+
+	// RVA: 0x12AC618 Offset: 0x12AC618 VA: 0x12AC618 Slot: 12
+	public virtual byte[] get_RawData() { }
+
+	// RVA: 0x12AC6E4 Offset: 0x12AC6E4 VA: 0x12AC6E4 Slot: 13
+	public virtual byte[] get_SerialNumber() { }
+
+	// RVA: 0x12AC7B0 Offset: 0x12AC7B0 VA: 0x12AC7B0 Slot: 14
+	public virtual byte[] get_Signature() { }
+
+	// RVA: 0x12ACDA8 Offset: 0x12ACDA8 VA: 0x12ACDA8 Slot: 15
+	public virtual string get_SignatureAlgorithm() { }
+
+	// RVA: 0x12ACDB0 Offset: 0x12ACDB0 VA: 0x12ACDB0 Slot: 16
+	public virtual byte[] get_SignatureAlgorithmParameters() { }
+
+	// RVA: 0x12ACE7C Offset: 0x12ACE7C VA: 0x12ACE7C Slot: 17
+	public virtual string get_SubjectName() { }
+
+	// RVA: 0x12ACE84 Offset: 0x12ACE84 VA: 0x12ACE84 Slot: 18
+	public virtual DateTime get_ValidFrom() { }
+
+	// RVA: 0x12ACE90 Offset: 0x12ACE90 VA: 0x12ACE90 Slot: 19
+	public virtual DateTime get_ValidUntil() { }
+
+	// RVA: 0x12ACE9C Offset: 0x12ACE9C VA: 0x12ACE9C
+	public int get_Version() { }
+
+	// RVA: 0x12ACEA4 Offset: 0x12ACEA4 VA: 0x12ACEA4
+	public bool get_IsCurrent() { }
+
+	// RVA: 0x12ACF20 Offset: 0x12ACF20 VA: 0x12ACF20
+	public bool WasCurrent(DateTime instant) { }
+
+	// RVA: 0x12AD030 Offset: 0x12AD030 VA: 0x12AD030
+	public byte[] get_IssuerUniqueIdentifier() { }
+
+	// RVA: 0x12AD0FC Offset: 0x12AD0FC VA: 0x12AD0FC
+	public byte[] get_SubjectUniqueIdentifier() { }
+
+	// RVA: 0x12AD1C8 Offset: 0x12AD1C8 VA: 0x12AD1C8
+	internal bool VerifySignature(DSA dsa) { }
+
+	// RVA: 0x12AD2A0 Offset: 0x12AD2A0 VA: 0x12AD2A0
+	internal bool VerifySignature(RSA rsa) { }
+
+	// RVA: 0x12AD790 Offset: 0x12AD790 VA: 0x12AD790
+	public bool VerifySignature(AsymmetricAlgorithm aa) { }
+
+	// RVA: 0x12AD928 Offset: 0x12AD928 VA: 0x12AD928
+	public bool CheckSignature(byte[] hash, string hashAlgorithm, byte[] signature) { }
+
+	// RVA: 0x12ADA18 Offset: 0x12ADA18 VA: 0x12ADA18
+	public bool get_IsSelfSigned() { }
+
+	// RVA: 0x12ADAC8 Offset: 0x12ADAC8 VA: 0x12ADAC8
+	public ASN1 GetIssuerName() { }
+
+	// RVA: 0x12ADAD0 Offset: 0x12ADAD0 VA: 0x12ADAD0
+	public ASN1 GetSubjectName() { }
+
+	// RVA: 0x12ADAD8 Offset: 0x12ADAD8 VA: 0x12ADAD8 Slot: 20
+	public virtual void GetObjectData(SerializationInfo info, StreamingContext context) { }
+
+	// RVA: 0x12AAD50 Offset: 0x12AAD50 VA: 0x12AAD50
+	private static byte[] PEM(string type, byte[] data) { }
+}
+
+// Namespace: Mono.Security.X509
+[DefaultMemberAttribute] // RVA: 0xC3FE34 Offset: 0xC3FE34 VA: 0xC3FE34
+[Serializable]
+public class X509CertificateCollection : CollectionBase, IEnumerable // TypeDefIndex: 1839
+{
+	// Properties
+	public X509Certificate Item { get; set; }
+
+	// Methods
+
+	// RVA: 0x1296DBC Offset: 0x1296DBC VA: 0x1296DBC
+	public void .ctor() { }
+
+	// RVA: 0x12AE834 Offset: 0x12AE834 VA: 0x12AE834
+	public void .ctor(X509Certificate[] value) { }
+
+	// RVA: 0x12AE97C Offset: 0x12AE97C VA: 0x12AE97C
+	public void .ctor(X509CertificateCollection value) { }
+
+	// RVA: 0x12AEACC Offset: 0x12AEACC VA: 0x12AEACC Slot: 4
+	private IEnumerator System.Collections.IEnumerable.GetEnumerator() { }
+
+	// RVA: 0x12AEB08 Offset: 0x12AEB08 VA: 0x12AEB08
+	public X509Certificate get_Item(int index) { }
+
+	// RVA: 0x12AEC04 Offset: 0x12AEC04 VA: 0x12AEC04
+	public void set_Item(int index, X509Certificate value) { }
+
+	// RVA: 0x1299D58 Offset: 0x1299D58 VA: 0x1299D58
+	public int Add(X509Certificate value) { }
+
+	// RVA: 0x12AE864 Offset: 0x12AE864 VA: 0x12AE864
+	public void AddRange(X509Certificate[] value) { }
+
+	// RVA: 0x12AE9AC Offset: 0x12AE9AC VA: 0x12AE9AC
+	public void AddRange(X509CertificateCollection value) { }
+
+	// RVA: 0x12AEC58 Offset: 0x12AEC58 VA: 0x12AEC58
+	public bool Contains(X509Certificate value) { }
+
+	// RVA: 0x12AEE30 Offset: 0x12AEE30 VA: 0x12AEE30
+	public void CopyTo(X509Certificate[] array, int index) { }
+
+	// RVA: 0x129ABC4 Offset: 0x129ABC4 VA: 0x129ABC4
+	public X509CertificateCollection.X509CertificateEnumerator GetEnumerator() { }
+
+	// RVA: 0x12AEF54 Offset: 0x12AEF54 VA: 0x12AEF54 Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0x12AEC74 Offset: 0x12AEC74 VA: 0x12AEC74
+	public int IndexOf(X509Certificate value) { }
+
+	// RVA: 0x12AF050 Offset: 0x12AF050 VA: 0x12AF050
+	public void Insert(int index, X509Certificate value) { }
+
+	// RVA: 0x12AF0A4 Offset: 0x12AF0A4 VA: 0x12AF0A4
+	public void Remove(X509Certificate value) { }
+
+	// RVA: 0x12AEF8C Offset: 0x12AEF8C VA: 0x12AEF8C
+	private bool Compare(byte[] array1, byte[] array2) { }
+}
+
+// Namespace: 
+public class X509CertificateCollection.X509CertificateEnumerator : IEnumerator // TypeDefIndex: 1840
+{
+	// Fields
+	private IEnumerator enumerator; // 0x10
+
+	// Properties
+	private object System.Collections.IEnumerator.Current { get; }
+	public X509Certificate Current { get; }
+
+	// Methods
+
+	// RVA: 0x12AEE84 Offset: 0x12AEE84 VA: 0x12AEE84
+	public void .ctor(X509CertificateCollection mappings) { }
+
+	// RVA: 0x12AF0E8 Offset: 0x12AF0E8 VA: 0x12AF0E8 Slot: 4
+	private object System.Collections.IEnumerator.get_Current() { }
+
+	// RVA: 0x12AF19C Offset: 0x12AF19C VA: 0x12AF19C Slot: 5
+	private bool System.Collections.IEnumerator.MoveNext() { }
+
+	// RVA: 0x12AF254 Offset: 0x12AF254 VA: 0x12AF254 Slot: 6
+	private void System.Collections.IEnumerator.Reset() { }
+
+	// RVA: 0x129AC24 Offset: 0x129AC24 VA: 0x129AC24
+	public X509Certificate get_Current() { }
+
+	// RVA: 0x129B094 Offset: 0x129B094 VA: 0x129B094 Slot: 7
+	public bool MoveNext() { }
+
+	// RVA: 0x12AF30C Offset: 0x12AF30C VA: 0x12AF30C Slot: 8
+	public void Reset() { }
+}
+
+// Namespace: Mono.Security.X509
+public class X509CertificateBuilder : X509Builder // TypeDefIndex: 1841
+{
+	// Fields
+	private byte version; // 0x18
+	private byte[] sn; // 0x20
+	private string issuer; // 0x28
+	private DateTime notBefore; // 0x30
+	private DateTime notAfter; // 0x40
+	private string subject; // 0x50
+	private AsymmetricAlgorithm aa; // 0x58
+	private byte[] issuerUniqueID; // 0x60
+	private byte[] subjectUniqueID; // 0x68
+	private X509ExtensionCollection extensions; // 0x70
+
+	// Properties
+	public byte Version { get; set; }
+	public byte[] SerialNumber { get; set; }
+	public string IssuerName { get; set; }
+	public DateTime NotBefore { get; set; }
+	public DateTime NotAfter { get; set; }
+	public string SubjectName { get; set; }
+	public AsymmetricAlgorithm SubjectPublicKey { get; set; }
+	public byte[] IssuerUniqueId { get; set; }
+	public byte[] SubjectUniqueId { get; set; }
+	public X509ExtensionCollection Extensions { get; }
+
+	// Methods
+
+	// RVA: 0x12ADB4C Offset: 0x12ADB4C VA: 0x12ADB4C
+	public void .ctor() { }
+
+	// RVA: 0x12ADB54 Offset: 0x12ADB54 VA: 0x12ADB54
+	public void .ctor(byte version) { }
+
+	// RVA: 0x12ADC24 Offset: 0x12ADC24 VA: 0x12ADC24
+	public byte get_Version() { }
+
+	// RVA: 0x12ADC2C Offset: 0x12ADC2C VA: 0x12ADC2C
+	public void set_Version(byte value) { }
+
+	// RVA: 0x12ADC34 Offset: 0x12ADC34 VA: 0x12ADC34
+	public byte[] get_SerialNumber() { }
+
+	// RVA: 0x12ADC3C Offset: 0x12ADC3C VA: 0x12ADC3C
+	public void set_SerialNumber(byte[] value) { }
+
+	// RVA: 0x12ADC44 Offset: 0x12ADC44 VA: 0x12ADC44
+	public string get_IssuerName() { }
+
+	// RVA: 0x12ADC4C Offset: 0x12ADC4C VA: 0x12ADC4C
+	public void set_IssuerName(string value) { }
+
+	// RVA: 0x12ADC54 Offset: 0x12ADC54 VA: 0x12ADC54
+	public DateTime get_NotBefore() { }
+
+	// RVA: 0x12ADC60 Offset: 0x12ADC60 VA: 0x12ADC60
+	public void set_NotBefore(DateTime value) { }
+
+	// RVA: 0x12ADC68 Offset: 0x12ADC68 VA: 0x12ADC68
+	public DateTime get_NotAfter() { }
+
+	// RVA: 0x12ADC74 Offset: 0x12ADC74 VA: 0x12ADC74
+	public void set_NotAfter(DateTime value) { }
+
+	// RVA: 0x12ADC7C Offset: 0x12ADC7C VA: 0x12ADC7C
+	public string get_SubjectName() { }
+
+	// RVA: 0x12ADC84 Offset: 0x12ADC84 VA: 0x12ADC84
+	public void set_SubjectName(string value) { }
+
+	// RVA: 0x12ADC8C Offset: 0x12ADC8C VA: 0x12ADC8C
+	public AsymmetricAlgorithm get_SubjectPublicKey() { }
+
+	// RVA: 0x12ADC94 Offset: 0x12ADC94 VA: 0x12ADC94
+	public void set_SubjectPublicKey(AsymmetricAlgorithm value) { }
+
+	// RVA: 0x12ADC9C Offset: 0x12ADC9C VA: 0x12ADC9C
+	public byte[] get_IssuerUniqueId() { }
+
+	// RVA: 0x12ADCA4 Offset: 0x12ADCA4 VA: 0x12ADCA4
+	public void set_IssuerUniqueId(byte[] value) { }
+
+	// RVA: 0x12ADCAC Offset: 0x12ADCAC VA: 0x12ADCAC
+	public byte[] get_SubjectUniqueId() { }
+
+	// RVA: 0x12ADCB4 Offset: 0x12ADCB4 VA: 0x12ADCB4
+	public void set_SubjectUniqueId(byte[] value) { }
+
+	// RVA: 0x12ADCBC Offset: 0x12ADCBC VA: 0x12ADCBC
+	public X509ExtensionCollection get_Extensions() { }
+
+	// RVA: 0x12ADCC4 Offset: 0x12ADCC4 VA: 0x12ADCC4
+	private ASN1 SubjectPublicKeyInfo() { }
+
+	// RVA: 0x12AE14C Offset: 0x12AE14C VA: 0x12AE14C
+	private byte[] UniqueIdentifier(byte[] id) { }
+
+	// RVA: 0x12AE248 Offset: 0x12AE248 VA: 0x12AE248 Slot: 4
+	protected override ASN1 ToBeSigned(string oid) { }
+}
+
+// Namespace: Mono.Security.X509
+public class X509Chain // TypeDefIndex: 1842
+{
+	// Fields
+	private X509CertificateCollection roots; // 0x10
+	private X509CertificateCollection certs; // 0x18
+	private X509Certificate _root; // 0x20
+	private X509CertificateCollection _chain; // 0x28
+	private X509ChainStatusFlags _status; // 0x30
+
+	// Properties
+	public X509CertificateCollection Chain { get; }
+	public X509Certificate Root { get; }
+	public X509ChainStatusFlags Status { get; }
+	public X509CertificateCollection TrustAnchors { get; set; }
+
+	// Methods
+
+	// RVA: 0x12AF3C4 Offset: 0x12AF3C4 VA: 0x12AF3C4
+	public void .ctor() { }
+
+	// RVA: 0x12AF430 Offset: 0x12AF430 VA: 0x12AF430
+	public void .ctor(X509CertificateCollection chain) { }
+
+	// RVA: 0x12AF4B8 Offset: 0x12AF4B8 VA: 0x12AF4B8
+	public X509CertificateCollection get_Chain() { }
+
+	// RVA: 0x12AF4C0 Offset: 0x12AF4C0 VA: 0x12AF4C0
+	public X509Certificate get_Root() { }
+
+	// RVA: 0x12AF4C8 Offset: 0x12AF4C8 VA: 0x12AF4C8
+	public X509ChainStatusFlags get_Status() { }
+
+	// RVA: 0x12AF4D0 Offset: 0x12AF4D0 VA: 0x12AF4D0
+	public X509CertificateCollection get_TrustAnchors() { }
+
+	// RVA: 0x12AF688 Offset: 0x12AF688 VA: 0x12AF688
+	public void set_TrustAnchors(X509CertificateCollection value) { }
+
+	// RVA: 0x12AF690 Offset: 0x12AF690 VA: 0x12AF690
+	public void LoadCertificate(X509Certificate x509) { }
+
+	// RVA: 0x12AF6C4 Offset: 0x12AF6C4 VA: 0x12AF6C4
+	public void LoadCertificates(X509CertificateCollection collection) { }
+
+	// RVA: 0x12AF6F8 Offset: 0x12AF6F8 VA: 0x12AF6F8
+	public X509Certificate FindByIssuerName(string issuerName) { }
+
+	// RVA: 0x12AF910 Offset: 0x12AF910 VA: 0x12AF910
+	public bool Build(X509Certificate leaf) { }
+
+	// RVA: 0x12B02BC Offset: 0x12B02BC VA: 0x12B02BC
+	public void Reset() { }
+
+	// RVA: 0x12B021C Offset: 0x12B021C VA: 0x12B021C
+	private bool IsValid(X509Certificate cert) { }
+
+	// RVA: 0x12AFC98 Offset: 0x12AFC98 VA: 0x12AFC98
+	private X509Certificate FindCertificateParent(X509Certificate child) { }
+
+	// RVA: 0x12AFE6C Offset: 0x12AFE6C VA: 0x12AFE6C
+	private X509Certificate FindCertificateRoot(X509Certificate potentialRoot) { }
+
+	// RVA: 0x12B0314 Offset: 0x12B0314 VA: 0x12B0314
+	private bool IsTrusted(X509Certificate potentialTrusted) { }
+
+	// RVA: 0x12B0080 Offset: 0x12B0080 VA: 0x12B0080
+	private bool IsParent(X509Certificate child, X509Certificate parent) { }
+}
+
+// Namespace: Mono.Security.X509
+[FlagsAttribute] // RVA: 0xC3FE6C Offset: 0xC3FE6C VA: 0xC3FE6C
+[Serializable]
+public enum X509ChainStatusFlags // TypeDefIndex: 1843
+{
+	// Fields
+	public int value__; // 0x0
+	public const X509ChainStatusFlags InvalidBasicConstraints = 1024;
+	public const X509ChainStatusFlags NoError = 0;
+	public const X509ChainStatusFlags NotSignatureValid = 8;
+	public const X509ChainStatusFlags NotTimeNested = 2;
+	public const X509ChainStatusFlags NotTimeValid = 1;
+	public const X509ChainStatusFlags PartialChain = 65536;
+	public const X509ChainStatusFlags UntrustedRoot = 32;
+}
+
+// Namespace: Mono.Security.X509
+[DefaultMemberAttribute] // RVA: 0xC3FE7C Offset: 0xC3FE7C VA: 0xC3FE7C
+public class X509Crl // TypeDefIndex: 1844
+{
+	// Fields
+	private string issuer; // 0x10
+	private byte version; // 0x18
+	private DateTime thisUpdate; // 0x20
+	private DateTime nextUpdate; // 0x30
+	private ArrayList entries; // 0x40
+	private string signatureOID; // 0x48
+	private byte[] signature; // 0x50
+	private X509ExtensionCollection extensions; // 0x58
+	private byte[] encoded; // 0x60
+	private byte[] hash_value; // 0x68
+	[CompilerGeneratedAttribute] // RVA: 0xC40034 Offset: 0xC40034 VA: 0xC40034
+	private static Dictionary<string, int> <>f__switch$map12; // 0x0
+	[CompilerGeneratedAttribute] // RVA: 0xC40044 Offset: 0xC40044 VA: 0xC40044
+	private static Dictionary<string, int> <>f__switch$map13; // 0x8
+
+	// Properties
+	public ArrayList Entries { get; }
+	public X509Crl.X509CrlEntry Item { get; }
+	public X509Crl.X509CrlEntry Item { get; }
+	public X509ExtensionCollection Extensions { get; }
+	public byte[] Hash { get; }
+	public string IssuerName { get; }
+	public DateTime NextUpdate { get; }
+	public DateTime ThisUpdate { get; }
+	public string SignatureAlgorithm { get; }
+	public byte[] Signature { get; }
+	public byte[] RawData { get; }
+	public byte Version { get; }
+	public bool IsCurrent { get; }
+
+	// Methods
+
+	// RVA: 0x12B0468 Offset: 0x12B0468 VA: 0x12B0468
+	public void .ctor(byte[] crl) { }
+
+	// RVA: 0x12B0594 Offset: 0x12B0594 VA: 0x12B0594
+	private void Parse(byte[] crl) { }
+
+	// RVA: 0x12B0F10 Offset: 0x12B0F10 VA: 0x12B0F10
+	public ArrayList get_Entries() { }
+
+	// RVA: 0x12B0F7C Offset: 0x12B0F7C VA: 0x12B0F7C
+	public X509Crl.X509CrlEntry get_Item(int index) { }
+
+	// RVA: 0x12B1070 Offset: 0x12B1070 VA: 0x12B1070
+	public X509Crl.X509CrlEntry get_Item(byte[] serialNumber) { }
+
+	// RVA: 0x12B121C Offset: 0x12B121C VA: 0x12B121C
+	public X509ExtensionCollection get_Extensions() { }
+
+	// RVA: 0x12B1224 Offset: 0x12B1224 VA: 0x12B1224
+	public byte[] get_Hash() { }
+
+	// RVA: 0x12B1568 Offset: 0x12B1568 VA: 0x12B1568
+	public string get_IssuerName() { }
+
+	// RVA: 0x12B1570 Offset: 0x12B1570 VA: 0x12B1570
+	public DateTime get_NextUpdate() { }
+
+	// RVA: 0x12B157C Offset: 0x12B157C VA: 0x12B157C
+	public DateTime get_ThisUpdate() { }
+
+	// RVA: 0x12B1588 Offset: 0x12B1588 VA: 0x12B1588
+	public string get_SignatureAlgorithm() { }
+
+	// RVA: 0x12B1590 Offset: 0x12B1590 VA: 0x12B1590
+	public byte[] get_Signature() { }
+
+	// RVA: 0x12B165C Offset: 0x12B165C VA: 0x12B165C
+	public byte[] get_RawData() { }
+
+	// RVA: 0x12B1734 Offset: 0x12B1734 VA: 0x12B1734
+	public byte get_Version() { }
+
+	// RVA: 0x12B173C Offset: 0x12B173C VA: 0x12B173C
+	public bool get_IsCurrent() { }
+
+	// RVA: 0x12B17B8 Offset: 0x12B17B8 VA: 0x12B17B8
+	public bool WasCurrent(DateTime instant) { }
+
+	// RVA: 0x12B1914 Offset: 0x12B1914 VA: 0x12B1914
+	public byte[] GetBytes() { }
+
+	// RVA: 0x12B19EC Offset: 0x12B19EC VA: 0x12B19EC
+	private bool Compare(byte[] array1, byte[] array2) { }
+
+	// RVA: 0x12B1AB0 Offset: 0x12B1AB0 VA: 0x12B1AB0
+	public X509Crl.X509CrlEntry GetCrlEntry(X509Certificate x509) { }
+
+	// RVA: 0x12B1074 Offset: 0x12B1074 VA: 0x12B1074
+	public X509Crl.X509CrlEntry GetCrlEntry(byte[] serialNumber) { }
+
+	// RVA: 0x12B1C34 Offset: 0x12B1C34 VA: 0x12B1C34
+	public bool VerifySignature(X509Certificate x509) { }
+
+	// RVA: 0x12B1304 Offset: 0x12B1304 VA: 0x12B1304
+	private string GetHashName() { }
+
+	// RVA: 0x12B1F08 Offset: 0x12B1F08 VA: 0x12B1F08
+	internal bool VerifySignature(DSA dsa) { }
+
+	// RVA: 0x12B223C Offset: 0x12B223C VA: 0x12B223C
+	internal bool VerifySignature(RSA rsa) { }
+
+	// RVA: 0x12B2304 Offset: 0x12B2304 VA: 0x12B2304
+	public bool VerifySignature(AsymmetricAlgorithm aa) { }
+
+	// RVA: 0x12B249C Offset: 0x12B249C VA: 0x12B249C
+	public static X509Crl CreateFromFile(string filename) { }
+}
+
+// Namespace: 
+public class X509Crl.X509CrlEntry // TypeDefIndex: 1845
+{
+	// Fields
+	private byte[] sn; // 0x10
+	private DateTime revocationDate; // 0x18
+	private X509ExtensionCollection extensions; // 0x28
+
+	// Properties
+	public byte[] SerialNumber { get; }
+	public DateTime RevocationDate { get; }
+	public X509ExtensionCollection Extensions { get; }
+
+	// Methods
+
+	// RVA: 0x12B2650 Offset: 0x12B2650 VA: 0x12B2650
+	internal void .ctor(byte[] serialNumber, DateTime revocationDate, X509ExtensionCollection extensions) { }
+
+	// RVA: 0x12B0DF0 Offset: 0x12B0DF0 VA: 0x12B0DF0
+	internal void .ctor(ASN1 entry) { }
+
+	// RVA: 0x12B1B5C Offset: 0x12B1B5C VA: 0x12B1B5C
+	public byte[] get_SerialNumber() { }
+
+	// RVA: 0x12B26E8 Offset: 0x12B26E8 VA: 0x12B26E8
+	public DateTime get_RevocationDate() { }
+
+	// RVA: 0x12B26F4 Offset: 0x12B26F4 VA: 0x12B26F4
+	public X509ExtensionCollection get_Extensions() { }
+
+	// RVA: 0x12B26FC Offset: 0x12B26FC VA: 0x12B26FC
+	public byte[] GetBytes() { }
+}
+
+// Namespace: Mono.Security.X509
+public class X509Extension // TypeDefIndex: 1846
+{
+	// Fields
+	protected string extnOid; // 0x10
+	protected bool extnCritical; // 0x18
+	protected ASN1 extnValue; // 0x20
+
+	// Properties
+	public ASN1 ASN1 { get; }
+	public string Oid { get; }
+	public bool Critical { get; set; }
+	public virtual string Name { get; }
+	public ASN1 Value { get; }
+
+	// Methods
+
+	// RVA: 0x12B2864 Offset: 0x12B2864 VA: 0x12B2864
+	protected void .ctor() { }
+
+	// RVA: 0x12B288C Offset: 0x12B288C VA: 0x12B288C
+	public void .ctor(ASN1 asn1) { }
+
+	// RVA: 0x1295E34 Offset: 0x1295E34 VA: 0x1295E34
+	public void .ctor(X509Extension extension) { }
+
+	// RVA: 0x12B2CC0 Offset: 0x12B2CC0 VA: 0x12B2CC0 Slot: 4
+	protected virtual void Decode() { }
+
+	// RVA: 0x12B2CC4 Offset: 0x12B2CC4 VA: 0x12B2CC4 Slot: 5
+	protected virtual void Encode() { }
+
+	// RVA: 0x12B2CC8 Offset: 0x12B2CC8 VA: 0x12B2CC8
+	public ASN1 get_ASN1() { }
+
+	// RVA: 0x12B2CB0 Offset: 0x12B2CB0 VA: 0x12B2CB0
+	public string get_Oid() { }
+
+	// RVA: 0x12B2CB8 Offset: 0x12B2CB8 VA: 0x12B2CB8
+	public bool get_Critical() { }
+
+	// RVA: 0x12B2E10 Offset: 0x12B2E10 VA: 0x12B2E10
+	public void set_Critical(bool value) { }
+
+	// RVA: 0x12B2E1C Offset: 0x12B2E1C VA: 0x12B2E1C Slot: 6
+	public virtual string get_Name() { }
+
+	// RVA: 0x12B2C78 Offset: 0x12B2C78 VA: 0x12B2C78
+	public ASN1 get_Value() { }
+
+	// RVA: 0x12B2E24 Offset: 0x12B2E24 VA: 0x12B2E24 Slot: 0
+	public override bool Equals(object obj) { }
+
+	// RVA: 0x12B2FF0 Offset: 0x12B2FF0 VA: 0x12B2FF0
+	public byte[] GetBytes() { }
+
+	// RVA: 0x12B3024 Offset: 0x12B3024 VA: 0x12B3024 Slot: 2
+	public override int GetHashCode() { }
+
+	// RVA: 0x12B3054 Offset: 0x12B3054 VA: 0x12B3054
+	private void WriteLine(StringBuilder sb, int n, int pos) { }
+
+	// RVA: 0x12B32F4 Offset: 0x12B32F4 VA: 0x12B32F4 Slot: 3
+	public override string ToString() { }
+}
+
+// Namespace: Mono.Security.X509
+[DefaultMemberAttribute] // RVA: 0xC3FEB4 Offset: 0xC3FEB4 VA: 0xC3FEB4
+public sealed class X509ExtensionCollection : CollectionBase, IEnumerable // TypeDefIndex: 1847
+{
+	// Fields
+	private bool readOnly; // 0x18
+
+	// Properties
+	public X509Extension Item { get; }
+	public X509Extension Item { get; }
+
+	// Methods
+
+	// RVA: 0x12ADC1C Offset: 0x12ADC1C VA: 0x12ADC1C
+	public void .ctor() { }
+
+	// RVA: 0x12ABBA0 Offset: 0x12ABBA0 VA: 0x12ABBA0
+	public void .ctor(ASN1 asn1) { }
+
+	// RVA: 0x12B3400 Offset: 0x12B3400 VA: 0x12B3400 Slot: 4
+	private IEnumerator System.Collections.IEnumerable.GetEnumerator() { }
+
+	// RVA: 0x12B343C Offset: 0x12B343C VA: 0x12B343C
+	public int Add(X509Extension extension) { }
+
+	// RVA: 0x12B3530 Offset: 0x12B3530 VA: 0x12B3530
+	public void AddRange(X509Extension[] extension) { }
+
+	// RVA: 0x12B367C Offset: 0x12B367C VA: 0x12B367C
+	public void AddRange(X509ExtensionCollection collection) { }
+
+	// RVA: 0x12B38CC Offset: 0x12B38CC VA: 0x12B38CC
+	public bool Contains(X509Extension extension) { }
+
+	// RVA: 0x12B3A94 Offset: 0x12B3A94 VA: 0x12B3A94
+	public bool Contains(string oid) { }
+
+	// RVA: 0x12B3C8C Offset: 0x12B3C8C VA: 0x12B3C8C
+	public void CopyTo(X509Extension[] extensions, int index) { }
+
+	// RVA: 0x12B38E8 Offset: 0x12B38E8 VA: 0x12B38E8
+	public int IndexOf(X509Extension extension) { }
+
+	// RVA: 0x12B3AB0 Offset: 0x12B3AB0 VA: 0x12B3AB0
+	public int IndexOf(string oid) { }
+
+	// RVA: 0x12B3D54 Offset: 0x12B3D54 VA: 0x12B3D54
+	public void Insert(int index, X509Extension extension) { }
+
+	// RVA: 0x12B3E1C Offset: 0x12B3E1C VA: 0x12B3E1C
+	public void Remove(X509Extension extension) { }
+
+	// RVA: 0x12B3EDC Offset: 0x12B3EDC VA: 0x12B3EDC
+	public void Remove(string oid) { }
+
+	// RVA: 0x12B37D0 Offset: 0x12B37D0 VA: 0x12B37D0
+	public X509Extension get_Item(int index) { }
+
+	// RVA: 0x12B0354 Offset: 0x12B0354 VA: 0x12B0354
+	public X509Extension get_Item(string oid) { }
+
+	// RVA: 0x12AE650 Offset: 0x12AE650 VA: 0x12AE650
+	public byte[] GetBytes() { }
+}
+
+// Namespace: Mono.Security.X509
+public class X509Store // TypeDefIndex: 1848
+{
+	// Fields
+	private string _storePath; // 0x10
+	private X509CertificateCollection _certificates; // 0x18
+	private ArrayList _crls; // 0x20
+	private bool _crl; // 0x28
+	private string _name; // 0x30
+
+	// Properties
+	public X509CertificateCollection Certificates { get; }
+	public ArrayList Crls { get; }
+	public string Name { get; }
+
+	// Methods
+
+	// RVA: 0x12B3FC4 Offset: 0x12B3FC4 VA: 0x12B3FC4
+	internal void .ctor(string path, bool crl) { }
+
+	// RVA: 0x12B4004 Offset: 0x12B4004 VA: 0x12B4004
+	public X509CertificateCollection get_Certificates() { }
+
+	// RVA: 0x12B41F4 Offset: 0x12B41F4 VA: 0x12B41F4
+	public ArrayList get_Crls() { }
+
+	// RVA: 0x12B444C Offset: 0x12B444C VA: 0x12B444C
+	public string get_Name() { }
+
+	// RVA: 0x12B4510 Offset: 0x12B4510 VA: 0x12B4510
+	public void Clear() { }
+
+	// RVA: 0x12B455C Offset: 0x12B455C VA: 0x12B455C
+	public void Import(X509Certificate certificate) { }
+
+	// RVA: 0x12B48F4 Offset: 0x12B48F4 VA: 0x12B48F4
+	public void Import(X509Crl crl) { }
+
+	// RVA: 0x12B4B54 Offset: 0x12B4B54 VA: 0x12B4B54
+	public void Remove(X509Certificate certificate) { }
+
+	// RVA: 0x12B4C10 Offset: 0x12B4C10 VA: 0x12B4C10
+	public void Remove(X509Crl crl) { }
+
+	// RVA: 0x12B4864 Offset: 0x12B4864 VA: 0x12B4864
+	private string GetUniqueName(X509Certificate certificate) { }
+
+	// RVA: 0x12B4AC4 Offset: 0x12B4AC4 VA: 0x12B4AC4
+	private string GetUniqueName(X509Crl crl) { }
+
+	// RVA: 0x12B4CCC Offset: 0x12B4CCC VA: 0x12B4CCC
+	private byte[] GetUniqueName(X509ExtensionCollection extensions) { }
+
+	// RVA: 0x12B4D6C Offset: 0x12B4D6C VA: 0x12B4D6C
+	private string GetUniqueName(string method, byte[] name, string fileExtension) { }
+
+	// RVA: 0x12B4F08 Offset: 0x12B4F08 VA: 0x12B4F08
+	private byte[] Load(string filename) { }
+
+	// RVA: 0x12B5094 Offset: 0x12B5094 VA: 0x12B5094
+	private X509Certificate LoadCertificate(string filename) { }
+
+	// RVA: 0x12B5104 Offset: 0x12B5104 VA: 0x12B5104
+	private X509Crl LoadCrl(string filename) { }
+
+	// RVA: 0x12B4748 Offset: 0x12B4748 VA: 0x12B4748
+	private bool CheckStore(string path, bool throwException) { }
+
+	// RVA: 0x12B4038 Offset: 0x12B4038 VA: 0x12B4038
+	private X509CertificateCollection BuildCertificatesCollection(string storeName) { }
+
+	// RVA: 0x12B4284 Offset: 0x12B4284 VA: 0x12B4284
+	private ArrayList BuildCrlsCollection(string storeName) { }
+}
+
+// Namespace: Mono.Security.X509
+public sealed class X509StoreManager // TypeDefIndex: 1849
+{
+	// Fields
+	private static X509Stores _userStore; // 0x0
+	private static X509Stores _machineStore; // 0x8
+
+	// Properties
+	public static X509Stores CurrentUser { get; }
+	public static X509Stores LocalMachine { get; }
+	public static X509CertificateCollection IntermediateCACertificates { get; }
+	public static ArrayList IntermediateCACrls { get; }
+	public static X509CertificateCollection TrustedRootCertificates { get; }
+	public static ArrayList TrustedRootCACrls { get; }
+	public static X509CertificateCollection UntrustedCertificates { get; }
+
+	// Methods
+
+	// RVA: 0x12B5174 Offset: 0x12B5174 VA: 0x12B5174
+	private void .ctor() { }
+
+	// RVA: 0x12B517C Offset: 0x12B517C VA: 0x12B517C
+	public static X509Stores get_CurrentUser() { }
+
+	// RVA: 0x12B52A4 Offset: 0x12B52A4 VA: 0x12B52A4
+	public static X509Stores get_LocalMachine() { }
+
+	// RVA: 0x12B539C Offset: 0x12B539C VA: 0x12B539C
+	public static X509CertificateCollection get_IntermediateCACertificates() { }
+
+	// RVA: 0x12B5584 Offset: 0x12B5584 VA: 0x12B5584
+	public static ArrayList get_IntermediateCACrls() { }
+
+	// RVA: 0x12AF564 Offset: 0x12AF564 VA: 0x12AF564
+	public static X509CertificateCollection get_TrustedRootCertificates() { }
+
+	// RVA: 0x12B573C Offset: 0x12B573C VA: 0x12B573C
+	public static ArrayList get_TrustedRootCACrls() { }
+
+	// RVA: 0x12B5830 Offset: 0x12B5830 VA: 0x12B5830
+	public static X509CertificateCollection get_UntrustedCertificates() { }
+}
+
+// Namespace: Mono.Security.X509
+public class X509Stores // TypeDefIndex: 1850
+{
+	// Fields
+	private string _storePath; // 0x10
+	private X509Store _personal; // 0x18
+	private X509Store _other; // 0x20
+	private X509Store _intermediate; // 0x28
+	private X509Store _trusted; // 0x30
+	private X509Store _untrusted; // 0x38
+
+	// Properties
+	public X509Store Personal { get; }
+	public X509Store OtherPeople { get; }
+	public X509Store IntermediateCA { get; }
+	public X509Store TrustedRoot { get; }
+	public X509Store Untrusted { get; }
+
+	// Methods
+
+	// RVA: 0x12B5278 Offset: 0x12B5278 VA: 0x12B5278
+	internal void .ctor(string path) { }
+
+	// RVA: 0x12B5A14 Offset: 0x12B5A14 VA: 0x12B5A14
+	public X509Store get_Personal() { }
+
+	// RVA: 0x12B5AD4 Offset: 0x12B5AD4 VA: 0x12B5AD4
+	public X509Store get_OtherPeople() { }
+
+	// RVA: 0x12B54C0 Offset: 0x12B54C0 VA: 0x12B54C0
+	public X509Store get_IntermediateCA() { }
+
+	// RVA: 0x12B5678 Offset: 0x12B5678 VA: 0x12B5678
+	public X509Store get_TrustedRoot() { }
+
+	// RVA: 0x12B5954 Offset: 0x12B5954 VA: 0x12B5954
+	public X509Store get_Untrusted() { }
+
+	// RVA: 0x12B5B94 Offset: 0x12B5B94 VA: 0x12B5B94
+	public void Clear() { }
+
+	// RVA: 0x12B5C00 Offset: 0x12B5C00 VA: 0x12B5C00
+	public X509Store Open(string storeName, bool create) { }
+}
+
+// Namespace: 
+public class X509Stores.Names // TypeDefIndex: 1851
+{
+	// Fields
+	public const string Personal = "My";
+	public const string OtherPeople = "AddressBook";
+	public const string IntermediateCA = "CA";
+	public const string TrustedRoot = "Trust";
+	public const string Untrusted = "Disallowed";
+
+	// Methods
+
+	// RVA: 0x12B5D14 Offset: 0x12B5D14 VA: 0x12B5D14
+	public void .ctor() { }
+}
+
+// Namespace: Mono.Security.X509
+public class X520 // TypeDefIndex: 1852
+{
+	// Methods
+
+	// RVA: 0x12B5D1C Offset: 0x12B5D1C VA: 0x12B5D1C
+	public void .ctor() { }
+}
+
+// Namespace: 
+public abstract class X520.AttributeTypeAndValue // TypeDefIndex: 1853
+{
+	// Fields
+	private string oid; // 0x10
+	private string attrValue; // 0x18
+	private int upperBound; // 0x20
+	private byte encoding; // 0x24
+
+	// Properties
+	public string Value { get; set; }
+	public ASN1 ASN1 { get; }
+
+	// Methods
+
+	// RVA: 0x12B5D24 Offset: 0x12B5D24 VA: 0x12B5D24
+	protected void .ctor(string oid, int upperBound) { }
+
+	// RVA: 0x12B5D68 Offset: 0x12B5D68 VA: 0x12B5D68
+	protected void .ctor(string oid, int upperBound, byte encoding) { }
+
+	// RVA: 0x12B5DAC Offset: 0x12B5DAC VA: 0x12B5DAC
+	public string get_Value() { }
+
+	// RVA: 0x12AA130 Offset: 0x12AA130 VA: 0x12AA130
+	public void set_Value(string value) { }
+
+	// RVA: 0x12B5DB4 Offset: 0x12B5DB4 VA: 0x12B5DB4
+	public ASN1 get_ASN1() { }
+
+	// RVA: 0x12B5DBC Offset: 0x12B5DBC VA: 0x12B5DBC
+	internal ASN1 GetASN1(byte encoding) { }
+
+	// RVA: 0x12AA24C Offset: 0x12AA24C VA: 0x12AA24C
+	internal ASN1 GetASN1() { }
+
+	// RVA: 0x12B6088 Offset: 0x12B6088 VA: 0x12B6088
+	public byte[] GetBytes(byte encoding) { }
+
+	// RVA: 0x12B60BC Offset: 0x12B60BC VA: 0x12B60BC
+	public byte[] GetBytes() { }
+
+	// RVA: 0x12B5FF4 Offset: 0x12B5FF4 VA: 0x12B5FF4
+	private byte SelectBestEncoding() { }
+}
+
+// Namespace: 
+public class X520.Name : X520.AttributeTypeAndValue // TypeDefIndex: 1854
+{
+	// Methods
+
+	// RVA: 0x1389D74 Offset: 0x1389D74 VA: 0x1389D74
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class X520.CommonName : X520.AttributeTypeAndValue // TypeDefIndex: 1855
+{
+	// Methods
+
+	// RVA: 0x1389AA4 Offset: 0x1389AA4 VA: 0x1389AA4
+	public void .ctor() { }
+}
+
+// Namespace: 
+public class X520.SerialNumber : X520.AttributeTypeAndValue // TypeDefIndex: 1856
+{
+	// Methods
+
+	// RVA: 0x1389E88 Offset: 0x1389E88 VA: 0x1389E88

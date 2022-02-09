@@ -1,0 +1,1000 @@
+
+	// Methods
+
+	// RVA: 0x16D7C54 Offset: 0x16D7C54 VA: 0x16D7C54
+	private void .ctor() { }
+
+	// RVA: 0x16D7CF0 Offset: 0x16D7CF0 VA: 0x16D7CF0
+	private void .ctor(StringBuilder builder) { }
+
+	// RVA: 0x16D6AAC Offset: 0x16D6AAC VA: 0x16D6AAC
+	public static string Serialize(object obj) { }
+
+	// RVA: 0x16D6B54 Offset: 0x16D6B54 VA: 0x16D6B54
+	public static void Serialize(object obj, StringBuilder builder) { }
+
+	// RVA: 0x16D7D7C Offset: 0x16D7D7C VA: 0x16D7D7C
+	private void SerializeValue(object value) { }
+
+	// RVA: 0x16D8540 Offset: 0x16D8540 VA: 0x16D8540
+	private void SerializeObject(IDictionary obj) { }
+
+	// RVA: 0x16D836C Offset: 0x16D836C VA: 0x16D836C
+	private void SerializeArray(IList anArray) { }
+
+	// RVA: 0x16D7F38 Offset: 0x16D7F38 VA: 0x16D7F38
+	private void SerializeString(string str) { }
+
+	// RVA: 0x16D8988 Offset: 0x16D8988 VA: 0x16D8988
+	private void SerializeOther(object value) { }
+}
+
+// Namespace: MiniMessagePack
+public class MiniMessagePacker // TypeDefIndex: 6389
+{
+	// Fields
+	private StringBuilder sb; // 0x10
+	private byte[] tmp0; // 0x18
+	private byte[] tmp1; // 0x20
+	private static Encoding encoder; // 0x0
+	private Dictionary<Type, FieldInfo[]> fieldInfoCache; // 0x28
+	private Dictionary<FieldInfo, string> fieldInfoKeyCache; // 0x30
+	private const int TmpStringHashCapacity = 2000;
+	private static byte[] tmpStringHash; // 0x8
+	private byte[] threadSafeStringHash; // 0x38
+	private const int InternPoolCapacity = 40000;
+	private static Dictionary<ulong, string> internPool; // 0x10
+	private static bool hasStringHashCollision; // 0x18
+	[CompilerGeneratedAttribute] // RVA: 0xCBFF50 Offset: 0xCBFF50 VA: 0xCBFF50
+	private static Predicate<FieldInfo> <>f__am$cache0; // 0x20
+
+	// Methods
+
+	// RVA: 0x16D8BB8 Offset: 0x16D8BB8 VA: 0x16D8BB8
+	public void .ctor() { }
+
+	// RVA: 0x16D8C28 Offset: 0x16D8C28 VA: 0x16D8C28
+	public byte[] Pack(object o) { }
+
+	// RVA: 0x16D8D80 Offset: 0x16D8D80 VA: 0x16D8D80
+	public void Pack(Stream s, object o) { }
+
+	// RVA: 0x16D9134 Offset: 0x16D9134 VA: 0x16D9134
+	private void PackNull(Stream s) { }
+
+	// RVA: 0x16D92EC Offset: 0x16D92EC VA: 0x16D92EC
+	private void Pack(Stream s, IList list) { }
+
+	// RVA: 0x16D94EC Offset: 0x16D94EC VA: 0x16D94EC
+	private void Pack(Stream s, IDictionary dict) { }
+
+	// RVA: 0x16D99B0 Offset: 0x16D99B0 VA: 0x16D99B0
+	private void Pack(Stream s, bool val) { }
+
+	// RVA: 0x16D99F8 Offset: 0x16D99F8 VA: 0x16D99F8
+	private void Pack(Stream s, sbyte val) { }
+
+	// RVA: 0x16D9AEC Offset: 0x16D9AEC VA: 0x16D9AEC
+	private void Pack(Stream s, byte val) { }
+
+	// RVA: 0x16D9BDC Offset: 0x16D9BDC VA: 0x16D9BDC
+	private void Pack(Stream s, short val) { }
+
+	// RVA: 0x16D9C80 Offset: 0x16D9C80 VA: 0x16D9C80
+	private void Pack(Stream s, ushort val) { }
+
+	// RVA: 0x16D9D04 Offset: 0x16D9D04 VA: 0x16D9D04
+	private void Pack(Stream s, int val) { }
+
+	// RVA: 0x16D9DD4 Offset: 0x16D9DD4 VA: 0x16D9DD4
+	private void Pack(Stream s, uint val) { }
+
+	// RVA: 0x16D9E84 Offset: 0x16D9E84 VA: 0x16D9E84
+	private void Pack(Stream s, long val) { }
+
+	// RVA: 0x16D9FA0 Offset: 0x16D9FA0 VA: 0x16D9FA0
+	private void Pack(Stream s, ulong val) { }
+
+	// RVA: 0x16DA098 Offset: 0x16DA098 VA: 0x16DA098
+	private void Pack(Stream s, float val) { }
+
+	// RVA: 0x16DA2D0 Offset: 0x16DA2D0 VA: 0x16DA2D0
+	private void Pack(Stream s, double val) { }
+
+	// RVA: 0x16D9170 Offset: 0x16D9170 VA: 0x16D9170
+	private void Pack(Stream s, string val) { }
+
+	// RVA: 0x16DA648 Offset: 0x16DA648 VA: 0x16DA648
+	private void Write(Stream s, ushort val) { }
+
+	// RVA: 0x16DA700 Offset: 0x16DA700 VA: 0x16DA700
+	private void Write(Stream s, uint val) { }
+
+	// RVA: 0x16DA820 Offset: 0x16DA820 VA: 0x16DA820
+	private void Write(Stream s, ulong val) { }
+
+	// RVA: 0x16DAA10 Offset: 0x16DAA10 VA: 0x16DAA10
+	private void Write(Stream s, string val) { }
+
+	// RVA: 0x16DAD20 Offset: 0x16DAD20 VA: 0x16DAD20
+	public object Unpack(byte[] buf, int offset, int size) { }
+
+	// RVA: 0x16DBA4C Offset: 0x16DBA4C VA: 0x16DBA4C
+	public object Unpack(byte[] buf) { }
+
+	// RVA: 0x16DAE70 Offset: 0x16DAE70 VA: 0x16DAE70
+	public object Unpack(Stream s) { }
+
+	// RVA: 0x16DBEF4 Offset: 0x16DBEF4 VA: 0x16DBEF4
+	private long UnpackUint16(Stream s) { }
+
+	// RVA: 0x16DC010 Offset: 0x16DC010 VA: 0x16DC010
+	private long UnpackUint32(Stream s) { }
+
+	// RVA: 0x16DBC60 Offset: 0x16DBC60 VA: 0x16DBC60
+	private string UnpackString(Stream s, long len) { }
+
+	// RVA: 0x16DC1A0 Offset: 0x16DC1A0 VA: 0x16DC1A0
+	private byte[] UnpackBinary(Stream s, long len) { }
+
+	// RVA: 0x16DBB98 Offset: 0x16DBB98 VA: 0x16DBB98
+	private List<object> UnpackArray(Stream s, long len) { }
+
+	// RVA: 0x16DBA88 Offset: 0x16DBA88 VA: 0x16DBA88
+	private Dictionary<string, object> UnpackMap(Stream s, long len) { }
+
+	// RVA: 0x16DC234 Offset: 0x16DC234 VA: 0x16DC234
+	public byte[] PackClass(object o) { }
+
+	// RVA: -1 Offset: -1
+	public T UnpackClass<T>(byte[] buf) { }
+	/* GenericInstMethod :
+	|
+	|-RVA: 0x218F4F4 Offset: 0x218F4F4 VA: 0x218F4F4
+	|-MiniMessagePacker.UnpackClass<BattleData.SaveData>
+	|-MiniMessagePacker.UnpackClass<object>
+	|-MiniMessagePacker.UnpackClass<WarBoardData.WarBoardLocalSaveData>
+	*/
+
+	// RVA: 0x16DC7B4 Offset: 0x16DC7B4 VA: 0x16DC7B4
+	private string GetKey(FieldInfo info) { }
+
+	// RVA: 0x16DC918 Offset: 0x16DC918 VA: 0x16DC918
+	private FieldInfo GetField(Type t, string key) { }
+
+	// RVA: 0x16DCA10 Offset: 0x16DCA10 VA: 0x16DCA10
+	private FieldInfo[] GetFields(Type t) { }
+
+	// RVA: 0x16DC400 Offset: 0x16DC400 VA: 0x16DC400
+	private void PackClass(Stream s, object o) { }
+
+	// RVA: 0x16DCBB8 Offset: 0x16DCBB8 VA: 0x16DCBB8
+	private void PackClass(Stream s, IList list) { }
+
+	// RVA: 0x16DCDB8 Offset: 0x16DCDB8 VA: 0x16DCDB8
+	private void PackClass(Stream s, IDictionary dict) { }
+
+	// RVA: 0x16DD27C Offset: 0x16DD27C VA: 0x16DD27C
+	private void PackClassToDict(Stream s, object o) { }
+
+	// RVA: 0x16DD424 Offset: 0x16DD424 VA: 0x16DD424
+	private void CreateByDictInside(object dat, Type t, Dictionary<string, object> dict) { }
+
+	// RVA: 0x16E01C8 Offset: 0x16E01C8 VA: 0x16E01C8
+	public long LL_UnpackInteger(Stream s) { }
+
+	// RVA: 0x16E0680 Offset: 0x16E0680 VA: 0x16E0680
+	public bool LL_UnpackBoolean(Stream s) { }
+
+	// RVA: 0x16E0734 Offset: 0x16E0734 VA: 0x16E0734
+	public double LL_UnpackFloat(Stream s) { }
+
+	// RVA: 0x16E0D50 Offset: 0x16E0D50 VA: 0x16E0D50
+	public static void LL_DiscardInternPool() { }
+
+	// RVA: 0x16E0DB8 Offset: 0x16E0DB8 VA: 0x16E0DB8
+	public string LL_UnpackString(Stream s) { }
+
+	// RVA: 0x16E0E50 Offset: 0x16E0E50 VA: 0x16E0E50
+	private string LL_UnpackStringWithoutIntern(Stream s) { }
+
+	// RVA: 0x16E0F8C Offset: 0x16E0F8C VA: 0x16E0F8C
+	public uint LL_UnpackStringAsHash(Stream s) { }
+
+	// RVA: 0x16E0FAC Offset: 0x16E0FAC VA: 0x16E0FAC
+	private ulong LL_UnpackStringAsHashNBits(int bits, Stream s) { }
+
+	// RVA: 0x16E1278 Offset: 0x16E1278 VA: 0x16E1278
+	public void SetThreadSafeStringHashWork(byte[] work) { }
+
+	// RVA: 0x16E10F0 Offset: 0x16E10F0 VA: 0x16E10F0
+	private ulong LL_UnpackStringAsHashNBits(int bits, Stream s, int len) { }
+
+	// RVA: 0x16E1280 Offset: 0x16E1280 VA: 0x16E1280
+	public byte[] LL_UnpackBinary(Stream s) { }
+
+	// RVA: 0x16E139C Offset: 0x16E139C VA: 0x16E139C
+	public int LL_UnpackArrayHeader(Stream s) { }
+
+	// RVA: 0x16E1494 Offset: 0x16E1494 VA: 0x16E1494
+	public int LL_UnpackMapHeader(Stream s) { }
+
+	// RVA: 0x16E158C Offset: 0x16E158C VA: 0x16E158C
+	public void LL_Skip(Stream s) { }
+
+	// RVA: 0x16E1810 Offset: 0x16E1810 VA: 0x16E1810
+	private void LL_SkipArray(Stream s, int len) { }
+
+	// RVA: 0x16E17BC Offset: 0x16E17BC VA: 0x16E17BC
+	private void LL_SkipMap(Stream s, int len) { }
+
+	// RVA: 0x16E1858 Offset: 0x16E1858 VA: 0x16E1858
+	private void LL_Seek(Stream s, long offset) { }
+
+	// RVA: 0x16E1948 Offset: 0x16E1948 VA: 0x16E1948
+	private static void .cctor() { }
+
+	[CompilerGeneratedAttribute] // RVA: 0xD36660 Offset: 0xD36660 VA: 0xD36660
+	// RVA: 0x16E19E8 Offset: 0x16E19E8 VA: 0x16E19E8
+	private static bool <GetFields>m__0(FieldInfo x) { }
+}
+
+// Namespace: 
+[CompilerGeneratedAttribute] // RVA: 0xCAE8D0 Offset: 0xCAE8D0 VA: 0xCAE8D0
+private sealed class MiniMessagePacker.<GetField>c__AnonStorey0 // TypeDefIndex: 6390
+{
+	// Fields
+	internal string key; // 0x10
+	internal MiniMessagePacker $this; // 0x18
+
+	// Methods
+
+	// RVA: 0x16DCA08 Offset: 0x16DCA08 VA: 0x16DCA08
+	public void .ctor() { }
+
+	// RVA: 0x16E1A78 Offset: 0x16E1A78 VA: 0x16E1A78
+	internal bool <>m__0(FieldInfo x) { }
+}
+
+// Namespace: MiniMessagePack
+[AttributeUsageAttribute] // RVA: 0xC914B0 Offset: 0xC914B0 VA: 0xC914B0
+public class PackKeyAttribute : Attribute // TypeDefIndex: 6391
+{
+	// Fields
+	private string key; // 0x10
+
+	// Properties
+	public string Key { get; }
+
+	// Methods
+
+	// RVA: 0x16E1B8C Offset: 0x16E1B8C VA: 0x16E1B8C
+	public void .ctor(string key) { }
+
+	// RVA: 0x16DC910 Offset: 0x16DC910 VA: 0x16DC910
+	public string get_Key() { }
+}
+
+// Namespace: MiniMessagePack
+[AttributeUsageAttribute] // RVA: 0xC914FC Offset: 0xC914FC VA: 0xC914FC
+public class DisablePackAttribute : Attribute // TypeDefIndex: 6392
+{
+	// Methods
+
+	// RVA: 0x16D8BB0 Offset: 0x16D8BB0 VA: 0x16D8BB0
+	public void .ctor() { }
+}
+
+// Namespace: 
+[ExecuteInEditMode] // RVA: 0xC91548 Offset: 0xC91548 VA: 0xC91548
+public class MotionInfo : MonoBehaviour // TypeDefIndex: 6393
+{
+	// Fields
+	[SerializeField] // RVA: 0xCBFF60 Offset: 0xCBFF60 VA: 0xCBFF60
+	public bool show; // 0x18
+	private float y; // 0x1C
+	private float width; // 0x20
+	private float height; // 0x24
+	private static string svtName; // 0x0
+	private static BattleActionData actionData; // 0x8
+	private static int hitNum; // 0x10
+
+	// Methods
+
+	// RVA: 0x16EF514 Offset: 0x16EF514 VA: 0x16EF514
+	public void .ctor() { }
+
+	// RVA: 0x16EF538 Offset: 0x16EF538 VA: 0x16EF538
+	public static void SetActionData(BattleActionData _actionData, string _svtName) { }
+
+	// RVA: 0x16EF5BC Offset: 0x16EF5BC VA: 0x16EF5BC
+	public static void SetHitNum(int _hitNum) { }
+
+	// RVA: 0x16EF628 Offset: 0x16EF628 VA: 0x16EF628
+	public void OnGUI() { }
+
+	// RVA: 0x16EFECC Offset: 0x16EFECC VA: 0x16EFECC
+	private string GetTypeName(int type) { }
+
+	// RVA: 0x16EFF84 Offset: 0x16EFF84 VA: 0x16EFF84
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class MoveWindowComponent : BaseMonoBehaviour // TypeDefIndex: 6394
+{
+	// Fields
+	private Hashtable table; // 0x18
+	public bool closepositionadjust; // 0x20
+	public bool flgopen; // 0x21
+	public Vector3 closeposition; // 0x24
+	public Vector3 openposition; // 0x30
+	public Collider[] contentscolliderlist; // 0x40
+
+	// Methods
+
+	// RVA: 0x16F0930 Offset: 0x16F0930 VA: 0x16F0930
+	public void .ctor() { }
+
+	// RVA: 0x16F09A0 Offset: 0x16F09A0 VA: 0x16F09A0
+	public void Awake() { }
+
+	// RVA: 0x16F0A10 Offset: 0x16F0A10 VA: 0x16F0A10
+	public void setContentsCollider(bool flg) { }
+
+	// RVA: 0x16F0AC4 Offset: 0x16F0AC4 VA: 0x16F0AC4
+	public void tglWindow() { }
+
+	// RVA: 0x16F0CDC Offset: 0x16F0CDC VA: 0x16F0CDC
+	public void openWindow() { }
+
+	// RVA: 0x16F0ED8 Offset: 0x16F0ED8 VA: 0x16F0ED8
+	public void onOpenComplete() { }
+
+	// RVA: 0x16F0AD4 Offset: 0x16F0AD4 VA: 0x16F0AD4
+	public void closeWindow() { }
+
+	// RVA: 0x16F0F04 Offset: 0x16F0F04 VA: 0x16F0F04
+	public void onCloseComplete() { }
+}
+
+// Namespace: 
+public class ObjectScaleEnabler : MonoBehaviour // TypeDefIndex: 6395
+{
+	// Fields
+	public Transform visibleCheckTarget; // 0x18
+	public bool suddenDeath; // 0x20
+	private bool isChildVisible; // 0x21
+
+	// Methods
+
+	// RVA: 0x20592D0 Offset: 0x20592D0 VA: 0x20592D0
+	public void .ctor() { }
+
+	// RVA: 0x20592E0 Offset: 0x20592E0 VA: 0x20592E0
+	private void Start() { }
+
+	// RVA: 0x20592EC Offset: 0x20592EC VA: 0x20592EC
+	public void OnUpdate() { }
+
+	// RVA: 0x2059DA8 Offset: 0x2059DA8 VA: 0x2059DA8
+	private void Update() { }
+}
+
+// Namespace: 
+public class OpeningMovieData // TypeDefIndex: 6396
+{
+	// Fields
+	public static readonly string ChapterPrologueWarKey; // 0x0
+	private static int FirstWarID; // 0x8
+	private int warId; // 0x10
+	private Action<string, string, bool> action; // 0x18
+	private bool isCanSkip; // 0x20
+	private string movieFileName; // 0x28
+
+	// Methods
+
+	// RVA: 0x205AB6C Offset: 0x205AB6C VA: 0x205AB6C
+	public void .ctor(int warId, bool isCanSkip) { }
+
+	// RVA: 0x205ABAC Offset: 0x205ABAC VA: 0x205ABAC
+	public void .ctor(string movieFileName, bool isCanSkip) { }
+
+	// RVA: 0x205ABEC Offset: 0x205ABEC VA: 0x205ABEC
+	public void OnStart(Action<string, string, bool> action) { }
+
+	// RVA: 0x205AD2C Offset: 0x205AD2C VA: 0x205AD2C
+	public void OnStartBootMovie(Action<string, string, bool> action) { }
+
+	// RVA: 0x205AE48 Offset: 0x205AE48 VA: 0x205AE48
+	private void OnEndDownload(AssetData data) { }
+
+	// RVA: 0x205AF3C Offset: 0x205AF3C VA: 0x205AF3C
+	public string GetMaterialString() { }
+
+	// RVA: 0x205B014 Offset: 0x205B014 VA: 0x205B014
+	public static int GetPrologueWarId(int idx) { }
+
+	// RVA: 0x205B0E0 Offset: 0x205B0E0 VA: 0x205B0E0
+	public static int GetFirstWarId() { }
+
+	// RVA: 0x205B1A4 Offset: 0x205B1A4 VA: 0x205B1A4
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class ParticleDisconnector : BaseMonoBehaviour // TypeDefIndex: 6397
+{
+	// Fields
+	public ParticleSystem[] particles; // 0x18
+
+	// Methods
+
+	// RVA: 0x179BFBC Offset: 0x179BFBC VA: 0x179BFBC
+	public void .ctor() { }
+
+	// RVA: 0x179C01C Offset: 0x179C01C VA: 0x179C01C
+	public void Initialize(Transform obj) { }
+
+	// RVA: 0x179C204 Offset: 0x179C204 VA: 0x179C204
+	public static ParticleDisconnector DisconnectParticles(Transform globalParent, Transform obj) { }
+
+	// RVA: 0x179C2A4 Offset: 0x179C2A4 VA: 0x179C2A4
+	private void Update() { }
+
+	// RVA: 0x179C45C Offset: 0x179C45C VA: 0x179C45C
+	private void OnDestroy() { }
+}
+
+// Namespace: 
+public class RandomUtility // TypeDefIndex: 6398
+{
+	// Methods
+
+	// RVA: 0x181D7E0 Offset: 0x181D7E0 VA: 0x181D7E0
+	public void .ctor() { }
+
+	// RVA: 0x181D7E8 Offset: 0x181D7E8 VA: 0x181D7E8
+	public static int GetRandomRangeIndex(int[] weightArray, int defValue = -1) { }
+}
+
+// Namespace: 
+public class SendEventToFsm : BaseMonoBehaviour // TypeDefIndex: 6399
+{
+	// Fields
+	public PlayMakerFSM targetFSM; // 0x18
+	[HideInInspector] // RVA: 0xCBFF70 Offset: 0xCBFF70 VA: 0xCBFF70
+	public string sendEvent; // 0x20
+	public SendEventToFsm.Trigger trigger; // 0x28
+	private bool mStarted; // 0x2C
+
+	// Methods
+
+	// RVA: 0x1B22D10 Offset: 0x1B22D10 VA: 0x1B22D10
+	public void .ctor() { }
+
+	// RVA: 0x1B22D68 Offset: 0x1B22D68 VA: 0x1B22D68
+	private void Start() { }
+
+	// RVA: 0x1B22D74 Offset: 0x1B22D74 VA: 0x1B22D74
+	private void OnEnable() { }
+
+	// RVA: 0x1B22E10 Offset: 0x1B22E10 VA: 0x1B22E10
+	private void OnHover(bool isOver) { }
+
+	// RVA: 0x1B22F08 Offset: 0x1B22F08 VA: 0x1B22F08
+	private void OnPress(bool isPressed) { }
+
+	// RVA: 0x1B22F5C Offset: 0x1B22F5C VA: 0x1B22F5C
+	private void OnSelect(bool isSelected) { }
+
+	// RVA: 0x1B23008 Offset: 0x1B23008 VA: 0x1B23008
+	private void OnClick() { }
+
+	// RVA: 0x1B23048 Offset: 0x1B23048 VA: 0x1B23048
+	private void OnDoubleClick() { }
+
+	// RVA: 0x1B22E64 Offset: 0x1B22E64 VA: 0x1B22E64
+	private void Send() { }
+}
+
+// Namespace: 
+public enum SendEventToFsm.Trigger // TypeDefIndex: 6400
+{
+	// Fields
+	public int value__; // 0x0
+	public const SendEventToFsm.Trigger OnClick = 0;
+	public const SendEventToFsm.Trigger OnMouseOver = 1;
+	public const SendEventToFsm.Trigger OnMouseOut = 2;
+	public const SendEventToFsm.Trigger OnPress = 3;
+	public const SendEventToFsm.Trigger OnRelease = 4;
+	public const SendEventToFsm.Trigger OnDoubleClick = 5;
+}
+
+// Namespace: 
+public class ServantClassCompatibilityIconComponent : MonoBehaviour // TypeDefIndex: 6401
+{
+	// Fields
+	[SerializeField] // RVA: 0xCBFF80 Offset: 0xCBFF80 VA: 0xCBFF80
+	protected UISprite upIconSprite; // 0x18
+	[SerializeField] // RVA: 0xCBFF90 Offset: 0xCBFF90 VA: 0xCBFF90
+	protected UISprite downIconSprite; // 0x20
+	private static readonly float[] POSITION_X_UP; // 0x0
+	private static readonly float[] POSITION_X_DOWN; // 0x8
+	private static readonly float[] POSITION_X_CENTER; // 0x10
+	private const int WAR_BOARD_UP_ICON_LONG_X = 22;
+	private const int WAR_BOARD_UP_ICON_LONG_Y = 32;
+	private const int WAR_BOARD_UP_ICON_SHORT_X = 22;
+	private const int WAR_BOARD_UP_ICON_SHORT_Y = 24;
+	private const int WAR_BOARD_DOWN_ICON_LONG_X = 22;
+	private const int WAR_BOARD_DOWN_ICON_LONG_Y = 32;
+	private const int WAR_BOARD_DOWN_ICON_SHORT_X = 22;
+	private const int WAR_BOARD_DOWN_ICON_SHORT_Y = 24;
+	private const int ADVANTAGE_NONE = 0;
+	private const int ADVANTAGE_LARGE = 1;
+	private const int ADVANTAGE_SMALL = 2;
+
+	// Methods
+
+	// RVA: 0x1990070 Offset: 0x1990070 VA: 0x1990070
+	public void .ctor() { }
+
+	// RVA: 0x1990078 Offset: 0x1990078 VA: 0x1990078
+	public void Clear() { }
+
+	// RVA: 0x19901E4 Offset: 0x19901E4 VA: 0x19901E4
+	public void SetIcon(int classId, int[] targetClassIds, ServantClassCompatibilityIconComponent.DispMode dispMode) { }
+
+	// RVA: 0x1990768 Offset: 0x1990768 VA: 0x1990768
+	private void SetIconImage(UISprite icon, int iconId, ServantClassCompatibilityIconComponent.DispMode dispMode, bool advantage) { }
+
+	// RVA: 0x1990944 Offset: 0x1990944 VA: 0x1990944
+	private void SetIconPosition(UISprite icon, float x) { }
+
+	// RVA: 0x1990A5C Offset: 0x1990A5C VA: 0x1990A5C
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public enum ServantClassCompatibilityIconComponent.DispMode // TypeDefIndex: 6402
+{
+	// Fields
+	public int value__; // 0x0
+	public const ServantClassCompatibilityIconComponent.DispMode EDIT = 0;
+	public const ServantClassCompatibilityIconComponent.DispMode LIST = 1;
+	public const ServantClassCompatibilityIconComponent.DispMode SUPPORT = 2;
+	public const ServantClassCompatibilityIconComponent.DispMode SUPPORT_GROUP = 3;
+	public const ServantClassCompatibilityIconComponent.DispMode WAR_BOARD = 4;
+	public const ServantClassCompatibilityIconComponent.DispMode NONE = 5;
+}
+
+// Namespace: 
+public class ServantClassIconComponent : MonoBehaviour // TypeDefIndex: 6403
+{
+	// Fields
+	[SerializeField] // RVA: 0xCBFFA0 Offset: 0xCBFFA0 VA: 0xCBFFA0
+	protected UISprite iconSprite; // 0x18
+	[SerializeField] // RVA: 0xCBFFB0 Offset: 0xCBFFB0 VA: 0xCBFFB0
+	protected UISprite nameSprite; // 0x20
+	public UILabel nameLabel; // 0x28
+
+	// Methods
+
+	// RVA: 0x1990BBC Offset: 0x1990BBC VA: 0x1990BBC
+	public void .ctor() { }
+
+	// RVA: 0x1990BC4 Offset: 0x1990BC4 VA: 0x1990BC4
+	public void Clear() { }
+
+	// RVA: 0x1990D3C Offset: 0x1990D3C VA: 0x1990D3C
+	public void Set(int classId) { }
+
+	// RVA: 0x1990FC0 Offset: 0x1990FC0 VA: 0x1990FC0
+	public void Set(int classId, int rarity) { }
+
+	// RVA: 0x199104C Offset: 0x199104C VA: 0x199104C
+	public void Set(int svtId, int limitCount, int exceedCount) { }
+
+	// RVA: 0x199116C Offset: 0x199116C VA: 0x199116C
+	public void SetWithClassOverWrite(int svtId, int limitCount, int classId) { }
+
+	// RVA: 0x1990D44 Offset: 0x1990D44 VA: 0x1990D44
+	public void SetImage(int classId, int frameType) { }
+
+	// RVA: 0x199122C Offset: 0x199122C VA: 0x199122C
+	public void SetColor(Color col) { }
+}
+
+// Namespace: 
+public class ServantCommandCardListComponent : BaseMonoBehaviour // TypeDefIndex: 6404
+{
+	// Fields
+	[SerializeField] // RVA: 0xCBFFC0 Offset: 0xCBFFC0 VA: 0xCBFFC0
+	protected UISprite[] cardSpriteList; // 0x18
+	[SerializeField] // RVA: 0xCBFFD0 Offset: 0xCBFFD0 VA: 0xCBFFD0
+	protected UISprite[] grantSpriteList; // 0x20
+	[SerializeField] // RVA: 0xCBFFE0 Offset: 0xCBFFE0 VA: 0xCBFFE0
+	protected UISprite[] cardRankSpriteList; // 0x28
+	private bool isChkLock; // 0x30
+	private readonly Color COMMAND_CARD_GRAY_OUT; // 0x34
+	private readonly Color COMMAND_CARD_NORMAL; // 0x44
+
+	// Methods
+
+	// RVA: 0x199BCB8 Offset: 0x199BCB8 VA: 0x199BCB8
+	public void .ctor() { }
+
+	// RVA: 0x199BDB0 Offset: 0x199BDB0 VA: 0x199BDB0
+	public void Clear() { }
+
+	// RVA: 0x199BF84 Offset: 0x199BF84 VA: 0x199BF84
+	public void SetHide() { }
+
+	// RVA: 0x199C550 Offset: 0x199C550 VA: 0x199C550
+	public void Set(long userSvtId, bool isChkLock = False, AtlasManager.CARD_ICON_TYPE cardIconType = 1) { }
+
+	// RVA: 0x199C630 Offset: 0x199C630 VA: 0x199C630
+	public void Set(UserServantEntity userSvtEntity, AtlasManager.CARD_ICON_TYPE cardIconType = 1) { }
+
+	// RVA: 0x199C818 Offset: 0x199C818 VA: 0x199C818
+	public void Set(int svtId, int[] codeIds, CollectionStatus.Kind collectionStatus = 2, AtlasManager.CARD_ICON_TYPE cardIconType = 1) { }
+
+	// RVA: 0x199C710 Offset: 0x199C710 VA: 0x199C710
+	public void Set(int svtId, int[] cardParams, int[] codeIds, CollectionStatus.Kind collectionStatus = 2, AtlasManager.CARD_ICON_TYPE cardIconType = 1) { }
+
+	// RVA: 0x199BFC8 Offset: 0x199BFC8 VA: 0x199BFC8
+	public void Set(int[] cardIds, int[] cardParams, int[] codeIds, CollectionStatus.Kind collectionStatus = 2, AtlasManager.CARD_ICON_TYPE cardIconType = 1, int svtId = 0) { }
+
+	// RVA: 0x199CA40 Offset: 0x199CA40 VA: 0x199CA40
+	public void AdjustCardSpriteListPosX(float start, float interval) { }
+}
+
+// Namespace: 
+public class ServantFaceIconComponent : SwitchParameterDisplayComponent // TypeDefIndex: 6405
+{
+	// Fields
+	private static readonly int SECRET_SERVANT_ID; // 0x0
+	private static readonly int SECRET_LIMIT_COUNT; // 0x4
+	[SerializeField] // RVA: 0xCBFFF0 Offset: 0xCBFFF0 VA: 0xCBFFF0
+	protected UISprite backSprite; // 0x18
+	[SerializeField] // RVA: 0xCC0000 Offset: 0xCC0000 VA: 0xCC0000
+	protected UISprite faceSprite; // 0x20
+	[SerializeField] // RVA: 0xCC0010 Offset: 0xCC0010 VA: 0xCC0010
+	protected UISprite frameSprite; // 0x28
+	[SerializeField] // RVA: 0xCC0020 Offset: 0xCC0020 VA: 0xCC0020
+	protected UISprite typeSprite; // 0x30
+	[SerializeField] // RVA: 0xCC0030 Offset: 0xCC0030 VA: 0xCC0030
+	protected UISprite classSprite; // 0x38
+	[SerializeField] // RVA: 0xCC0040 Offset: 0xCC0040 VA: 0xCC0040
+	protected UISprite costumeIconSprite; // 0x40
+	[SerializeField] // RVA: 0xCC0050 Offset: 0xCC0050 VA: 0xCC0050
+	protected UISprite limitCountSprite; // 0x48
+	[SerializeField] // RVA: 0xCC0060 Offset: 0xCC0060 VA: 0xCC0060
+	protected LimitCountIconComponent limitCountIcon; // 0x50
+	[SerializeField] // RVA: 0xCC0070 Offset: 0xCC0070 VA: 0xCC0070
+	protected UISprite raritySprite; // 0x58
+	[SerializeField] // RVA: 0xCC0080 Offset: 0xCC0080 VA: 0xCC0080
+	protected UISprite rarity2Sprite; // 0x60
+	[SerializeField] // RVA: 0xCC0090 Offset: 0xCC0090 VA: 0xCC0090
+	protected UIIconLabel iconLabel; // 0x68
+	[SerializeField] // RVA: 0xCC00A0 Offset: 0xCC00A0 VA: 0xCC00A0
+	protected ShiningIconComponent shiningIcon; // 0x70
+	[SerializeField] // RVA: 0xCC00B0 Offset: 0xCC00B0 VA: 0xCC00B0
+	protected UISprite noneEquipSprite; // 0x78
+	[SerializeField] // RVA: 0xCC00C0 Offset: 0xCC00C0 VA: 0xCC00C0
+	private UISprite hideEquipSprite; // 0x80
+	[SerializeField] // RVA: 0xCC00D0 Offset: 0xCC00D0 VA: 0xCC00D0
+	protected UIMeshSprite equipSprite; // 0x88
+	[SerializeField] // RVA: 0xCC00E0 Offset: 0xCC00E0 VA: 0xCC00E0
+	protected UISprite equipLimitCountSprite; // 0x90
+	protected CollectionStatus.Kind collectionStatus; // 0x98
+	protected IconLabelInfo info1; // 0xA0
+	protected IconLabelInfo info2; // 0xA8
+	private bool isAdjustIconLabelPos; // 0xB0
+	private Vector3 iconLabelInitPos; // 0xB4
+	private bool isAdjustIconLabelScale; // 0xC0
+	private Vector3 iconLabelInitScale; // 0xC4
+	private Vector2Int textLabelInitSize; // 0xD0
+
+	// Methods
+
+	// RVA: 0x201A534 Offset: 0x201A534 VA: 0x201A534
+	public void .ctor() { }
+
+	// RVA: 0x201A544 Offset: 0x201A544 VA: 0x201A544
+	protected void Awake() { }
+
+	// RVA: 0x201A614 Offset: 0x201A614 VA: 0x201A614
+	protected void OnDestroy() { }
+
+	// RVA: 0x201A618 Offset: 0x201A618 VA: 0x201A618
+	public void ClearFaceAtlas() { }
+
+	// RVA: 0x201A670 Offset: 0x201A670 VA: 0x201A670
+	public void Clear() { }
+
+	// RVA: 0x201ABEC Offset: 0x201ABEC VA: 0x201ABEC
+	public void Blank() { }
+
+	// RVA: 0x201AC58 Offset: 0x201AC58 VA: 0x201AC58
+	public void NoMount() { }
+
+	// RVA: 0x201ACC4 Offset: 0x201ACC4 VA: 0x201ACC4
+	public void NoMount_Support() { }
+
+	// RVA: 0x201AD30 Offset: 0x201AD30 VA: 0x201AD30
+	public void Set(UserServantEntity userSvtEntity, long[] equipIdList, QuestRestrictionInfo questRestrictionInfo, IconLabelInfo info1, IconLabelInfo info2) { }
+
+	// RVA: 0x201BCAC Offset: 0x201BCAC VA: 0x201BCAC
+	public void Set(long userSvtId, IconLabelInfo info1, IconLabelInfo info2) { }
+
+	// RVA: 0x200A8A8 Offset: 0x200A8A8 VA: 0x200A8A8
+	public void Set(UserServantEntity userSvtEntity, IconLabelInfo info1, IconLabelInfo info2) { }
+
+	// RVA: 0x201BE24 Offset: 0x201BE24 VA: 0x201BE24
+	public void NotHaveServantSet(ServantLeaderInfo servantData, IconLabelInfo info1, IconLabelInfo info2) { }
+
+	// RVA: 0x201BF38 Offset: 0x201BF38 VA: 0x201BF38
+	public void Set(UserServantEntity userSvtEntity, long[] equipIdList, IconLabelInfo info1, IconLabelInfo info2) { }
+
+	// RVA: 0x201C200 Offset: 0x201C200 VA: 0x201C200
+	public void SetEquip(UserServantEntity userServantEntity) { }
+
+	// RVA: 0x201C5EC Offset: 0x201C5EC VA: 0x201C5EC
+	public void Set(UserServantCollectionEntity userSvtColEntity, IconLabelInfo info1, IconLabelInfo info2) { }
+
+	// RVA: 0x201C848 Offset: 0x201C848 VA: 0x201C848
+	public void SetDataLost(UserServantCollectionEntity userSvtColEntity, IconLabelInfo info1, IconLabelInfo info2) { }
+
+	// RVA: 0x201CAAC Offset: 0x201CAAC VA: 0x201CAAC
+	public void SetDataNotOpened(EquipTargetInfo equipTargetInfo, IconLabelInfo info1, IconLabelInfo info2) { }
+
+	// RVA: 0x201CBC4 Offset: 0x201CBC4 VA: 0x201CBC4
+	public void Set(UserServantCollectionEntity userSvtColEntity, ServantCostumeEntity svtCostumeEntity, IconLabelInfo info1, IconLabelInfo info2, bool isSecret = False) { }
+
+	// RVA: 0x200AB48 Offset: 0x200AB48 VA: 0x200AB48
+	public void Set(ServantLeaderInfo servantLeaderInfo, IconLabelInfo info1, IconLabelInfo info2, bool isNewIconDisp = False, int imageSvtId = 0) { }
+
+	// RVA: 0x201D004 Offset: 0x201D004 VA: 0x201D004
+	public void Set(EquipTargetInfo equipTargetInfo, IconLabelInfo info1, IconLabelInfo info2) { }
+
+	// RVA: 0x201D52C Offset: 0x201D52C VA: 0x201D52C
+	public void Set(UserCommandCodeEntity userCommandCodeEntity, IconLabelInfo info1, IconLabelInfo info2) { }
+
+	// RVA: 0x201DBDC Offset: 0x201DBDC VA: 0x201DBDC
+	public void Set(UserCommandCodeEntity userCommandCodeEntity, bool isNew, IconLabelInfo info1, IconLabelInfo info2) { }
+
+	// RVA: 0x201DCAC Offset: 0x201DCAC VA: 0x201DCAC
+	public void Set(UserCommandCodeCollectionEntity userCommandCodeCollectionEntity, IconLabelInfo info1, IconLabelInfo info2) { }
+
+	// RVA: 0x201B130 Offset: 0x201B130 VA: 0x201B130
+	public void Set(int svtId, int limitCount, int imageLimitCount = -1, int exceedCount = 0, IconLabelInfo info1, IconLabelInfo info2, CollectionStatus.Kind collectionStatus = 2, bool isNew = False, bool isTemporarySubscription = False, ServantCostumeEntity svtCostumeEntity, bool isCheckSeal = False, int lv = 0, int imageSvtId = 0) { }
+
+	// RVA: 0x201E838 Offset: 0x201E838 VA: 0x201E838
+	public void SetEventBonus(int iconId, int rarity) { }
+
+	// RVA: 0x201D6E4 Offset: 0x201D6E4 VA: 0x201D6E4
+	public void SetCommandCode(int commandCodeId, IconLabelInfo info1, IconLabelInfo info2, CollectionStatus.Kind collectionStatus = 2, bool isNew = False) { }
+
+	// RVA: 0x201E014 Offset: 0x201E014 VA: 0x201E014
+	private void SetClassSprite(bool isCommandCode, bool isServantEquip = False, int classId = 0, int frameType = 0) { }
+
+	// RVA: 0x201E160 Offset: 0x201E160 VA: 0x201E160
+	private void SetLimitCountSprite(bool isCommandCode, int limitMax = 0, int limitCount = 0) { }
+
+	// RVA: 0x201E2C0 Offset: 0x201E2C0 VA: 0x201E2C0
+	private void SetLimitCountIcon(bool isCommandCode, int limitMax = 0, int limitCount = 0) { }
+
+	// RVA: 0x201E3E4 Offset: 0x201E3E4 VA: 0x201E3E4
+	private void SetRaritySprite(bool isCommandCode, int rarity, int exceedCount = 0, int lv = 0) { }
+
+	// RVA: 0x201EC8C Offset: 0x201EC8C VA: 0x201EC8C
+	public void SetEquipDangling(EquipTargetInfo info) { }
+
+	// RVA: 0x201A9E8 Offset: 0x201A9E8 VA: 0x201A9E8
+	protected void ClearEquip() { }
+
+	// RVA: 0x201D10C Offset: 0x201D10C VA: 0x201D10C
+	protected void ClearEquip(int baseSvtId) { }
+
+	// RVA: 0x201BB2C Offset: 0x201BB2C VA: 0x201BB2C
+	protected void SetEquip(int baseSvtId, long userSvtId) { }
+
+	// RVA: 0x201CF14 Offset: 0x201CF14 VA: 0x201CF14
+	protected void SetEquip(int baseSvtId, EquipTargetInfo equipTarget) { }
+
+	// RVA: 0x201C2BC Offset: 0x201C2BC VA: 0x201C2BC
+	protected void SetEquip(int baseSvtId, int svtId, int limitCount) { }
+
+	// RVA: 0x201CD10 Offset: 0x201CD10 VA: 0x201CD10
+	private void HideEquip() { }
+
+	// RVA: 0x201ED38 Offset: 0x201ED38 VA: 0x201ED38
+	public string GetFaceSpriteName() { }
+
+	// RVA: 0x201ED68 Offset: 0x201ED68 VA: 0x201ED68
+	public bool IsUseEquip() { }
+
+	// RVA: 0x201EE78 Offset: 0x201EE78 VA: 0x201EE78
+	public void FaceSpriteDisp(bool flag) { }
+
+	// RVA: 0x201EF58 Offset: 0x201EF58 VA: 0x201EF58
+	public void SetDispRaritySprite(bool flag) { }
+
+	// RVA: 0x201EF90 Offset: 0x201EF90 VA: 0x201EF90
+	public void SetDispLimitCountIcon(bool flag) { }
+
+	// RVA: 0x201E6D8 Offset: 0x201E6D8 VA: 0x201E6D8
+	protected void SetIconLabel(int count) { }
+
+	// RVA: 0x201EFE0 Offset: 0x201EFE0 VA: 0x201EFE0 Slot: 4
+	public override bool ParameterChange(int count) { }
+
+	// RVA: 0x201EFF8 Offset: 0x201EFF8 VA: 0x201EFF8 Slot: 5
+	public override bool UpdateAlpha(float alpha) { }
+
+	// RVA: 0x201F0B0 Offset: 0x201F0B0 VA: 0x201F0B0
+	public void AdjustIconLabelPos(float offsetX, float offsetY) { }
+
+	// RVA: 0x201F1E8 Offset: 0x201F1E8 VA: 0x201F1E8
+	public void ResetIconLabelPos() { }
+
+	// RVA: 0x201F2C4 Offset: 0x201F2C4 VA: 0x201F2C4
+	public void AdjustIconLabelScale(Vector3 scale) { }
+
+	// RVA: 0x201F420 Offset: 0x201F420 VA: 0x201F420
+	public void ResetIconLabelScale() { }
+
+	// RVA: 0x201F528 Offset: 0x201F528 VA: 0x201F528
+	public void ChangeClassIcon(int frameType, int classId) { }
+
+	// RVA: 0x201BD88 Offset: 0x201BD88 VA: 0x201BD88
+	private int GetIconLimitCountSealAfter(int svtId, int iconLimit) { }
+
+	// RVA: 0x201DD8C Offset: 0x201DD8C VA: 0x201DD8C
+	public void SetCostumeIcon(ServantCostumeEntity svtCostumeEntity) { }
+
+	// RVA: 0x201F5AC Offset: 0x201F5AC VA: 0x201F5AC
+	private static void .cctor() { }
+}
+
+// Namespace: 
+public class ServantNpCommandCardComponent : BaseMonoBehaviour // TypeDefIndex: 6406
+{
+	// Fields
+	[SerializeField] // RVA: 0xCC00F0 Offset: 0xCC00F0 VA: 0xCC00F0
+	protected UISprite cardSprite; // 0x18
+
+	// Methods
+
+	// RVA: 0x1ECD7A8 Offset: 0x1ECD7A8 VA: 0x1ECD7A8
+	public void .ctor() { }
+
+	// RVA: 0x1ECD7B0 Offset: 0x1ECD7B0 VA: 0x1ECD7B0
+	public void Clear() { }
+
+	// RVA: 0x1ECD7E4 Offset: 0x1ECD7E4 VA: 0x1ECD7E4
+	public void Set(TreasureDvcInfo tdInfo) { }
+
+	// RVA: 0x1ECD7F8 Offset: 0x1ECD7F8 VA: 0x1ECD7F8
+	public void SetHide() { }
+}
+
+// Namespace: 
+public class ShiningIconComponent : BaseMonoBehaviour // TypeDefIndex: 6407
+{
+	// Fields
+	[SerializeField] // RVA: 0xCC0100 Offset: 0xCC0100 VA: 0xCC0100
+	protected UIWidget widget; // 0x18
+
+	// Methods
+
+	// RVA: 0x18935C8 Offset: 0x18935C8 VA: 0x18935C8
+	public void .ctor() { }
+
+	// RVA: 0x18935D0 Offset: 0x18935D0 VA: 0x18935D0
+	protected void Awake() { }
+
+	// RVA: 0x1893604 Offset: 0x1893604 VA: 0x1893604
+	protected void OnDestroy() { }
+
+	// RVA: 0x1893608 Offset: 0x1893608 VA: 0x1893608
+	public void Clear() { }
+
+	// RVA: 0x189366C Offset: 0x189366C VA: 0x189366C
+	public void Set() { }
+
+	// RVA: 0x18936D0 Offset: 0x18936D0 VA: 0x18936D0
+	public void Set(bool isDisp) { }
+
+	// RVA: 0x18936DC Offset: 0x18936DC VA: 0x18936DC
+	public void Set(string spriteName) { }
+}
+
+// Namespace: 
+public class SkillIconComponent : BaseMonoBehaviour // TypeDefIndex: 6408
+{
+	// Fields
+	[SerializeField] // RVA: 0xCC0110 Offset: 0xCC0110 VA: 0xCC0110
+	protected UISprite baseSprite; // 0x18
+	[SerializeField] // RVA: 0xCC0120 Offset: 0xCC0120 VA: 0xCC0120
+	protected UISprite skillIconSprite; // 0x20
+	[SerializeField] // RVA: 0xCC0130 Offset: 0xCC0130 VA: 0xCC0130
+	protected UISprite frameSprite; // 0x28
+	[SerializeField] // RVA: 0xCC0140 Offset: 0xCC0140 VA: 0xCC0140
+	protected UIIconLabel iconLabel; // 0x30
+	[SerializeField] // RVA: 0xCC0150 Offset: 0xCC0150 VA: 0xCC0150
+	protected UISprite strengthStatusSprite; // 0x38
+	private ServantSkillStrengthStatus skillStrengthStatus; // 0x40
+	[SerializeField] // RVA: 0xCC0160 Offset: 0xCC0160 VA: 0xCC0160
+	protected UISprite maskSprite; // 0x48
+
+	// Methods
+
+	// RVA: 0x1A5E848 Offset: 0x1A5E848 VA: 0x1A5E848
+	public void .ctor() { }
+
+	// RVA: 0x1A5E850 Offset: 0x1A5E850 VA: 0x1A5E850
+	public void Clear() { }
+
+	// RVA: 0x1A5EA98 Offset: 0x1A5EA98 VA: 0x1A5EA98
+	public void Set(int skillId) { }
+
+	// RVA: 0x1A5EE74 Offset: 0x1A5EE74 VA: 0x1A5EE74
+	public void Set(int skillId, int skillLv) { }
+
+	// RVA: 0x1A5EAA8 Offset: 0x1A5EAA8 VA: 0x1A5EAA8
+	public void Set(int skillId, int skillLv, int strengthStatus, int skillRecord) { }
+
+	// RVA: 0x1A5EE80 Offset: 0x1A5EE80 VA: 0x1A5EE80
+	public void Set(int skillId, int skillLv, IconLabelInfo info) { }
+
+	// RVA: 0x1A5EE94 Offset: 0x1A5EE94 VA: 0x1A5EE94
+	public void Set(int skillId, int skillLv, int strengthStatus, int skillRecord, IconLabelInfo info) { }
+
+	// RVA: 0x1A5F28C Offset: 0x1A5F28C VA: 0x1A5F28C
+	public void SetStrengthStatus(int strengthStatus, int skillRecord) { }
+
+	// RVA: 0x1A5F4A0 Offset: 0x1A5F4A0 VA: 0x1A5F4A0
+	public void SetHide() { }
+
+	// RVA: 0x1A5F680 Offset: 0x1A5F680 VA: 0x1A5F680
+	public void SetSpecifyIconId(int iconId) { }
+
+	// RVA: 0x1A5F868 Offset: 0x1A5F868 VA: 0x1A5F868
+	public void SetInvalidColor(Color invalidColor) { }
+
+	// RVA: 0x1A5F9A4 Offset: 0x1A5F9A4 VA: 0x1A5F9A4
+	public void SetMask(bool enabled) { }
+
+	// RVA: 0x1A5F9F4 Offset: 0x1A5F9F4 VA: 0x1A5F9F4
+	public void AdjustUI() { }
+}
+
+// Namespace: 
+public class SkillListTreasureDeviceComponent : BaseMonoBehaviour // TypeDefIndex: 6409
+{
+	// Fields
+	[SerializeField] // RVA: 0xCC0170 Offset: 0xCC0170 VA: 0xCC0170
+	protected UISprite skillIconSprite; // 0x18
+	[SerializeField] // RVA: 0xCC0180 Offset: 0xCC0180 VA: 0xCC0180
+	protected UILabel skillLevelListLabel; // 0x20
+	[SerializeField] // RVA: 0xCC0190 Offset: 0xCC0190 VA: 0xCC0190
+	protected UIIconLabel treasureDeviceIconLabel; // 0x28
+	[SerializeField] // RVA: 0xCC01A0 Offset: 0xCC01A0 VA: 0xCC01A0
+	protected int normalRange; // 0x30
+	[SerializeField] // RVA: 0xCC01B0 Offset: 0xCC01B0 VA: 0xCC01B0
+	protected int treasureDeviceSpace; // 0x34
+	private static readonly float ADJUST_X_POS; // 0x0
+
+	// Methods
+
+	// RVA: 0x1CE1E08 Offset: 0x1CE1E08 VA: 0x1CE1E08
+	public void .ctor() { }
+
+	// RVA: 0x1CE1E1C Offset: 0x1CE1E1C VA: 0x1CE1E1C
+	public void Clear() { }
+
+	// RVA: 0x1CE1F84 Offset: 0x1CE1F84 VA: 0x1CE1F84
+	public void Set(string skillLevelListText, int tdLv, StrengthStatus.Kind tdStrengthStatus = 0) { }
+
